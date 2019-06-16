@@ -1,0 +1,12 @@
+title: System
+icon: mdi:server-network
+path: system
+
+cards:
+  
+    - !include /config/lovelace/cards/card_deco.yaml
+  
+    - !include /config/lovelace/cards/card_synology_nas_storage.yaml
+  
+    - !include /config/lovelace/cards/card_synology_nas_resources.yaml
+ 

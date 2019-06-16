@@ -1,0 +1,66 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Living Room TV
+      
+      - type: custom:button-card
+        template: blank
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Baltic TV
+        template: power_switch
+        entity: switch.baltic_tv
+        name: Baltic TV
+                
+      - type: custom:button-card # Shield TV
+        template: power_switch
+        entity: switch.shield_tv
+        name: Shield TV
+                
+      - type: custom:button-card # Smart TV
+        template: power_switch
+        entity: switch.smart_tv
+        name: Smart TV
+        
+      - type: custom:button-card
+        template: blank
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Volume Up
+        template: script_icon
+        entity: script.reciever_volume_up
+        name: Up
+                
+      - type: custom:button-card # Volume Down
+        template: script_icon
+        entity: script.reciever_volume_down
+        name: Down
+                
+      - type: custom:button-card # Volume Mute
+        template: script_icon
+        entity: script.reciever_volume_mute
+        name: Mute
+        
+      - type: custom:button-card
+        template: blank
+      
+  - type: custom:button-card
+    template: separator

@@ -1,0 +1,178 @@
+- platform: template
+  sensors:
+  
+    # Harmony
+    living_room_tv:
+      friendly_name: "Activity"
+      value_template: >
+        {% if states.remote.living_room.attributes.current_activity == "PowerOff" %}
+            Off
+        {% else %}
+            {{ states.remote.living_room.attributes.current_activity }}
+        {% endif %}
+    
+    # Switcher sensors    
+    switcher_aio_time_left:
+      friendly_name: "Time Left"
+      icon_template: mdi:timelapse
+      value_template: >-
+        {% if is_state('switcher_aio.time_left_sensor', 'unknown') or is_state('switcher_aio.time_left_sensor', 'off') %}
+            off
+        {% else %}
+            {% set hour  = states.switcher_aio.time_left_sensor.state.split(':')[0] %}
+            {% set min  = states.switcher_aio.time_left_sensor.state.split(':')[1] %}
+            {% set sec  = states.switcher_aio.time_left_sensor.state.split(':')[2] %}
+            {{ hour | int }}h {{ min | int }}m
+        {% endif %}
+    
+    switcher_aio_auto_off_time:
+      friendly_name: "Auto Off"
+      icon_template: mdi:av-timer
+      value_template: >-
+        {% if is_state('switcher_aio.time_left_sensor', 'unknown') or is_state('switcher_aio.time_left_sensor', 'off') %}
+            off
+        {% else %}
+            {% set hour  = states.switcher_aio.time_left_sensor.state.split(':')[0] %}
+            {% set min  = states.switcher_aio.time_left_sensor.state.split(':')[1] %}
+            {% set sec  = states.switcher_aio.time_left_sensor.state.split(':')[2] %}
+            {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
+            {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
+        {% endif %}
+        
+#    switcher_kis_time_left:
+#      friendly_name: "Time Left (KIS)"
+#      icon_template: mdi:timelapse
+#      value_template: >-
+#        {% if is_state('switch.boiler', 'unknown') or is_state('switch.boiler', 'off') %}
+#            off
+#        {% else %}
+#            {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
+#            {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
+#            {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
+#            {{ hour | int }}h {{ min | int }}m
+#        {% endif %} 
+        
+#    switcher_kis_auto_off_time:
+#      friendly_name: "Auto Off (KIS)"
+#      icon_template: mdi:av-timer
+#      value_template: >-
+#        {% if is_state('switch.boiler', 'unknown') or is_state('switch.boiler', 'off') %}
+#            off
+#        {% else %}
+#            {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
+#            {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
+#            {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
+#            {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
+#            {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
+#        {% endif %}
+        
+    # Sensibo
+    sensibo_kids_room_temp:
+      friendly_name: "Kids Room Temperature (Sensibo)"
+      unit_of_measurement: "°C"
+      icon_template: mdi:thermometer
+      value_template: >-
+        {{ states.climate.kids_room.attributes.current_temperature }}
+        
+    sensibo_kids_room_target_temp:
+      friendly_name: "Target Temperature (Sensibo)"
+      unit_of_measurement: "°C"
+      icon_template: mdi:thermometer
+      value_template: >-
+        {{ states.climate.kids_room.attributes.temperature }}
+        
+    sensibo_kids_room_operation:
+      friendly_name: "Operation Mode (Sensibo)"
+      icon_template: mdi:air-filter
+      value_template: >-
+        {{ states.climate.kids_room.attributes.operation_mode }}  
+        
+    sensibo_kids_room_fan:
+      friendly_name: "Fan Mode (Sensibo)"
+      icon_template: mdi:fan
+      value_template: >-
+        {{ states.climate.kids_room.attributes.fan_mode }}           
+
+
+# Synology NAS
+- platform: synologydsm
+  host: !secret synology_host
+  username: !secret synology_username
+  password: !secret synology_password
+  monitored_conditions:
+    - cpu_system_load
+    - cpu_total_load
+    - memory_real_usage
+    - memory_available_real
+    - memory_total_real
+    - network_up
+    - network_down
+    - volume_size_used
+    - volume_percentage_used
+    - volume_size_total
+    - disk_temp
+    
+# Dark Sky Weather
+- platform: darksky
+  api_key: d3cef4734aaf12c687253aaa922a5738
+  forecast:
+    - 0
+    - 1
+  monitored_conditions:
+    - icon
+    - temperature
+    - apparent_temperature
+    - humidity
+    - precip_probability
+    - precip_intensity
+    - precip_type
+    - pressure
+    - wind_speed
+    - wind_bearing
+    - temperature_high
+    - temperature_low
+    - apparent_temperature_high
+    - daily_summary
+  scan_interval:
+      # At least one of these must be specified:
+      days: 0
+      hours: 4
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+
+# Sonarr
+#- platform: sonarr
+#  api_key: !secret sonarr_api_key
+#  host: !secret sonarr_host
+#  port: !secret sonarr_port
+#  monitored_conditions:
+#    - upcoming
+#  days: 7
+
+# Sonarr
+- platform: sonarr_upcoming_media
+  api_key: !secret sonarr_api_key
+  host: !secret sonarr_host
+  port: !secret sonarr_port
+  days: 7
+  ssl: false
+  max: 5
+
+# Kodi
+#- platform: kodi_recently_added
+#  host: !secret kodi_host
+#  port: !secret kodi_port
+#  username: !secret kodi_username
+#  password: !secret kodi_password
+
+
+#- platform: mqtt
+#  name: Bridge state
+#  state_topic: "zigbee2mqtt/bridge/state"
+#  icon: mdi:router-wireless
+  
+
+#- platform: snmp
+#  host: 10.0.0.137
+#  baseoid: 1.3.6.1.2.1.3.1.1.2

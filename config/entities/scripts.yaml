@@ -1,0 +1,119 @@
+# Receiver
+reciever_volume_up:
+    alias: Volume Up
+    sequence:
+        - delay:
+            milliseconds: 100
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - VolumeUp
+            device: 59394436
+            num_repeats: 5
+            
+reciever_volume_down:
+    alias: Volume Down
+    sequence:
+        - delay:
+            milliseconds: 100    
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - VolumeDown
+            device: 59394436
+            num_repeats: 5
+
+reciever_volume_mute:
+    alias: Mute
+    sequence:
+        - delay:
+            milliseconds: 100    
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - Mute
+            device: 59394436
+            
+# Automation
+goodnight_script:
+    alias: Bedtime
+    sequence:
+        - delay:
+            milliseconds: 100
+        - service: light.turn_off
+          data:
+            entity_id: 
+                - light.living_room
+                - light.dining
+                - light.balcony
+                - light.enterence
+                - light.kitchen
+                - light.service_balcony
+                - light.bedroom
+                - light.kids_room
+                - light.work_room
+        - service: remote.turn_off
+          data:
+            entity_id: 
+                - remote.living_room
+        - service: light.turn_on
+          data:
+            entity_id: 
+                - light.hall
+
+lights_off:
+    alias: Lights OFF
+    sequence:
+        - delay:
+            milliseconds: 100
+        - service: light.turn_off
+          data:
+            entity_id: 
+                - light.living_room
+                - light.dining
+                - light.balcony
+                - light.enterence
+                - light.kitchen
+                - light.service_balcony
+                - light.hall
+                - light.bedroom
+                - light.kids_room
+                - light.work_room
+                
+# Switcher
+switcher_turn_on_timer_script:
+    alias: On with Timer
+    sequence:
+        - delay:
+            milliseconds: 100
+        - service: script.turn_on
+          data:
+            entity_id: switcher_aio.turn_on_timer_script
+            
+
+# Sensibo
+sensibo_increase_target_temp:
+    alias: Increase
+    sequence:
+        - delay:
+            milliseconds: 100
+        - service: climate.set_temperature
+          data_template:
+            entity_id: climate.kids_room
+            temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) + 1 }}"
+            
+sensibo_decrease_target_temp:
+    alias: Decrease
+    sequence:
+        - delay:
+            milliseconds: 100    
+        - service: climate.set_temperature
+          data_template:
+            entity_id: climate.kids_room
+            temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"            
+            
+            
+                

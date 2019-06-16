@@ -1,0 +1,52 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Scripts
+      
+      - type: custom:button-card
+        template: blank
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+            
+      - type: custom:button-card # Bedtime
+        template: script
+        entity: script.goodnight_script
+        name: Bedtime
+        icon: mdi:hotel
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.goodnight_script
+            
+      - type: custom:button-card # Lights Off
+        template: script
+        entity: script.lights_off
+        name: Lights Off
+        icon: mdi:flash-off
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.lights_off
+            
+      - type: "custom:button-card"
+        color_type: blank-card
+        
+      - type: custom:button-card
+        template: blank
+      
+  - type: custom:button-card
+    template: separator

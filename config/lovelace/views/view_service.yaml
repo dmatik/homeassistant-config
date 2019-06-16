@@ -1,0 +1,11 @@
+title: Service
+icon: mdi:gauge
+path: service
+
+cards:
+  
+    #- !include /config/lovelace/cards/card_batteries.yaml
+  
+    #- !include /config/lovelace/cards/card_zigbee.yaml
+  
+    - !include /config/lovelace/cards/card_tracker.yaml

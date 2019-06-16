@@ -1,0 +1,67 @@
+# VIEWS
+lights_view:
+    name: Lights
+    view: yes
+    entities:
+        - group.main_lights
+        - group.kitchen_lights
+        - group.rooms_lights
+        
+media_view:
+    name: Media
+    view: yes
+    entities:
+        - group.harmony_living_room_group
+
+# GROUPS
+main_lights:
+  name: Main Lights
+  control: hidden
+  entities:
+    - switch.living_room_light
+    - switch.dining_light
+    - switch.balcony_light
+    - switch.enterence_light
+
+kitchen_lights:
+  name: Kitchen Lights
+  control: hidden
+  entities:
+    - switch.kitchen_light
+    - switch.serv_balcony_light
+
+rooms_lights:
+  name: Rooms Lights
+  control: hidden
+  entities:
+    - switch.hall_light
+    - switch.bedroom_light
+    - switch.kids_room_light
+    - switch.work_room_light
+
+harmony_living_room_group:
+    name: Living-Room Harmony
+    control: hidden
+    entities:
+        - sensor.living_room
+        - switch.baltic_tv
+        - switch.shield_tv
+        - switch.smart_tv
+        - script.reciever_volume_up
+        - script.reciever_volume_down
+        - script.reciever_volume_mute
+
+synology_nas_group:
+    name: Synology NAS
+    control: hidden
+    entities:
+        - sensor.total_size_volume_1
+        - sensor.used_space_volume_1
+        - sensor.volume_used_volume_1
+        - sensor.temperature_sda
+        - sensor.temperature_sdb
+        - sensor.cpu_load_total
+        - sensor.memory_usage_real
+        - sensor.network_up
+        - sensor.network_down
+       

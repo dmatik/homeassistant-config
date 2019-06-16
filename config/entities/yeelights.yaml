@@ -1,0 +1,5 @@
+devices:
+    10.0.0.30:
+      name: Bedroom Ceiling
+      save_on_change: true
+      model: ceiling3

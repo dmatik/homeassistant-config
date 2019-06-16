@@ -1,0 +1,49 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: TP-Link Deco
+      
+      - type: custom:button-card
+        template: blank
+        
+  - type: horizontal-stack
+    cards:
+      
+        - type: custom:button-card
+          template: blank
+
+        - type: 'custom:card-modder'
+          style:
+            !include /config/lovelace/styles/style_card_general.yaml
+          card: 
+              type: custom:mini-graph-card
+              icon: mdi:upload
+              entities:
+                  - entity: sensor.m5_kbyte_sec_sent
+                    name: Upload
+                    color: red
+
+        - type: 'custom:card-modder'
+          style:
+            !include /config/lovelace/styles/style_card_general.yaml
+          card:                     
+              type: custom:mini-graph-card
+              icon: mdi:download
+              entities:
+                  - entity: sensor.m5_kbyte_sec_received
+                    name: Download
+                    color: green
+                    
+        - type: custom:button-card
+          template: blank
+        
+  - type: custom:button-card
+    template: separator

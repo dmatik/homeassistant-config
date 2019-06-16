@@ -1,0 +1,9 @@
+red_node_backup:
+    name: Run backup
+    initial: off
+    icon: mdi:cloud-upload
+    
+zigbee_permit_join:
+    name: Allow devices to join
+    initial: off
+    icon: mdi:cellphone-wireless

@@ -1,0 +1,167 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 
+  longitude: 
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: 
+  # Customization file
+  customize: !include customize.yaml
+
+
+panel_iframe:
+#  configurator:
+#    title: Configurator
+#    icon: mdi:wrench
+#    url: 
+#  ide:
+#    title: IDE
+#    icon: mdi:code-braces
+#    url: 
+#  nodered:
+#    title: Node-RED
+#    icon: mdi:home-automation
+#    url: 
+  backup:
+    title: Snapshots
+    icon: mdi:cloud-upload
+    url: 
+
+# Enables the frontend
+frontend:
+  themes: 
+    !include_dir_merge_named themes
+
+# Enables configuration UI
+config:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include /config/entities/scripts.yaml
+switch: !include /config/entities/switches.yaml
+sensor: !include /config/entities/sensors.yaml
+zone: !include /config/entities/zones.yaml
+remote: !include /config/entities/remotes.yaml
+#homekit: !include homekit.yaml
+input_boolean: !include /config/entities/input_boolean.yaml
+input_select: !include /config/entities/input_select.yaml
+input_number: !include /config/entities/input_number.yaml
+media_player: !include /config/entities/media_player.yaml
+light: !include /config/entities/lights.yaml
+yeelight: !include /config/entities/yeelights.yaml
+timer: !include /config/entities/timers.yaml
+#binary_sensor: !include /config/entities/binary_sensors.yaml
+
+lovelace:
+    mode: yaml
+    
+system_health:
+
+switcher_aio:
+  phone_id: !secret switcher_phone_id
+  device_id: !secret switcher_device_id
+  device_password: !secret switcher_device_password
+  
+#switcher_kis:
+#  phone_id: !secret switcher_phone_id
+#  device_id: !secret switcher_device_id
+#  device_password: !secret switcher_device_password
+
+recorder:
+  purge_interval: 1
+  purge_keep_days: 3
+  db_url: !secret synology_db_connection
+  include:
+    domains:
+      - switcher_aio
+      - switch
+      - sensor
+      - device_tracker
+      - input_select
+      #- input_number
+      #- input_boolean
+      - script
+      - light
+      #- input_datetime
+      - climate
+  
+logger:
+  default: info
+
+input_text:
+  dummy_input_text:
+    name: Text 1
+    initial: Some Text
+    
+    
+    
+weather:
+  - platform: darksky
+    mode: daily
+    api_key: 
+
+sun:
+    
+#google:
+#  client_id: !secret google_calendar_client_id
+#  client_secret: !secret google_calendar_client_secret
+  
+
+custom_updater:
+  card_urls:
+    - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
+    - https://raw.githubusercontent.com/matisaul/vertical-style-card/master/tracker.json
+    - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
+    
+#mqtt:
+#  discovery: true
+#  broker: core-mosquitto
+#  username: !secret mqtt_username
+#  password: !secret mqtt_password
+  
+  
+# Sensibo
+climate:
+  - platform: sensibo
+    api_key: !secret sensibo_api_key
+    
+http:
+  base_url: !secret duckdns_base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem    
+
+#http:
+#  base_url: !secret duckdns_base_url
+#  ssl_certificate: /ssl/syn/cert.pem
+#  ssl_key: /ssl/syn/privkey.pem    
+
+
+mobile_app:

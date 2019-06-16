@@ -1,0 +1,70 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: NAS Storage
+      
+      - type: custom:button-card
+        template: blank
+
+  - type: horizontal-stack
+    cards:  
+
+        - type: custom:button-card
+          template: blank
+
+        - type: 'custom:card-modder'
+          style:
+            !include /config/lovelace/styles/style_card_general.yaml
+          card: 
+      
+              type: custom:bar-card
+              entity: sensor.volume_used_volume_1
+              title: HD
+              title_position: 'inside'
+              show_icon: true
+              icon: mdi:harddisk
+              icon_position: 'inside'
+              unit_of_measurement: "%"
+              align: split
+              color: 'rgba(117,189,111,1.0)'
+            
+        - type: custom:button-card
+          template: blank
+
+  - type: horizontal-stack
+    cards:
+      
+        - type: custom:button-card
+          template: blank
+
+        - type: 'custom:card-modder'
+          style:
+            !include /config/lovelace/styles/style_card_general.yaml
+          card: 
+              type: custom:mini-graph-card
+              entities:
+                  - entity: sensor.temperature_sda
+                    name: Disk 1
+
+        - type: 'custom:card-modder'
+          style:
+            !include /config/lovelace/styles/style_card_general.yaml
+          card:                     
+              type: custom:mini-graph-card
+              entities:
+                  - entity: sensor.temperature_sdb
+                    name: Disk 2
+                    
+        - type: custom:button-card
+          template: blank
+        
+  - type: custom:button-card
+    template: separator
