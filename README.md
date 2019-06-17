@@ -42,5 +42,8 @@
 
 ### Screens
 
+Main View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_main.png "Main View")
+
 ## HaDashboard
 
