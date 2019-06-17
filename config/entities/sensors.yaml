@@ -114,7 +114,7 @@
     
 # Dark Sky Weather
 - platform: darksky
-  api_key: d3cef4734aaf12c687253aaa922a5738
+  api_key: !secret darksky_api_key
   forecast:
     - 0
     - 1
