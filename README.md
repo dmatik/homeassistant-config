@@ -45,5 +45,17 @@
 Main View:
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_main.png "Main View")
 
+Climate View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_climate.png "Climate View")
+
+Lights View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_lights.png "Lights View")
+
+Media View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_media.png "Media View")
+
+System View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_system.png "System View")
+
 ## HaDashboard
 
