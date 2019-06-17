@@ -1,0 +1,23 @@
+title: Media Panel
+widget_dimensions: [122, 127]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 10
+rows: 6
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+
+label_living_media:
+    widget_type: label
+    text: Living Room Media 
+    
+layout:
+    - label_living_media (3x1)
+    - switch.baltic_tv, switch.shield_tv, switch.smart_tv
+    - script.reciever_volume_up, script.reciever_volume_down, script.reciever_volume_mute
+    - 
+    - 
+    - include: bottom_panel
