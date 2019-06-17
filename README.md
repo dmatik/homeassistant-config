@@ -1,5 +1,7 @@
 # dmatik’s Home Assistant configuration
 
+I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet on the wall. 
+
 ## Hardware
 - Broadlink RM Pro+
 - Sessoo RF light switches
