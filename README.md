@@ -59,3 +59,4 @@ System View:
 
 ## HaDashboard
 
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/hadash_main.png "Main Panel")
