@@ -135,11 +135,13 @@ sun:
 #  client_secret: !secret google_calendar_client_secret
   
 
-custom_updater:
-  card_urls:
-    - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
-    - https://raw.githubusercontent.com/matisaul/vertical-style-card/master/tracker.json
-    - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
+#custom_updater:
+#  card_urls:
+#    - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
+#    - https://raw.githubusercontent.com/matisaul/vertical-style-card/master/tracker.json
+#    - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
+hacs:
+  token: !secret github_access_token
     
 #mqtt:
 #  discovery: true

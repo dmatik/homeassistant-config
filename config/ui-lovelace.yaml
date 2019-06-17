@@ -3,10 +3,8 @@ resources:
 #      type: js
 #    - url: /local/clock-card.js
 #      type: js
-    - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js
+    - url: /community_plugin/upcoming-media-card/upcoming-media-card.js
       type: js
-    - url: /customcards/github/custom-cards/tracker-card.js?track=true
-      type: module
     - url: https://unpkg.com/moment@2.22.2/moment.js
       type: js
 #    - url: /local/custom-lovelace/calendar-card/calendar-card.js?v=1.0.1
@@ -19,22 +17,22 @@ resources:
       type: js
     - url: /local/custom-lovelace/animated-weather-card/weather-card.js
       type: module
-#    - url: /local/custom-lovelace/compact-custom-header/compact-custom-header.js?track=true
+#    - url: /community_plugin/compact-custom-header/compact-custom-header.js
 #      type: module
-    - url: /local/custom-lovelace/bar-card/bar-card.js?track=true
-      type: module
-    - url: /local/custom-lovelace/vertical-stack-in-card/vertical-stack-in-card.js
+    - url: /community_plugin/bar-card/bar-card.js
       type: js
-    - url: /local/custom-lovelace/button-card/button-card.js
+    - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+      type: js
+    - url: /community_plugin/button-card/button-card.js
       type: module
     - url: /local/custom-lovelace/vertical-style-card/vertical-style-card.js?v=0.1
       type: js
-    - url: /local/custom-lovelace/bignumber-card/bignumber-card.js
+    - url: /community_plugin/bignumber-card/bignumber-card.js
       type: js
-    - url: /local/custom-lovelace/mini-graph-card/mini-graph-card-bundle.js?v=0.4.2
+    - url: /community_plugin/mini-graph-card/mini-graph-card.js
       type: module
-    - url: /local/custom-lovelace/simple-thermostat-card/simple-thermostat.js?v=1
-      type: module
+#    - url: /community_plugin/simple-thermostat/simple-thermostat.js
+#      type: module
 
 title: Home
 
@@ -57,5 +55,5 @@ views:
     # Sysytem Tab        
     - !include /config/lovelace/views/view_system.yaml
     # Service Tab        
-    - !include /config/lovelace/views/view_service.yaml
+    #- !include /config/lovelace/views/view_service.yaml
 
