@@ -12,7 +12,7 @@
 ## Components
 
 | Component | Link |
-| --------- | ---- |
+| :-------- | ---- |
 | Dark Sky | [component](https://www.home-assistant.io/components/weather.darksky/) |
 | Switcher V2 All-In-One | [github](https://github.com/TomerFi/home-assistant-custom-components/tree/master/switcher_aio) |
 | Harmony Hub Remote | [component](https://www.home-assistant.io/components/harmony/) |
@@ -25,6 +25,21 @@
 
 ## Lovelace
 ### Cards
+
+| Card | Link |
+| :--- | ---- |
+| Animated Weather Card | [github](https://github.com/bramkragten/custom-ui/tree/master/weather-card) |
+| Button Card | [github](https://github.com/custom-cards/button-card) |
+| Big Number Card | [github](https://github.com/custom-cards/bignumber-card) |
+| Card Modder Card | [github](https://github.com/thomasloven/lovelace-card-modder) |
+| Upcoming Media Card | [github](https://github.com/custom-cards/upcoming-media-card) |
+| Mini Graph Card | [github](https://github.com/kalkih/mini-graph-card) |
+| Bar Card | [github](https://github.com/custom-cards/bar-card) |
+| Tracker Card | [github](https://github.com/custom-cards/tracker-card) |
+| Compact Custom Header | [github](https://github.com/maykar/compact-custom-header) |
+| Vertical Stack In Card | [github](https://github.com/custom-cards/vertical-stack-in-card) |
+| Vertical Style Card | [github](https://github.com/matisaul/vertical-style-card) |
+
 ### Screens
 
 ## HaDashboard
