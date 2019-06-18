@@ -23,7 +23,7 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 | Yeelight Wifi Bulb | [component](https://www.home-assistant.io/components/yeelight/) |
 | Sonarr Upcoming Media | [github](https://github.com/custom-components/sensor.sonarr_upcoming_media) |
 | SynologyDSM Sensor | [component](https://www.home-assistant.io/components/synologydsm/) |
-| Custom Updater | [github](https://github.com/custom-components/custom_updater) |
+| HACS | [forum](https://community.home-assistant.io/t/custom-component-hacs/121727) |
 
 ## Lovelace
 ### Cards
@@ -37,7 +37,6 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 | Upcoming Media Card | [github](https://github.com/custom-cards/upcoming-media-card) |
 | Mini Graph Card | [github](https://github.com/kalkih/mini-graph-card) |
 | Bar Card | [github](https://github.com/custom-cards/bar-card) |
-| Tracker Card | [github](https://github.com/custom-cards/tracker-card) |
 | Compact Custom Header | [github](https://github.com/maykar/compact-custom-header) |
 | Vertical Stack In Card | [github](https://github.com/custom-cards/vertical-stack-in-card) |
 | Vertical Style Card | [github](https://github.com/matisaul/vertical-style-card) |
