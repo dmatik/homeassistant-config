@@ -13,6 +13,23 @@ cards:
       
       - type: custom:button-card
         template: blank
+        
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: blank
+      
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+                  
+            type: picture
+            image: /local/switcher_buttons.png
+                  
+      - type: custom:button-card
+        template: blank
 
   - type: horizontal-stack
     cards:

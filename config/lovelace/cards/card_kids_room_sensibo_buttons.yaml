@@ -13,6 +13,23 @@ cards:
       
       - type: custom:button-card
         template: blank
+        
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: blank
+      
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+                  
+            type: picture
+            image: /local/kids_room_ac.png
+                  
+      - type: custom:button-card
+        template: blank        
 
   - type: horizontal-stack
     cards:
@@ -24,11 +41,28 @@ cards:
         style:
           !include /config/lovelace/styles/style_card_general.yaml
         card:
-          
-          type: custom:mini-graph-card
-          entities:
-                - entity: sensor.sensibo_kids_room_temp
-                  name: Current
+                  
+          type: custom:bar-card
+          entity: sensor.sensibo_kids_room_temp
+          title: Current
+          title_position: 'inside'
+          #show_icon: false
+          icon: mdi:thermometer
+          icon_position: 'off'
+          unit_of_measurement: "°C"
+          align: split
+          #color: 'rgba(117,189,111,1.0)'
+          #min: 17
+          max: 40
+          severity:
+            - value: 17
+              color: 'rgb(43, 154, 249)'
+            - value: 25
+              color: '#1db954'
+            - value: 30
+              color: '#bf9540'
+            - value: 40
+              color: '#bf4040'
                   
       - type: custom:button-card
         template: blank
