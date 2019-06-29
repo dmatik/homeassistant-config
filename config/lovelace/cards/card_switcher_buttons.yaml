@@ -25,8 +25,66 @@ cards:
           !include /config/lovelace/styles/style_card_general.yaml
         card:
                   
-            type: picture
-            image: /local/switcher_buttons.png
+            #type: picture
+            #image: /local/switcher_buttons.png
+            
+#            type: picture-entity
+#            entity: switch.switcher_aio_switch
+#            show_name: false
+#            show_state: false
+#            state_image:
+#                "on": /local/switcher_buttons_on.png
+#                "off": /local/switcher_buttons_off.png
+                
+            type: picture-elements
+            image: /local/switcher_buttons_on.png
+            elements:
+              - type: image
+                entity: switch.switcher_aio_switch
+                image: /local/switcher_buttons_on.png
+                state_image:
+                  #"on": /local/switcher_buttons_on.png
+                  "off": /local/switcher_buttons_off.png
+                style:
+                  top: 50%
+                  left: 50%
+                  width: 100%
+              - type: state-label
+                entity: switcher_aio.electric_current_sensor
+                #prefix: "Current: "
+                style:
+                  top: 85%
+                  left: 16%
+                  #font-family: Helvetica
+                  font-size: 24px
+                  #font-weight: bold
+                  color: "#FFFFFF"
+                  text-transform: lowercase
+                  text-shadow: 1px 1px rgba(0,0,0,0.8)
+              - type: state-label
+                entity: sensor.switcher_aio_time_left
+                #prefix: "Current: "
+                style:
+                  top: 85%
+                  left: 50%
+                  #font-family: Helvetica
+                  font-size: 24px
+                  #font-weight: bold
+                  color: "#FFFFFF"
+                  text-transform: lowercase
+                  text-shadow: 1px 1px rgba(0,0,0,0.8)
+              - type: state-label
+                entity: sensor.switcher_aio_auto_off_time
+                #prefix: "Current: "
+                style:
+                  top: 85%
+                  left: 84%
+                  #font-family: Helvetica
+                  font-size: 24px
+                  #font-weight: bold
+                  color: "#FFFFFF"
+                  text-transform: lowercase
+                  text-shadow: 1px 1px rgba(0,0,0,0.8)
                   
       - type: custom:button-card
         template: blank
@@ -42,66 +100,68 @@ cards:
         entity: switch.switcher_aio_switch
         name: Power
         icon: mdi:power-standby
-        size: 40px
+        show_name: false
+        size: 48px
 
       - type: custom:button-card # Turn ON with Timer
         template: power_switch
         entity: script.switcher_turn_on_timer_script
         name: On With Timer
         icon: mdi:timer
-        size: 40px
+        show_name: false
+        size: 48px
         
       - type: custom:button-card
         template: blank
 
        
-  - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: blank
-
-      - type: 'custom:card-modder'
-        style:
-          --paper-card-background-color: 'rgba(0, 0, 0, 0.0)'
-          box-shadow: 2px 2px rgba(0,0,0,0.0) 
-          padding: 5px 0px
-          #border: solid 1px rgba(100,100,100,0.3)
-          border-radius: 5px
-        card:      
-          type: custom:bignumber-card
-          title: electric current
-          entity: switcher_aio.electric_current_sensor
-          scale: 20px
-
-      - type: 'custom:card-modder'
-        style:
-          --paper-card-background-color: 'rgba(0, 0, 0, 0.0)'
-          box-shadow: 2px 2px rgba(0,0,0,0.0) 
-          padding: 5px 0px
-          #border: solid 1px rgba(100,100,100,0.3)
-          border-radius: 5px
-        card:        
-          type: custom:bignumber-card
-          title: time left
-          entity: sensor.switcher_aio_time_left
-          scale: 20px
-
-      - type: 'custom:card-modder'
-        style:
-          --paper-card-background-color: 'rgba(0, 0, 0, 0.0)'
-          box-shadow: 2px 2px rgba(0,0,0,0.0) 
-          padding: 5px 0px
-          #border: solid 1px rgba(100,100,100,0.3)
-          border-radius: 5px
-        card:        
-          type: custom:bignumber-card
-          title: auto off
-          entity: sensor.switcher_aio_auto_off_time
-          scale: 20px
-        
-      - type: custom:button-card
-        template: blank
+#  - type: horizontal-stack
+#    cards:
+#    
+#      - type: custom:button-card
+#        template: blank
+#
+#      - type: 'custom:card-modder'
+#        style:
+#          --paper-card-background-color: 'rgba(0, 0, 0, 0.0)'
+#          box-shadow: 2px 2px rgba(0,0,0,0.0) 
+#          padding: 5px 0px
+#          #border: solid 1px rgba(100,100,100,0.3)
+#          border-radius: 5px
+#        card:      
+#          type: custom:bignumber-card
+#          title: electric current
+#          entity: switcher_aio.electric_current_sensor
+#          scale: 20px
+#
+#      - type: 'custom:card-modder'
+#        style:
+#          --paper-card-background-color: 'rgba(0, 0, 0, 0.0)'
+#          box-shadow: 2px 2px rgba(0,0,0,0.0) 
+#          padding: 5px 0px
+#          #border: solid 1px rgba(100,100,100,0.3)
+#          border-radius: 5px
+#        card:        
+#          type: custom:bignumber-card
+#          title: time left
+#          entity: sensor.switcher_aio_time_left
+#          scale: 20px
+#
+#      - type: 'custom:card-modder'
+#        style:
+#          --paper-card-background-color: 'rgba(0, 0, 0, 0.0)'
+#          box-shadow: 2px 2px rgba(0,0,0,0.0) 
+#          padding: 5px 0px
+#          #border: solid 1px rgba(100,100,100,0.3)
+#          border-radius: 5px
+#        card:        
+#          type: custom:bignumber-card
+#          title: auto off
+#          entity: sensor.switcher_aio_auto_off_time
+#          scale: 20px
+#        
+#      - type: custom:button-card
+#        template: blank
         
               
   - type: horizontal-stack

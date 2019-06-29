@@ -25,8 +25,42 @@ cards:
           !include /config/lovelace/styles/style_card_general.yaml
         card:
                   
-            type: picture
-            image: /local/living_room_tv_buttons.png
+#            type: picture-entity
+#            entity: sensor.living_room_tv
+#            show_name: false
+#            show_state: false
+#            state_image:
+#                "Shield TV": /local/living_room_tv_buttons_on.png
+#                "Baltic TV": /local/living_room_tv_buttons_on.png
+#                "Smart TV": /local/living_room_tv_buttons_on.png
+#                "Off": /local/living_room_tv_buttons_off.png
+#            #image: /local/living_room_tv_buttons.png
+            
+            type: picture-elements
+            image: /local/living_room_tv_buttons_on.png
+            elements:
+              - type: image
+                entity: sensor.living_room_tv
+                image: /local/living_room_tv_buttons_on.png
+                state_image:
+                  #"on": /local/kids_room_ac_buttons_on.png
+                  "Off": /local/living_room_tv_buttons_off.png
+                style:
+                  top: 50%
+                  left: 50%
+                  width: 100%
+              - type: state-label
+                entity: sensor.living_room_tv
+                #prefix: "Current: "
+                style:
+                  top: 85%
+                  left: 82%
+                  #font-family: Helvetica
+                  font-size: 24px
+                  #font-weight: bold
+                  color: "#FFFFFF"
+                  text-transform: lowercase
+                  text-shadow: 1px 1px rgba(0,0,0,0.8)
                   
       - type: custom:button-card
         template: blank        
