@@ -1,0 +1,853 @@
+[
+    {
+        "id": "218db70e.126ef8",
+        "type": "tab",
+        "label": "Sensibo Kids Room",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8d2098ef.1edbc8",
+        "type": "server-state-changed",
+        "z": "218db70e.126ef8",
+        "name": "My Input Number",
+        "server": "d6c93caf.8868e",
+        "version": 1,
+        "entityidfilter": "input_number.sensibo_kids_room",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "caaaa856.196e98"
+            ]
+        ]
+    },
+    {
+        "id": "a7473e03.3c916",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Set Data",
+        "func": "msg.payload = \n{\n    \"data\": {\n        \"entity_id\": \"climate.kids_room\",\n        \"temperature\": msg.payload\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 960,
+        "y": 220,
+        "wires": [
+            [
+                "330163f6.94493c"
+            ]
+        ]
+    },
+    {
+        "id": "330163f6.94493c",
+        "type": "api-call-service",
+        "z": "218db70e.126ef8",
+        "name": "Set Temperature",
+        "server": "d6c93caf.8868e",
+        "service_domain": "climate",
+        "service": "set_temperature",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "x": 1170,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a8528e8.958858",
+        "type": "server-events",
+        "z": "218db70e.126ef8",
+        "name": "States Loaded",
+        "server": "d6c93caf.8868e",
+        "event_type": "states_loaded",
+        "x": 170,
+        "y": 340,
+        "wires": [
+            [
+                "aad0fbcc.722ba8"
+            ]
+        ]
+    },
+    {
+        "id": "aad0fbcc.722ba8",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "My Input Number",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_number.sensibo_kids_room",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 340,
+        "wires": [
+            [
+                "caaaa856.196e98"
+            ]
+        ]
+    },
+    {
+        "id": "caaaa856.196e98",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "Climate Temperature",
+        "server": "d6c93caf.8868e",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "climate.kids_room",
+        "state_type": "str",
+        "state_location": "climateTemp",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 460,
+        "y": 220,
+        "wires": [
+            [
+                "c0b6e180.bfca5"
+            ]
+        ]
+    },
+    {
+        "id": "c0b6e180.bfca5",
+        "type": "switch",
+        "z": "218db70e.126ef8",
+        "name": "Check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "data.attributes.temperature",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 220,
+        "wires": [
+            [
+                "a7473e03.3c916"
+            ]
+        ]
+    },
+    {
+        "id": "16627c1.bbf6484",
+        "type": "server-state-changed",
+        "z": "218db70e.126ef8",
+        "name": "Climate Temp",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "entityidfilter": "sensor.sensibo_kids_room_target_temp",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 170,
+        "y": 460,
+        "wires": [
+            [
+                "7ec5fc97.eb29a4"
+            ]
+        ]
+    },
+    {
+        "id": "7ec5fc97.eb29a4",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "My Temperature",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_number.sensibo_kids_room",
+        "state_type": "str",
+        "state_location": "myTemp",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 460,
+        "wires": [
+            [
+                "eb2e5f92.7ebde"
+            ]
+        ]
+    },
+    {
+        "id": "d7d68b0c.91bb68",
+        "type": "switch",
+        "z": "218db70e.126ef8",
+        "name": "Check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "myTemp",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 460,
+        "wires": [
+            [
+                "e5705b61.0c1458"
+            ]
+        ]
+    },
+    {
+        "id": "e5705b61.0c1458",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Set Data",
+        "func": "msg.payload = \n{\n    \"data\": {\n        \"entity_id\": \"input_number.sensibo_kids_room\",\n        \"value\": msg.payload\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 460,
+        "wires": [
+            [
+                "4b8ee346.5103ec"
+            ]
+        ]
+    },
+    {
+        "id": "4b8ee346.5103ec",
+        "type": "api-call-service",
+        "z": "218db70e.126ef8",
+        "name": "Set My Temperature",
+        "server": "d6c93caf.8868e",
+        "service_domain": "input_number",
+        "service": "set_value",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1170,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb2e5f92.7ebde",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Transfer",
+        "func": "msg.myTemp = msg.myTemp.split('.')[0];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 460,
+        "wires": [
+            [
+                "d7d68b0c.91bb68"
+            ]
+        ]
+    },
+    {
+        "id": "83762ec2.fe34",
+        "type": "comment",
+        "z": "218db70e.126ef8",
+        "name": "Target Temperature",
+        "info": "",
+        "x": 190,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "476e895.3a6d778",
+        "type": "server-state-changed",
+        "z": "218db70e.126ef8",
+        "name": "My Operation",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "entityidfilter": "input_select.sensibo_kids_room_operation",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 170,
+        "y": 680,
+        "wires": [
+            [
+                "17d69d4f.1dd183"
+            ]
+        ]
+    },
+    {
+        "id": "9ba3414.d0034c",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Set Data",
+        "func": "msg.payload = \n{\n    \"data\": {\n        \"entity_id\": \"climate.kids_room\",\n        \"operation_mode\": msg.payload\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 680,
+        "wires": [
+            [
+                "7a18a8f0.2ecc68"
+            ]
+        ]
+    },
+    {
+        "id": "7a18a8f0.2ecc68",
+        "type": "api-call-service",
+        "z": "218db70e.126ef8",
+        "name": "Set Operation",
+        "server": "d6c93caf.8868e",
+        "service_domain": "climate",
+        "service": "set_operation_mode",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "x": 1170,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "355d508e.ca8e2",
+        "type": "server-events",
+        "z": "218db70e.126ef8",
+        "name": "States Loaded",
+        "server": "d6c93caf.8868e",
+        "event_type": "states_loaded",
+        "x": 180,
+        "y": 800,
+        "wires": [
+            [
+                "85914196.23ab7"
+            ]
+        ]
+    },
+    {
+        "id": "85914196.23ab7",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "My Operation",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.sensibo_kids_room_operation",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 800,
+        "wires": [
+            [
+                "17d69d4f.1dd183"
+            ]
+        ]
+    },
+    {
+        "id": "17d69d4f.1dd183",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "Climate Operation",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "climate.kids_room",
+        "state_type": "str",
+        "state_location": "climateOper",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 460,
+        "y": 680,
+        "wires": [
+            [
+                "28be3376.ca8edc"
+            ]
+        ]
+    },
+    {
+        "id": "28be3376.ca8edc",
+        "type": "switch",
+        "z": "218db70e.126ef8",
+        "name": "Check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "data.attributes.operation_mode",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 680,
+        "wires": [
+            [
+                "9ba3414.d0034c"
+            ]
+        ]
+    },
+    {
+        "id": "725e1ed5.94ad9",
+        "type": "comment",
+        "z": "218db70e.126ef8",
+        "name": "Operation Mode",
+        "info": "",
+        "x": 180,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "7c50fdab.2e0c94",
+        "type": "server-state-changed",
+        "z": "218db70e.126ef8",
+        "name": "Climate Oper",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "entityidfilter": "sensor.sensibo_kids_room_operation",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 170,
+        "y": 900,
+        "wires": [
+            [
+                "fc3642b0.9c649"
+            ]
+        ]
+    },
+    {
+        "id": "fc3642b0.9c649",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "My Operation",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.sensibo_kids_room_operation",
+        "state_type": "str",
+        "state_location": "myOper",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 900,
+        "wires": [
+            [
+                "38449171.0c982e"
+            ]
+        ]
+    },
+    {
+        "id": "38449171.0c982e",
+        "type": "switch",
+        "z": "218db70e.126ef8",
+        "name": "Check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "myOper",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 900,
+        "wires": [
+            [
+                "5e9bbd36.737dc4"
+            ]
+        ]
+    },
+    {
+        "id": "5e9bbd36.737dc4",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Set Data",
+        "func": "msg.payload = \n{\n    \"data\": {\n        \"entity_id\": \"input_select.sensibo_kids_room_operation\",\n        \"option\": msg.payload\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 900,
+        "wires": [
+            [
+                "ce8a8550.dcaa48"
+            ]
+        ]
+    },
+    {
+        "id": "ce8a8550.dcaa48",
+        "type": "api-call-service",
+        "z": "218db70e.126ef8",
+        "name": "Set My Operation",
+        "server": "d6c93caf.8868e",
+        "service_domain": "input_select",
+        "service": "select_option",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "x": 1160,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4387f630.518d68",
+        "type": "server-state-changed",
+        "z": "218db70e.126ef8",
+        "name": "My Fan",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "entityidfilter": "input_select.sensibo_kids_room_fan",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 150,
+        "y": 1100,
+        "wires": [
+            [
+                "2cfa8b83.d5d6c4"
+            ]
+        ]
+    },
+    {
+        "id": "7e38727c.e28d6c",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Set Data",
+        "func": "msg.payload = \n{\n    \"data\": {\n        \"entity_id\": \"climate.kids_room\",\n        \"fan_mode\": msg.payload\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 1100,
+        "wires": [
+            [
+                "557d872.cb2de78"
+            ]
+        ]
+    },
+    {
+        "id": "557d872.cb2de78",
+        "type": "api-call-service",
+        "z": "218db70e.126ef8",
+        "name": "Set Fan",
+        "server": "d6c93caf.8868e",
+        "service_domain": "climate",
+        "service": "set_fan_mode",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "x": 1150,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4fde626a.140d3c",
+        "type": "server-events",
+        "z": "218db70e.126ef8",
+        "name": "States Loaded",
+        "server": "d6c93caf.8868e",
+        "event_type": "states_loaded",
+        "x": 180,
+        "y": 1220,
+        "wires": [
+            [
+                "a2a5f7d0.b62b38"
+            ]
+        ]
+    },
+    {
+        "id": "a2a5f7d0.b62b38",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "My Fan",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.sensibo_kids_room_fan",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 410,
+        "y": 1220,
+        "wires": [
+            [
+                "2cfa8b83.d5d6c4"
+            ]
+        ]
+    },
+    {
+        "id": "2cfa8b83.d5d6c4",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "Climate Fan",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "climate.kids_room",
+        "state_type": "str",
+        "state_location": "climateFan",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 440,
+        "y": 1100,
+        "wires": [
+            [
+                "6ae9f7ca.02af78"
+            ]
+        ]
+    },
+    {
+        "id": "6ae9f7ca.02af78",
+        "type": "switch",
+        "z": "218db70e.126ef8",
+        "name": "Check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "data.attributes.fan_mode",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 1100,
+        "wires": [
+            [
+                "7e38727c.e28d6c"
+            ]
+        ]
+    },
+    {
+        "id": "b19113ef.53085",
+        "type": "comment",
+        "z": "218db70e.126ef8",
+        "name": "Fan Mode",
+        "info": "",
+        "x": 160,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "f3ea8651.303538",
+        "type": "server-state-changed",
+        "z": "218db70e.126ef8",
+        "name": "Climate Fan",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "entityidfilter": "sensor.sensibo_kids_room_fan",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 170,
+        "y": 1320,
+        "wires": [
+            [
+                "306f08e4.f909a8"
+            ]
+        ]
+    },
+    {
+        "id": "306f08e4.f909a8",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "My Fan",
+        "server": "d6c93caf.8868e",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.sensibo_kids_room_fan",
+        "state_type": "str",
+        "state_location": "myFan",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 410,
+        "y": 1320,
+        "wires": [
+            [
+                "5236a324.14620c"
+            ]
+        ]
+    },
+    {
+        "id": "5236a324.14620c",
+        "type": "switch",
+        "z": "218db70e.126ef8",
+        "name": "Check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "myFan",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 1320,
+        "wires": [
+            [
+                "cfd9c15b.30dd8"
+            ]
+        ]
+    },
+    {
+        "id": "cfd9c15b.30dd8",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Set Data",
+        "func": "msg.payload = \n{\n    \"data\": {\n        \"entity_id\": \"input_select.sensibo_kids_room_fan\",\n        \"option\": msg.payload\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 1320,
+        "wires": [
+            [
+                "a8d82c6a.c5297"
+            ]
+        ]
+    },
+    {
+        "id": "a8d82c6a.c5297",
+        "type": "api-call-service",
+        "z": "218db70e.126ef8",
+        "name": "Set My Fan",
+        "server": "d6c93caf.8868e",
+        "service_domain": "input_select",
+        "service": "select_option",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "x": 1170,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d6c93caf.8868e",
+        "type": "server",
+        "z": "",
+        "name": "Home Assistant",
+        "legacy": false,
+        "hassio": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true
+    }
+]
