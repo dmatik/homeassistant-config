@@ -289,9 +289,9 @@
         "id": "83762ec2.fe34",
         "type": "comment",
         "z": "218db70e.126ef8",
-        "name": "Target Temperature",
+        "name": "Target Temperature entities sync",
         "info": "",
-        "x": 190,
+        "x": 230,
         "y": 160,
         "wires": []
     },
@@ -451,9 +451,9 @@
         "id": "725e1ed5.94ad9",
         "type": "comment",
         "z": "218db70e.126ef8",
-        "name": "Operation Mode",
+        "name": "Operation Mode entities sync",
         "info": "",
-        "x": 180,
+        "x": 220,
         "y": 620,
         "wires": []
     },
@@ -723,9 +723,9 @@
         "id": "b19113ef.53085",
         "type": "comment",
         "z": "218db70e.126ef8",
-        "name": "Fan Mode",
+        "name": "Fan Mode entities sync",
         "info": "",
-        "x": 160,
+        "x": 200,
         "y": 1040,
         "wires": []
     },
@@ -837,6 +837,121 @@
         "y": 1320,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "719c5935.5c4928",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Data ON",
+        "func": "msg.payload = \n{\n    \"data\": {\n        \"title\": \"Kids Room AC\",\n        \"message\": \"ON\" + \"\\nTemp: \" + msg.data.attributes.current_temperature + \"°C\" + \"\\nOperation: \" + msg.data.attributes.operation_mode + \"\\nFan: \" + msg.data.attributes.fan_mode + \"\\nTarget: \" + msg.data.attributes.temperature + \"°C\"\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 720,
+        "y": 1560,
+        "wires": [
+            [
+                "fccd0c0c.9afa1"
+            ]
+        ]
+    },
+    {
+        "id": "fccd0c0c.9afa1",
+        "type": "api-call-service",
+        "z": "218db70e.126ef8",
+        "name": "Notify Dima",
+        "server": "d6c93caf.8868e",
+        "service_domain": "notify",
+        "service": "dimatelegram",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 950,
+        "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf1d0884.c91948",
+        "type": "server-state-changed",
+        "z": "218db70e.126ef8",
+        "name": "Kids Room AC",
+        "server": "d6c93caf.8868e",
+        "version": 1,
+        "entityidfilter": "switch.sensibo_kids_room",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 180,
+        "y": 1560,
+        "wires": [
+            [
+                "3b285ff3.0392f"
+            ],
+            [
+                "8350c563.a86018"
+            ]
+        ]
+    },
+    {
+        "id": "3594500d.53066",
+        "type": "comment",
+        "z": "218db70e.126ef8",
+        "name": "Notification",
+        "info": "",
+        "x": 160,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "8350c563.a86018",
+        "type": "function",
+        "z": "218db70e.126ef8",
+        "name": "Data OFF",
+        "func": "msg.payload = \n{\n    \"data\": {\n        \"title\": \"Kids Room AC\",\n        \"message\": \"OFF\"\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 720,
+        "y": 1660,
+        "wires": [
+            [
+                "fccd0c0c.9afa1"
+            ]
+        ]
+    },
+    {
+        "id": "3b285ff3.0392f",
+        "type": "api-current-state",
+        "z": "218db70e.126ef8",
+        "name": "Kids Room AC",
+        "server": "d6c93caf.8868e",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "climate.kids_room",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 520,
+        "y": 1560,
+        "wires": [
+            [
+                "719c5935.5c4928"
+            ]
         ]
     },
     {
