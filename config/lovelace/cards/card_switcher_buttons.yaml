@@ -51,22 +51,32 @@ cards:
                   top: 50%
                   left: 50%
                   width: 100%
-              - type: state-label
-                entity: switcher_aio.electric_current_sensor
-                style:
-                  top: 85%
-                  left: 16%
-                  font-size: 24px
-                  color: "#FFFFFF"
-                  text-transform: lowercase
-              - type: state-label
-                entity: sensor.switcher_aio_time_left
-                style:
-                  top: 85%
-                  left: 50%
-                  font-size: 24px
-                  color: "#FFFFFF"
-                  text-transform: lowercase
+              - type: conditional
+                conditions:
+                  - entity: switch.switcher_aio_switch
+                    state: 'on'
+                elements:
+                  - type: state-label
+                    entity: switcher_aio.electric_current_sensor
+                    style:
+                      top: 85%
+                      left: 16%
+                      font-size: 24px
+                      color: "#FFFFFF"
+                      text-transform: lowercase
+              - type: conditional
+                conditions:
+                  - entity: switch.switcher_aio_switch
+                    state: 'on'
+                elements:
+                  - type: state-label
+                    entity: sensor.switcher_aio_time_left
+                    style:
+                      top: 85%
+                      left: 50%
+                      font-size: 24px
+                      color: "#FFFFFF"
+                      text-transform: lowercase
               - type: state-label
                 entity: sensor.switcher_aio_auto_off_time
                 style:
