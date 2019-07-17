@@ -60,7 +60,7 @@ cards:
                   color: "#FFFFFF"
               - type: conditional
                 conditions:
-                  - entity: input_select.sensibo_kids_room_operation
+                  - entity: sensor.sensibo_kids_room_operation
                     state: 'cool'
                   - entity: switch.sensibo_kids_room
                     state: 'on'
@@ -75,7 +75,7 @@ cards:
                       color: "#FFFFFF"
               - type: conditional
                 conditions:
-                  - entity: input_select.sensibo_kids_room_operation
+                  - entity: sensor.sensibo_kids_room_operation
                     state: 'heat'
                   - entity: switch.sensibo_kids_room
                     state: 'on'
@@ -90,7 +90,7 @@ cards:
                       color: "#FFFFFF"
               - type: conditional
                 conditions:
-                  - entity: input_select.sensibo_kids_room_fan
+                  - entity: sensor.sensibo_kids_room_fan
                     state: 'low'
                   - entity: switch.sensibo_kids_room
                     state: 'on'
@@ -105,7 +105,7 @@ cards:
                       color: "#FFFFFF"
               - type: conditional
                 conditions:
-                  - entity: input_select.sensibo_kids_room_fan
+                  - entity: sensor.sensibo_kids_room_fan
                     state: 'medium'
                   - entity: switch.sensibo_kids_room
                     state: 'on'
@@ -120,7 +120,7 @@ cards:
                       color: "#FFFFFF"
               - type: conditional
                 conditions:
-                  - entity: input_select.sensibo_kids_room_fan
+                  - entity: sensor.sensibo_kids_room_fan
                     state: 'high'
                   - entity: switch.sensibo_kids_room
                     state: 'on'
@@ -201,16 +201,16 @@ cards:
 
       - type: custom:button-card # Cool Operation Mode
         template: input_select_icon
-        entity: input_select.sensibo_kids_room_operation
+        entity: sensor.sensibo_kids_room_operation
         name: Cool
         icon: mdi:snowflake
         size: 44px
         tap_action:
           action: call-service
-          service: input_select.select_option
+          service: climate.set_operation_mode
           service_data:
-            entity_id: input_select.sensibo_kids_room_operation
-            option: "cool"
+            entity_id: climate.kids_room
+            operation_mode: "cool"
         state:
           - value: "cool"
             styles:
@@ -219,16 +219,16 @@ cards:
                 
       - type: custom:button-card # Heat Operation Mode
         template: input_select_icon
-        entity: input_select.sensibo_kids_room_operation
+        entity: sensor.sensibo_kids_room_operation
         name: Heat
         icon: mdi:fire
         size: 44px
         tap_action:
           action: call-service
-          service: input_select.select_option
+          service: climate.set_operation_mode
           service_data:
-            entity_id: input_select.sensibo_kids_room_operation
-            option: "heat"
+            entity_id: climate.kids_room
+            operation_mode: "heat"
         state:
           - value: "heat"
             styles:
@@ -253,14 +253,14 @@ cards:
 
       - type: custom:button-card # Low Fan
         template: input_select
-        entity: input_select.sensibo_kids_room_fan
+        entity: sensor.sensibo_kids_room_fan
         name: Low
         tap_action:
           action: call-service
-          service: input_select.select_option
+          service: climate.set_fan_mode
           service_data:
-            entity_id: input_select.sensibo_kids_room_fan
-            option: "low"
+            entity_id: climate.kids_room
+            fan_mode: "low"
         state:
           - value: "low"
             styles:
@@ -269,14 +269,14 @@ cards:
                 
       - type: custom:button-card # Med Fan
         template: input_select
-        entity: input_select.sensibo_kids_room_fan
-        name: Med
+        entity: sensor.sensibo_kids_room_fan
+        name: Medium
         tap_action:
           action: call-service
-          service: input_select.select_option
+          service: climate.set_fan_mode
           service_data:
-            entity_id: input_select.sensibo_kids_room_fan
-            option: "medium"
+            entity_id: climate.kids_room
+            fan_mode: "medium"
         state:
           - value: "medium"
             styles:
@@ -285,14 +285,14 @@ cards:
                 
       - type: custom:button-card # High Fan
         template: input_select
-        entity: input_select.sensibo_kids_room_fan
+        entity: sensor.sensibo_kids_room_fan
         name: High
         tap_action:
           action: call-service
-          service: input_select.select_option
+          service: climate.set_fan_mode
           service_data:
-            entity_id: input_select.sensibo_kids_room_fan
-            option: "high"
+            entity_id: climate.kids_room
+            fan_mode: "high"
         state:
           - value: "high"
             styles:
@@ -302,5 +302,7 @@ cards:
       - type: custom:button-card
         template: blank
       
-  - type: custom:button-card
-    template: separator
+#  - type: custom:button-card
+#    template: separator
+
+  - !include /config/lovelace/styles/separator_card.yaml

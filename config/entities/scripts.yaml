@@ -98,8 +98,6 @@ switcher_turn_on_timer_script:
 sensibo_increase_target_temp:
     alias: Increase
     sequence:
-        - delay:
-            milliseconds: 100
         - service: climate.set_temperature
           data_template:
             entity_id: climate.kids_room
@@ -108,12 +106,101 @@ sensibo_increase_target_temp:
 sensibo_decrease_target_temp:
     alias: Decrease
     sequence:
-        - delay:
-            milliseconds: 100    
         - service: climate.set_temperature
           data_template:
             entity_id: climate.kids_room
-            temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"            
-            
+            temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"    
+
+
+# Sheild TV remote buttons        
+shieldtv_up:
+    alias: Up
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - DirectionUp
+            device: 59394434  
+
+shieldtv_down:
+    alias: Down
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - DirectionDown
+            device: 59394434
+
+shieldtv_left:
+    alias: Left
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - DirectionLeft
+            device: 59394434
+
+shieldtv_right:
+    alias: Right
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - DirectionRight
+            device: 59394434
+
+shieldtv_select:
+    alias: Select
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - Select
+            device: 59394434
+
+shieldtv_home:
+    alias: Home
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - Home
+            device: 59394434
+
+shieldtv_back:
+    alias: Back
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - Back
+            device: 59394434
+
+shieldtv_menu:
+    alias: Menu
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - Menu
+            device: 59394434
+
+shieldtv_sleep:
+    alias: Sleep
+    sequence:
+        - service: remote.send_command
+          data:
+            entity_id: remote.living_room
+            command:
+                - Sleep
+            device: 59394434
             
                 
