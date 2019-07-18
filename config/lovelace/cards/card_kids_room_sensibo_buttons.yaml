@@ -40,17 +40,30 @@ cards:
         card:
                   
             type: picture-elements
-            image: /local/kids_room_ac_buttons_on.png
+            image: /local/kids_room_ac_buttons_off.png
             elements:
-              - type: image
-                entity: switch.sensibo_kids_room
-                image: /local/kids_room_ac_buttons_on.png
-                state_image:
-                  "off": /local/kids_room_ac_buttons_off.png
-                style:
-                  top: 50%
-                  left: 50%
-                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: switch.sensibo_kids_room_cool
+                    state: 'on'  
+                elements:          
+                  - type: image
+                    image: /local/kids_room_ac_buttons_on.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+              - type: conditional
+                conditions:
+                  - entity: switch.sensibo_kids_room_heat
+                    state: 'on'  
+                elements:          
+                  - type: image
+                    image: /local/kids_room_ac_buttons_on.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
               - type: state-label
                 entity: sensor.sensibo_kids_room_temp
                 style:
@@ -60,10 +73,8 @@ cards:
                   color: "#FFFFFF"
               - type: conditional
                 conditions:
-                  - entity: sensor.sensibo_kids_room_operation
+                  - entity: climate.kids_room
                     state: 'cool'
-                  - entity: switch.sensibo_kids_room
-                    state: 'on'
                 elements:
                   - type: icon
                     icon: mdi:snowflake
@@ -75,10 +86,8 @@ cards:
                       color: "#FFFFFF"
               - type: conditional
                 conditions:
-                  - entity: sensor.sensibo_kids_room_operation
+                  - entity: climate.kids_room
                     state: 'heat'
-                  - entity: switch.sensibo_kids_room
-                    state: 'on'
                 elements:
                   - type: icon
                     icon: mdi:fire
@@ -92,8 +101,8 @@ cards:
                 conditions:
                   - entity: sensor.sensibo_kids_room_fan
                     state: 'low'
-                  - entity: switch.sensibo_kids_room
-                    state: 'on'
+                  - entity: climate.kids_room
+                    state_not: 'off'
                 elements:
                   - type: icon
                     icon: mdi:signal-cellular-1
@@ -107,8 +116,8 @@ cards:
                 conditions:
                   - entity: sensor.sensibo_kids_room_fan
                     state: 'medium'
-                  - entity: switch.sensibo_kids_room
-                    state: 'on'
+                  - entity: climate.kids_room
+                    state_not: 'off'
                 elements:
                   - type: icon
                     icon: mdi:signal-cellular-2
@@ -122,8 +131,8 @@ cards:
                 conditions:
                   - entity: sensor.sensibo_kids_room_fan
                     state: 'high'
-                  - entity: switch.sensibo_kids_room
-                    state: 'on'
+                  - entity: climate.kids_room
+                    state_not: 'off'
                 elements:
                   - type: icon
                     icon: mdi:signal-cellular-3
@@ -135,8 +144,8 @@ cards:
                       color: "#FFFFFF"
               - type: conditional
                 conditions:
-                  - entity: switch.sensibo_kids_room
-                    state: 'on'
+                  - entity: climate.kids_room
+                    state_not: 'off'
                 elements:
                   - type: state-label
                     entity: sensor.sensibo_kids_room_target_temp
@@ -193,44 +202,30 @@ cards:
       - type: custom:button-card
         template: blank
 
-      - type: custom:button-card # Sensibo ON/OFF
-        template: power_switch_icon
-        entity: switch.sensibo_kids_room
-        name: Power
-        icon: mdi:power-standby
-
       - type: custom:button-card # Cool Operation Mode
-        template: input_select_icon
-        entity: sensor.sensibo_kids_room_operation
+        template: power_switch_icon
+        entity: switch.sensibo_kids_room_cool
         name: Cool
         icon: mdi:snowflake
-        size: 44px
+        size: 48px
         tap_action:
-          action: call-service
-          service: climate.set_operation_mode
-          service_data:
-            entity_id: climate.kids_room
-            operation_mode: "cool"
+          action: toggle
         state:
-          - value: "cool"
+          - value: "on"
             styles:
               card:
                 - background-color: 'rgb(43, 154, 249)'
                 
       - type: custom:button-card # Heat Operation Mode
-        template: input_select_icon
-        entity: sensor.sensibo_kids_room_operation
+        template: power_switch_icon
+        entity: switch.sensibo_kids_room_heat
         name: Heat
         icon: mdi:fire
-        size: 44px
+        size: 48px
         tap_action:
-          action: call-service
-          service: climate.set_operation_mode
-          service_data:
-            entity_id: climate.kids_room
-            operation_mode: "heat"
+          action: toggle
         state:
-          - value: "heat"
+          - value: "on"
             styles:
               card:
                 - background-color: 'rgb(255, 129, 0)'

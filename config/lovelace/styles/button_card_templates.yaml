@@ -7,7 +7,7 @@ blank:
 
 title:
   type: 'custom:button-card'
-  color_type: card
+  color_type: label-card
   show_state: false
   show_label: false
   show_icon: false
@@ -24,7 +24,6 @@ title:
       - color: var(--primary-text-color)
       - justify-self: start
       - padding-left: 20px
-      #- padding-top: 5px
       - font-size: 24px
   tap_action:
     action: none
@@ -136,37 +135,6 @@ power_switch_icon:
   show_label: false
   show_icon: true
   show_name: false
-  size: 44px
-  layout: vertical
-  styles:
-    card:
-      - border-radius: 5px
-      - border: solid 1px rgba(100,100,100,0.3)
-      - box-shadow: 1px 1px rgba(0,0,0,0.4)
-      - background-color: var(--paper-card-background-color)
-    name:
-      - text-transform: lowercase
-      #- font-weight: bold
-      - color: var(--primary-text-color)
-    img_cell:
-      - color: var(--primary-text-color)
-  state:
-    - value: "on"
-      styles:
-        card:
-          - background-color: var(--button-color-green)
-  tap_action:
-    action: toggle
-  hold_action:
-    action: more-info
-    
-input_select_icon:
-  type: custom:button-card
-  color_type: card
-  show_state: false
-  show_label: false
-  show_icon: true
-  show_name: false
   layout: vertical
   styles:
     card:
@@ -238,7 +206,7 @@ light_switch:
 light_yeelight:
   type: custom:button-card
   icon: "mdi:ceiling-light"
-  color: auto
+  color: auto-no-temperature
   color_type: icon
   show_state: false
   show_label: true
@@ -259,7 +227,7 @@ light_yeelight:
     label:
       - font-size: 12px
       - text-transform: lowercase
-      - color: rgb(50, 50, 50)
+      #- color: rgb(50, 50, 50)
   state:
     - value: "on"
       styles:
@@ -297,16 +265,14 @@ light_yeelight_mode:
     - grid-template-rows: 1fr min-content min-content
     name:
       - text-transform: lowercase
-      #- font-weight: bold
+      - color: var(--primary-text-color)
     label:
       - font-size: 12px
       - text-transform: lowercase
-      - color: rgb(50, 50, 50)
+      - color: var(--primary-text-color)
+    img_cell:
+      - color: var(--primary-text-color)
   state:
-    - value: "on"
-      styles:
-        card:
-          - background-color: var(--disabled-text-color)
     - value: "unavailable"
       styles:
         icon:
@@ -341,3 +307,23 @@ script:
         card:
           - background-color: var(--button-color-green)      
       #- font-weight: bold
+
+remote_button:
+  type: custom:button-card
+  color_type: card
+  color: var(--paper-card-background-color)
+  show_state: false
+  show_label: false
+  show_name: false
+  layout: vertical
+  styles:
+    card:
+      - border-radius: 5px
+      - border: solid 1px rgba(100,100,100,0.3)
+      - box-shadow: 1px 1px rgba(0,0,0,0.4)
+    grid:
+      - grid-template-areas: '"i"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr min-content min-content
+    img_cell:
+      - color: var(--primary-text-color)
