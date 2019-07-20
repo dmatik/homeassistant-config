@@ -113,12 +113,6 @@ switcher_timer_minutes_input_select:
   select_style: "font-size: 150%; height: 40px;"
   selectcontainer_style: "height: 40px"
   
-switcher_timer_minutes_input_slider:
-  widget_type: input_slider
-  entity: input_number.switcher_timer_minutes_input_number
-  title: Timer Minutes
-  level_style: "color: #f2f2f2;"
-  
 kids_room_climate:
   widget_type: climate
   entity: climate.kids_room
@@ -157,17 +151,28 @@ sensibo_kids_room_temperature_sensor:
   title: Kids Room
   #text_style: "color: #f2f2f2; font-size: 180%;"
   
-sensibo_kids_room_switch:
+sensibo_kids_room_switch_cool:
   widget_type: switch
   title: Kids Room
-  entity: switch.sensibo_kids_room
+  entity: switch.sensibo_kids_room_cool
+
+sensibo_kids_room_switch_heat:
+  widget_type: switch
+  title: Kids Room
+  entity: switch.sensibo_kids_room_heat
+
+xiaomi_bedroom_temperature_sensor:
+  widget_type: sensor
+  entity: sensor.xiaomi_bedroom_temperature
+  title: Bedroom
+  #text_style: "color: #f2f2f2; font-size: 180%;"
 
 
 layout:
     - weather (2x2), spacer, switch.living_room_light, switch.dining_light, switch.balcony_light, spacer, switch.baltic_tv, switch.shield_tv, switch.smart_tv
     - spacer, switch.kitchen_light, switch.serv_balcony_light, switch.enterence_light, spacer, script.reciever_volume_up, script.reciever_volume_down, script.reciever_volume_mute
-    - sensibo_kids_room_switch, kids_room_climate, spacer, switch.bedroom_light, switch.kids_room_light, switch.work_room_light, spacer, switch.switcher_aio_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
-    - sensibo_kids_room_operation_input_select, sensibo_kids_room_fan_input_select, spacer, switch.hall_light, script.goodnight_script, script.lights_off, spacer (2x1), switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
+    - sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, spacer, switch.bedroom_light, switch.kids_room_light, switch.work_room_light, spacer, switch.switcher_aio_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
+    - kids_room_climate, sensibo_kids_room_fan_input_select, spacer, switch.hall_light, script.goodnight_script, script.lights_off, spacer, xiaomi_bedroom_temperature_sensor, switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
     - 
     - include: bottom_panel
     
