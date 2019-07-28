@@ -1,0 +1,10 @@
+title: Hallway
+icon: mdi:door-open
+path: hallway
+  
+cards:
+
+    - !include /config/lovelace/cards/lights/card_lights_hallway.yaml
+
+
+

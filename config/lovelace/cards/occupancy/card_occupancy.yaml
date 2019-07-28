@@ -1,0 +1,114 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Occupancy
+      
+      - type: custom:button-card
+        template: blank
+
+        
+############################################################################
+#                                                                          #
+#   Device trackers                                                        #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: blank
+      
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+
+            type: picture-elements
+            image: /local/images/dima_off.png          
+            elements:
+              - type: image
+                entity: device_tracker.life360_dima_trosman
+                image: /local/images/dima_off.png
+                state_image:
+                  "Home": /local/images/dima.png
+                  "home": /local/images/dima.png
+                tap_action:
+                  #action: more-info
+                  action: navigate
+                  navigation_path: /lovelace/map/                   
+                style:
+                  top: 50%
+                  left: 50%
+                  width: 100%                  
+              - type: state-label
+                entity: device_tracker.life360_dima_trosman
+                style:
+                  top: 87%
+                  left: 23%
+                  font-size: 16px
+                  color: "#FFFFFF"        
+              - type: state-label
+                entity: sensor.life360_dima_battery
+                style:
+                  top: 87%
+                  left: 85%
+                  font-size: 16px
+                  color: "#FFFFFF"                                            
+
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+                  
+            type: picture-elements
+            image: /local/images/galit_off.png          
+            elements:
+              - type: image
+                entity: device_tracker.life360_galit
+                image: /local/images/galit_off.png
+                state_image:
+                  "Home": /local/images/galit.png
+                  "home": /local/images/galit.png
+                tap_action:
+                  #action: more-info
+                  action: navigate
+                  navigation_path: /lovelace/map/                  
+                style:
+                  top: 50%
+                  left: 50%
+                  width: 100%     
+              - type: state-label
+                entity: device_tracker.life360_galit
+                style:
+                  top: 87%
+                  left: 23%
+                  font-size: 16px
+                  color: "#FFFFFF"        
+              - type: state-label
+                entity: sensor.life360_galit_battery
+                style:
+                  top: 87%
+                  left: 85%
+                  font-size: 16px
+                  color: "#FFFFFF"   
+                      
+      - type: custom:button-card
+        template: blank        
+
+  - !include /config/lovelace/styles/separator_card.yaml        

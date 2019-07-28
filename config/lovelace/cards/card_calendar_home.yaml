@@ -1,0 +1,6 @@
+type: "custom:hebrew-calendar-card"
+name: "Family Calendar"
+showProgressBar: false
+numberOfDays: 14
+entities:
+  - calendar.home

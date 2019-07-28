@@ -1,0 +1,131 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Living Room TV
+      
+      - type: custom:button-card
+        template: blank
+
+
+############################################################################
+#                                                                          #
+#   Picture with current activity                                          #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: blank
+      
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+
+            type: picture-elements
+            image: /local/living_room_tv_buttons_on.png
+            elements:
+              - type: image
+                entity: sensor.living_room_tv
+                image: /local/living_room_tv_buttons_on.png
+                state_image:
+                  "Off": /local/living_room_tv_buttons_off.png
+                style:
+                  top: 50%
+                  left: 50%
+                  width: 100%
+              - type: state-label
+                entity: sensor.living_room_tv
+                style:
+                  top: 85%
+                  left: 82%
+                  font-size: 24px
+                  color: "#FFFFFF"
+                  text-transform: lowercase
+                  
+      - type: custom:button-card
+        template: blank        
+
+
+############################################################################
+#                                                                          #
+#   Activities power buttons                                               #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Baltic TV
+        template: power_switch
+        entity: switch.baltic_tv
+        name: Baltic TV
+                
+      - type: custom:button-card # Shield TV
+        template: power_switch
+        entity: switch.shield_tv
+        name: Shield TV
+                
+      - type: custom:button-card # Smart TV
+        template: power_switch
+        entity: switch.smart_tv
+        name: Smart TV
+        
+      - type: custom:button-card
+        template: blank
+
+
+############################################################################
+#                                                                          #
+#   Volume buttons                                                         #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Volume Up
+        template: script_icon
+        entity: script.reciever_volume_up
+        name: Up
+                
+      - type: custom:button-card # Volume Down
+        template: script_icon
+        entity: script.reciever_volume_down
+        name: Down
+                
+      - type: custom:button-card # Volume Mute
+        template: script_icon
+        entity: script.reciever_volume_mute
+        name: Mute
+        
+      - type: custom:button-card
+        template: blank
+      
+#  - type: custom:button-card
+#    template: separator
+
+  - !include /config/lovelace/styles/separator_card.yaml

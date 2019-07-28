@@ -1,0 +1,62 @@
+type: vertical-stack
+cards:
+    
+    
+############################################################################
+#                                                                          #
+#   Lights                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Hallway Lights
+      
+      - type: custom:button-card
+        template: blank
+
+
+############################################################################
+#                                                                          #
+#   Rooms Lights                                                           #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+              
+      - type: horizontal-stack
+        cards:
+        
+          - type: custom:button-card
+            template: blank
+    
+          - type: custom:button-card # Hall
+            template: light_switch
+            entity: light.hall
+            name: Hall
+    
+          - type: custom:button-card # Servers Light
+            template: light_yeelight
+            entity: light.xiaomi_gateway_servers
+            name: Gateway
+            icon: mdi:lightbulb
+            label: >
+              [[[
+                var bri = Math.round(states['light.xiaomi_gateway_servers'].attributes.brightness / 2.55);
+                return (bri ? bri : '0') + '%';                  
+              ]]]
+
+          - type: "custom:button-card"
+            color_type: blank-card               
+            
+          - type: custom:button-card
+            template: blank
+
+  - !include /config/lovelace/styles/separator_card.yaml

@@ -1,0 +1,73 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Bedroom Yeelight
+      
+      - type: custom:button-card
+        template: blank
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Bedroom Yeelight
+        template: light_yeelight
+        entity: light.bedroom_ceiling
+        name: Bedroom
+        label: >
+          [[[
+            var bri = Math.round(states['light.bedroom_ceiling'].attributes.brightness / 2.55);
+            return (bri ? bri : '0') + '%';            
+          ]]]
+          
+      - type: custom:button-card # Normal Mode
+        template: light_yeelight_mode
+        entity: binary_sensor.bedroom_ceiling_nightlight
+        name: Normal
+        icon: mdi:brightness-5
+        tap_action:
+          action: call-service
+          service: yeelight.set_mode
+          service_data:
+            entity_id: light.bedroom_ceiling
+            mode: normal
+        state:
+          - value: "off"
+            styles:
+              card:
+                - background-color: var(--disabled-text-color)            
+            
+      - type: custom:button-card # Moonlight Mode
+        template: light_yeelight_mode
+        entity: binary_sensor.bedroom_ceiling_nightlight
+        name: Moonlight
+        icon: mdi:brightness-4
+        tap_action:
+          action: call-service
+          service: yeelight.set_mode
+          service_data:
+            entity_id: light.bedroom_ceiling
+            mode: moonlight
+        state:
+          - value: "on"
+            styles:
+              card:
+                - background-color: var(--disabled-text-color)              
+      
+      - type: custom:button-card
+        template: blank
+      
+#  - type: custom:button-card
+#    template: separator
+
+  - !include /config/lovelace/styles/separator_card.yaml

@@ -1,0 +1,23 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: blank
+      
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+        
+          type: custom:clock-card
+          
+      - type: custom:button-card
+        template: blank
+        
+#  - type: custom:button-card
+#    template: separator
+
+  - !include /config/lovelace/styles/separator_card.yaml

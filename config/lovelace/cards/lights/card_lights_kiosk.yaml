@@ -1,0 +1,82 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title Main Lights                                                      #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Lights
+      
+      - type: custom:button-card
+        template: blank
+
+
+############################################################################
+#                                                                          #
+#   Main Lights                                                            #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+      
+      - type: horizontal-stack
+        cards:
+          
+          - type: custom:button-card
+            template: blank
+          
+          - type: custom:button-card # Living Room
+            template: light_switch
+            entity: light.living_room
+            name: Living Room
+                    
+          - type: custom:button-card # Dining
+            template: light_switch
+            entity: light.dining
+            name: Dining
+                    
+          - type: custom:button-card # Balcony
+            template: light_switch
+            entity: light.balcony
+            name: Balcony
+            
+          - type: custom:button-card
+            template: blank
+    
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: blank
+          
+          - type: custom:button-card # Kitchen
+            template: light_switch
+            entity: light.kitchen
+            name: Kitchen
+    
+          - type: custom:button-card # Service Balcony
+            template: light_switch
+            entity: light.service_balcony
+            name: Serv. Balcony
+                    
+          - type: custom:button-card # Hall
+            template: light_switch
+            entity: light.hall
+            name: Hall
+      
+          - type: custom:button-card
+            template: blank
+
+  - !include /config/lovelace/styles/separator_card.yaml

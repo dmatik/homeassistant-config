@@ -1,0 +1,12 @@
+title: Living Room
+icon: mdi:sofa
+path: living_room
+  
+cards:
+
+    - !include /config/lovelace/cards/lights/card_lights_living_room.yaml
+    
+    - !include /config/lovelace/cards/remotes/card_harmony_living_room.yaml
+
+
+

@@ -1,0 +1,64 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Batteries
+      
+      - type: custom:button-card
+        template: blank
+
+
+############################################################################
+#                                                                          #
+#   Batteries card                                                         #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: blank
+
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+
+          type: custom:bar-card
+          entities:
+            - entity: sensor.xiaomi_bedroom_temp_battery
+              title: Bedroom Temperature Sensor
+              title_position: 'inside'
+              show_icon: true
+              icon: mdi:thermometer
+              icon_position: 'inside'
+              unit_of_measurement: "%"
+              align: split
+              padding: 2px
+              width: 100%
+              severity:
+                - value: 10
+                  color: '#bf4040'
+                - value: 50
+                  color: '#bf9540'
+                - value: 100
+                  color: '#40bf40'
+
+      - type: custom:button-card
+        template: blank
+          
+  - !include /config/lovelace/styles/separator_card.yaml

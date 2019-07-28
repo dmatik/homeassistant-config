@@ -1,0 +1,260 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Kids Room AC
+      
+      - type: custom:button-card
+        template: blank
+
+        
+############################################################################
+#                                                                          #
+#   Picture with dynamic display                                           #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: blank
+      
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+                  
+            type: picture-elements
+            image: /local/kids_room_ac_buttons_off.png
+            elements:
+              - type: image
+                entity: climate.kids_room
+                image: /local/kids_room_ac_buttons_off.png
+                state_image:
+                  "cool": /local/kids_room_ac_buttons_on.png
+                  "heat": /local/kids_room_ac_buttons_on.png
+                  "heat_cool": /local/kids_room_ac_buttons_on.png
+                  "fan_only": /local/kids_room_ac_buttons_on.png
+                tap_action:
+                  action: more-info                
+                style:
+                  top: 50%
+                  left: 50%
+                  width: 100%      
+              - type: state-label
+                entity: sensor.sensibo_kids_room_temp
+                style:
+                  top: 85%
+                  left: 85%
+                  font-size: 24px
+                  color: "#FFFFFF"
+              - type: conditional
+                conditions:
+                  - entity: climate.kids_room
+                    state: 'cool'
+                elements:
+                  - type: icon
+                    icon: mdi:snowflake
+                    tap_action:
+                      action: none
+                    style:
+                      top: 85%
+                      left: 8%
+                      color: 'rgb(43, 154, 249)'
+              - type: conditional
+                conditions:
+                  - entity: climate.kids_room
+                    state: 'heat'
+                elements:
+                  - type: icon
+                    icon: mdi:fire
+                    tap_action:
+                      action: none
+                    style:
+                      top: 85%
+                      left: 8%
+                      color: 'rgb(255, 129, 0)'
+              - type: conditional
+                conditions:
+                  - entity: climate.kids_room
+                    state: 'fan_only'
+                elements:
+                  - type: icon
+                    icon: mdi:fan
+                    tap_action:
+                      action: none
+                    style:
+                      top: 85%
+                      left: 8%
+                      color: var(--button-color-green)  
+              - type: conditional
+                conditions:
+                  - entity: climate.kids_room
+                    state: 'heat_cool'
+                elements:
+                  - type: icon
+                    icon: mdi:brightness-auto
+                    tap_action:
+                      action: none
+                    style:
+                      top: 85%
+                      left: 8%
+                      color: "#FFFFFF"                                       
+              - type: conditional
+                conditions:
+                  - entity: sensor.sensibo_kids_room_fan
+                    state: 'low'
+                  - entity: climate.kids_room
+                    state_not: 'off'
+                elements:
+                  - type: icon
+                    icon: mdi:signal-cellular-1
+                    tap_action:
+                      action: none
+                    style:
+                      top: 85%
+                      left: 17%
+                      color: "#FFFFFF"
+              - type: conditional
+                conditions:
+                  - entity: sensor.sensibo_kids_room_fan
+                    state: 'medium'
+                  - entity: climate.kids_room
+                    state_not: 'off'
+                elements:
+                  - type: icon
+                    icon: mdi:signal-cellular-2
+                    tap_action:
+                      action: none
+                    style:
+                      top: 85%
+                      left: 17%
+                      color: "#FFFFFF"
+              - type: conditional
+                conditions:
+                  - entity: sensor.sensibo_kids_room_fan
+                    state: 'high'
+                  - entity: climate.kids_room
+                    state_not: 'off'
+                elements:
+                  - type: icon
+                    icon: mdi:signal-cellular-3
+                    tap_action:
+                      action: none
+                    style:
+                      top: 85%
+                      left: 17%
+                      color: "#FFFFFF"
+              - type: conditional
+                conditions:
+                  - entity: sensor.sensibo_kids_room_fan
+                    state: 'auto'
+                  - entity: climate.kids_room
+                    state_not: 'off'
+                elements:
+                  - type: icon
+                    icon: mdi:brightness-auto
+                    tap_action:
+                      action: none
+                    style:
+                      top: 85%
+                      left: 17%
+                      color: "#FFFFFF"                      
+              - type: conditional
+                conditions:
+                  - entity: climate.kids_room
+                    state_not: 'off'
+                  - entity: climate.kids_room
+                    state_not: 'fan_only'
+                elements:
+                  - type: state-label
+                    entity: sensor.sensibo_kids_room_target_temp
+                    style:
+                      top: 85%
+                      left: 33%
+                      font-size: 24px
+                      color: "#FFFFFF"
+
+                      
+      - type: custom:button-card
+        template: blank        
+
+
+############################################################################
+#                                                                          #
+#   On/Off and Operation set                                               #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Cool Operation Mode
+        template: power_switch_icon
+        entity: switch.sensibo_kids_room_cool
+        #show_name: true
+        name: Cool
+        icon: mdi:snowflake
+        size: 48px
+        tap_action:
+          action: toggle
+        state:
+          - value: "on"
+            styles:
+              card:
+                - background-color: 'rgb(43, 154, 249)'
+                
+      - type: custom:button-card # Heat Operation Mode
+        template: power_switch_icon
+        entity: switch.sensibo_kids_room_heat
+        #show_name: true
+        name: Heat
+        icon: mdi:fire
+        size: 48px
+        tap_action:
+          action: toggle
+        state:
+          - value: "on"
+            styles:
+              card:
+                - background-color: 'rgb(255, 129, 0)'
+        
+      - type: custom:button-card # Decrease Target Temperature
+        template: script_icon
+        entity: script.sensibo_decrease_target_temp
+        #show_name: true
+        #name: Temp
+        icon: mdi:minus
+        size: 48px
+
+      - type: custom:button-card # Increase Target Temperature
+        template: script_icon
+        entity: script.sensibo_increase_target_temp
+        #show_name: true
+        #name: Temp
+        icon: mdi:plus
+        size: 48px
+
+      - type: custom:button-card
+        template: blank
+        
+
+  - !include /config/lovelace/styles/separator_card.yaml

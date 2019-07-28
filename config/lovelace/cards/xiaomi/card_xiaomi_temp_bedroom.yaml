@@ -1,0 +1,35 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Bedroom
+      
+      - type: custom:button-card
+        template: blank
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: blank
+      
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+          
+          type: custom:mini-graph-card
+          entities:
+                - entity: sensor.xiaomi_bedroom_temperature
+                  name: Temperature
+                  show_state: true
+                  
+      - type: custom:button-card
+        template: blank

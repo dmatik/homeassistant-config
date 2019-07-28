@@ -1,0 +1,54 @@
+type: vertical-stack
+cards:
+    
+    
+############################################################################
+#                                                                          #
+#   Lights                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Work Room Lights
+      
+      - type: custom:button-card
+        template: blank
+
+
+############################################################################
+#                                                                          #
+#   Rooms Lights                                                           #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+              
+      - type: horizontal-stack
+        cards:
+        
+          - type: custom:button-card
+            template: blank
+    
+          - type: custom:button-card # Work Room
+            template: light_switch
+            entity: light.work_room
+            name: Work Room
+
+          - type: "custom:button-card"
+            color_type: blank-card   
+            
+          - type: "custom:button-card"
+            color_type: blank-card                           
+            
+          - type: custom:button-card
+            template: blank
+
+  - !include /config/lovelace/styles/separator_card.yaml

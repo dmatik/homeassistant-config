@@ -1,0 +1,10 @@
+title: Work Room
+icon: mdi:desktop-classic
+path: work_room
+  
+cards:
+
+    - !include /config/lovelace/cards/lights/card_lights_work_room.yaml
+
+
+

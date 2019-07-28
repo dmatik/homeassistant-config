@@ -1,0 +1,594 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Smart TV Remote
+      
+      - type: custom:button-card
+        template: blank
+
+
+############################################################################
+#                                                                          #
+#   Control Buttons                                                        #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Volume Up
+        template: remote_button
+        name: Volume Up
+        icon: mdi:volume-plus
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - VolumeUp
+            device: 59394436  
+
+      - type: custom:button-card # Power
+        template: remote_button
+        name: Power
+        icon: mdi:power
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - PowerToggle
+            device: 59394435        
+
+      - type: custom:button-card # Up
+        template: remote_button
+        color: var(--disabled-text-color)
+        name: Up
+        icon: mdi:chevron-up
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - DirectionUp
+            device: 59394435
+
+      - type: custom:button-card # Home
+        template: remote_button
+        name: Home
+        icon: mdi:home
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Home
+            device: 59394435             
+
+      - type: custom:button-card
+        template: blank
+
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Volume Down
+        template: remote_button
+        name: Volume Down
+        icon: mdi:volume-minus
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - VolumeDown
+            device: 59394436
+
+      - type: custom:button-card # Left
+        template: remote_button
+        color: var(--disabled-text-color)
+        name: Left
+        icon: mdi:chevron-left
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - DirectionLeft
+            device: 59394435        
+
+      - type: custom:button-card # Select
+        template: remote_button
+        color: var(--disabled-text-color)
+        name: Select
+        icon: mdi:circle-outline
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Select
+            device: 59394435          
+
+      - type: custom:button-card # Right
+        template: remote_button
+        color: var(--disabled-text-color)
+        name: Right
+        icon: mdi:chevron-right
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - DirectionRight
+            device: 59394435          
+
+      - type: custom:button-card
+        template: blank   
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Mute
+        template: remote_button
+        name: Mute
+        icon: mdi:volume-mute
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Mute
+            device: 59394436   
+
+      - type: custom:button-card # Menu
+        template: remote_button
+        name: Menu
+        icon: mdi:menu
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Menu
+            device: 59394435        
+
+      - type: custom:button-card # Down
+        template: remote_button
+        color: var(--disabled-text-color)
+        name: Down
+        icon: mdi:chevron-down
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - DirectionDown
+            device: 59394435          
+
+      - type: custom:button-card # Return
+        template: remote_button
+        name: Return
+        icon: mdi:arrow-left
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Return
+            device: 59394435        
+
+      - type: custom:button-card
+        template: blank 
+
+  - !include /config/lovelace/styles/separator_card.yaml
+
+
+############################################################################
+#                                                                          #
+#   Media Buttons                                                          #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Play
+        template: remote_button
+        name: Play
+        icon: mdi:play
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Play
+            device: 59394435        
+
+      - type: custom:button-card # Pause
+        template: remote_button
+        name: Pause
+        icon: mdi:pause
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Pause
+            device: 59394435
+
+      - type: custom:button-card # Stop
+        template: remote_button
+        name: Stop
+        icon: mdi:stop
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Stop
+            device: 59394435 
+
+      - type: custom:button-card # Record
+        template: remote_button
+        name: Record
+        icon: mdi:record
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Record
+            device: 59394435   
+
+      - type: custom:button-card
+        template: blank    
+
+  
+############################################################################
+#                                                                          #
+#   Number Buttons                                                         #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # SmartHub
+        template: remote_button
+        name: SmartHub
+        icon: mdi:television-guide
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - SmartHub
+            device: 59394435        
+
+      - type: custom:button-card # 1
+        template: remote_button
+        name: 1
+        icon: mdi:numeric-1
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 1
+            device: 59394435
+
+      - type: custom:button-card # 2
+        template: remote_button
+        name: 2
+        icon: mdi:numeric-2
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 2
+            device: 59394435     
+            
+      - type: custom:button-card # 3
+        template: remote_button
+        name: 3
+        icon: mdi:numeric-3
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 3
+            device: 59394435               
+
+      - type: custom:button-card
+        template: blank
+
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Info
+        template: remote_button
+        name: Info
+        icon: mdi:information-outline
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Info
+            device: 59394435        
+
+      - type: custom:button-card # 4
+        template: remote_button
+        name: 4
+        icon: mdi:numeric-4
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 4
+            device: 59394435
+
+      - type: custom:button-card # 5
+        template: remote_button
+        name: 5
+        icon: mdi:numeric-5
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 5
+            device: 59394435     
+            
+      - type: custom:button-card # 6
+        template: remote_button
+        name: 6
+        icon: mdi:numeric-6
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 6
+            device: 59394435               
+
+      - type: custom:button-card
+        template: blank
+
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Guide
+        template: remote_button
+        name: Guide
+        icon: mdi:television-box
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Guide
+            device: 59394435        
+
+      - type: custom:button-card # 7
+        template: remote_button
+        name: 7
+        icon: mdi:numeric-7
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 7
+            device: 59394435
+
+      - type: custom:button-card # 8
+        template: remote_button
+        name: 8
+        icon: mdi:numeric-8
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 8
+            device: 59394435     
+            
+      - type: custom:button-card # 9
+        template: remote_button
+        name: 9
+        icon: mdi:numeric-9
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 9
+            device: 59394435               
+
+      - type: custom:button-card
+        template: blank
+
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: "custom:button-card" # Empty
+        color_type: blank-card 
+        
+      - type: "custom:button-card" # Empty
+        color_type: blank-card  
+            
+      - type: custom:button-card # 0
+        template: remote_button
+        name: 0
+        icon: mdi:numeric-0
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - 0
+            device: 59394435  
+
+      - type: "custom:button-card" # Empty
+        color_type: blank-card               
+
+      - type: custom:button-card
+        template: blank 
+  
+
+
+############################################################################
+#                                                                          #
+#   Color Buttons                                                          #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+
+      - type: custom:button-card # Green
+        template: remote_button
+        name: Green
+        icon: mdi:circle
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Green
+            device: 59394435
+        styles:
+          img_cell:
+            - color: green      
+
+      - type: custom:button-card # Red
+        template: remote_button
+        name: Red
+        icon: mdi:circle
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Red
+            device: 59394435
+        styles:
+          img_cell:
+            - color: red              
+
+      - type: custom:button-card # Blue
+        template: remote_button
+        name: Blue
+        icon: mdi:circle
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Blue
+            device: 59394435  
+        styles:
+          img_cell:
+            - color: blue                 
+            
+      - type: custom:button-card # Yellow
+        template: remote_button
+        name: Yellow
+        icon: mdi:circle
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.living_room
+            command:
+                - Yellow
+            device: 59394435   
+        styles:
+          img_cell:
+            - color: yellow                          
+
+      - type: custom:button-card
+        template: blank
+
+  - !include /config/lovelace/styles/separator_card.yaml
