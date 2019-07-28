@@ -46,20 +46,14 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 
 ### Screens
 
-Main View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_main.png "Main View")
-
-Climate View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_climate.png "Climate View")
-
-Lights View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_lights.png "Lights View")
-
-Media View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_media.png "Media View")
+Kiosk View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_kiosk.png "Kiosk View")
 
 System View:
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_system.png "System View")
+
+Remotes View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_remotes.png "Remotes View")
 
 ## HaDashboard
 
