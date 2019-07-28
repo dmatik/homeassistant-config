@@ -10,6 +10,8 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 - Yeelight Ceiling
 - Sensibo
 - Synology NAS
+- Xiaomi Mijia Gateway
+- Xiaomi Aqara Temperature Humidity Sensor
 
 ## Components
 
@@ -24,6 +26,7 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 | Sonarr Upcoming Media | [github](https://github.com/custom-components/sensor.sonarr_upcoming_media) |
 | SynologyDSM Sensor | [component](https://www.home-assistant.io/components/synologydsm/) |
 | HACS | [forum](https://community.home-assistant.io/t/custom-component-hacs/121727) |
+| Xiaomi Gateway (Aqara) | [component](https://www.home-assistant.io/components/xiaomi_aqara/) |
 
 ## Lovelace
 ### Cards
@@ -43,20 +46,14 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 
 ### Screens
 
-Main View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_main.png "Main View")
-
-Climate View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_climate.png "Climate View")
-
-Lights View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_lights.png "Lights View")
-
-Media View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_media.png "Media View")
+Kiosk View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_kiosk.png "Kiosk View")
 
 System View:
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_system.png "System View")
+
+Remotes View:
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_remotes.png "Remotes View")
 
 ## HaDashboard
 
