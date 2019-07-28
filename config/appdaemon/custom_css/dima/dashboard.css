@@ -18,7 +18,7 @@ body {
 body::after
 {
   background-size:cover;
-  background-image: url(/custom_css/blur_light/img/salon.jpg);
+  background-image: url(/custom_css/dima/img/salon.png);
   content: "";
   top: 0;
   left: 0;

@@ -89,7 +89,7 @@ switcher_aio:
   phone_id: !secret switcher_phone_id
   device_id: !secret switcher_device_id
   device_password: !secret switcher_device_password
-  
+
 #switcher_kis:
 #  phone_id: !secret switcher_phone_id
 #  device_id: !secret switcher_device_id
@@ -158,12 +158,47 @@ climate:
 http:
   base_url: !secret duckdns_base_url
   ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem    
-
-#http:
-#  base_url: !secret duckdns_base_url
-#  ssl_certificate: /ssl/syn/cert.pem
-#  ssl_key: /ssl/syn/privkey.pem    
-
+  ssl_key: /ssl/privkey.pem
 
 mobile_app:
+
+# Xiaomi
+xiaomi_aqara:
+#  #discovery_retry: 5
+  gateways:
+    - key: !secret xiaomi_gateway_key
+      mac: !secret xiaomi_gateway_mac
+      host: !secret xiaomi_gateway_host
+      
+# Telegram      
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+      - !secret telegram_bot_chat_id_1
+      
+notify:
+  - name: DimaTelegram
+    platform: telegram
+    chat_id: !secret telegram_bot_chat_id_1
+
+
+# Life360
+life360:
+  accounts:
+    - username: !secret life360_username
+      password: !secret life360_password
+  # MPH, assuming imperial units.
+  # If using metric (KPH), the equivalent would be 29.
+  driving_speed: 29
+  interval_seconds: 10
+  max_gps_accuracy: 200
+  max_update_wait:
+    minutes: 45
+  show_as_state:
+    - driving
+  # Set comm error thresholds so first is not logged,
+  # second is logged as a WARNING, and third and fourth
+  # are logged as ERRORs.
+  warning_threshold: 2
+  error_threshold: 3

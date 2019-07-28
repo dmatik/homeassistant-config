@@ -74,6 +74,19 @@
       value_template: >-
         {{ states.climate.kids_room.attributes.current_temperature }}
         
+    sensibo_kids_room_humidity:
+      friendly_name: "Kids Room Humidity (Sensibo)"
+      unit_of_measurement: "%"
+      icon_template: mdi:water-percent
+      value_template: >-
+        {{ states.climate.kids_room.attributes.current_humidity }}
+
+    sensibo_kids_room_status:
+      friendly_name: "Kids Room Status (Sensibo)"
+      icon_template: mdi:home-thermometer
+      value_template: >-
+        {{ states('sensor.sensibo_kids_room_temp') | round | int }}° / {{ states('sensor.sensibo_kids_room_humidity') | round | int }}% humidity
+        
     sensibo_kids_room_target_temp:
       friendly_name: "Target Temperature (Sensibo)"
       unit_of_measurement: "°C"
@@ -81,7 +94,7 @@
       value_template: >-
         {{ states.climate.kids_room.attributes.temperature }}
         
-    sensibo_kids_room_operation:
+    sensibo_kids_room_operation_old:
       friendly_name: "Operation Mode (Sensibo)"
       icon_template: mdi:air-filter
       value_template: >-
@@ -91,7 +104,35 @@
       friendly_name: "Fan Mode (Sensibo)"
       icon_template: mdi:fan
       value_template: >-
-        {{ states.climate.kids_room.attributes.fan_mode }}           
+        {% if states.climate.kids_room.attributes.fan_mode %}
+            {{ states.climate.kids_room.attributes.fan_mode }}
+        {% else %}      
+            op_auto
+        {% endif %}
+        
+
+    # Xiaomi
+    xiaomi_bedroom_temp_battery:
+      friendly_name: "Bedroom Temperature"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.sensor.xiaomi_bedroom_temperature.attributes.battery_level }}
+
+    # Life360
+    life360_dima_battery:
+      friendly_name: "Dima battery"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.device_tracker.life360_dima_trosman.attributes.battery }}  
+
+    life360_galit_battery:
+      friendly_name: "Galit battery"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.device_tracker.life360_galit.attributes.battery }}               
 
 
 # Synology NAS
@@ -159,6 +200,9 @@
   ssl: false
   max: 5
 
+
+
+
 # Kodi
 #- platform: kodi_recently_added
 #  host: !secret kodi_host
@@ -176,3 +220,4 @@
 #- platform: snmp
 #  host: 10.0.0.137
 #  baseoid: 1.3.6.1.2.1.3.1.1.2
+

@@ -30,6 +30,11 @@ cards:
                   - entity: sensor.m5_kbyte_sec_sent
                     name: Upload
                     color: red
+#              type: sensor
+#              entity: sensor.m5_kbyte_sec_sent
+#              name: Upload
+#              graph: line
+#              detail: 2
 
         - type: 'custom:card-modder'
           style:
@@ -41,9 +46,16 @@ cards:
                   - entity: sensor.m5_kbyte_sec_received
                     name: Download
                     color: green
+#              type: sensor
+#              entity: sensor.m5_kbyte_sec_received
+#              name: Download  
+#              graph: line
+#              detail: 2              
                     
         - type: custom:button-card
           template: blank
         
-  - type: custom:button-card
-    template: separator
+#  - type: custom:button-card
+#    template: separator
+
+  - !include /config/lovelace/styles/separator_card.yaml

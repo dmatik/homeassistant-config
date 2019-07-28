@@ -8,7 +8,6 @@
       data:
         name: "midnight_blue"
         
-        
 - id: enable_zigbee_join
   alias: Enable Zigbee joining
   initial_state: 'false'

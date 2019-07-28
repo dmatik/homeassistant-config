@@ -18,13 +18,14 @@ title:
       - border-radius: 5px
       - border: solid 1px rgba(100,100,100,0.3)
       - box-shadow: 1px 1px rgba(0,0,0,0.4)
-      - background-color: var(--label-button-background)
-      - height: 45px
+      - box-shadow: 1px 1px rgba(0,0,0,0.4)
+      - background-color: var(--paper-card-header-color) #var(--label-button-background)
+      - height: 42px
     name:
       - color: var(--primary-text-color)
       - justify-self: start
       - padding-left: 20px
-      - font-size: 24px
+      - font-size: 22px
   tap_action:
     action: none
   hold_action:
@@ -144,7 +145,7 @@ power_switch_icon:
       - background-color: var(--paper-card-background-color)
     name:
       - text-transform: lowercase
-      - font-size: 24px
+      #- font-size: 24px
       - color: var(--primary-text-color)
     img_cell:
       - color: var(--primary-text-color)

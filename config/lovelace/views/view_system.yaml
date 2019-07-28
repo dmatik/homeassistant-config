@@ -1,12 +1,14 @@
 title: System
-icon: mdi:server-network
+icon: mdi:gauge
 path: system
 
 cards:
-  
+    
     - !include /config/lovelace/cards/card_deco.yaml
   
-    - !include /config/lovelace/cards/card_synology_nas_storage.yaml
+    - !include /config/lovelace/cards/nas/card_synology_nas_storage.yaml
   
-    - !include /config/lovelace/cards/card_synology_nas_resources.yaml
+    - !include /config/lovelace/cards/nas/card_synology_nas_resources.yaml
+
+    - !include /config/lovelace/cards/xiaomi/card_batteries.yaml
  
