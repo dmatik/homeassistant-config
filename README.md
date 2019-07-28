@@ -10,6 +10,8 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 - Yeelight Ceiling
 - Sensibo
 - Synology NAS
+- Xiaomi Mijia Gateway
+- Xiaomi Aqara Temperature Humidity Sensor
 
 ## Components
 
@@ -24,7 +26,7 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 | Sonarr Upcoming Media | [github](https://github.com/custom-components/sensor.sonarr_upcoming_media) |
 | SynologyDSM Sensor | [component](https://www.home-assistant.io/components/synologydsm/) |
 | HACS | [forum](https://community.home-assistant.io/t/custom-component-hacs/121727) |
-| Xiaomi Gateway | [component](https://www.home-assistant.io/components/xiaomi_aqara/) |
+| Xiaomi Gateway (Aqara) | [component](https://www.home-assistant.io/components/xiaomi_aqara/) |
 
 ## Lovelace
 ### Cards
