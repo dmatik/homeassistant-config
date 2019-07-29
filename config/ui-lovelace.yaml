@@ -37,6 +37,10 @@ resources:
       type: js
 #    - url: /community_plugin/text-divider-row/text-divider-row.js
 #      type: module
+    - url: /community_plugin/simple-weather-card/simple-weather-card.js
+      type: module
+    - url: /local/custom-lovelace/hebrew-calendar-card/hebrew-calendar-card.js
+      type: module
 
 title: Home
 

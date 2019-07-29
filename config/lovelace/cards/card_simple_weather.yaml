@@ -12,10 +12,12 @@ cards:
           !include /config/lovelace/styles/style_card_general.yaml
         card:
 
-          type: custom:weather-card
+          type: custom:simple-weather-card
           entity: weather.dark_sky
-          icons: "/local/custom-lovelace/animated-weather-card/icons/"
-          #name: Ashdod
+          name:
+          backdrop:
+            day: "var(--paper-card-background-color)"
+            night: "var(--paper-card-background-color)"
           
       - type: custom:button-card
         template: blank

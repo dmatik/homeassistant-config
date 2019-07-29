@@ -59,14 +59,14 @@ cards:
               - type: state-label
                 entity: device_tracker.life360_dima_trosman
                 style:
-                  top: 87%
+                  top: 84%
                   left: 23%
                   font-size: 16px
                   color: "#FFFFFF"        
               - type: state-label
                 entity: sensor.life360_dima_battery
                 style:
-                  top: 87%
+                  top: 84%
                   left: 85%
                   font-size: 16px
                   color: "#FFFFFF"                                            
@@ -96,14 +96,14 @@ cards:
               - type: state-label
                 entity: device_tracker.life360_galit
                 style:
-                  top: 87%
+                  top: 84%
                   left: 23%
                   font-size: 16px
                   color: "#FFFFFF"        
               - type: state-label
                 entity: sensor.life360_galit_battery
                 style:
-                  top: 87%
+                  top: 84%
                   left: 85%
                   font-size: 16px
                   color: "#FFFFFF"   

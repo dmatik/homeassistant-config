@@ -1,6 +1,51 @@
-type: "custom:hebrew-calendar-card"
-name: "Family Calendar"
-showProgressBar: false
-numberOfDays: 14
-entities:
-  - calendar.home
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: blank
+      
+      - type: custom:button-card
+        template: title
+        name: Family Calendar
+      
+      - type: custom:button-card
+        template: blank
+
+
+############################################################################
+#                                                                          #
+#   Calendar                                                               #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: blank
+      
+      - type: 'custom:card-modder'
+        style:
+          !include /config/lovelace/styles/style_card_general.yaml
+        card:
+
+          type: "custom:hebrew-calendar-card"
+          name:
+          showProgressBar: false
+          numberOfDays: 14
+          entities:
+            - calendar.home
+
+      - type: custom:button-card
+        template: blank
+
+  - !include /config/lovelace/styles/separator_card.yaml            

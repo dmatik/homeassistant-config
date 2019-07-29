@@ -129,10 +129,11 @@ weather:
     api_key: !secret darksky_api_key
 
 sun:
-    
-#google:
-#  client_id: !secret google_calendar_client_id
-#  client_secret: !secret google_calendar_client_secret
+
+# Google    
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_client_secret
   
 
 #custom_updater:
