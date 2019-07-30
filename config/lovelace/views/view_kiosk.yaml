@@ -24,9 +24,9 @@ cards:
 
       - !include /config/lovelace/cards/card_simple_weather.yaml
 
-      - !include /config/lovelace/cards/card_calendar_home.yaml
-
       - !include /config/lovelace/cards/ac/card_sensibo_kids_room.yaml
+
+      - !include /config/lovelace/cards/card_calendar_home.yaml
       
   - type: vertical-stack
     cards:
