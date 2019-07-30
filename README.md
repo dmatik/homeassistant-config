@@ -52,12 +52,5 @@ Mobile:
 Kiosk View:
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_kiosk.png "Kiosk View")
 
-System View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_system.png "System View")
-
 Remotes View:
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_remotes.png "Remotes View")
-
-## HaDashboard
-
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/hadash_main.png "Main Panel")
