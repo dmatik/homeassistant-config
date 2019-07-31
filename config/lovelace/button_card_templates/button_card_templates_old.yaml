@@ -7,6 +7,11 @@ harmony_activity_switch:
 script_icon_button:
   !include script_icon_template.yaml
 
+light_switch_button:
+  !include light_button_template.yaml
+
+  
+
 blank:
   type: 'custom:button-card'
   color_type: blank-card

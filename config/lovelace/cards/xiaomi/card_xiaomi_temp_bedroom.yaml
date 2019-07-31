@@ -1,35 +1,51 @@
 type: vertical-stack
 cards:
 
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
   - type: horizontal-stack
     cards:
     
       - type: custom:button-card
-        template: blank
-      
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Bedroom
+    
       - type: custom:button-card
-        template: title
-        name: Bedroom
-      
-      - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card 
+
+
+############################################################################
+#                                                                          #
+#   Sensor                                                                 #
+#                                                                          #
+############################################################################
 
   - type: horizontal-stack
     cards:
 
       - type: custom:button-card
-        template: blank
-      
-      - type: 'custom:card-modder'
-        style:
-          !include /config/lovelace/styles/style_card_general.yaml
-        card:
+        template: shoulder_blank_card 
           
-          type: custom:mini-graph-card
-          entities:
-                - entity: sensor.xiaomi_bedroom_temperature
-                  name: Temperature
-                  show_state: true
+      - type: custom:mini-graph-card
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+          }   
+        entities:
+              - entity: sensor.xiaomi_bedroom_temperature
+                name: Temperature
+                show_state: true
                   
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
+
+  - !include /config/lovelace/styles/separator_card.yaml        

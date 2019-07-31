@@ -1,0 +1,31 @@
+card:
+
+  type: custom:button-card
+  entity: script.[[script]]
+  name: '[[name]]'
+  icon: '[[icon]]'
+  #color: var(--button-color-green)
+  color_type: card
+  show_state: false
+  show_label: false
+  layout: vertical
+  styles:
+    card:
+      - border-radius: 5px
+      - background-color: var(--paper-card-background-color)
+    grid:
+      - grid-template-areas: '"i" "n"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr min-content min-content
+    name:
+      - text-transform: lowercase
+  state:
+    - value: "on"
+      styles:
+        card:
+          - background-color: var(--button-color-green)
+  tap_action:
+    action: call-service
+    service: script.turn_on
+    service_data:
+      entity_id: script.[[script]]          

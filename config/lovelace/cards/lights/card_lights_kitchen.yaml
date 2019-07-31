@@ -4,7 +4,7 @@ cards:
 
 ############################################################################
 #                                                                          #
-#   Title                                                      #
+#   Title                                                                  #
 #                                                                          #
 ############################################################################
 
@@ -12,14 +12,15 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Kitchen Lights
       
       - type: custom:button-card
-        template: title
-        name: Kitchen Lights
-      
-      - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card  
 
 
 ############################################################################
@@ -35,15 +36,15 @@ cards:
         cards:
     
           - type: custom:button-card
-            template: blank
+            template: shoulder_blank_card  
           
           - type: custom:button-card # Kitchen
-            template: light_switch
+            template: light_switch_button
             entity: light.kitchen
             name: Kitchen
     
           - type: custom:button-card # Service Balcony
-            template: light_switch
+            template: light_switch_button
             entity: light.service_balcony
             name: Serv. Balcony
                     
@@ -51,6 +52,6 @@ cards:
             color_type: blank-card   
       
           - type: custom:button-card
-            template: blank
+            template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml

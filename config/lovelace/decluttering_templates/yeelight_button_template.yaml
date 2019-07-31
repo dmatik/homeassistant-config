@@ -1,0 +1,46 @@
+card:
+
+  type: custom:button-card
+  entity: light.[[light]]
+  name: '[[name]]'
+  icon: '[[icon]]'
+  label: >
+    [[[
+      var bri = Math.round(states['light.[[light]]'].attributes.brightness / 2.55);
+      return (bri ? bri : '0') + '%';                  
+    ]]]
+  color: auto-no-temperature
+  color_type: icon
+  show_state: false
+  show_label: true
+  layout: vertical
+  styles:
+    card:
+      - border-radius: 5px
+      - background-color: var(--paper-card-background-color)
+    grid:
+    - grid-template-areas: '"i" "n" "l"'
+    - grid-template-columns: 1fr
+    - grid-template-rows: 1fr min-content min-content
+    name:
+      - text-transform: lowercase
+    label:
+      - font-size: 12px
+      - text-transform: lowercase
+  state:
+    - value: "on"
+      styles:
+        card:
+          - background-color: var(--disabled-text-color)
+    - value: "unavailable"
+      styles:
+        icon:
+          - color: var(--disabled-text-color)
+        name:
+          - color: var(--disabled-text-color)
+        label:
+          - color: var(--disabled-text-color)  
+  tap_action:
+    action: toggle
+  hold_action:
+    action: more-info

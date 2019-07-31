@@ -9,3 +9,12 @@ sensibo_card:
 
 harmony_elements:
   !include harmony_elements_template.yaml
+
+yeelight_switch_button:
+  !include yeelight_button_template.yaml  
+
+yeelight_nightlight_button:
+  !include yeelight_nightlight_template.yaml
+
+script_button:
+  !include script_button_template.yaml  

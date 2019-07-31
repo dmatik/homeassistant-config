@@ -4,7 +4,7 @@ cards:
 
 ############################################################################
 #                                                                          #
-#   Title Main Lights                                                      #
+#   Title                                                                  #
 #                                                                          #
 ############################################################################
 
@@ -12,19 +12,20 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Lights
       
       - type: custom:button-card
-        template: title
-        name: Lights
-      
-      - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card  
 
 
 ############################################################################
 #                                                                          #
-#   Main Lights                                                            #
+#   Lights                                                                 #
 #                                                                          #
 ############################################################################
 
@@ -35,48 +36,48 @@ cards:
         cards:
           
           - type: custom:button-card
-            template: blank
+            template: shoulder_blank_card  
           
           - type: custom:button-card # Living Room
-            template: light_switch
+            template: light_switch_button
             entity: light.living_room
             name: Living Room
                     
           - type: custom:button-card # Dining
-            template: light_switch
+            template: light_switch_button
             entity: light.dining
             name: Dining
                     
           - type: custom:button-card # Balcony
-            template: light_switch
+            template: light_switch_button
             entity: light.balcony
             name: Balcony
             
           - type: custom:button-card
-            template: blank
+            template: shoulder_blank_card  
     
       - type: horizontal-stack
         cards:
     
           - type: custom:button-card
-            template: blank
+            template: shoulder_blank_card  
           
           - type: custom:button-card # Kitchen
-            template: light_switch
+            template: light_switch_button
             entity: light.kitchen
             name: Kitchen
     
           - type: custom:button-card # Service Balcony
-            template: light_switch
+            template: light_switch_button
             entity: light.service_balcony
             name: Serv. Balcony
                     
           - type: custom:button-card # Hall
-            template: light_switch
+            template: light_switch_button
             entity: light.hall
             name: Hall
       
           - type: custom:button-card
-            template: blank
+            template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml
