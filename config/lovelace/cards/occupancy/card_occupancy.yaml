@@ -12,14 +12,15 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Occupancy
       
       - type: custom:button-card
-        template: title
-        name: Occupancy
-      
-      - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
         
 ############################################################################
@@ -32,83 +33,77 @@ cards:
     cards:
 
       - type: custom:button-card
-        template: blank
-      
-      - type: 'custom:card-modder'
-        style:
-          !include /config/lovelace/styles/style_card_general.yaml
-        card:
+        template: shoulder_blank_card                                     
 
-            type: picture-elements
-            image: /local/images/dima_off.png          
-            elements:
-              - type: image
-                entity: device_tracker.life360_dima_trosman
-                image: /local/images/dima_off.png
-                state_image:
-                  "Home": /local/images/dima.png
-                  "home": /local/images/dima.png
-                tap_action:
-                  #action: more-info
-                  action: navigate
-                  navigation_path: /lovelace/map/                   
-                style:
-                  top: 50%
-                  left: 50%
-                  width: 100%                  
-              - type: state-label
-                entity: device_tracker.life360_dima_trosman
-                style:
-                  top: 84%
-                  left: 23%
-                  font-size: 16px
-                  color: "#FFFFFF"        
-              - type: state-label
-                entity: sensor.life360_dima_battery
-                style:
-                  top: 84%
-                  left: 85%
-                  font-size: 16px
-                  color: "#FFFFFF"                                            
-
-      - type: 'custom:card-modder'
-        style:
-          !include /config/lovelace/styles/style_card_general.yaml
+      - type: conditional
+        conditions:
+          - entity: device_tracker.life360_dima_trosman
+            state_not: "home"
         card:
-                  
-            type: picture-elements
-            image: /local/images/galit_off.png          
-            elements:
-              - type: image
-                entity: device_tracker.life360_galit
-                image: /local/images/galit_off.png
-                state_image:
-                  "Home": /local/images/galit.png
-                  "home": /local/images/galit.png
-                tap_action:
-                  #action: more-info
-                  action: navigate
-                  navigation_path: /lovelace/map/                  
-                style:
-                  top: 50%
-                  left: 50%
-                  width: 100%     
-              - type: state-label
-                entity: device_tracker.life360_galit
-                style:
-                  top: 84%
-                  left: 23%
-                  font-size: 16px
-                  color: "#FFFFFF"        
-              - type: state-label
-                entity: sensor.life360_galit_battery
-                style:
-                  top: 84%
-                  left: 85%
-                  font-size: 16px
-                  color: "#FFFFFF"   
+          type: custom:decluttering-card
+          template: person_elements
+          variables:
+            - name: life360_dima_trosman
+            - direction: right
+            - image: '/local/images/dima_off.png'
+            - battery: sensor.life360_dima_battery
+            - icon: home
+            - tap_action:
+                action: navigate
+                navigation_path: /lovelace/map/    
+
+      - type: conditional
+        conditions:
+          - entity: device_tracker.life360_dima_trosman
+            state: "home"
+        card:
+          type: custom:decluttering-card
+          template: person_elements
+          variables:
+            - name: life360_dima_trosman
+            - direction: right
+            - image: '/local/images/dima.png'
+            - battery: sensor.life360_dima_battery
+            - icon: home
+            - tap_action:
+                action: navigate
+                navigation_path: /lovelace/map/                
+
+      - type: conditional
+        conditions:
+          - entity: device_tracker.life360_galit
+            state_not: "home"
+        card:
+          type: custom:decluttering-card
+          template: person_elements
+          variables:
+            - name: life360_galit
+            - direction: right
+            - image: '/local/images/galit_off.png'
+            - battery: sensor.life360_galit_battery
+            - icon: home
+            - tap_action:
+                action: navigate
+                navigation_path: /lovelace/map/    
+
+      - type: conditional
+        conditions:
+          - entity: device_tracker.life360_galit
+            state: "home"
+        card:
+          type: custom:decluttering-card
+          template: person_elements
+          variables:
+            - name: life360_galit
+            - direction: right
+            - image: '/local/images/galit.png'
+            - battery: sensor.life360_galit_battery
+            - icon: home
+            - tap_action:
+                action: navigate
+                navigation_path: /lovelace/map/
                       
       - type: custom:button-card
-        template: blank        
+        template: shoulder_blank_card       
 
-  - !include /config/lovelace/styles/separator_card.yaml        
+  - !include /config/lovelace/styles/separator_card.yaml

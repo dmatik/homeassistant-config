@@ -14,7 +14,7 @@ cards:
 
           type: custom:simple-weather-card
           entity: weather.dark_sky
-          name:
+          name: Ashdod
           backdrop:
             day: "var(--paper-card-background-color)"
             night: "var(--paper-card-background-color)"

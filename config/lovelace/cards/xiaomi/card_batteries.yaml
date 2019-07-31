@@ -39,24 +39,33 @@ cards:
         card:
 
           type: custom:bar-card
+          columns: 1
+          title_position: 'inside'
+          show_icon: true
+          icon_position: 'inside'
+          unit_of_measurement: "%"
+          align: split
+          padding: 4px
+          width: 100%
+          severity:
+            - value: 10
+              color: '#bf4040'
+            - value: 50
+              color: '#bf9540'
+            - value: 100
+              color: 'rgba(117,189,111,1.0)'         
           entities:
             - entity: sensor.xiaomi_bedroom_temp_battery
               title: Bedroom Temperature Sensor
-              title_position: 'inside'
-              show_icon: true
               icon: mdi:thermometer
-              icon_position: 'inside'
-              unit_of_measurement: "%"
-              align: split
-              padding: 2px
-              width: 100%
-              severity:
-                - value: 10
-                  color: '#bf4040'
-                - value: 50
-                  color: '#bf9540'
-                - value: 100
-                  color: '#40bf40'
+            - entity: sensor.xiaomi_switch_bedside_dima_battery
+              title: Dima's Bedside Switch
+              icon: mdi:circle-outline
+            - entity: sensor.xiaomi_switch_bedside_galit_battery
+              title: Galit's Bedside Switch
+              icon: mdi:circle-outline
+                                 
+                
 
       - type: custom:button-card
         template: blank

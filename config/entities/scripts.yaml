@@ -95,7 +95,7 @@ switcher_turn_on_timer_script:
             
 
 # Sensibo
-sensibo_increase_target_temp:
+sensibo_kids_room_increase_target_temp:
     alias: Increase
     sequence:
         - service: climate.set_temperature
@@ -103,7 +103,7 @@ sensibo_increase_target_temp:
             entity_id: climate.kids_room
             temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) + 1 }}"
             
-sensibo_decrease_target_temp:
+sensibo_kids_room_decrease_target_temp:
     alias: Decrease
     sequence:
         - service: climate.set_temperature

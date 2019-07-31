@@ -117,6 +117,7 @@ cards:
                 tap_action:
                   action: toggle
                 entity: switch.switcher_aio_switch
+                icon: mdi:water
                 style:
                   top: 80%
                   left: 80%

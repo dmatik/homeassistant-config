@@ -41,6 +41,10 @@ resources:
       type: module
     - url: /local/custom-lovelace/hebrew-calendar-card/hebrew-calendar-card.js
       type: module
+    - url: /community_plugin/decluttering-card/decluttering-card.js
+      type: module
+    - url: /community_plugin/lovelace-card-mod/card-mod.js
+      type: js
 
 title: Home
 
@@ -56,9 +60,16 @@ cch:
       config:
         hide_tabs: 0, 2, 4
 
-# Button card templates    
+# Button card templates  
+
+decluttering_templates:
+  !include /config/lovelace/decluttering_templates/decluttering_templates.yaml
+
 button_card_templates:
-    !include /config/lovelace/styles/button_card_templates.yaml  
+  #!include /config/lovelace/button_card_templates/button_card_templates.yaml
+  !include /config/lovelace/button_card_templates/button_card_templates_old.yaml
+
+
     
 views:
 

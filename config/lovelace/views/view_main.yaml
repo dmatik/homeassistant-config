@@ -1,10 +1,6 @@
 title: Main
 icon: mdi:home-assistant
 path: main
-
-#badges:
-    #- device_tracker.dima_phone
-    #- sensor.volume_used_volume_1
   
 cards:
 
@@ -13,6 +9,8 @@ cards:
     - !include /config/lovelace/cards/banners/card_main_rooms_banners.yaml
 
     - !include /config/lovelace/cards/banners/card_other_rooms_banners.yaml
+
+    - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
 
     - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
 

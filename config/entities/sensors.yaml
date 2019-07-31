@@ -119,6 +119,20 @@
       value_template: >-
         {{ states.sensor.xiaomi_bedroom_temperature.attributes.battery_level }}
 
+    xiaomi_switch_bedside_dima_battery:
+      friendly_name: "Bedside Switch Dima"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.switch_bedside_dima.attributes.battery_level }}
+
+    xiaomi_switch_bedside_galit_battery:
+      friendly_name: "Bedside Switch Dima"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.switch_bedside_galit.attributes.battery_level }}        
+
     # Life360
     life360_dima_battery:
       friendly_name: "Dima battery"
