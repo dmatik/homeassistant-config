@@ -12,14 +12,15 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
-      
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Switcher
+    
       - type: custom:button-card
-        template: title
-        name: Switcher
-      
-      - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card  
 
 
 ############################################################################
@@ -32,62 +33,62 @@ cards:
     cards:
 
       - type: custom:button-card
-        template: blank
-      
-      - type: 'custom:card-modder'
-        style:
-          !include /config/lovelace/styles/style_card_general.yaml
-        card:
+        template: shoulder_blank_card 
 
-            type: picture-elements
+      - type: picture-elements
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+          }            
+        image: /local/switcher_buttons_on.png
+        elements:
+          - type: image
+            entity: switch.switcher_aio_switch
             image: /local/switcher_buttons_on.png
+            state_image:
+              "off": /local/switcher_buttons_off.png
+            style:
+              top: 50%
+              left: 50%
+              width: 100%
+          - type: conditional
+            conditions:
+              - entity: switch.switcher_aio_switch
+                state: 'on'
             elements:
-              - type: image
-                entity: switch.switcher_aio_switch
-                image: /local/switcher_buttons_on.png
-                state_image:
-                  "off": /local/switcher_buttons_off.png
-                style:
-                  top: 50%
-                  left: 50%
-                  width: 100%
-              - type: conditional
-                conditions:
-                  - entity: switch.switcher_aio_switch
-                    state: 'on'
-                elements:
-                  - type: state-label
-                    entity: switcher_aio.electric_current_sensor
-                    style:
-                      top: 85%
-                      left: 16%
-                      font-size: 24px
-                      color: "#FFFFFF"
-                      text-transform: lowercase
-              - type: conditional
-                conditions:
-                  - entity: switch.switcher_aio_switch
-                    state: 'on'
-                elements:
-                  - type: state-label
-                    entity: sensor.switcher_aio_time_left
-                    style:
-                      top: 85%
-                      left: 50%
-                      font-size: 24px
-                      color: "#FFFFFF"
-                      text-transform: lowercase
               - type: state-label
-                entity: sensor.switcher_aio_auto_off_time
+                entity: switcher_aio.electric_current_sensor
                 style:
                   top: 85%
-                  left: 84%
+                  left: 16%
                   font-size: 24px
                   color: "#FFFFFF"
                   text-transform: lowercase
+          - type: conditional
+            conditions:
+              - entity: switch.switcher_aio_switch
+                state: 'on'
+            elements:
+              - type: state-label
+                entity: sensor.switcher_aio_time_left
+                style:
+                  top: 85%
+                  left: 50%
+                  font-size: 24px
+                  color: "#FFFFFF"
+                  text-transform: lowercase
+          - type: state-label
+            entity: sensor.switcher_aio_auto_off_time
+            style:
+              top: 85%
+              left: 84%
+              font-size: 24px
+              color: "#FFFFFF"
+              text-transform: lowercase
                   
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
 
 ############################################################################
@@ -100,26 +101,60 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
       - type: custom:button-card # Boiler Power
-        template: power_switch
         entity: switch.switcher_aio_switch
-        name: Power
         icon: mdi:power-standby
+        color_type: card
         show_name: false
+        show_state: false
+        show_label: false
         size: 48px
+        layout: vertical
+        styles:
+          card:
+            - border-radius: 5px
+            - background-color: var(--paper-card-background-color)
+          img_cell:
+            - color: var(--primary-text-color)
+        state:
+          - value: "on"
+            styles:
+              card:
+                - background-color: var(--button-color-green)
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info        
 
       - type: custom:button-card # Turn ON with Timer
-        template: power_switch
         entity: script.switcher_turn_on_timer_script
-        name: On With Timer
         icon: mdi:timer
+        color_type: card
         show_name: false
+        show_state: false
+        show_label: false
         size: 48px
+        layout: vertical
+        styles:
+          card:
+            - border-radius: 5px
+            - background-color: var(--paper-card-background-color)
+          img_cell:
+            - color: var(--primary-text-color)
+        state:
+          - value: "on"
+            styles:
+              card:
+                - background-color: var(--button-color-green)
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info        
         
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
 
 ############################################################################
@@ -132,12 +167,25 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
       - type: custom:button-card # Timer Minutes
-        template: input_select
         entity: input_select.switcher_timer_minutes_input_select
         name: 15
+        color_type: card
+        show_state: false
+        show_label: false
+        show_icon: false
+        show_name: true
+        layout: vertical
+        styles:
+          card:
+            - border-radius: 5px
+            - background-color: var(--paper-card-background-color)
+          name:
+            - text-transform: lowercase
+            - font-size: 24px
+            - color: var(--primary-text-color)
         tap_action:
           action: call-service
           service: input_select.select_option
@@ -151,9 +199,22 @@ cards:
                 - background-color: var(--disabled-text-color)
         
       - type: custom:button-card # Timer Minutes
-        template: input_select
         entity: input_select.switcher_timer_minutes_input_select
         name: 30
+        color_type: card
+        show_state: false
+        show_label: false
+        show_icon: false
+        show_name: true
+        layout: vertical
+        styles:
+          card:
+            - border-radius: 5px
+            - background-color: var(--paper-card-background-color)
+          name:
+            - text-transform: lowercase
+            - font-size: 24px
+            - color: var(--primary-text-color)        
         tap_action:
           action: call-service
           service: input_select.select_option
@@ -167,9 +228,22 @@ cards:
                 - background-color: var(--disabled-text-color)
 
       - type: custom:button-card # Timer Minutes
-        template: input_select
         entity: input_select.switcher_timer_minutes_input_select
         name: 45
+        color_type: card
+        show_state: false
+        show_label: false
+        show_icon: false
+        show_name: true
+        layout: vertical
+        styles:
+          card:
+            - border-radius: 5px
+            - background-color: var(--paper-card-background-color)
+          name:
+            - text-transform: lowercase
+            - font-size: 24px
+            - color: var(--primary-text-color)        
         tap_action:
           action: call-service
           service: input_select.select_option
@@ -183,9 +257,22 @@ cards:
                 - background-color: var(--disabled-text-color)
             
       - type: custom:button-card # Timer Minutes
-        template: input_select
         entity: input_select.switcher_timer_minutes_input_select
         name: 60
+        color_type: card
+        show_state: false
+        show_label: false
+        show_icon: false
+        show_name: true
+        layout: vertical
+        styles:
+          card:
+            - border-radius: 5px
+            - background-color: var(--paper-card-background-color)
+          name:
+            - text-transform: lowercase
+            - font-size: 24px
+            - color: var(--primary-text-color)        
         tap_action:
           action: call-service
           service: input_select.select_option
@@ -199,9 +286,6 @@ cards:
                 - background-color: var(--disabled-text-color)
                 
       - type: custom:button-card
-        template: blank
-  
-#  - type: custom:button-card
-#    template: separator
+        template: shoulder_blank_card
 
   - !include /config/lovelace/styles/separator_card.yaml

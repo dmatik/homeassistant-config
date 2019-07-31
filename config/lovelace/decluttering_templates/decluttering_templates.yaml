@@ -6,3 +6,6 @@ title_button_card:
 
 sensibo_card:
   !include sensibo_template.yaml
+
+harmony_elements:
+  !include harmony_elements_template.yaml
