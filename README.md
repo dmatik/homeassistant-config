@@ -43,6 +43,8 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 | Compact Custom Header | [github](https://github.com/maykar/compact-custom-header) |
 | Vertical Stack In Card | [github](https://github.com/custom-cards/vertical-stack-in-card) |
 | Vertical Style Card | [github](https://github.com/matisaul/vertical-style-card) |
+| Card-Mod | [github](https://github.com/thomasloven/lovelace-card-mod) |
+| Decluttering Card | [github](https://https://github.com/custom-cards/decluttering-card) |
 
 ### Screens
 
