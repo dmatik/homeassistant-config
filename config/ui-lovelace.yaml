@@ -66,8 +66,7 @@ decluttering_templates:
   !include /config/lovelace/decluttering_templates/decluttering_templates.yaml
 
 button_card_templates:
-  #!include /config/lovelace/button_card_templates/button_card_templates.yaml
-  !include /config/lovelace/button_card_templates/button_card_templates_old.yaml
+  !include /config/lovelace/button_card_templates/button_card_templates.yaml
 
 
     

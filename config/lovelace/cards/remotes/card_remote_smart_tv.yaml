@@ -11,14 +11,15 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Smart TV Remote
       
       - type: custom:button-card
-        template: title
-        name: Smart TV Remote
-      
-      - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card  
 
 
 ############################################################################
@@ -31,190 +32,141 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
-      - type: custom:button-card # Volume Up
+      - type: custom:decluttering-card # Volume Up
         template: remote_button
-        name: Volume Up
-        icon: mdi:volume-plus
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - VolumeUp
-            device: 59394436  
+        variables:
+          - name: Volume Up        
+          - icon: mdi:volume-plus
+          - remote: living_room
+          - command: VolumeUp
+          - device: 59394436
 
-      - type: custom:button-card # Power
+      - type: custom:decluttering-card # Power
         template: remote_button
-        name: Power
-        icon: mdi:power
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - PowerToggle
-            device: 59394435        
+        variables:
+          - name: Power        
+          - icon: mdi:power
+          - remote: living_room
+          - command: PowerToggle
+          - device: 59394435
 
-      - type: custom:button-card # Up
+      - type: custom:decluttering-card # Up
         template: remote_button
-        color: var(--disabled-text-color)
-        name: Up
-        icon: mdi:chevron-up
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - DirectionUp
-            device: 59394435
+        variables:
+          - name: Up        
+          - icon: mdi:chevron-up
+          - remote: living_room
+          - command: DirectionUp
+          - device: 59394435
+          - color: var(--disabled-text-color)
 
-      - type: custom:button-card # Home
+      - type: custom:decluttering-card # Home
         template: remote_button
-        name: Home
-        icon: mdi:home
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Home
-            device: 59394435             
+        variables:
+          - name: Home        
+          - icon: mdi:home
+          - remote: living_room
+          - command: Home
+          - device: 59394435
 
       - type: custom:button-card
-        template: blank
-
+        template: shoulder_blank_card
 
   - type: horizontal-stack
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
-      - type: custom:button-card # Volume Down
+      - type: custom:decluttering-card # Volume Down
         template: remote_button
-        name: Volume Down
-        icon: mdi:volume-minus
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - VolumeDown
-            device: 59394436
+        variables:
+          - name: Volume Down        
+          - icon: mdi:volume-minus
+          - remote: living_room
+          - command: VolumeDown
+          - device: 59394436
 
-      - type: custom:button-card # Left
+      - type: custom:decluttering-card # Left
         template: remote_button
-        color: var(--disabled-text-color)
-        name: Left
-        icon: mdi:chevron-left
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - DirectionLeft
-            device: 59394435        
+        variables:
+          - name: Left        
+          - icon: mdi:chevron-left
+          - remote: living_room
+          - command: DirectionLeft
+          - device: 59394435
+          - color: var(--disabled-text-color)
 
-      - type: custom:button-card # Select
+      - type: custom:decluttering-card # Select
         template: remote_button
-        color: var(--disabled-text-color)
-        name: Select
-        icon: mdi:circle-outline
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Select
-            device: 59394435          
+        variables:
+          - name: Select        
+          - icon: mdi:circle-outline
+          - remote: living_room
+          - command: Select
+          - device: 59394435
+          - color: var(--disabled-text-color)
 
-      - type: custom:button-card # Right
+      - type: custom:decluttering-card # Right
         template: remote_button
-        color: var(--disabled-text-color)
-        name: Right
-        icon: mdi:chevron-right
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - DirectionRight
-            device: 59394435          
+        variables:
+          - name: Right        
+          - icon: mdi:chevron-right
+          - remote: living_room
+          - command: DirectionRight
+          - device: 59394435
+          - color: var(--disabled-text-color)
 
       - type: custom:button-card
-        template: blank   
+        template: shoulder_blank_card
 
   - type: horizontal-stack
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
-      - type: custom:button-card # Mute
+      - type: custom:decluttering-card # Mute
         template: remote_button
-        name: Mute
-        icon: mdi:volume-mute
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Mute
-            device: 59394436   
+        variables:
+          - name: Mute        
+          - icon: mdi:volume-mute
+          - remote: living_room
+          - command: Mute
+          - device: 59394436
 
-      - type: custom:button-card # Menu
+      - type: custom:decluttering-card # Menu
         template: remote_button
-        name: Menu
-        icon: mdi:menu
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Menu
-            device: 59394435        
+        variables:
+          - name: Menu        
+          - icon: mdi:menu
+          - remote: living_room
+          - command: Menu
+          - device: 59394435
 
-      - type: custom:button-card # Down
+      - type: custom:decluttering-card # Down
         template: remote_button
-        color: var(--disabled-text-color)
-        name: Down
-        icon: mdi:chevron-down
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - DirectionDown
-            device: 59394435          
+        variables:
+          - name: Down        
+          - icon: mdi:chevron-down
+          - remote: living_room
+          - command: DirectionDown
+          - device: 59394435
+          - color: var(--disabled-text-color)
 
-      - type: custom:button-card # Return
+      - type: custom:decluttering-card # Back
         template: remote_button
-        name: Return
-        icon: mdi:arrow-left
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Return
-            device: 59394435        
+        variables:
+          - name: Back        
+          - icon: mdi:arrow-left
+          - remote: living_room
+          - command: Back
+          - device: 59394435
 
       - type: custom:button-card
-        template: blank 
+        template: shoulder_blank_card
 
   - !include /config/lovelace/styles/separator_card.yaml
 
@@ -229,62 +181,47 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
-      - type: custom:button-card # Play
+      - type: custom:decluttering-card # Play
         template: remote_button
-        name: Play
-        icon: mdi:play
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Play
-            device: 59394435        
+        variables:
+          - name: Play        
+          - icon: mdi:play
+          - remote: living_room
+          - command: Play
+          - device: 59394435
 
-      - type: custom:button-card # Pause
+      - type: custom:decluttering-card # Pause
         template: remote_button
-        name: Pause
-        icon: mdi:pause
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Pause
-            device: 59394435
+        variables:
+          - name: Pause        
+          - icon: mdi:pause
+          - remote: living_room
+          - command: Pause
+          - device: 59394435
 
-      - type: custom:button-card # Stop
+      - type: custom:decluttering-card # Stop
         template: remote_button
-        name: Stop
-        icon: mdi:stop
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Stop
-            device: 59394435 
+        variables:
+          - name: Stop        
+          - icon: mdi:stop
+          - remote: living_room
+          - command: Stop
+          - device: 59394435
 
-      - type: custom:button-card # Record
+      - type: custom:decluttering-card # Record
         template: remote_button
-        name: Record
-        icon: mdi:record
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Record
-            device: 59394435   
+        variables:
+          - name: Record        
+          - icon: mdi:record
+          - remote: living_room
+          - command: Record
+          - device: 59394435
+          - icon_color: red
 
       - type: custom:button-card
-        template: blank    
+        template: shoulder_blank_card
 
   
 ############################################################################
@@ -297,193 +234,145 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
-      - type: custom:button-card # SmartHub
+      - type: custom:decluttering-card # SmartHub
         template: remote_button
-        name: SmartHub
-        icon: mdi:television-guide
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - SmartHub
-            device: 59394435        
+        variables:
+          - name: SmartHub        
+          - icon: mdi:television-guide
+          - remote: living_room
+          - command: SmartHub
+          - device: 59394435
 
-      - type: custom:button-card # 1
+      - type: custom:decluttering-card # 1
         template: remote_button
-        name: 1
-        icon: mdi:numeric-1
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 1
-            device: 59394435
+        variables:
+          - name: 1        
+          - icon: mdi:numeric-1
+          - remote: living_room
+          - command: 1
+          - device: 59394435
 
-      - type: custom:button-card # 2
+      - type: custom:decluttering-card # 2
         template: remote_button
-        name: 2
-        icon: mdi:numeric-2
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 2
-            device: 59394435     
-            
-      - type: custom:button-card # 3
+        variables:
+          - name: 2        
+          - icon: mdi:numeric-2
+          - remote: living_room
+          - command: 2
+          - device: 59394435
+
+      - type: custom:decluttering-card # 3
         template: remote_button
-        name: 3
-        icon: mdi:numeric-3
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 3
-            device: 59394435               
+        variables:
+          - name: 3        
+          - icon: mdi:numeric-3
+          - remote: living_room
+          - command: 3
+          - device: 59394435
 
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
 
   - type: horizontal-stack
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
-      - type: custom:button-card # Info
+      - type: custom:decluttering-card # Info
         template: remote_button
-        name: Info
-        icon: mdi:information-outline
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Info
-            device: 59394435        
+        variables:
+          - name: Info        
+          - icon: mdi:information-outline
+          - remote: living_room
+          - command: Info
+          - device: 59394435
 
-      - type: custom:button-card # 4
+      - type: custom:decluttering-card # 4
         template: remote_button
-        name: 4
-        icon: mdi:numeric-4
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 4
-            device: 59394435
+        variables:
+          - name: 4        
+          - icon: mdi:numeric-4
+          - remote: living_room
+          - command: 4
+          - device: 59394435
 
-      - type: custom:button-card # 5
+      - type: custom:decluttering-card # 5
         template: remote_button
-        name: 5
-        icon: mdi:numeric-5
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 5
-            device: 59394435     
-            
-      - type: custom:button-card # 6
+        variables:
+          - name: 5        
+          - icon: mdi:numeric-5
+          - remote: living_room
+          - command: 5
+          - device: 59394435
+
+      - type: custom:decluttering-card # 6
         template: remote_button
-        name: 6
-        icon: mdi:numeric-6
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 6
-            device: 59394435               
+        variables:
+          - name: 6        
+          - icon: mdi:numeric-6
+          - remote: living_room
+          - command: 6
+          - device: 59394435
 
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
 
   - type: horizontal-stack
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
-      - type: custom:button-card # Guide
+      - type: custom:decluttering-card # Guide
         template: remote_button
-        name: Guide
-        icon: mdi:television-box
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Guide
-            device: 59394435        
+        variables:
+          - name: Guide        
+          - icon: mdi:television-box
+          - remote: living_room
+          - command: Guide
+          - device: 59394435
 
-      - type: custom:button-card # 7
+      - type: custom:decluttering-card # 7
         template: remote_button
-        name: 7
-        icon: mdi:numeric-7
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 7
-            device: 59394435
+        variables:
+          - name: 7        
+          - icon: mdi:numeric-7
+          - remote: living_room
+          - command: 7
+          - device: 59394435
 
-      - type: custom:button-card # 8
+      - type: custom:decluttering-card # 8
         template: remote_button
-        name: 8
-        icon: mdi:numeric-8
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 8
-            device: 59394435     
-            
-      - type: custom:button-card # 9
+        variables:
+          - name: 8        
+          - icon: mdi:numeric-8
+          - remote: living_room
+          - command: 8
+          - device: 59394435
+
+      - type: custom:decluttering-card # 9
         template: remote_button
-        name: 9
-        icon: mdi:numeric-9
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 9
-            device: 59394435               
+        variables:
+          - name: 9        
+          - icon: mdi:numeric-9
+          - remote: living_room
+          - command: 9
+          - device: 59394435
 
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
 
   - type: horizontal-stack
     cards:
     
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card
 
       - type: "custom:button-card" # Empty
         color_type: blank-card 
@@ -491,24 +380,20 @@ cards:
       - type: "custom:button-card" # Empty
         color_type: blank-card  
             
-      - type: custom:button-card # 0
+      - type: custom:decluttering-card # 0
         template: remote_button
-        name: 0
-        icon: mdi:numeric-0
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - 0
-            device: 59394435  
+        variables:
+          - name: 0        
+          - icon: mdi:numeric-0
+          - remote: living_room
+          - command: 0
+          - device: 59394435
 
       - type: "custom:button-card" # Empty
         color_type: blank-card               
 
       - type: custom:button-card
-        template: blank 
+        template: shoulder_blank_card
   
 
 
@@ -520,75 +405,51 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: blank
-
-      - type: custom:button-card # Green
-        template: remote_button
-        name: Green
-        icon: mdi:circle
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Green
-            device: 59394435
-        styles:
-          img_cell:
-            - color: green      
-
-      - type: custom:button-card # Red
-        template: remote_button
-        name: Red
-        icon: mdi:circle
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Red
-            device: 59394435
-        styles:
-          img_cell:
-            - color: red              
-
-      - type: custom:button-card # Blue
-        template: remote_button
-        name: Blue
-        icon: mdi:circle
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Blue
-            device: 59394435  
-        styles:
-          img_cell:
-            - color: blue                 
-            
-      - type: custom:button-card # Yellow
-        template: remote_button
-        name: Yellow
-        icon: mdi:circle
-        tap_action:
-          action: call-service
-          service: remote.send_command
-          service_data:
-            entity_id: remote.living_room
-            command:
-                - Yellow
-            device: 59394435   
-        styles:
-          img_cell:
-            - color: yellow                          
 
       - type: custom:button-card
-        template: blank
+        template: shoulder_blank_card  
+
+      - type: custom:decluttering-card # Green
+        template: remote_button
+        variables:
+          - name: Green
+          - icon: mdi:circle
+          - remote: living_room
+          - command: Green
+          - device: 59394435
+          - icon_color: green
+
+      - type: custom:decluttering-card # Red
+        template: remote_button
+        variables:
+          - name: Red
+          - icon: mdi:circle
+          - remote: living_room
+          - command: Red
+          - device: 59394435
+          - icon_color: red
+
+      - type: custom:decluttering-card # Blue
+        template: remote_button
+        variables:
+          - name: Blue
+          - icon: mdi:circle
+          - remote: living_room
+          - command: Blue
+          - device: 59394435
+          - icon_color: blue
+
+      - type: custom:decluttering-card # Yellow
+        template: remote_button
+        variables:
+          - name: Yellow
+          - icon: mdi:circle
+          - remote: living_room
+          - command: Yellow
+          - device: 59394435
+          - icon_color: yellow
+
+      - type: custom:button-card
+        template: shoulder_blank_card
 
   - !include /config/lovelace/styles/separator_card.yaml

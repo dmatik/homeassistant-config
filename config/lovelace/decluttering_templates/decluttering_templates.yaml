@@ -17,4 +17,7 @@ yeelight_nightlight_button:
   !include yeelight_nightlight_template.yaml
 
 script_button:
-  !include script_button_template.yaml  
+  !include script_button_template.yaml 
+
+remote_button:
+  !include remote_button_template.yaml 

@@ -1,0 +1,29 @@
+default:
+  - color: var(--paper-card-background-color)
+  - icon_color: var(--primary-text-color)
+
+card:
+
+  type: custom:button-card
+  name: '[[name]]'
+  icon: '[[icon]]'  
+  color_type: card
+  #color: '[[color]]'
+  show_state: false
+  show_label: false
+  show_name: false
+  layout: vertical
+  styles:
+    card:
+      - border-radius: 5px
+      - background-color: '[[color]]'
+    img_cell:
+      - color: '[[icon_color]]'
+  tap_action:
+    action: call-service
+    service: remote.send_command
+    service_data:
+      entity_id: remote.'[[remote]]'
+      command:
+          - '[[command]]'
+      device: '[[device]]'      
