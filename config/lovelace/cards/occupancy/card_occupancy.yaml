@@ -35,73 +35,31 @@ cards:
       - type: custom:button-card
         template: shoulder_blank_card                                     
 
-      - type: conditional
-        conditions:
-          - entity: device_tracker.life360_dima_trosman
-            state_not: "home"
-        card:
-          type: custom:decluttering-card
-          template: person_elements
-          variables:
-            - name: life360_dima_trosman
-            - direction: right
-            - image: '/local/images/dima_off.png'
-            - battery: sensor.life360_dima_battery
-            - icon: home
-            - tap_action:
-                action: navigate
-                navigation_path: /lovelace/map/    
+      - type: custom:decluttering-card
+        template: person_elements
+        variables:
+          - name: life360_dima_trosman
+          - direction: right
+          - image_away: '/local/images/dima_off.png'
+          - image_home: '/local/images/dima.png'
+          - battery: sensor.life360_dima_battery
+          - phone_icon: mdi:cellphone-iphone
+          - tap_action:
+              action: navigate
+              navigation_path: /lovelace/map/    
 
-      - type: conditional
-        conditions:
-          - entity: device_tracker.life360_dima_trosman
-            state: "home"
-        card:
-          type: custom:decluttering-card
-          template: person_elements
-          variables:
-            - name: life360_dima_trosman
-            - direction: right
-            - image: '/local/images/dima.png'
-            - battery: sensor.life360_dima_battery
-            - icon: home
-            - tap_action:
-                action: navigate
-                navigation_path: /lovelace/map/                
-
-      - type: conditional
-        conditions:
-          - entity: device_tracker.life360_galit
-            state_not: "home"
-        card:
-          type: custom:decluttering-card
-          template: person_elements
-          variables:
-            - name: life360_galit
-            - direction: right
-            - image: '/local/images/galit_off.png'
-            - battery: sensor.life360_galit_battery
-            - icon: home
-            - tap_action:
-                action: navigate
-                navigation_path: /lovelace/map/    
-
-      - type: conditional
-        conditions:
-          - entity: device_tracker.life360_galit
-            state: "home"
-        card:
-          type: custom:decluttering-card
-          template: person_elements
-          variables:
-            - name: life360_galit
-            - direction: right
-            - image: '/local/images/galit.png'
-            - battery: sensor.life360_galit_battery
-            - icon: home
-            - tap_action:
-                action: navigate
-                navigation_path: /lovelace/map/
+      - type: custom:decluttering-card
+        template: person_elements
+        variables:
+          - name: life360_galit
+          - direction: right
+          - image_away: '/local/images/galit_off.png'
+          - image_home: '/local/images/galit.png'
+          - battery: sensor.life360_galit_battery
+          - phone_icon: mdi:cellphone-android
+          - tap_action:
+              action: navigate
+              navigation_path: /lovelace/map/    
                       
       - type: custom:button-card
         template: shoulder_blank_card       

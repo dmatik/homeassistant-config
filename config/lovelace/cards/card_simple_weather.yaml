@@ -12,9 +12,11 @@ cards:
           ha-card {
             border-radius: var(--border-radius);
             overflow: hidden;
+            font-size: 18px;
+            font-weight: normal;            
           }
         entity: weather.dark_sky
-        name: Ashdod
+        name: " "
         backdrop:
           day: "var(--paper-card-background-color)"
           night: "var(--paper-card-background-color)"

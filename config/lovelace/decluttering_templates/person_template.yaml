@@ -8,15 +8,15 @@ card:
   style: |
     ha-card {
       border-radius: var(--border-radius);
-      #border: var(--border);
-      #box-shadow: var(--box-shadow);
       overflow: hidden;
     }
-  image: '[[image]]'
+  image: '[[image_away]]'
   elements:
     - type: image
       entity: device_tracker.[[name]]
-      image: '[[image]]'
+      image: '[[image_away]]'
+      state_image:
+        "home": '[[image_home]]'     
       tap_action: '[[tap_action]]'
       hold_action: '[[hold_action]]'
       style:
@@ -47,9 +47,9 @@ card:
         font-size: 16px
         color: "#FFFFFF"
         line-height: 32px
-        padding: 1px 30px
+        padding: 1px 26px
     - type: icon
-      icon: mdi:cellphone-iphone
+      icon: '[[phone_icon]]'
       style:
         top: 0
         '[[direction]]': 0
