@@ -97,7 +97,7 @@ cards:
           - icon: mdi:bed-empty
           - cust_1_field: "[[[
                   return `<ha-icon icon='mdi:thermometer' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
-                  <span><span style='color: var(--text-color-sensor);'>${states['sensor.xiaomi_bedroom_temperature'].state}°C</span></span>`;                               
+                  <span><span style='color: var(--text-color-sensor); text-transform: capitalize'>${states['sensor.xiaomi_bedroom_temperature'].state}°C</span></span>`;                               
                   ]]]"
           - cust_1_icon_color: "[[[
                   if (states['sensor.xiaomi_bedroom_temperature'].state >= 30) return '#bf4040';
@@ -128,7 +128,7 @@ cards:
           - icon: mdi:baby-face
           - cust_1_field: "[[[
                   return `<ha-icon icon='mdi:thermometer' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
-                  <span><span style='color: var(--text-color-sensor);'>${states['sensor.sensibo_kids_room_temp'].state}°C</span></span>`; 
+                  <span><span style='color: var(--text-color-sensor); text-transform: capitalize'>${states['sensor.sensibo_kids_room_temp'].state}°C</span></span>`; 
                   ]]]"
           - cust_1_icon_color: "[[[
                   if (states['sensor.sensibo_kids_room_temp'].state >= 30) return '#bf4040';

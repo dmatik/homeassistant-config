@@ -9,7 +9,7 @@ card:
     card:
       - padding: 6%
       - font-size: 12px
-      #- text-transform: capitalize
+      - text-transform: lowercase
       - border-radius: 5px
       - background-color: var(--paper-card-background-color)      
       - color: rgb(170, 170, 170)
