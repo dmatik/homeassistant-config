@@ -1,16 +1,18 @@
 title: Main
 icon: mdi:home-assistant
 path: main
-  
+
 cards:
 
     - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
 
-    - !include /config/lovelace/cards/banners/card_main_rooms_banners.yaml
+    - !include /config/lovelace/cards/menu/card_rooms_menu_buttons.yaml
 
-    - !include /config/lovelace/cards/banners/card_other_rooms_banners.yaml
+    #- !include /config/lovelace/cards/banners/card_main_rooms_banners.yaml
 
-    - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
+    #- !include /config/lovelace/cards/banners/card_other_rooms_banners.yaml
+
+    #- !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
 
     - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
 

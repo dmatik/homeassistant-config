@@ -85,7 +85,7 @@
       friendly_name: "Kids Room Status (Sensibo)"
       icon_template: mdi:home-thermometer
       value_template: >-
-        {{ states('sensor.sensibo_kids_room_temp') | round | int }}° / {{ states('sensor.sensibo_kids_room_humidity') | round | int }}% humidity
+        {{ states('sensor.sensibo_kids_room_temp') | round | int }}°C / {{ states('sensor.sensibo_kids_room_humidity') | round | int }}% humidity
         
     sensibo_kids_room_target_temp:
       friendly_name: "Target Temperature (Sensibo)"

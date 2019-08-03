@@ -23,7 +23,7 @@ card:
     action: call-service
     service: remote.send_command
     service_data:
-      entity_id: remote.'[[remote]]'
+      entity_id: remote.[[remote]]
       command:
           - '[[command]]'
       device: '[[device]]'      

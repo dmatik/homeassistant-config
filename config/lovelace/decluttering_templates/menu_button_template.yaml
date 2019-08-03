@@ -1,0 +1,86 @@
+card:
+
+  type: custom:button-card
+  entity: '[[entity]]'
+  icon: '[[icon]]'
+  aspect_ratio: 1/1
+  name: '[[name]]'
+  styles:
+    card:
+      - padding: 6%
+      #- color: ivory
+      - font-size: 12px
+      #- text-shadow: 0px 0px 5px black
+      #- text-transform: capitalize
+      - border-radius: 5px
+      - background-color: var(--paper-card-background-color)      
+      - color: rgb(170, 170, 170)
+    grid:
+      - grid-template-areas: '"i light" "n n" "cust_1 cust_1" "cust_2 cust_2"'
+      - grid-template-columns: 1fr 1fr
+      - grid-template-rows: 4fr 2fr 1fr 1fr
+    name:
+      #- font-weight: bold
+      - font-size: 16px
+      - color: white
+      - align-self: middle
+      - justify-self: start
+      - padding-top: 8px
+      - padding-bottom: 4px
+      - text-transform: lowercase        
+    img_cell:
+      - justify-content: start
+      - align-items: start
+      - margin: none
+      - height: 100%
+      - padding-bottom: 0px
+    icon:
+      - width: 90%
+      - height: 90%
+      - margin: none
+    custom_fields:
+      light:
+        - align-self: start
+        - justify-self: end
+        - font-size: 14px
+      cust_1:
+        - padding-bottom: 2px
+        - align-self: middle
+        - justify-self: start
+        - --text-color-sensor: "[[cust_1_style]]"
+        - --icon-color-sensor: "[[cust_1_icon_color]]"
+      cust_2:
+        - padding-bottom: 2px
+        - align-self: middle
+        - justify-self: start  
+        - --text-color-sensor: "[[cust_2_style]]"
+        - --icon-color-sensor: "[[cust_2_icon_color]]"
+      cust_3:
+        - padding-bottom: 0px
+        - align-self: middle
+        - justify-self: start 
+        - --text-color-sensor: "[[cust_3_style]]"
+        - --icon-color-sensor: "[[cust_3_icon_color]]"
+  custom_fields:
+    light: >
+      [[[
+        if (entity.state == 'off')
+        return `<ha-icon icon="mdi:lightbulb" style="width: 16px; height: 16px; color: var(--paper-item-icon-color);"></ha-icon>`;
+        else return `<ha-icon icon="mdi:lightbulb" style="width: 16px; height: 16px; color: var(--paper-item-icon-active-color);"></ha-icon>`;
+      ]]]
+    cust_1: >
+      [[cust_1_field]]
+    cust_2: >
+      [[cust_2_field]]
+    cust_3: >
+      [[cust_3_field]]
+  state:
+    - value: "on"
+      styles:
+        icon:
+          - color: var(--paper-item-icon-color)
+  tap_action:
+    action: navigate
+    navigation_path: /lovelace/[[path]]/ 
+  hold_action:
+    action: more-info

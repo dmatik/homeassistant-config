@@ -1,0 +1,158 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Rooms
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+        
+############################################################################
+#                                                                          #
+#   Rooms                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.living_room
+          - name: Living Room
+          - icon: mdi:sofa
+          - cust_1_field: "[[[
+                  if (states['sensor.living_room_tv'].state == 'Off')
+                  return `<ha-icon icon='mdi:television-classic' style='width: 12px; height: 12px; color: var(--paper-item-icon-color);'></ha-icon>
+                  <span><span style='color: var(--text-color-sensor);'>off</span></span>`;
+                  else return `<ha-icon icon='mdi:television-classic' style='width: 12px; height: 12px; color: var(--paper-item-icon-active-color);'></ha-icon>
+                  <span><span style='color: var(--text-color-sensor);'>${states['sensor.living_room_tv'].state}</span></span>`;
+                  ]]]"
+          - cust_2_field: ""
+          - cust_3_field: ""
+          - path: living_room
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.kitchen
+          - name: Kitchen
+          - icon: mdi:kettle
+          - cust_1_field: "[[[
+                  if (states['switch.switcher_aio_switch'].state == 'off')
+                  return `<ha-icon icon='mdi:water' style='width: 12px; height: 12px; color: var(--paper-item-icon-color);'></ha-icon>
+                  <span><span style='color: var(--text-color-sensor);'>off</span></span>`;
+                  else return `<ha-icon icon='mdi:water' style='width: 12px; height: 12px; color: var(--paper-item-icon-active-color);'></ha-icon>
+                  <span><span style='color: var(--text-color-sensor);'>${states['switch.switcher_aio_switch'].state}</span></span>`;
+                  ]]]"          
+          - cust_2_field: ""
+          - cust_3_field: ""
+          - path: kitchen
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.hall
+          - name: Hallway
+          - icon: mdi:door-open
+          - cust_1_field: ""          
+          - cust_2_field: ""
+          - cust_3_field: ""
+          - path: hallway
+
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.bedroom
+          - name: Bedroom
+          - icon: mdi:bed-empty
+          - cust_1_field: "[[[
+                  return `<ha-icon icon='mdi:thermometer' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span style='color: var(--text-color-sensor);'>${states['sensor.xiaomi_bedroom_temperature'].state}°C</span></span>`;                               
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['sensor.xiaomi_bedroom_temperature'].state >= 30) return '#bf4040';
+                  if (states['sensor.xiaomi_bedroom_temperature'].state >= 26 && states['sensor.xiaomi_bedroom_temperature'].state < 30) return '#bf9540';
+                  if (states['sensor.xiaomi_bedroom_temperature'].state >= 18 && states['sensor.xiaomi_bedroom_temperature'].state < 26) return 'rgba(117,189,111,1.0)';
+                  if (states['sensor.xiaomi_bedroom_temperature'].state < 18) return 'rgb(43, 154, 249)';
+                  ]]]"   
+          - cust_2_field: ""
+          - cust_3_field: ""
+          - path: bedroom
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.work_room
+          - name: Work Room
+          - icon: mdi:desktop-classic
+          - cust_1_field: ""          
+          - cust_2_field: ""
+          - cust_3_field: ""
+          - path: work_room
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.kids_room
+          - name: Kids Room
+          - icon: mdi:baby-face
+          - cust_1_field: "[[[
+                  return `<ha-icon icon='mdi:thermometer' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span style='color: var(--text-color-sensor);'>${states['sensor.sensibo_kids_room_temp'].state}°C</span></span>`; 
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['sensor.sensibo_kids_room_temp'].state >= 30) return '#bf4040';
+                  if (states['sensor.sensibo_kids_room_temp'].state >= 26 && states['sensor.sensibo_kids_room_temp'].state < 30) return '#bf9540';
+                  if (states['sensor.sensibo_kids_room_temp'].state >= 18 && states['sensor.sensibo_kids_room_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+                  if (states['sensor.sensibo_kids_room_temp'].state < 18) return 'rgb(43, 154, 249)';
+                  ]]]"
+          - cust_2_field: "[[[
+                  if (states['climate.kids_room'].state == 'off')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span style='color: var(--text-color-sensor);'>off</span></span>`;
+                  else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span style='color: var(--text-color-sensor);'>${states['climate.kids_room'].state} ${states['climate.kids_room'].attributes.temperature} ${states['climate.kids_room'].attributes.fan_mode}</span></span>`
+                  ]]]"
+          - cust_2_icon_color: "[[[
+                  if (states['climate.kids_room'].state == 'off') return 'var(--paper-item-icon-color)';
+                  if (states['climate.kids_room'].state == 'cool') return 'rgb(43, 154, 249)';
+                  if (states['climate.kids_room'].state == 'heat') return 'rgb(255, 129, 0)';
+                  ]]]"
+          - cust_3_field: ""
+          - path: kids_room
+
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+
+  - !include /config/lovelace/styles/separator_card.yaml

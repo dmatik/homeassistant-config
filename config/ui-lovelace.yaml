@@ -45,6 +45,8 @@ resources:
       type: module
     - url: /community_plugin/lovelace-card-mod/card-mod.js
       type: js
+#    - url: /community_plugin/lovelace-popup-card/popup-card.js
+#      type: js      
 
 title: Home
 
@@ -58,7 +60,8 @@ cch:
     - conditions:
           user: kiosk
       config:
-        hide_tabs: 0, 2, 4
+        hide_tabs: 0
+
 
 # Button card templates  
 
@@ -67,8 +70,7 @@ decluttering_templates:
 
 button_card_templates:
   !include /config/lovelace/button_card_templates/button_card_templates.yaml
-
-
+   
     
 views:
 
