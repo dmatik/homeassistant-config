@@ -8,9 +8,7 @@ card:
   styles:
     card:
       - padding: 6%
-      #- color: ivory
       - font-size: 12px
-      #- text-shadow: 0px 0px 5px black
       #- text-transform: capitalize
       - border-radius: 5px
       - background-color: var(--paper-card-background-color)      
@@ -20,7 +18,6 @@ card:
       - grid-template-columns: 1fr 1fr
       - grid-template-rows: 4fr 2fr 1fr 1fr
     name:
-      #- font-weight: bold
       - font-size: 16px
       - color: white
       - align-self: middle
