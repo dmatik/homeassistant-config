@@ -26,7 +26,7 @@ card:
         action: call-service
         service: script.turn_on
         service_data:
-          entity_id: [[entity]] 
+          entity_id: '[[entity]]'
     - hold_action:
         action: none
     - state:
