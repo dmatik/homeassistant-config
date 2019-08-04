@@ -1,6 +1,9 @@
 button:
   !include button_template.yaml
 
+light_button:
+  !include light_button_template.yaml
+
 person_elements:
   !include person_template.yaml
 
