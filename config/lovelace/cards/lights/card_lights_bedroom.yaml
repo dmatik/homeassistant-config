@@ -38,10 +38,11 @@ cards:
           - type: custom:button-card
             template: shoulder_blank_card 
           
-          - type: custom:button-card # Bedroom
-            template: light_switch_button
-            entity: light.bedroom
-            name: Bedroom
+          - type: custom:decluttering-card # Bedroom
+            template: light_button
+            variables:
+              - entity: light.bedroom
+              - name: Bedroom
     
           - type: "custom:button-card"
             color_type: blank-card

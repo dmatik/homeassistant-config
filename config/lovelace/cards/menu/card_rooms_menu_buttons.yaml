@@ -49,7 +49,6 @@ cards:
                   if (states['sensor.living_room_tv'].state == 'Off') return 'var(--paper-item-icon-color)';
                   else return 'var(--paper-item-icon-active-color)';
                   ]]]" 
-          - cust_2_field: ""
           - path: living_room                  
 
       - type: custom:decluttering-card
@@ -69,7 +68,6 @@ cards:
                   if (states['switch.switcher_aio_switch'].state == 'off') return 'var(--paper-item-icon-color)';
                   else return 'var(--paper-item-icon-active-color)';
                   ]]]" 
-          - cust_2_field: ""
           - path: kitchen
 
       - type: custom:decluttering-card
@@ -78,8 +76,6 @@ cards:
           - entity: light.hall
           - name: Hallway
           - icon: mdi:door-open
-          - cust_1_field: ""          
-          - cust_2_field: ""
           - path: hallway
 
       - type: custom:button-card
@@ -107,7 +103,6 @@ cards:
                   if (states['sensor.xiaomi_bedroom_temperature'].state >= 18 && states['sensor.xiaomi_bedroom_temperature'].state < 26) return 'rgba(117,189,111,1.0)';
                   if (states['sensor.xiaomi_bedroom_temperature'].state < 18) return 'rgb(43, 154, 249)';
                   ]]]"   
-          - cust_2_field: ""
           - path: bedroom
 
       - type: custom:decluttering-card
@@ -116,8 +111,6 @@ cards:
           - entity: light.work_room
           - name: Work Room
           - icon: mdi:desktop-classic
-          - cust_1_field: ""          
-          - cust_2_field: ""
           - path: work_room
 
       - type: custom:decluttering-card

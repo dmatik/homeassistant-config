@@ -37,11 +37,12 @@ cards:
         
           - type: custom:button-card
             template: shoulder_blank_card  
-  
-          - type: custom:button-card # Kids Room
-            template: light_switch_button
-            entity: light.kids_room
-            name: Kids Room
+
+          - type: custom:decluttering-card # Kids Room
+            template: light_button
+            variables:
+              - entity: light.kids_room
+              - name: Kids Room
     
           - type: "custom:button-card"
             color_type: blank-card   

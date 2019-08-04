@@ -1,11 +1,12 @@
 card:
-
   type: custom:decluttering-card
   template: button
   variables:
     - entity: '[[entity]]'
     - name: '[[name]]'
     - icon: '[[icon]]'
+    - color: '[[color]]'
+    - color_type: '[[color_type]]'
     - corner_text_color: "[[corner_text_color]]"
     - corner_icon_color: "[[[
         if (entity.state == 'off') return 'var(--paper-item-icon-color)';
@@ -27,3 +28,8 @@ card:
         navigation_path: /lovelace/[[path]]/
     - hold_action:
         action: more-info
+    - state:
+      - value: "on"
+        styles:
+          icon:
+            - color: var(--paper-item-icon-color)

@@ -37,27 +37,34 @@ cards:
       - type: custom:decluttering-card # Bedroom Yeelight
         template: yeelight_switch_button
         variables:
-          - light: bedroom_ceiling
+          - entity: light.bedroom_ceiling
           - name: Bedroom
-          - icon: mdi:ceiling-light               
+          - icon: mdi:ceiling-light
+          - cust_1_field: "[[[
+              if (states['binary_sensor.bedroom_ceiling_nightlight'].state == 'off')
+              return `<span style='color: var(--text-color-sensor);'>normal</span>`;
+              else return `<span style='color: var(--text-color-sensor);'>moonlight</span>`;
+              ]]]"
 
       - type: custom:decluttering-card # Normal Mode
         template: yeelight_nightlight_button
         variables:
-          - sensor: bedroom_ceiling
+          - entity: binary_sensor.bedroom_ceiling_nightlight
           - name: Normal
           - icon: mdi:brightness-5
+          - light_entity: light.bedroom_ceiling
           - nightlight: "off"
-          - mode: normal                              
+          - mode: normal
 
       - type: custom:decluttering-card # Moonlight Mode
         template: yeelight_nightlight_button
         variables:
-          - sensor: bedroom_ceiling
+          - entity: binary_sensor.bedroom_ceiling_nightlight
           - name: Moonlight
           - icon: mdi:brightness-4
+          - light_entity: light.bedroom_ceiling
           - nightlight: "on"
-          - mode: moonlight                               
+          - mode: moonlight
       
       - type: custom:button-card
         template: shoulder_blank_card 

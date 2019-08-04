@@ -1,47 +1,47 @@
-card:
+default:
+  - cust_1_field: "mode"
+  - cust_2_field: ""
+  - color_type: card
+  - color: white
+  - state: ""
 
-  type: custom:button-card
-  entity: binary_sensor.[[sensor]]_nightlight
-  name: '[[name]]'
-  icon: '[[icon]]'
-  color_type: card
-  show_state: false
-  show_label: true
-  layout: vertical
-  label: Mode
-  styles:
-    card:
-      - border-radius: 5px
-      - background-color: var(--paper-card-background-color)
-    grid:
-    - grid-template-areas: '"i" "n" "l"'
-    - grid-template-columns: 1fr
-    - grid-template-rows: 1fr min-content min-content
-    name:
-      - text-transform: lowercase
-      - color: var(--primary-text-color)
-    label:
-      - font-size: 12px
-      - text-transform: lowercase
-      - color: var(--primary-text-color)
-    img_cell:
-      - color: var(--primary-text-color)
-  state:
-    - value: '[[nightlight]]'
-      styles:
-        card:
-          - background-color: var(--disabled-text-color) 
-    - value: "unavailable"
-      styles:
-        icon:
-          - color: var(--disabled-text-color)
-        name:
-          - color: var(--disabled-text-color)
-        label:
-          - color: var(--disabled-text-color)
-  tap_action:
-    action: call-service
-    service: yeelight.set_mode
-    service_data:
-      entity_id: light.bedroom_ceiling
-      mode: '[[mode]]'
+
+card:
+  type: custom:decluttering-card
+  template: button
+  variables:
+    - entity: '[[entity]]'
+    - name: '[[name]]'
+    - icon: '[[icon]]'
+    - color: '[[color]]'
+    - color_type: '[[color_type]]'
+    - corner_text_color: ""
+    - corner_icon_color: ""
+    - cust_1_text_color: "[[cust_1_text_color]]"
+    - cust_1_icon_color: "[[cust_1_icon_color]]"
+    - cust_2_text_color: "[[cust_2_text_color]]"
+    - cust_2_icon_color: "[[cust_2_icon_color]]"
+    - corner_field: ""
+    - cust_1_field: "[[cust_1_field]]"
+    - cust_2_field: "[[cust_2_field]]"
+    - tap_action: 
+        action: call-service
+        service: yeelight.set_mode
+        service_data:
+          entity_id: '[[light_entity]]'
+          mode: '[[mode]]'
+    - hold_action:
+        action: more-info
+    - state: 
+        - value: '[[nightlight]]'
+          styles:
+            card:
+              - background-color: var(--disabled-text-color) 
+        - value: "unavailable"
+          styles:
+            icon:
+              - color: var(--disabled-text-color)
+            name:
+              - color: var(--disabled-text-color)
+            label:
+              - color: var(--disabled-text-color)

@@ -1,10 +1,18 @@
-card:
+default:
+  - cust_1_field: ""
+  - cust_2_field: ""
+  - color: auto
+  - color_type: icon
+  - icon_color: var(--paper-item-icon-color)
 
+card:
   type: custom:button-card
   entity: '[[entity]]'
   icon: '[[icon]]'
   aspect_ratio: 1/1
   name: '[[name]]'
+  color: '[[color]]'
+  color_type: '[[color_type]]'
   styles:
     card:
       - padding: 6%
@@ -31,6 +39,7 @@ card:
       - margin: none
       - height: 100%
       - padding-bottom: 0px
+      - color: '[[icon_color]]'
     icon:
       - width: 90%
       - height: 90%
@@ -58,10 +67,6 @@ card:
     corner: "[[corner_field]]"
     cust_1: "[[cust_1_field]]"
     cust_2: "[[cust_2_field]]"
-  state:
-    - value: "on"
-      styles:
-        icon:
-          - color: var(--paper-item-icon-color)
   tap_action: '[[tap_action]]'
   hold_action: '[[hold_action]]'
+  state: "[[state]]"
