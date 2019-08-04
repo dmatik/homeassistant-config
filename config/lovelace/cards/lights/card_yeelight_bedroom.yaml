@@ -40,11 +40,7 @@ cards:
           - entity: light.bedroom_ceiling
           - name: Bedroom
           - icon: mdi:ceiling-light
-          - cust_1_field: "[[[
-              if (states['binary_sensor.bedroom_ceiling_nightlight'].state == 'off')
-              return `<span style='color: var(--text-color-sensor);'>normal</span>`;
-              else return `<span style='color: var(--text-color-sensor);'>moonlight</span>`;
-              ]]]"
+          - cust_1_field: "[[[ return states['sensor.bedroom_ceiling_moonlight'].state ]]]"
 
       - type: custom:decluttering-card # Normal Mode
         template: yeelight_nightlight_button
