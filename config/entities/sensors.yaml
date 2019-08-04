@@ -131,7 +131,23 @@
       icon_template: mdi:battery
       unit_of_measurement: '%'
       value_template: >-
-        {{ states.binary_sensor.switch_bedside_galit.attributes.battery_level }}        
+        {{ states.binary_sensor.switch_bedside_galit.attributes.battery_level }}
+
+    # Yeelight
+    bedroom_ceiling_moonlight:
+      friendly_name: "Bedroom Moonlight Mode"
+      icon_template: mdi:brightness-4
+      value_template: >-
+        {% if is_state('light.bedroom_ceiling', 'unavailable') %}
+            unavailable
+        {% else %}
+            {% if is_state('binary_sensor.bedroom_ceiling_nightlight', 'on') %}
+                moonlight
+            {% else %}
+                normal
+            {% endif %}
+        {% endif %}
+
 
     # Life360
     life360_dima_battery:

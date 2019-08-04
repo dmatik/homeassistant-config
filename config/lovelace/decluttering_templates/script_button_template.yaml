@@ -1,31 +1,36 @@
-card:
+default:
+  - cust_1_field: "Script"
+  - cust_2_field: ""
+  - color: var(--button-color-green)
+  - color_type: card
 
-  type: custom:button-card
-  entity: script.[[script]]
-  name: '[[name]]'
-  icon: '[[icon]]'
-  color: var(--button-color-green)
-  color_type: card
-  show_state: false
-  show_label: false
-  layout: vertical
-  styles:
-    card:
-      - border-radius: 5px
-      - background-color: var(--paper-card-background-color)
-    grid:
-      - grid-template-areas: '"i" "n"'
-      - grid-template-columns: 1fr
-      - grid-template-rows: 1fr min-content min-content
-    name:
-      - text-transform: lowercase
-  state:
-    - value: "on"
-      styles:
-        card:
-          - background-color: var(--button-color-green)
-  tap_action:
-    action: call-service
-    service: script.turn_on
-    service_data:
-      entity_id: script.[[script]]          
+card:
+  type: custom:decluttering-card
+  template: button
+  variables:
+    - entity: '[[entity]]'
+    - name: '[[name]]'
+    - icon: '[[icon]]'
+    - color: '[[color]]'
+    - color_type: '[[color_type]]'
+    - corner_text_color: ""
+    - corner_icon_color: ""
+    - cust_1_text_color: "[[cust_1_text_color]]"
+    - cust_1_icon_color: "[[cust_1_icon_color]]"
+    - cust_2_text_color: "[[cust_2_text_color]]"
+    - cust_2_icon_color: "[[cust_2_icon_color]]"
+    - corner_field: ""
+    - cust_1_field: "[[cust_1_field]]"
+    - cust_2_field: "[[cust_2_field]]"
+    - tap_action: 
+        action: call-service
+        service: script.turn_on
+        service_data:
+          entity_id: [[entity]] 
+    - hold_action:
+        action: none
+    - state:
+        - value: "on"
+          styles:
+            card:
+              - background-color: var(--button-color-green)

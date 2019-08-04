@@ -33,7 +33,7 @@ card:
     - hold_action:
         action: more-info
     - state: 
-        - value: '[[nightlight]]'
+        - value: '[[mode]]'
           styles:
             card:
               - background-color: var(--disabled-text-color) 

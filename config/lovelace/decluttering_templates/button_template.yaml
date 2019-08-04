@@ -15,7 +15,7 @@ card:
   color_type: '[[color_type]]'
   styles:
     card:
-      - padding: 6%
+      - padding: 8%
       - font-size: 12px
       - text-transform: lowercase
       - border-radius: 5px

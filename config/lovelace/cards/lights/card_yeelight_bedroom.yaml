@@ -49,7 +49,7 @@ cards:
       - type: custom:decluttering-card # Normal Mode
         template: yeelight_nightlight_button
         variables:
-          - entity: binary_sensor.bedroom_ceiling_nightlight
+          - entity: sensor.bedroom_ceiling_moonlight
           - name: Normal
           - icon: mdi:brightness-5
           - light_entity: light.bedroom_ceiling
@@ -59,7 +59,7 @@ cards:
       - type: custom:decluttering-card # Moonlight Mode
         template: yeelight_nightlight_button
         variables:
-          - entity: binary_sensor.bedroom_ceiling_nightlight
+          - entity: sensor.bedroom_ceiling_moonlight
           - name: Moonlight
           - icon: mdi:brightness-4
           - light_entity: light.bedroom_ceiling

@@ -37,22 +37,30 @@ cards:
       - type: custom:decluttering-card # Bedtime
         template: script_button
         variables:
-          - script: goodnight_script
+          - entity: script.goodnight_script
           - name: Bedtime
           - icon: mdi:hotel              
 
       - type: custom:decluttering-card # Lights Off
         template: script_button
         variables:
-          - script: lights_off
+          - entity: script.lights_off
           - name: Lights Off
           - icon: mdi:flash-off             
             
-      - type: custom:button-card # Hall night mode automation
-        template: light_switch_button
-        entity: input_boolean.automation_hall_night_mode
-        name: Night Mode
-        icon: mdi:flash-auto
+      # - type: custom:button-card # Hall night mode automation
+      #   template: light_switch_button
+      #   entity: input_boolean.automation_hall_night_mode
+      #   name: Night Mode
+      #   icon: mdi:flash-auto
+
+      - type: custom:decluttering-card # Hall night mode automation
+        template: light_button
+        variables:
+          - entity: input_boolean.automation_hall_night_mode
+          - name: Night Mode
+          - icon: mdi:flash-auto
+          - cust_2_field: "Automation"
         
       - type: custom:button-card
         template: shoulder_blank_card 
