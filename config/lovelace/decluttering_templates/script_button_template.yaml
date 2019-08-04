@@ -4,7 +4,7 @@ card:
   entity: script.[[script]]
   name: '[[name]]'
   icon: '[[icon]]'
-  #color: var(--button-color-green)
+  color: var(--button-color-green)
   color_type: card
   show_state: false
   show_label: false

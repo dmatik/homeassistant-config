@@ -42,15 +42,15 @@ cards:
           - name: Living Room
           - icon: mdi:sofa
           - cust_1_field: "[[[
-                  if (states['sensor.living_room_tv'].state == 'Off')
-                  return `<ha-icon icon='mdi:television-classic' style='width: 12px; height: 12px; color: var(--paper-item-icon-color);'></ha-icon>
-                  <span><span style='color: var(--text-color-sensor);'>off</span></span>`;
-                  else return `<ha-icon icon='mdi:television-classic' style='width: 12px; height: 12px; color: var(--paper-item-icon-active-color);'></ha-icon>
+                  return `<ha-icon icon='mdi:television-classic' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span style='color: var(--text-color-sensor);'>${states['sensor.living_room_tv'].state}</span></span>`;
                   ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['sensor.living_room_tv'].state == 'Off') return 'var(--paper-item-icon-color)';
+                  else return 'var(--paper-item-icon-active-color)';
+                  ]]]" 
           - cust_2_field: ""
-          - cust_3_field: ""
-          - path: living_room
+          - path: living_room                  
 
       - type: custom:decluttering-card
         template: menu_button
@@ -60,13 +60,16 @@ cards:
           - icon: mdi:kettle
           - cust_1_field: "[[[
                   if (states['switch.switcher_aio_switch'].state == 'off')
-                  return `<ha-icon icon='mdi:water' style='width: 12px; height: 12px; color: var(--paper-item-icon-color);'></ha-icon>
+                  return `<ha-icon icon='mdi:water' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span style='color: var(--text-color-sensor);'>off</span></span>`;
-                  else return `<ha-icon icon='mdi:water' style='width: 12px; height: 12px; color: var(--paper-item-icon-active-color);'></ha-icon>
-                  <span><span style='color: var(--text-color-sensor);'>${states['switch.switcher_aio_switch'].state}</span></span>`;
-                  ]]]"          
+                  else return `<ha-icon icon='mdi:water' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span>Auto off <span style='color: var(--text-color-sensor);'>${states['sensor.switcher_aio_auto_off_time'].state}</span></span>`;
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['switch.switcher_aio_switch'].state == 'off') return 'var(--paper-item-icon-color)';
+                  else return 'var(--paper-item-icon-active-color)';
+                  ]]]" 
           - cust_2_field: ""
-          - cust_3_field: ""
           - path: kitchen
 
       - type: custom:decluttering-card
@@ -77,7 +80,6 @@ cards:
           - icon: mdi:door-open
           - cust_1_field: ""          
           - cust_2_field: ""
-          - cust_3_field: ""
           - path: hallway
 
       - type: custom:button-card
@@ -106,7 +108,6 @@ cards:
                   if (states['sensor.xiaomi_bedroom_temperature'].state < 18) return 'rgb(43, 154, 249)';
                   ]]]"   
           - cust_2_field: ""
-          - cust_3_field: ""
           - path: bedroom
 
       - type: custom:decluttering-card
@@ -117,7 +118,6 @@ cards:
           - icon: mdi:desktop-classic
           - cust_1_field: ""          
           - cust_2_field: ""
-          - cust_3_field: ""
           - path: work_room
 
       - type: custom:decluttering-card
@@ -148,7 +148,6 @@ cards:
                   if (states['climate.kids_room'].state == 'cool') return 'rgb(43, 154, 249)';
                   if (states['climate.kids_room'].state == 'heat') return 'rgb(255, 129, 0)';
                   ]]]"
-          - cust_3_field: ""
           - path: kids_room
 
       - type: custom:button-card
