@@ -220,7 +220,7 @@ card:
           layout: vertical
           styles:
             card:
-              - border-radius: 5px
+              - border-radius: var(--border-radius)
               - background-color: var(--paper-card-background-color)
             img_cell:
               - color: var(--primary-text-color)          
@@ -244,7 +244,7 @@ card:
           layout: vertical
           styles:
             card:
-              - border-radius: 5px
+              - border-radius: var(--border-radius)
               - background-color: var(--paper-card-background-color)
             img_cell:
               - color: var(--primary-text-color)          
@@ -268,7 +268,7 @@ card:
           layout: vertical
           styles:
             card:
-              - border-radius: 5px
+              - border-radius: var(--border-radius)
               - background-color: var(--paper-card-background-color)
           state:
             - value: "on"
@@ -291,7 +291,7 @@ card:
           layout: vertical
           styles:
             card:
-              - border-radius: 5px
+              - border-radius: var(--border-radius)
               - background-color: var(--paper-card-background-color)
           state:
             - value: "on"

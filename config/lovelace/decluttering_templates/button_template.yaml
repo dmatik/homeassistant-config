@@ -18,7 +18,7 @@ card:
       - padding: 8%
       - font-size: 12px
       - text-transform: lowercase
-      - border-radius: 5px
+      - border-radius: var(--border-radius)
       - background-color: var(--paper-card-background-color)      
       - color: rgb(170, 170, 170)
     grid:

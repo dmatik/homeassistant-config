@@ -36,6 +36,10 @@ panel_iframe:
 frontend:
   themes: 
     !include_dir_merge_named themes
+  extra_html_url:
+    - /local/hass-fontawesome-solid.html
+    - /local/hass-fontawesome-regular.html
+    - /local/hass-fontawesome-brands.html
 
 # Enables configuration UI
 config:
@@ -134,13 +138,8 @@ sun:
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_client_secret
-  
 
-#custom_updater:
-#  card_urls:
-#    - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
-#    - https://raw.githubusercontent.com/matisaul/vertical-style-card/master/tracker.json
-#    - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
+
 hacs:
   token: !secret github_access_token
     

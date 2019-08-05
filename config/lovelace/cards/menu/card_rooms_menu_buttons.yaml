@@ -42,7 +42,7 @@ cards:
           - name: Living Room
           - icon: mdi:sofa
           - cust_1_field: "[[[
-                  return `<ha-icon icon='mdi:television-classic' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  return `<ha-icon icon='mdi:television' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span style='color: var(--text-color-sensor);'>${states['sensor.living_room_tv'].state}</span></span>`;
                   ]]]"
           - cust_1_icon_color: "[[[

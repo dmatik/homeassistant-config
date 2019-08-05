@@ -114,7 +114,7 @@ cards:
         layout: vertical
         styles:
           card:
-            - border-radius: 5px
+            - border-radius: var(--border-radius)
             - background-color: var(--paper-card-background-color)
           img_cell:
             - color: var(--primary-text-color)
@@ -139,7 +139,7 @@ cards:
         layout: vertical
         styles:
           card:
-            - border-radius: 5px
+            - border-radius: var(--border-radius)
             - background-color: var(--paper-card-background-color)
           img_cell:
             - color: var(--primary-text-color)
@@ -180,7 +180,7 @@ cards:
         layout: vertical
         styles:
           card:
-            - border-radius: 5px
+            - border-radius: var(--border-radius)
             - background-color: var(--paper-card-background-color)
           name:
             - text-transform: lowercase
@@ -209,7 +209,7 @@ cards:
         layout: vertical
         styles:
           card:
-            - border-radius: 5px
+            - border-radius: var(--border-radius)
             - background-color: var(--paper-card-background-color)
           name:
             - text-transform: lowercase
@@ -238,7 +238,7 @@ cards:
         layout: vertical
         styles:
           card:
-            - border-radius: 5px
+            - border-radius: var(--border-radius)
             - background-color: var(--paper-card-background-color)
           name:
             - text-transform: lowercase
@@ -267,7 +267,7 @@ cards:
         layout: vertical
         styles:
           card:
-            - border-radius: 5px
+            - border-radius: var(--border-radius)
             - background-color: var(--paper-card-background-color)
           name:
             - text-transform: lowercase

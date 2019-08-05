@@ -7,7 +7,7 @@ show_label: false
 layout: vertical
 styles:
   card:
-    - border-radius: 5px
+    - border-radius: var(--border-radius)
     - background-color: var(--paper-card-background-color)
   grid:
     - grid-template-areas: '"i" "n"'

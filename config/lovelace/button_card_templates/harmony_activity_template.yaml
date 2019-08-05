@@ -2,10 +2,11 @@ type: custom:button-card
 color_type: card
 show_state: false
 show_label: false
+show_name: false
 layout: vertical
 styles:
   card:
-    - border-radius: 5px
+    - border-radius: var(--border-radius)
     - background-color: var(--paper-card-background-color)
   grid:
     - grid-template-areas: '"i" "n"'

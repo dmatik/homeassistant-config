@@ -62,11 +62,13 @@ cards:
         template: harmony_activity_switch
         entity: switch.baltic_tv
         name: Baltic TV
+        icon: mdi:satellite-variant
                 
       - type: custom:button-card # Shield TV
         template: harmony_activity_switch
         entity: switch.shield_tv
         name: Shield TV
+        icon: fab:android
                 
       - type: custom:button-card # Smart TV
         template: harmony_activity_switch
