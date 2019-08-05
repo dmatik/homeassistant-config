@@ -47,12 +47,6 @@ cards:
           - entity: script.lights_off
           - name: Lights Off
           - icon: mdi:flash-off             
-            
-      # - type: custom:button-card # Hall night mode automation
-      #   template: light_switch_button
-      #   entity: input_boolean.automation_hall_night_mode
-      #   name: Night Mode
-      #   icon: mdi:flash-auto
 
       - type: custom:decluttering-card # Hall night mode automation
         template: light_button

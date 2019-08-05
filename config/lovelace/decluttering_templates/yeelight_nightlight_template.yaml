@@ -25,7 +25,10 @@ card:
     - cust_1_field: "[[cust_1_field]]"
     - cust_2_field: "[[cust_2_field]]"
     - tap_action: 
-        action: call-service
+        action: "[[[
+          if (entity.state == 'unavailable') return 'none';
+          else return 'call-service';
+          ]]]"
         service: yeelight.set_mode
         service_data:
           entity_id: '[[light_entity]]'

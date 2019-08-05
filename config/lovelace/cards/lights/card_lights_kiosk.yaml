@@ -38,20 +38,23 @@ cards:
           - type: custom:button-card
             template: shoulder_blank_card  
           
-          - type: custom:button-card # Living Room
-            template: light_switch_button
-            entity: light.living_room
-            name: Living Room
-                    
-          - type: custom:button-card # Dining
-            template: light_switch_button
-            entity: light.dining
-            name: Dining
-                    
-          - type: custom:button-card # Balcony
-            template: light_switch_button
-            entity: light.balcony
-            name: Balcony
+          - type: custom:decluttering-card # Living Room
+            template: light_button
+            variables:
+              - entity: light.living_room
+              - name: Living Room
+
+          - type: custom:decluttering-card # Dining
+            template: light_button
+            variables:
+              - entity: light.dining
+              - name: Dining
+
+          - type: custom:decluttering-card # Kitchen
+            template: light_button
+            variables:
+              - entity: light.kitchen
+              - name: Kitchen
             
           - type: custom:button-card
             template: shoulder_blank_card  
@@ -61,21 +64,26 @@ cards:
     
           - type: custom:button-card
             template: shoulder_blank_card  
-          
-          - type: custom:button-card # Kitchen
-            template: light_switch_button
-            entity: light.kitchen
-            name: Kitchen
-    
-          - type: custom:button-card # Service Balcony
-            template: light_switch_button
-            entity: light.service_balcony
-            name: Serv. Balcony
-                    
-          - type: custom:button-card # Hall
-            template: light_switch_button
-            entity: light.hall
-            name: Hall
+
+          - type: custom:decluttering-card # Hall
+            template: light_button
+            variables:
+              - entity: light.hall
+              - name: Hallway
+
+          - type: custom:decluttering-card # Bedtime
+            template: script_button
+            variables:
+              - entity: script.goodnight_script
+              - name: Bedtime
+              - icon: mdi:hotel
+
+          - type: custom:decluttering-card # Lights Off
+            template: script_button
+            variables:
+              - entity: script.lights_off
+              - name: Lights Off
+              - icon: mdi:flash-off
       
           - type: custom:button-card
             template: shoulder_blank_card  

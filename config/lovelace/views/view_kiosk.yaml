@@ -17,14 +17,10 @@ cards:
             cards:
 
               - !include /config/lovelace/cards/card_clock.yaml
-
-              #- !include /config/lovelace/cards/card_animated_weather.yaml
               
               - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
 
               - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
-              
-              - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
             
           - type: vertical-stack
             cards:
