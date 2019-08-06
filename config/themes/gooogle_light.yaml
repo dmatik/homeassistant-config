@@ -1,4 +1,24 @@
 Google - Light:
+
+# My Styles
+  border-radius: 8px
+  border: solid 1px rgba(100,100,100,0.3)
+  box-shadow: 1px 1px rgba(0,0,0,0.4)
+
+# My Button Card Styles
+  button-card-border-radius: 'var(--border-radius)'                               # Button Card corners radius
+  button-card-background-color: 'var(--paper-card-background-color)'              # Button Card background color
+  button-card-icon-color: 'var(--paper-item-icon-color)'                          # Button Card icon color
+  button-card-text-color: 'var(--primary-text-color)'                             # Button Card text color
+  button-card-corner-text-color: 'var(--secondary-text-color)'                    # Button card corner field text color
+  button-card-cust-1-text-color: 'var(--secondary-text-color)'                    # Button Card cust_1 field text color
+  button-card-cust-2-text-color: 'var(--secondary-text-color)'                    # Button Card cust_2 field text color
+  button-card-disabled-text-color: 'var(--disabled-text-color)'                   # Button Card disabled text color
+  button-card-input-select-background: 'var(--disabled-text-color)'               # Button Card selected item color
+  button-color-green: 'rgba(117,189,111,1)'                                       # Button Card green background (ON mode)
+  title-button-background: 'var(--paper-card-header-color)'                       # Title button background color
+  title-button-text-color: 'var(--primary-text-color)'                            # Title button text color
+  
   ### Fonts ###
   primary-font-family: "'Open Sans','Rubik',Roboto,sans-serif"
   paper-font-common-base_-_font-family: "var(--primary-font-family)"
