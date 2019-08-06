@@ -6,7 +6,6 @@ default:
       return (bri ? bri : '0') + '%';                  
       ]]]"
   - color: auto-no-temperature
-  - state: ""
 
 card:
   type: custom:decluttering-card
@@ -30,12 +29,4 @@ card:
         action: toggle
     - hold_action:
         action: more-info
-    - state:
-        - value: "unavailable"
-          styles:
-            icon:
-              - color: var(--disabled-text-color)
-            name:
-              - color: var(--disabled-text-color)
-            label:
-              - color: var(--disabled-text-color)  
+    - state: '[[state]]'

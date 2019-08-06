@@ -3,7 +3,30 @@ default:
   - cust_2_field: ""
   - color: auto
   - color_type: icon
-  - icon_color: var(--paper-item-icon-color)
+  - state:
+      - value: "unavailable"
+        styles:
+          icon:
+            - color: var(--button-card-disabled-text-color)
+          name:
+            - color: var(--button-card-disabled-text-color)
+          custom_fields:
+            corner:
+              - color: var(--button-card-disabled-text-color)
+            cust_1:
+              - color: var(--button-card-disabled-text-color)
+            cust_2:
+              - color: var(--button-card-disabled-text-color)
+
+  # Styles
+  - border_radius: var(--button-card-border-radius)
+  - background_color: var(--button-card-background-color)
+  - icon_color: var(--button-card-icon-color)
+  - text_color: var(--button-card-text-color)
+  - corner_text_color: var(--button-card-corner-text-color)
+  - cust_1_text_color: var(--button-card-cust-1-text-color)
+  - cust_2_text_color: var(--button-card-cust-2-text-color)
+
 
 card:
   type: custom:button-card
@@ -18,16 +41,15 @@ card:
       - padding: 8%
       - font-size: 12px
       - text-transform: lowercase
-      - border-radius: var(--border-radius)
-      - background-color: var(--paper-card-background-color)      
-      - color: rgb(170, 170, 170)
+      - border-radius: '[[border_radius]]'
+      - background-color: '[[background_color]]'
+      - color: '[[text_color]]'
     grid:
       - grid-template-areas: '"i corner" "n n" "cust_1 cust_1" "cust_2 cust_2"'
       - grid-template-columns: 1fr 1fr
       - grid-template-rows: 4fr 2fr 1fr 1fr
     name:
       - font-size: 16px
-      - color: white
       - align-self: middle
       - justify-self: start
       - padding-top: 8px
@@ -49,19 +71,22 @@ card:
         - align-self: start
         - justify-self: end
         - font-size: 14px
-        - --text-color-sensor: "[[corner_text_color]]"
+        - color: "[[corner_text_color]]"
+        #- --text-color-sensor: "[[corner_text_color]]"
         - --icon-color-sensor: "[[corner_icon_color]]"
       cust_1:
         - padding-bottom: 2px
         - align-self: middle
         - justify-self: start
-        - --text-color-sensor: "[[cust_1_text_color]]"
+        - color: "[[cust_1_text_color]]"
+        #- --text-color-sensor: "[[cust_1_text_color]]"
         - --icon-color-sensor: "[[cust_1_icon_color]]"
       cust_2:
         - padding-bottom: 2px
         - align-self: middle
-        - justify-self: start  
-        - --text-color-sensor: "[[cust_2_text_color]]"
+        - justify-self: start
+        - color: "[[cust_2_text_color]]"
+        #- --text-color-sensor: "[[cust_2_text_color]]"
         - --icon-color-sensor: "[[cust_2_icon_color]]"
   custom_fields:
     corner: "[[corner_field]]"

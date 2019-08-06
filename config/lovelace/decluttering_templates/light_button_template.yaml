@@ -2,7 +2,6 @@ default:
   - icon: mdi:lightbulb
   - cust_1_field: "[[[ return entity.state ]]]"
   - cust_2_field: ""
-  - state: ""
 
 card:
   type: custom:decluttering-card

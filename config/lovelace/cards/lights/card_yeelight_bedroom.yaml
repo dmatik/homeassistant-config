@@ -42,8 +42,8 @@ cards:
           - icon: mdi:ceiling-light
           - cust_1_field: "[[[
               if (states['light.bedroom_ceiling'].state == 'off')
-              return `<span style='color: var(--text-color-sensor);'>off</span>`;
-              else return `<span style='color: var(--text-color-sensor);'>${states['sensor.bedroom_ceiling_moonlight'].state}</span>`;
+              return `<span>off</span>`;
+              else return `<span>${states['sensor.bedroom_ceiling_moonlight'].state}</span>`;
               ]]]"
 
       - type: custom:decluttering-card # Normal Mode

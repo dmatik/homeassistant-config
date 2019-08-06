@@ -3,7 +3,6 @@ default:
   - cust_2_field: ""
   - color_type: card
   - color: white
-  - state: ""
 
 
 card:
@@ -39,12 +38,17 @@ card:
         - value: '[[mode]]'
           styles:
             card:
-              - background-color: var(--disabled-text-color) 
+              - background-color: var(--button-card-input-select-background) 
         - value: "unavailable"
           styles:
             icon:
-              - color: var(--disabled-text-color)
+              - color: var(--button-card-disabled-text-color)
             name:
-              - color: var(--disabled-text-color)
-            label:
-              - color: var(--disabled-text-color)
+              - color: var(--button-card-disabled-text-color)
+            custom_fields:
+              corner:
+                - color: var(--button-card-disabled-text-color)
+              cust_1:
+                - color: var(--button-card-disabled-text-color)
+              cust_2:
+                - color: var(--button-card-disabled-text-color)
