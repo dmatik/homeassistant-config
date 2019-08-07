@@ -4,6 +4,8 @@ path: kids_room
   
 cards:
 
+    - !include /config/lovelace/cards/card_home_button.yaml
+
     - !include /config/lovelace/cards/lights/card_lights_kids_room.yaml
 
     - !include /config/lovelace/cards/ac/card_sensibo_kids_room.yaml

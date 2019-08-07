@@ -7,6 +7,8 @@ default:
   - icon_color: var(--button-card-icon-color)
   - size: 48px
   - font_size: 28px
+  - padding_top: 3%
+  - padding_bottom: 3%
   - tap_action:
       action: toggle
   - hold_action:
@@ -33,6 +35,8 @@ card:
     card:
       - border-radius: '[[border_radius]]'
       - background-color: '[[background_color]]'
+      - padding-top: '[[padding_top]]'
+      - padding-bottom: '[[padding_bottom]]'
     name:
       - text-transform: lowercase
       - color: '[[name_color]]'

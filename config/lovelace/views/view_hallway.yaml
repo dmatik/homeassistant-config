@@ -4,6 +4,8 @@ path: hallway
   
 cards:
 
+    - !include /config/lovelace/cards/card_home_button.yaml
+
     - !include /config/lovelace/cards/lights/card_lights_hallway.yaml
 
 

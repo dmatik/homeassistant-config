@@ -4,6 +4,8 @@ path: work_room
   
 cards:
 
+    - !include /config/lovelace/cards/card_home_button.yaml
+
     - !include /config/lovelace/cards/lights/card_lights_work_room.yaml
 
 
