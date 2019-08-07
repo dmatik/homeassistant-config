@@ -118,7 +118,7 @@ cards:
         variables:
           - entity: light.kids_room
           - name: Kids Room
-          - icon: mdi:baby-face
+          - icon: mdi:face
           - cust_1_field: "[[[
                   return `<ha-icon icon='mdi:thermometer' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span style='text-transform: capitalize'>${states['sensor.sensibo_kids_room_temp'].state}°C</span></span>`; 
@@ -137,9 +137,9 @@ cards:
                   <span><span>${states['climate.kids_room'].state} ${states['climate.kids_room'].attributes.temperature} ${states['climate.kids_room'].attributes.fan_mode}</span></span>`
                   ]]]"
           - cust_2_icon_color: "[[[
-                  if (states['climate.kids_room'].state == 'off') return 'var(--paper-item-icon-color)';
-                  if (states['climate.kids_room'].state == 'cool') return 'rgb(43, 154, 249)';
-                  if (states['climate.kids_room'].state == 'heat') return 'rgb(255, 129, 0)';
+                  if (states['climate.kids_room'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['climate.kids_room'].state == 'cool') return 'var(--sensibo-cool-color)';
+                  if (states['climate.kids_room'].state == 'heat') return 'var(--sensibo-heat-color)';
                   ]]]"
           - path: kids_room
 

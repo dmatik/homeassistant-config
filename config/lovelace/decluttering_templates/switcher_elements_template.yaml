@@ -1,0 +1,61 @@
+default:
+  - text_color: var(--picture-elements-text-color)
+  - image_on: /local/switcher_buttons_on.png
+  - image_off: /local/switcher_buttons_off.png
+  - entity: switch.switcher_aio_switch
+  - electric_current_sensor: switcher_aio.electric_current_sensor
+  - time_left_sensor: sensor.switcher_aio_time_left
+  - auto_off_sensor: sensor.switcher_aio_auto_off_time
+
+card:
+  type: picture-elements
+  style: |
+    ha-card {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }            
+  image: '[[image_on]]'
+  elements:
+    - type: image
+      entity: '[[entity]]'
+      image: '[[image_on]]'
+      state_image:
+        "off": '[[image_off]]'
+      style:
+        top: 50%
+        left: 50%
+        width: 100%
+    - type: conditional
+      conditions:
+        - entity: '[[entity]]'
+          state: 'on'
+      elements:
+        - type: state-label
+          entity: '[[electric_current_sensor]]'
+          style:
+            top: 85%
+            left: 16%
+            font-size: 24px
+            color: '[[text_color]]'
+            text-transform: lowercase
+    - type: conditional
+      conditions:
+        - entity: '[[entity]]'
+          state: 'on'
+      elements:
+        - type: state-label
+          entity: '[[time_left_sensor]]'
+          style:
+            top: 85%
+            left: 50%
+            font-size: 24px
+            color: '[[text_color]]'
+            text-transform: lowercase
+    - type: state-label
+      entity: '[[auto_off_sensor]]'
+      style:
+        top: 85%
+        left: 84%
+        font-size: 24px
+        color: '[[text_color]]'
+        text-transform: lowercase

@@ -58,22 +58,26 @@ cards:
       - type: custom:button-card
         template: shoulder_blank_card 
 
-      - type: custom:button-card # Baltic TV
-        template: harmony_activity_switch
-        entity: switch.baltic_tv
-        name: Baltic TV
-        icon: mdi:satellite-variant
-                
-      - type: custom:button-card # Shield TV
-        template: harmony_activity_switch
-        entity: switch.shield_tv
-        name: Shield TV
-        icon: fab:android
-                
-      - type: custom:button-card # Smart TV
-        template: harmony_activity_switch
-        entity: switch.smart_tv
-        name: Smart TV
+      - type: custom:decluttering-card # Baltic TV
+        template: simple_button
+        variables:
+          - entity: switch.baltic_tv
+          - name: Baltic TV
+          - icon: mdi:satellite-variant
+
+      - type: custom:decluttering-card # Shield TV
+        template: simple_button
+        variables:
+          - entity: switch.shield_tv
+          - name: Shield TV
+          - icon: mdi:android
+
+      - type: custom:decluttering-card # Smart TV
+        template: simple_button
+        variables:
+          - entity: switch.smart_tv
+          - name: Smart TV
+          - icon: mdi:television
         
       - type: custom:button-card
         template: shoulder_blank_card 
@@ -91,20 +95,26 @@ cards:
       - type: custom:button-card
         template: shoulder_blank_card 
 
-      - type: custom:button-card # Volume Up
-        template: script_icon_button
-        entity: script.reciever_volume_up
-        name: Up
-                
-      - type: custom:button-card # Volume Down
-        template: script_icon_button
-        entity: script.reciever_volume_down
-        name: Down
-                
-      - type: custom:button-card # Volume Mute
-        template: script_icon_button
-        entity: script.reciever_volume_mute
-        name: Mute
+      - type: custom:decluttering-card # Volume Up
+        template: simple_script_button
+        variables:
+          - entity: script.reciever_volume_up
+          - name: Volume
+          - icon: mdi:volume-plus
+
+      - type: custom:decluttering-card # Volume Down
+        template: simple_script_button
+        variables:
+          - entity: script.reciever_volume_down
+          - name: Volume
+          - icon: mdi:volume-minus
+
+      - type: custom:decluttering-card # Volume Mute
+        template: simple_script_button
+        variables:
+          - entity: script.reciever_volume_mute
+          - name: Mute
+          - icon: mdi:volume-mute
         
       - type: custom:button-card
         template: shoulder_blank_card 

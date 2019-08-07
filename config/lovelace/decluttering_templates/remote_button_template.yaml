@@ -1,6 +1,7 @@
 default:
-  - color: var(--paper-card-background-color)
-  - icon_color: var(--primary-text-color)
+  - color: 'var(--remote-button-background)'
+  - icon_color: 'var(--remote-button-icon)'
+  - border_radius: 'var(--remote-button-border-radius)'
 
 card:
 
@@ -15,7 +16,7 @@ card:
   layout: vertical
   styles:
     card:
-      - border-radius: 5px
+      - border-radius: '[[border_radius]]'
       - background-color: '[[color]]'
     img_cell:
       - color: '[[icon_color]]'

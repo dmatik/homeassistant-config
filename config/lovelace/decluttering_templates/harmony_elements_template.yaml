@@ -1,5 +1,7 @@
-card:
+default:
+  - text_color: var(--picture-elements-text-color)
 
+card:
   type: picture-elements
   style: |
     ha-card {
@@ -23,5 +25,5 @@ card:
         top: 85%
         left: 82%
         font-size: 24px
-        color: "#FFFFFF"
+        color: '[[text_color]]'
         text-transform: lowercase

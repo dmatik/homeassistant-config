@@ -1,27 +1,16 @@
 default:
-  - cust_1_field: "Script"
-  - cust_2_field: ""
   - color: var(--button-color-green)
   - color_type: card
 
 card:
   type: custom:decluttering-card
-  template: button
+  template: simple_button
   variables:
     - entity: '[[entity]]'
     - name: '[[name]]'
     - icon: '[[icon]]'
     - color: '[[color]]'
     - color_type: '[[color_type]]'
-    - corner_text_color: ""
-    - corner_icon_color: ""
-    - cust_1_text_color: "[[cust_1_text_color]]"
-    - cust_1_icon_color: "[[cust_1_icon_color]]"
-    - cust_2_text_color: "[[cust_2_text_color]]"
-    - cust_2_icon_color: "[[cust_2_icon_color]]"
-    - corner_field: ""
-    - cust_1_field: "[[cust_1_field]]"
-    - cust_2_field: "[[cust_2_field]]"
     - tap_action: 
         action: call-service
         service: script.turn_on

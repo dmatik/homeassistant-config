@@ -2,8 +2,12 @@ Google - Dark:
 
 # My Styles
   border-radius: 8px
-  border: solid 1px rgba(100,100,100,0.3)
-  box-shadow: 1px 1px rgba(0,0,0,0.4)
+  picture-elements-text-color: '#F0F0F0'                                          # Picture Element card text color
+  picture-elements-icon-color: '#F0F0F0'                                          # Picture Element card icon color
+  sensibo-cool-color: 'rgb(43, 154, 249)'                                         # Sensibo cool color
+  sensibo-heat-color: 'rgb(255, 129, 0)'                                          # Sensibo heat color
+  sensibo-fan-only-color: 'rgba(117,189,111,1)'                                   # Sensibo fan only color
+  sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
 
 # My Button Card Styles
   button-card-border-radius: 'var(--border-radius)'                               # Button Card corners radius
@@ -18,6 +22,10 @@ Google - Dark:
   button-color-green: 'rgba(117,189,111,1)'                                       # Button Card green background (ON mode)
   title-button-background: 'var(--paper-card-header-color)'                       # Title button background color
   title-button-text-color: 'var(--primary-text-color)'                            # Title button text color
+  remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
+  remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
+  remote-button-icon: 'var(--primary-text-color)'                                 # Remote button icon color
+  remote-button-border-radius: 5px                                                # Remote button corners radius  
 
   ### Fonts ###
   primary-font-family: "'Open Sans','Rubik',Roboto,sans-serif"

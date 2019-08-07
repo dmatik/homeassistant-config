@@ -1,3 +1,11 @@
+default:
+  - picture_element_text_color: 'var(--picture-elements-text-color)'
+  - picture_element_icon_color: 'var(--picture-elements-icon-color)'
+  - cool_color: 'var(--sensibo-cool-color)'
+  - heat_color: 'var(--sensibo-heat-color)'
+  - fan_only_color: 'var(--sensibo-fan-only-color)'
+  - auto_color: 'var(--sensibo-auto-color)'
+
 card:
   type: vertical-stack
   cards:
@@ -72,14 +80,14 @@ card:
                     top: 85%
                     left: 33%
                     font-size: 24px
-                    color: "#FFFFFF"                              
+                    color: '[[picture_element_text_color]]'
             - type: state-label
               entity: sensor.sensibo_[[name]]_temp
               style:
                 top: 85%
                 left: 85%
                 font-size: 24px
-                color: "#FFFFFF"       
+                color: '[[picture_element_text_color]]'       
             - type: conditional
               conditions:
                 - entity: climate.[[name]]
@@ -92,7 +100,7 @@ card:
                   style:
                     top: 85%
                     left: 8%
-                    color: 'rgb(43, 154, 249)'
+                    color: '[[cool_color]]'
             - type: conditional
               conditions:
                 - entity: climate.[[name]]
@@ -105,7 +113,7 @@ card:
                   style:
                     top: 85%
                     left: 8%
-                    color: 'rgb(255, 129, 0)'
+                    color: '[[heat_color]]'
             - type: conditional
               conditions:
                 - entity: climate.[[name]]
@@ -118,7 +126,7 @@ card:
                   style:
                     top: 85%
                     left: 8%
-                    color: var(--button-color-green)  
+                    color: '[[fan_only_color]]'  
             - type: conditional
               conditions:
                 - entity: climate.[[name]]
@@ -131,7 +139,7 @@ card:
                   style:
                     top: 85%
                     left: 8%
-                    color: "#FFFFFF"
+                    color: '[[auto_color]]'
             - type: conditional
               conditions:
                 - entity: sensor.sensibo_[[name]]_fan
@@ -146,7 +154,7 @@ card:
                   style:
                     top: 85%
                     left: 17%
-                    color: "#FFFFFF"
+                    color: '[[picture_element_icon_color]]'
             - type: conditional
               conditions:
                 - entity: sensor.sensibo_[[name]]_fan
@@ -161,7 +169,7 @@ card:
                   style:
                     top: 85%
                     left: 17%
-                    color: "#FFFFFF"
+                    color: '[[picture_element_icon_color]]'
             - type: conditional
               conditions:
                 - entity: sensor.sensibo_[[name]]_fan
@@ -176,7 +184,7 @@ card:
                   style:
                     top: 85%
                     left: 17%
-                    color: "#FFFFFF"
+                    color: '[[picture_element_icon_color]]'
             - type: conditional
               conditions:
                 - entity: sensor.sensibo_[[name]]_fan
@@ -191,7 +199,7 @@ card:
                   style:
                     top: 85%
                     left: 17%
-                    color: "#FFFFFF"  
+                    color: '[[picture_element_icon_color]]'  
               
         - type: custom:button-card
           template: shoulder_blank_card      
@@ -208,98 +216,41 @@ card:
         - type: custom:button-card
           template: shoulder_blank_card
 
-        - type: custom:button-card # Cool Operation Mode
-          entity: switch.sensibo_[[name]]_cool
-          icon: mdi:snowflake
-          size: 48px        
-          color_type: card
-          show_state: false
-          show_label: false
-          show_icon: true
-          show_name: false
-          layout: vertical
-          styles:
-            card:
-              - border-radius: var(--border-radius)
-              - background-color: var(--paper-card-background-color)
-            img_cell:
-              - color: var(--primary-text-color)          
-          tap_action:
-            action: toggle
-          state:
-            - value: "on"
-              styles:
-                card:
-                  - background-color: 'rgb(43, 154, 249)'
-                  
-        - type: custom:button-card # Heat Operation Mode
-          entity: switch.sensibo_[[name]]_heat
-          icon: mdi:fire
-          size: 48px
-          color_type: card
-          show_state: false
-          show_label: false
-          show_icon: true
-          show_name: false
-          layout: vertical
-          styles:
-            card:
-              - border-radius: var(--border-radius)
-              - background-color: var(--paper-card-background-color)
-            img_cell:
-              - color: var(--primary-text-color)          
-          tap_action:
-            action: toggle
-          state:
-            - value: "on"
-              styles:
-                card:
-                  - background-color: 'rgb(255, 129, 0)'
-          
-        - type: custom:button-card # Decrease Target Temperature
-          entity: script.sensibo_[[name]]_decrease_target_temp
-          icon: mdi:minus
-          size: 48px
-          #color: var(--button-color-green)
-          color_type: card
-          show_state: false
-          show_label: false
-          show_name: false
-          layout: vertical
-          styles:
-            card:
-              - border-radius: var(--border-radius)
-              - background-color: var(--paper-card-background-color)
-          state:
-            - value: "on"
-              styles:
-                card:
-                  - background-color: var(--button-color-green)
-          tap_action:
-            action: toggle
+        - type: custom:decluttering-card # Cool Operation Mode
+          template: simple_button
+          variables:
+            - entity: switch.sensibo_[[name]]_cool
+            - name: Cool
+            - icon: mdi:snowflake
+            - state:
+                - value: "on"
+                  styles:
+                    card:
+                      - background-color: '[[cool_color]]'
 
+        - type: custom:decluttering-card # Heat Operation Mode
+          template: simple_button
+          variables:
+            - entity: switch.sensibo_[[name]]_heat
+            - name: Heat
+            - icon: mdi:fire
+            - state:
+                - value: "on"
+                  styles:
+                    card:
+                      - background-color: '[[heat_color]]'
 
-        - type: custom:button-card # Increase Target Temperature
-          entity: script.sensibo_[[name]]_increase_target_temp
-          icon: mdi:plus
-          size: 48px
-          #color: var(--button-color-green)
-          color_type: card
-          show_state: false
-          show_label: false
-          show_name: false
-          layout: vertical
-          styles:
-            card:
-              - border-radius: var(--border-radius)
-              - background-color: var(--paper-card-background-color)
-          state:
-            - value: "on"
-              styles:
-                card:
-                  - background-color: var(--button-color-green)
-          tap_action:
-            action: toggle          
+        - type: custom:decluttering-card # Decrease Target Temperature
+          template: simple_script_button
+          variables:
+            - entity: script.sensibo_[[name]]_decrease_target_temp
+            - icon: mdi:minus
+
+        - type: custom:decluttering-card # Increase Target Temperature
+          template: simple_script_button
+          variables:
+            - entity: script.sensibo_[[name]]_increase_target_temp
+            - icon: mdi:plus
 
         - type: custom:button-card
           template: shoulder_blank_card

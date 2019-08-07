@@ -1,6 +1,9 @@
 button:
   !include button_template.yaml
 
+simple_button:
+  !include simple_button_template.yaml
+
 light_button:
   !include light_button_template.yaml
 
@@ -16,6 +19,9 @@ sensibo_card:
 harmony_elements:
   !include harmony_elements_template.yaml
 
+switcher_elements:
+  !include switcher_elements_template.yaml
+
 yeelight_switch_button:
   !include yeelight_button_template.yaml  
 
@@ -24,6 +30,12 @@ yeelight_nightlight_button:
 
 script_button:
   !include script_button_template.yaml 
+
+simple_script_button:
+  !include simple_script_button_template.yaml
+
+simple_select_button:
+  !include simple_select_button_template.yaml 
 
 remote_button:
   !include remote_button_template.yaml

@@ -1,4 +1,6 @@
 default:
+  - text_color: var(--picture-elements-text-color)
+  - icon_color: var(--picture-elements-icon-color)
   - tap_action:
       action: more-info
   - hold_action:
@@ -32,7 +34,7 @@ card:
         pointer-events: none
         font-size: 16px
         line-height: 24px
-        color: white
+        color: '[[text_color]]'
         background-color: rgba(0, 0, 0, 0.3)
         width: 100%
         transform: initial
@@ -45,7 +47,7 @@ card:
         pointer-events: none
         transform: initial
         font-size: 16px
-        color: "#FFFFFF"
+        color: '[[text_color]]'
         line-height: 32px
         padding: 1px 26px
     - type: icon
@@ -55,6 +57,6 @@ card:
         '[[direction]]': 0
         pointer-events: none
         transform: scale(0.8)
-        color: "#FFFFFF"
+        color: '[[icon_color]]'
         line-height: 32px
         padding: 8px 10px  

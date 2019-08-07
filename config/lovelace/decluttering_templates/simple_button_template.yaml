@@ -1,0 +1,47 @@
+default:
+  - show_name: false
+  - show_icon: true
+  - border_radius: var(--button-card-border-radius)
+  - background_color: var(--button-card-background-color)
+  - name_color: var(--button-card-text-color)
+  - icon_color: var(--button-card-icon-color)
+  - size: 48px
+  - font_size: 28px
+  - tap_action:
+      action: toggle
+  - hold_action:
+      action: none
+  - state:
+      - value: "on"
+        styles:
+          card:
+            - background-color: var(--button-color-green)
+
+card:
+  type: custom:button-card
+  entity: '[[entity]]'
+  name: '[[name]]'
+  icon: '[[icon]]'
+  color_type: card
+  show_state: false
+  show_label: false
+  show_name: '[[show_name]]'
+  show_icon: '[[show_icon]]'
+  size: '[[size]]'
+  layout: vertical
+  styles:
+    card:
+      - border-radius: '[[border_radius]]'
+      - background-color: '[[background_color]]'
+    name:
+      - text-transform: lowercase
+      - color: '[[name_color]]'
+      - font-size: '[[font_size]]'
+    img_cell:
+      - color: '[[icon_color]]'
+  state:
+    '[[state]]'
+  tap_action:
+    '[[tap_action]]'
+  hold_action:
+    '[[hold_action]]'

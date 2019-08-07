@@ -1,7 +1,33 @@
 slate:
 
+      # My Styles
+      border-radius: 8px
+      picture-elements-text-color: '#F0F0F0'                                          # Picture Element card text color
+      picture-elements-icon-color: '#F0F0F0'                                          # Picture Element card icon color
+      sensibo-cool-color: 'rgb(43, 154, 249)'                                         # Sensibo cool color
+      sensibo-heat-color: 'rgb(255, 129, 0)'                                          # Sensibo heat color
+      sensibo-fan-only-color: 'rgba(117,189,111,1)'                                   # Sensibo fan only color
+      sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
+
+      # My Button Card Styles
+      button-card-border-radius: 'var(--border-radius)'                               # Button Card corners radius
+      button-card-background-color: 'var(--paper-card-background-color)'              # Button Card background color
+      button-card-icon-color: 'var(--paper-item-icon-color)'                          # Button Card icon color
+      button-card-text-color: 'var(--primary-text-color)'                             # Button Card text color
+      button-card-corner-text-color: 'var(--secondary-text-color)'                    # Button card corner field text color
+      button-card-cust-1-text-color: 'var(--secondary-text-color)'                    # Button Card cust_1 field text color
+      button-card-cust-2-text-color: 'var(--secondary-text-color)'                    # Button Card cust_2 field text color
+      button-card-disabled-text-color: 'var(--disabled-text-color)'                   # Button Card disabled text color
+      button-card-input-select-background: 'var(--disabled-text-color)'               # Button Card selected item color
+      button-color-green: 'rgba(117,189,111,1)'                                       # Button Card green background (ON mode)
+      title-button-background: 'var(--paper-card-header-color)'                       # Title button background color
+      title-button-text-color: 'var(--primary-text-color)'                            # Title button text color
+      remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
+      remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
+      remote-button-icon: 'var(--primary-text-color)'                                 # Remote button icon color
+      remote-button-border-radius: 5px                                                # Remote button corners radius
+
       # My Colors
-      button-color-green: 'rgba(117,189,111,1.0)'
       lights-button-background: 'rgba(75,81,92,1.0)'
       label-button-background: 'rgb(97,103,114)'
 

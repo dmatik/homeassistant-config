@@ -60,7 +60,7 @@ cards:
           - remote: living_room
           - command: DirectionUp
           - device: 59394437
-          - color: var(--disabled-text-color)          
+          - color: var(--remote-button-alt-background)          
 
       - type: custom:decluttering-card # Exit
         template: remote_button
@@ -98,7 +98,7 @@ cards:
           - remote: living_room
           - command: DirectionLeft
           - device: 59394437
-          - color: var(--disabled-text-color)
+          - color: var(--remote-button-alt-background)
 
       - type: custom:decluttering-card # OK
         template: remote_button
@@ -108,7 +108,7 @@ cards:
           - remote: living_room
           - command: OK
           - device: 59394437
-          - color: var(--disabled-text-color)
+          - color: var(--remote-button-alt-background)
 
       - type: custom:decluttering-card # Right
         template: remote_button
@@ -118,7 +118,7 @@ cards:
           - remote: living_room
           - command: DirectionRight
           - device: 59394437
-          - color: var(--disabled-text-color)
+          - color: var(--remote-button-alt-background)
 
       - type: custom:button-card
         template: shoulder_blank_card    
@@ -155,7 +155,7 @@ cards:
           - remote: living_room
           - command: DirectionDown
           - device: 59394437
-          - color: var(--disabled-text-color)
+          - color: var(--remote-button-alt-background)
 
       - type: custom:decluttering-card # Back
         template: remote_button
