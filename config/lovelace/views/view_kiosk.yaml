@@ -20,7 +20,7 @@ cards:
               
               - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
 
-              - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
+              - !include /config/lovelace/cards/card_calendar_home.yaml
             
           - type: vertical-stack
             cards:
@@ -29,7 +29,7 @@ cards:
 
               - !include /config/lovelace/cards/ac/card_sensibo_kids_room.yaml
 
-              - !include /config/lovelace/cards/card_calendar_home.yaml
+              - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
               
           - type: vertical-stack
             cards:

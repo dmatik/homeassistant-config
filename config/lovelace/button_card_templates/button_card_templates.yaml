@@ -1,11 +1,2 @@
 shoulder_blank_card:
   !include shoulder_blank_template.yaml
-
-harmony_activity_switch:
-  !include harmony_activity_template.yaml
-
-script_icon_button:
-  !include script_icon_template.yaml
-
-light_switch_button:
-  !include light_button_template.yaml

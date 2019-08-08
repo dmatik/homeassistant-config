@@ -13,6 +13,9 @@ person_elements:
 title_button_card:
   !include title_template.yaml
 
+sensibo_elements:
+  !include sensibo_elements_template.yaml
+
 sensibo_card:
   !include sensibo_template.yaml
 

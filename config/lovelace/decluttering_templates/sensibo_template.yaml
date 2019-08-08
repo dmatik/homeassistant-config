@@ -1,11 +1,3 @@
-default:
-  - picture_element_text_color: 'var(--picture-elements-text-color)'
-  - picture_element_icon_color: 'var(--picture-elements-icon-color)'
-  - cool_color: 'var(--sensibo-cool-color)'
-  - heat_color: 'var(--sensibo-heat-color)'
-  - fan_only_color: 'var(--sensibo-fan-only-color)'
-  - auto_color: 'var(--sensibo-auto-color)'
-
 card:
   type: vertical-stack
   cards:
@@ -42,164 +34,17 @@ card:
       cards:
 
         - type: custom:button-card
-          template: shoulder_blank_card  
-        
-        - type: picture-elements
-          style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-            }
-          image: '[[image_off]]'
-          elements:
-            - type: image
-              entity: climate.[[name]]
-              image: '[[image_off]]'
-              state_image:
-                "cool": '[[image_on]]'
-                "heat": '[[image_on]]'
-                "heat_cool": '[[image_on]]'
-                "fan_only": '[[image_on]]'
-              tap_action:
-                action: more-info                
-              style:
-                left: 50%
-                top: 50%
-                width: 100%
-                heigth: 100%
-            - type: conditional
-              conditions:
-                - entity: climate.[[name]]
-                  state_not: 'off'
-                - entity: climate.[[name]]
-                  state_not: 'fan_only'
-              elements:
-                - type: state-label
-                  entity: sensor.sensibo_[[name]]_target_temp
-                  style:
-                    top: 85%
-                    left: 33%
-                    font-size: 24px
-                    color: '[[picture_element_text_color]]'
-            - type: state-label
-              entity: sensor.sensibo_[[name]]_temp
-              style:
-                top: 85%
-                left: 85%
-                font-size: 24px
-                color: '[[picture_element_text_color]]'       
-            - type: conditional
-              conditions:
-                - entity: climate.[[name]]
-                  state: 'cool'
-              elements:
-                - type: icon
-                  icon: mdi:snowflake
-                  tap_action:
-                    action: none
-                  style:
-                    top: 85%
-                    left: 8%
-                    color: '[[cool_color]]'
-            - type: conditional
-              conditions:
-                - entity: climate.[[name]]
-                  state: 'heat'
-              elements:
-                - type: icon
-                  icon: mdi:fire
-                  tap_action:
-                    action: none
-                  style:
-                    top: 85%
-                    left: 8%
-                    color: '[[heat_color]]'
-            - type: conditional
-              conditions:
-                - entity: climate.[[name]]
-                  state: 'fan_only'
-              elements:
-                - type: icon
-                  icon: mdi:fan
-                  tap_action:
-                    action: none
-                  style:
-                    top: 85%
-                    left: 8%
-                    color: '[[fan_only_color]]'  
-            - type: conditional
-              conditions:
-                - entity: climate.[[name]]
-                  state: 'heat_cool'
-              elements:
-                - type: icon
-                  icon: mdi:brightness-auto
-                  tap_action:
-                    action: none
-                  style:
-                    top: 85%
-                    left: 8%
-                    color: '[[auto_color]]'
-            - type: conditional
-              conditions:
-                - entity: sensor.sensibo_[[name]]_fan
-                  state: 'low'
-                - entity: climate.[[name]]
-                  state_not: 'off'
-              elements:
-                - type: icon
-                  icon: mdi:signal-cellular-1
-                  tap_action:
-                    action: none
-                  style:
-                    top: 85%
-                    left: 17%
-                    color: '[[picture_element_icon_color]]'
-            - type: conditional
-              conditions:
-                - entity: sensor.sensibo_[[name]]_fan
-                  state: 'medium'
-                - entity: climate.[[name]]
-                  state_not: 'off'
-              elements:
-                - type: icon
-                  icon: mdi:signal-cellular-2
-                  tap_action:
-                    action: none
-                  style:
-                    top: 85%
-                    left: 17%
-                    color: '[[picture_element_icon_color]]'
-            - type: conditional
-              conditions:
-                - entity: sensor.sensibo_[[name]]_fan
-                  state: 'high'
-                - entity: climate.[[name]]
-                  state_not: 'off'
-              elements:
-                - type: icon
-                  icon: mdi:signal-cellular-3
-                  tap_action:
-                    action: none
-                  style:
-                    top: 85%
-                    left: 17%
-                    color: '[[picture_element_icon_color]]'
-            - type: conditional
-              conditions:
-                - entity: sensor.sensibo_[[name]]_fan
-                  state: 'auto'
-                - entity: climate.[[name]]
-                  state_not: 'off'
-              elements:
-                - type: icon
-                  icon: mdi:brightness-auto
-                  tap_action:
-                    action: none
-                  style:
-                    top: 85%
-                    left: 17%
-                    color: '[[picture_element_icon_color]]'  
+          template: shoulder_blank_card
+
+        - type: custom:decluttering-card
+          template: sensibo_elements
+          variables:
+            - image_off: '[[image_off]]'
+            - image_on: '[[image_on]]'
+            - entity: 'climate.[[name]]'
+            - sensor_target_temp: 'sensor.sensibo_[[name]]_target_temp'
+            - sensor_temp: 'sensor.sensibo_[[name]]_temp'
+            - sensor_fan: 'sensor.sensibo_[[name]]_fan'
               
         - type: custom:button-card
           template: shoulder_blank_card      
