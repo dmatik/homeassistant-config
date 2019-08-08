@@ -40,6 +40,7 @@ card:
     card:
       - padding: 8%
       - font-size: 12px
+      - font-weight: bold
       - text-transform: lowercase
       - border-radius: '[[border_radius]]'
       - background-color: '[[background_color]]'
