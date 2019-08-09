@@ -1,3 +1,7 @@
+default:
+  - cool_color: var(--sensibo-cool-color)
+  - heat_color: var(--sensibo-heat-color)
+
 card:
   type: vertical-stack
   cards:
