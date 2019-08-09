@@ -4,8 +4,10 @@ path: remotes
 
 cards:
 
-    - !include /config/lovelace/cards/remotes/card_remote_shield_tv.yaml
+    - !include /config/lovelace/cards/remotes/card_remote_swipe.yaml
 
-    - !include /config/lovelace/cards/remotes/card_remote_baltic_tv.yaml
+    #- !include /config/lovelace/cards/remotes/card_remote_shield_tv.yaml
 
-    - !include /config/lovelace/cards/remotes/card_remote_smart_tv.yaml
+    #- !include /config/lovelace/cards/remotes/card_remote_baltic_tv.yaml
+
+    #- !include /config/lovelace/cards/remotes/card_remote_smart_tv.yaml
