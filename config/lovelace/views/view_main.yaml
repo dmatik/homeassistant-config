@@ -1,6 +1,7 @@
 title: Main
 icon: mdi:home-assistant
 path: main
+#background: var(--background-image)
 
 cards:
 

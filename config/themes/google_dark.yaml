@@ -1,5 +1,8 @@
 Google - Dark:
 
+# Background
+  background-image: 'center / cover no-repeat url("/local/images/background_19.png") fixed'
+
 # My Styles
   border-radius: 8px
   picture-elements-text-color: '#F0F0F0'                                          # Picture Element card text color
@@ -20,7 +23,7 @@ Google - Dark:
   button-card-disabled-text-color: 'var(--disabled-text-color)'                   # Button Card disabled text color
   button-card-input-select-background: 'var(--disabled-text-color)'               # Button Card selected item color
   button-color-green: 'rgba(117,189,111,1)'                                       # Button Card green background (ON mode)
-  title-button-background: 'var(--paper-card-header-color)'                       # Title button background color
+  title-button-background: 'rgb(255, 129, 0)'                                     # Title button background color
   title-button-text-color: 'var(--primary-text-color)'                            # Title button text color
   remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
   remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
