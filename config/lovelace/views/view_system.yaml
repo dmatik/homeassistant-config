@@ -3,6 +3,8 @@ icon: mdi:gauge
 path: system
 
 cards:
+
+    - !include /config/lovelace/cards/card_home_button.yaml
     
     - !include /config/lovelace/cards/card_deco.yaml
   
