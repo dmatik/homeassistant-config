@@ -51,8 +51,8 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 Mobile:
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile.png "Mobile")
 
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile_2.png "Mobile 2")
+
 Kiosk View:
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_kiosk.png "Kiosk View")
 
-Remotes View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_remotes.png "Remotes View")
