@@ -4,6 +4,10 @@ default:
   - color: auto
   - color_type: icon
   - state:
+      - value: "on"
+        styles:
+          card:
+            - background-color: var(--button-card-on-background)
       - value: "unavailable"
         styles:
           icon:

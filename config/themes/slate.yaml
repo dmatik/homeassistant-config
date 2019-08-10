@@ -18,7 +18,8 @@ slate:
       button-card-cust-1-text-color: 'var(--secondary-text-color)'                    # Button Card cust_1 field text color
       button-card-cust-2-text-color: 'var(--secondary-text-color)'                    # Button Card cust_2 field text color
       button-card-disabled-text-color: 'var(--disabled-text-color)'                   # Button Card disabled text color
-      button-card-input-select-background: 'var(--disabled-text-color)'               # Button Card selected item color
+      button-card-input-select-background: 'var(--button-card-on-background)'         # Button Card selected item color
+      button-card-on-background: 'var(--disabled-text-color)'                         # Button Card ON color
       button-color-green: 'rgba(117,189,111,1)'                                       # Button Card green background (ON mode)
       title-button-background: 'var(--paper-card-header-color)'                       # Title button background color
       title-button-text-color: 'var(--primary-text-color)'                            # Title button text color
