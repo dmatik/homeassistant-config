@@ -25,3 +25,11 @@ sensibo_kids_room_fan:
         - "medium"
         - "high"
         - "auto"
+
+themes_list:
+    name: Themes
+    icon: mdi:palette
+    options:
+        - "midnight_blue"
+        - "Google - Dark"
+        - "slate"

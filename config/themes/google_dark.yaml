@@ -67,6 +67,8 @@ Google - Dark:
   state-icon-color: "#ffffff"
   state-icon-active-color: "#ffb750"
   state-icon-unavailable-color: var(--disabled-text-color)
+  paper-item-icon-color: "#ffffff"
+  paper-item-icon-active-color: "#ffb750"
   ### Sliders ###
   paper-slider-knob-color: "#4284F4"
   paper-slider-knob-start-color: "#8eb8ff"

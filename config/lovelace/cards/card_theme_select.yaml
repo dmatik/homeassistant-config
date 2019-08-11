@@ -1,0 +1,84 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Themes
+    
+      - type: custom:button-card
+        template: shoulder_blank_card         
+
+
+############################################################################
+#                                                                          #
+#   Themes dropdown                                                        #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: entities
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;            
+          }
+        show_header_toggle: false
+        title: 
+        entities:
+          - input_select.themes_list
+
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+############################################################################
+#                                                                          #
+#   Themes select button                                                   #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: custom:decluttering-card
+        template: simple_button
+        variables:
+          - entity: input_select.themes_list
+          - name: Set Theme
+          - icon: mdi:home
+          - size: 44px
+          - show_name: true
+          - show_icon: false
+          - padding_top: 1%
+          - padding_bottom: 1%
+          - tap_action: 
+              action: call-service
+              service: frontend.set_theme
+              service_data:
+                name: '[[[ return entity.state; ]]]'
+
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml
