@@ -18,4 +18,9 @@ zigbee_permit_join:
 automation_hall_night_mode:
     name: Hall Light night mode
     icon: mdi:flash-auto
+
+
+recorder_purge_repack:
+    name: Recorder purge repack
+    icon: mdi:database-refresh
     

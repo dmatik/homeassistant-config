@@ -40,6 +40,7 @@ card:
   name: '[[name]]'
   color: '[[color]]'
   color_type: '[[color_type]]'
+  show_last_changed: false
   styles:
     card:
       - padding: 8%
@@ -77,21 +78,18 @@ card:
         - justify-self: end
         - font-size: 14px
         - color: "[[corner_text_color]]"
-        #- --text-color-sensor: "[[corner_text_color]]"
         - --icon-color-sensor: "[[corner_icon_color]]"
       cust_1:
         - padding-bottom: 2px
         - align-self: middle
         - justify-self: start
         - color: "[[cust_1_text_color]]"
-        #- --text-color-sensor: "[[cust_1_text_color]]"
         - --icon-color-sensor: "[[cust_1_icon_color]]"
       cust_2:
         - padding-bottom: 2px
         - align-self: middle
         - justify-self: start
         - color: "[[cust_2_text_color]]"
-        #- --text-color-sensor: "[[cust_2_text_color]]"
         - --icon-color-sensor: "[[cust_2_icon_color]]"
   custom_fields:
     corner: "[[corner_field]]"

@@ -36,10 +36,10 @@ panel_iframe:
 frontend:
   themes: 
     !include_dir_merge_named themes
-  extra_html_url:
-    - /local/hass-fontawesome-solid.html
-    - /local/hass-fontawesome-regular.html
-    - /local/hass-fontawesome-brands.html
+  # extra_html_url:
+  #   - /local/hass-fontawesome-solid.html
+  #   - /local/hass-fontawesome-regular.html
+  #   - /local/hass-fontawesome-brands.html
 
 # Enables configuration UI
 config:
@@ -110,12 +110,42 @@ recorder:
       - sensor
       - device_tracker
       - input_select
-      #- input_number
-      #- input_boolean
+      - input_number
+      - input_boolean
       - script
       - light
       #- input_datetime
       - climate
+  exclude:
+    domains:
+      - automation
+      - updater
+      - docker_monitor
+      - image_processing
+    entities:
+      - sun.sun
+      - sensor.date
+      - sensor.dark_sky_daily_summary
+      - sensor.dark
+      - sensor.docker
+    event_types:
+      - service_removed
+      - service_executed
+      - platform_discovered
+      - homeassistant_start
+      - homeassistant_stop      
+      - feedreader
+      - service_registered
+      - call_service
+      - component_loaded
+      - logbook_entry
+      - system_log_event
+      - automation_triggered
+      - script_started
+      - timer_out_of_sync
+      - panels_updated
+      - persistent_notifications_updated
+      - config_entry_discovered
   
 logger:
   default: info

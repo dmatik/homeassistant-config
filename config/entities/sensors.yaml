@@ -119,19 +119,19 @@
       value_template: >-
         {{ states.sensor.xiaomi_bedroom_temperature.attributes.battery_level }}
 
-    xiaomi_switch_bedside_dima_battery:
+    xiaomi_button_bedside_dima_battery:
       friendly_name: "Bedside Switch Dima"
       icon_template: mdi:battery
       unit_of_measurement: '%'
       value_template: >-
-        {{ states.binary_sensor.switch_bedside_dima.attributes.battery_level }}
+        {{ states.binary_sensor.button_bedside_dima.attributes.battery_level }}
 
-    xiaomi_switch_bedside_galit_battery:
+    xiaomi_button_bedside_galit_battery:
       friendly_name: "Bedside Switch Dima"
       icon_template: mdi:battery
       unit_of_measurement: '%'
       value_template: >-
-        {{ states.binary_sensor.switch_bedside_galit.attributes.battery_level }}
+        {{ states.binary_sensor.button_bedside_galit.attributes.battery_level }}
 
     # Yeelight
     bedroom_ceiling_moonlight:
@@ -212,42 +212,31 @@
       seconds: 0
       milliseconds: 0
 
-# Sonarr
-#- platform: sonarr
-#  api_key: !secret sonarr_api_key
-#  host: !secret sonarr_host
-#  port: !secret sonarr_port
-#  monitored_conditions:
-#    - upcoming
-#  days: 7
 
-# Sonarr
-- platform: sonarr_upcoming_media
-  api_key: !secret sonarr_api_key
-  host: !secret sonarr_host
-  port: !secret sonarr_port
-  days: 7
-  ssl: false
-  max: 5
-
-
+# SQL
+- platform: sql
+  db_url: !secret synology_db_connection
+  queries:
+    - name: DB size
+      query: 'SELECT table_schema "hassio", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hassio" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+    - name: Events size
+      query: 'SELECT table_schema "hassio", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hassio" and table_name="events" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+    - name: States size
+      query: 'SELECT table_schema "hassio", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hassio" and table_name="states" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
 
 
-# Kodi
-#- platform: kodi_recently_added
-#  host: !secret kodi_host
-#  port: !secret kodi_port
-#  username: !secret kodi_username
-#  password: !secret kodi_password
+
 
 
 #- platform: mqtt
 #  name: Bridge state
 #  state_topic: "zigbee2mqtt/bridge/state"
 #  icon: mdi:router-wireless
-  
 
-#- platform: snmp
-#  host: 10.0.0.137
-#  baseoid: 1.3.6.1.2.1.3.1.1.2
 

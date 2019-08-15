@@ -1,0 +1,107 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Kids Room AC
+      
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+############################################################################
+#                                                                          #
+#   On/Off and Operation set                                               #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: custom:decluttering-card # Cool Operation Mode
+        template: ac_power_button
+        variables:
+          - entity: switch.sensibo_kids_room_cool
+          - name: Cool
+          - icon: mdi:snowflake
+          - climate: climate.kids_room
+          - state:
+              - value: "on"
+                styles:
+                  card:
+                    - background-color: 'var(--sensibo-cool-color)'
+
+      - type: custom:decluttering-card # Heat Operation Mode
+        template: ac_power_button
+        variables:
+          - entity: switch.sensibo_kids_room_heat
+          - name: Heat
+          - icon: mdi:fire
+          - climate: climate.kids_room
+          - state:
+              - value: "on"
+                styles:
+                  card:
+                    - background-color: 'var(--sensibo-heat-color)'
+
+      - type: custom:mini-graph-card
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect_ratio: 1/1
+          }   
+        entities:
+              - entity: sensor.sensibo_kids_room_temp
+                name: Temperature
+                show_state: true
+
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+
+############################################################################
+#                                                                          #
+#   Temperature set                                                        #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: custom:decluttering-card # Decrease Target Temperature
+        template: simple_script_button
+        variables:
+          - entity: script.sensibo_kids_room_decrease_target_temp
+          - icon: mdi:minus
+
+      - type: custom:decluttering-card # Increase Target Temperature
+        template: simple_script_button
+        variables:
+          - entity: script.sensibo_kids_room_increase_target_temp
+          - icon: mdi:plus
+
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+  - !include /config/lovelace/styles/separator_card.yaml

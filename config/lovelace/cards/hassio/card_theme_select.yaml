@@ -41,7 +41,7 @@ cards:
             overflow: hidden;            
           }
         show_header_toggle: false
-        title: 
+        #title: 
         entities:
           - input_select.themes_list
 

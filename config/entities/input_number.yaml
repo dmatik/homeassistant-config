@@ -19,3 +19,12 @@ sensibo_kids_room:
     step: 1
     mode: slider
     icon: mdi:thermometer
+
+recorder_purge_keep_days:
+    name: Recorder purge keep days
+    min: 1
+    max: 10
+    step: 1
+    mode: slider
+    unit_of_measurement: day
+    icon: mdi:calendar-blank

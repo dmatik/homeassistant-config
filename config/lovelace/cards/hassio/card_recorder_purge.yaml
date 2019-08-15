@@ -16,7 +16,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Themes
+          - name: Recorder
     
       - type: custom:button-card
         template: shoulder_blank_card         
@@ -24,7 +24,7 @@ cards:
 
 ############################################################################
 #                                                                          #
-#   Themes dropdown                                                        #
+#   Options                                                                #
 #                                                                          #
 ############################################################################
 
@@ -41,9 +41,11 @@ cards:
             overflow: hidden;            
           }
         show_header_toggle: false
-        title: 
         entities:
-          - input_select.themes_list
+          - entity: input_number.recorder_purge_keep_days
+            name: Keep Days
+          - entity: input_boolean.recorder_purge_repack
+            name: Repack
 
       - type: custom:button-card
         template: shoulder_blank_card  
@@ -51,7 +53,7 @@ cards:
 
 ############################################################################
 #                                                                          #
-#   Themes select button                                                   #
+#   Purge button                                                           #
 #                                                                          #
 ############################################################################
 
@@ -64,8 +66,8 @@ cards:
       - type: custom:decluttering-card
         template: simple_button
         variables:
-          - entity: input_select.themes_list
-          - name: Set Theme
+          - entity: input_number.recorder_purge_keep_days
+          - name: Purge
           - size: 44px
           - show_name: true
           - show_icon: false
@@ -73,9 +75,10 @@ cards:
           - padding_bottom: 1%
           - tap_action: 
               action: call-service
-              service: frontend.set_theme
+              service: recorder.purge
               service_data:
-                name: '[[[ return entity.state; ]]]'
+                keep_days: "[[[ return entity.state; ]]]"
+                repack: "[[[ states['input_boolean.recorder_purge_repack'].state ]]]"
 
       - type: custom:button-card
         template: shoulder_blank_card  

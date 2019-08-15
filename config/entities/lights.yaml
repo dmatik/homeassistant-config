@@ -1,3 +1,5 @@
+# Brodlink
+
 - platform: switch
   name: Living Room
   entity_id: switch.living_room_light
@@ -38,4 +40,17 @@
   name: Work Room
   entity_id: switch.work_room_light
 
-  
+
+# Philips
+
+- platform: xiaomi_miio
+  name: Bedside lamp Dima
+  host: !secret philips_bedside_dima_host
+  token: !secret philips_bedside_dima_token
+  model: philips.light.bulb
+
+- platform: xiaomi_miio
+  name: Bedside lamp Galit
+  host: !secret philips_bedside_galit_host
+  token: !secret philips_bedside_galit_token
+  model: philips.light.bulb  

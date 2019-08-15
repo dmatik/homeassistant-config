@@ -1,0 +1,87 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Hassio DB
+    
+      - type: custom:button-card
+        template: shoulder_blank_card         
+
+
+############################################################################
+#                                                                          #
+#   Sensors                                                                #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+        - type: custom:button-card
+          template: shoulder_blank_card    
+ 
+        - type: custom:mini-graph-card
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              overflow: hidden;
+            }           
+          icon: mdi:database
+          entities:
+              - entity: sensor.events_size
+                name: Events
+                    
+        - type: custom:mini-graph-card
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              overflow: hidden;
+            }          
+          icon: mdi:database
+          entities:
+              - entity: sensor.states_size
+                name: States
+                    
+        - type: custom:button-card
+          template: shoulder_blank_card
+
+  - type: horizontal-stack
+    cards:
+      
+        - type: custom:button-card
+          template: shoulder_blank_card    
+ 
+        - type: custom:mini-graph-card
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              overflow: hidden;
+            }           
+          icon: mdi:database
+          entities:
+              - entity: sensor.db_size
+                name: Full DB
+                    
+        - type: "custom:button-card"
+          color_type: blank-card   
+                    
+        - type: custom:button-card
+          template: shoulder_blank_card  
+        
+
+  - !include /config/lovelace/styles/separator_card.yaml

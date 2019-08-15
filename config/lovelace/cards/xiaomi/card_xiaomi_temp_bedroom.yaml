@@ -44,6 +44,9 @@ cards:
               - entity: sensor.xiaomi_bedroom_temperature
                 name: Temperature
                 show_state: true
+
+      - type: "custom:button-card"
+        color_type: blank-card  
                   
       - type: custom:button-card
         template: shoulder_blank_card

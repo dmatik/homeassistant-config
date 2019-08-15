@@ -42,13 +42,21 @@ cards:
             template: light_button
             variables:
               - entity: light.bedroom
-              - name: Bedroom
+              - name: Ceiling
     
-          - type: "custom:button-card"
-            color_type: blank-card
-                    
-          - type: "custom:button-card"
-            color_type: blank-card   
+          - type: custom:decluttering-card # Bedside Dima
+            template: yeelight_switch_button
+            variables:
+              - entity: light.bedside_lamp_dima
+              - name: Dima
+              - icon: mdi:lamp
+
+          - type: custom:decluttering-card # Bedside Galit
+            template: yeelight_switch_button
+            variables:
+              - entity: light.bedside_lamp_galit
+              - name: Galit
+              - icon: mdi:lamp
       
           - type: custom:button-card
             template: shoulder_blank_card 

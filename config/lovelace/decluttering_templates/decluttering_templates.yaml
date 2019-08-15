@@ -45,3 +45,6 @@ remote_button:
 
 menu_button:
   !include menu_button_template.yaml
+
+ac_power_button:
+  !include ac_power_button_template.yaml
