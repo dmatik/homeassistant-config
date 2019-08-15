@@ -77,7 +77,7 @@ cards:
               action: call-service
               service: recorder.purge
               service_data:
-                keep_days: "[[[ return entity.state; ]]]"
+                keep_days: "[[[ return entity.state | 0; ]]]"
                 repack: "[[[ states['input_boolean.recorder_purge_repack'].state ]]]"
 
       - type: custom:button-card
