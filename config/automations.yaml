@@ -8,6 +8,19 @@
       data:
         name: "midnight_blue"
         #name: "Google - Dark"
+
+## Home Assistant is Up and Running ##
+- alias: 'Startup Notification'
+  initial_state: 'true'  
+  hide_entity: true
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: notify.dimatelegram 
+      data:
+        title: 'System'
+        message: 'Up and Running'
         
 - id: enable_zigbee_join
   alias: Enable Zigbee joining

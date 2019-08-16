@@ -11,6 +11,7 @@ Google - Dark:
   sensibo-heat-color: 'rgb(255, 129, 0)'                                          # Sensibo heat color
   sensibo-fan-only-color: 'rgba(117,189,111,1)'                                   # Sensibo fan only color
   sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
+  graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
 
 # My Button Card Styles
   button-card-border-radius: 'var(--border-radius)'                               # Button Card corners radius

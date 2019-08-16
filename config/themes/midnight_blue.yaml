@@ -14,9 +14,10 @@ midnight_blue:
       sensibo-heat-color: 'rgb(255, 129, 0)'                                          # Sensibo heat color
       sensibo-fan-only-color: 'rgba(117,189,111,1)'                                   # Sensibo fan only color
       sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
+      graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
 
 # My Button Card Styles
-      button-card-border-radius: 'var(--border-radius)'                               # Button Card corners radius
+      button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius
       button-card-background-color: 'var(--paper-card-background-color)'              # Button Card background color
       button-card-icon-color: 'var(--paper-item-icon-color)'                          # Button Card icon color
       button-card-text-color: 'var(--primary-text-color)'                             # Button Card text color
@@ -32,7 +33,8 @@ midnight_blue:
       remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
       remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
       remote-button-icon: 'var(--primary-text-color)'                                 # Remote button icon color
-      remote-button-border-radius: 5px                                                # Remote button corners radius
+      remote-button-border-radius: 5px                                                # Remote button border radius
+
 
 # My Colors (to remove later?)
       lights-button-background: 'rgba(75,81,92,1.0)'

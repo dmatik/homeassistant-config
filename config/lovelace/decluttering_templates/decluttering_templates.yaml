@@ -48,3 +48,6 @@ menu_button:
 
 ac_power_button:
   !include ac_power_button_template.yaml
+
+graph:
+  !include graph_template.yaml

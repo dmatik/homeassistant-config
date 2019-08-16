@@ -16,7 +16,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Bedroom
+          - name: Climate
     
       - type: custom:button-card
         template: shoulder_blank_card 
@@ -33,17 +33,13 @@ cards:
 
       - type: custom:button-card
         template: shoulder_blank_card 
-          
-      - type: custom:mini-graph-card
-        style: |
-          ha-card {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-          }   
-        entities:
-              - entity: sensor.xiaomi_bedroom_temperature
-                name: Temperature
-                show_state: true
+
+      - type: custom:decluttering-card
+        template: graph
+        variables:
+            - entity: sensor.xiaomi_bedroom_temperature
+            - name: Temperature
+            - icon: mdi:thermometer
 
       - type: "custom:button-card"
         color_type: blank-card  

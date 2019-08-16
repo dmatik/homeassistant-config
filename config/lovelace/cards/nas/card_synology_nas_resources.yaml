@@ -75,27 +75,21 @@ cards:
         - type: custom:button-card
           template: shoulder_blank_card  
 
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-            }          
-          entities:
-                - entity: sensor.synology_dsm_network_up
-                  name: Upload
-                  color: red            
-                     
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-            }          
-          entities:
-                - entity: sensor.synology_dsm_network_down
-                  name: Download
-                  color: green           
+        - type: custom:decluttering-card
+          template: graph
+          variables:
+              - entity: sensor.synology_dsm_network_up
+              - name: Upload
+              - icon: mdi:upload
+              - color: red        
+
+        - type: custom:decluttering-card
+          template: graph
+          variables:
+              - entity: sensor.synology_dsm_network_down
+              - name: Download
+              - icon: mdi:download
+              - color: green         
                           
         - type: custom:button-card
           template: shoulder_blank_card  

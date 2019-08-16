@@ -1,0 +1,26 @@
+default:
+  - border_radius: var(--graph-border-radius)
+  - font_size: 60
+  - font_size_header: 12
+  - line_width: 8
+  - show_icon: false
+  - icon: ""
+  - color: ""
+
+card:
+  type: custom:mini-graph-card
+  style: |
+    ha-card {
+      border-radius: [[border_radius]];
+      overflow: hidden;
+    }
+  entities:
+      - entity: '[[entity]]'
+        name: '[[name]]'
+        color: '[[color]]'
+  icon: '[[icon]]'
+  font_size: '[[font_size]]'
+  font_size_header: '[[font_size_header]]'
+  line_width: '[[line_width]]'
+  show:
+    icon: '[[show_icon]]'

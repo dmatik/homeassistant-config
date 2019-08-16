@@ -62,25 +62,19 @@ cards:
         - type: custom:button-card
           template: shoulder_blank_card 
 
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-            }         
-          entities:
+        - type: custom:decluttering-card
+          template: graph
+          variables:
               - entity: sensor.synology_dsm_temperature_sda
-                name: Disk 1            
-                    
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-            }         
-          entities:
+              - name: Disk 1
+              - icon: mdi:thermometer
+
+        - type: custom:decluttering-card
+          template: graph
+          variables:
               - entity: sensor.synology_dsm_temperature_sdb
-                name: Disk 2
+              - name: Disk 2
+              - icon: mdi:thermometer   
                     
         - type: custom:button-card
           template: shoulder_blank_card 

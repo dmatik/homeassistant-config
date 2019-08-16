@@ -34,30 +34,22 @@ cards:
       
         - type: custom:button-card
           template: shoulder_blank_card    
- 
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-            }           
-          icon: mdi:upload
-          entities:
+
+        - type: custom:decluttering-card
+          template: graph
+          variables:
               - entity: sensor.m5_kbyte_sec_sent
-                name: Upload
-                color: red
-                    
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-            }          
-          icon: mdi:download
-          entities:
+              - name: Upload
+              - icon: mdi:upload
+              - color: red
+
+        - type: custom:decluttering-card
+          template: graph
+          variables:
               - entity: sensor.m5_kbyte_sec_received
-                name: Download
-                color: green
+              - name: Download
+              - icon: mdi:download
+              - color: green
                     
         - type: custom:button-card
           template: shoulder_blank_card  
