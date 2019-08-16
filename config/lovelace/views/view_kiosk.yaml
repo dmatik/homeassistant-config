@@ -1,5 +1,5 @@
 title: Kiosk
-icon: mdi:home-assistant
+icon: mdi:home
 path: kiosk
 panel: true
   
