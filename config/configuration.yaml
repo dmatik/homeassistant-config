@@ -27,10 +27,10 @@ panel_iframe:
 #    title: Node-RED
 #    icon: mdi:home-automation
 #    url: !secret nodered_url
-  backup:
-    title: Snapshots
-    icon: mdi:cloud-upload
-    url: !secret backup_url
+#  backup:
+#    title: Snapshots
+#    icon: mdi:cloud-upload
+#    url: !secret backup_url
 
 # Enables the frontend
 frontend:

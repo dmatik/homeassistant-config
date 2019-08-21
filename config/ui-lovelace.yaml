@@ -49,11 +49,14 @@ resources:
 #      type: js
     - url: /community_plugin/swipe-card/swipe-card.js
       type: module
+    - url: /community_plugin/list-card/list-card.js
+      type: js
 
 
 title: Home
 
 cch:
+  background: 'var(--cch-background)'
   voice: "hide"
   swipe: false
   swipe_animate: "swipe"
@@ -63,7 +66,7 @@ cch:
     - conditions:
           user: kiosk
       config:
-        hide_tabs: 0, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        hide_tabs: 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
         kiosk_mode: true
 
 
@@ -75,7 +78,7 @@ decluttering_templates:
 button_card_templates:
   !include /config/lovelace/button_card_templates/button_card_templates.yaml
    
-    
+background: var(--background-image)    
 views:
 
     # Main

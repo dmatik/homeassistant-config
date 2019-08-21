@@ -6,7 +6,7 @@
   action:
     - service: frontend.set_theme
       data:
-        name: "midnight_blue"
+        name: "Midnight Blue"
         #name: "Google - Dark"
 
 ## Home Assistant is Up and Running ##

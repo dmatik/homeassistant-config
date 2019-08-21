@@ -1,9 +1,11 @@
 default:
   - border_radius: var(--graph-border-radius)
-  - font_size: 60
-  - font_size_header: 12
+  - font_size: 70
+  - font_size_header: 14
   - line_width: 8
-  - show_icon: false
+  - show_icon: true
+  - show_extrema: false
+  - show_fill: true
   - icon: ""
   - color: ""
 
@@ -24,3 +26,5 @@ card:
   line_width: '[[line_width]]'
   show:
     icon: '[[show_icon]]'
+    extrema: '[[show_extrema]]'
+    fill: '[[show_fill]]'

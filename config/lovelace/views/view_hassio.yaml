@@ -8,8 +8,8 @@ cards:
 
     - !include /config/lovelace/cards/hassio/card_hassio_db.yaml
 
-    - !include /config/lovelace/cards/hassio/card_recorder_purge.yaml
+    - !include /config/lovelace/cards/hassio/card_snapshot_backup.yaml
 
-    - !include /config/lovelace/cards/xiaomi/card_batteries.yaml
+    #- !include /config/lovelace/cards/hassio/card_recorder_purge.yaml
 
     - !include /config/lovelace/cards/hassio/card_theme_select.yaml

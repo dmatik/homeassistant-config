@@ -51,7 +51,7 @@ cards:
               - name: Gateway
 
           - type: "custom:button-card"
-            color_type: blank-card               
+            color_type: blank-card
             
           - type: custom:button-card
             template: shoulder_blank_card 

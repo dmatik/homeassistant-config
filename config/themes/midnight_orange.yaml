@@ -1,21 +1,21 @@
-Midnight Blue:
+Midnight Orange:
 # font:
 #      paper-font-common-base_-_font-family: 'Assistant, sans-serif'
 #      paper-font-common-code_-_font-family: 'Assistant, sans-serif'
 
 # Background image
-      background-image: 'center / cover no-repeat url("/local/images/backgrounds/background11.jpg") fixed'
+      background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
 
 # My Styles
       border-radius: 8px
       picture-elements-text-color: '#F0F0F0'                                          # Picture Element card text color
       picture-elements-icon-color: '#F0F0F0'                                          # Picture Element card icon color
-      sensibo-cool-color: 'rgba(43, 154, 249, 0.7)'                                   # Sensibo cool color
-      sensibo-heat-color: 'rgba(255, 129, 0, 0.7)'                                    # Sensibo heat color
-      sensibo-fan-only-color: 'rgba(117,189,111,0.7)'                                 # Sensibo fan only color
+      sensibo-cool-color: 'rgba(43, 154, 249, 0.5)'                                   # Sensibo cool color
+      sensibo-heat-color: 'rgba(255, 129, 0, 0.5)'                                    # Sensibo heat color
+      sensibo-fan-only-color: 'rgba(117,189,111,0.5)'                                 # Sensibo fan only color
       sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
-      cch-background: 'rgba(37, 129, 171, 0.7)'
+      cch-background: 'rgba(204, 85, 0, 0.7)'
 
 # My Button Card Styles
       button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius
@@ -28,9 +28,9 @@ Midnight Blue:
       button-card-disabled-text-color: 'var(--disabled-text-color)'                   # Button Card disabled text color
       button-card-input-select-background: 'var(--button-card-on-background)'         # Button Card selected item color
       button-card-on-background: 'rgba(97,103,114,0.7)'                               # Button Card ON color
-      button-color-green: 'rgba(117,189,111,0.7)'                                     # Button Card green background (ON mode)
+      button-color-green: 'rgba(117,189,111,0.5)'                                     # Button Card green background (ON mode)
       title-border-radius: 5px                                                        # Title border radius
-      title-button-background: 'rgba(37, 129, 171, 0.7)'                              # Title button background color
+      title-button-background: 'rgba(204, 85, 0, 0.5)' #'rgba(37, 129, 171, 0.5)'     # Title button background color
       title-button-text-color: 'var(--primary-text-color)'                            # Title button text color
       remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
       remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
@@ -43,8 +43,8 @@ Midnight Blue:
       label-button-background: 'rgb(97,103,114)'
 
 # Main colors
-      primary-color: '#2581ab'                                             # Header
-      accent-color: '#2581ab'                                              # Accent color
+      primary-color: '#CC5500' #'#2581ab'                                             # Header
+      accent-color: '#CC5500' #'#2581ab'                                              # Accent color
       dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
       light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
 
@@ -56,8 +56,8 @@ Midnight Blue:
       label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
 
 # Background colors                                                            
-      primary-background-color: '#000000' #'#383C45'                                  # Settings background
-      secondary-background-color: '#000000' #'#383C45'                                # Main card UI background  
+      primary-background-color: '#383C45'                                             # Settings background
+      secondary-background-color: '#383C45'                                           # Main card UI background  
       divider-color: 'rgba(0, 0, 0, .12)'                                             # Divider 
   
 # Table rows                                                                   
@@ -73,7 +73,7 @@ Midnight Blue:
       
 # Paper card                                                               
       paper-card-header-color: 'var(--accent-color)'                                  # Card header text colour
-      paper-card-background-color: 'rgba(67,73,84,0.7)'                               # Card background colour
+      paper-card-background-color: 'rgba(67,73,84,0.5)'                               # Card background colour
       paper-dialog-background-color: '#434954'                                        # Card dialog background colour
       paper-item-icon-color: '#F0F0F0'                                                # Icon color
       paper-item-icon-active-color: '#ffc107'                                         # Icon color active

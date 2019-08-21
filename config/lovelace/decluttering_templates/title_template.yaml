@@ -1,5 +1,5 @@
 default:
-  - border_radius: var(--border-radius)
+  - border_radius: var(--title-border-radius)
   - background_color: var(--title-button-background)
   - text_color: var(--title-button-text-color)
 

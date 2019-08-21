@@ -17,9 +17,9 @@ cards:
         template: person_elements
         variables:
           - name: life360_dima_trosman
-          - direction: right
-          - image_away: '/local/images/dima_off.png'
-          - image_home: '/local/images/dima.png'
+          - direction: left
+          - image_away: '/local/images/dima_2_off.png'
+          - image_home: '/local/images/dima_2.png'
           - battery: sensor.life360_dima_battery
           - phone_icon: mdi:cellphone-iphone
           - tap_action:
@@ -31,8 +31,8 @@ cards:
         variables:
           - name: life360_galit
           - direction: right
-          - image_away: '/local/images/galit_off.png'
-          - image_home: '/local/images/galit.png'
+          - image_away: '/local/images/galit_2_off.png'
+          - image_home: '/local/images/galit_2.png'
           - battery: sensor.life360_galit_battery
           - phone_icon: mdi:cellphone-android
           - tap_action:
