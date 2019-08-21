@@ -59,10 +59,10 @@ goodnight_script:
           data:
             entity_id: 
                 - remote.living_room
-        - service: light.turn_on
-          data:
-            entity_id: 
-                - light.hall
+        # - service: light.turn_on
+        #   data:
+        #     entity_id: 
+        #         - light.hall
 
 lights_off:
     alias: Lights OFF
@@ -82,6 +82,8 @@ lights_off:
                 - light.bedroom
                 - light.kids_room
                 - light.work_room
+                - light.bedside_lamp_dima
+                - light.bedside_lamp_galit
                 
 # Switcher
 switcher_turn_on_timer_script:
