@@ -95,14 +95,26 @@ cards:
           - icon: mdi:bed-empty
           - cust_1_field: "[[[
                   return `<ha-icon icon='mdi:thermometer' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
-                  <span><span style='text-transform: capitalize'>${states['sensor.xiaomi_bedroom_temperature'].state}°C</span></span>`;                               
+                  <span><span style='text-transform: capitalize'>${states['sensor.sensibo_bedroom_temp'].state}°C</span></span>`;                               
                   ]]]"
           - cust_1_icon_color: "[[[
-                  if (states['sensor.xiaomi_bedroom_temperature'].state >= 30) return '#bf4040';
-                  if (states['sensor.xiaomi_bedroom_temperature'].state >= 26 && states['sensor.xiaomi_bedroom_temperature'].state < 30) return '#bf9540';
-                  if (states['sensor.xiaomi_bedroom_temperature'].state >= 18 && states['sensor.xiaomi_bedroom_temperature'].state < 26) return 'rgba(117,189,111,1.0)';
-                  if (states['sensor.xiaomi_bedroom_temperature'].state < 18) return 'rgb(43, 154, 249)';
-                  ]]]"   
+                  if (states['sensor.sensibo_bedroom_temp'].state >= 30) return '#bf4040';
+                  if (states['sensor.sensibo_bedroom_temp'].state >= 26 && states['sensor.sensibo_bedroom_temp'].state < 30) return '#bf9540';
+                  if (states['sensor.sensibo_bedroom_temp'].state >= 18 && states['sensor.sensibo_bedroom_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+                  if (states['sensor.sensibo_bedroom_temp'].state < 18) return 'rgb(43, 154, 249)';
+                  ]]]"
+          - cust_2_field: "[[[
+                  if (states['climate.bedroom'].state == 'off')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>off</span></span>`;
+                  else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['climate.bedroom'].state} ${states['climate.bedroom'].attributes.temperature} ${states['climate.bedroom'].attributes.fan_mode}</span></span>`
+                  ]]]"
+          - cust_2_icon_color: "[[[
+                  if (states['climate.bedroom'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['climate.bedroom'].state == 'cool') return 'var(--sensibo-cool-color)';
+                  if (states['climate.bedroom'].state == 'heat') return 'var(--sensibo-heat-color)';
+                  ]]]"
           - path: bedroom
 
       - type: custom:decluttering-card
@@ -112,6 +124,16 @@ cards:
           - name: Work Room
           - icon: mdi:desktop-classic
           - path: work_room
+          - cust_1_field: "[[[
+                  return `<ha-icon icon='mdi:thermometer' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span style='text-transform: capitalize'>${states['sensor.xiaomi_work_room_temperature'].state}°C</span></span>`;                               
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['sensor.xiaomi_work_room_temperature'].state >= 30) return '#bf4040';
+                  if (states['sensor.xiaomi_work_room_temperature'].state >= 26 && states['sensor.xiaomi_work_room_temperature'].state < 30) return '#bf9540';
+                  if (states['sensor.xiaomi_work_room_temperature'].state >= 18 && states['sensor.xiaomi_work_room_temperature'].state < 26) return 'rgba(117,189,111,1.0)';
+                  if (states['sensor.xiaomi_work_room_temperature'].state < 18) return 'rgb(43, 154, 249)';
+                  ]]]"
 
       - type: custom:decluttering-card
         template: menu_button

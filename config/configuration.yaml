@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 
-panel_iframe:
+#panel_iframe:
 #  configurator:
 #    title: Configurator
 #    icon: mdi:wrench

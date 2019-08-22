@@ -55,6 +55,8 @@ goodnight_script:
                 - light.bedroom
                 - light.kids_room
                 - light.work_room
+                - light.bedside_lamp_dima
+                - light.bedside_lamp_galit
         - service: remote.turn_off
           data:
             entity_id: 
@@ -96,7 +98,7 @@ switcher_turn_on_timer_script:
             entity_id: switcher_aio.turn_on_timer_script
             
 
-# Sensibo
+# Sensibo Kids Room
 sensibo_kids_room_increase_target_temp:
     alias: Increase
     sequence:
@@ -112,6 +114,23 @@ sensibo_kids_room_decrease_target_temp:
           data_template:
             entity_id: climate.kids_room
             temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"    
+
+# Sensibo Bedroom
+sensibo_bedroom_increase_target_temp:
+    alias: Increase
+    sequence:
+        - service: climate.set_temperature
+          data_template:
+            entity_id: climate.bedroom
+            temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) + 1 }}"
+            
+sensibo_bedroom_decrease_target_temp:
+    alias: Decrease
+    sequence:
+        - service: climate.set_temperature
+          data_template:
+            entity_id: climate.bedroom
+            temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) - 1 }}"    
 
 
 # Sheild TV remote buttons        

@@ -56,8 +56,8 @@ cards:
           - value: 100
             color: 'rgba(117,189,111,1.0)'         
         entities:
-          - entity: sensor.xiaomi_bedroom_temp_battery
-            title: Bedroom Temperature Sensor
+          - entity: sensor.xiaomi_work_room_temp_battery
+            title: Work Room Temperature Sensor
             icon: mdi:thermometer
           - entity: sensor.xiaomi_button_bedside_dima_battery
             title: Dima's Bedside Switch

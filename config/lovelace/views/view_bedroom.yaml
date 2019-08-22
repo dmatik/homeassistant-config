@@ -8,9 +8,9 @@ cards:
 
     - !include /config/lovelace/cards/lights/card_lights_bedroom.yaml
 
-    - !include /config/lovelace/cards/lights/card_yeelight_bedroom.yaml
+    - !include /config/lovelace/cards/ac/card_sensibo_bedroom.yaml
 
-    - !include /config/lovelace/cards/xiaomi/card_xiaomi_temp_bedroom.yaml
+    - !include /config/lovelace/cards/lights/card_yeelight_bedroom.yaml
 
 
 

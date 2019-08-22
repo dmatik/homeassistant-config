@@ -66,7 +66,7 @@
 #            {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
 #        {% endif %}
         
-    # Sensibo
+    # Sensibo Kids Room
     sensibo_kids_room_temp:
       friendly_name: "Kids Room Temperature (Sensibo)"
       unit_of_measurement: "°C"
@@ -80,28 +80,16 @@
       icon_template: mdi:water-percent
       value_template: >-
         {{ states.climate.kids_room.attributes.current_humidity }}
-
-    sensibo_kids_room_status:
-      friendly_name: "Kids Room Status (Sensibo)"
-      icon_template: mdi:home-thermometer
-      value_template: >-
-        {{ states('sensor.sensibo_kids_room_temp') | round | int }}°C / {{ states('sensor.sensibo_kids_room_humidity') | round | int }}% humidity
         
     sensibo_kids_room_target_temp:
-      friendly_name: "Target Temperature (Sensibo)"
+      friendly_name: "Kids Room Target Temperature (Sensibo)"
       unit_of_measurement: "°C"
       icon_template: mdi:thermometer
       value_template: >-
-        {{ states.climate.kids_room.attributes.temperature }}
-        
-    sensibo_kids_room_operation_old:
-      friendly_name: "Operation Mode (Sensibo)"
-      icon_template: mdi:air-filter
-      value_template: >-
-        {{ states.climate.kids_room.attributes.operation_mode }}  
+        {{ states.climate.kids_room.attributes.temperature }} 
         
     sensibo_kids_room_fan:
-      friendly_name: "Fan Mode (Sensibo)"
+      friendly_name: "Kids Room Fan Mode (Sensibo)"
       icon_template: mdi:fan
       value_template: >-
         {% if states.climate.kids_room.attributes.fan_mode %}
@@ -109,15 +97,48 @@
         {% else %}      
             op_auto
         {% endif %}
+
+
+    # Sensibo Bedroom
+    sensibo_bedroom_temp:
+      friendly_name: "Bedroom Temperature (Sensibo)"
+      unit_of_measurement: "°C"
+      icon_template: mdi:thermometer
+      value_template: >-
+        {{ states.climate.bedroom.attributes.current_temperature }}
+        
+    sensibo_bedroom_humidity:
+      friendly_name: "Bedroom Humidity (Sensibo)"
+      unit_of_measurement: "%"
+      icon_template: mdi:water-percent
+      value_template: >-
+        {{ states.climate.bedroom.attributes.current_humidity }}
+        
+    sensibo_bedroom_target_temp:
+      friendly_name: "Bedroom Target Temperature (Sensibo)"
+      unit_of_measurement: "°C"
+      icon_template: mdi:thermometer
+      value_template: >-
+        {{ states.climate.bedroom.attributes.temperature }} 
+        
+    sensibo_bedroom_fan:
+      friendly_name: "Bedroom Fan Mode (Sensibo)"
+      icon_template: mdi:fan
+      value_template: >-
+        {% if states.climate.bedroom.attributes.fan_mode %}
+            {{ states.climate.bedroom.attributes.fan_mode }}
+        {% else %}      
+            op_auto
+        {% endif %}
         
 
     # Xiaomi
-    xiaomi_bedroom_temp_battery:
-      friendly_name: "Bedroom Temperature"
+    xiaomi_work_room_temp_battery:
+      friendly_name: "Work Room Temperature"
       icon_template: mdi:battery
       unit_of_measurement: '%'
       value_template: >-
-        {{ states.sensor.xiaomi_bedroom_temperature.attributes.battery_level }}
+        {{ states.sensor.xiaomi_work_room_temperature.attributes.battery_level }}
 
     xiaomi_button_bedside_dima_battery:
       friendly_name: "Bedside Switch Dima"

@@ -3,5 +3,5 @@ template: sensibo_card
 variables:
   - title: Kids Room AC
   - name: kids_room
-  - image_on: /local/kids_room_ac_buttons_on.png
-  - image_off: /local/kids_room_ac_buttons_off.png
+  - image_on: /local/images/sensibo/kids_room_ac_on.png
+  - image_off: /local/images/sensibo/kids_room_ac_off.png
