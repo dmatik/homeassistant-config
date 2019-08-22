@@ -130,7 +130,24 @@ sensibo_bedroom_decrease_target_temp:
         - service: climate.set_temperature
           data_template:
             entity_id: climate.bedroom
-            temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) - 1 }}"    
+            temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) - 1 }}"
+
+# Sensibo Living Room
+sensibo_living_room_increase_target_temp:
+    alias: Increase
+    sequence:
+        - service: climate.set_temperature
+          data_template:
+            entity_id: climate.living_room
+            temperature: "{{ (state_attr('climate.living_room', 'temperature')|round(0)) + 1 }}"
+            
+sensibo_living_room_decrease_target_temp:
+    alias: Decrease
+    sequence:
+        - service: climate.set_temperature
+          data_template:
+            entity_id: climate.living_room
+            temperature: "{{ (state_attr('climate.living_room', 'temperature')|round(0)) - 1 }}"  
 
 
 # Sheild TV remote buttons        

@@ -48,7 +48,19 @@ cards:
           - cust_1_icon_color: "[[[
                   if (states['sensor.living_room_tv'].state == 'Off') return 'var(--paper-item-icon-color)';
                   else return 'var(--paper-item-icon-active-color)';
-                  ]]]" 
+                  ]]]"
+          - cust_2_field: "[[[
+                  if (states['climate.living_room'].state == 'off')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>off</span></span>`;
+                  else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['climate.living_room'].state} ${states['climate.living_room'].attributes.temperature} ${states['climate.living_room'].attributes.fan_mode}</span></span>`
+                  ]]]"
+          - cust_2_icon_color: "[[[
+                  if (states['climate.living_room'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['climate.living_room'].state == 'cool') return 'var(--sensibo-cool-color)';
+                  if (states['climate.living_room'].state == 'heat') return 'var(--sensibo-heat-color)';
+                  ]]]"
           - path: living_room                  
 
       - type: custom:decluttering-card

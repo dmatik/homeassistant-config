@@ -130,6 +130,39 @@
         {% else %}      
             op_auto
         {% endif %}
+
+
+    # Sensibo Living Room
+    sensibo_living_room_temp:
+      friendly_name: "Living Room Temperature (Sensibo)"
+      unit_of_measurement: "°C"
+      icon_template: mdi:thermometer
+      value_template: >-
+        {{ states.climate.living_room.attributes.current_temperature }}
+        
+    sensibo_living_room_humidity:
+      friendly_name: "Living Room Humidity (Sensibo)"
+      unit_of_measurement: "%"
+      icon_template: mdi:water-percent
+      value_template: >-
+        {{ states.climate.living_room.attributes.current_humidity }}
+        
+    sensibo_living_room_target_temp:
+      friendly_name: "Living Room Target Temperature (Sensibo)"
+      unit_of_measurement: "°C"
+      icon_template: mdi:thermometer
+      value_template: >-
+        {{ states.climate.living_room.attributes.temperature }} 
+        
+    sensibo_living_room_fan:
+      friendly_name: "Living Room Fan Mode (Sensibo)"
+      icon_template: mdi:fan
+      value_template: >-
+        {% if states.climate.living_room.attributes.fan_mode %}
+            {{ states.climate.living_room.attributes.fan_mode }}
+        {% else %}      
+            op_auto
+        {% endif %}
         
 
     # Xiaomi
