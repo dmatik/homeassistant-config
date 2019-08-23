@@ -1,6 +1,7 @@
 default:
   - cust_1_field: ""
   - cust_2_field: ""
+  - corner_2_field: ""
   - color: auto
   - color_type: icon
   - state:
@@ -17,6 +18,8 @@ default:
           custom_fields:
             corner:
               - color: var(--button-card-disabled-text-color)
+            corner_2:
+              - color: var(--button-card-disabled-text-color)
             cust_1:
               - color: var(--button-card-disabled-text-color)
             cust_2:
@@ -28,6 +31,7 @@ default:
   - icon_color: var(--button-card-icon-color)
   - text_color: var(--button-card-text-color)
   - corner_text_color: var(--button-card-corner-text-color)
+  - corner_2_text_color: var(--button-card-corner-text-color)
   - cust_1_text_color: var(--button-card-cust-1-text-color)
   - cust_2_text_color: var(--button-card-cust-2-text-color)
 
@@ -51,9 +55,9 @@ card:
       - background-color: '[[background_color]]'
       - color: '[[text_color]]'
     grid:
-      - grid-template-areas: '"i corner" "n n" "cust_1 cust_1" "cust_2 cust_2"'
+      - grid-template-areas: '"i corner" "i corner_2" "n n" "cust_1 cust_1" "cust_2 cust_2"'
       - grid-template-columns: 1fr 1fr
-      - grid-template-rows: 4fr 2fr 1fr 1fr
+      - grid-template-rows: 1fr 3fr 2fr 1fr 1fr
     name:
       - font-size: 16px
       - align-self: middle
@@ -79,6 +83,13 @@ card:
         - font-size: 14px
         - color: "[[corner_text_color]]"
         - --icon-color-sensor: "[[corner_icon_color]]"
+      corner_2:
+        - padding-top: 8px
+        - align-self: start
+        - justify-self: end
+        #- font-size: 14px
+        - color: "[[corner_2_text_color]]"
+        - --icon-color-sensor: "[[corner_2_icon_color]]"
       cust_1:
         - padding-bottom: 2px
         - align-self: middle
@@ -93,6 +104,7 @@ card:
         - --icon-color-sensor: "[[cust_2_icon_color]]"
   custom_fields:
     corner: "[[corner_field]]"
+    corner_2: "[[corner_2_field]]"
     cust_1: "[[cust_1_field]]"
     cust_2: "[[cust_2_field]]"
   tap_action: '[[tap_action]]'

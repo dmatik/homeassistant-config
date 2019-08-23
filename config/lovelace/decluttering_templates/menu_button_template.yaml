@@ -12,6 +12,8 @@ card:
         if (entity.state == 'off') return 'var(--paper-item-icon-color)';
         else return 'var(--paper-item-icon-active-color)';
         ]]]"
+    - corner_2_text_color: "[[corner_2_text_color]]"
+    - corner_2_icon_color: "[[corner_2_icon_color]]"
     - cust_1_text_color: "[[cust_1_text_color]]"
     - cust_1_icon_color: "[[cust_1_icon_color]]"
     - cust_2_text_color: "[[cust_2_text_color]]"
@@ -21,6 +23,7 @@ card:
         return `<ha-icon icon='mdi:lightbulb' style='width: 16px; height: 16px; color: var(--icon-color-sensor);'></ha-icon>`;
         else return `<ha-icon icon='mdi:lightbulb' style='width: 16px; height: 16px; color: var(--icon-color-sensor);'></ha-icon>`;
         ]]]"
+    - corner_2_field: "[[corner_2_field]]"
     - cust_1_field: "[[cust_1_field]]"
     - cust_2_field: "[[cust_2_field]]"
     - tap_action: 
