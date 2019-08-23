@@ -1,5 +1,5 @@
 type: custom:decluttering-card
 template: sensibo_card_kiosk
 variables:
-  - title: Kids Room AC
-  - name: kids_room
+  - title: Living Room AC
+  - name: living_room

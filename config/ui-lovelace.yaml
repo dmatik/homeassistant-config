@@ -17,14 +17,14 @@ resources:
       type: module
     - url: /community_plugin/bar-card/bar-card.js
       type: js
-#    - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
-#      type: js
+    - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+      type: js
     - url: /community_plugin/button-card/button-card.js
       type: module
-#    - url: /community_plugin/vertical-style-card/vertical-style-card.js
-#      type: js
-#    - url: /community_plugin/bignumber-card/bignumber-card.js
-#      type: js
+    - url: /community_plugin/vertical-style-card/vertical-style-card.js
+      type: js
+    - url: /community_plugin/bignumber-card/bignumber-card.js
+      type: js
     - url: /community_plugin/mini-graph-card/mini-graph-card.js
       type: module
     - url: /community_plugin/lovelace-gap-card/gap-card.js

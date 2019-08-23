@@ -27,11 +27,11 @@ cards:
           - type: vertical-stack
             cards:
 
-              #- !include /config/lovelace/cards/card_simple_weather.yaml
+              - !include /config/lovelace/cards/ac/card_sensibo_living_room_kiosk.yaml
 
-              - !include /config/lovelace/cards/ac/card_sensibo_kids_room.yaml
+              - !include /config/lovelace/cards/ac/card_sensibo_kids_room_kiosk.yaml
 
-              - !include /config/lovelace/cards/ac/card_sensibo_bedroom.yaml
+              - !include /config/lovelace/cards/ac/card_sensibo_bedroom_kiosk.yaml
 
               - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
               

@@ -19,6 +19,9 @@ sensibo_elements:
 sensibo_card:
   !include sensibo_template.yaml
 
+sensibo_card_kiosk:
+  !include sensibo_template_kiosk.yaml
+
 harmony_elements:
   !include harmony_elements_template.yaml
 
