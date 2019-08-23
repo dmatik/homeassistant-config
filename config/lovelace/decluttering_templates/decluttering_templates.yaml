@@ -16,11 +16,14 @@ title_button_card:
 sensibo_elements:
   !include sensibo_elements_template.yaml
 
+sensibo_elements_kiosk:
+  !include sensibo_elements_kiosk_template.yaml
+
 sensibo_card:
   !include sensibo_template.yaml
 
 sensibo_card_kiosk:
-  !include sensibo_template_kiosk.yaml
+  !include sensibo_kiosk_template.yaml
 
 harmony_elements:
   !include harmony_elements_template.yaml

@@ -3,3 +3,5 @@ template: sensibo_card_kiosk
 variables:
   - title: Bedoom AC
   - name: bedroom
+  - image_on: /local/images/sensibo/bedroom_ac_kiosk_on.png
+  - image_off: /local/images/sensibo/bedroom_ac_kiosk_off.png
