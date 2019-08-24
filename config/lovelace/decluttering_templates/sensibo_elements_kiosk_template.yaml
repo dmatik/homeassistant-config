@@ -5,8 +5,8 @@ default:
   - heat_color: 'var(--sensibo-heat-color)'
   - fan_only_color: 'var(--sensibo-fan-only-color)'
   - auto_color: 'var(--sensibo-auto-color)'
-  - icon_width: 36px
-  - icon_height: 36px
+  - icon_width: 34px
+  - icon_height: 34px
   - font_size: 32px
 
 card:
