@@ -22,18 +22,18 @@ cards:
               
               - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
 
-              - !include /config/lovelace/cards/card_calendar_home.yaml
+              - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
             
           - type: vertical-stack
             cards:
-
+              
               - !include /config/lovelace/cards/ac/card_sensibo_living_room_kiosk.yaml
 
               - !include /config/lovelace/cards/ac/card_sensibo_kids_room_kiosk.yaml
 
               - !include /config/lovelace/cards/ac/card_sensibo_bedroom_kiosk.yaml
 
-              - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
+              - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
               
           - type: vertical-stack
             cards:
@@ -41,6 +41,8 @@ cards:
               - !include /config/lovelace/cards/remotes/card_harmony_living_room_kiosk.yaml
 
               - !include /config/lovelace/cards/switcher/card_switcher_kiosk.yaml
+
+              - !include /config/lovelace/cards/card_calendar_home.yaml
 
       
 

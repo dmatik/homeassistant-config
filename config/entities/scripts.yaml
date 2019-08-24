@@ -55,8 +55,6 @@ goodnight_script:
                 - light.bedroom
                 - light.kids_room
                 - light.work_room
-                - light.bedside_lamp_dima
-                - light.bedside_lamp_galit
         - service: remote.turn_off
           data:
             entity_id: 
