@@ -38,9 +38,9 @@ cards:
           - type: vertical-stack
             cards:
 
-              - !include /config/lovelace/cards/remotes/card_harmony_living_room.yaml
+              - !include /config/lovelace/cards/remotes/card_harmony_living_room_kiosk.yaml
 
-              - !include /config/lovelace/cards/switcher/card_switcher.yaml
+              - !include /config/lovelace/cards/switcher/card_switcher_kiosk.yaml
 
       
 

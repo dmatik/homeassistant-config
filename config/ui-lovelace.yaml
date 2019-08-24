@@ -51,6 +51,8 @@ resources:
       type: module
     - url: /community_plugin/list-card/list-card.js
       type: js
+    - url: /community_plugin/text-divider-row/text-divider-row.js
+      type: module
 
 
 title: Home

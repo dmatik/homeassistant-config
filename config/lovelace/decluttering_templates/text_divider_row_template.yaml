@@ -1,0 +1,15 @@
+default:
+  - color: var(--primary-text-color)
+
+card:
+  type: entities
+  style: |
+    ha-card {
+      background: none;
+      box-shadow: none;
+      --secondary-text-color: [[color]];
+    }
+  show_header_toggle: off
+  entities:
+    - type: custom:text-divider-row
+      text: '[[text]]'

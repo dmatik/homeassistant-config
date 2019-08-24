@@ -29,22 +29,22 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
-    cards:
+  # - type: horizontal-stack
+  #   cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
+  #     - type: custom:button-card
+  #       template: shoulder_blank_card  
 
-      - type: custom:decluttering-card
-        template: harmony_elements
-        variables:
-          - title: Living Room TV
-          - name: living_room
-          - image_on: /local/images/remotes/living_room_tv_on.png
-          - image_off: /local/images/remotes/living_room_tv_off.png
+  #     - type: custom:decluttering-card
+  #       template: harmony_elements_kiosk
+  #       variables:
+  #         - title: Living Room TV
+  #         - name: living_room
+  #         - image_on: /local/images/remotes/living_room_tv_kiosk_on.png
+  #         - image_off: /local/images/remotes/living_room_tv_kiosk_off.png
 
-      - type: custom:button-card
-        template: shoulder_blank_card  
+  #     - type: custom:button-card
+  #       template: shoulder_blank_card  
 
 ############################################################################
 #                                                                          #
@@ -64,6 +64,8 @@ cards:
           - entity: switch.baltic_tv
           - name: Baltic TV
           - icon: mdi:satellite-variant
+          - show_name: true
+          - font_size: 22px
 
       - type: custom:decluttering-card # Shield TV
         template: simple_button
@@ -71,6 +73,8 @@ cards:
           - entity: switch.shield_tv
           - name: Shield TV
           - icon: mdi:android
+          - show_name: true
+          - font_size: 22px
 
       - type: custom:decluttering-card # Smart TV
         template: simple_button
@@ -78,6 +82,8 @@ cards:
           - entity: switch.smart_tv
           - name: Smart TV
           - icon: mdi:television
+          - show_name: true
+          - font_size: 22px
         
       - type: custom:button-card
         template: shoulder_blank_card 

@@ -1,11 +1,12 @@
 default:
   - text_color: var(--picture-elements-text-color)
-  - image_on: /local/images/switcher/switcher_on.png
-  - image_off: /local/images/switcher/switcher_off.png
+  - image_on: /local/images/switcher/switcher_kiosk_on.png
+  - image_off: /local/images/switcher/switcher_kiosk_off.png
   - entity: switch.switcher_aio_switch
   - electric_current_sensor: switcher_aio.electric_current_sensor
   - time_left_sensor: sensor.switcher_aio_time_left
   - auto_off_sensor: sensor.switcher_aio_auto_off_time
+  - font_size: 32px
 
 card:
   type: picture-elements
@@ -33,9 +34,9 @@ card:
         - type: state-label
           entity: '[[electric_current_sensor]]'
           style:
-            top: 85%
+            top: 50%
             left: 16%
-            font-size: 24px
+            font-size: '[[font_size]]'
             color: '[[text_color]]'
             text-transform: lowercase
     - type: conditional
@@ -46,16 +47,16 @@ card:
         - type: state-label
           entity: '[[time_left_sensor]]'
           style:
-            top: 85%
+            top: 50%
             left: 50%
-            font-size: 24px
+            font-size: '[[font_size]]'
             color: '[[text_color]]'
             text-transform: lowercase
     - type: state-label
       entity: '[[auto_off_sensor]]'
       style:
-        top: 85%
+        top: 50%
         left: 84%
-        font-size: 24px
+        font-size: '[[font_size]]'
         color: '[[text_color]]'
         text-transform: lowercase

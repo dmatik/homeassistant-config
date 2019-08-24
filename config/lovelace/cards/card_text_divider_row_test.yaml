@@ -1,0 +1,4 @@
+type: custom:decluttering-card
+template: text_divider_row
+variables:
+  - text: "Test"

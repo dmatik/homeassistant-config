@@ -28,8 +28,14 @@ sensibo_card_kiosk:
 harmony_elements:
   !include harmony_elements_template.yaml
 
+harmony_elements_kiosk:
+  !include harmony_elements_kiosk_template.yaml
+
 switcher_elements:
   !include switcher_elements_template.yaml
+
+switcher_elements_kiosk:
+  !include switcher_elements_kiosk_template.yaml
 
 yeelight_switch_button:
   !include yeelight_button_template.yaml  
@@ -57,3 +63,6 @@ ac_power_button:
 
 graph:
   !include graph_template.yaml
+
+text_divider_row:
+  !include text_divider_row_template.yaml

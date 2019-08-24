@@ -13,42 +13,38 @@ cards:
     
       - type: custom:button-card
         template: shoulder_blank_card  
-      
+    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Living Room TV
-      
+          - name: Switcher
+    
       - type: custom:button-card
         template: shoulder_blank_card  
 
 
 ############################################################################
 #                                                                          #
-#   Picture with current activity                                          #
+#   Picture with information display                                       #
 #                                                                          #
 ############################################################################
 
   - type: horizontal-stack
     cards:
-    
+
       - type: custom:button-card
-        template: shoulder_blank_card  
+        template: shoulder_blank_card 
 
       - type: custom:decluttering-card
-        template: harmony_elements
-        variables:
-          - title: Living Room TV
-          - name: living_room
-          - image_on: /local/images/remotes/living_room_tv_on.png
-          - image_off: /local/images/remotes/living_room_tv_off.png
-
+        template: switcher_elements_kiosk
+                  
       - type: custom:button-card
-        template: shoulder_blank_card  
+        template: shoulder_blank_card
+
 
 ############################################################################
 #                                                                          #
-#   Activities power buttons                                               #
+#   Power buttons                                                          #
 #                                                                          #
 ############################################################################
 
@@ -56,36 +52,29 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: shoulder_blank_card 
+        template: shoulder_blank_card
 
-      - type: custom:decluttering-card # Baltic TV
+      - type: custom:decluttering-card # Boiler Power
         template: simple_button
         variables:
-          - entity: switch.baltic_tv
-          - name: Baltic TV
-          - icon: mdi:satellite-variant
+          - entity: switch.switcher_aio_switch
+          - name: Power
+          - icon: mdi:power-standby
 
-      - type: custom:decluttering-card # Shield TV
-        template: simple_button
+      - type: custom:decluttering-card # Turn ON with Timer
+        template: simple_script_button
         variables:
-          - entity: switch.shield_tv
-          - name: Shield TV
-          - icon: mdi:android
-
-      - type: custom:decluttering-card # Smart TV
-        template: simple_button
-        variables:
-          - entity: switch.smart_tv
-          - name: Smart TV
-          - icon: mdi:television
+          - entity: script.switcher_turn_on_timer_script
+          - name: ON With Timer
+          - icon: mdi:timer
         
       - type: custom:button-card
-        template: shoulder_blank_card 
+        template: shoulder_blank_card
 
 
 ############################################################################
 #                                                                          #
-#   Volume buttons                                                         #
+#   Timer Minutes buttons                                                  #
 #                                                                          #
 ############################################################################
 
@@ -93,30 +82,37 @@ cards:
     cards:
     
       - type: custom:button-card
-        template: shoulder_blank_card 
+        template: shoulder_blank_card
 
-      - type: custom:decluttering-card # Volume Up
-        template: simple_script_button
+      - type: custom:decluttering-card # Timer Minutes - 15
+        template: simple_select_button
         variables:
-          - entity: script.reciever_volume_up
-          - name: Volume
-          - icon: mdi:volume-plus
+          - entity: input_select.switcher_timer_minutes_input_select
+          - name: 15
+          - option: "15"
 
-      - type: custom:decluttering-card # Volume Down
-        template: simple_script_button
+      - type: custom:decluttering-card # Timer Minutes - 30
+        template: simple_select_button
         variables:
-          - entity: script.reciever_volume_down
-          - name: Volume
-          - icon: mdi:volume-minus
+          - entity: input_select.switcher_timer_minutes_input_select
+          - name: 30
+          - option: "30"
 
-      - type: custom:decluttering-card # Volume Mute
-        template: simple_script_button
+      - type: custom:decluttering-card # Timer Minutes - 45
+        template: simple_select_button
         variables:
-          - entity: script.reciever_volume_mute
-          - name: Mute
-          - icon: mdi:volume-mute
-        
+          - entity: input_select.switcher_timer_minutes_input_select
+          - name: 45
+          - option: "45"
+
+      - type: custom:decluttering-card # Timer Minutes - 60
+        template: simple_select_button
+        variables:
+          - entity: input_select.switcher_timer_minutes_input_select
+          - name: 60
+          - option: "60"
+                
       - type: custom:button-card
-        template: shoulder_blank_card 
+        template: shoulder_blank_card
 
-  - !include /config/lovelace/styles/separator_card.yaml        
+  - !include /config/lovelace/styles/separator_card.yaml
