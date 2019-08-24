@@ -44,7 +44,7 @@ card:
           entity: '[[sensor_target_temp]]'
           style:
             top: 85%
-            left: 33%
+            left: 31%
             font-size: '[[font_size]]'
             color: '[[text_color]]'
     - type: state-label
@@ -127,7 +127,7 @@ card:
             action: none
           style:
             top: 85%
-            left: 17%
+            left: 19%
             color: '[[icon_color]]'
             --iron-icon-width: '[[icon_width]]'
             --iron-icon-height: '[[icon_height]]'
@@ -144,7 +144,7 @@ card:
             action: none
           style:
             top: 85%
-            left: 17%
+            left: 19%
             color: '[[icon_color]]'
             --iron-icon-width: '[[icon_width]]'
             --iron-icon-height: '[[icon_height]]'
@@ -161,7 +161,7 @@ card:
             action: none
           style:
             top: 85%
-            left: 17%
+            left: 19%
             color: '[[icon_color]]'
             --iron-icon-width: '[[icon_width]]'
             --iron-icon-height: '[[icon_height]]'
@@ -178,7 +178,7 @@ card:
             action: none
           style:
             top: 85%
-            left: 17%
+            left: 19%
             color: '[[icon_color]]'
             --iron-icon-width: '[[icon_width]]'
             --iron-icon-height: '[[icon_height]]'

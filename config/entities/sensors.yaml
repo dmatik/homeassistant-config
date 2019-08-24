@@ -83,7 +83,7 @@
         
     sensibo_kids_room_target_temp:
       friendly_name: "Kids Room Target Temperature (Sensibo)"
-      unit_of_measurement: "°C"
+      #unit_of_measurement: "°C"
       icon_template: mdi:thermometer
       value_template: >-
         {{ states.climate.kids_room.attributes.temperature }} 
@@ -116,7 +116,7 @@
         
     sensibo_bedroom_target_temp:
       friendly_name: "Bedroom Target Temperature (Sensibo)"
-      unit_of_measurement: "°C"
+      #unit_of_measurement: "°C"
       icon_template: mdi:thermometer
       value_template: >-
         {{ states.climate.bedroom.attributes.temperature }} 
@@ -149,7 +149,7 @@
         
     sensibo_living_room_target_temp:
       friendly_name: "Living Room Target Temperature (Sensibo)"
-      unit_of_measurement: "°C"
+      #unit_of_measurement: "°C"
       icon_template: mdi:thermometer
       value_template: >-
         {{ states.climate.living_room.attributes.temperature }} 
