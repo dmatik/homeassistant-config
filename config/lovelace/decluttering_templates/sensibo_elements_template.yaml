@@ -5,6 +5,9 @@ default:
   - heat_color: 'var(--sensibo-heat-color)'
   - fan_only_color: 'var(--sensibo-fan-only-color)'
   - auto_color: 'var(--sensibo-auto-color)'  
+  - icon_width: 26px
+  - icon_height: 26px
+  - font_size: 24px
 
 card:
   type: picture-elements
@@ -42,14 +45,14 @@ card:
           style:
             top: 85%
             left: 33%
-            font-size: 24px
+            font-size: '[[font_size]]'
             color: '[[text_color]]'
     - type: state-label
       entity: '[[sensor_temp]]'
       style:
         top: 85%
         left: 85%
-        font-size: 24px
+        font-size: '[[font_size]]'
         color: '[[text_color]]'       
     - type: conditional
       conditions:
@@ -63,7 +66,9 @@ card:
           style:
             top: 85%
             left: 8%
-            color: '[[cool_color]]'
+            color: '[[icon_color]]' #'[[cool_color]]'
+            --iron-icon-width: '[[icon_width]]'
+            --iron-icon-height: '[[icon_height]]'
     - type: conditional
       conditions:
         - entity: '[[entity]]'
@@ -76,7 +81,9 @@ card:
           style:
             top: 85%
             left: 8%
-            color: '[[heat_color]]'
+            color: '[[icon_color]]' #'[[heat_color]]'
+            --iron-icon-width: '[[icon_width]]'
+            --iron-icon-height: '[[icon_height]]'
     - type: conditional
       conditions:
         - entity: '[[entity]]'
@@ -89,7 +96,9 @@ card:
           style:
             top: 85%
             left: 8%
-            color: '[[fan_only_color]]'  
+            color: '[[icon_color]]' #'[[fan_only_color]]'
+            --iron-icon-width: '[[icon_width]]'
+            --iron-icon-height: '[[icon_height]]'
     - type: conditional
       conditions:
         - entity: '[[entity]]'
@@ -102,7 +111,9 @@ card:
           style:
             top: 85%
             left: 8%
-            color: '[[auto_color]]'
+            color: '[[icon_color]]' #'[[auto_color]]'
+            --iron-icon-width: '[[icon_width]]'
+            --iron-icon-height: '[[icon_height]]'
     - type: conditional
       conditions:
         - entity: '[[sensor_fan]]'
@@ -118,6 +129,8 @@ card:
             top: 85%
             left: 17%
             color: '[[icon_color]]'
+            --iron-icon-width: '[[icon_width]]'
+            --iron-icon-height: '[[icon_height]]'
     - type: conditional
       conditions:
         - entity: '[[sensor_fan]]'
@@ -133,6 +146,8 @@ card:
             top: 85%
             left: 17%
             color: '[[icon_color]]'
+            --iron-icon-width: '[[icon_width]]'
+            --iron-icon-height: '[[icon_height]]'
     - type: conditional
       conditions:
         - entity: '[[sensor_fan]]'
@@ -148,6 +163,8 @@ card:
             top: 85%
             left: 17%
             color: '[[icon_color]]'
+            --iron-icon-width: '[[icon_width]]'
+            --iron-icon-height: '[[icon_height]]'
     - type: conditional
       conditions:
         - entity: '[[sensor_fan]]'
@@ -163,3 +180,5 @@ card:
             top: 85%
             left: 17%
             color: '[[icon_color]]'
+            --iron-icon-width: '[[icon_width]]'
+            --iron-icon-height: '[[icon_height]]'
