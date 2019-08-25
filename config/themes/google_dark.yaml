@@ -1,7 +1,7 @@
-Google - Dark:
+Google Dark:
 
 # Background
-  background-image: 'center / cover no-repeat url("/local/images/background_19.png") fixed'
+  #background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
 
 # My Styles
   border-radius: 8px
@@ -25,6 +25,7 @@ Google - Dark:
   button-card-input-select-background: 'var(--button-card-on-background)'         # Button Card selected item color
   button-card-on-background: 'var(--disabled-text-color)'                         # Button Card ON color
   button-color-green: 'rgba(117,189,111,1)'                                       # Button Card green background (ON mode)
+  title-border-radius: 5px                                                        # Title border radius
   title-button-background: 'rgb(255, 129, 0)'                                     # Title button background color
   title-button-text-color: 'var(--primary-text-color)'                            # Title button text color
   remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color

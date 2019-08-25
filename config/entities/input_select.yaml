@@ -30,7 +30,6 @@ themes_list:
     name: Themes
     icon: mdi:palette
     options:
-        - "Midnight Orange"
         - "Midnight Blue"
-        - "Google - Dark"
-        - "slate"
+        - "Midnight Orange"
+        - "Google Dark"
