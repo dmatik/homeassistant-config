@@ -15,7 +15,7 @@ Midnight Orange:
       sensibo-fan-only-color: 'rgba(117,189,111,0.5)'                                 # Sensibo fan only color
       sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
-      cch-background: 'rgba(204, 85, 0, 0.7)'
+      cch-background: 'var(--paper-card-background-color)' #'rgba(204, 85, 0, 0.7)'   # Header background
 
 # My Button Card Styles
       button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius

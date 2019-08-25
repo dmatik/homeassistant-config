@@ -4,7 +4,7 @@ Midnight Blue:
 #      paper-font-common-code_-_font-family: 'Assistant, sans-serif'
 
 # Background image
-      background-image: 'center / cover no-repeat url("/local/images/backgrounds/background11.jpg") fixed'
+      background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
 
 # My Styles
       border-radius: 8px
@@ -43,8 +43,8 @@ Midnight Blue:
       label-button-background: 'rgb(97,103,114)'
 
 # Main colors
-      primary-color: '#2581ab'                                             # Header
-      accent-color: '#2581ab'                                              # Accent color
+      primary-color: '#2581ab'                                                        # Header
+      accent-color: '#2581ab'                                                         # Accent color
       dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
       light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
 
@@ -56,8 +56,8 @@ Midnight Blue:
       label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
 
 # Background colors                                                            
-      primary-background-color: '#000000' #'#383C45'                                  # Settings background
-      secondary-background-color: '#000000' #'#383C45'                                # Main card UI background  
+      primary-background-color: '#383C45'                                             # Settings background
+      secondary-background-color: '#383C45'                                           # Main card UI background  
       divider-color: 'rgba(0, 0, 0, .12)'                                             # Divider 
   
 # Table rows                                                                   
