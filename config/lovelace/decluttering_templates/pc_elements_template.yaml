@@ -8,13 +8,13 @@ card:
       border-radius: var(--border-radius);
       overflow: hidden;
     }              
-  image: '[[image_on]]'
+  image: '[[image_off]]'
   elements:
     - type: image
       entity: switch.[[name]]
-      image: '[[image_on]]'
+      image: '[[image_off]]'
       state_image:
-        "Off": '[[image_off]]'
+        "on": '[[image_on]]'
       style:
         top: 50%
         left: 50%
