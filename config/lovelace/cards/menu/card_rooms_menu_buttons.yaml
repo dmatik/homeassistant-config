@@ -153,6 +153,14 @@ cards:
                   if (states['sensor.xiaomi_work_room_temperature'].state >= 18 && states['sensor.xiaomi_work_room_temperature'].state < 26) return 'rgba(117,189,111,1.0)';
                   if (states['sensor.xiaomi_work_room_temperature'].state < 18) return 'rgb(43, 154, 249)';
                   ]]]"
+          - cust_1_field: "[[[
+                  return `<ha-icon icon='mdi:desktop-tower' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['binary_sensor.dimka_connected'].state}</span></span>`;
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['binary_sensor.dimka_connected'].state == 'off') return 'var(--paper-item-icon-color)';
+                  else return 'var(--paper-item-icon-active-color)';
+                  ]]]"
 
 
       - type: custom:decluttering-card
