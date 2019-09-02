@@ -21,3 +21,16 @@
       data:
         title: 'System'
         message: 'Up and Running'
+
+## IOT Link DIMKA ##
+- alias: 'DIMKA Refresh on Startup'
+  initial_state: 'true'  
+  hide_entity: true
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: mqtt.publish 
+      data:
+        topic: "iotlink/home/dimka/refresh"
+        payload: ""
