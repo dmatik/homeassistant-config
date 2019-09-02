@@ -11,14 +11,6 @@ switcher_timer_minutes_input_number:
     min: 15
     max: 60
     step: 15
-    
-sensibo_kids_room:
-    name: Target Temperature
-    min: 17
-    max: 30
-    step: 1
-    mode: slider
-    icon: mdi:thermometer
 
 recorder_purge_keep_days:
     name: Recorder purge keep days

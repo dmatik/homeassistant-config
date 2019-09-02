@@ -325,15 +325,15 @@
                     hvac_mode: "off"
 
 
-#- platform: switcher_heater
-#  switches:
-#      switcher_heater_switch:
-#        friendly_name: 'Switcher Heater'
-#        local_ip_addr: !secret switcher_local_ip_addr
-#        phone_id: !secret switcher_phone_id
-#        device_id: !secret switcher_device_id
-#        device_password: !secret switcher_device_password
-#        scan_interval: 20
-#        icon: 'mdi:thermostat-box'
+        # DIMKA IOT Link
+        dimka:
+            friendly_name: "DIMKA"
+            value_template: "{{ is_state('binary_sensor.dimka_connected', 'on') }}"
+            icon_template: mdi:laptop
+            turn_on:
+                service: script.dimka_wake
+            turn_off:
+                service: script.dimka_suspend
+
             
 

@@ -1,0 +1,145 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: DIMKA PC
+    
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+############################################################################
+#                                                                          #
+#   CPU and Memory Graphs                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:  
+
+        - type: custom:button-card
+          template: shoulder_blank_card 
+
+        - type: custom:decluttering-card
+          template: graph
+          variables:
+              - entity: sensor.dimka_cpu_usage
+              - name: CPU
+              - icon: mdi:chip
+              - color: 'rgb(43, 154, 249)'  
+
+        - type: custom:decluttering-card
+          template: graph
+          variables:
+              - entity: sensor.dimka_ram_used
+              - name: RAM
+              - icon: mdi:memory
+              - color: 'rgb(87, 0, 127)' 
+
+        - type: custom:button-card
+          template: shoulder_blank_card
+
+
+
+############################################################################
+#                                                                          #
+#   Disk Bars                                                              #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:  
+
+        - type: custom:button-card
+          template: shoulder_blank_card 
+
+        - type: custom:bar-card
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              overflow: hidden;
+            }
+          columns: 2
+          title_position: 'inside'
+          show_icon: true
+          icon: mdi:harddisk
+          icon_position: 'inside'
+          unit_of_measurement: "%"
+          align: split
+          color: 'rgba(117,189,111,1.0)'
+          padding: 4px
+          width: 100%
+          entities:
+            - entity: sensor.dimka_hdd_usage_c
+              title: Disk C Usage
+            - entity: sensor.dimka_hdd_usage_d
+              title: Disk D Usage
+            
+        - type: custom:button-card
+          template: shoulder_blank_card
+
+############################################################################
+#                                                                          #
+#   Buttons                                                                #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card 
+
+      - type: custom:decluttering-card # Wake
+        template: simple_button
+        variables:
+          - entity: switch.dimka_wake
+          - name: Wake
+          - icon: mdi:lan-connect
+          - show_name: true
+          - lock: true
+
+      - type: custom:decluttering-card # Sleep
+        template: simple_button
+        variables:
+          - entity: switch.dimka_suspend
+          - name: Sleep
+          - icon: mdi:power-sleep
+          - show_name: true
+          - lock: true
+
+      - type: custom:decluttering-card # Shutdown
+        template: simple_button
+        variables:
+          - entity: switch.dimka_shutdown
+          - name: Shutdown
+          - icon: mdi:power
+          - show_name: true
+          - lock: true
+
+      - type: custom:decluttering-card # Restart
+        template: simple_button
+        variables:
+          - entity: switch.dimka_reboot
+          - name: Restart
+          - icon: mdi:restart
+          - show_name: true
+          - lock: true
+        
+      - type: custom:button-card
+        template: shoulder_blank_card 
+
+  - !include /config/lovelace/styles/separator_card.yaml  

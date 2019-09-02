@@ -148,95 +148,47 @@ sensibo_living_room_decrease_target_temp:
             temperature: "{{ (state_attr('climate.living_room', 'temperature')|round(0)) - 1 }}"  
 
 
-# Sheild TV remote buttons        
-shieldtv_up:
-    alias: Up
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - DirectionUp
-            device: 59394434  
+# DIMKA IOT Link
+dimka_wake:
+  alias: "DIMKA - Wake"
+  sequence:
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: "94:DE:80:2C:BB:EA"
 
-shieldtv_down:
-    alias: Down
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - DirectionDown
-            device: 59394434
+dimka_shutdown:
+  alias: "DIMKA - Shutdown"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/home/dimka/commands/shutdown"
+        payload: ""
 
-shieldtv_left:
-    alias: Left
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - DirectionLeft
-            device: 59394434
+dimka_suspend:
+  alias: "DIMKA - Suspend"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/home/dimka/commands/suspend"
+        payload: ""
 
-shieldtv_right:
-    alias: Right
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - DirectionRight
-            device: 59394434
+dimka_reboot:
+  alias: "DIMKA - Reboot"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/home/dimka/commands/reboot"
+        payload: ""
 
-shieldtv_select:
-    alias: Select
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - Select
-            device: 59394434
+dimka_refresh:
+  alias: "DIMKA - Refresh"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/home/dimka/refresh"
+        payload: ""
 
-shieldtv_home:
-    alias: Home
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - Home
-            device: 59394434
 
-shieldtv_back:
-    alias: Back
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - Back
-            device: 59394434
 
-shieldtv_menu:
-    alias: Menu
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - Menu
-            device: 59394434
-
-shieldtv_sleep:
-    alias: Sleep
-    sequence:
-        - service: remote.send_command
-          data:
-            entity_id: remote.living_room
-            command:
-                - Sleep
-            device: 59394434
             
                 

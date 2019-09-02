@@ -6,25 +6,6 @@ switcher_timer_minutes_input_select:
         - 30
         - 45
         - 60
-        
-sensibo_kids_room_operation:
-    name: Operation
-    icon: mdi:air-filter
-    options:
-        - "dry"
-        - "auto"
-        - "heat"
-        - "fan_only"
-        - "cool"
-
-sensibo_kids_room_fan:
-    name: Fan
-    icon: mdi:fan
-    options:
-        - "low"
-        - "medium"
-        - "high"
-        - "auto"
 
 themes_list:
     name: Themes
