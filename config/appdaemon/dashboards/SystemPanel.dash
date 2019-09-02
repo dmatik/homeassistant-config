@@ -1,0 +1,24 @@
+title: System Panel
+widget_dimensions: [122, 127]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 10
+rows: 6
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    
+label_synology:
+    widget_type: label
+    text: Synology NAS
+    
+
+layout:
+    - label_synology (3x1)
+    - sensor.total_size_volume_1, sensor.used_space_volume_1, sensor.volume_used_volume_1
+    - sensor.temperature_sda, sensor.temperature_sdb, sensor.cpu_load_total
+    - sensor.memory_usage_real, sensor.network_up, sensor.network_down
+    - 
+    - include: bottom_panel

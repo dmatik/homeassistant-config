@@ -1,0 +1,19 @@
+title: Lights Panel
+widget_dimensions: [122, 127]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 10
+rows: 6
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    
+layout:
+    - switch.living_room_light, switch.dining_light, spacer, switch.hall_light, switch.kids_room_light
+    - switch.kitchen_light, switch.serv_balcony_light, spacer, switch.bedroom_light, switch.work_room_light
+    - switch.balcony_light, switch.enterence_light
+    - 
+    - 
+    - include: bottom_panel
