@@ -31,7 +31,8 @@ Google Dark:
   remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
   remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
   remote-button-icon: 'var(--primary-text-color)'                                 # Remote button icon color
-  remote-button-border-radius: 5px                                                # Remote button corners radius  
+  remote-button-border-radius: 5px                                                # Remote button corners radius
+  button-card-lock-color: 'var(--secondary-text-color)'                           # Button Card lock color
 
   ### Fonts ###
   primary-font-family: "'Open Sans','Rubik',Roboto,sans-serif"

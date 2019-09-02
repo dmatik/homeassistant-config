@@ -1,9 +1,11 @@
 default:
   - cust_1_field: ""
   - cust_2_field: ""
+  - corner_field: ""
   - corner_2_field: ""
   - color: auto
   - color_type: icon
+  - lock: false
   - state:
       - value: "on"
         styles:
@@ -34,6 +36,7 @@ default:
   - corner_2_text_color: var(--button-card-corner-text-color)
   - cust_1_text_color: var(--button-card-cust-1-text-color)
   - cust_2_text_color: var(--button-card-cust-2-text-color)
+  - lock_color: var(--button-card-lock-color)
 
 
 card:
@@ -45,6 +48,7 @@ card:
   color: '[[color]]'
   color_type: '[[color_type]]'
   show_last_changed: false
+  lock: '[[lock]]'
   styles:
     card:
       - padding: 8%
@@ -76,6 +80,8 @@ card:
       - width: 90%
       - height: 90%
       - margin: none
+    lock:
+      - color: '[[lock_color]]'
     custom_fields:
       corner:
         - align-self: start

@@ -155,7 +155,7 @@ cards:
                   ]]]"
           - cust_1_field: "[[[
                   return `<ha-icon icon='mdi:desktop-tower' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
-                  <span><span>${states['binary_sensor.dimka_connected'].state}</span></span>`;
+                  <span>dimka: <span>${states['binary_sensor.dimka_connected'].state}</span></span>`;
                   ]]]"
           - cust_1_icon_color: "[[[
                   if (states['binary_sensor.dimka_connected'].state == 'off') return 'var(--paper-item-icon-color)';

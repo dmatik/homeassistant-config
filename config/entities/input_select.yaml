@@ -9,7 +9,7 @@ switcher_timer_minutes_input_select:
 
 themes_list:
     name: Themes
-    icon: mdi:palette
+    icon: mdi:format-list-bulleted-square
     options:
         - "Midnight Blue"
         - "Midnight Orange"

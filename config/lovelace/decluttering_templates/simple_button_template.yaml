@@ -6,10 +6,11 @@ default:
   - name_color: var(--button-card-text-color)
   - icon_color: var(--button-card-icon-color)
   - size: 48px
-  - font_size: 16px
+  - font_size: 14px
   - padding_top: 3%
   - padding_bottom: 3%
   - lock: false
+  - lock_color: var(--button-card-lock-color)
   - tap_action:
       action: toggle
   - hold_action:
@@ -46,6 +47,8 @@ card:
       - font-size: '[[font_size]]'
     img_cell:
       - color: '[[icon_color]]'
+    lock:
+      - color: '[[lock_color]]'
   state:
     '[[state]]'
   tap_action:

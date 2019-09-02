@@ -66,3 +66,6 @@ graph:
 
 text_divider_row:
   !include text_divider_row_template.yaml
+
+pc_elements:
+  !include pc_elements_template.yaml
