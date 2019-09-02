@@ -12,6 +12,7 @@ card:
     - name: '[[name]]'
     - icon: '[[icon]]'
     - color: '[[color]]'
+    - lock: '[[lock]]'
     - color_type: '[[color_type]]'
     - corner_text_color: ""
     - corner_icon_color: ""

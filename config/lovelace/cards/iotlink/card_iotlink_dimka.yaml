@@ -125,36 +125,40 @@ cards:
         template: shoulder_blank_card 
 
       - type: custom:decluttering-card # Wake
-        template: button
+        template: script_button
         variables:
-          - entity: switch.dimka_wake
+          - entity: script.dimka_wake
           - name: Wake
           - icon: mdi:lan-connect
           - lock: true
+          - cust_1_field: ""
 
       - type: custom:decluttering-card # Sleep
-        template: button
+        template: script_button
         variables:
-          - entity: switch.dimka_suspend
+          - entity: script.dimka_suspend
           - name: Sleep
           - icon: mdi:power-sleep
           - lock: true
+          - cust_1_field: ""
 
       - type: custom:decluttering-card # Shutdown
-        template: button
+        template: script_button
         variables:
-          - entity: switch.dimka_shutdown
+          - entity: script.dimka_shutdown
           - name: Shutdown
           - icon: mdi:power
           - lock: true
+          - cust_1_field: ""
 
       - type: custom:decluttering-card # Restart
-        template: button
+        template: script_button
         variables:
-          - entity: switch.dimka_reboot
+          - entity: script.dimka_reboot
           - name: Restart
           - icon: mdi:restart
           - lock: true
+          - cust_1_field: ""
         
       - type: custom:button-card
         template: shoulder_blank_card 
