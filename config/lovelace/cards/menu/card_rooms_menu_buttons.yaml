@@ -83,7 +83,7 @@ cards:
                   return `<ha-icon icon='mdi:water' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>off</span></span>`;
                   else return `<ha-icon icon='mdi:water' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
-                  <span>Auto off <span>${states['sensor.switcher_aio_auto_off_time'].state}</span></span>`;
+                  <span><span>Auto off ${states['sensor.switcher_aio_auto_off_time'].state}</span></span>`;
                   ]]]"
           - cust_1_icon_color: "[[[
                   if (states['switch.switcher_aio_switch'].state == 'off') return 'var(--paper-item-icon-color)';

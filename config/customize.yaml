@@ -9,7 +9,7 @@ switch.serv_balcony_light:
    icon: mdi:lightbulb
 switch.balcony_light:
    icon: mdi:lightbulb
-switch.enterence_light:
+switch.entrance_light:
    icon: mdi:lightbulb
 switch.hall_light:
    icon: mdi:lightbulb

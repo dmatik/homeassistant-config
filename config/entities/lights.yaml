@@ -21,8 +21,8 @@
   entity_id: switch.balcony_light
 
 - platform: switch
-  name: Enterence
-  entity_id: switch.enterence_light
+  name: Entrance
+  entity_id: switch.entrance_light
 
 - platform: switch
   name: Hall

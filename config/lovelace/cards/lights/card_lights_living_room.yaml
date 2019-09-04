@@ -65,11 +65,11 @@ cards:
           - type: custom:button-card
             template: shoulder_blank_card  
 
-          - type: custom:decluttering-card # Enterence
+          - type: custom:decluttering-card # Entrance
             template: light_button
             variables:
-              - entity: light.enterence
-              - name: Enterence
+              - entity: light.entrance
+              - name: Entrance
 
           - type: "custom:button-card"
             color_type: blank-card

@@ -227,7 +227,7 @@ layout:
     - spacer, sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, kids_room_climate, spacer, switch.switcher_aio_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
     - dima_presence_mapped, galit_presence_mapped, spacer (6x1), switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
     - spacer (3x1), switch.living_room_light, switch.dining_light, switch.kitchen_light
-    - script.goodnight_script, script.lights_off, spacer, switch.hall_light,  switch.bedroom_light, switch.work_room_light, spacer (3x1), refresh_main
+    - script.goodnight_script, script.lights_off, spacer, switch.hall_light,  switch.bedroom_light, switch.work_room_light, switch.entrance_light, spacer (2x1), refresh_main
     
     
     
