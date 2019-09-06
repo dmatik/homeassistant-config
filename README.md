@@ -53,6 +53,6 @@ Mobile:
 
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile_2.png "Mobile 2")
 
-Kiosk View:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_kiosk.png "Kiosk View")
+## HaDashboard
 
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/hadash.png "HaDashboard")
