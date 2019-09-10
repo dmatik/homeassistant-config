@@ -23,10 +23,10 @@
             friendly_name: "Balcony"
             command_on: !secret balcony_light_on
             command_off: !secret balcony_light_off
-        # entrance_light:
-        #     friendly_name: "Enterence"
-        #     command_on: !secret enterence_light_on
-        #     command_off: !secret enterence_light_off
+        entrance_light:
+            friendly_name: "Enterence"
+            command_on: !secret enterence_light_on
+            command_off: !secret enterence_light_off
         hall_light:
             friendly_name: "Hall"
             command_on: !secret hall_light_on
@@ -53,17 +53,17 @@
  ##########################################################################################
  ##########################################################################################
 
-- platform: mqtt  
-  name: "Entrance Light"
-  state_topic: "stat/entrance_light/POWER"
-  command_topic: "cmnd/entrance_light/POWER"
-  availability_topic: "tele/entrance_light/LWT"
-  qos: 1
-  payload_on: "ON"
-  payload_off: "OFF"
-  payload_available: "Online"
-  payload_not_available: "Offline"
-  retain: true
+# - platform: mqtt  
+#   name: "Entrance Light"
+#   state_topic: "stat/entrance_light/POWER"
+#   command_topic: "cmnd/entrance_light/POWER"
+#   availability_topic: "tele/entrance_light/LWT"
+#   qos: 1
+#   payload_on: "ON"
+#   payload_off: "OFF"
+#   payload_available: "Online"
+#   payload_not_available: "Offline"
+#   retain: true
 
 
   
@@ -135,7 +135,6 @@
         switcher_aio_switch:
             friendly_name: Boiler
             icon_template: mdi:shower-head
-            #icon_template: mdi:shower-head
             value_template: "{{ is_state('switcher_aio.control_device_switch', 'on') }}"
             turn_on:
                 service: switcher_aio.turn_on
