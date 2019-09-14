@@ -42,7 +42,9 @@ cards:
           - name: Living Room
           - icon: mdi:sofa
           - corner_2_field: "[[[
-                  return `<span><span style='text-transform: capitalize'>${states['sensor.sensibo_living_room_temp'].state}°C</span></span>`;                               
+                  if (states['climate.living_room'].state == 'unavailable') 
+                  return `<span></span>`;
+                  else return `<span><span style='text-transform: capitalize'>${states['sensor.sensibo_living_room_temp'].state}°C</span></span>`;                               
                   ]]]"
           - corner_2_text_color: "[[[
                   if (states['sensor.sensibo_living_room_temp'].state >= 30) return '#bf4040';
@@ -59,13 +61,17 @@ cards:
                   else return 'var(--paper-item-icon-active-color)';
                   ]]]"
           - cust_2_field: "[[[
-                  if (states['climate.living_room'].state == 'off')
+                  if (states['climate.living_room'].state == 'unavailable')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>unavailable</span></span>`;                  
+                  else if (states['climate.living_room'].state == 'off')
                   return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>off</span></span>`;
                   else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>${states['climate.living_room'].state} ${states['climate.living_room'].attributes.temperature} ${states['climate.living_room'].attributes.fan_mode}</span></span>`
                   ]]]"
           - cust_2_icon_color: "[[[
+                  if (states['climate.living_room'].state == 'unavailable') return 'var(--button-card-icon-color)';
                   if (states['climate.living_room'].state == 'off') return 'var(--button-card-icon-color)';
                   if (states['climate.living_room'].state == 'cool') return 'var(--sensibo-cool-color)';
                   if (states['climate.living_room'].state == 'heat') return 'var(--sensibo-heat-color)';
@@ -115,7 +121,9 @@ cards:
           - name: Bedroom
           - icon: mdi:bed-empty
           - corner_2_field: "[[[
-                  return `<span><span style='text-transform: capitalize'>${states['sensor.sensibo_bedroom_temp'].state}°C</span></span>`;                               
+                  if (states['climate.bedroom'].state == 'unavailable') 
+                  return `<span></span>`;
+                  else return `<span><span style='text-transform: capitalize'>${states['sensor.sensibo_bedroom_temp'].state}°C</span></span>`;                               
                   ]]]"
           - corner_2_text_color: "[[[
                   if (states['sensor.sensibo_bedroom_temp'].state >= 30) return '#bf4040';
@@ -124,13 +132,17 @@ cards:
                   if (states['sensor.sensibo_bedroom_temp'].state < 18) return 'rgb(43, 154, 249)';
                   ]]]"
           - cust_1_field: "[[[
-                  if (states['climate.bedroom'].state == 'off')
+                  if (states['climate.bedroom'].state == 'unavailable')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>unavailable</span></span>`;                  
+                  else if (states['climate.bedroom'].state == 'off')
                   return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>off</span></span>`;
                   else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>${states['climate.bedroom'].state} ${states['climate.bedroom'].attributes.temperature} ${states['climate.bedroom'].attributes.fan_mode}</span></span>`
                   ]]]"
           - cust_1_icon_color: "[[[
+                  if (states['climate.bedroom'].state == 'unavailable') return 'var(--button-card-icon-color)';
                   if (states['climate.bedroom'].state == 'off') return 'var(--button-card-icon-color)';
                   if (states['climate.bedroom'].state == 'cool') return 'var(--sensibo-cool-color)';
                   if (states['climate.bedroom'].state == 'heat') return 'var(--sensibo-heat-color)';
@@ -170,7 +182,9 @@ cards:
           - name: Kids Room
           - icon: mdi:face
           - corner_2_field: "[[[
-                  return `<span><span style='text-transform: capitalize'>${states['sensor.sensibo_kids_room_temp'].state}°C</span></span>`;                               
+                  if (states['climate.kids_room'].state == 'unavailable') 
+                  return `<span></span>`;
+                  else return `<span><span style='text-transform: capitalize'>${states['sensor.sensibo_kids_room_temp'].state}°C</span></span>`;                               
                   ]]]"
           - corner_2_text_color: "[[[
                   if (states['sensor.sensibo_kids_room_temp'].state >= 30) return '#bf4040';
@@ -179,13 +193,17 @@ cards:
                   if (states['sensor.sensibo_kids_room_temp'].state < 18) return 'rgb(43, 154, 249)';
                   ]]]"
           - cust_1_field: "[[[
-                  if (states['climate.kids_room'].state == 'off')
+                  if (states['climate.kids_room'].state == 'unavailable')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>unavailable</span></span>`;                  
+                  else if (states['climate.kids_room'].state == 'off')
                   return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>off</span></span>`;
                   else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>${states['climate.kids_room'].state} ${states['climate.kids_room'].attributes.temperature} ${states['climate.kids_room'].attributes.fan_mode}</span></span>`
                   ]]]"
           - cust_1_icon_color: "[[[
+                  if (states['climate.kids_room'].state == 'unavailable') return 'var(--button-card-icon-color)';
                   if (states['climate.kids_room'].state == 'off') return 'var(--button-card-icon-color)';
                   if (states['climate.kids_room'].state == 'cool') return 'var(--sensibo-cool-color)';
                   if (states['climate.kids_room'].state == 'heat') return 'var(--sensibo-heat-color)';

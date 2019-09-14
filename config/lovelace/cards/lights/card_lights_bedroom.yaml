@@ -61,4 +61,32 @@ cards:
           - type: custom:button-card
             template: shoulder_blank_card 
 
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card 
+          
+          - type: custom:decluttering-card # Bedside Midnight
+            template: button
+            variables:
+              - entity: switch.bedside_midnight_light
+              - name: Midnight
+              - icon: mdi:brightness-4
+              - cust_1_field: "[[[ return entity.state ]]]"
+              - cust_2_field: "Bedside"
+              - tap_action: 
+                  action: toggle
+              - hold_action:
+                  action: more-info
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+          - type: custom:button-card
+            template: shoulder_blank_card 
+
   - !include /config/lovelace/styles/separator_card.yaml

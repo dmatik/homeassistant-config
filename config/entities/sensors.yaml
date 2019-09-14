@@ -187,7 +187,7 @@
       value_template: >-
         {{ states.binary_sensor.button_bedside_galit.attributes.battery_level }}
 
-    # Yeelight
+    # Lights
     bedroom_ceiling_moonlight:
       friendly_name: "Bedroom Moonlight Mode"
       icon_template: mdi:brightness-4
@@ -199,6 +199,20 @@
                 moonlight
             {% else %}
                 normal
+            {% endif %}
+        {% endif %}
+
+    bedside_midnight:
+      friendly_name: "Bedside Midnight"
+      icon_template: mdi:brightness-4
+      value_template: >-
+        {% if is_state('light.bedside_lamp_dima', 'unavailable') or is_state('light.bedside_lamp_galit', 'unavailable')  %}
+            unavailable
+        {% else %}
+            {% if ( state_attr('light.bedside_lamp_dima', 'scene') == 4 ) or ( state_attr('light.bedside_lamp_galit', 'scene') == 4 ) %}
+                midnight
+            {% else %}
+                other
             {% endif %}
         {% endif %}
 
