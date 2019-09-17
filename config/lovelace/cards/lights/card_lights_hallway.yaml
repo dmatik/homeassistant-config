@@ -45,9 +45,10 @@ cards:
               - name: Hallway
 
           - type: custom:decluttering-card # Gateway
-            template: yeelight_switch_button
+            template: color_light_button #yeelight_switch_button
             variables:
               - entity: light.xiaomi_gateway_servers
+              - switch_entity: switch.xiaomi_gateway_light
               - name: Gateway
 
           - type: "custom:button-card"

@@ -66,7 +66,20 @@ cards:
     
           - type: custom:button-card
             template: shoulder_blank_card 
-          
+
+          - type: custom:decluttering-card # Bedside Normal
+            template: button
+            variables:
+              - entity: switch.bedside_normal_light
+              - name: Normal
+              - icon: mdi:brightness-5
+              - cust_1_field: "[[[ return entity.state ]]]"
+              - cust_2_field: "Bedside"
+              - tap_action: 
+                  action: toggle
+              - hold_action:
+                  action: more-info
+
           - type: custom:decluttering-card # Bedside Midnight
             template: button
             variables:
@@ -79,9 +92,6 @@ cards:
                   action: toggle
               - hold_action:
                   action: more-info
-
-          - type: "custom:button-card"
-            color_type: blank-card
 
           - type: "custom:button-card"
             color_type: blank-card

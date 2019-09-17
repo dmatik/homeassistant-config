@@ -190,28 +190,40 @@ dimka_refresh:
 
 
 # Lights
-lights_bedside_midnight_on:
+lights_bedside_midnight:
     sequence:
-        - service: light.xiaomi_miio_set_scene
+        - service: light.turn_on
           data_template:
             entity_id: light.bedside_lamp_dima
-            scene: 4
-        - service: light.xiaomi_miio_set_scene
+            brightness: 3
+            color_temp: 333
+        - service: light.turn_on
           data:
             entity_id: light.bedside_lamp_galit
-            scene: 4
+            brightness: 3
+            color_temp: 333
 
-lights_bedside_midnight_off:
+lights_bedside_normal:
     sequence:
-        - service: light.xiaomi_miio_set_scene
+        - service: light.turn_on
           data_template:
             entity_id: light.bedside_lamp_dima
-            scene: 2
-        - service: light.xiaomi_miio_set_scene
+            brightness: 90
+            color_temp: 254
+        - service: light.turn_on
           data:
             entity_id: light.bedside_lamp_galit
-            scene: 2
+            brightness: 90
+            color_temp: 254
 
+lights_bedside_off:
+    sequence:
+        - service: light.turn_off
+          data_template:
+            entity_id: light.bedside_lamp_dima
+        - service: light.turn_off
+          data:
+            entity_id: light.bedside_lamp_galit
 
 
             

@@ -69,3 +69,6 @@ text_divider_row:
 
 pc_elements:
   !include pc_elements_template.yaml
+
+color_light_button:
+  !include color_light_button_template.yaml

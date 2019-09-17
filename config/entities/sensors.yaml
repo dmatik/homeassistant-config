@@ -202,15 +202,17 @@
             {% endif %}
         {% endif %}
 
-    bedside_midnight:
-      friendly_name: "Bedside Midnight"
+    bedside_lights_mode:
+      friendly_name: "Bedside Lights Mode"
       icon_template: mdi:brightness-4
       value_template: >-
         {% if is_state('light.bedside_lamp_dima', 'unavailable') or is_state('light.bedside_lamp_galit', 'unavailable')  %}
             unavailable
         {% else %}
-            {% if ( state_attr('light.bedside_lamp_dima', 'scene') == 4 ) or ( state_attr('light.bedside_lamp_galit', 'scene') == 4 ) %}
+            {% if ( state_attr('light.bedside_lamp_dima', 'color_temp') == 333 ) or ( state_attr('light.bedside_lamp_galit', 'color_temp') == 333 ) %}
                 midnight
+            {% elif ( state_attr('light.bedside_lamp_dima', 'color_temp') == 254 ) or ( state_attr('light.bedside_lamp_galit', 'color_temp') == 254 ) %}
+                normal
             {% else %}
                 other
             {% endif %}
