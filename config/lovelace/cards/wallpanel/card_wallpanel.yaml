@@ -63,7 +63,7 @@ cards:
         template: mqtt_button
         variables:
           - name: Clear Cache
-          - icon: mdi:cached
+          - icon: mdi:delete-empty
           - mqtt_topic: "wallpanel/mywallpanel/command"
           - mqtt_payload: "{'clearCache': true}"
 
