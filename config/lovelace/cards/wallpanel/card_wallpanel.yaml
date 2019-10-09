@@ -1,0 +1,76 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Wallpanel
+    
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+
+############################################################################
+#                                                                          #
+#   Buttons                                                                #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card 
+
+      # - type: custom:decluttering-card # Refresh
+      #   template: script_button
+      #   variables:
+      #     - entity: script.wallpanel_refresh
+      #     - name: Refresh
+      #     - icon: mdi:refresh
+      #     #- lock: true
+      #     - cust_1_field: ""
+
+      - type: custom:decluttering-card # Refresh
+        template: mqtt_button
+        variables:
+          - name: Refresh
+          - icon: mdi:refresh
+          - mqtt_topic: "wallpanel/mywallpanel/command"
+          - mqtt_payload: "{'reload': true}"
+
+      - type: custom:decluttering-card # Reload
+        template: mqtt_button
+        variables:
+          - name: Reload
+          - icon: mdi:restart
+          - mqtt_topic: "wallpanel/mywallpanel/command"
+          - mqtt_payload: "{'relaunch': true}"
+
+      - type: custom:decluttering-card # Clear Cache
+        template: mqtt_button
+        variables:
+          - name: Clear Cache
+          - icon: mdi:cached
+          - mqtt_topic: "wallpanel/mywallpanel/command"
+          - mqtt_payload: "{'clearCache': true}"
+
+      # - type: "custom:button-card"
+      #   color_type: blank-card 
+        
+      - type: custom:button-card
+        template: shoulder_blank_card 
+
+  - !include /config/lovelace/styles/separator_card.yaml  

@@ -226,5 +226,13 @@ lights_bedside_off:
             entity_id: light.bedside_lamp_galit
 
 
+# Wallpanel
+wallpanel_refresh:
+  alias: "Refresh Wallpanel"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "wallpanel/mywallpanel/command"
+        payload: '{"reload": true}'
             
                 

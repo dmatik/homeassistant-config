@@ -46,6 +46,9 @@ yeelight_nightlight_button:
 script_button:
   !include script_button_template.yaml 
 
+mqtt_button:
+  !include mqtt_button_template.yaml 
+
 simple_script_button:
   !include simple_script_button_template.yaml
 
