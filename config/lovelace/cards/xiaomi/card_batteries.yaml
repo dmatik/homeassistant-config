@@ -68,6 +68,12 @@ cards:
           - entity: sensor.xiaomi_button_makeup_battery
             title: Makeup Button
             icon: mdi:circle-outline
+          - entity: sensor.xiaomi_button_kitchen_strip_right_battery
+            title: Kitchen Strip Right Button
+            icon: mdi:circle-outline
+          - entity: sensor.xiaomi_button_kitchen_strip_left_battery
+            title: Kitchen Strip Left Button
+            icon: mdi:circle-outline
                                  
       - type: custom:button-card
         template: shoulder_blank_card
