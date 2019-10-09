@@ -187,7 +187,7 @@
 
         bedside_normal_light:
             friendly_name: Bedside Normal Light
-            icon_template: mdi:brightness-4
+            icon_template: mdi:brightness-5
             value_template: "{{ is_state('sensor.bedside_lights_mode', 'normal') }}"
             turn_on:
                 service: script.turn_on

@@ -19,6 +19,8 @@ switch.kids_room_light:
    icon: mdi:lightbulb
 switch.work_room_light:
    icon: mdi:lightbulb
+switch.tuya_work_room_light:
+   icon: mdi:lightbulb
     
 # Lights
 #light.living_room:

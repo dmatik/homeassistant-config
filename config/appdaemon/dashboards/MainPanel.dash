@@ -221,13 +221,23 @@ galit_presence_mapped:
   device: life360_galit
   icon_style_active: "color: #F75BCD"
 
+bedside_normal_light_switch:
+  widget_type: switch
+  title: Bedside Normal
+  entity: switch.bedside_normal_light
+
+bedside_midnight_light_switch:
+  widget_type: switch
+  title: Bedside Midnight
+  entity: switch.bedside_midnight_light
+
 layout:
     - clock (2x1), spacer, sensibo_living_room_switch_cool, sensibo_living_room_switch_heat, living_room_climate, spacer, switch.baltic_tv, switch.shield_tv, switch.smart_tv
     - weather (2x2), spacer, sensibo_bedroom_switch_cool, sensibo_bedroom_switch_heat, bedroom_climate, spacer, script.reciever_volume_up, script.reciever_volume_down, script.reciever_volume_mute
     - spacer, sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, kids_room_climate, spacer, switch.switcher_aio_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
     - dima_presence_mapped, galit_presence_mapped, spacer (6x1), switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
-    - spacer (3x1), switch.living_room_light, switch.dining_light, switch.kitchen_light
-    - script.goodnight_script, script.lights_off, spacer, switch.hall_light,  switch.bedroom_light, switch.work_room_light, switch.entrance_light, spacer (2x1), refresh_main
+    - spacer (3x1), switch.living_room_light, switch.dining_light, switch.kitchen_light, bedside_normal_light_switch
+    - script.goodnight_script, script.lights_off, spacer, switch.hall_light,  switch.bedroom_light, switch.tuya_work_room_light, bedside_midnight_light_switch, spacer (2x1), refresh_main
     
     
     

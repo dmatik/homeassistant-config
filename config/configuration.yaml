@@ -241,3 +241,9 @@ life360:
   error_threshold: 3
 
 wake_on_lan:
+
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: !secret tuya_country_code
+  platform: smart_life

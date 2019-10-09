@@ -63,14 +63,14 @@ cards:
         variables:
           - entity: switch.baltic_tv
           - name: Baltic TV
-          - icon: mdi:satellite-variant
+          - icon: mdi:television-classic
 
       - type: custom:decluttering-card # Shield TV
         template: simple_button
         variables:
           - entity: switch.shield_tv
           - name: Shield TV
-          - icon: mdi:android
+          - icon: mdi:movie
 
       - type: custom:decluttering-card # Smart TV
         template: simple_button

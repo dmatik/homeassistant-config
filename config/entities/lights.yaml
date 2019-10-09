@@ -38,7 +38,8 @@
   
 - platform: switch
   name: Work Room
-  entity_id: switch.work_room_light
+  #entity_id: switch.work_room_light
+  entity_id: switch.tuya_work_room_light
 
 
 # Philips

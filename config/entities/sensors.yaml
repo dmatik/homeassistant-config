@@ -174,18 +174,25 @@
         {{ states.sensor.xiaomi_work_room_temperature.attributes.battery_level }}
 
     xiaomi_button_bedside_dima_battery:
-      friendly_name: "Bedside Switch Dima"
+      friendly_name: "Bedside Button Dima"
       icon_template: mdi:battery
       unit_of_measurement: '%'
       value_template: >-
         {{ states.binary_sensor.button_bedside_dima.attributes.battery_level }}
 
     xiaomi_button_bedside_galit_battery:
-      friendly_name: "Bedside Switch Dima"
+      friendly_name: "Bedside Button Galit"
       icon_template: mdi:battery
       unit_of_measurement: '%'
       value_template: >-
         {{ states.binary_sensor.button_bedside_galit.attributes.battery_level }}
+
+    xiaomi_button_makeup_battery:
+      friendly_name: "Makeup Button"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.button_makeup.attributes.battery_level }}
 
     # Lights
     bedroom_ceiling_moonlight:

@@ -9,8 +9,6 @@ resources:
 #      type: js
     - url: /community_plugin/lovelace-card-tools/card-tools.js
       type: js
-    - url: /community_plugin/lovelace-card-modder/card-modder.js
-      type: js
 #    - url: /local/custom-lovelace/animated-weather-card/weather-card.js
 #      type: module
     - url: /community_plugin/compact-custom-header/compact-custom-header.js

@@ -60,10 +60,13 @@ cards:
             title: Work Room Temperature Sensor
             icon: mdi:thermometer
           - entity: sensor.xiaomi_button_bedside_dima_battery
-            title: Dima's Bedside Switch
+            title: Dima's Bedside Button
             icon: mdi:circle-outline
           - entity: sensor.xiaomi_button_bedside_galit_battery
-            title: Galit's Bedside Switch
+            title: Galit's Bedside Button
+            icon: mdi:circle-outline
+          - entity: sensor.xiaomi_button_makeup_battery
+            title: Makeup Button
             icon: mdi:circle-outline
                                  
       - type: custom:button-card

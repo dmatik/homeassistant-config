@@ -1,36 +1,49 @@
-- alias: 'Set Theme on Startup'
+- alias: 'HA Startup'
   initial_state: 'true'
   trigger:
     - platform: homeassistant
       event: start
   action:
+    # Set Theme on Startup
     - service: frontend.set_theme
       data:
         name: "Midnight Blue"
         #name: "Google - Dark"
 
-## Home Assistant is Up and Running ##
-- alias: 'Startup Notification'
-  initial_state: 'true'  
-  hide_entity: true
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
+    # DIMKA status update on Startup
+    - service: mqtt.publish 
+      data:
+        topic: "iotlink/home/dimka/refresh"
+        payload: ""
+
+    # Startup Notification
     - service: notify.dimatelegram 
       data:
         title: 'System'
         message: 'Up and Running'
 
+## Home Assistant is Up and Running ##
+# - alias: 'Startup Notification'
+#   initial_state: 'true'  
+#   hide_entity: true
+#   trigger:
+#     platform: homeassistant
+#     event: start
+#   action:
+#     - service: notify.dimatelegram 
+#       data:
+#         title: 'System'
+#         message: 'Up and Running'
+
 ## IOT Link DIMKA ##
-- alias: 'DIMKA Refresh on Startup'
-  initial_state: 'true'  
-  hide_entity: true
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    - service: mqtt.publish 
-      data:
-        topic: "iotlink/home/dimka/refresh"
-        payload: ""
+# - alias: 'DIMKA Refresh on Startup'
+#   initial_state: 'true'  
+#   hide_entity: true
+#   trigger:
+#     platform: homeassistant
+#     event: start
+#   action:
+#     - service: mqtt.publish 
+#       data:
+#         topic: "iotlink/home/dimka/refresh"
+#         payload: ""
