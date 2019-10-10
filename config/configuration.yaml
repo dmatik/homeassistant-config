@@ -46,6 +46,9 @@ config:
 
 # Discover some devices automatically
 discovery:
+  ignore:
+    - yeelight
+    - homekit
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:

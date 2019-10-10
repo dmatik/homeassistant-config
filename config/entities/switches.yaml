@@ -212,6 +212,20 @@
                 service: light.turn_off
                 data:
                     entity_id: light.xiaomi_gateway_servers
+
+
+        yeelight_kitchen_strips:
+            friendly_name: Kitchen Strips
+            icon_template: mdi:led-strip
+            value_template: "{{ is_state('sensor.yeelight_kitchen_strips', 'on') }}"
+            turn_on:
+                service: script.turn_on
+                data:
+                    entity_id: script.yeelight_kitchen_strips_on 
+            turn_off:
+                service: script.turn_on
+                data:
+                    entity_id: script.yeelight_kitchen_strips_off
                     
         
         # Sensibo Kids Room

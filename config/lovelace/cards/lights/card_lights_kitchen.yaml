@@ -44,14 +44,21 @@ cards:
               - entity: light.kitchen
               - name: Kitchen
 
+          - type: custom:decluttering-card # Kitchen Strips
+            template: light_button
+            variables:
+              - entity: switch.yeelight_kitchen_strips
+              - name: Lightstrip
+              - icon: mdi:led-strip
+
           - type: custom:decluttering-card # Service Balcony
             template: light_button
             variables:
               - entity: light.service_balcony
               - name: Serv. Balcony
                     
-          - type: "custom:button-card"
-            color_type: blank-card   
+          # - type: "custom:button-card"
+          #   color_type: blank-card   
       
           - type: custom:button-card
             template: shoulder_blank_card  

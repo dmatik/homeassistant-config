@@ -3,3 +3,11 @@ devices:
       name: Bedroom Ceiling
       save_on_change: true
       model: ceiling3
+    10.0.0.33:
+      name: Kitchen Strip Left
+      save_on_change: true
+      model: strip1
+    10.0.0.34:
+      name: Kitchen Strip Right
+      save_on_change: true
+      model: strip1

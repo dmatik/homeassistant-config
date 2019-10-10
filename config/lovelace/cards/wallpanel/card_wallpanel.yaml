@@ -24,6 +24,54 @@ cards:
 
 ############################################################################
 #                                                                          #
+#   Sensors Bars                                                              #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:  
+
+        - type: custom:button-card
+          template: shoulder_blank_card 
+
+        - type: custom:bar-card
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              overflow: hidden;
+            }
+          columns: 1
+          title_position: 'left'
+          icon_position: 'off'
+          align: split
+          color: 'rgba(117,189,111,1.0)'
+          padding: 4px
+          entities:
+            - entity: sensor.wallpanel_battery
+              title: Battery
+              unit_of_measurement: "%"
+              #icon: mdi:harddisk
+              min: 0
+              max: 100
+            - entity: sensor.wallpanel_brightness
+              title: Brighness
+              unit_of_measurement: "%"
+              #icon: mdi:harddisk
+              min: 0
+              max: 100
+            - entity: sensor.wallpanel_light
+              title: Light
+              unit_of_measurement: "lx"
+              #icon: mdi:harddisk
+              min: 0
+              max: 500
+            
+        - type: custom:button-card
+          template: shoulder_blank_card
+
+
+############################################################################
+#                                                                          #
 #   Buttons                                                                #
 #                                                                          #
 ############################################################################
