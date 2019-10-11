@@ -55,6 +55,8 @@ goodnight_script:
                 - light.bedroom
                 - light.kids_room
                 - light.work_room
+                - light.kitchen_strip_left
+                - light.kitchen_strip_right
         - service: remote.turn_off
           data:
             entity_id: 
@@ -84,6 +86,8 @@ lights_off:
                 - light.work_room
                 - light.bedside_lamp_dima
                 - light.bedside_lamp_galit
+                - light.kitchen_strip_left
+                - light.kitchen_strip_right
                 
 # Switcher
 switcher_turn_on_timer_script:
