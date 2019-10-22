@@ -41,34 +41,32 @@ frontend:
   #   - /local/hass-fontawesome-regular.html
   #   - /local/hass-fontawesome-brands.html
 
+default_config:
+#history:
+#logbook:
+#map:
+#system_health:
+#sun:
+#cloud:
+#mobile_app:
+
 # Enables configuration UI
 config:
 
 # Discover some devices automatically
-discovery:
-  ignore:
-    - yeelight
-    - homekit
+#discovery:
+#  ignore:
+#    - yeelight
+#    - homekit
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
-# Enables support for tracking state changes over time
-history:
-
-# View all events in a logbook
-logbook:
-
-# Enables a map showing the location of tracked devices
-map:
+#conversation:
 
 # Text to speech
 tts:
   - platform: google_translate
     service_name: google_say
 
-# Cloud
-#cloud:
 
 #group: !include groups.yaml
 automation: !include automations.yaml
@@ -89,8 +87,7 @@ binary_sensor: !include /config/entities/binary_sensors.yaml
 
 lovelace:
     mode: yaml
-    
-system_health:
+
 
 switcher_aio:
   phone_id: !secret switcher_phone_id
@@ -169,8 +166,6 @@ input_text:
 #    latitude: !secret home_latitude
 #    longitude: !secret home_longitude    
 
-sun:
-
 # Google    
 #google:
 #  client_id: !secret google_calendar_client_id
@@ -199,8 +194,6 @@ http:
   base_url: !secret duckdns_base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-
-mobile_app:
 
 # Xiaomi
 xiaomi_aqara:

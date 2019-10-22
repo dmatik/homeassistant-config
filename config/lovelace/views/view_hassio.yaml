@@ -6,7 +6,7 @@ cards:
 
     - !include /config/lovelace/cards/card_home_button.yaml
 
-    - !include /config/lovelace/cards/wallpanel/card_wallpanel.yaml
+    #- !include /config/lovelace/cards/wallpanel/card_wallpanel.yaml
 
     - !include /config/lovelace/cards/hassio/card_hassio_db.yaml
 

@@ -247,14 +247,5 @@ yeelight_kitchen_strips_off:
           data:
             entity_id: light.kitchen_strip_right       
 
-
-# Wallpanel
-wallpanel_refresh:
-  alias: "Refresh Wallpanel"
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "wallpanel/mywallpanel/command"
-        payload: '{"reload": true}'
             
                 

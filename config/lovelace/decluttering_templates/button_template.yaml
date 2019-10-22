@@ -5,7 +5,10 @@ default:
   - corner_2_field: ""
   - color: auto
   - color_type: icon
-  - lock: false
+  - lock:
+      enabled: false
+      duration: 5
+      unlock: tap
   - state:
       - value: "on"
         styles:

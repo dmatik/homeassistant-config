@@ -130,7 +130,10 @@ cards:
           - entity: script.dimka_wake
           - name: Wake
           - icon: mdi:lan-connect
-          - lock: true
+          - lock:
+              enabled: true
+              duration: 5
+              unlock: tap
           - cust_1_field: ""
 
       - type: custom:decluttering-card # Sleep
@@ -139,7 +142,10 @@ cards:
           - entity: script.dimka_suspend
           - name: Sleep
           - icon: mdi:power-sleep
-          - lock: true
+          - lock:
+              enabled: true
+              duration: 5
+              unlock: tap
           - cust_1_field: ""
 
       - type: custom:decluttering-card # Shutdown
@@ -148,7 +154,10 @@ cards:
           - entity: script.dimka_shutdown
           - name: Shutdown
           - icon: mdi:power
-          - lock: true
+          - lock:
+              enabled: true
+              duration: 5
+              unlock: tap
           - cust_1_field: ""
 
       - type: custom:decluttering-card # Restart
@@ -157,7 +166,10 @@ cards:
           - entity: script.dimka_reboot
           - name: Restart
           - icon: mdi:restart
-          - lock: true
+          - lock:
+              enabled: true
+              duration: 5
+              unlock: tap
           - cust_1_field: ""
         
       - type: custom:button-card
