@@ -194,40 +194,68 @@ dimka_refresh:
 
 
 # Lights
-lights_bedside_midnight:
+# lights_bedside_midnight:
+#     sequence:
+#         - service: light.turn_on
+#           data_template:
+#             entity_id: light.bedside_lamp_dima
+#             brightness: 3
+#             color_temp: 333
+#         - service: light.turn_on
+#           data:
+#             entity_id: light.bedside_lamp_galit
+#             brightness: 3
+#             color_temp: 333
+
+lights_bedside_romantic:
     sequence:
         - service: light.turn_on
           data_template:
-            entity_id: light.bedside_lamp_dima
+            entity_id: light.bedside_yeelight_dima
             brightness: 3
-            color_temp: 333
+            rgb_color: [155, 48, 255]
         - service: light.turn_on
-          data:
-            entity_id: light.bedside_lamp_galit
+          data_template:
+            entity_id: light.bedside_yeelight_galit
             brightness: 3
-            color_temp: 333
+            rgb_color: [155, 48, 255]
+
+# lights_bedside_normal:
+#     sequence:
+#         - service: light.turn_on
+#           data_template:
+#             entity_id: light.bedside_lamp_dima
+#             brightness: 90
+#             color_temp: 254
+#         - service: light.turn_on
+#           data:
+#             entity_id: light.bedside_lamp_galit
+#             brightness: 90
+#             color_temp: 254
 
 lights_bedside_normal:
     sequence:
         - service: light.turn_on
           data_template:
-            entity_id: light.bedside_lamp_dima
-            brightness: 90
+            entity_id: light.bedside_yeelight_dima
+            brightness: 13
             color_temp: 254
         - service: light.turn_on
-          data:
-            entity_id: light.bedside_lamp_galit
-            brightness: 90
+          data_template:
+            entity_id: light.bedside_yeelight_galit
+            brightness: 13
             color_temp: 254
+
 
 lights_bedside_off:
     sequence:
         - service: light.turn_off
           data_template:
-            entity_id: light.bedside_lamp_dima
+            entity_id: light.bedside_yeelight_dima
         - service: light.turn_off
-          data:
-            entity_id: light.bedside_lamp_galit
+          data_template:
+            entity_id: light.bedside_yeelight_galit
+
 
 yeelight_kitchen_strips_on:
     sequence:

@@ -11,3 +11,11 @@ devices:
       name: Kitchen Strip Right
       save_on_change: true
       model: strip1
+    10.0.0.35:
+      name: Bedside Yeelight Dima
+      save_on_change: true
+      model: color2
+    10.0.0.36:
+      name: Bedside Yeelight Galit
+      save_on_change: true
+      model: color2

@@ -159,27 +159,53 @@
                 data:
                     entity_id: switch.bedroom_light
 
-        bedside_midnight_light_toggle:
-            friendly_name: Bedside Midnight Light Toggle
+        # bedside_midnight_light_toggle:
+        #     friendly_name: Bedside Midnight Light Toggle
+        #     icon_template: mdi:brightness-4
+        #     value_template: "{{ is_state('sensor.bedside_lights_mode', 'midnight') }}"
+        #     turn_on:
+        #         service: script.turn_on
+        #         data:
+        #             entity_id: script.lights_bedside_midnight 
+        #     turn_off:
+        #         service: script.turn_on
+        #         data:
+        #             entity_id: script.lights_bedside_normal
+
+        bedside_romantic_light_toggle:
+            friendly_name: Bedside Romantic Light Toggle
             icon_template: mdi:brightness-4
-            value_template: "{{ is_state('sensor.bedside_lights_mode', 'midnight') }}"
+            value_template: "{{ is_state('sensor.bedside_lights_mode', 'romantic') }}"
             turn_on:
                 service: script.turn_on
                 data:
-                    entity_id: script.lights_bedside_midnight 
+                    entity_id: script.lights_bedside_romantic 
             turn_off:
                 service: script.turn_on
                 data:
-                    entity_id: script.lights_bedside_normal
+                    entity_id: script.lights_bedside_normal                    
 
-        bedside_midnight_light:
-            friendly_name: Bedside Midnight Light
-            icon_template: mdi:brightness-4
-            value_template: "{{ is_state('sensor.bedside_lights_mode', 'midnight') }}"
+        # bedside_midnight_light:
+        #     friendly_name: Bedside Midnight Light
+        #     icon_template: mdi:brightness-4
+        #     value_template: "{{ is_state('sensor.bedside_lights_mode', 'midnight') }}"
+        #     turn_on:
+        #         service: script.turn_on
+        #         data:
+        #             entity_id: script.lights_bedside_midnight 
+        #     turn_off:
+        #         service: script.turn_on
+        #         data:
+        #             entity_id: script.lights_bedside_off
+
+        bedside_romantic_light:
+            friendly_name: Bedside Romantic Light
+            icon_template: mdi:heart
+            value_template: "{{ is_state('sensor.bedside_lights_mode', 'romantic') }}"
             turn_on:
                 service: script.turn_on
                 data:
-                    entity_id: script.lights_bedside_midnight 
+                    entity_id: script.lights_bedside_romantic 
             turn_off:
                 service: script.turn_on
                 data:
@@ -187,7 +213,7 @@
 
         bedside_normal_light:
             friendly_name: Bedside Normal Light
-            icon_template: mdi:brightness-5
+            icon_template: mdi:lightbulb-on
             value_template: "{{ is_state('sensor.bedside_lights_mode', 'normal') }}"
             turn_on:
                 service: script.turn_on

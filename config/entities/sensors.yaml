@@ -223,21 +223,39 @@
             {% endif %}
         {% endif %}
 
+    # bedside_lights_mode:
+    #   friendly_name: "Bedside Lights Mode"
+    #   icon_template: mdi:brightness-4
+    #   value_template: >-
+    #     {% if is_state('light.bedside_lamp_dima', 'unavailable') or is_state('light.bedside_lamp_galit', 'unavailable')  %}
+    #         unavailable
+    #     {% else %}
+    #         {% if ( state_attr('light.bedside_lamp_dima', 'color_temp') == 333 ) or ( state_attr('light.bedside_lamp_galit', 'color_temp') == 333 ) %}
+    #             midnight
+    #         {% elif ( state_attr('light.bedside_lamp_dima', 'color_temp') == 254 ) or ( state_attr('light.bedside_lamp_galit', 'color_temp') == 254 ) %}
+    #             normal
+    #         {% else %}
+    #             other
+    #         {% endif %}
+    #     {% endif %}
+
+
     bedside_lights_mode:
       friendly_name: "Bedside Lights Mode"
-      icon_template: mdi:brightness-4
+      icon_template: mdi:heart
       value_template: >-
-        {% if is_state('light.bedside_lamp_dima', 'unavailable') or is_state('light.bedside_lamp_galit', 'unavailable')  %}
+        {% if is_state('light.bedside_yeelight_dima', 'unavailable') or is_state('light.bedside_yeelight_galit', 'unavailable') %}
             unavailable
+        {% elif is_state('light.bedside_yeelight_dima', 'off') and is_state('light.bedside_yeelight_galit', 'off') %}
+            lights_off
+        {% elif ( state_attr('light.bedside_yeelight_dima', 'brightness') < 5 ) or ( state_attr('light.bedside_yeelight_galit', 'brightness') < 5 ) %}
+            romantic
+        {% elif ( state_attr('light.bedside_yeelight_dima', 'brightness') >= 5 ) or ( state_attr('light.bedside_yeelight_galit', 'brightness') >= 5 ) %}
+            normal
         {% else %}
-            {% if ( state_attr('light.bedside_lamp_dima', 'color_temp') == 333 ) or ( state_attr('light.bedside_lamp_galit', 'color_temp') == 333 ) %}
-                midnight
-            {% elif ( state_attr('light.bedside_lamp_dima', 'color_temp') == 254 ) or ( state_attr('light.bedside_lamp_galit', 'color_temp') == 254 ) %}
-                normal
-            {% else %}
-                other
-            {% endif %}
+            other
         {% endif %}
+
 
     yeelight_kitchen_strips:
       friendly_name: "Kitchen Strips"

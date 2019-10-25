@@ -47,14 +47,14 @@ cards:
           - type: custom:decluttering-card # Bedside Dima
             template: yeelight_switch_button
             variables:
-              - entity: light.bedside_lamp_dima
+              - entity: light.bedside_yeelight_dima
               - name: Dima
               - icon: mdi:lamp
 
           - type: custom:decluttering-card # Bedside Galit
             template: yeelight_switch_button
             variables:
-              - entity: light.bedside_lamp_galit
+              - entity: light.bedside_yeelight_galit
               - name: Galit
               - icon: mdi:lamp
       
@@ -72,7 +72,7 @@ cards:
             variables:
               - entity: switch.bedside_normal_light
               - name: Normal
-              - icon: mdi:brightness-5
+              - icon: mdi:lightbulb-on
               - cust_1_field: "[[[ return entity.state ]]]"
               - cust_2_field: "Bedside"
               - tap_action: 
@@ -80,12 +80,12 @@ cards:
               - hold_action:
                   action: more-info
 
-          - type: custom:decluttering-card # Bedside Midnight
+          - type: custom:decluttering-card # Bedside Romantic
             template: button
             variables:
-              - entity: switch.bedside_midnight_light
-              - name: Midnight
-              - icon: mdi:brightness-4
+              - entity: switch.bedside_romantic_light
+              - name: Romantic
+              - icon: mdi:heart
               - cust_1_field: "[[[ return entity.state ]]]"
               - cust_2_field: "Bedside"
               - tap_action: 
