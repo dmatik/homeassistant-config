@@ -69,7 +69,7 @@ tts:
 
 
 #group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation/ #!include automations.yaml
 script: !include /config/entities/scripts.yaml
 switch: !include /config/entities/switches.yaml
 sensor: !include /config/entities/sensors.yaml

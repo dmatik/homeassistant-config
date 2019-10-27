@@ -4,6 +4,7 @@
     - platform: homeassistant
       event: start
   action:
+  
     # Set Theme on Startup
     - service: frontend.set_theme
       data:

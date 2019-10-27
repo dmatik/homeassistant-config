@@ -75,3 +75,6 @@ pc_elements:
 
 color_light_button:
   !include color_light_button_template.yaml
+
+markdown:
+  !include markdown_template.yaml

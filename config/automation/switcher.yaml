@@ -1,0 +1,12 @@
+- alias: 'Minutes Input Select synch'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.switcher_timer_minutes_input_select
+    - platform: homeassistant
+      event: start
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: switcher_aio.timer_minutes_input_select
+        option: "{{ states('input_select.switcher_timer_minutes_input_select') }}"
