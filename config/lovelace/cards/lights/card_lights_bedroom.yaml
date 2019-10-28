@@ -93,8 +93,15 @@ cards:
               - hold_action:
                   action: more-info
 
-          - type: "custom:button-card"
-            color_type: blank-card
+          - type: custom:decluttering-card # Makeup
+            template: light_button
+            variables:
+              - entity: switch.yeelight_makeup
+              - name: Makeup
+              - icon: mdi:track-light
+
+          #- type: "custom:button-card"
+          #  color_type: blank-card
 
           - type: custom:button-card
             template: shoulder_blank_card 

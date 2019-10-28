@@ -226,6 +226,20 @@
                 service: script.turn_on
                 data:
                     entity_id: script.yeelight_kitchen_strips_off
+
+
+        yeelight_makeup:
+            friendly_name: Makeup Light
+            icon_template: mdi:track-light
+            value_template: "{{ is_state('sensor.yeelight_makeup', 'on') }}"
+            turn_on:
+                service: script.turn_on
+                data:
+                    entity_id: script.yeelight_makeup_on 
+            turn_off:
+                service: script.turn_on
+                data:
+                    entity_id: script.yeelight_makeup_off
                     
         
         # Sensibo Kids Room
