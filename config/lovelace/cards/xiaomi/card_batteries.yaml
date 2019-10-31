@@ -56,9 +56,12 @@ cards:
           - value: 100
             color: 'rgba(117,189,111,1.0)'         
         entities:
-          - entity: sensor.xiaomi_work_room_temp_battery
+          - entity: sensor.conbee_work_room_temp_battery
             title: Work Room Temperature Sensor
             icon: mdi:thermometer
+          - entity: sensor.conbee_kitchen_motion_battery
+            title: Kitchen Motion Sensor
+            icon: mdi:walk
           - entity: sensor.xiaomi_button_bedside_dima_battery
             title: Dima's Bedside Button
             icon: mdi:circle-outline

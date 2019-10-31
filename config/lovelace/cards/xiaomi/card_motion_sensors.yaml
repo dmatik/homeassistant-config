@@ -16,7 +16,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Climate
+          - name: Motion Sensors
     
       - type: custom:button-card
         template: shoulder_blank_card 
@@ -24,7 +24,7 @@ cards:
 
 ############################################################################
 #                                                                          #
-#   Sensor                                                                 #
+#   Sensors                                                                #
 #                                                                          #
 ############################################################################
 
@@ -34,15 +34,18 @@ cards:
       - type: custom:button-card
         template: shoulder_blank_card 
 
-      - type: custom:decluttering-card
-        template: graph
+      - type: custom:decluttering-card # Kitchen Motion Sensor
+        template: motion_button
         variables:
-            - entity: sensor.conbee_work_room_temp
-            - name: Temperature
-            - icon: mdi:thermometer
+          - entity: binary_sensor.conbee_kitchen_motion
+          - name: Kitchen
+          - light_level_sensor: sensor.conbee_kitchen_light_level
 
       - type: "custom:button-card"
-        color_type: blank-card  
+        color_type: blank-card
+
+      - type: "custom:button-card"
+        color_type: blank-card 
                   
       - type: custom:button-card
         template: shoulder_blank_card

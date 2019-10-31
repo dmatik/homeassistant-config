@@ -1,0 +1,33 @@
+- alias: 'Turn on Kitchen strip light based on motion'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.conbee_kitchen_motion
+      to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.conbee_kitchen_light_level
+        below: 100
+      - condition: state
+        entity_id: switch.yeelight_kitchen_strips
+        state: "off"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.yeelight_kitchen_strips
+
+
+- alias: 'Turn off Kitchen strip light based on motion'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.conbee_kitchen_motion
+      to: "off"
+      for:
+        seconds: 60
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.yeelight_kitchen_strips

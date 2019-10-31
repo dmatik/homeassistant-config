@@ -7,6 +7,9 @@ simple_button:
 light_button:
   !include light_button_template.yaml
 
+motion_button:
+  !include motion_button_template.yaml
+
 person_elements:
   !include person_template.yaml
 

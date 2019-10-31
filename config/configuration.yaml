@@ -116,6 +116,7 @@ recorder:
       - light
       #- input_datetime
       - climate
+      - binary_sensor
   exclude:
     domains:
       - automation

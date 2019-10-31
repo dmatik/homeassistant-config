@@ -1,7 +1,14 @@
 - platform: template
   sensors:
   
-    # Harmony
+
+
+    ############################################################################
+    #                                                                          #
+    #   Logitech Harmony Hub                                                   #
+    #                                                                          #
+    ############################################################################
+
     living_room_tv:
       friendly_name: "Activity"
       value_template: >
@@ -11,7 +18,14 @@
             {{ states.remote.living_room.attributes.current_activity }}
         {% endif %}
     
-    # Switcher sensors    
+
+
+    ############################################################################
+    #                                                                          #
+    #   Switcher                                                               #
+    #                                                                          #
+    ############################################################################
+
     switcher_aio_time_left:
       friendly_name: "Time Left"
       icon_template: mdi:timelapse
@@ -39,34 +53,14 @@
             {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
         {% endif %}
         
-#    switcher_kis_time_left:
-#      friendly_name: "Time Left (KIS)"
-#      icon_template: mdi:timelapse
-#      value_template: >-
-#        {% if is_state('switch.boiler', 'unknown') or is_state('switch.boiler', 'off') %}
-#            off
-#        {% else %}
-#            {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
-#            {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
-#            {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
-#            {{ hour | int }}h {{ min | int }}m
-#        {% endif %} 
-        
-#    switcher_kis_auto_off_time:
-#      friendly_name: "Auto Off (KIS)"
-#      icon_template: mdi:av-timer
-#      value_template: >-
-#        {% if is_state('switch.boiler', 'unknown') or is_state('switch.boiler', 'off') %}
-#            off
-#        {% else %}
-#            {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
-#            {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
-#            {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
-#            {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
-#            {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
-#        {% endif %}
-        
-    # Sensibo Kids Room
+
+
+    ############################################################################
+    #                                                                          #
+    #   Sensibo - Kids Room                                                    #
+    #                                                                          #
+    ############################################################################
+
     sensibo_kids_room_temp:
       friendly_name: "Kids Room Temperature (Sensibo)"
       unit_of_measurement: "°C"
@@ -99,7 +93,12 @@
         {% endif %}
 
 
-    # Sensibo Bedroom
+    ############################################################################
+    #                                                                          #
+    #   Sensibo - Bedroom                                                      #
+    #                                                                          #
+    ############################################################################
+
     sensibo_bedroom_temp:
       friendly_name: "Bedroom Temperature (Sensibo)"
       unit_of_measurement: "°C"
@@ -132,7 +131,12 @@
         {% endif %}
 
 
-    # Sensibo Living Room
+    ############################################################################
+    #                                                                          #
+    #   Sensibo - Living Room                                                  #
+    #                                                                          #
+    ############################################################################
+    
     sensibo_living_room_temp:
       friendly_name: "Living Room Temperature (Sensibo)"
       unit_of_measurement: "°C"
@@ -165,13 +169,20 @@
         {% endif %}
         
 
-    # Xiaomi
-    xiaomi_work_room_temp_battery:
-      friendly_name: "Work Room Temperature"
-      icon_template: mdi:battery
-      unit_of_measurement: '%'
-      value_template: >-
-        {{ states.sensor.xiaomi_work_room_temperature.attributes.battery_level }}
+
+
+    ############################################################################
+    #                                                                          #
+    #   Xiaomi Gateway                                                         #
+    #                                                                          #
+    ############################################################################
+
+    # xiaomi_work_room_temp_battery:
+    #   friendly_name: "Work Room Temperature"
+    #   icon_template: mdi:battery
+    #   unit_of_measurement: '%'
+    #   value_template: >-
+    #     {{ states.sensor.xiaomi_work_room_temperature.attributes.battery_level }}
 
     xiaomi_button_bedside_dima_battery:
       friendly_name: "Bedside Button Dima"
@@ -208,7 +219,15 @@
       value_template: >-
         {{ states.binary_sensor.button_kitchen_strip_left.attributes.battery_level }}
 
-    # Lights
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Lights                                                                 #
+    #                                                                          #
+    ############################################################################
+
     bedroom_ceiling_moonlight:
       friendly_name: "Bedroom Moonlight Mode"
       icon_template: mdi:brightness-4
@@ -268,7 +287,13 @@
         {% endif %}
 
 
-    # Life360
+
+    ############################################################################
+    #                                                                          #
+    #   Life 360                                                               #
+    #                                                                          #
+    ############################################################################
+
     life360_dima_battery:
       friendly_name: "Dima battery"
       icon_template: mdi:battery
@@ -284,24 +309,14 @@
         {{ states.device_tracker.life360_galit.attributes.battery }}
 
 
-    # Daytime Greating
-    daytime_greating:
-      friendly_name: "Daytime greating"
-      icon_template: mdi:message-text-clock
-      value_template: >-
-        {% if now().hour >= 5 and now().hour < 11  %}
-            Good Morning
-        {% elif now().hour >= 11 and now().hour < 17  %}
-            Good Day
-        {% elif now().hour >= 17 and now().hour < 23  %}
-            Good Evening
-        {% else %}
-            Good Night
-        {% endif %}
 
 
+############################################################################
+#                                                                          #
+#   Synology                                                               #
+#                                                                          #
+############################################################################
 
-# Synology NAS
 - platform: synologydsm
   host: !secret synology_host
   username: !secret synology_username
@@ -319,7 +334,15 @@
     - volume_size_total
     - disk_temp
     
-# Dark Sky Weather
+
+
+
+############################################################################
+#                                                                          #
+#   Dark Sky Weather                                                       #
+#                                                                          #
+############################################################################
+
 - platform: darksky
   api_key: !secret darksky_api_key
   forecast:
@@ -349,7 +372,14 @@
       milliseconds: 0
 
 
-# SQL
+
+
+############################################################################
+#                                                                          #
+#   SQL                                                                    #
+#                                                                          #
+############################################################################
+
 - platform: sql
   db_url: !secret synology_db_connection
   queries:
@@ -367,7 +397,14 @@
       unit_of_measurement: MB
 
 
-# DIMKA IOT Link
+
+
+############################################################################
+#                                                                          #
+#   DIMKA IOT Link                                                         #
+#                                                                          #
+############################################################################
+
 - platform: mqtt
   name: "DIMKA - HDD Usage (C)"
   state_topic: "iotlink/home/dimka/windows-monitor/stats/hard-drive/c/drive-usage"
@@ -413,25 +450,28 @@
   qos: 1
 
 
-# Wallpanel
-- platform: mqtt
-  state_topic: "wallpanel/mywallpanel/sensor/battery"
-  name: "WallPanel Battery"
-  unit_of_measurement: "%"
-  value_template: "{{ value_json.value }}"
-
-- platform: mqtt
-  state_topic: "wallpanel/mywallpanel/sensor/light"
-  name: "WallPanel Light"
-  unit_of_measurement: "lx"
-  value_template: "{{ value_json.value }}"
-
-- platform: mqtt
-  state_topic: "wallpanel/mywallpanel/state"
-  name: "WallPanel Brightness"
-  unit_of_measurement: "%"
-  value_template: "{{ (value_json.brightness|float/2.55)|round(0) }}"
 
 
+############################################################################
+#                                                                          #
+#   Wallpanel                                                              #
+#                                                                          #
+############################################################################
 
+# - platform: mqtt
+#   state_topic: "wallpanel/mywallpanel/sensor/battery"
+#   name: "WallPanel Battery"
+#   unit_of_measurement: "%"
+#   value_template: "{{ value_json.value }}"
 
+# - platform: mqtt
+#   state_topic: "wallpanel/mywallpanel/sensor/light"
+#   name: "WallPanel Light"
+#   unit_of_measurement: "lx"
+#   value_template: "{{ value_json.value }}"
+
+# - platform: mqtt
+#   state_topic: "wallpanel/mywallpanel/state"
+#   name: "WallPanel Brightness"
+#   unit_of_measurement: "%"
+#   value_template: "{{ (value_json.brightness|float/2.55)|round(0) }}"

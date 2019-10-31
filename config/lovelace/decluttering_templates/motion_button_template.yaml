@@ -1,0 +1,24 @@
+default:
+  - icon: mdi:walk
+
+card:
+  type: custom:decluttering-card
+  template: button
+  variables:
+    - entity: '[[entity]]'
+    - name: '[[name]]'
+    - icon: '[[icon]]'
+    - corner_text_color: ""
+    - corner_icon_color: ""
+    - cust_1_text_color: ""
+    - cust_1_icon_color: ""
+    - cust_2_text_color: ""
+    - cust_2_icon_color: ""
+    - corner_field: ""
+    - cust_1_field: "[[[ return entity.state ]]]"
+    - cust_2_field: "[[[ return Math.floor(states['[[light_level_sensor]]'].state) + ' lux' ]]]"
+    - tap_action: 
+        action: more-info
+    - hold_action:
+        action: more-info
+    - state: "[[state]]"
