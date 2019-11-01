@@ -45,6 +45,8 @@ cards:
         entities:
           - automation.turn_on_kitchen_strip
           - automation.turn_off_kitchen_strip
+          - automation.turn_on_night_hall_light
+          - automation.turn_off_night_hall_light
 
       - type: custom:button-card
         template: shoulder_blank_card  

@@ -1,13 +1,9 @@
-automation_hall_night_mode:
-    name: Hall Light Night Mode
-    icon: mdi:flash-auto
+# automation_hall_night_mode:
+#     name: Hall Light Night Mode
+#     icon: mdi:flash-auto
 
 
 recorder_purge_repack:
     name: Recorder purge repack
     icon: mdi:database-refresh
     
-
-automation_dimka_sleep:
-    name: DIMKA Auto Sleep
-    icon: mdi:flash-auto

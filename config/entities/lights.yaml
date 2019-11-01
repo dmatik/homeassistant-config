@@ -2,7 +2,8 @@
 
 - platform: switch
   name: Living Room
-  entity_id: switch.living_room_light
+  #entity_id: switch.living_room_light
+  entity_id: switch.tuya_living_room_light
   
 - platform: switch
   name: Dining
@@ -26,7 +27,8 @@
 
 - platform: switch
   name: Hall
-  entity_id: switch.hall_light
+  #entity_id: switch.hall_light
+  entity_id: switch.tuya_hall_light
 
 - platform: switch
   name: Bedroom

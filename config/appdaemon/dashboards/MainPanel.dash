@@ -236,8 +236,8 @@ layout:
     - weather (2x2), spacer, sensibo_bedroom_switch_cool, sensibo_bedroom_switch_heat, bedroom_climate, spacer, script.reciever_volume_up, script.reciever_volume_down, script.reciever_volume_mute
     - spacer, sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, kids_room_climate, spacer, switch.switcher_aio_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
     - dima_presence_mapped, galit_presence_mapped, spacer (6x1), switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
-    - spacer (3x1), switch.living_room_light, switch.dining_light, switch.kitchen_light, bedside_normal_light_switch
-    - script.goodnight_script, script.lights_off, spacer, switch.hall_light,  switch.bedroom_light, switch.tuya_work_room_light, bedside_romantic_light_switch, spacer (2x1), refresh_main
+    - spacer (3x1), switch.tuya_living_room_light, switch.dining_light, switch.kitchen_light, bedside_normal_light_switch
+    - script.goodnight_script, script.lights_off, spacer, switch.tuya_hall_light,  switch.bedroom_light, switch.tuya_work_room_light, bedside_romantic_light_switch, spacer (2x1), refresh_main
     
     
     

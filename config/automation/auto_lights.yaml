@@ -1,0 +1,86 @@
+############################################################################
+#                                                                          #
+#   Kitchen Strip                                                          #
+#                                                                          #
+############################################################################
+
+- alias: 'Turn On Kitchen Strip'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.conbee_kitchen_motion
+      to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.conbee_kitchen_light_level
+        below: 100
+      - condition: state
+        entity_id: switch.yeelight_kitchen_strips
+        state: "off"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.yeelight_kitchen_strips
+
+- alias: 'Turn Off Kitchen Strip'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.conbee_kitchen_motion
+      to: "off"
+      for:
+        seconds: 60
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.yeelight_kitchen_strips
+
+
+
+############################################################################
+#                                                                          #
+#   Hall Light                                                             #
+#                                                                          #
+############################################################################
+
+- alias: 'Turn On Night Hall Light'
+  #initial_state: 'true'
+  trigger:
+    - platform: time
+      at: "18:30:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: light.hall
+        state: "off"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall
+    - service: notify.dimatelegram
+      data:
+        title: "Hall Light"
+        message: "ON"
+
+- alias: 'Turn Off Night Hall Light'
+  #initial_state: 'true'
+  trigger:
+    - platform: time
+      at: "06:00:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: light.hall
+        state: "on"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.hall
+    - service: notify.dimatelegram
+      data:
+        title: "Hall Light"
+        message: "OFF"
