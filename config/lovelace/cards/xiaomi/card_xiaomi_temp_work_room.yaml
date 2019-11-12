@@ -37,7 +37,7 @@ cards:
       - type: custom:decluttering-card
         template: graph
         variables:
-            - entity: sensor.conbee_work_room_temp
+            - entity: sensor.xiaomi_work_room_temperature
             - name: Temperature
             - icon: mdi:thermometer
 

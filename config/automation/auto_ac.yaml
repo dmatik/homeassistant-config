@@ -1,0 +1,96 @@
+############################################################################
+#                                                                          #
+#   Kids Room AC Notification                                              #
+#                                                                          #
+############################################################################
+
+- alias: 'Kids Room AC ON Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: climate.kids_room
+      from: "off"
+  action:
+    - service: notify.dimatelegram
+      data_template:
+        title: 'Kids Room AC' 
+        message: "ON\nTemp: {{ state_attr('climate.kids_room', 'current_temperature') }}°C\nOperation: {{ states('climate.kids_room') }}\nFan: {{ state_attr('climate.kids_room', 'fan_mode') }}\nTarget: {{ state_attr('climate.kids_room', 'temperature') }}°C"
+
+
+- alias: 'Kids Room AC OFF Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: climate.kids_room
+      to: "off"
+  action:
+    - service: notify.dimatelegram
+      data_template:
+        title: 'Kids Room AC'
+        message: "OFF"
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom AC Notification                                                #
+#                                                                          #
+############################################################################
+
+- alias: 'Bedroom AC ON Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: climate.bedroom
+      from: "off"
+  action:
+    - service: notify.dimatelegram
+      data_template:
+        title: 'Bedroom AC' 
+        message: "ON\nTemp: {{ state_attr('climate.bedroom', 'current_temperature') }}°C\nOperation: {{ states('climate.bedroom') }}\nFan: {{ state_attr('climate.bedroom', 'fan_mode') }}\nTarget: {{ state_attr('climate.bedroom', 'temperature') }}°C"
+
+
+- alias: 'Bedroom AC OFF Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: climate.bedroom
+      to: "off"
+  action:
+    - service: notify.dimatelegram
+      data_template:
+        title: 'Bedroom AC'
+        message: "OFF"
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom AC Notification                                                #
+#                                                                          #
+############################################################################
+
+- alias: 'Living Room AC ON Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: climate.living_room
+      from: "off"
+  action:
+    - service: notify.dimatelegram
+      data_template:
+        title: 'Living Room AC' 
+        message: "ON\nTemp: {{ state_attr('climate.living_room', 'current_temperature') }}°C\nOperation: {{ states('climate.living_room') }}\nFan: {{ state_attr('climate.living_room', 'fan_mode') }}\nTarget: {{ state_attr('climate.living_room', 'temperature') }}°C"
+
+
+- alias: 'Living Room AC OFF Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: climate.living_room
+      to: "off"
+  action:
+    - service: notify.dimatelegram
+      data_template:
+        title: 'Living Room AC'
+        message: "OFF"

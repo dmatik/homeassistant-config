@@ -8,13 +8,13 @@
   #initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: binary_sensor.conbee_kitchen_motion
+      entity_id: binary_sensor.xiaomi_kitchen_motion
       to: "on"
   condition:
     condition: and
     conditions:
       - condition: numeric_state
-        entity_id: sensor.conbee_kitchen_light_level
+        entity_id: sensor.xiaomi_kitchen_light_level
         below: 100
       - condition: state
         entity_id: switch.yeelight_kitchen_strips
@@ -28,10 +28,10 @@
   #initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: binary_sensor.conbee_kitchen_motion
+      entity_id: binary_sensor.xiaomi_kitchen_motion
       to: "off"
       for:
-        seconds: 60
+        seconds: 300
   action:
     - service: switch.turn_off
       data:
@@ -48,8 +48,11 @@
 - alias: 'Turn On Night Hall Light'
   #initial_state: 'true'
   trigger:
-    - platform: time
-      at: "18:30:00"
+    # - platform: time
+    #   at: "18:30:00"
+    - platform: sun
+      event: sunset
+      offset: "-00:30:00"
   condition:
     condition: and
     conditions:
@@ -68,8 +71,11 @@
 - alias: 'Turn Off Night Hall Light'
   #initial_state: 'true'
   trigger:
-    - platform: time
-      at: "06:00:00"
+    # - platform: time
+    #   at: "06:00:00"
+    - platform: sun
+      event: sunrise
+      offset: "+00:30:00"
   condition:
     condition: and
     conditions:

@@ -37,16 +37,16 @@ cards:
       - type: custom:decluttering-card # Living Room Motion Sensor
         template: motion_sensor
         variables:
-          - entity: binary_sensor.conbee_living_room_motion
+          - entity: binary_sensor.xiaomi_living_room_motion
           - name: Living Room
-          - light_level_sensor: sensor.conbee_living_room_light_level
+          - light_level_sensor: sensor.xiaomi_living_room_light_level
 
       - type: custom:decluttering-card # Kitchen Motion Sensor
         template: motion_sensor
         variables:
-          - entity: binary_sensor.conbee_kitchen_motion
+          - entity: binary_sensor.xiaomi_kitchen_motion
           - name: Kitchen
-          - light_level_sensor: sensor.conbee_kitchen_light_level
+          - light_level_sensor: sensor.xiaomi_kitchen_light_level
 
       #- type: "custom:button-card"
       #  color_type: blank-card 
