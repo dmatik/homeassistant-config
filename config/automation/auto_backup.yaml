@@ -1,0 +1,11 @@
+- alias: 'Snapshots stale'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.snapshots_stale
+      to: "true"
+  action:
+    - service: notify.dimatelegram
+      data:
+        title: "Snapshots are Stale"
+        message: "Please visit the 'Hass.io Google Drive Backup' add-on status page"

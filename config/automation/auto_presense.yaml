@@ -1,0 +1,11 @@
+- alias: 'Galit Home'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.life360_galit
+      to: "home"
+  action:
+    - service: notify.dimatelegram
+      data:
+        title: "Linka"
+        message: "Almost home"
