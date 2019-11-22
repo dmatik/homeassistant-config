@@ -206,13 +206,13 @@
             icon_template: mdi:led-strip
             value_template: "{{ is_state('sensor.yeelight_kitchen_strips', 'on') }}"
             turn_on:
-                service: script.turn_on
+                service: scene.turn_on
                 data:
-                    entity_id: script.yeelight_kitchen_strips_on 
+                    entity_id: scene.kitchen_strips_on 
             turn_off:
-                service: script.turn_on
+                service: scene.turn_on
                 data:
-                    entity_id: script.yeelight_kitchen_strips_off
+                    entity_id: scene.kitchen_strips_off
 
 
         yeelight_makeup:
@@ -220,13 +220,13 @@
             icon_template: mdi:track-light
             value_template: "{{ is_state('sensor.yeelight_makeup', 'on') }}"
             turn_on:
-                service: script.turn_on
+                service: scene.turn_on
                 data:
-                    entity_id: script.yeelight_makeup_on 
+                    entity_id: scene.makeup_lights_on 
             turn_off:
-                service: script.turn_on
+                service: scene.turn_on
                 data:
-                    entity_id: script.yeelight_makeup_off
+                    entity_id: scene.makeup_lights_off
                     
         
         # Sensibo Kids Room

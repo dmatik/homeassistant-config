@@ -37,7 +37,7 @@
 
 ############################################################################
 #                                                                          #
-#   Lights                                                             #
+#   General Lights                                                         #
 #                                                                          #
 ############################################################################
 
@@ -97,4 +97,48 @@
     light.kitchen_strip_right:
       state: off
     remote.living_room:
+      state: off
+
+
+
+############################################################################
+#                                                                          #
+#   Kitchen Strips                                                         #
+#                                                                          #
+############################################################################
+
+- name: Kitchen Strips On
+  entities:
+    light.kitchen_strip_left:
+      state: on
+    light.kitchen_strip_right:
+      state: on
+
+- name: Kitchen Strips Off
+  entities:
+    light.kitchen_strip_left:
+      state: off
+    light.kitchen_strip_right:
+      state: off
+
+
+
+############################################################################
+#                                                                          #
+#   Makeup                                                                 #
+#                                                                          #
+############################################################################
+
+- name: Makeup Lights On
+  entities:
+    light.makeup_yeelight_left:
+      state: on
+    light.makeup_yeelight_right:
+      state: on
+
+- name: Makeup Lights Off
+  entities:
+    light.makeup_yeelight_left:
+      state: off
+    light.makeup_yeelight_right:
       state: off

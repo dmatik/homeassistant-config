@@ -3,6 +3,10 @@ default:
   - cust_2_field: ""
   - color: var(--button-color-green)
   - color_type: card
+  - lock:
+      enabled: true
+      duration: 5
+      unlock: tap
 
 card:
   type: custom:decluttering-card

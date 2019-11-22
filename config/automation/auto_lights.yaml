@@ -17,12 +17,12 @@
         entity_id: sensor.xiaomi_kitchen_light_level
         below: 100
       - condition: state
-        entity_id: switch.yeelight_kitchen_strips
+        entity_id: sensor.yeelight_kitchen_strips
         state: "off"
   action:
-    - service: switch.turn_on
+    - service: scene.turn_on
       data:
-        entity_id: switch.yeelight_kitchen_strips
+        entity_id: scene.kitchen_strips_on
 
 - alias: 'Turn Off Kitchen Strip'
   #initial_state: 'true'
@@ -33,9 +33,9 @@
       for:
         seconds: 300
   action:
-    - service: switch.turn_off
+    - service: scene.turn_on
       data:
-        entity_id: switch.yeelight_kitchen_strips
+        entity_id: scene.kitchen_strips_off
 
 
 

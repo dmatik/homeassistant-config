@@ -1,4 +1,8 @@
-# Receiver
+############################################################################
+#                                                                          #
+#   Receiver                                                               #
+#                                                                          #
+############################################################################
 reciever_volume_up:
     alias: Volume Up
     sequence:
@@ -37,7 +41,13 @@ reciever_volume_mute:
                 - Mute
             device: 59394436
             
-# Automation
+
+
+############################################################################
+#                                                                          #
+#   Lights Scenes                                                          #
+#                                                                          #
+############################################################################
 bedtime:
     alias: Bedtime
     sequence:
@@ -55,7 +65,12 @@ lights_off:
                 - scene.lights_off
 
                 
-# Switcher
+
+############################################################################
+#                                                                          #
+#   Switcher                                                               #
+#                                                                          #
+############################################################################
 switcher_turn_on_timer_script:
     alias: On with Timer
     sequence:
@@ -66,7 +81,12 @@ switcher_turn_on_timer_script:
             entity_id: switcher_aio.turn_on_timer_script
             
 
-# Sensibo Kids Room
+
+############################################################################
+#                                                                          #
+#   Sensibo Kids Room                                                      #
+#                                                                          #
+############################################################################
 sensibo_kids_room_increase_target_temp:
     alias: Increase
     sequence:
@@ -83,7 +103,13 @@ sensibo_kids_room_decrease_target_temp:
             entity_id: climate.kids_room
             temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"    
 
-# Sensibo Bedroom
+
+
+############################################################################
+#                                                                          #
+#   Sensibo Bedroom                                                        #
+#                                                                          #
+############################################################################
 sensibo_bedroom_increase_target_temp:
     alias: Increase
     sequence:
@@ -100,7 +126,13 @@ sensibo_bedroom_decrease_target_temp:
             entity_id: climate.bedroom
             temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) - 1 }}"
 
-# Sensibo Living Room
+
+
+############################################################################
+#                                                                          #
+#   Sensibo Living Room                                                    #
+#                                                                          #
+############################################################################
 sensibo_living_room_increase_target_temp:
     alias: Increase
     sequence:
@@ -118,7 +150,12 @@ sensibo_living_room_decrease_target_temp:
             temperature: "{{ (state_attr('climate.living_room', 'temperature')|round(0)) - 1 }}"  
 
 
-# DIMKA IOT Link
+
+############################################################################
+#                                                                          #
+#   DIMKA IOT Link                                                         #
+#                                                                          #
+############################################################################
 dimka_wake:
   alias: "DIMKA - Wake"
   sequence:
@@ -158,44 +195,6 @@ dimka_refresh:
         topic: "iotlink/home/dimka/refresh"
         payload: ""
 
-
-# Lights
-yeelight_kitchen_strips_on:
-    sequence:
-        - service: light.turn_on
-          data_template:
-            entity_id: light.kitchen_strip_left
-        - service: light.turn_on
-          data:
-            entity_id: light.kitchen_strip_right
-
-yeelight_kitchen_strips_off:
-    sequence:
-        - service: light.turn_off
-          data_template:
-            entity_id: light.kitchen_strip_left
-        - service: light.turn_off
-          data:
-            entity_id: light.kitchen_strip_right
-
-
-yeelight_makeup_on:
-    sequence:
-        - service: light.turn_on
-          data_template:
-            entity_id: light.makeup_yeelight_left
-        - service: light.turn_on
-          data:
-            entity_id: light.makeup_yeelight_right
-
-yeelight_makeup_off:
-    sequence:
-        - service: light.turn_off
-          data_template:
-            entity_id: light.makeup_yeelight_left
-        - service: light.turn_off
-          data:
-            entity_id: light.makeup_yeelight_right   
 
             
                 
