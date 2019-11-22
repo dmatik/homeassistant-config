@@ -33,32 +33,7 @@ switch.tuya_service_balcony_light:
    icon: mdi:lightbulb
 switch.tuya_bedroom_light:
    icon: mdi:lightbulb
-    
-# Lights
-#light.living_room:
-#    assumed_state: true
-#light.dining:
-#    assumed_state: true
-#light.kitchen:
-#    assumed_state: true
-#light.service_balcony:
-#    assumed_state: true
-#light.balcony:
-#    assumed_state: true
-#light.enterence:
-#    assumed_state: true
-#light.hall:
-#    assumed_state: true
-#light.bedroom:
-#    assumed_state: true
-#light.kids_room:
-#    assumed_state: true
-#light.work_room:
-#    assumed_state: true
-    
-# Yeelight
-#light.bedroom_ceiling:
-#    icon: mdi:ceiling-light
+
     
 # Harmony
 sensor.living_room:
@@ -75,34 +50,12 @@ script.reciever_volume_down:
    icon: mdi:volume-minus
 script.reciever_volume_mute:
    icon: mdi:volume-mute
-    
-# Synology NAS
-#sensor.total_size_volume_1:
-#    friendly_name: Total Size
-#    icon: mdi:harddisk
-#sensor.used_space_volume_1:
-#    friendly_name: Used Space
-#sensor.volume_used_volume_1:
-#    friendly_name: Volume Used
-#sensor.temperature_sda:
-#    friendly_name: Disk 1 Temp
-#sensor.temperature_sdb:
-#    friendly_name: Disk 2 Temp
-#sensor.cpu_load_total:
-#    friendly_name: CPU Load
-#sensor.memory_usage_real:
-#    friendly_name: Memory Usage
-#sensor.network_up:
-#    friendly_name: Network Up
-#sensor.network_down:
-#    friendly_name: Network Down
+
     
 # Automation
-script.goodnight_script:
-   hidden: true
+script.bedtime:
    icon: mdi:hotel
-script.Lights_off:
-   hidden: true
+script.lights_off:
    icon: mdi:flash-off
 
 # Switcher

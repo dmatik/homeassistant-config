@@ -38,56 +38,22 @@ reciever_volume_mute:
             device: 59394436
             
 # Automation
-goodnight_script:
+bedtime:
     alias: Bedtime
     sequence:
-        - delay:
-            milliseconds: 100
-        - service: light.turn_off
+        - service: scene.turn_on
           data:
             entity_id: 
-                - light.living_room
-                - light.dining
-                - light.balcony
-                - light.enterence
-                - light.kitchen
-                - light.service_balcony
-                - light.bedroom
-                - light.kids_room
-                - light.work_room
-                - light.kitchen_strip_left
-                - light.kitchen_strip_right
-        - service: remote.turn_off
-          data:
-            entity_id: 
-                - remote.living_room
-        # - service: light.turn_on
-        #   data:
-        #     entity_id: 
-        #         - light.hall
+                - scene.bedtime
 
 lights_off:
-    alias: Lights OFF
+    alias: Lights Off
     sequence:
-        - delay:
-            milliseconds: 100
-        - service: light.turn_off
+        - service: scene.turn_on
           data:
             entity_id: 
-                - light.living_room
-                - light.dining
-                - light.balcony
-                - light.enterence
-                - light.kitchen
-                - light.service_balcony
-                - light.hall
-                - light.bedroom
-                - light.kids_room
-                - light.work_room
-                - light.bedside_lamp_dima
-                - light.bedside_lamp_galit
-                - light.kitchen_strip_left
-                - light.kitchen_strip_right
+                - scene.lights_off
+
                 
 # Switcher
 switcher_turn_on_timer_script:

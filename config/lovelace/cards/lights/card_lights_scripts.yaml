@@ -34,17 +34,31 @@ cards:
       - type: custom:button-card
         template: shoulder_blank_card 
 
+      # - type: custom:decluttering-card # Bedtime
+      #   template: script_button
+      #   variables:
+      #     - entity: script.goodnight_script
+      #     - name: Bedtime
+      #     - icon: mdi:hotel      
+
       - type: custom:decluttering-card # Bedtime
-        template: script_button
+        template: scene_button
         variables:
-          - entity: script.goodnight_script
+          - entity: scene.bedtime
           - name: Bedtime
-          - icon: mdi:hotel              
+          - icon: mdi:hotel          
+
+      # - type: custom:decluttering-card # Lights Off
+      #   template: script_button
+      #   variables:
+      #     - entity: script.lights_off
+      #     - name: Lights Off
+      #     - icon: mdi:flash-off
 
       - type: custom:decluttering-card # Lights Off
-        template: script_button
+        template: scene_button
         variables:
-          - entity: script.lights_off
+          - entity: scene.lights_off
           - name: Lights Off
           - icon: mdi:flash-off
 
