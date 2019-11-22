@@ -52,7 +52,7 @@
     #   at: "18:30:00"
     - platform: sun
       event: sunset
-      offset: "-00:30:00"
+      #offset: "-00:30:00"
   condition:
     condition: and
     conditions:
@@ -75,7 +75,7 @@
     #   at: "06:00:00"
     - platform: sun
       event: sunrise
-      offset: "+00:30:00"
+      offset: "+01:00:00"
   condition:
     condition: and
     conditions:

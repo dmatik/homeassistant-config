@@ -7,15 +7,18 @@
   
 - platform: switch
   name: Dining
-  entity_id: switch.dining_light
+  #entity_id: switch.dining_light
+  entity_id: switch.tuya_dining_light
 
 - platform: switch
   name: Kitchen
-  entity_id: switch.kitchen_light
+  #entity_id: switch.kitchen_light
+  entity_id: switch.tuya_kitchen_light
 
 - platform: switch
   name: Service Balcony
-  entity_id: switch.serv_balcony_light
+  #entity_id: switch.serv_balcony_light
+  entity_id: switch.tuya_service_balcony_light
   
 - platform: switch
   name: Balcony
@@ -32,7 +35,8 @@
 
 - platform: switch
   name: Bedroom
-  entity_id: switch.bedroom_light
+  #entity_id: switch.bedroom_light
+  entity_id: switch.tuya_bedroom_light
 
 - platform: switch
   name: Kids Room

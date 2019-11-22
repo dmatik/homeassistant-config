@@ -1,20 +1,20 @@
 # Light switches
 #switch.living_room_light:
 #   icon: mdi:lightbulb
-switch.dining_light:
-   icon: mdi:lightbulb
-switch.kitchen_light:
-   icon: mdi:lightbulb
-switch.serv_balcony_light:
-   icon: mdi:lightbulb
+#switch.dining_light:
+#   icon: mdi:lightbulb
+#switch.kitchen_light:
+#   icon: mdi:lightbulb
+#switch.serv_balcony_light:
+#   icon: mdi:lightbulb
 switch.balcony_light:
    icon: mdi:lightbulb
 switch.entrance_light:
    icon: mdi:lightbulb
 #switch.hall_light:
 #   icon: mdi:lightbulb
-switch.bedroom_light:
-   icon: mdi:lightbulb
+#switch.bedroom_light:
+#   icon: mdi:lightbulb
 switch.kids_room_light:
    icon: mdi:lightbulb
 #switch.work_room_light:
@@ -24,6 +24,14 @@ switch.tuya_work_room_light:
 switch.tuya_hall_light:
    icon: mdi:lightbulb
 switch.tuya_living_room_light:
+   icon: mdi:lightbulb
+switch.tuya_dining_light:
+   icon: mdi:lightbulb
+switch.tuya_kitchen_light:
+   icon: mdi:lightbulb
+switch.tuya_service_balcony_light:
+   icon: mdi:lightbulb
+switch.tuya_bedroom_light:
    icon: mdi:lightbulb
     
 # Lights

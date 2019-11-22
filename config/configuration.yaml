@@ -84,6 +84,7 @@ light: !include /config/entities/lights.yaml
 yeelight: !include /config/entities/yeelights.yaml
 #timer: !include /config/entities/timers.yaml
 binary_sensor: !include /config/entities/binary_sensors.yaml
+scene: !include /config/entities/scenes.yaml
 
 lovelace:
     mode: yaml

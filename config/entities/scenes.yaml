@@ -1,0 +1,34 @@
+############################################################################
+#                                                                          #
+#   Bedside                                                                #
+#                                                                          #
+############################################################################
+
+- name: Bedside Off
+  entities:
+    light.bedside_yeelight_dima:
+      state: off
+    light.bedside_yeelight_galit:
+      state: off
+
+- name: Bedside Normal
+  entities:
+    light.bedside_yeelight_dima:
+      state: on
+      color_temp: 254
+      brightness: 13
+    light.bedside_yeelight_galit:
+      state: on
+      color_temp: 254
+      brightness: 13
+
+- name: Bedside Romantic
+  entities:
+    light.bedside_yeelight_dima:
+      state: on
+      rgb_color: [155, 48, 255]
+      brightness: 3
+    light.bedside_yeelight_galit:
+      state: on
+      rgb_color: [155, 48, 255]
+      brightness: 3
