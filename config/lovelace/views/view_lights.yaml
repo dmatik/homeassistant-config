@@ -6,4 +6,10 @@ cards:
 
     - !include /config/lovelace/cards/card_home_button.yaml
 
-    - !include /config/lovelace/cards/lights/card_lights_all.yaml
+    - !include /config/lovelace/cards/lights/card_lights_living_room.yaml
+
+    - !include /config/lovelace/cards/lights/card_lights_kitchen.yaml
+
+    - !include /config/lovelace/cards/lights/card_lights_bedroom.yaml
+
+    - !include /config/lovelace/cards/lights/card_lights_other_rooms.yaml

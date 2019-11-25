@@ -1,0 +1,86 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Other Rooms Title                                                      #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Other Rooms
+      
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+############################################################################
+#                                                                          #
+#   Other Rooms Lights                                                     #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Hall
+            template: light_button
+            variables:
+              - entity: light.hall
+              - name: Hallway
+
+          - type: custom:decluttering-card # Work Room
+            template: light_button
+            variables:
+              - entity: light.work_room
+              - name: Work Room
+
+          - type: custom:decluttering-card # Kids Room
+            template: light_button
+            variables:
+              - entity: light.kids_room
+              - name: Kids Room            
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+  - type: vertical-stack
+    cards:
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Gateway
+            template: color_light_button #yeelight_switch_button
+            variables:
+              - entity: light.xiaomi_gateway_servers
+              - switch_entity: switch.xiaomi_gateway_light
+              - name: Gateway
+
+          - type: "custom:button-card"
+            color_type: blank-card 
+
+          - type: "custom:button-card"
+            color_type: blank-card          
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml
