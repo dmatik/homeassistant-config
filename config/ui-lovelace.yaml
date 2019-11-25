@@ -86,6 +86,8 @@ views:
     # Kiosk        
     #- !include /config/lovelace/views/view_kiosk.yaml
 
+    # Lights
+    - !include /config/lovelace/views/view_lights.yaml
     # Living Room
     - !include /config/lovelace/views/view_living_room.yaml
     # Kitchen

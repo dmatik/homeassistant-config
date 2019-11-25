@@ -1,0 +1,317 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Living Room Title                                                      #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Living Room
+      
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+############################################################################
+#                                                                          #
+#   Living Room Lights                                                     #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+      
+      - type: horizontal-stack
+        cards:
+          
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Living Room
+            template: light_button
+            variables:
+              - entity: light.living_room
+              - name: Living Room
+
+          - type: custom:decluttering-card # Dining
+            template: light_button
+            variables:
+              - entity: light.dining
+              - name: Dining
+
+          - type: custom:decluttering-card # Balcony
+            template: light_button
+            variables:
+              - entity: light.balcony
+              - name: Balcony
+            
+          - type: custom:button-card
+            template: shoulder_blank_card  
+    
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Entrance
+            template: light_button
+            variables:
+              - entity: light.entrance
+              - name: Entrance
+
+          - type: "custom:button-card"
+            color_type: blank-card 
+
+          - type: "custom:button-card"
+            color_type: blank-card 
+
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml
+
+
+
+############################################################################
+#                                                                          #
+#   Kitchen Room Title                                                     #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Kitchen
+      
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+############################################################################
+#                                                                          #
+#   Kitchen Lights                                                         #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+      
+      - type: horizontal-stack
+        cards:
+          
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Kitchen
+            template: light_button
+            variables:
+              - entity: light.kitchen
+              - name: Kitchen
+            
+          - type: custom:decluttering-card # Kitchen Strips
+            template: light_button
+            variables:
+              - entity: switch.yeelight_kitchen_strips
+              - name: Lightstrip
+              - icon: mdi:led-strip 
+              - cust_2_field: Kitchen   
+
+          - type: custom:decluttering-card # Service Balcony
+            template: light_button
+            variables:
+              - entity: light.service_balcony
+              - name: Serv. Balcony        
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom Title                                                          #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Bedroom
+      
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+############################################################################
+#                                                                          #
+#   Bedroom Lights                                                         #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Bedroom
+            template: light_button
+            variables:
+              - entity: light.bedroom
+              - name: Bedroom
+    
+          - type: custom:decluttering-card # Bedside Dima
+            template: yeelight_switch_button
+            variables:
+              - entity: light.bedside_yeelight_dima
+              - name: Dima
+              - icon: mdi:lamp
+
+          - type: custom:decluttering-card # Bedside Galit
+            template: yeelight_switch_button
+            variables:
+              - entity: light.bedside_yeelight_galit
+              - name: Galit
+              - icon: mdi:lamp           
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Makeup
+            template: light_button
+            variables:
+              - entity: switch.yeelight_makeup
+              - name: Makeup
+              - icon: mdi:track-light 
+
+          - type: "custom:button-card"
+            color_type: blank-card 
+
+          - type: "custom:button-card"
+            color_type: blank-card  
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml
+
+
+
+############################################################################
+#                                                                          #
+#   Rooms Title                                                            #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Rooms
+      
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+############################################################################
+#                                                                          #
+#   Rooms Lights                                                           #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Hall
+            template: light_button
+            variables:
+              - entity: light.hall
+              - name: Hallway
+
+          - type: custom:decluttering-card # Work Room
+            template: light_button
+            variables:
+              - entity: light.work_room
+              - name: Work Room
+
+          - type: custom:decluttering-card # Kids Room
+            template: light_button
+            variables:
+              - entity: light.kids_room
+              - name: Kids Room            
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+  - type: vertical-stack
+    cards:
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Gateway
+            template: color_light_button #yeelight_switch_button
+            variables:
+              - entity: light.xiaomi_gateway_servers
+              - switch_entity: switch.xiaomi_gateway_light
+              - name: Gateway
+
+          - type: "custom:button-card"
+            color_type: blank-card 
+
+          - type: "custom:button-card"
+            color_type: blank-card          
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml
