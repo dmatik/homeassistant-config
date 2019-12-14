@@ -208,6 +208,15 @@ cards:
                   if (states['climate.kids_room'].state == 'cool') return 'var(--sensibo-cool-color)';
                   if (states['climate.kids_room'].state == 'heat') return 'var(--sensibo-heat-color)';
                   ]]]"
+          - cust_2_field: "[[[
+                  return `<ha-icon icon='mdi:radiator' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['switch.tuya_kids_radiator'].state}</span></span>`
+                  ]]]"
+          - cust_2_icon_color: "[[[
+                  if (states['switch.tuya_kids_radiator'].state == 'unavailable') return 'var(--button-card-icon-color)';
+                  if (states['switch.tuya_kids_radiator'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['switch.tuya_kids_radiator'].state == 'on') return 'var(--paper-item-icon-active-color)';
+                  ]]]" 
           - path: kids_room
 
       - type: custom:button-card

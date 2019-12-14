@@ -1,0 +1,45 @@
+############################################################################
+#                                                                          #
+#   Kids Radiator                                                          #
+#                                                                          #
+############################################################################
+
+- id: turn_on_kids_radiator
+  alias: 'Turn On Kids Radiator'
+  trigger:
+    - platform: time
+      at: "19:30:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.tuya_kids_radiator
+        state: "off"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.tuya_kids_radiator
+    - service: notify.dimatelegram
+      data:
+        title: "Kids Radiator"
+        message: "ON"
+
+- id: turn_off_kids_radiator
+  alias: 'Turn Off Kids Radiator'
+  trigger:
+    - platform: time
+      at: "06:30:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.tuya_kids_radiator
+        state: "on"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.tuya_kids_radiator
+    - service: notify.dimatelegram
+      data:
+        title: "Kids Radiator"
+        message: "OFF"

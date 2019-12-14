@@ -64,7 +64,7 @@ gray_light: "#888"
 
 #Page and widget defaults
 #background_style: "background-color: #444"
-background_style: "backdrop-filter: blur(60px); background-color: rgba(68, 68, 68, 0.9);"
+background_style: "backdrop-filter: blur(60px); background-color: rgba(67, 73, 84, 0.7);"
 text_style: "color: #fff"
 
 #These are used for icons and indicators

@@ -132,18 +132,18 @@
                     
                     
         # Switcher
-        switcher_aio_switch:
-            friendly_name: Boiler
-            icon_template: mdi:shower-head
-            value_template: "{{ is_state('switcher_aio.control_device_switch', 'on') }}"
-            turn_on:
-                service: switcher_aio.turn_on
-                data:
-                    entity_id: switcher_aio.control_device_switch 
-            turn_off:
-                service: switcher_aio.turn_off
-                data:
-                    entity_id: switcher_aio.control_device_switch
+        # switcher_aio_switch:
+        #     friendly_name: Boiler
+        #     icon_template: mdi:shower-head
+        #     value_template: "{{ is_state('switcher_aio.control_device_switch', 'on') }}"
+        #     turn_on:
+        #         service: switcher_aio.turn_on
+        #         data:
+        #             entity_id: switcher_aio.control_device_switch 
+        #     turn_off:
+        #         service: switcher_aio.turn_off
+        #         data:
+        #             entity_id: switcher_aio.control_device_switch
                     
         # Lights
         bedside_romantic_light_toggle:
@@ -161,7 +161,7 @@
 
         bedside_romantic_light:
             friendly_name: Bedside Romantic Light
-            icon_template: mdi:heart
+            icon_template: mdi:lamp
             value_template: "{{ is_state('sensor.bedside_lights_mode', 'romantic') }}"
             turn_on:
                 service: scene.turn_on
@@ -174,7 +174,7 @@
 
         bedside_normal_light:
             friendly_name: Bedside Normal Light
-            icon_template: mdi:lightbulb-on
+            icon_template: mdi:lamp
             value_template: "{{ is_state('sensor.bedside_lights_mode', 'normal') }}"
             turn_on:
                 service: scene.turn_on

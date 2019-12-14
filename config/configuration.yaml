@@ -90,15 +90,15 @@ lovelace:
     mode: yaml
 
 
-switcher_aio:
-  phone_id: !secret switcher_phone_id
-  device_id: !secret switcher_device_id
-  device_password: !secret switcher_device_password
-
-#switcher_kis:
+#switcher_aio:
 #  phone_id: !secret switcher_phone_id
 #  device_id: !secret switcher_device_id
 #  device_password: !secret switcher_device_password
+
+switcher_kis:
+  phone_id: !secret switcher_phone_id
+  device_id: !secret switcher_device_id
+  device_password: !secret switcher_device_password
 
 recorder:
   purge_interval: 1

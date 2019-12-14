@@ -34,6 +34,11 @@ switch.tuya_service_balcony_light:
 switch.tuya_bedroom_light:
    icon: mdi:lightbulb
 
+light.bedside_yeelight_galit:
+   icon: mdi:lamp
+light.bedside_yeelight_dima:
+   icon: mdi:lamp
+
     
 # Harmony
 sensor.living_room:
@@ -61,5 +66,13 @@ script.lights_off:
 # Switcher
 script.switcher_turn_on_timer_script:
    icon: mdi:timer
+switch.boiler:
+   icon: mdi:shower-head   
+
+# Power Sockets
+switch.tuya_ny_tree:
+   icon: mdi:pine-tree
+switch.tuya_kids_radiator:
+   icon: mdi:radiator
     
     

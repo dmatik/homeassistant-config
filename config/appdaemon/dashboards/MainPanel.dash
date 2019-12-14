@@ -86,23 +86,32 @@ nas_volume_usage_gauge:
   med_color: "FFD800"
   high_color: "FF0000"
   title: NAS Disk
-  
+
+switcher_switch:
+  widget_type: switch
+  title: Boiler
+  #entity: switch.switcher_aio_switch
+  entity: switch.boiler
+
 switcher_time_left_sensor:
   widget_type: sensor
-  entity: sensor.switcher_aio_time_left
+  #entity: sensor.switcher_aio_time_left
+  entity: sensor.switcher_kis_time_left
   title: Time Left
   text_style: "color: #f2f2f2; font-size: 180%;"
   
 switcher_auto_off_time_sensor:
   widget_type: sensor
-  entity: sensor.switcher_aio_auto_off_time
+  #entity: sensor.switcher_aio_auto_off_time
+  entity: sensor.switcher_kis_auto_off_time
   title: Auto Off
   text_style: "color: #f2f2f2; font-size: 180%;"
   
 switcher_turn_on_timer_script:
   widget_type: script
   entity: script.switcher_turn_on_timer_script
-  title: ON with Timer
+  title: Turn On
+  title2: With Timer
   text_style: "color: #f2f2f2; font-size: 180%;"
   
 switcher_timer_minutes_input_select:
@@ -171,31 +180,37 @@ sensibo_kids_room_switch_cool:
   widget_type: switch
   title: Kids Room
   entity: switch.sensibo_kids_room_cool
+  icon_style_active: "color: #2B9AF9"
 
 sensibo_kids_room_switch_heat:
   widget_type: switch
   title: Kids Room
   entity: switch.sensibo_kids_room_heat
+  icon_style_active: "color: #FF8100"
 
 sensibo_living_room_switch_cool:
   widget_type: switch
   title: Living Room
   entity: switch.sensibo_living_room_cool
+  icon_style_active: "color: #2B9AF9"
 
 sensibo_living_room_switch_heat:
   widget_type: switch
   title: Living Room
   entity: switch.sensibo_living_room_heat
+  icon_style_active: "color: #FF8100"
 
 sensibo_bedroom_switch_cool:
   widget_type: switch
   title: Bedroom
   entity: switch.sensibo_bedroom_cool
+  icon_style_active: "color: #2B9AF9"
 
 sensibo_bedroom_switch_heat:
   widget_type: switch
   title: Bedroom
   entity: switch.sensibo_bedroom_heat
+  icon_style_active: "color: #FF8100"
 
 xiaomi_bedroom_temperature_sensor:
   widget_type: sensor
@@ -221,23 +236,40 @@ galit_presence_mapped:
   device: life360_galit
   icon_style_active: "color: #F75BCD"
 
-bedside_normal_light_switch:
+bedside_light_galit:
   widget_type: switch
-  title: Bedside Normal
-  entity: switch.bedside_normal_light
+  title: Bedside
+  title2: Galit 
+  entity: light.bedside_yeelight_galit
 
-bedside_romantic_light_switch:
+bedside_light_dima:
   widget_type: switch
-  title: Bedside Romantic
-  entity: switch.bedside_romantic_light
+  title: Bedside
+  title2: Dima 
+  entity: light.bedside_yeelight_dima
+
+makeup_light_switch:
+  widget_type: switch
+  title: Makeup
+  entity: switch.yeelight_makeup
+
+ny_tree_lights_switch:
+  widget_type: switch
+  title: Tree Lights
+  entity: switch.tuya_ny_tree
+
+kids_radiator_switch:
+  widget_type: switch
+  title: Kids Room
+  entity: switch.tuya_kids_radiator
 
 layout:
     - clock (3x1), sensibo_living_room_switch_cool, sensibo_living_room_switch_heat, living_room_climate (2x1), switch.baltic_tv, switch.shield_tv, switch.smart_tv
     - weather (3x2), sensibo_bedroom_switch_cool, sensibo_bedroom_switch_heat, bedroom_climate (2x1), script.reciever_volume_up, script.reciever_volume_down, script.reciever_volume_mute
-    - sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, kids_room_climate (2x1), switch.switcher_aio_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
-    - dima_presence_mapped, galit_presence_mapped, spacer, switch.tuya_living_room_light, switch.tuya_dining_light, switch.tuya_kitchen_light, switch.tuya_service_balcony_light, switcher_turn_on_timer_script, switcher_timer_minutes_input_select (2x1) 
+    - sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, kids_room_climate (1x1), kids_radiator_switch, switcher_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
+    - dima_presence_mapped, galit_presence_mapped, ny_tree_lights_switch, switch.tuya_living_room_light, switch.tuya_dining_light, switch.tuya_kitchen_light, switch.tuya_service_balcony_light, spacer, switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
     - spacer (3x1), switch.tuya_hall_light,  switch.tuya_work_room_light, switch.kids_room_light, switch.balcony_light
-    - script.bedtime, script.lights_off, spacer, switch.tuya_bedroom_light, bedside_normal_light_switch, bedside_romantic_light_switch, switch.yeelight_makeup, switch.entrance_light, spacer, refresh_main
+    - script.bedtime, script.lights_off, spacer, switch.tuya_bedroom_light, bedside_light_galit, bedside_light_dima, makeup_light_switch, spacer (2x1), refresh_main
     
     
     

@@ -31,7 +31,7 @@
         entity_id: light.bedside_yeelight_galit
 
 - alias: 'Bedside Long Click'
-  initial_state: 'true'
+  initial_state: 'false'
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click

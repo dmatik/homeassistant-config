@@ -10,6 +10,9 @@ simple_button:
 light_button:
   !include light_button_template.yaml
 
+switch_button:
+  !include switch_button_template.yaml
+
 motion_sensor:
   !include motion_sensor_template.yaml
 

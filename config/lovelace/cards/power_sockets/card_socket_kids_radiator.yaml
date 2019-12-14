@@ -1,6 +1,7 @@
 type: vertical-stack
 cards:
 
+
 ############################################################################
 #                                                                          #
 #   Title                                                                  #
@@ -12,46 +13,45 @@ cards:
     
       - type: custom:button-card
         template: shoulder_blank_card  
-    
+      
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Automations
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
-
-
-############################################################################
-#                                                                          #
-#   Automations                                                            #
-#                                                                          #
-############################################################################
-
-  - type: horizontal-stack
-    cards:
+          - name: Radiator
       
       - type: custom:button-card
-        template: shoulder_blank_card
-
-      - type: entities
-        style: |
-          ha-card {
-            border-radius: var(--border-radius);
-            overflow: hidden;            
-          }
-        title: ""
-        show_header_toggle: false
-        entities:
-          - automation.turn_on_kitchen_strip
-          - automation.turn_off_kitchen_strip
-          - automation.turn_on_night_hall_light
-          - automation.turn_off_night_hall_light
-          - automation.galit_home
-          - automation.turn_on_kids_radiator
-          - automation.turn_off_kids_radiator          
-
-      - type: custom:button-card
         template: shoulder_blank_card  
+
+
+############################################################################
+#                                                                          #
+#   Lights                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+   
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Kids Radiator
+            template: switch_button
+            variables:
+              - entity: switch.tuya_kids_radiator
+              - name: Radiator
+              - icon: mdi:radiator
+
+          - type: "custom:button-card"
+            color_type: blank-card
+                    
+          - type: "custom:button-card"
+            color_type: blank-card   
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml

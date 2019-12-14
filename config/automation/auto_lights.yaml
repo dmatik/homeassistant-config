@@ -4,12 +4,17 @@
 #                                                                          #
 ############################################################################
 
-- alias: 'Turn On Kitchen Strip'
+- id: turn_on_kitchen_strip
+  alias: 'Turn On Kitchen Strip'
   #initial_state: 'true'
   trigger:
-    - platform: state
-      entity_id: binary_sensor.xiaomi_kitchen_motion
-      to: "on"
+    # - platform: state
+    #   entity_id: binary_sensor.xiaomi_kitchen_motion
+    #   to: "on"
+    - platform: event
+      event_type: xiaomi_aqara.motion
+      event_data:
+        entity_id: binary_sensor.xiaomi_kitchen_motion
   condition:
     condition: and
     conditions:
@@ -24,18 +29,24 @@
       data:
         entity_id: scene.kitchen_strips_on
 
-- alias: 'Turn Off Kitchen Strip'
+- id: turn_off_kitchen_strip
+  alias: 'Turn Off Kitchen Strip'
   #initial_state: 'true'
   trigger:
     - platform: state
       entity_id: binary_sensor.xiaomi_kitchen_motion
       to: "off"
       for:
-        seconds: 300
+        minutes: 5
   action:
-    - service: scene.turn_on
-      data:
-        entity_id: scene.kitchen_strips_off
+    - service_template: >
+        {% if trigger.to_state.state == "off" %}
+          scene.turn_on
+        {% endif %}
+      entity_id: scene.kitchen_strips_off
+    # - service: scene.turn_on
+    #   data:
+    #     entity_id: scene.kitchen_strips_off
 
 
 

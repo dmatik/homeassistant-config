@@ -26,11 +26,13 @@
   entities:
     light.bedside_yeelight_dima:
       state: on
-      rgb_color: [155, 48, 255]
+      #rgb_color: [155, 48, 255]
+      xy_color: [0.178, 0.068] #blue
       brightness: 3
     light.bedside_yeelight_galit:
       state: on
-      rgb_color: [155, 48, 255]
+      #rgb_color: [155, 48, 255]
+      xy_color: [0.178, 0.068] #blue
       brightness: 3
 
 
