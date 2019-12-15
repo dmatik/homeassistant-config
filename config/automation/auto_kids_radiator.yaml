@@ -8,7 +8,7 @@
   alias: 'Turn On Kids Radiator'
   trigger:
     - platform: time
-      at: "19:30:00"
+      at: "19:00:00"
   condition:
     condition: and
     conditions:
@@ -28,7 +28,7 @@
   alias: 'Turn Off Kids Radiator'
   trigger:
     - platform: time
-      at: "06:30:00"
+      at: "07:00:00"
   condition:
     condition: and
     conditions:

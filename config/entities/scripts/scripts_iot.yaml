@@ -1,0 +1,47 @@
+############################################################################
+#                                                                          #
+#   DIMKA IOT Link                                                         #
+#                                                                          #
+############################################################################
+dimka_wake:
+  alias: "DIMKA - Wake"
+  sequence:
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: "94:DE:80:2C:BB:EA"
+
+dimka_shutdown:
+  alias: "DIMKA - Shutdown"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/home/dimka/commands/shutdown"
+        payload: ""
+
+dimka_suspend:
+  alias: "DIMKA - Suspend"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/home/dimka/commands/suspend"
+        payload: ""
+
+dimka_reboot:
+  alias: "DIMKA - Reboot"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/home/dimka/commands/reboot"
+        payload: ""
+
+dimka_refresh:
+  alias: "DIMKA - Refresh"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/home/dimka/refresh"
+        payload: ""
+
+
+            
+                

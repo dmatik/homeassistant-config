@@ -1,0 +1,68 @@
+- platform: template
+  switches:
+
+
+############################################################################
+#                                                                          #
+#   Living Room                                                            #
+#                                                                          #
+############################################################################
+
+    # Baltic TV
+    baltic_tv:
+        friendly_name: Baltic TV
+        value_template: "{{ is_state_attr('remote.living_room', 'current_activity', 'Baltic TV') }}"
+        turn_on:
+            service: remote.turn_on
+            data:
+                entity_id: remote.living_room
+                activity: 'Baltic TV'
+        turn_off:
+            service: remote.turn_on
+            data:
+                entity_id: remote.living_room
+                activity: 'PowerOff'
+    # Shield TV
+    shield_tv:
+        friendly_name: Shield TV
+        value_template: "{{ is_state_attr('remote.living_room', 'current_activity', 'Shield TV') }}"
+        turn_on:
+            service: remote.turn_on
+            data:
+                entity_id: remote.living_room
+                activity: 'Shield TV'
+        turn_off:
+            service: remote.turn_on
+            data:
+                entity_id: remote.living_room
+                activity: 'PowerOff'
+    # Smart TV
+    smart_tv:
+        friendly_name: Smart TV
+        value_template: "{{ is_state_attr('remote.living_room', 'current_activity', 'Smart TV') }}"
+        turn_on:
+            service: remote.turn_on
+            data:
+                entity_id: remote.living_room
+                activity: 'Smart TV'
+        turn_off:
+            service: remote.turn_on
+            data:
+                entity_id: remote.living_room
+                activity: 'PowerOff'
+
+    # Remote Switch for Living Room TV
+    remote_living_room:
+        friendly_name: "Remote Living Room TV"
+        icon_template: mdi:television
+        value_template: "{{ is_state('remote.living_room', 'on') }}"
+        turn_on:
+            service: remote.turn_on
+            data:
+                entity_id: remote.living_room
+                activity: 'Shield TV'
+        turn_off:
+            service: remote.turn_on
+            data:
+                entity_id: remote.living_room
+                activity: 'PowerOff'

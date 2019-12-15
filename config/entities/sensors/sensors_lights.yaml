@@ -1,0 +1,90 @@
+- platform: template
+  sensors:
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Bedroom Ceiling                                                        #
+    #                                                                          #
+    ############################################################################
+
+    bedroom_ceiling_moonlight:
+      friendly_name: "Bedroom Moonlight Mode"
+      icon_template: mdi:brightness-4
+      value_template: >-
+        {% if is_state('light.bedroom_ceiling', 'unavailable') %}
+            unavailable
+        {% else %}
+            {% if is_state('binary_sensor.bedroom_ceiling_nightlight', 'on') %}
+                moonlight
+            {% else %}
+                normal
+            {% endif %}
+        {% endif %}
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Bedside                                                                #
+    #                                                                          #
+    ############################################################################
+
+    bedside_lights_mode:
+      friendly_name: "Bedside Lights Mode"
+      icon_template: mdi:heart
+      value_template: >-
+        {% if is_state('light.bedside_yeelight_dima', 'unavailable') or is_state('light.bedside_yeelight_galit', 'unavailable') %}
+            unavailable
+        {% elif is_state('light.bedside_yeelight_dima', 'off') and is_state('light.bedside_yeelight_galit', 'off') %}
+            lights_off
+        {% elif ( state_attr('light.bedside_yeelight_dima', 'brightness') < 5 ) or ( state_attr('light.bedside_yeelight_galit', 'brightness') < 5 ) %}
+            romantic
+        {% elif ( state_attr('light.bedside_yeelight_dima', 'brightness') >= 5 ) or ( state_attr('light.bedside_yeelight_galit', 'brightness') >= 5 ) %}
+            normal
+        {% else %}
+            other
+        {% endif %}
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Kitchen Strips                                                         #
+    #                                                                          #
+    ############################################################################
+
+    yeelight_kitchen_strips:
+      friendly_name: "Kitchen Strips"
+      icon_template: mdi:led-strip
+      value_template: >-
+        {% if is_state('light.kitchen_strip_left', 'unavailable') or is_state('light.kitchen_strip_right', 'unavailable')  %}
+            unavailable
+        {% else %}
+            {% if is_state('light.kitchen_strip_left', 'on') or is_state('light.kitchen_strip_right', 'on') %}
+                on
+            {% else %}
+                off
+            {% endif %}
+        {% endif %}
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Makeup                                                                 #
+    #                                                                          #
+    ############################################################################
+
+    yeelight_makeup:
+      friendly_name: "Makeup Light"
+      icon_template: mdi:track-light
+      value_template: >-
+        {% if is_state('light.makeup_yeelight_left', 'unavailable') or is_state('light.makeup_yeelight_right', 'unavailable')  %}
+            unavailable
+        {% elif is_state('light.makeup_yeelight_left', 'on') or is_state('light.makeup_yeelight_right', 'on') %}
+            on
+        {% else %}
+            off
+        {% endif %}

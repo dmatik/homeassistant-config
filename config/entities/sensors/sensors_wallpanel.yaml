@@ -1,0 +1,24 @@
+
+############################################################################
+#                                                                          #
+#   Wallpanel                                                              #
+#                                                                          #
+############################################################################
+
+# - platform: mqtt
+#   state_topic: "wallpanel/mywallpanel/sensor/battery"
+#   name: "WallPanel Battery"
+#   unit_of_measurement: "%"
+#   value_template: "{{ value_json.value }}"
+
+# - platform: mqtt
+#   state_topic: "wallpanel/mywallpanel/sensor/light"
+#   name: "WallPanel Light"
+#   unit_of_measurement: "lx"
+#   value_template: "{{ value_json.value }}"
+
+# - platform: mqtt
+#   state_topic: "wallpanel/mywallpanel/state"
+#   name: "WallPanel Brightness"
+#   unit_of_measurement: "%"
+#   value_template: "{{ (value_json.brightness|float/2.55)|round(0) }}"

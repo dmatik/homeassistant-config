@@ -1,0 +1,11 @@
+# - platform: mqtt  
+#   name: "Entrance Light"
+#   state_topic: "stat/entrance_light/POWER"
+#   command_topic: "cmnd/entrance_light/POWER"
+#   availability_topic: "tele/entrance_light/LWT"
+#   qos: 1
+#   payload_on: "ON"
+#   payload_off: "OFF"
+#   payload_available: "Online"
+#   payload_not_available: "Offline"
+#   retain: true

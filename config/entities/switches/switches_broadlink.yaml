@@ -1,0 +1,45 @@
+- platform: broadlink
+  host: !secret broadlink_host
+  mac: !secret broadlink_mac
+  timeout: 15
+  switches:
+        living_room_light:
+            friendly_name: "Living Room"
+            command_on: !secret living_room_light_on
+            command_off: !secret living_room_light_off
+        dining_light:
+            friendly_name: "Dining"
+            command_on: !secret dining_light_on
+            command_off: !secret dining_light_off
+        kitchen_light:
+            friendly_name: "Kitchen"
+            command_on: !secret kitchen_light_on
+            command_off: !secret kitchen_light_off
+        serv_balcony_light:
+            friendly_name: "Serv. Balcony"
+            command_on: !secret serv_balcony_light_on
+            command_off: !secret serv_balcony_light_off
+        balcony_light:
+            friendly_name: "Balcony"
+            command_on: !secret balcony_light_on
+            command_off: !secret balcony_light_off
+        entrance_light:
+            friendly_name: "Enterence"
+            command_on: !secret enterence_light_on
+            command_off: !secret enterence_light_off
+        hall_light:
+            friendly_name: "Hall"
+            command_on: !secret hall_light_on
+            command_off: !secret hall_light_off
+        bedroom_light:
+            friendly_name: "Bedroom"
+            command_on: !secret bedroom_light_on
+            command_off: !secret bedroom_light_off
+        kids_room_light:
+            friendly_name: "Kids Room"
+            command_on: !secret kids_room_light_on
+            command_off: !secret kids_room_light_off
+        work_room_light:
+            friendly_name: "Work Room"
+            command_on: !secret work_room_light_on
+            command_off: !secret work_room_light_off

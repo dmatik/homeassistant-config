@@ -1,0 +1,22 @@
+############################################################################
+#                                                                          #
+#   blaze                                                                  #
+#                                                                          #
+############################################################################
+
+- platform: synologydsm
+  host: !secret synology_blaze_host
+  username: !secret synology_blaze_username
+  password: !secret synology_blaze_password
+  monitored_conditions:
+    - cpu_system_load
+    - cpu_total_load
+    - memory_real_usage
+    - memory_available_real
+    - memory_total_real
+    - network_up
+    - network_down
+    - volume_size_used
+    - volume_percentage_used
+    - volume_size_total
+    - disk_temp

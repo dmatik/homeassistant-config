@@ -70,9 +70,9 @@ tts:
 
 #group: !include groups.yaml
 automation: !include_dir_merge_list automation/ #!include automations.yaml
-script: !include /config/entities/scripts.yaml
-switch: !include /config/entities/switches.yaml
-sensor: !include /config/entities/sensors.yaml
+script: !include_dir_merge_list /config/entities/scripts/ #script: !include /config/entities/scripts.yaml
+switch: !include_dir_merge_list /config/entities/switches/ #switch: !include /config/entities/switches.yaml
+sensor: !include_dir_merge_list /config/entities/sensors/ #sensor: !include /config/entities/sensors.yaml
 zone: !include /config/entities/zones.yaml
 remote: !include /config/entities/remotes.yaml
 #homekit: !include homekit.yaml

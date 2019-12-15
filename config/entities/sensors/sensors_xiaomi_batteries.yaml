@@ -1,0 +1,59 @@
+- platform: template
+  sensors:
+
+
+    xiaomi_work_room_temp_battery:
+      friendly_name: "Work Room Temperature"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.sensor.xiaomi_work_room_temperature.attributes.battery_level }}
+
+    xiaomi_button_bedside_dima_battery:
+      friendly_name: "Bedside Button Dima"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.button_bedside_dima.attributes.battery_level }}
+
+    xiaomi_button_bedside_galit_battery:
+      friendly_name: "Bedside Button Galit"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.button_bedside_galit.attributes.battery_level }}
+
+    xiaomi_button_makeup_battery:
+      friendly_name: "Makeup Button"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.button_makeup.attributes.battery_level }}
+
+    xiaomi_button_kitchen_strip_right_battery:
+      friendly_name: "Kitchen Strip Right Button"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.button_kitchen_strip_right.attributes.battery_level }}
+
+    xiaomi_button_kitchen_strip_left_battery:
+      friendly_name: "Kitchen Strip Left Button"
+      icon_template: mdi:battery
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.button_kitchen_strip_left.attributes.battery_level }}
+
+    xiaomi_kitchen_motion_battery:
+      friendly_name: "Kitchen Motion Sensor"
+      icon_template: mdi:run
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.xiaomi_kitchen_motion.attributes.battery_level }}
+
+    xiaomi_living_room_motion_battery:
+      friendly_name: "Living Room Motion Sensor"
+      icon_template: mdi:run
+      unit_of_measurement: '%'
+      value_template: >-
+        {{ states.binary_sensor.xiaomi_living_room_motion.attributes.battery_level }}
