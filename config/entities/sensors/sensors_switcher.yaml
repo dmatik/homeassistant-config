@@ -52,7 +52,7 @@
             {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
             {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
             {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
-            {{ hour | int }}h {{ (min | int) + 1 }}m
+            {{ hour | int }}h {{ min | int }}m
         {% endif %}
     
     switcher_kis_auto_off_time:
