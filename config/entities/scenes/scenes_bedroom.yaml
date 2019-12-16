@@ -1,0 +1,58 @@
+############################################################################
+#                                                                          #
+#   Bedside                                                                #
+#                                                                          #
+############################################################################
+
+- name: Bedside Off
+  entities:
+    light.bedside_yeelight_dima:
+      state: off
+    light.bedside_yeelight_galit:
+      state: off
+
+- name: Bedside Normal
+  entities:
+    light.bedside_yeelight_dima:
+      state: on
+      color_temp: 254
+      brightness: 13
+    light.bedside_yeelight_galit:
+      state: on
+      color_temp: 254
+      brightness: 13
+
+- name: Bedside Romantic
+  entities:
+    light.bedside_yeelight_dima:
+      state: on
+      #rgb_color: [155, 48, 255]
+      xy_color: [0.178, 0.068] #blue
+      brightness: 3
+    light.bedside_yeelight_galit:
+      state: on
+      #rgb_color: [155, 48, 255]
+      xy_color: [0.178, 0.068] #blue
+      brightness: 3
+
+
+
+############################################################################
+#                                                                          #
+#   Makeup                                                                 #
+#                                                                          #
+############################################################################
+
+- name: Makeup Lights On
+  entities:
+    light.makeup_yeelight_left:
+      state: on
+    light.makeup_yeelight_right:
+      state: on
+
+- name: Makeup Lights Off
+  entities:
+    light.makeup_yeelight_left:
+      state: off
+    light.makeup_yeelight_right:
+      state: off
