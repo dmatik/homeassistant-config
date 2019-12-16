@@ -11,7 +11,7 @@ resources:
       type: js
 #    - url: /local/custom-lovelace/animated-weather-card/weather-card.js
 #      type: module
-    - url: /community_plugin/compact-custom-header/compact-custom-header.js
+    - url: /community_plugin/custom-header/custom-header.js
       type: module
     - url: /community_plugin/bar-card/bar-card.js
       type: js
@@ -55,19 +55,12 @@ resources:
 
 title: Home
 
-cch:
+
+custom_header:
+  compact_mode: true
   background: 'var(--cch-background)'
-  voice: "hide"
-  swipe: false
-  swipe_animate: "swipe"
-  swipe_wrap: false
-  #hide_tabs: 1
-  exceptions:
-    - conditions:
-        user: kiosk
-      config:
-        hide_tabs: 0
-        kiosk_mode: true
+  voice_hide: true
+  chevrons: false
 
 
 # Button card templates  
