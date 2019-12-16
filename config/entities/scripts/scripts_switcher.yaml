@@ -1,8 +1,8 @@
-# switcher_turn_on_timer_script:
-#     alias: On with Timer
-#     sequence:
-#         - delay:
-#             milliseconds: 100
-#         - service: script.turn_on
-#           data:
-#             entity_id: switcher_aio.turn_on_timer_script
+switcher_turn_on_timer_script:
+    alias: On with Timer
+    sequence:
+        - delay:
+            milliseconds: 100
+        - service: script.turn_on
+          data:
+            entity_id: switcher_aio.turn_on_timer_script

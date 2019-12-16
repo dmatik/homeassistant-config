@@ -90,20 +90,20 @@ nas_volume_usage_gauge:
 switcher_switch:
   widget_type: switch
   title: Boiler
-  #entity: switch.switcher_aio_switch
-  entity: switch.boiler
+  entity: switch.switcher_aio_switch
+  #entity: switch.boiler
 
 switcher_time_left_sensor:
   widget_type: sensor
-  #entity: sensor.switcher_aio_time_left
-  entity: sensor.switcher_kis_time_left
+  entity: sensor.switcher_aio_time_left
+  #entity: sensor.switcher_kis_time_left
   title: Time Left
   text_style: "color: #f2f2f2; font-size: 180%;"
   
 switcher_auto_off_time_sensor:
   widget_type: sensor
-  #entity: sensor.switcher_aio_auto_off_time
-  entity: sensor.switcher_kis_auto_off_time
+  entity: sensor.switcher_aio_auto_off_time
+  #entity: sensor.switcher_kis_auto_off_time
   title: Auto Off
   text_style: "color: #f2f2f2; font-size: 180%;"
   

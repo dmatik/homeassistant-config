@@ -2,12 +2,12 @@ default:
   - text_color: var(--picture-elements-text-color)
   - image_on: /local/images/switcher/switcher_on.png
   - image_off: /local/images/switcher/switcher_off.png
-  #- entity: switch.switcher_aio_switch
-  - entity: switch.boiler
-  #- electric_current_sensor: switcher_aio.electric_current_sensor
-  - electric_current_sensor: sensor.switcher_kis_elctric_current
-  - time_left_sensor: sensor.switcher_kis_time_left
-  - auto_off_sensor: sensor.switcher_kis_auto_off_time
+  - entity: switch.switcher_aio_switch
+  #- entity: switch.boiler
+  - electric_current_sensor: switcher_aio.electric_current_sensor
+  #- electric_current_sensor: sensor.switcher_kis_elctric_current
+  - time_left_sensor: sensor.switcher_aio_time_left
+  - auto_off_sensor: sensor.switcher_aio_auto_off_time
 
 card:
   type: picture-elements
