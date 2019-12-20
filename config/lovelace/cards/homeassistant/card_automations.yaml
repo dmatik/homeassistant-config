@@ -49,7 +49,9 @@ cards:
           - automation.turn_off_night_hall_light
           - automation.galit_home
           - automation.turn_on_kids_radiator
-          - automation.turn_off_kids_radiator          
+          - automation.turn_off_kids_radiator
+          - automation.ha_update_available_notification
+          - automation.hacs_updates_notification
 
       - type: custom:button-card
         template: shoulder_blank_card  

@@ -1,6 +1,6 @@
 
 - id: ha_update_notification
-  alias: Update Available Notification
+  alias: HA Update Available Notification
   trigger:
     - platform: state
       entity_id: binary_sensor.updater
@@ -14,7 +14,7 @@
 
 
 - id: hacs_updates_notification
-  alias: Create a notification when there is updates pending in HACS
+  alias: HACS Updates Notification
   trigger:
     platform: state
     entity_id: sensor.hacs
