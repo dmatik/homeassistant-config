@@ -13,60 +13,16 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-
-#panel_iframe:
-#  configurator:
-#    title: Configurator
-#    icon: mdi:wrench
-#    url: !secret configurator_url
-#  ide:
-#    title: IDE
-#    icon: mdi:code-braces
-#    url: !secret ide_url
-#  nodered:
-#    title: Node-RED
-#    icon: mdi:home-automation
-#    url: !secret nodered_url
-#  backup:
-#    title: Snapshots
-#    icon: mdi:cloud-upload
-#    url: !secret backup_url
-
-# Enables the frontend
 frontend:
   themes: 
     !include_dir_merge_named themes
-  # extra_html_url:
-  #   - /local/hass-fontawesome-solid.html
-  #   - /local/hass-fontawesome-regular.html
-  #   - /local/hass-fontawesome-brands.html
 
+# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-#history:
-#logbook:
-#map:
-#system_health:
-#sun:
-#cloud:
-#mobile_app:
-
-# Enables configuration UI
-config:
-
-# Discover some devices automatically
-#discovery:
-#  ignore:
-#    - yeelight
-#    - homekit
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-#conversation:
 
 # Text to speech
 tts:
   - platform: google_translate
-    service_name: google_say
-
 
 #group: !include groups.yaml
 automation: !include_dir_merge_list automation/ #!include automations.yaml
@@ -88,7 +44,6 @@ scene: !include_dir_merge_list /config/entities/scenes/ #scene: !include /config
 
 lovelace:
     mode: yaml
-
 
 switcher_aio:
   phone_id: !secret switcher_phone_id
@@ -176,15 +131,15 @@ input_text:
 
 hacs:
   token: !secret github_access_token
-    
+
 mqtt:
   discovery: true
-  broker: core-mosquitto
-  username: !secret mqtt_username
-  password: !secret mqtt_password  
-#  broker: !secret syn_mqtt_broker
-#  username: !secret syn_mqtt_username
-#  password: !secret syn_mqtt_password
+#  broker: core-mosquitto
+#  username: !secret mqtt_username
+#  password: !secret mqtt_password  
+  broker: !secret syn_mqtt_broker
+  username: !secret syn_mqtt_username
+  password: !secret syn_mqtt_password
   
   
 # Sensibo
@@ -194,8 +149,8 @@ climate:
     
 http:
   base_url: !secret duckdns_base_url
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+  ssl_certificate: /config/ssl/fullchain.pem
+  ssl_key: /config/ssl/privkey.pem
 
 # Xiaomi
 xiaomi_aqara:

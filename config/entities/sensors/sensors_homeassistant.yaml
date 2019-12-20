@@ -1,0 +1,33 @@
+############################################################################
+#                                                                          #
+#   HA DB Information                                                      #
+#                                                                          #
+############################################################################
+
+- platform: sql
+  db_url: !secret synology_db_connection
+  queries:
+    - name: DB size
+      query: 'SELECT table_schema "homeassistant", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+    - name: Events size
+      query: 'SELECT table_schema "homeassistant", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" and table_name="events" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+    - name: States size
+      query: 'SELECT table_schema "homeassistant", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" and table_name="states" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+
+
+
+############################################################################
+#                                                                          #
+#   HA Current Version                                                      #
+#                                                                          #
+############################################################################
+
+- platform: command_line
+  name: Version
+  command: "cat /config/.HA_VERSION"

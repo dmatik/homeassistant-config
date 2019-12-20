@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Hassio DB
+          - name: Home Assistant DB
     
       - type: custom:button-card
         template: shoulder_blank_card         

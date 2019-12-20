@@ -27,10 +27,6 @@ resources:
       type: module
     - url: /community_plugin/lovelace-gap-card/gap-card.js
       type: js
-#    - url: /community_plugin/lovelace-auto-entities/auto-entities.js
-#      type: js
-#    - url: /community_plugin/simple-thermostat/simple-thermostat.js
-#      type: module
     - url: /community_plugin/text-element/text-element.js
       type: js
 #    - url: /community_plugin/text-divider-row/text-divider-row.js
@@ -61,6 +57,9 @@ custom_header:
   background: 'var(--cch-background)'
   voice_hide: true
   chevrons: false
+  hide_help: true
+  hide_unused: true
+  hide_config: true
 
 
 # Button card templates  
@@ -96,7 +95,7 @@ views:
     # Sysytem Tab        
     - !include /config/lovelace/views/view_system.yaml
     # Hassio Tab        
-    - !include /config/lovelace/views/view_hassio.yaml
+    - !include /config/lovelace/views/view_homeassistant.yaml
     # Remotes Tab        
     - !include /config/lovelace/views/view_remotes.yaml
     # Map Tab        

@@ -1,0 +1,19 @@
+title: Home Assistant
+icon: mdi:home-assistant
+path: homeassistant
+
+cards:
+
+    - !include /config/lovelace/cards/card_home_button.yaml
+
+    #- !include /config/lovelace/cards/wallpanel/card_wallpanel.yaml
+
+    - !include /config/lovelace/cards/homeassistant/card_automations.yaml
+
+    - !include /config/lovelace/cards/homeassistant/card_homeassistant_db.yaml
+
+    #- !include /config/lovelace/cards/homeassistant/card_snapshot_backup.yaml
+
+    #- !include /config/lovelace/cards/homeassistant/card_recorder_purge.yaml
+
+    - !include /config/lovelace/cards/homeassistant/card_theme_select.yaml

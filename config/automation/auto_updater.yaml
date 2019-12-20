@@ -1,0 +1,33 @@
+
+- id: ha_update_notification
+  alias: Update Available Notification
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.updater
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.dimatelegram
+      data_template:
+        title: "New Version"
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available. \nCurrent: {{sensor.version.state}}."
+
+
+- id: hacs_updates_notification
+  alias: Create a notification when there is updates pending in HACS
+  trigger:
+    platform: state
+    entity_id: sensor.hacs
+  condition:
+    - condition: template
+      value_template: "{{ states(trigger.entity_id) != 'unknown'}}"
+    - condition: template
+      value_template: "{{ (states(trigger.entity_id) | float) != 0}}"
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: Updates pending in HACS
+      message: >-
+        {% for repo in state_attr(trigger.entity_id, 'repositories') %}
+          **{{ repo.display_name }}** _{{ repo["installed version"] }}_ -> _{{ repo["available version"] }}_
+        {% endfor %}
