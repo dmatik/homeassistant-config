@@ -147,10 +147,10 @@ climate:
   - platform: sensibo
     api_key: !secret sensibo_api_key
     
-http:
-  base_url: !secret duckdns_base_url
-  ssl_certificate: /config/ssl/fullchain.pem
-  ssl_key: /config/ssl/privkey.pem
+#http:
+#  base_url: !secret duckdns_base_url
+#  ssl_certificate: /config/ssl/fullchain.pem
+#  ssl_key: /config/ssl/privkey.pem
 
 # Xiaomi
 xiaomi_aqara:
