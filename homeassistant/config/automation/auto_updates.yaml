@@ -7,10 +7,10 @@
       from: 'off'
       to: 'on'
   action:
-    - service: persistent_notification.create
+    - service: notify.dimatelegram
       data_template:
         title: "New Version"
-        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available. \nCurrent: {{sensor.version.state}}."
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available. \nCurrent: {{sensor.version.state}}. \nRelease notes: {{ state_attr('binary_sensor.updater', 'release_notes') }}"
 
 
 - id: hacs_updates_notification
@@ -24,7 +24,7 @@
     - condition: template
       value_template: "{{ (states(trigger.entity_id) | float) != 0}}"
   action:
-    service: persistent_notification.create
+    service: notify.dimatelegram
     data_template:
       title: Updates pending in HACS
       message: >-

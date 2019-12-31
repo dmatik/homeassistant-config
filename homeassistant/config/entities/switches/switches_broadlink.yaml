@@ -24,9 +24,9 @@
             command_on: !secret balcony_light_on
             command_off: !secret balcony_light_off
         entrance_light:
-            friendly_name: "Enterence"
-            command_on: !secret enterence_light_on
-            command_off: !secret enterence_light_off
+            friendly_name: "Entrance"
+            command_on: !secret entrance_light_on
+            command_off: !secret entrance_light_off
         hall_light:
             friendly_name: "Hall"
             command_on: !secret hall_light_on

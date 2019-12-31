@@ -22,11 +22,13 @@
   
 - platform: switch
   name: Balcony
-  entity_id: switch.balcony_light
+  #entity_id: switch.balcony_light
+  entity_id: switch.tuya_balcony_light
 
 - platform: switch
   name: Entrance
-  entity_id: switch.entrance_light
+  #entity_id: switch.entrance_light
+  entity_id: switch.tuya_entrance_light
 
 - platform: switch
   name: Hall
@@ -40,7 +42,8 @@
 
 - platform: switch
   name: Kids Room
-  entity_id: switch.kids_room_light
+  #entity_id: switch.kids_room_light
+  entity_id: switch.tuya_kids_room_light
   
 - platform: switch
   name: Work Room

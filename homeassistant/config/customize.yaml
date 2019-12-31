@@ -7,16 +7,16 @@
 #   icon: mdi:lightbulb
 #switch.serv_balcony_light:
 #   icon: mdi:lightbulb
-switch.balcony_light:
-   icon: mdi:lightbulb
-switch.entrance_light:
-   icon: mdi:lightbulb
+#switch.balcony_light:
+#   icon: mdi:lightbulb
+#switch.entrance_light:
+#   icon: mdi:lightbulb
 #switch.hall_light:
 #   icon: mdi:lightbulb
 #switch.bedroom_light:
 #   icon: mdi:lightbulb
-switch.kids_room_light:
-   icon: mdi:lightbulb
+#switch.kids_room_light:
+#   icon: mdi:lightbulb
 #switch.work_room_light:
 #   icon: mdi:lightbulb
 switch.tuya_work_room_light:
@@ -32,6 +32,12 @@ switch.tuya_kitchen_light:
 switch.tuya_service_balcony_light:
    icon: mdi:lightbulb
 switch.tuya_bedroom_light:
+   icon: mdi:lightbulb
+switch.tuya_balcony_light:
+   icon: mdi:lightbulb
+switch.tuya_entrance_light:
+   icon: mdi:lightbulb
+switch.tuya_kids_room_light:
    icon: mdi:lightbulb
 
 light.bedside_yeelight_galit:
