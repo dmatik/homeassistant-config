@@ -10,7 +10,7 @@
     - service: notify.dimatelegram
       data_template:
         title: "New Version"
-        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available. \nCurrent: {{sensor.version.state}}. \nRelease notes: {{ state_attr('binary_sensor.updater', 'release_notes') }}"
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available. \nCurrent: {{ states.sensor.ha_current_version.state }}. \nRelease notes: {{ state_attr('binary_sensor.updater', 'release_notes') }}"
 
 
 - id: hacs_updates_notification

@@ -1,0 +1,60 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Home Assistant Version
+    
+      - type: custom:button-card
+        template: shoulder_blank_card         
+
+
+############################################################################
+#                                                                          #
+#   Versions                                                               #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: entities
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;            
+          }
+        show_header_toggle: false
+        entities:
+          - entity: sensor.ha_current_version
+            icon: mdi:home-assistant
+            name: Current Version
+          - entity: sensor.ha_available_version
+            icon: mdi:package-down
+            name: Available Version
+          - type: weblink
+            name: Release Notes
+            url: https://www.home-assistant.io/latest-release-notes/
+            icon: mdi:note-multiple
+
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+  - !include /config/lovelace/styles/separator_card.yaml

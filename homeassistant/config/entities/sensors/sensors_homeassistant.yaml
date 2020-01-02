@@ -24,10 +24,28 @@
 
 ############################################################################
 #                                                                          #
-#   HA Current Version                                                      #
+#   HA Current Version                                                     #
 #                                                                          #
 ############################################################################
 
-- platform: command_line
-  name: Version
-  command: "cat /config/.HA_VERSION"
+# - platform: command_line
+#   name: Version
+#   command: "cat /config/.HA_VERSION"
+
+- platform: version
+  name: HA Current Version
+  source: local
+
+
+
+############################################################################
+#                                                                          #
+#   HA Available Version                                                   #
+#                                                                          #
+############################################################################
+
+- platform: version
+  name: HA Available Version
+  source: docker
+  image: default
+  beta: false
