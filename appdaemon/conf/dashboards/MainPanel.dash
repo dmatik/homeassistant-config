@@ -263,13 +263,43 @@ kids_radiator_switch:
   title: Kids Room
   entity: switch.tuya_kids_radiator
 
+
+
+############################################################################
+#                                                                          #
+#   Wall Light Switches                                                    #
+#                                                                          #
+############################################################################
+
+mqtt_entrance_light_switch:
+  widget_type: switch
+  title: Entrance
+  entity: switch.mqtt_entrance_light
+
+mqtt_living_room_light_switch:
+  widget_type: switch
+  title: Living Room
+  entity: switch.mqtt_living_room_light
+
+mqtt_bedroom_light_switch:
+  widget_type: switch
+  title: Bedroom
+  entity: switch.mqtt_bedroom_light
+
+mqtt_balcony_light_switch:
+  widget_type: switch
+  title: Balcony
+  entity: switch.mqtt_balcony_light
+
+
+
 layout:
     - clock (3x1), sensibo_living_room_switch_cool, sensibo_living_room_switch_heat, living_room_climate (2x1), switch.baltic_tv, switch.shield_tv, switch.smart_tv
     - weather (3x2), sensibo_bedroom_switch_cool, sensibo_bedroom_switch_heat, bedroom_climate (2x1), script.reciever_volume_up, script.reciever_volume_down, script.reciever_volume_mute
     - sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, kids_room_climate (1x1), kids_radiator_switch, switcher_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
-    - dima_presence_mapped, galit_presence_mapped, ny_tree_lights_switch, switch.tuya_living_room_light, switch.tuya_dining_light, switch.tuya_kitchen_light, switch.tuya_service_balcony_light, spacer, switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
-    - spacer (3x1), switch.tuya_hall_light,  switch.tuya_work_room_light, switch.tuya_kids_room_light, switch.tuya_balcony_light
-    - script.bedtime, script.lights_off, spacer, switch.tuya_bedroom_light, bedside_light_galit, bedside_light_dima, makeup_light_switch, spacer (2x1), refresh_main
+    - dima_presence_mapped, galit_presence_mapped, ny_tree_lights_switch, mqtt_living_room_light_switch, switch.tuya_dining_light, switch.tuya_kitchen_light, switch.tuya_service_balcony_light, spacer, switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
+    - spacer (3x1), switch.tuya_hall_light,  switch.tuya_work_room_light, switch.tuya_kids_room_light, mqtt_balcony_light_switch
+    - script.bedtime, script.lights_off, spacer, mqtt_bedroom_light_switch, bedside_light_galit, bedside_light_dima, makeup_light_switch, mqtt_entrance_light_switch, spacer (1x1), refresh_main
     
     
     

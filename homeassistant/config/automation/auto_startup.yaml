@@ -23,3 +23,9 @@
         title: 'System'
         message: 'Up and Running'
 
+    # # Entrance Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/entrance/POWER"
+    #     payload: ""
+

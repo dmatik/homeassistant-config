@@ -1,0 +1,81 @@
+############################################################################
+#                                                                          #
+#   Entrance Light Switch                                                  #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Entrance Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/entrance/POWER"
+  command_topic: "cmnd/entrance/POWER"
+  availability_topic: "tele/entrance/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Living Room Light Switch                                               #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Living Room Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/living_room/POWER"
+  command_topic: "cmnd/living_room/POWER"
+  availability_topic: "tele/living_room/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom Light Switch                                                   #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Bedroom Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/bedroom/POWER"
+  command_topic: "cmnd/bedroom/POWER"
+  availability_topic: "tele/bedroom/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Balcony Light Switch                                                   #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Balcony Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/balcony/POWER"
+  command_topic: "cmnd/balcony/POWER"
+  availability_topic: "tele/balcony/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
