@@ -79,3 +79,108 @@
   payload_available: "Online"
   payload_not_available: "Offline"
   retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Hallway Light Switch                                                   #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Hallway Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/hallway/POWER"
+  command_topic: "cmnd/hallway/POWER"
+  availability_topic: "tele/hallway/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Kids Room Light Switch                                                 #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Kids Room Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/kids_room/POWER"
+  command_topic: "cmnd/kids_room/POWER"
+  availability_topic: "tele/kids_room/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Service Balcony Light Switch                                           #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Service Balcony Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/kitchen/POWER1"
+  command_topic: "cmnd/kitchen/POWER1"
+  availability_topic: "tele/kitchen/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Kitchen Light Switch                                                   #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Kitchen Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/kitchen/POWER2"
+  command_topic: "cmnd/kitchen/POWER2"
+  availability_topic: "tele/kitchen/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Dining Light Switch                                                    #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Dining Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/dining/POWER"
+  command_topic: "cmnd/dining/POWER"
+  availability_topic: "tele/dining/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
