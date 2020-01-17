@@ -8,7 +8,7 @@ cards:
 
     - !include /config/lovelace/cards/menu/card_rooms_menu_buttons.yaml
 
-    - !include /config/lovelace/cards/power_sockets/card_socket_ny_tree.yaml
+    #- !include /config/lovelace/cards/power_sockets/card_socket_ny_tree.yaml
 
     - !include /config/lovelace/cards/xiaomi/card_motion_sensors.yaml
 

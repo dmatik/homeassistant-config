@@ -90,3 +90,6 @@ color_light_button:
 
 markdown:
   !include markdown_template.yaml
+
+docker_cont:
+  !include docker_cont_template.yaml

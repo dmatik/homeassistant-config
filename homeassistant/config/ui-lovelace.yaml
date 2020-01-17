@@ -47,6 +47,8 @@ resources:
       type: js
 #    - url: /community_plugin/text-divider-row/text-divider-row.js
 #      type: module
+    - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
+      type: module
 
 
 title: Home
@@ -97,9 +99,9 @@ views:
     # Hassio Tab        
     - !include /config/lovelace/views/view_homeassistant.yaml
     # Remotes Tab        
-    - !include /config/lovelace/views/view_remotes.yaml
+    #- !include /config/lovelace/views/view_remotes.yaml
     # Map Tab        
-    - !include /config/lovelace/views/view_map.yaml
+    #- !include /config/lovelace/views/view_map.yaml
 
 
 

@@ -22,9 +22,10 @@ cards:
           - image_home: '/local/images/dima_2.png'
           - battery: sensor.life360_dima_battery
           - phone_icon: mdi:cellphone-iphone
-          - tap_action:
-              action: navigate
-              navigation_path: /lovelace/map/    
+          # - tap_action:
+          #     action: navigate
+          #     navigation_path: /lovelace/map/
+          - tap_action: none 
 
       - type: custom:decluttering-card
         template: person_elements
@@ -35,9 +36,10 @@ cards:
           - image_home: '/local/images/galit_2.png'
           - battery: sensor.life360_galit_battery
           - phone_icon: mdi:cellphone-android
-          - tap_action:
-              action: navigate
-              navigation_path: /lovelace/map/    
+          # - tap_action:
+          #     action: navigate
+          #     navigation_path: /lovelace/map/
+          - tap_action: none  
                       
       - type: custom:button-card
         template: shoulder_blank_card       

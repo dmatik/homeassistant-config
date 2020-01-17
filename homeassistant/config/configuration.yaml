@@ -200,3 +200,11 @@ tuya:
   password: !secret tuya_password
   country_code: !secret tuya_country_code
   platform: smart_life
+
+docker_monitor:
+  monitored_conditions:
+    - container_status
+    - container_memory_usage
+    - container_memory_percentage_usage
+    - container_cpu_percentage_usage
+    - container_uptime

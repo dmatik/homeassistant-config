@@ -7,7 +7,7 @@ rows: 6
 global_parameters:
     use_comma: 0
     precision: 1
-    use_hass_icon: 1
+    use_hass_icon: 0
     namespace: default
 
 clock:
@@ -68,29 +68,20 @@ dima_presence_mapped:
     - Home
     - Amdocs
 
-nas_volume_usage:
-  widget_type: sensor
-  entity: sensor.volume_used_volume_1
-  title: NAS Disk
-  value_style: "color: #f2f2f2;"
-  unit_style: "color: #f2f2f2;"
-  
-nas_volume_usage_gauge:
-  widget_type: gauge
-  entity: sensor.volume_used_volume_1
-  max: 100
-  min: 0
-  units: "%"
-  color: "white"
-  low_color: 4CFF00
-  med_color: "FFD800"
-  high_color: "FF0000"
-  title: NAS Disk
+
+
+############################################################################
+#                                                                          #
+#   Switcher                                                               #
+#                                                                          #
+############################################################################
 
 switcher_switch:
   widget_type: switch
   title: Boiler
   entity: switch.switcher_aio_switch
+  icon_off: mdi-shower
+  icon_on: mdi-shower
   #entity: switch.boiler
 
 switcher_time_left_sensor:
@@ -113,6 +104,8 @@ switcher_turn_on_timer_script:
   title: Turn On
   title2: With Timer
   text_style: "color: #f2f2f2; font-size: 180%;"
+  icon_off: mdi-timer
+  icon_on: mdi-timer
   
 switcher_timer_minutes_input_select:
   widget_type: input_select
@@ -121,14 +114,14 @@ switcher_timer_minutes_input_select:
   text_style: "color: #f2f2f2; font-size: 150%;"
   select_style: "font-size: 150%; height: 40px;"
   selectcontainer_style: "height: 40px"
-  
-kids_room_climate:
-  widget_type: climate
-  entity: climate.kids_room
-  title: Kids Room
-  unit: °C
-  step: 1
-  precision: 1
+
+
+
+############################################################################
+#                                                                          #
+#   AC Living Room                                                         #
+#                                                                          #
+############################################################################
 
 living_room_climate:
   widget_type: climate
@@ -138,6 +131,62 @@ living_room_climate:
   step: 1
   precision: 1
 
+sensibo_living_room_switch_cool:
+  widget_type: switch
+  title: Living Room
+  entity: switch.sensibo_living_room_cool
+  icon_style_active: "color: #2B9AF9"
+  icon_off: mdi-snowflake
+  icon_on: mdi-snowflake  
+
+sensibo_living_room_switch_heat:
+  widget_type: switch
+  title: Living Room
+  entity: switch.sensibo_living_room_heat
+  icon_style_active: "color: #FF8100"
+  icon_off: mdi-fire
+  icon_on: mdi-fire
+
+
+
+############################################################################
+#                                                                          #
+#   AC Kids Room                                                           #
+#                                                                          #
+############################################################################
+
+kids_room_climate:
+  widget_type: climate
+  entity: climate.kids_room
+  title: Kids Room
+  unit: °C
+  step: 1
+  precision: 1
+  
+sensibo_kids_room_switch_cool:
+  widget_type: switch
+  title: Kids Room
+  entity: switch.sensibo_kids_room_cool
+  icon_style_active: "color: #2B9AF9"
+  icon_off: mdi-snowflake
+  icon_on: mdi-snowflake  
+
+sensibo_kids_room_switch_heat:
+  widget_type: switch
+  title: Kids Room
+  entity: switch.sensibo_kids_room_heat
+  icon_style_active: "color: #FF8100"
+  icon_off: mdi-fire
+  icon_on: mdi-fire
+
+
+
+############################################################################
+#                                                                          #
+#   AC Bedroom                                                             #
+#                                                                          #
+############################################################################
+
 bedroom_climate:
   widget_type: climate
   entity: climate.bedroom
@@ -145,84 +194,44 @@ bedroom_climate:
   unit: °C
   step: 1
   precision: 1
-  
-sensibo_kids_room_operation_input_select:
-  widget_type: input_select
-  entity: input_select.sensibo_kids_room_operation
-  title: Operation
-  text_style: "color: #f2f2f2; font-size: 150%;"
-  select_style: "font-size: 150%; height: 40px;"
-  selectcontainer_style: "height: 40px"
-  
-sensibo_kids_room_fan_input_select:
-  widget_type: input_select
-  entity: input_select.sensibo_kids_room_fan
-  title: Fan
-  text_style: "color: #f2f2f2; font-size: 150%;"
-  select_style: "font-size: 150%; height: 40px;"
-  selectcontainer_style: "height: 40px"
-
-sensibo_kids_room_target_temp_input_slider:
-  widget_type: input_slider
-  entity: input_number.sensibo_kids_room
-  title: Target
-  level_style: "color: #f2f2f2;"
-  unit_style: "color: #f2f2f2;"
-  units: "°C"
-  
-sensibo_kids_room_temperature_sensor:
-  widget_type: sensor
-  entity: sensor.sensibo_kids_room_temp
-  title: Kids Room
-  #text_style: "color: #f2f2f2; font-size: 180%;"
-  
-sensibo_kids_room_switch_cool:
-  widget_type: switch
-  title: Kids Room
-  entity: switch.sensibo_kids_room_cool
-  icon_style_active: "color: #2B9AF9"
-
-sensibo_kids_room_switch_heat:
-  widget_type: switch
-  title: Kids Room
-  entity: switch.sensibo_kids_room_heat
-  icon_style_active: "color: #FF8100"
-
-sensibo_living_room_switch_cool:
-  widget_type: switch
-  title: Living Room
-  entity: switch.sensibo_living_room_cool
-  icon_style_active: "color: #2B9AF9"
-
-sensibo_living_room_switch_heat:
-  widget_type: switch
-  title: Living Room
-  entity: switch.sensibo_living_room_heat
-  icon_style_active: "color: #FF8100"
 
 sensibo_bedroom_switch_cool:
   widget_type: switch
   title: Bedroom
   entity: switch.sensibo_bedroom_cool
   icon_style_active: "color: #2B9AF9"
+  icon_off: mdi-snowflake
+  icon_on: mdi-snowflake  
 
 sensibo_bedroom_switch_heat:
   widget_type: switch
   title: Bedroom
   entity: switch.sensibo_bedroom_heat
   icon_style_active: "color: #FF8100"
+  icon_off: mdi-fire
+  icon_on: mdi-fire
 
-xiaomi_bedroom_temperature_sensor:
-  widget_type: sensor
-  entity: sensor.xiaomi_bedroom_temperature
-  title: Bedroom
-  #text_style: "color: #f2f2f2; font-size: 180%;"
+
+
+############################################################################
+#                                                                          #
+#   Refresh                                                                #
+#                                                                          #
+############################################################################
 
 refresh_main:
     widget_type: reload
     title: Refresh
     icon_active: mdi-refresh
     icon_inactive: mdi-refresh
+
+
+
+############################################################################
+#                                                                          #
+#   Presence                                                               #
+#                                                                          #
+############################################################################
 
 dima_presence_mapped:
   widget_type: device_tracker
@@ -236,32 +245,50 @@ galit_presence_mapped:
   device: life360_galit
   icon_style_active: "color: #F75BCD"
 
+
+
+############################################################################
+#                                                                          #
+#   Bedside lamps                                                          #
+#                                                                          #
+############################################################################
+
 bedside_light_galit:
   widget_type: switch
   title: Bedside
   title2: Galit 
   entity: light.bedside_yeelight_galit
+  icon_off: mdi-lamp
+  icon_on: mdi-lamp
 
 bedside_light_dima:
   widget_type: switch
   title: Bedside
   title2: Dima 
   entity: light.bedside_yeelight_dima
+  icon_off: mdi-lamp
+  icon_on: mdi-lamp
 
 makeup_light_switch:
   widget_type: switch
   title: Makeup
   entity: switch.yeelight_makeup
+  icon_off: mdi-track-light
+  icon_on: mdi-track-light
 
 ny_tree_lights_switch:
   widget_type: switch
   title: Tree Lights
   entity: switch.tuya_ny_tree
+  icon_off: mdi-pine-tree
+  icon_on: mdi-pine-tree
 
 kids_radiator_switch:
   widget_type: switch
   title: Kids Room
   entity: switch.tuya_kids_radiator
+  icon_off: mdi-radiator
+  icon_on: mdi-radiator
 
 
 
@@ -271,60 +298,159 @@ kids_radiator_switch:
 #                                                                          #
 ############################################################################
 
-mqtt_entrance_light_switch:
+entrance_light_switch:
   widget_type: switch
   title: Entrance
   entity: switch.mqtt_entrance_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
-mqtt_living_room_light_switch:
+living_room_light_switch:
   widget_type: switch
   title: Living Room
   entity: switch.mqtt_living_room_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
-mqtt_bedroom_light_switch:
+bedroom_light_switch:
   widget_type: switch
   title: Bedroom
   entity: switch.mqtt_bedroom_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
-mqtt_balcony_light_switch:
+balcony_light_switch:
   widget_type: switch
   title: Balcony
   entity: switch.mqtt_balcony_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
-mqtt_hallway_light_switch:
+hallway_light_switch:
   widget_type: switch
   title: Hallway
   entity: switch.mqtt_hallway_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
-mqtt_kids_room_light_switch:
+kids_room_light_switch:
   widget_type: switch
   title: Kids Room
   entity: switch.mqtt_kids_room_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
-mqtt_service_balcony_light_switch:
+service_balcony_light_switch:
   widget_type: switch
   title: Service Balcony
   entity: switch.mqtt_service_balcony_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
-mqtt_kitchen_light_switch:
+kitchen_light_switch:
   widget_type: switch
   title: Kitchen
   entity: switch.mqtt_kitchen_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
-mqtt_dining_light_switch:
+dining_light_switch:
   widget_type: switch
   title: Dining
   entity: switch.mqtt_dining_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
 
+work_room_light_switch:
+  widget_type: switch
+  title: Work Room
+  entity: switch.tuya_work_room_light
+  icon_off: mdi-lightbulb
+  icon_on: mdi-lightbulb
+
+
+
+############################################################################
+#                                                                          #
+#   Living Room TV                                                         #
+#                                                                          #
+############################################################################
+
+living_room_baltic_tv_switch:
+  widget_type: switch
+  title: Baltic TV
+  entity: switch.baltic_tv
+  icon_off: mdi-television-classic
+  icon_on: mdi-television-classic
+
+living_room_shield_tv_switch:
+  widget_type: switch
+  title: Shield TV
+  entity: switch.shield_tv
+  icon_off: mdi-movie
+  icon_on: mdi-movie
+
+living_room_smart_tv_switch:
+  widget_type: switch
+  title: Shield TV
+  entity: switch.smart_tv
+  icon_off: mdi-television
+  icon_on: mdi-television
+
+living_room_volume_up_script:
+  widget_type: script
+  entity: script.reciever_volume_up
+  title: Volume Up
+  icon_off: mdi-volume-plus
+  icon_on: mdi-volume-plus
+
+living_room_volume_down_script:
+  widget_type: script
+  entity: script.reciever_volume_down
+  title: Volume Down
+  icon_off: mdi-volume-minus
+  icon_on: mdi-volume-minus
+
+living_room_volume_mute_script:
+  widget_type: script
+  entity: script.reciever_volume_mute
+  title: Mute
+  icon_off: mdi-volume-mute
+  icon_on: mdi-volume-mute
+
+
+
+############################################################################
+#                                                                          #
+#   Scripts                                                                #
+#                                                                          #
+############################################################################
+
+bedtime_script:
+  widget_type: script
+  entity: script.bedtime
+  title: Bedtime
+  icon_off: mdi-hotel
+  icon_on: mdi-hotel
+
+lights_off_script:
+  widget_type: script
+  entity: script.lights_off
+  title: Lights Off
+  icon_off: mdi-flash-off
+  icon_on: mdi-flash-off
+
+
+  
 
 
 layout:
-    - clock (3x1), sensibo_living_room_switch_cool, sensibo_living_room_switch_heat, living_room_climate (2x1), switch.baltic_tv, switch.shield_tv, switch.smart_tv
-    - weather (3x2), sensibo_bedroom_switch_cool, sensibo_bedroom_switch_heat, bedroom_climate (2x1), script.reciever_volume_up, script.reciever_volume_down, script.reciever_volume_mute
+    - clock (3x1), sensibo_living_room_switch_cool, sensibo_living_room_switch_heat, living_room_climate (2x1), living_room_baltic_tv_switch, living_room_shield_tv_switch, living_room_smart_tv_switch
+    - weather (3x2), sensibo_bedroom_switch_cool, sensibo_bedroom_switch_heat, bedroom_climate (2x1), living_room_volume_up_script, living_room_volume_down_script, living_room_volume_mute_script
     - sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, kids_room_climate (1x1), kids_radiator_switch, switcher_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
-    - dima_presence_mapped, galit_presence_mapped, ny_tree_lights_switch, mqtt_living_room_light_switch, mqtt_dining_light_switch, mqtt_kitchen_light_switch, mqtt_service_balcony_light_switch, spacer, switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
-    - spacer (3x1), mqtt_hallway_light_switch,  switch.tuya_work_room_light, mqtt_kids_room_light_switch, mqtt_balcony_light_switch
-    - script.bedtime, script.lights_off, spacer, mqtt_bedroom_light_switch, bedside_light_galit, bedside_light_dima, makeup_light_switch, mqtt_entrance_light_switch, spacer (1x1), refresh_main
+    - dima_presence_mapped, galit_presence_mapped, ny_tree_lights_switch, living_room_light_switch, dining_light_switch, kitchen_light_switch, service_balcony_light_switch, spacer, switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
+    - spacer (3x1), hallway_light_switch,  work_room_light_switch, kids_room_light_switch, balcony_light_switch
+    - bedtime_script, lights_off_script, spacer, bedroom_light_switch, bedside_light_galit, bedside_light_dima, makeup_light_switch, entrance_light_switch, spacer (1x1), refresh_main
     
     
     

@@ -1,0 +1,118 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Printer
+    
+      - type: custom:button-card
+        template: shoulder_blank_card          
+
+
+############################################################################
+#                                                                          #
+#   Colors                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards: 
+    
+        - type: custom:button-card
+          template: shoulder_blank_card
+
+        - type: entities
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              overflow: hidden;
+            }   
+          entities:
+            - sensor.mfc_j650dw_status
+
+        - type: custom:button-card
+          template: shoulder_blank_card
+
+############################################################################
+#                                                                          #
+#   Colors                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards: 
+    
+        - type: custom:button-card
+          template: shoulder_blank_card
+
+        - type: custom:bar-card
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              overflow: hidden;
+            }          
+          entities:
+            - entity: sensor.mfc_j650dw_black_ink_remaining
+              title: black
+              title_position: 'inside'
+              show_icon: true
+              #icon: mdi:format-color-fill
+              icon_position: 'inside'
+              unit_of_measurement: "%"
+              align: split
+              color: 'black'
+              padding: 4px
+              width: 100%
+            - entity: sensor.mfc_j650dw_cyan_ink_remaining
+              title: cyan
+              title_position: 'inside'
+              show_icon: true
+              #icon: mdi:format-color-fill
+              icon_position: 'inside'
+              unit_of_measurement: "%"
+              align: split
+              color: 'cyan'
+              padding: 2px
+              width: 100%
+            - entity: sensor.mfc_j650dw_magenta_ink_remaining
+              title: magenta
+              title_position: 'inside'
+              show_icon: true
+              #icon: mdi:format-color-fill
+              icon_position: 'inside'
+              unit_of_measurement: "%"
+              align: split
+              color: 'magenta'
+              padding: 2px
+              width: 100%
+            - entity: sensor.mfc_j650dw_yellow_ink_remaining
+              title: yellow
+              title_position: 'inside'
+              show_icon: true
+              #icon: mdi:format-color-fill
+              icon_position: 'inside'
+              unit_of_measurement: "%"
+              align: split
+              color: 'yellow'
+              padding: 2px
+              width: 100%
+                  
+        - type: custom:button-card
+          template: shoulder_blank_card  
+
+
+  - !include /config/lovelace/styles/separator_card.yaml

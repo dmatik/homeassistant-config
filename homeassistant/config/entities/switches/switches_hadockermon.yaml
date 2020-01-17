@@ -1,0 +1,77 @@
+# - platform: rest
+#   resource: !secret docker_phpMyAdmin_resource
+#   name: docker_phpmyadmin
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_ha_dockermon_resource
+#   name: docker_ha_dockermon
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_homeassistant_resource
+#   name: docker_homeassistant
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_appdaemon_resource
+#   name: docker_appdaemon
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_tasmoadmin_resource
+#   name: docker_tasmoadmin
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_ouroboros_zeg_resource
+#   name: docker_ouroboros_zeg
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_sonarr_resource
+#   name: docker_sonarr
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_portainer_resource
+#   name: docker_portainer
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_mariadb_resource
+#   name: docker_mariadb
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_mosquitto_resource
+#   name: docker_mosquitto
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+# - platform: rest
+#   resource: !secret docker_radarr_resource
+#   name: docker_radarr
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+ 
