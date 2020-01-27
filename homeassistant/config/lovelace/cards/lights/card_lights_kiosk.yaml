@@ -65,11 +65,59 @@ cards:
           - type: custom:button-card
             template: shoulder_blank_card  
 
-          - type: custom:decluttering-card # Hall
+          - type: custom:decluttering-card # Hallway
             template: light_button
             variables:
               - entity: light.hall
-              - name: Hall
+              - name: Hallway
+
+          - type: custom:decluttering-card # Kids Room
+            template: light_button
+            variables:
+              - entity: light.kids_room
+              - name: Kids Room
+
+          - type: custom:decluttering-card # Work Room
+            template: light_button
+            variables:
+              - entity: light.work_room
+              - name: Work Room
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Service Balcony
+            template: light_button
+            variables:
+              - entity: light.service_balcony
+              - name: Serv. Balcony
+
+          - type: custom:decluttering-card # Balcony
+            template: light_button
+            variables:
+              - entity: light.balcony
+              - name: Balcony
+
+          - type: custom:decluttering-card # Entrance
+            template: light_button
+            variables:
+              - entity: light.entrance
+              - name: Entrance
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
 
           - type: custom:decluttering-card # Bedroom
             template: light_button
@@ -77,11 +125,46 @@ cards:
               - entity: light.bedroom
               - name: Bedroom
 
-          - type: custom:decluttering-card # Work Room
+          - type: custom:decluttering-card # Bedside Galit
+            template: yeelight_switch_button
+            variables:
+              - entity: light.bedside_yeelight_galit
+              - name: Bedside Galit
+              - icon: mdi:lamp
+
+          - type: custom:decluttering-card # Bedside Dima
+            template: yeelight_switch_button
+            variables:
+              - entity: light.bedside_yeelight_dima
+              - name: Bedside Dima
+              - icon: mdi:lamp
+      
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Makeup
             template: light_button
             variables:
-              - entity: light.work_room
-              - name: Work Room
+              - entity: switch.yeelight_makeup
+              - name: Makeup
+              - icon: mdi:track-light
+
+          - type: custom:decluttering-card # Kids Radiator
+            template: switch_button
+            variables:
+              - entity: switch.mqtt_kids_radiator
+              - name: Kids Radiator
+              - icon: mdi:radiator
+              - cust_2_field: "[[[ return `<span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span>` ]]]"
+
+          - type: "custom:button-card"
+            color_type: blank-card
       
           - type: custom:button-card
             template: shoulder_blank_card  

@@ -8,7 +8,7 @@ cards:
     
     #- !include /config/lovelace/cards/card_deco.yaml
 
-    - !include /config/lovelace/cards/nas/card_docker_zeg.yaml
+    #- !include /config/lovelace/cards/nas/card_docker_zeg.yaml
   
     - !include /config/lovelace/cards/nas/card_blaze.yaml
 

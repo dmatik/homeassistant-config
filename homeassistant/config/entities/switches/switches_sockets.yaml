@@ -1,0 +1,18 @@
+############################################################################
+#                                                                          #
+#   Kids Radiator                                                          #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Kids Radiator"
+  icon: mdi:radiator
+  state_topic: "stat/kids_radiator/POWER"
+  command_topic: "cmnd/kids_radiator/POWER"
+  availability_topic: "tele/kids_radiator/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false

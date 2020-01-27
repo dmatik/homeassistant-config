@@ -116,12 +116,12 @@ input_text:
     
     
 # Dark Sky    
-#weather:
-#  - platform: darksky
-#    mode: daily
-#    api_key: !secret darksky_api_key
-#    latitude: !secret home_latitude
-#    longitude: !secret home_longitude    
+weather:
+  - platform: darksky
+    mode: daily
+    api_key: !secret darksky_api_key
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude    
 
 # Google    
 #google:
@@ -201,10 +201,10 @@ tuya:
   country_code: !secret tuya_country_code
   platform: smart_life
 
-docker_monitor:
-  monitored_conditions:
-    - container_status
-    - container_memory_usage
-    - container_memory_percentage_usage
-    - container_cpu_percentage_usage
-    - container_uptime
+# docker_monitor:
+#   monitored_conditions:
+#     - container_status
+#     - container_memory_usage
+#     - container_memory_percentage_usage
+#     - container_cpu_percentage_usage
+#     - container_uptime

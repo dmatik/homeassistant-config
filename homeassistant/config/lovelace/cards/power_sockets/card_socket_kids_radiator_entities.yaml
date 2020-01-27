@@ -13,46 +13,44 @@ cards:
     
       - type: custom:button-card
         template: shoulder_blank_card  
-      
+    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Radiator
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
-
-
-############################################################################
-#                                                                          #
-#   Lights                                                                 #
-#                                                                          #
-############################################################################
-
-  - type: vertical-stack
-    cards:
-   
-      - type: horizontal-stack
-        cards:
+          - name: Kids Radiator
     
-          - type: custom:button-card
-            template: shoulder_blank_card  
+      - type: custom:button-card
+        template: shoulder_blank_card          
 
-          - type: custom:decluttering-card # Kids Radiator
-            template: switch_button
-            variables:
-              - entity: switch.mqtt_kids_radiator
-              - name: Radiator
-              - icon: mdi:radiator
-              - cust_2_field: "[[[ return `<span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span>` ]]]"
 
-          - type: "custom:button-card"
-            color_type: blank-card
-                    
-          - type: "custom:button-card"
-            color_type: blank-card   
-      
-          - type: custom:button-card
-            template: shoulder_blank_card  
+
+############################################################################
+#                                                                          #
+#   Colors                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards: 
+    
+        - type: custom:button-card
+          template: shoulder_blank_card
+
+        - type: entities
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              overflow: hidden;
+            }          
+          entities:
+            - switch.mqtt_kids_radiator
+            - sensor.mqtt_kids_radiator_current
+            - sensor.mqtt_kids_radiator_energy_today
+            - sensor.mqtt_kids_radiator_power
+            - sensor.mqtt_kids_radiator_voltage
+                  
+        - type: custom:button-card
+          template: shoulder_blank_card  
+
 
   - !include /config/lovelace/styles/separator_card.yaml

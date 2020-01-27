@@ -65,7 +65,7 @@ cards:
           - name: Baltic TV
           - icon: mdi:television-classic
           - show_name: true
-          - font_size: 22px
+          - font_size: 16px
 
       - type: custom:decluttering-card # Shield TV
         template: simple_button
@@ -74,7 +74,7 @@ cards:
           - name: Shield TV
           - icon: mdi:movie
           - show_name: true
-          - font_size: 22px
+          - font_size: 16px
 
       - type: custom:decluttering-card # Smart TV
         template: simple_button
@@ -83,7 +83,7 @@ cards:
           - name: Smart TV
           - icon: mdi:television
           - show_name: true
-          - font_size: 22px
+          - font_size: 16px
         
       - type: custom:button-card
         template: shoulder_blank_card 

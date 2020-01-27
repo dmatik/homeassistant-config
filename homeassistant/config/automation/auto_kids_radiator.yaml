@@ -13,12 +13,12 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.tuya_kids_radiator
+        entity_id: switch.mqtt_kids_radiator
         state: "off"
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.tuya_kids_radiator
+        entity_id: switch.mqtt_kids_radiator
     - service: notify.dimatelegram
       data:
         title: "Kids Radiator"
@@ -33,12 +33,12 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.tuya_kids_radiator
+        entity_id: switch.mqtt_kids_radiator
         state: "on"
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.tuya_kids_radiator
+        entity_id: switch.mqtt_kids_radiator
     - service: notify.dimatelegram
       data:
         title: "Kids Radiator"

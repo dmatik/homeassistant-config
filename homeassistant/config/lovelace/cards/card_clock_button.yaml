@@ -1,0 +1,41 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: custom:button-card
+        entity: ""
+        styles:
+          card:
+            - padding: 4%
+            - font-size: 52px
+            - border-radius: var(--button-card-border-radius)
+            - background-color: var(--button-card-background-color)
+            - color: var(--button-card-text-color)
+          grid:
+            - grid-template-areas: '"time date"'
+            - grid-template-columns: 2fr 3fr
+            - grid-template-rows: 1fr
+          custom_fields:
+            time:
+              - justify-self: start
+            date:
+              - justify-self: end
+              - font-size: 24px
+              - color: var(--secondary-text-color)
+        custom_fields:
+          time: >
+            [[[ return states['sensor.time'].state ]]]
+          date: >
+            [[[ return states['sensor.my_date'].state ]]]
+        tap_action: none
+        hold_action: none
+
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml

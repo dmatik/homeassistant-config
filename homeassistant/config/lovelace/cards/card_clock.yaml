@@ -13,6 +13,21 @@ cards:
             border-radius: var(--border-radius);
             overflow: hidden;
           }
+
+      # - type: custom:vertical-stack-in-card
+      #   cards:
+
+      #     - type: custom:bignumber-card
+      #       style: |
+      #         ha-card {
+      #           border-radius: var(--border-radius);
+      #           overflow: hidden;
+      #           text-align: left;
+      #           padding-left: 16px;
+      #         }
+      #       title: ""
+      #       entity: sensor.time
+      #       scale: 35px
           
       - type: custom:button-card
         template: shoulder_blank_card

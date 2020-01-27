@@ -1,6 +1,6 @@
 default:
   - border_radius: var(--title-border-radius)
-  - background_color: var(--title-button-background)
+  - background_color: 'rgba(37, 129, 171, 0.0)' #var(--title-button-background)
   - text_color: var(--title-button-text-color)
 
 card:
@@ -16,12 +16,16 @@ card:
     card:
       - border-radius: '[[border_radius]]'
       - background-color: '[[background_color]]'
-      - height: 42px
+      - height: 16px #42px
+      - box-shadow: 0px 0px 0px 0px
+      - text-transform: uppercase
+      - padding: 0px
     name:
       - color: '[[text_color]]'
       - justify-self: start
-      - padding-left: 20px
-      - font-size: 22px
+      - padding-left: 2px #20px
+      - font-size: 16px #22px
+      - font-weight: bold
   tap_action:
     action: none
   hold_action:
