@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Hallway Lights
+          - name: Switches
       
       - type: custom:button-card
         template: shoulder_blank_card  

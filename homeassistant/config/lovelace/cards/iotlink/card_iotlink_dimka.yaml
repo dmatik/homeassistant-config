@@ -96,18 +96,18 @@ cards:
               overflow: hidden;
             }
           columns: 2
-          title_position: 'left'
+          title_position: 'inside'
           icon: mdi:harddisk
           icon_position: 'off'
           unit_of_measurement: "%"
           align: split
           color: 'rgba(117,189,111,1.0)'
-          padding: 4px
+          padding: 5px
           entities:
             - entity: sensor.dimka_hdd_usage_c
-              title: Disk C
+              title: "Disk C"
             - entity: sensor.dimka_hdd_usage_d
-              title: Disk D
+              title: "Disk D"
             
         - type: custom:button-card
           template: shoulder_blank_card

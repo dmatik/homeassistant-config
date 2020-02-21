@@ -40,6 +40,9 @@ harmony_elements:
 harmony_elements_kiosk:
   !include harmony_elements_kiosk_template.yaml
 
+printer_elements:
+  !include printer_elements_template.yaml
+
 switcher_elements:
   !include switcher_elements_template.yaml
 
@@ -93,3 +96,6 @@ markdown:
 
 docker_cont:
   !include docker_cont_template.yaml
+  
+view_title:
+  !include view_title_template.yaml

@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Switches
+          - name: Bedroom
       
       - type: custom:button-card
         template: shoulder_blank_card  

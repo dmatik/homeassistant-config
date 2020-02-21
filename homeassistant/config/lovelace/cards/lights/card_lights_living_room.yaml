@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Living Room Lights
+          - name: Switches
       
       - type: custom:button-card
         template: shoulder_blank_card  
@@ -42,7 +42,7 @@ cards:
             template: light_button
             variables:
               - entity: light.living_room
-              - name: Living Room
+              - name: Main Light
 
           - type: custom:decluttering-card # Dining
             template: light_button

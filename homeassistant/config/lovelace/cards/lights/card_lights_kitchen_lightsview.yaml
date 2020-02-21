@@ -1,7 +1,7 @@
 type: vertical-stack
 cards:
-    
-    
+
+
 ############################################################################
 #                                                                          #
 #   Title                                                                  #
@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Switches
+          - name: Kitchen
       
       - type: custom:button-card
         template: shoulder_blank_card  
@@ -25,36 +25,41 @@ cards:
 
 ############################################################################
 #                                                                          #
-#   Rooms Lights                                                           #
+#   Lights                                                                 #
 #                                                                          #
 ############################################################################
 
   - type: vertical-stack
     cards:
-              
+   
       - type: horizontal-stack
         cards:
-        
+    
           - type: custom:button-card
             template: shoulder_blank_card  
 
-          - type: custom:decluttering-card # Kids Room
+          - type: custom:decluttering-card # Kitchen
             template: light_button
             variables:
-              - entity: light.kids_room
+              - entity: light.kitchen
               - name: Main Light
-    
-          - type: custom:decluttering-card # Kids Radiator
-            template: switch_button
-            variables:
-              - entity: switch.mqtt_kids_radiator
-              - name: Radiator
-              - icon: mdi:radiator
-              - cust_2_field: "[[[ return `<span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span>` ]]]" 
 
-          - type: "custom:button-card"
-            color_type: blank-card               
-            
+          - type: custom:decluttering-card # Kitchen Strips
+            template: light_button
+            variables:
+              - entity: switch.yeelight_kitchen_strips
+              - name: Lightstrip
+              - icon: mdi:led-strip
+
+          - type: custom:decluttering-card # Service Balcony
+            template: light_button
+            variables:
+              - entity: light.service_balcony
+              - name: Serv. Balcony
+                    
+          # - type: "custom:button-card"
+          #   color_type: blank-card   
+      
           - type: custom:button-card
             template: shoulder_blank_card  
 

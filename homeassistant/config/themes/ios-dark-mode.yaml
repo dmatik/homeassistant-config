@@ -19,7 +19,9 @@ ios-dark-mode:
       sensibo-fan-only-color: 'rgba(117,189,111,0.7)'                                 # Sensibo fan only color
       sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
-      cch-background: 'var(--ha-card-background)' #'rgba(37, 129, 171, 0.7)'
+      ch-background: 'var(--ha-card-background)' #'rgba(37, 129, 171, 0.7)'
+      ch-active-tab-color: 'var(--primary-color)'
+      ch-tab-indicator-color: 'rgba(240, 240, 240, 0)'
 
 # My Button Card Styles
       button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius

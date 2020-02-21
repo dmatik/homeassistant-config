@@ -55,18 +55,23 @@ title: Home
 
 
 custom_header:
-  compact_mode: true
-  background: 'var(--cch-background)'
-  voice_hide: true
-  chevrons: false
-  hide_help: true
-  hide_unused: true
-  hide_config: true
-  exceptions:
-    - conditions:
-        query_string: kiosk
-      config:
-        kiosk_mode: true
+    tab_container_css: 'padding-bottom: 35px'
+    header_text: '{{ viewTitle }}'
+    split_mode: false
+    compact_mode: true
+    footer_mode: true
+    indicator_top: true
+    #background: 'var(--cch-background)'
+    voice_hide: true
+    chevrons: false
+    hide_help: true
+    hide_unused: true
+    hide_config: true
+    exceptions:
+        - conditions:
+            query_string: kiosk
+          config:
+            kiosk_mode: true
 
 
 # Button card templates  

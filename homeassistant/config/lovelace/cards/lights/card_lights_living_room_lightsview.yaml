@@ -1,7 +1,7 @@
 type: vertical-stack
 cards:
-    
-    
+
+
 ############################################################################
 #                                                                          #
 #   Title                                                                  #
@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Switches
+          - name: Living Room
       
       - type: custom:button-card
         template: shoulder_blank_card  
@@ -25,36 +25,58 @@ cards:
 
 ############################################################################
 #                                                                          #
-#   Rooms Lights                                                           #
+#   Lights                                                                 #
 #                                                                          #
 ############################################################################
 
   - type: vertical-stack
     cards:
-              
+      
       - type: horizontal-stack
         cards:
-        
+          
           - type: custom:button-card
             template: shoulder_blank_card  
 
-          - type: custom:decluttering-card # Kids Room
+          - type: custom:decluttering-card # Living Room
             template: light_button
             variables:
-              - entity: light.kids_room
+              - entity: light.living_room
               - name: Main Light
-    
-          - type: custom:decluttering-card # Kids Radiator
-            template: switch_button
+
+          - type: custom:decluttering-card # Dining
+            template: light_button
             variables:
-              - entity: switch.mqtt_kids_radiator
-              - name: Radiator
-              - icon: mdi:radiator
-              - cust_2_field: "[[[ return `<span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span>` ]]]" 
+              - entity: light.dining
+              - name: Dining
+
+          - type: custom:decluttering-card # Balcony
+            template: light_button
+            variables:
+              - entity: light.balcony
+              - name: Balcony
+            
+          - type: custom:button-card
+            template: shoulder_blank_card  
+    
+      - type: horizontal-stack
+        cards:
+    
+          - type: custom:button-card
+            template: shoulder_blank_card  
+
+          - type: custom:decluttering-card # Entrance
+            template: light_button
+            variables:
+              - entity: light.entrance
+              - name: Entrance
 
           - type: "custom:button-card"
-            color_type: blank-card               
+            color_type: blank-card
             
+          - type: "custom:button-card"
+            color_type: blank-card              
+      
           - type: custom:button-card
             template: shoulder_blank_card  
 

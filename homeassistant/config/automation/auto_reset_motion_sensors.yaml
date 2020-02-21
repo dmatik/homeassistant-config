@@ -1,0 +1,11 @@
+# - id: reset_kitchen_motion_sensor
+#   alias: 'Reset Kitchen Motion Sensor'
+#   #initial_state: 'true'
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.xiaomi_kitchen_motion
+#       to: "on"
+#   action:
+#     - delay:
+#         seconds: 6
+#     - service: rest_command.reset_kitchen_motion_sensor

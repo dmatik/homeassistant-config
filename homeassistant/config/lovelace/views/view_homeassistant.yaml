@@ -4,7 +4,8 @@ path: homeassistant
 
 cards:
 
-    - !include /config/lovelace/cards/card_home_button.yaml
+    #- !include /config/lovelace/cards/card_home_button.yaml
+    - !include /config/lovelace/cards/view_titles/card_view_title_homeassistant.yaml
 
     #- !include /config/lovelace/cards/wallpanel/card_wallpanel.yaml
 

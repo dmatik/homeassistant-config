@@ -4,9 +4,12 @@ path: kitchen
   
 cards:
 
-    - !include /config/lovelace/cards/card_home_button.yaml
+    #- !include /config/lovelace/cards/card_home_button.yaml
+    - !include /config/lovelace/cards/view_titles/card_view_title_kitchen.yaml
 
     - !include /config/lovelace/cards/lights/card_lights_kitchen.yaml
+    
+    #- !include /config/lovelace/cards/sensors/card_sensors_kitchen.yaml
 
     - !include /config/lovelace/cards/switcher/card_switcher.yaml
 

@@ -1,0 +1,7 @@
+reset_kitchen_motion_sensor:
+  url: !secret kitchen_motion_sensor_url
+  method: "POST"
+  headers:
+    authorization: !secret rest_command_token
+    content_type: "application/json"
+  payload: '{"state": "off"}'

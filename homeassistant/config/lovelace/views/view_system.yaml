@@ -4,7 +4,8 @@ path: system
 
 cards:
 
-    - !include /config/lovelace/cards/card_home_button.yaml
+    #- !include /config/lovelace/cards/card_home_button.yaml
+    - !include /config/lovelace/cards/view_titles/card_view_title_system.yaml
     
     #- !include /config/lovelace/cards/card_deco.yaml
 

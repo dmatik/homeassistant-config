@@ -6,6 +6,8 @@ default:
   - name_color: var(--button-card-text-color)
   - icon_color: var(--button-card-icon-color)
   - size: 48px
+  - width: ""
+  - height: ""
   - font_size: 14px
   - font-weight: bold
   - padding_top: 3%
@@ -42,6 +44,8 @@ card:
       - padding-top: '[[padding_top]]'
       - padding-bottom: '[[padding_bottom]]'
       - font-weight: '[[font-weight]]'
+      - width: '[[width]]'
+      - height: '[[height]]'
     name:
       - text-transform: lowercase
       - color: '[[name_color]]'
