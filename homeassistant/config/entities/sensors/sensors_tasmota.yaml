@@ -1,0 +1,261 @@
+############################################################################
+#                                                                          #
+#   Latest Tasmota Firmware                                                #
+#                                                                          #
+############################################################################
+
+- platform: command_line
+  name: "Tasmota Latest"
+  command: "curl -s https://github.com/arendst/Tasmota/releases/latest | cut -d'\"' -f2 | rev | cut -d'/' -f1 | rev"
+  scan_interval: 600
+
+
+
+############################################################################
+#                                                                          #
+#   Light Switches                                                         #
+#                                                                          #
+############################################################################
+
+# Entrance Light Switch Version
+- platform: mqtt
+  name: "Tasmota Entrance Light Version"
+  state_topic: "stat/entrance/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/entrance/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Entrance Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Entrance Light Uptime"
+  state_topic: "stat/entrance/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/entrance/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Living Room Light Switch Version
+- platform: mqtt
+  name: "Tasmota Living Room Light Version"
+  state_topic: "stat/living_room/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/living_room/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Living Room Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Living Room Light Uptime"
+  state_topic: "stat/living_room/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/living_room/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Bedroom Light Switch Version
+- platform: mqtt
+  name: "Tasmota Bedroom Light Version"
+  state_topic: "stat/bedroom/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/bedroom/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Bedroom Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Bedroom Light Uptime"
+  state_topic: "stat/bedroom/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/bedroom/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Balcony Light Switch Version
+- platform: mqtt
+  name: "Tasmota Balcony Light Version"
+  state_topic: "stat/balcony/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/balcony/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Balcony Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Balcony Light Uptime"
+  state_topic: "stat/balcony/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/balcony/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Hallway Light Switch Version
+- platform: mqtt
+  name: "Tasmota Hallway Light Version"
+  state_topic: "stat/hallway/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/hallway/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Hallway Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Hallway Light Uptime"
+  state_topic: "stat/hallway/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/hallway/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Kids Room Light Switch Version
+- platform: mqtt
+  name: "Tasmota Kids Room Light Version"
+  state_topic: "stat/kids_room/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/kids_room/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Kids Room Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Kids Room Light Uptime"
+  state_topic: "stat/kids_room/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/kids_room/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Kitchen Light Switch Version
+- platform: mqtt
+  name: "Tasmota Kitchen Light Version"
+  state_topic: "stat/kitchen/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/kitchen/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Kitchen Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Kitchen Light Uptime"
+  state_topic: "stat/kitchen/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/kitchen/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Dining Light Switch Version
+- platform: mqtt
+  name: "Tasmota Dining Light Version"
+  state_topic: "stat/dining/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/dining/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Dining Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Dining Light Uptime"
+  state_topic: "stat/dining/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/dining/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Kids Radiator Power Socket Version
+- platform: mqtt
+  name: "Tasmota Kids Radiator Power Socket Version"
+  state_topic: "stat/kids_radiator/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/kids_radiator/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Kids Radiator Power Socket Uptime
+- platform: mqtt
+  name: "Tasmota Kids Radiator Power Socket Uptime"
+  state_topic: "stat/kids_radiator/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/kids_radiator/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0

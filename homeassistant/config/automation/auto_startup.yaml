@@ -24,9 +24,69 @@
         title: 'System'
         message: 'Up and Running'
 
+    # Sync Tasmota states on start-up
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/tasmotas/state"
+        payload: ""
+
+    # Tasmota Firmware Version Check
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/tasmotas/STATUS"
+        payload: "2, 11"
+
     # # Entrance Light Switch update status on startup
     # - service: mqtt.publish
     #   data:
     #     topic: "cmnd/entrance/POWER"
+    #     payload: ""
+
+    # # Living Room Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/living_room/POWER"
+    #     payload: ""
+
+    # # Bedroom Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/bedroom/POWER"
+    #     payload: ""
+
+    # # Balcony Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/balcony/POWER"
+    #     payload: ""
+
+    # # Hallway Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/hallway/POWER"
+    #     payload: ""
+
+    # # Kids Room Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/kids_room/POWER"
+    #     payload: ""
+
+    # # Service Balcony Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/kitchen/POWER1"
+    #     payload: ""
+
+    # # Kitchen Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/kitchen/POWER2"
+    #     payload: ""
+
+    # # Dining Light Switch update status on startup
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/dining/POWER"
     #     payload: ""
 

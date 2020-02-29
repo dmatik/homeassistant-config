@@ -49,7 +49,7 @@
         entity_id: light.bedroom
 
 - alias: 'Bedside Double Click'
-  initial_state: 'true'
+  initial_state: 'false'
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
