@@ -1,0 +1,10 @@
+title: Devices
+icon: mdi:home-automation
+path: devices
+
+cards:
+
+    - !include /config/lovelace/cards/view_titles/card_view_title_devices.yaml
+
+    - !include /config/lovelace/cards/tasmota/card_tasmota_devices.yaml
+ 

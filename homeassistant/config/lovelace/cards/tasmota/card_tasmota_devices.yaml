@@ -1,0 +1,107 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Tasmota Devices
+    
+      - type: custom:button-card
+        template: shoulder_blank_card         
+
+
+############################################################################
+#                                                                          #
+#   Tasmota Devices                                                        #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: entities
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;            
+          }
+        show_header_toggle: false
+        entities:
+          - entity: sensor.tasmota_latest
+            name: Tasmota Latest Version
+            icon: mdi:home-automation
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Entrance Light
+              - device: entrance_light
+              - icon: mdi:light-switch
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Living Room Light
+              - icon: mdi:light-switch
+              - device: living_room_light
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Bedroom Light
+              - icon: mdi:light-switch
+              - device: bedroom_light
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Balcony Light
+              - icon: mdi:light-switch
+              - device: balcony_light
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Hallway Light
+              - icon: mdi:light-switch
+              - device: hallway_light
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Kids Room Light
+              - icon: mdi:light-switch
+              - device: kids_room_light
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Kitchen Light
+              - icon: mdi:light-switch
+              - device: kitchen_light
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Dining Light
+              - icon: mdi:light-switch
+              - device: dining_light
+          - type: custom:decluttering-card
+            template: tasmota_device
+            variables:
+              - name: Kids Radiator Socket
+              - icon: mdi:power-socket-eu
+              - device: kids_radiator_power_socket
+
+
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml

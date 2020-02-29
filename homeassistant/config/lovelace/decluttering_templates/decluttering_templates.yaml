@@ -99,3 +99,6 @@ docker_cont:
   
 view_title:
   !include view_title_template.yaml
+
+tasmota_device:
+  !include tasmota_device_template.yaml

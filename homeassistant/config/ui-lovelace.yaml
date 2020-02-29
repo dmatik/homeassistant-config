@@ -49,6 +49,8 @@ resources:
 #      type: module
     - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
       type: module
+    - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
+      type: module
 
 
 title: Home
@@ -101,7 +103,9 @@ views:
     # Work Room
     - !include /config/lovelace/views/view_work_room.yaml   
     # Hallway
-    - !include /config/lovelace/views/view_hallway.yaml          
+    - !include /config/lovelace/views/view_hallway.yaml 
+    # Devices Tab
+    - !include /config/lovelace/views/view_devices.yaml         
     # Sysytem Tab        
     - !include /config/lovelace/views/view_system.yaml
     # Hassio Tab        
