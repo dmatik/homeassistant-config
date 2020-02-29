@@ -34,7 +34,13 @@
     - service: mqtt.publish
       data:
         topic: "cmnd/tasmotas/STATUS"
-        payload: "2, 11"
+        payload: "2"
+
+    # Tasmota Uptime Check
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/tasmotas/STATUS"
+        payload: "11"
 
     # # Entrance Light Switch update status on startup
     # - service: mqtt.publish
