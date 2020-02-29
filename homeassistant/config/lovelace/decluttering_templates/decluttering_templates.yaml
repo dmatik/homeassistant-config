@@ -100,5 +100,8 @@ docker_cont:
 view_title:
   !include view_title_template.yaml
 
-tasmota_device:
-  !include tasmota_device_template.yaml
+tasmota_switch:
+  !include tasmota_switch_template.yaml
+
+tasmota_socket:
+  !include tasmota_socket_template.yaml

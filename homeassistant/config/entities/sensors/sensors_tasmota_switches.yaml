@@ -235,35 +235,3 @@
 
 
 
-############################################################################
-#                                                                          #
-#   Power Sockets                                                          #
-#                                                                          #
-############################################################################
-
-# Kids Radiator Power Socket Version
-- platform: mqtt
-  name: "Tasmota Kids Radiator Power Socket Version"
-  state_topic: "stat/kids_radiator/STATUS2"
-  value_template: "{{value_json['StatusFWR'].Version }}"
-  availability_topic: "tele/kids_radiator/LWT"
-  payload_available: "Online"
-  payload_not_available: "Offline"
-  qos: 0
-
-# Kids Radiator Power Socket Uptime
-- platform: mqtt
-  name: "Tasmota Kids Radiator Power Socket Uptime"
-  state_topic: "stat/kids_radiator/STATUS11"
-  value_template: >-
-    {% set uptime = value_json['StatusSTS'].Uptime  %}
-    {% set days  = uptime.split('T')[0] %}
-    {% set time  = uptime.split('T')[1] %}
-    {% set hours  = time.split(':')[0] %}
-    {% set mins  = time.split(':')[1] %}
-    {% set secs  = time.split(':')[2] %}
-    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
-  availability_topic: "tele/kids_radiator/LWT"
-  payload_available: "Online"
-  payload_not_available: "Offline"
-  qos: 0

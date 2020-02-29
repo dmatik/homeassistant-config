@@ -20,5 +20,3 @@ cards:
     #- !include /config/lovelace/cards/homeassistant/card_recorder_purge.yaml
 
     - !include /config/lovelace/cards/homeassistant/card_theme_select.yaml
-
-    - !include /config/lovelace/cards/xiaomi/card_batteries.yaml

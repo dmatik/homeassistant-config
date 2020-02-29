@@ -1,0 +1,28 @@
+default:
+  icon: mdi:power-socket-eu
+
+card:
+  type: custom:fold-entity-row
+  head:
+    entity: switch.mqtt_[[socket]]
+    name : '[[name]]'
+    icon: '[[icon]]'
+  items:
+    - entity: sensor.tasmota_[[socket]]_power_socket_uptime
+      name : Uptime
+      icon: none
+    - entity: sensor.tasmota_[[socket]]_power_socket_version
+      name : Version
+      icon: none
+    - entity: sensor.mqtt_[[socket]]_current
+      name : Current
+      icon: none
+    - entity: sensor.mqtt_[[socket]]_energy_today
+      name : Energy Today
+      icon: none
+    - entity: sensor.mqtt_[[socket]]_power
+      name : Power
+      icon: none
+    - entity: sensor.mqtt_[[socket]]_voltage
+      name : Voltage
+      icon: none

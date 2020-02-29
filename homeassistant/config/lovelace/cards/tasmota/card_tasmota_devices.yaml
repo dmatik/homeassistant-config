@@ -46,59 +46,50 @@ cards:
             name: Tasmota Latest Version
             icon: mdi:home-automation
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_switch
             variables:
               - name: Entrance Light
-              - device: entrance_light
-              - icon: mdi:light-switch
+              - switch: entrance
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_switch
             variables:
               - name: Living Room Light
-              - icon: mdi:light-switch
-              - device: living_room_light
+              - switch: living_room
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_switch
             variables:
               - name: Bedroom Light
-              - icon: mdi:light-switch
-              - device: bedroom_light
+              - switch: bedroom
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_switch
             variables:
               - name: Balcony Light
-              - icon: mdi:light-switch
-              - device: balcony_light
+              - switch: balcony
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_switch
             variables:
               - name: Hallway Light
-              - icon: mdi:light-switch
-              - device: hallway_light
+              - switch: hallway
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_switch
             variables:
               - name: Kids Room Light
-              - icon: mdi:light-switch
-              - device: kids_room_light
+              - switch: kids_room
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_switch
             variables:
               - name: Kitchen Light
-              - icon: mdi:light-switch
-              - device: kitchen_light
+              - switch: kitchen
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_switch
             variables:
               - name: Dining Light
-              - icon: mdi:light-switch
-              - device: dining_light
+              - switch: dining
           - type: custom:decluttering-card
-            template: tasmota_device
+            template: tasmota_socket
             variables:
               - name: Kids Radiator Socket
-              - icon: mdi:power-socket-eu
-              - device: kids_radiator_power_socket
+              - socket: kids_radiator
 
 
       - type: custom:button-card

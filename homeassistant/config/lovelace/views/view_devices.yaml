@@ -7,4 +7,6 @@ cards:
     - !include /config/lovelace/cards/view_titles/card_view_title_devices.yaml
 
     - !include /config/lovelace/cards/tasmota/card_tasmota_devices.yaml
+
+    - !include /config/lovelace/cards/xiaomi/card_batteries.yaml
  
