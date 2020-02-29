@@ -233,6 +233,14 @@
   payload_not_available: "Offline"
   qos: 0
 
+
+
+############################################################################
+#                                                                          #
+#   Power Sockets                                                          #
+#                                                                          #
+############################################################################
+
 # Kids Radiator Power Socket Version
 - platform: mqtt
   name: "Tasmota Kids Radiator Power Socket Version"
