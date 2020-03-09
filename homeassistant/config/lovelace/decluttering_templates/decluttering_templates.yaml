@@ -105,3 +105,6 @@ tasmota_switch:
 
 tasmota_socket:
   !include tasmota_socket_template.yaml
+
+coronavirus:
+  !include coronavirus_template.yaml

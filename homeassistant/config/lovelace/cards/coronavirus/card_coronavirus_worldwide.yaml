@@ -1,0 +1,45 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Worldwide
+    
+      - type: custom:button-card
+        template: shoulder_blank_card         
+
+
+############################################################################
+#                                                                          #
+#   Coronavirus Worldwide                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: custom:decluttering-card
+        template: coronavirus
+        variables:
+          - country: worldwide
+
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml
