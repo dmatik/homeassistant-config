@@ -85,14 +85,14 @@ cards:
           - name: Kitchen
           - icon: mdi:kettle
           - cust_1_field: "[[[
-                  if (states['switch.switcher_aio_switch'].state == 'off')
+                  if (states['switch.boiler'].state == 'off')
                   return `<ha-icon icon='mdi:shower' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>off</span></span>`;
                   else return `<ha-icon icon='mdi:shower' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
-                  <span><span>Auto off ${states['sensor.switcher_aio_auto_off_time'].state}</span></span>`;
+                  <span><span>Auto off ${states['sensor.switcher_kis_auto_off_time'].state}</span></span>`;
                   ]]]"
           - cust_1_icon_color: "[[[
-                  if (states['switch.switcher_aio_switch'].state == 'off') return 'var(--paper-item-icon-color)';
+                  if (states['switch.boiler'].state == 'off') return 'var(--paper-item-icon-color)';
                   else return 'var(--paper-item-icon-active-color)';
                   ]]]" 
           - path: kitchen

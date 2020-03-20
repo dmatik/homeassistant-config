@@ -1,8 +1,17 @@
+# switcher_turn_on_timer_script:
+#     alias: On with Timer
+#     sequence:
+#         - delay:
+#             milliseconds: 100
+#         - service: script.turn_on
+#           data:
+#             entity_id: switcher_aio.turn_on_timer_script
+
 switcher_turn_on_timer_script:
     alias: On with Timer
     sequence:
         - delay:
             milliseconds: 100
-        - service: script.turn_on
-          data:
-            entity_id: switcher_aio.turn_on_timer_script
+        - service: rest_command.switcher_turn_on
+          data_template:
+            minutes: '{{ states("input_select.switcher_timer_minutes_input_select") }}'

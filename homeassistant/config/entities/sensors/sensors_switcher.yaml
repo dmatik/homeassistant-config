@@ -7,32 +7,32 @@
     #                                                                          #
     ############################################################################
 
-    switcher_aio_time_left:
-      friendly_name: "Time Left"
-      icon_template: mdi:timelapse
-      value_template: >-
-        {% if is_state('switcher_aio.time_left_sensor', 'unknown') or is_state('switcher_aio.time_left_sensor', 'off') %}
-            off
-        {% else %}
-            {% set hour  = states.switcher_aio.time_left_sensor.state.split(':')[0] %}
-            {% set min  = states.switcher_aio.time_left_sensor.state.split(':')[1] %}
-            {% set sec  = states.switcher_aio.time_left_sensor.state.split(':')[2] %}
-            {{ hour | int }}h {{ min | int }}m
-        {% endif %}
+    # switcher_aio_time_left:
+    #   friendly_name: "Time Left"
+    #   icon_template: mdi:timelapse
+    #   value_template: >-
+    #     {% if is_state('switcher_aio.time_left_sensor', 'unknown') or is_state('switcher_aio.time_left_sensor', 'off') %}
+    #         off
+    #     {% else %}
+    #         {% set hour  = states.switcher_aio.time_left_sensor.state.split(':')[0] %}
+    #         {% set min  = states.switcher_aio.time_left_sensor.state.split(':')[1] %}
+    #         {% set sec  = states.switcher_aio.time_left_sensor.state.split(':')[2] %}
+    #         {{ hour | int }}h {{ min | int }}m
+    #     {% endif %}
     
-    switcher_aio_auto_off_time:
-      friendly_name: "Auto Off"
-      icon_template: mdi:av-timer
-      value_template: >-
-        {% if is_state('switcher_aio.time_left_sensor', 'unknown') or is_state('switcher_aio.time_left_sensor', 'off') %}
-            off
-        {% else %}
-            {% set hour  = states.switcher_aio.time_left_sensor.state.split(':')[0] %}
-            {% set min  = states.switcher_aio.time_left_sensor.state.split(':')[1] %}
-            {% set sec  = states.switcher_aio.time_left_sensor.state.split(':')[2] %}
-            {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
-            {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
-        {% endif %}
+    # switcher_aio_auto_off_time:
+    #   friendly_name: "Auto Off"
+    #   icon_template: mdi:av-timer
+    #   value_template: >-
+    #     {% if is_state('switcher_aio.time_left_sensor', 'unknown') or is_state('switcher_aio.time_left_sensor', 'off') %}
+    #         off
+    #     {% else %}
+    #         {% set hour  = states.switcher_aio.time_left_sensor.state.split(':')[0] %}
+    #         {% set min  = states.switcher_aio.time_left_sensor.state.split(':')[1] %}
+    #         {% set sec  = states.switcher_aio.time_left_sensor.state.split(':')[2] %}
+    #         {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
+    #         {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
+    #     {% endif %}
 
 
 
@@ -42,39 +42,39 @@
     #                                                                          #
     ############################################################################
 
-    # switcher_kis_time_left:
-    #   friendly_name: "Time Left"
-    #   icon_template: mdi:timelapse
-    #   value_template: >-
-    #     {% if not state_attr('switch.boiler', 'remaining_time') %}
-    #         off
-    #     {% else %}
-    #         {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
-    #         {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
-    #         {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
-    #         {{ hour | int }}h {{ min | int }}m
-    #     {% endif %}
+    switcher_kis_time_left:
+      friendly_name: "Time Left"
+      icon_template: mdi:timelapse
+      value_template: >-
+        {% if not state_attr('switch.boiler', 'remaining_time') %}
+            off
+        {% else %}
+            {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
+            {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
+            {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
+            {{ hour | int }}h {{ min | int }}m
+        {% endif %}
     
-    # switcher_kis_auto_off_time:
-    #   friendly_name: "Auto Off"
-    #   icon_template: mdi:av-timer
-    #   value_template: >-
-    #     {% if not state_attr('switch.boiler', 'remaining_time') %}
-    #         off
-    #     {% else %}
-    #         {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
-    #         {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
-    #         {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
-    #         {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
-    #         {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
-    #     {% endif %}
+    switcher_kis_auto_off_time:
+      friendly_name: "Auto Off"
+      icon_template: mdi:av-timer
+      value_template: >-
+        {% if not state_attr('switch.boiler', 'remaining_time') %}
+            off
+        {% else %}
+            {% set hour  = states.switch.boiler.attributes.remaining_time.split(':')[0] %}
+            {% set min  = states.switch.boiler.attributes.remaining_time.split(':')[1] %}
+            {% set sec  = states.switch.boiler.attributes.remaining_time.split(':')[2] %}
+            {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
+            {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
+        {% endif %}
 
-    # switcher_kis_elctric_current:
-    #   friendly_name: "Electric Current"
-    #   icon_template: mdi:flash
-    #   value_template: >-
-    #     {% if not state_attr('switch.boiler', 'electric_current') %}
-    #         0
-    #     {% else %}
-    #         {{ state_attr('switch.boiler', 'electric_current') }}
-    #     {% endif %}
+    switcher_kis_elctric_current:
+      friendly_name: "Electric Current"
+      icon_template: mdi:flash
+      value_template: >-
+        {% if not state_attr('switch.boiler', 'electric_current') %}
+            0
+        {% else %}
+            {{ state_attr('switch.boiler', 'electric_current') }}
+        {% endif %}

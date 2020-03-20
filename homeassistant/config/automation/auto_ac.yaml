@@ -10,6 +10,7 @@
     - platform: state
       entity_id: climate.kids_room
       from: "off"
+      to: "on"
   action:
     - service: notify.dimatelegram
       data_template:
@@ -22,6 +23,7 @@
   trigger:
     - platform: state
       entity_id: climate.kids_room
+      from: "on"
       to: "off"
   action:
     - service: notify.dimatelegram
@@ -43,6 +45,7 @@
     - platform: state
       entity_id: climate.bedroom
       from: "off"
+      to: "on"
   action:
     - service: notify.dimatelegram
       data_template:
@@ -55,6 +58,7 @@
   trigger:
     - platform: state
       entity_id: climate.bedroom
+      from: "on"
       to: "off"
   action:
     - service: notify.dimatelegram
@@ -76,6 +80,7 @@
     - platform: state
       entity_id: climate.living_room
       from: "off"
+      to: "on"
   action:
     - service: notify.dimatelegram
       data_template:
@@ -88,6 +93,7 @@
   trigger:
     - platform: state
       entity_id: climate.living_room
+      from: "on"
       to: "off"
   action:
     - service: notify.dimatelegram

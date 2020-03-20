@@ -41,20 +41,29 @@ yeelight: !include /config/entities/yeelights.yaml
 #timer: !include /config/entities/timers.yaml
 binary_sensor: !include /config/entities/binary_sensors.yaml
 scene: !include_dir_merge_list /config/entities/scenes/ #scene: !include /config/entities/scenes.yaml
-#rest_command: !include /config/entities/rest_commands.yaml
+rest_command: !include_dir_merge_named /config/entities/rest_commands/
 
 lovelace:
-    mode: yaml
+  mode: yaml
+  resources: !include /config/lovelace/resources.yaml
+  dashboards:
+    lovelace-wallpanel:
+      mode: yaml
+      filename: ui-wallpanel.yaml
+      title: "Wall Panel"
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
+      require_admin: false
 
-switcher_aio:
+# switcher_aio:
+#   phone_id: !secret switcher_phone_id
+#   device_id: !secret switcher_device_id
+#   device_password: !secret switcher_device_password
+
+switcher_kis:
   phone_id: !secret switcher_phone_id
   device_id: !secret switcher_device_id
   device_password: !secret switcher_device_password
-
-#switcher_kis:
-#  phone_id: !secret switcher_phone_id
-#  device_id: !secret switcher_device_id
-#  device_password: !secret switcher_device_password
 
 recorder:
   purge_interval: 1

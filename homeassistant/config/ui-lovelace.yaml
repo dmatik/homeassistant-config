@@ -1,64 +1,8 @@
-resources:
-    # - url: https://unpkg.com/moment@2.22.2/min/moment.min.js
-    #   type: js
-    #- url: /local/moment.min.js
-    #  type: js
-    #- url: /local/clock-card.js
-    #  type: js
-#    - url: /community_plugin/upcoming-media-card/upcoming-media-card.js
-#      type: js
-#    - url: https://unpkg.com/moment@2.22.2/moment.js
-#      type: js
-    - url: /community_plugin/lovelace-card-tools/card-tools.js
-      type: js
-#    - url: /local/custom-lovelace/animated-weather-card/weather-card.js
-#      type: module
-    - url: /community_plugin/custom-header/custom-header.js
-      type: module
-    - url: /community_plugin/bar-card/bar-card.js
-      type: js
-    - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
-      type: js
-    - url: /community_plugin/button-card/button-card.js
-      type: module
-    - url: /community_plugin/vertical-style-card/vertical-style-card.js
-      type: js
-    - url: /community_plugin/bignumber-card/bignumber-card.js
-      type: js
-    - url: /community_plugin/mini-graph-card/mini-graph-card.js
-      type: module
-    - url: /community_plugin/lovelace-gap-card/gap-card.js
-      type: js
-    - url: /community_plugin/text-element/text-element.js
-      type: js
-    - url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js
-      type: module
-    - url: /local/custom-lovelace/hebrew-calendar-card/hebrew-calendar-card.js
-      type: module
-    - url: /community_plugin/decluttering-card/decluttering-card.js
-      type: module
-    - url: /community_plugin/lovelace-card-mod/card-mod.js
-      type: js
-#    - url: /community_plugin/lovelace-popup-card/popup-card.js
-#      type: js
-    - url: /community_plugin/swipe-card/swipe-card.js
-      type: module
-    - url: /community_plugin/list-card/list-card.js
-      type: js
-#    - url: /community_plugin/text-divider-row/text-divider-row.js
-#      type: module
-    - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
-      type: module
-    - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
-      type: module
-
-
 title: Home
-
 
 custom_header:
     tab_container_css: 'padding-bottom: 35px'
-    header_text: '{{ viewTitle }}'
+    #header_text: '{{ viewTitle }}'
     split_mode: false
     compact_mode: true
     footer_mode: true
@@ -69,15 +13,14 @@ custom_header:
     hide_help: true
     hide_unused: true
     hide_config: true
-    exceptions:
-        - conditions:
-            query_string: kiosk
-          config:
-            kiosk_mode: true
+    # exceptions:
+    #   - conditions:
+    #       query_string: kiosk
+    #     config:
+    #       kiosk_mode: true
 
 
 # Button card templates  
-
 decluttering_templates:
   !include /config/lovelace/decluttering_templates/decluttering_templates.yaml
 
@@ -117,7 +60,7 @@ views:
     # Map Tab        
     #- !include /config/lovelace/views/view_map.yaml
     # Kiosk        
-    - !include /config/lovelace/views/view_kiosk.yaml
+    #- !include /config/lovelace/views/view_kiosk.yaml
 
 
 
