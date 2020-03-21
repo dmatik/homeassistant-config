@@ -7,6 +7,13 @@
 #           data:
 #             entity_id: switcher_aio.turn_on_timer_script
 
+
+############################################################################
+#                                                                          #
+#   Turn ON with timer                                                     #
+#                                                                          #
+############################################################################
+
 switcher_turn_on_timer_script:
     alias: On with Timer
     sequence:
@@ -15,3 +22,25 @@ switcher_turn_on_timer_script:
         - service: rest_command.switcher_turn_on
           data_template:
             minutes: '{{ states("input_select.switcher_timer_minutes_input_select") }}'
+
+
+
+############################################################################
+#                                                                          #
+#   Turn ON and OFF without timer for the Switch                           #
+#                                                                          #
+############################################################################
+
+switcher_turn_on:
+    alias: Turn On
+    sequence:
+        - service: rest_command.switcher_turn_on
+        - service: homeassistant.update_entity
+          entity_id: sensor.switcher_webapi
+
+switcher_turn_off:
+    alias: Turn Off
+    sequence:
+        - service: rest_command.switcher_turn_off
+        - service: homeassistant.update_entity
+          entity_id: sensor.switcher_webapi
