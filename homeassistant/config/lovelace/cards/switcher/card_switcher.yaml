@@ -58,7 +58,8 @@ cards:
         template: simple_button
         variables:
           #- entity: switch.switcher_aio_switch
-          - entity: switch.boiler
+          #- entity: switch.boiler
+          - entity: switch.switcher_webapi
           - name: Power
           - icon: mdi:power-standby
 

@@ -3,11 +3,15 @@ default:
   - image_on: /local/images/switcher/switcher_kiosk_on.png
   - image_off: /local/images/switcher/switcher_kiosk_off.png
   #- entity: switch.switcher_aio_switch
-  - entity: switch.boiler
+  #- entity: switch.boiler
+  - entity: switch.switcher_webapi
   #- electric_current_sensor: switcher_aio.electric_current_sensor
-  - electric_current_sensor: sensor.switcher_kis_elctric_current
-  - time_left_sensor: sensor.switcher_kis_time_left
-  - auto_off_sensor: sensor.switcher_kis_auto_off_time
+  #- electric_current_sensor: sensor.switcher_kis_elctric_current
+  - electric_current_sensor: sensor.switcher_webapi_electric_current
+  #- time_left_sensor: sensor.switcher_kis_time_left
+  - time_left_sensor: sensor.switcher_webapi_time_left
+  #- auto_off_sensor: sensor.switcher_kis_auto_off_time
+  - auto_off_sensor: sensor.switcher_webapi_auto_off_time
   - font_size: 32px
 
 card:
@@ -40,7 +44,7 @@ card:
             left: 16%
             font-size: '[[font_size]]'
             color: '[[text_color]]'
-            text-transform: lowercase
+            #text-transform: lowercase
     - type: conditional
       conditions:
         - entity: '[[entity]]'

@@ -22,6 +22,8 @@ switcher_turn_on_timer_script:
         - service: rest_command.switcher_turn_on
           data_template:
             minutes: '{{ states("input_select.switcher_timer_minutes_input_select") }}'
+        - service: homeassistant.update_entity
+          entity_id: sensor.switcher_webapi
 
 
 
