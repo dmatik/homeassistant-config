@@ -59,66 +59,7 @@ Define RESTful commands in HA, to be used in scripts.
 Define RESTful Sensor and other Template sensors depending on it in HA.  
 **_Change to your IP and port below._**
 
-    sensor:
-      - platform: rest
-        resource: http://192.168.1.1:8000/switcher/get_state
-        name: Switcher WebAPI
-        json_attributes:
-          - state
-          - time_left
-          - auto_off
-          - power_consumption
-          - electric_current
-        value_template: 'OK'
 
-      - platform: template
-        sensors:
-          switcher_webapi_time_left:
-            friendly_name: "Time Left"
-            icon_template: mdi:timelapse
-            value_template: >-
-              {% if is_state("sensor.switcher_webapi_state", "off") %}
-                  off
-              {% else %}
-                  {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
-                  {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
-                  {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
-                  {{ hour | int }}h {{ min | int }}m
-              {% endif %}
-    
-          switcher_webapi_auto_off_time:
-            friendly_name: "Auto Off"
-            icon_template: mdi:av-timer
-            value_template: >-
-              {% if is_state("sensor.switcher_webapi_state", "off") %}
-                  off
-              {% else %}
-                  {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
-                  {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
-                  {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
-                  {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
-                  {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
-              {% endif %}
-
-          switcher_webapi_electric_current:
-            friendly_name: "Electric Current"
-            icon_template: mdi:flash
-            unit_of_measurement: A
-            value_template: >-
-              {{ state_attr('sensor.switcher_webapi', 'electric_current') }}
-
-          switcher_webapi_power_consumption:
-            friendly_name: "Power Consumption"
-            icon_template: mdi:flash
-            unit_of_measurement: kW
-            value_template: >-
-              {{ state_attr('sensor.switcher_webapi', 'power_consumption') }}
-
-          switcher_webapi_state:
-            friendly_name: "State"
-            icon_template: mdi:shower
-            value_template: >-
-              {{ state_attr('sensor.switcher_webapi', 'state') }}
 
 ### Input Select
 Define Input Select in HA, to select the timings for the Turn On with timer script.
