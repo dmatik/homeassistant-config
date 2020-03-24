@@ -59,6 +59,7 @@ Define RESTful commands in HA, to be used in scripts.
 Define RESTful Sensor and other Template sensors depending on it in HA.  
 **_Change to your IP and port below._**
 
+```
     sensor:
 
       - platform: rest
@@ -100,6 +101,7 @@ Define RESTful Sensor and other Template sensors depending on it in HA.
             icon_template: mdi:shower
             value_template: >-
               {{ state_attr('sensor.switcher_webapi', 'state') }}  
+```
               
 
 ### Input Select
