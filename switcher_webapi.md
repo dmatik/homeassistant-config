@@ -59,11 +59,11 @@ Define RESTful commands in HA, to be used in scripts.
 Define RESTful Sensor and other Template sensors depending on it in HA.  
 **_Change to your IP and port below._**
 
-```
+```YAML
     sensor:
 
       - platform: rest
-        resource: !secret switcher_web_api_get_state
+        resource: http://192.168.1.1:8000/switcher/get_state
         name: Switcher WebAPI
         json_attributes:
           - state
