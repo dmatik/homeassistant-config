@@ -2,7 +2,7 @@
 
 ## What
 This is alternative option for integration of Switcher water heater in Home Assistant.  
-There are two existing components, both developed by [tomerfi](https://hub.docker.com/u/tomerfi) for that: 
+There are two existing components, both developed by [tomerfi](https://hub.docker.com/u/tomerfi), for that: 
 * "switcher_aio" - Very old custom component and has issues with newer versions of HA.
 * "switcher_kis" - Newer component, already part of official HA releases. However it has very limited functionality. Also some people report they are getting timeouts while trying to load it during HA startup.  
 
@@ -59,7 +59,7 @@ Define RESTful commands in HA, to be used in scripts.
 Define RESTful Sensor and other Template sensors depending on it in HA.  
 **_Change to your IP and port below._**
 
-    script:
+    sensor:
 
       - platform: rest
         resource: !secret switcher_web_api_get_state
@@ -71,6 +71,22 @@ Define RESTful Sensor and other Template sensors depending on it in HA.
           - power_consumption
           - electric_current
         value_template: 'OK'
+        
+      - platform: template
+        sensors:
+          switcher_webapi_time_left:
+            friendly_name: "Time Left"
+            icon_template: mdi:timelapse
+            value_template: >-
+              {% if is_state("sensor.switcher_webapi_state", "off") %}
+                  off
+              {% else %}
+                  {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
+                  {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
+                  {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
+                  {{ hour | int }}h {{ min | int }}m
+              {% endif %}  
+              
 
 ### Input Select
 Define Input Select in HA, to select the timings for the Turn On with timer script.
