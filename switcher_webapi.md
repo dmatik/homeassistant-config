@@ -59,7 +59,18 @@ Define RESTful commands in HA, to be used in scripts.
 Define RESTful Sensor and other Template sensors depending on it in HA.  
 **_Change to your IP and port below._**
 
+    script:
 
+      - platform: rest
+        resource: !secret switcher_web_api_get_state
+        name: Switcher WebAPI
+        json_attributes:
+          - state
+          - time_left
+          - auto_off
+          - power_consumption
+          - electric_current
+        value_template: 'OK'
 
 ### Input Select
 Define Input Select in HA, to select the timings for the Turn On with timer script.
