@@ -73,19 +73,33 @@ Define RESTful Sensor and other Template sensors depending on it in HA.
         value_template: 'OK'
         
       - platform: template
-        sensors:
+        sensors: 
+        
           switcher_webapi_time_left:
             friendly_name: "Time Left"
             icon_template: mdi:timelapse
             value_template: >-
-              {% if is_state("sensor.switcher_webapi_state", "off") %}
-                  off
-              {% else %}
-                  {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
-                  {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
-                  {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
-                  {{ hour | int }}h {{ min | int }}m
-              {% endif %}  
+              {{ state_attr('sensor.switcher_webapi', 'time_left') }}  
+
+          switcher_webapi_electric_current:
+            friendly_name: "Electric Current"
+            icon_template: mdi:flash
+            unit_of_measurement: A
+            value_template: >-
+              {{ state_attr('sensor.switcher_webapi', 'electric_current') }}
+
+          switcher_webapi_power_consumption:
+            friendly_name: "Power Consumption"
+            icon_template: mdi:flash
+            unit_of_measurement: kW
+            value_template: >-
+              {{ state_attr('sensor.switcher_webapi', 'power_consumption') }}
+
+          switcher_webapi_state:
+            friendly_name: "State"
+            icon_template: mdi:shower
+            value_template: >-
+              {{ state_attr('sensor.switcher_webapi', 'state') }}  
               
 
 ### Input Select
