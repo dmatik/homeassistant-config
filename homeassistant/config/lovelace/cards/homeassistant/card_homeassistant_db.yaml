@@ -65,8 +65,8 @@ cards:
               - name: Full DB
               - icon: mdi:database
 
-        - type: "custom:button-card"
-          color_type: blank-card
+        # - type: "custom:button-card"
+        #   color_type: blank-card
                     
         - type: custom:button-card
           template: shoulder_blank_card

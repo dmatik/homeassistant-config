@@ -2,9 +2,9 @@ default:
   - border_radius: var(--graph-border-radius)
   - font_size: 70
   - font_size_header: 14
-  - line_width: 8
+  - line_width: 5
   - show_icon: true
-  - show_extrema: false
+  - show_extrema: true
   - show_fill: true
   - icon: ""
   - color: ""

@@ -10,6 +10,14 @@ global_parameters:
     use_hass_icon: 0
     namespace: default
 
+
+
+############################################################################
+#                                                                          #
+#   Clock                                                                  #
+#                                                                          #
+############################################################################
+
 clock:
     widget_type: clock
     time_format: 24hr
@@ -18,11 +26,19 @@ clock:
     widget_style: "font-size: 150%;"
     time_style: "color: #f2f2f2"
 #    time_style: "color: #23af56"
-    
+
+
+
+############################################################################
+#                                                                          #
+#   Weather                                                                #
+#                                                                          #
+############################################################################
+
 weather:
   widget_type: weather
   unit: "&deg:C"
-  title: Today
+  title: Weather
   show_forecast: 1
   prefer_icons: 1
   forecast_title: Tomorrow
@@ -32,19 +48,18 @@ weather:
   sub_style: "color: #f2f2f2; font-size: 100%;"
   sub_title_style: "color: #f2f2f2; font-size: 100%;"
   sub_unit_style: "color: #f2f2f2; font-size: 100%;"
+  #widget_style: "background: rgba(76, 63, 0, 0.7);"
   sensors:
     icon: sensor.dark_sky_icon
     temperature: sensor.dark_sky_temperature
-    apparent_temperature: sensor.dark_sky_apparent_temperature
+    apparent_temperature: ""
     temperature_min: sensor.dark_sky_overnight_low_temperature_0d
     temperature_max: sensor.dark_sky_daytime_high_temperature_0d
-    humidity: ""
+    humidity: "sensor.dark_sky_humidity"
     precip_probability: sensor.dark_sky_precip_probability
-    #precip_probability: ""
     precip_intensity: ""
     precip_type: sensor.dark_sky_precip
-    #wind_speed: sensor.dark_sky_wind_speed
-    wind_speed: ""
+    wind_speed: sensor.dark_sky_wind_speed
     wind_bearing: ""
     pressure: ""
     forecast_icon: sensor.dark_sky_icon_1d
@@ -52,21 +67,6 @@ weather:
     forecast_temperature_max: sensor.dark_sky_daytime_high_temperature_1d
     forecast_precip_probability: sensor.dark_sky_precip_probability_1d
     forecast_precip_type: sensor.dark_sky_precip_1d
-    
-weather_daily_summary:
-   widget_type: weather_summary
-   entity: sensor.dark_sky_daily_summary
-   title: Daily Weather
-   
-
-dima_presence_mapped:
-  widget_type: device_tracker
-  title: Dima
-#  title2: Mapped
-  device: iphone_dima_new
-  active_map:
-    - Home
-    - Amdocs
 
 
 
@@ -83,6 +83,7 @@ switcher_switch:
   #entity: switch.boiler
   icon_off: mdi-shower
   icon_on: mdi-shower
+  #widget_style: "background: rgba(100, 64, 64, 0.7);"
 
 switcher_time_left_sensor:
   widget_type: sensor
@@ -90,6 +91,7 @@ switcher_time_left_sensor:
   #entity: sensor.switcher_kis_time_left
   title: Time Left
   text_style: "color: #f2f2f2; font-size: 180%;"
+  #widget_style: "background: rgba(100, 64, 64, 0.7);"
   
 switcher_auto_off_time_sensor:
   widget_type: sensor
@@ -97,6 +99,7 @@ switcher_auto_off_time_sensor:
   #entity: sensor.switcher_kis_auto_off_time
   title: Auto Off
   text_style: "color: #f2f2f2; font-size: 180%;"
+  #widget_style: "background: rgba(100, 64, 64, 0.7);"
   
 switcher_turn_on_timer_script:
   widget_type: script
@@ -106,6 +109,7 @@ switcher_turn_on_timer_script:
   text_style: "color: #f2f2f2; font-size: 180%;"
   icon_off: mdi-timer
   icon_on: mdi-timer
+  #widget_style: "background: rgba(100, 64, 64, 0.7);"
   
 switcher_timer_minutes_input_select:
   widget_type: input_select
@@ -114,6 +118,7 @@ switcher_timer_minutes_input_select:
   text_style: "color: #f2f2f2; font-size: 150%;"
   select_style: "font-size: 150%; height: 40px;"
   selectcontainer_style: "height: 40px"
+  #widget_style: "background: rgba(100, 64, 64, 0.7);"
 
 
 
@@ -224,6 +229,7 @@ refresh_main:
     title: Refresh
     icon_active: mdi-refresh
     icon_inactive: mdi-refresh
+    #widget_style: "background: rgba(128, 128, 128, 0.7);"
 
 
 
@@ -238,12 +244,14 @@ dima_presence_mapped:
   title: Dima
   device: life360_dima_trosman
   icon_style_active: "color: #2B9AF9"
+  #widget_style: "background: rgba(96, 96, 96, 0.7);"
 
 galit_presence_mapped:
   widget_type: device_tracker
   title: Galit
   device: life360_galit
   icon_style_active: "color: #F75BCD"
+  #widget_style: "background: rgba(96, 96, 96, 0.7);"
 
 
 
@@ -260,6 +268,7 @@ bedside_light_galit:
   entity: light.bedside_yeelight_galit
   icon_off: mdi-lamp
   icon_on: mdi-lamp
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 bedside_light_dima:
   widget_type: switch
@@ -268,6 +277,7 @@ bedside_light_dima:
   entity: light.bedside_yeelight_dima
   icon_off: mdi-lamp
   icon_on: mdi-lamp
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 makeup_light_switch:
   widget_type: switch
@@ -275,6 +285,7 @@ makeup_light_switch:
   entity: switch.yeelight_makeup
   icon_off: mdi-track-light
   icon_on: mdi-track-light
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 ny_tree_lights_switch:
   widget_type: switch
@@ -304,6 +315,7 @@ entrance_light_switch:
   entity: switch.mqtt_entrance_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 living_room_light_switch:
   widget_type: switch
@@ -311,6 +323,7 @@ living_room_light_switch:
   entity: switch.mqtt_living_room_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 bedroom_light_switch:
   widget_type: switch
@@ -318,6 +331,7 @@ bedroom_light_switch:
   entity: switch.mqtt_bedroom_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 balcony_light_switch:
   widget_type: switch
@@ -325,6 +339,7 @@ balcony_light_switch:
   entity: switch.mqtt_balcony_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 hallway_light_switch:
   widget_type: switch
@@ -332,6 +347,7 @@ hallway_light_switch:
   entity: switch.mqtt_hallway_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 kids_room_light_switch:
   widget_type: switch
@@ -339,6 +355,7 @@ kids_room_light_switch:
   entity: switch.mqtt_kids_room_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 service_balcony_light_switch:
   widget_type: switch
@@ -346,6 +363,7 @@ service_balcony_light_switch:
   entity: switch.mqtt_service_balcony_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 kitchen_light_switch:
   widget_type: switch
@@ -353,6 +371,7 @@ kitchen_light_switch:
   entity: switch.mqtt_kitchen_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 dining_light_switch:
   widget_type: switch
@@ -360,6 +379,7 @@ dining_light_switch:
   entity: switch.mqtt_dining_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 work_room_light_switch:
   widget_type: switch
@@ -367,6 +387,7 @@ work_room_light_switch:
   entity: switch.tuya_work_room_light
   icon_off: mdi-lightbulb
   icon_on: mdi-lightbulb
+  #widget_style: "background: rgba(64, 64, 64, 0.7);"
 
 
 
@@ -382,6 +403,7 @@ living_room_baltic_tv_switch:
   entity: switch.baltic_tv
   icon_off: mdi-television-classic
   icon_on: mdi-television-classic
+  #widget_style: "background: rgba(70, 90, 62, 0.7);"
 
 living_room_shield_tv_switch:
   widget_type: switch
@@ -389,6 +411,7 @@ living_room_shield_tv_switch:
   entity: switch.shield_tv
   icon_off: mdi-movie
   icon_on: mdi-movie
+  #widget_style: "background: rgba(70, 90, 62, 0.7);"
 
 living_room_smart_tv_switch:
   widget_type: switch
@@ -396,6 +419,7 @@ living_room_smart_tv_switch:
   entity: switch.smart_tv
   icon_off: mdi-television
   icon_on: mdi-television
+  #widget_style: "background: rgba(70, 90, 62, 0.7);"
 
 living_room_volume_up_script:
   widget_type: script
@@ -403,6 +427,7 @@ living_room_volume_up_script:
   title: Volume Up
   icon_off: mdi-volume-plus
   icon_on: mdi-volume-plus
+  #widget_style: "background: rgba(70, 90, 62, 0.7);"
 
 living_room_volume_down_script:
   widget_type: script
@@ -410,6 +435,7 @@ living_room_volume_down_script:
   title: Volume Down
   icon_off: mdi-volume-minus
   icon_on: mdi-volume-minus
+  #widget_style: "background: rgba(70, 90, 62, 0.7);"
 
 living_room_volume_mute_script:
   widget_type: script
@@ -417,6 +443,7 @@ living_room_volume_mute_script:
   title: Mute
   icon_off: mdi-volume-mute
   icon_on: mdi-volume-mute
+  #widget_style: "background: rgba(70, 90, 62, 0.7);"
 
 
 
@@ -432,6 +459,7 @@ bedtime_script:
   title: Bedtime
   icon_off: mdi-hotel
   icon_on: mdi-hotel
+  #widget_style: "background: rgba(96, 96, 96, 0.7);"
 
 lights_off_script:
   widget_type: script
@@ -439,6 +467,7 @@ lights_off_script:
   title: Lights Off
   icon_off: mdi-flash-off
   icon_on: mdi-flash-off
+  #widget_style: "background: rgba(96, 96, 96, 0.7);"
 
 
 

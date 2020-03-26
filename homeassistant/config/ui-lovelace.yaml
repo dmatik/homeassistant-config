@@ -13,11 +13,11 @@ custom_header:
     hide_help: true
     hide_unused: true
     hide_config: true
-    # exceptions:
-    #   - conditions:
-    #       query_string: kiosk
-    #     config:
-    #       kiosk_mode: true
+    exceptions:
+      - conditions:
+          query_string: kiosk
+        config:
+          kiosk_mode: true
 
 
 # Button card templates  
