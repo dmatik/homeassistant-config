@@ -1,16 +1,18 @@
-default:
-  icon: mdi:light-switch
-  
-card:
-  type: custom:fold-entity-row
-  head:
-    entity: switch.mqtt_[[switch]]_light
-    name : '[[name]]'
-    icon: '[[icon]]'
-  items:
-    - entity: sensor.tasmota_[[switch]]_light_uptime
-      name : Uptime
-      icon: none
-    - entity: sensor.tasmota_[[switch]]_light_version
-      name : Version
-      icon: none
+tasmota_switch:
+
+  default:
+    icon: mdi:light-switch
+    
+  card:
+    type: custom:fold-entity-row
+    head:
+      entity: switch.mqtt_[[switch]]_light
+      name : '[[name]]'
+      icon: '[[icon]]'
+    items:
+      - entity: sensor.tasmota_[[switch]]_light_uptime
+        name : Uptime
+        icon: none
+      - entity: sensor.tasmota_[[switch]]_light_version
+        name : Version
+        icon: none

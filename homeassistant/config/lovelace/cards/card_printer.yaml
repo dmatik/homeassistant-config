@@ -87,14 +87,14 @@ cards:
             ha-card {
               border-radius: var(--border-radius);
               overflow: hidden;
+              padding: 5px;
             }
           columns: 2
           title_position: 'inside'
           #icon: mdi:harddisk
           icon_position: 'off'
           unit_of_measurement: "%"
-          align: split  
-          padding: 5px   
+          align: split    
           entities:
             - entity: sensor.mfc_j650dw_black_ink_remaining
               title: Black

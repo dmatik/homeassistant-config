@@ -35,7 +35,7 @@ cards:
         template: shoulder_blank_card
 
       - type: custom:decluttering-card
-        template: coronavirus
+        template: coronavirus_graph
         variables:
           - country: israel
 

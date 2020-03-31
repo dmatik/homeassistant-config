@@ -39,6 +39,7 @@ cards:
           ha-card {
             border-radius: var(--border-radius);
             overflow: hidden;
+            padding: 5px;
           }       
         columns: 1
         title_position: 'inside'
@@ -46,7 +47,6 @@ cards:
         icon_position: 'inside'
         unit_of_measurement: "%"
         align: split
-        padding: 4px
         width: 100%
         severity:
           - value: 10

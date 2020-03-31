@@ -1,6 +1,8 @@
-default:
-  - content: "Test"
+markdown:
 
-card:
-  type: markdown
-  content: '[[content]]'
+  default:
+    - content: "Test"
+
+  card:
+    type: markdown
+    content: '[[content]]'

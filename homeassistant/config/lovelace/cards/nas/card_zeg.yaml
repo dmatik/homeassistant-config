@@ -40,10 +40,9 @@ cards:
             ha-card {
               border-radius: var(--border-radius);
               overflow: hidden;
-            }
+              padding: 5px;
           title_position: 'inside'
           show_icon: true
-          padding: 5px
           width: 100%
           icon_position: 'inside'
           unit_of_measurement: "%"

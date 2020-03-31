@@ -2,10 +2,10 @@ title: Home
 
 custom_header:
     tab_container_css: 'padding-bottom: 35px'
-    #header_text: '{{ viewTitle }}'
-    split_mode: false
-    compact_mode: true
-    footer_mode: true
+    header_text: '{{ viewTitle }}'
+    split_mode: true
+    compact_mode: false
+    footer_mode: false
     indicator_top: true
     #background: 'var(--cch-background)'
     voice_hide: true
@@ -22,7 +22,8 @@ custom_header:
 
 # Button card templates  
 decluttering_templates:
-  !include /config/lovelace/decluttering_templates/decluttering_templates.yaml
+  #!include /config/lovelace/decluttering_templates/decluttering_templates.yaml
+  !include_dir_merge_named /config/lovelace/decluttering_templates/
 
 button_card_templates:
   !include /config/lovelace/button_card_templates/button_card_templates.yaml

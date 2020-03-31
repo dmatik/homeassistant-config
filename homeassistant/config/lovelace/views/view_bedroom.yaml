@@ -5,7 +5,7 @@ path: bedroom
 cards:
 
     #- !include /config/lovelace/cards/card_home_button.yaml
-    - !include /config/lovelace/cards/view_titles/card_view_title_bedroom.yaml
+    #- !include /config/lovelace/cards/view_titles/card_view_title_bedroom.yaml
 
     - !include /config/lovelace/cards/lights/card_lights_bedroom.yaml
 

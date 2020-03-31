@@ -1,33 +1,35 @@
-default:
-  - color: var(--button-card-input-select-background)
-  - color_type: card
-  - show_name: true
-  - show_icon: false
-  - font_size: 28px
-  - font-weight: normal
+simple_select_button:
 
-card:
-  type: custom:decluttering-card
-  template: simple_button
-  variables:
-    - entity: '[[entity]]'
-    - name: '[[name]]'
-    - icon: '[[icon]]'
-    - color_type: '[[color_type]]'
-    - show_name: '[[show_name]]'
-    - show_icon: '[[show_icon]]'
-    - font_size: '[[font_size]]'
-    - font-weight: '[[font-weight]]'
-    - tap_action: 
-        action: call-service
-        service: input_select.select_option
-        service_data:
-          entity_id: '[[entity]]'
-          option: '[[option]]'
-    - hold_action:
-        action: none
-    - state:
-        - value: '[[option]]'
-          styles:
-            card:
-              - background-color: '[[color]]'
+  default:
+    - color: var(--button-card-input-select-background)
+    - color_type: card
+    - show_name: true
+    - show_icon: false
+    - font_size: 28px
+    - font-weight: normal
+
+  card:
+    type: custom:decluttering-card
+    template: simple_button
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - icon: '[[icon]]'
+      - color_type: '[[color_type]]'
+      - show_name: '[[show_name]]'
+      - show_icon: '[[show_icon]]'
+      - font_size: '[[font_size]]'
+      - font-weight: '[[font-weight]]'
+      - tap_action: 
+          action: call-service
+          service: input_select.select_option
+          service_data:
+            entity_id: '[[entity]]'
+            option: '[[option]]'
+      - hold_action:
+          action: none
+      - state:
+          - value: '[[option]]'
+            styles:
+              card:
+                - background-color: '[[color]]'

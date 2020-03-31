@@ -1,25 +1,27 @@
-default:
-  - color: var(--button-color-green)
-  - color_type: card
+simple_script_button:
 
-card:
-  type: custom:decluttering-card
-  template: simple_button
-  variables:
-    - entity: '[[entity]]'
-    - name: '[[name]]'
-    - icon: '[[icon]]'
-    - color: '[[color]]'
-    - color_type: '[[color_type]]'
-    - tap_action: 
-        action: call-service
-        service: script.turn_on
-        service_data:
-          entity_id: '[[entity]]'
-    - hold_action:
-        action: none
-    - state:
-        - value: "on"
-          styles:
-            card:
-              - background-color: '[[color]]'
+  default:
+    - color: var(--button-color-green)
+    - color_type: card
+
+  card:
+    type: custom:decluttering-card
+    template: simple_button
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - icon: '[[icon]]'
+      - color: '[[color]]'
+      - color_type: '[[color_type]]'
+      - tap_action: 
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: '[[entity]]'
+      - hold_action:
+          action: none
+      - state:
+          - value: "on"
+            styles:
+              card:
+                - background-color: '[[color]]'

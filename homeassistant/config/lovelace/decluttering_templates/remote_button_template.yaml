@@ -1,30 +1,32 @@
-default:
-  - color: 'var(--remote-button-background)'
-  - icon_color: 'var(--remote-button-icon)'
-  - border_radius: 'var(--remote-button-border-radius)'
+remote_button:
 
-card:
+  default:
+    - color: 'var(--remote-button-background)'
+    - icon_color: 'var(--remote-button-icon)'
+    - border_radius: 'var(--remote-button-border-radius)'
 
-  type: custom:button-card
-  name: '[[name]]'
-  icon: '[[icon]]'  
-  color_type: card
-  #color: '[[color]]'
-  show_state: false
-  show_label: false
-  show_name: false
-  layout: vertical
-  styles:
-    card:
-      - border-radius: '[[border_radius]]'
-      - background-color: '[[color]]'
-    img_cell:
-      - color: '[[icon_color]]'
-  tap_action:
-    action: call-service
-    service: remote.send_command
-    service_data:
-      entity_id: remote.[[remote]]
-      command:
-          - '[[command]]'
-      device: '[[device]]'      
+  card:
+
+    type: custom:button-card
+    name: '[[name]]'
+    icon: '[[icon]]'  
+    color_type: card
+    #color: '[[color]]'
+    show_state: false
+    show_label: false
+    show_name: false
+    layout: vertical
+    styles:
+      card:
+        - border-radius: '[[border_radius]]'
+        - background-color: '[[color]]'
+      img_cell:
+        - color: '[[icon_color]]'
+    tap_action:
+      action: call-service
+      service: remote.send_command
+      service_data:
+        entity_id: remote.[[remote]]
+        command:
+            - '[[command]]'
+        device: '[[device]]'      

@@ -1,29 +1,31 @@
-default:
-  - text_color: var(--picture-elements-text-color)
+harmony_elements:
 
-card:
-  type: picture-elements
-  style: |
-    ha-card {
-      border-radius: var(--border-radius);
-      overflow: hidden;
-    }              
-  image: '[[image_on]]'
-  elements:
-    - type: image
-      entity: sensor.[[name]]_tv
-      image: '[[image_on]]'
-      state_image:
-        "Off": '[[image_off]]'
-      style:
-        top: 50%
-        left: 50%
-        width: 100%
-    - type: state-label
-      entity: sensor.[[name]]_tv
-      style:
-        top: 85%
-        left: 82%
-        font-size: 24px
-        color: '[[text_color]]'
-        text-transform: lowercase
+  default:
+    - text_color: var(--picture-elements-text-color)
+
+  card:
+    type: picture-elements
+    style: |
+      ha-card {
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }              
+    image: '[[image_on]]'
+    elements:
+      - type: image
+        entity: sensor.[[name]]_tv
+        image: '[[image_on]]'
+        state_image:
+          "Off": '[[image_off]]'
+        style:
+          top: 50%
+          left: 50%
+          width: 100%
+      - type: state-label
+        entity: sensor.[[name]]_tv
+        style:
+          top: 85%
+          left: 82%
+          font-size: 24px
+          color: '[[text_color]]'
+          text-transform: lowercase

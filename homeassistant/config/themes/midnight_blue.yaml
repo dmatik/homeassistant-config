@@ -7,7 +7,9 @@ Midnight Blue:
       background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
 
 # My Styles
-      border-radius: 10px
+      ha-card-border-radius: 10px
+      bar-card-border-radius: 5px
+      border-radius: 'var(--ha-card-border-radius)'
       picture-elements-text-color: '#F0F0F0'                                          # Picture Element card text color
       picture-elements-icon-color: '#F0F0F0'                                          # Picture Element card icon color
       sensibo-cool-color: 'rgba(43, 154, 249, 0.7)'                                   # Sensibo cool color

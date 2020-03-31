@@ -46,14 +46,14 @@ rest_command: !include_dir_merge_named /config/entities/rest_commands/
 lovelace:
   mode: yaml
   resources: !include /config/lovelace/resources.yaml
-  dashboards:
-    lovelace-wallpanel:
-      mode: yaml
-      filename: ui-wallpanel.yaml
-      title: "Wall Panel"
-      icon: mdi:view-dashboard
-      show_in_sidebar: true
-      require_admin: false
+  # dashboards:
+  #   lovelace-wallpanel:
+  #     mode: yaml
+  #     filename: ui-wallpanel.yaml
+  #     title: "Wall Panel"
+  #     icon: mdi:view-dashboard
+  #     show_in_sidebar: true
+  #     require_admin: false
 
 # switcher_aio:
 #   phone_id: !secret switcher_phone_id

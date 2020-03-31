@@ -5,7 +5,7 @@ path: living_room
 cards:
 
     #- !include /config/lovelace/cards/card_home_button.yaml
-    - !include /config/lovelace/cards/view_titles/card_view_title_living_room.yaml
+    #- !include /config/lovelace/cards/view_titles/card_view_title_living_room.yaml
 
     - !include /config/lovelace/cards/lights/card_lights_living_room.yaml
     

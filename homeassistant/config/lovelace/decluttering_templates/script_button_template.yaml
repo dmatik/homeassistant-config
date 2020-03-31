@@ -1,37 +1,39 @@
-default:
-  - cust_1_field: "Script"
-  - cust_2_field: ""
-  - color: var(--button-color-green)
-  - color_type: card
+script_button:
 
-card:
-  type: custom:decluttering-card
-  template: button
-  variables:
-    - entity: '[[entity]]'
-    - name: '[[name]]'
-    - icon: '[[icon]]'
-    - color: '[[color]]'
-    - lock: '[[lock]]'
-    - color_type: '[[color_type]]'
-    - corner_text_color: ""
-    - corner_icon_color: ""
-    - cust_1_text_color: "[[cust_1_text_color]]"
-    - cust_1_icon_color: "[[cust_1_icon_color]]"
-    - cust_2_text_color: "[[cust_2_text_color]]"
-    - cust_2_icon_color: "[[cust_2_icon_color]]"
-    - corner_field: ""
-    - cust_1_field: "[[cust_1_field]]"
-    - cust_2_field: "[[cust_2_field]]"
-    - tap_action: 
-        action: call-service
-        service: script.turn_on
-        service_data:
-          entity_id: '[[entity]]'
-    - hold_action:
-        action: none
-    - state:
-        - value: "on"
-          styles:
-            card:
-              - background-color: '[[color]]'
+  default:
+    - cust_1_field: "Script"
+    - cust_2_field: ""
+    - color: var(--button-color-green)
+    - color_type: card
+
+  card:
+    type: custom:decluttering-card
+    template: button
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - icon: '[[icon]]'
+      - color: '[[color]]'
+      - lock: '[[lock]]'
+      - color_type: '[[color_type]]'
+      - corner_text_color: ""
+      - corner_icon_color: ""
+      - cust_1_text_color: "[[cust_1_text_color]]"
+      - cust_1_icon_color: "[[cust_1_icon_color]]"
+      - cust_2_text_color: "[[cust_2_text_color]]"
+      - cust_2_icon_color: "[[cust_2_icon_color]]"
+      - corner_field: ""
+      - cust_1_field: "[[cust_1_field]]"
+      - cust_2_field: "[[cust_2_field]]"
+      - tap_action: 
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: '[[entity]]'
+      - hold_action:
+          action: none
+      - state:
+          - value: "on"
+            styles:
+              card:
+                - background-color: '[[color]]'

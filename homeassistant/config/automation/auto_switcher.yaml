@@ -1,39 +1,39 @@
-- alias: 'Minutes Input Select synch'
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: input_select.switcher_timer_minutes_input_select
-    - platform: homeassistant
-      event: start
-  action:
-    - service: input_select.select_option
-      data_template:
-        entity_id: switcher_aio.timer_minutes_input_select
-        option: "{{ states('input_select.switcher_timer_minutes_input_select') }}"
+# - alias: 'Minutes Input Select synch'
+#   initial_state: 'true'
+#   trigger:
+#     - platform: state
+#       entity_id: input_select.switcher_timer_minutes_input_select
+#     - platform: homeassistant
+#       event: start
+#   action:
+#     - service: input_select.select_option
+#       data_template:
+#         entity_id: switcher_aio.timer_minutes_input_select
+#         option: "{{ states('input_select.switcher_timer_minutes_input_select') }}"
 
 
 - alias: 'Switcher ON Notification'
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: switch.switcher_aio_switch
+      entity_id: switch.switcher_webapi
       to: "on"
   action:
-    - wait_template: "{{ not is_state('sensor.switcher_aio_auto_off_time', 'off') }}"
+    - wait_template: "{{ not is_state('sensor.switcher_webapi_auto_off_time', 'off') }}"
     - service: notify.dimatelegram
       data_template:
         title: 'Boiler'
-        message: "ON\nAuto off {{ states('sensor.switcher_aio_auto_off_time') }}."  
+        message: "ON\nAuto off {{ states('sensor.switcher_webapi_auto_off_time') }}."  
 
 
 - alias: 'Switcher OFF Notification'
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: switch.switcher_aio_switch
+      entity_id: switch.switcher_webapi
       to: "off"
   action:
-    - wait_template: "{{ is_state('sensor.switcher_aio_auto_off_time', 'off') }}"
+    - wait_template: "{{ is_state('sensor.switcher_webapi_auto_off_time', 'off') }}"
     - service: notify.dimatelegram
       data_template:
         title: 'Boiler'
