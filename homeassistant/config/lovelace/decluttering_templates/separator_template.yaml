@@ -1,0 +1,10 @@
+separator:
+
+  default:
+    - height: 5
+    - size: 1
+
+  card:
+    type: custom:gap-card
+    height: '[[height]]'
+    size: '[[size]]'

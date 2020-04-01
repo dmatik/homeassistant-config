@@ -2,25 +2,6 @@ title: Home
 
 custom_header: 
   !include /config/lovelace/custom_header.yaml
-    # tab_container_css: 'padding-bottom: 30px'
-    # all_tabs_css: 'padding-right: 25px; --iron-icon-width: 28px; --iron-icon-height: 28px;'
-    # header_text: '{{ viewTitle }}'
-    # split_mode: true
-    # compact_mode: false
-    # footer_mode: false
-    # indicator_top: true
-    # #background: 'var(--cch-background)'
-    # voice_hide: true
-    # chevrons: false
-    # hide_help: true
-    # hide_unused: true
-    # hide_config: true
-    # # exceptions:
-    # #   - conditions:
-    # #       query_string: kiosk
-    # #     config:
-    # #       kiosk_mode: true
-
 
 # Button card templates  
 decluttering_templates:
@@ -28,7 +9,8 @@ decluttering_templates:
   !include_dir_merge_named /config/lovelace/decluttering_templates/
 
 button_card_templates:
-  !include /config/lovelace/button_card_templates/button_card_templates.yaml
+  #!include /config/lovelace/button_card_templates/button_card_templates.yaml
+  !include_dir_merge_named /config/lovelace/button_card_templates/
    
 background: var(--background-image)    
 views:
@@ -50,20 +32,6 @@ views:
     - !include /config/lovelace/views/view_work_room.yaml   
     # Hallway
     - !include /config/lovelace/views/view_hallway.yaml 
-    # Coronavirus        
-    #- !include /config/lovelace/views/view_coronavirus.yaml
-    # Devices Tab
-    #- !include /config/lovelace/views/view_devices.yaml         
-    # Sysytem Tab        
-    #- !include /config/lovelace/views/view_system.yaml
-    # Hassio Tab        
-    #- !include /config/lovelace/views/view_homeassistant.yaml
-    # Remotes Tab        
-    #- !include /config/lovelace/views/view_remotes.yaml
-    # Map Tab        
-    #- !include /config/lovelace/views/view_map.yaml
-    # Kiosk        
-    #- !include /config/lovelace/views/view_kiosk.yaml
 
 
 

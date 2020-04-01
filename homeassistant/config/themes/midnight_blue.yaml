@@ -20,7 +20,7 @@ Midnight Blue:
       #cch-background: 'rgba(67,73,84,1)' #'rgba(37, 129, 171, 1)'
       ch-background: 'rgba(67,73,84,1)' #'rgba(37, 129, 171, 1)'
       ch-active-tab-color: 'var(--primary-color)'
-      ch-tab-indicator-color: 'rgba(240, 240, 240, 0)'
+      ch-tab-indicator-color: 'var(--ch-active-tab-color)' #'rgba(240, 240, 240, 0)'
 
 # My Button Card Styles
       button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius

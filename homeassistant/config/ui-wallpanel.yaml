@@ -11,7 +11,7 @@ decluttering_templates:
   !include /config/lovelace/decluttering_templates/decluttering_templates.yaml
 
 button_card_templates:
-  !include /config/lovelace/button_card_templates/button_card_templates.yaml
+  !include_dir_merge_named /config/lovelace/button_card_templates/
    
 background: var(--background-image)    
 views:
