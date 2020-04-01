@@ -1,0 +1,22 @@
+title: System
+
+
+custom_header:
+  !include /config/lovelace/custom_header.yaml
+
+# Button card templates  
+decluttering_templates:
+  !include_dir_merge_named /config/lovelace/decluttering_templates/
+
+button_card_templates:
+  !include /config/lovelace/button_card_templates/button_card_templates.yaml
+   
+background: var(--background-image)    
+views:
+
+    # Hassio Tab        
+    - !include /config/lovelace/views/view_homeassistant.yaml
+    # Devices Tab
+    - !include /config/lovelace/views/view_devices.yaml         
+    # Sysytem Tab        
+    - !include /config/lovelace/views/view_system.yaml

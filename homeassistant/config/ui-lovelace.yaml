@@ -1,23 +1,25 @@
 title: Home
 
-custom_header:
-    tab_container_css: 'padding-bottom: 35px'
-    header_text: '{{ viewTitle }}'
-    split_mode: true
-    compact_mode: false
-    footer_mode: false
-    indicator_top: true
-    #background: 'var(--cch-background)'
-    voice_hide: true
-    chevrons: false
-    hide_help: true
-    hide_unused: true
-    hide_config: true
-    exceptions:
-      - conditions:
-          query_string: kiosk
-        config:
-          kiosk_mode: true
+custom_header: 
+  !include /config/lovelace/custom_header.yaml
+    # tab_container_css: 'padding-bottom: 30px'
+    # all_tabs_css: 'padding-right: 25px; --iron-icon-width: 28px; --iron-icon-height: 28px;'
+    # header_text: '{{ viewTitle }}'
+    # split_mode: true
+    # compact_mode: false
+    # footer_mode: false
+    # indicator_top: true
+    # #background: 'var(--cch-background)'
+    # voice_hide: true
+    # chevrons: false
+    # hide_help: true
+    # hide_unused: true
+    # hide_config: true
+    # # exceptions:
+    # #   - conditions:
+    # #       query_string: kiosk
+    # #     config:
+    # #       kiosk_mode: true
 
 
 # Button card templates  
@@ -35,7 +37,7 @@ views:
     - !include /config/lovelace/views/view_main.yaml
 
     # Lights
-    - !include /config/lovelace/views/view_lights.yaml
+    #- !include /config/lovelace/views/view_lights.yaml
     # Living Room
     - !include /config/lovelace/views/view_living_room.yaml
     # Kitchen
@@ -49,13 +51,13 @@ views:
     # Hallway
     - !include /config/lovelace/views/view_hallway.yaml 
     # Coronavirus        
-    - !include /config/lovelace/views/view_coronavirus.yaml
+    #- !include /config/lovelace/views/view_coronavirus.yaml
     # Devices Tab
-    - !include /config/lovelace/views/view_devices.yaml         
+    #- !include /config/lovelace/views/view_devices.yaml         
     # Sysytem Tab        
-    - !include /config/lovelace/views/view_system.yaml
+    #- !include /config/lovelace/views/view_system.yaml
     # Hassio Tab        
-    - !include /config/lovelace/views/view_homeassistant.yaml
+    #- !include /config/lovelace/views/view_homeassistant.yaml
     # Remotes Tab        
     #- !include /config/lovelace/views/view_remotes.yaml
     # Map Tab        
