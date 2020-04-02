@@ -2,6 +2,7 @@ simple_script_button:
 
   default:
     - color: var(--button-color-green)
+    - icon_color: var(--primary-text-color)
     - color_type: card
 
   card:
@@ -25,3 +26,5 @@ simple_script_button:
             styles:
               card:
                 - background-color: '[[color]]'
+              icon:
+                - color: '[[icon_color]]'

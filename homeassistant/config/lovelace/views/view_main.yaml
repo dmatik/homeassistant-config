@@ -4,7 +4,7 @@ path: main
 
 cards:
 
-    - !include /config/lovelace/cards/card_simple_weather.yaml
+    #- !include /config/lovelace/cards/card_simple_weather.yaml
 
     - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
 

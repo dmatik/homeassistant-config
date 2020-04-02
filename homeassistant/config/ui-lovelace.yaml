@@ -19,7 +19,7 @@ views:
     - !include /config/lovelace/views/view_main.yaml
 
     # Lights
-    #- !include /config/lovelace/views/view_lights.yaml
+    - !include /config/lovelace/views/view_lights.yaml
     # Living Room
     - !include /config/lovelace/views/view_living_room.yaml
     # Kitchen

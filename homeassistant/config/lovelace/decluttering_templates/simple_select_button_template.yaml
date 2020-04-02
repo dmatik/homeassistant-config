@@ -2,6 +2,7 @@ simple_select_button:
 
   default:
     - color: var(--button-card-input-select-background)
+    - text_color: var(--button-card-input-select-text)
     - color_type: card
     - show_name: true
     - show_icon: false
@@ -33,3 +34,5 @@ simple_select_button:
             styles:
               card:
                 - background-color: '[[color]]'
+              name:
+                - color: '[[text_color]]'

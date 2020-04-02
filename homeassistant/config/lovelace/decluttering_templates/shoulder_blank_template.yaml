@@ -1,0 +1,15 @@
+# Not Working!!!!
+
+shoulder_blank_card:
+
+  card:
+    type: 'custom:button-card'
+    style: |
+      ha-card {
+        overflow: hidden;
+        width: 0px;
+      }
+    color_type: blank-card
+    styles:
+      card:
+        - width: 0px

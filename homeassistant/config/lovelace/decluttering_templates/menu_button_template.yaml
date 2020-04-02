@@ -1,5 +1,8 @@
 menu_button:
 
+  default:
+    - icon_color: var(--menu-card-icon-color)
+
   card:
     type: custom:decluttering-card
     template: button
@@ -37,4 +40,12 @@ menu_button:
         - value: "on"
           styles:
             icon:
-              - color: var(--paper-item-icon-color)
+              - color: '[[icon_color]]'
+        - value: "off"
+          styles:
+            icon:
+              - color: '[[icon_color]]'
+        - value: "unavailable"
+          styles:
+            icon:
+              - color: '[[icon_color]]'

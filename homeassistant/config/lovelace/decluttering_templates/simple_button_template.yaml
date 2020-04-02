@@ -25,6 +25,8 @@ simple_button:
           styles:
             card:
               - background-color: var(--button-color-green)
+            icon:
+              - color: var(--primary-text-color)
 
   card:
     type: custom:button-card

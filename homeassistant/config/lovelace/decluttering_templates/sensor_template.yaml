@@ -51,7 +51,7 @@ sensor:
       card:
         - padding: 4%
         - font-size: 12px
-        - font-weight: bold
+        #- font-weight: bold
         - text-transform: lowercase
         - border-radius: '[[border_radius]]'
         - background-color: '[[background_color]]'

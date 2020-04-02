@@ -58,7 +58,7 @@ button:
       card:
         - padding: 8%
         - font-size: 12px
-        - font-weight: bold
+        #- font-weight: bold
         - text-transform: lowercase
         - border-radius: '[[border_radius]]'
         - background-color: '[[background_color]]'
@@ -98,7 +98,6 @@ button:
           - padding-top: 8px
           - align-self: start
           - justify-self: end
-          #- font-size: 14px
           - color: "[[corner_2_text_color]]"
           - --icon-color-sensor: "[[corner_2_icon_color]]"
         cust_1:

@@ -9,8 +9,8 @@
     - service: frontend.set_theme
       data:
         #name: "ios-dark-mode"
-        name: "Midnight Blue"
-        #name: "HomeKit"
+        #name: "Midnight Blue"
+        name: "dmatik-dark"
 
     # DIMKA status update on Startup
     - service: mqtt.publish 
