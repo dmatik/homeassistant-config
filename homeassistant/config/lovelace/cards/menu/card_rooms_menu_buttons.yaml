@@ -41,6 +41,7 @@ cards:
           - entity: light.living_room
           - name: Living Room
           - icon: mdi:sofa
+          #- icon: fas:couch
           - corner_2_field: "[[[
                   if (states['climate.living_room'].state == 'unavailable') 
                   return `<span></span>`;
@@ -84,6 +85,7 @@ cards:
           - entity: light.kitchen
           - name: Kitchen
           - icon: mdi:kettle
+          #- icon: fas:utensils
           - cust_1_field: "[[[
                   if (states['switch.switcher_webapi'].state == 'off')
                   return `<ha-icon icon='mdi:shower' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
@@ -103,6 +105,7 @@ cards:
           - entity: light.hall
           - name: Hallway
           - icon: mdi:door-open
+          #- icon: fas:door-open
           - path: hallway
 
       - type: custom:button-card
@@ -120,6 +123,7 @@ cards:
           - entity: light.bedroom
           - name: Bedroom
           - icon: mdi:bed-empty
+          #- icon: fas:bed
           - corner_2_field: "[[[
                   if (states['climate.bedroom'].state == 'unavailable') 
                   return `<span></span>`;
@@ -155,6 +159,7 @@ cards:
           - entity: light.work_room
           - name: Work Room
           - icon: mdi:desktop-classic
+          #- icon: fas:computer-speaker
           - path: work_room
           - corner_2_field: "[[[
                   return `<span><span style='text-transform: capitalize'>${states['sensor.xiaomi_work_room_temperature'].state}°C</span></span>`;                               
@@ -181,6 +186,7 @@ cards:
           - entity: light.kids_room
           - name: Kids Room
           - icon: mdi:face
+          #- icon: fas:robot
           - corner_2_field: "[[[
                   if (states['climate.kids_room'].state == 'unavailable') 
                   return `<span></span>`;

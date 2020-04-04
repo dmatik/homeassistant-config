@@ -2,6 +2,7 @@ motion_sensor:
 
   default:
     - icon: mdi:run
+    #- icon: fas:running
 
   card:
     type: custom:decluttering-card

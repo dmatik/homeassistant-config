@@ -1,0 +1,11 @@
+sensibo_thermo:
+
+  default:
+    title: ""
+
+  card:
+    type: custom:thermostat-card
+    entity: climate.[[name]]
+    small_i: true
+    title: '[[title]]'
+    step: 1

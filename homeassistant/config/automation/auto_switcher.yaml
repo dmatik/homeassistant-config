@@ -12,6 +12,12 @@
 #         option: "{{ states('input_select.switcher_timer_minutes_input_select') }}"
 
 
+############################################################################
+#                                                                          #
+#   Turn ON Notification                                                   #
+#                                                                          #
+############################################################################
+
 - alias: 'Switcher ON Notification'
   initial_state: 'true'
   trigger:
@@ -20,11 +26,50 @@
       to: "on"
   action:
     - wait_template: "{{ not is_state('sensor.switcher_webapi_auto_off_time', 'off') }}"
-    - service: notify.dimatelegram
-      data_template:
-        title: 'Boiler'
-        message: "ON\nAuto off {{ states('sensor.switcher_webapi_auto_off_time') }}."  
+    # - service: notify.dimatelegram
+    #   data_template:
+    #     title: 'Boiler'
+    #     message: "ON\nAuto off {{ states('sensor.switcher_webapi_auto_off_time') }}."
 
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Boiler"
+        message: "ON\nAuto off {{ states('sensor.switcher_webapi_auto_off_time') }}."
+        data:
+          push:
+            category: "category_switcher_off"
+
+############################################################################
+#                                                                          #
+#   Turn Off Action                                                        #
+#                                                                          #
+############################################################################
+
+- alias: Action Switcher Off
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "SWITCHER_OFF"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.switcher_webapi
+        state: "on"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.switcher_webapi
+
+
+
+############################################################################
+#                                                                          #
+#   Turn OFF Notification                                                  #
+#                                                                          #
+############################################################################
 
 - alias: 'Switcher OFF Notification'
   initial_state: 'true'
@@ -34,7 +79,138 @@
       to: "off"
   action:
     - wait_template: "{{ is_state('sensor.switcher_webapi_auto_off_time', 'off') }}"
-    - service: notify.dimatelegram
+    # - service: notify.dimatelegram
+    #   data_template:
+    #     title: 'Boiler'
+    #     message: "OFF"
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Boiler"
+        message: "OFF"
+        data:
+          push:
+            category: "category_switcher_on"
+
+
+############################################################################
+#                                                                          #
+#   Turn On for 15 min Action                                              #
+#                                                                          #
+############################################################################
+
+- alias: Action Switcher On 15 Min
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "SWITCHER_ON_15"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.switcher_webapi
+        state: "off"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.switcher_webapi
+
+    - service: rest_command.switcher_turn_on
       data_template:
-        title: 'Boiler'
-        message: "OFF"  
+        minutes: '15'
+    - service: homeassistant.update_entity
+      entity_id: sensor.switcher_webapi
+
+
+############################################################################
+#                                                                          #
+#   Turn On for 30 min Action                                              #
+#                                                                          #
+############################################################################
+
+- alias: Action Switcher On 30 Min
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "SWITCHER_ON_30"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.switcher_webapi
+        state: "off"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.switcher_webapi
+
+    - service: rest_command.switcher_turn_on
+      data_template:
+        minutes: '30'
+    - service: homeassistant.update_entity
+      entity_id: sensor.switcher_webapi
+
+
+############################################################################
+#                                                                          #
+#   Turn On for 45 min Action                                              #
+#                                                                          #
+############################################################################
+
+- alias: Action Switcher On 45 Min
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "SWITCHER_ON_45"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.switcher_webapi
+        state: "off"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.switcher_webapi
+
+    - service: rest_command.switcher_turn_on
+      data_template:
+        minutes: '45'
+    - service: homeassistant.update_entity
+      entity_id: sensor.switcher_webapi
+
+
+############################################################################
+#                                                                          #
+#   Turn On for 60 min Action                                              #
+#                                                                          #
+############################################################################
+
+- alias: Action Switcher On 60 Min
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "SWITCHER_ON_60"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.switcher_webapi
+        state: "off"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.switcher_webapi
+
+    - service: rest_command.switcher_turn_on
+      data_template:
+        minutes: '60'
+    - service: homeassistant.update_entity
+      entity_id: sensor.switcher_webapi

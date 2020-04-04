@@ -1,5 +1,6 @@
 title: Living Room
 icon: mdi:sofa
+#icon: fas:couch
 path: living_room
   
 cards:

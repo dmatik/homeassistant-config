@@ -50,6 +50,7 @@ cards:
               - entity: switch.mqtt_kids_radiator
               - name: Radiator
               - icon: mdi:radiator
+              #- icon: fas:heat
               - cust_2_field: "[[[ return `<span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span>` ]]]" 
 
           - type: "custom:button-card"

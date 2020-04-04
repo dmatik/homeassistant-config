@@ -46,7 +46,8 @@ cards:
         variables:
           - entity: scene.bedtime
           - name: Bedtime
-          - icon: mdi:hotel          
+          - icon: mdi:hotel
+          #- icon: fas:bed         
 
       # - type: custom:decluttering-card # Lights Off
       #   template: script_button
@@ -61,6 +62,7 @@ cards:
           - entity: scene.lights_off
           - name: Lights Off
           - icon: mdi:flash-off
+          #- icon: fas:lightbulb-slash
 
       - type: "custom:button-card"
         color_type: blank-card 

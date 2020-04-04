@@ -1,5 +1,6 @@
 title: Lights
 icon: mdi:lightbulb
+#icon: fas:lightbulb
 path: lights
   
 cards:

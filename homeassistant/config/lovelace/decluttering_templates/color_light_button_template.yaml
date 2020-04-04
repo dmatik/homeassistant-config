@@ -2,6 +2,7 @@ color_light_button:
 
   default:
     - icon: mdi:lightbulb
+    #- icon: fas:lightbulb
     - cust_1_field: "[[[ return entity.state ]]]"
     - cust_2_field: "[[[
         var bri = Math.round(entity.attributes.brightness / 2.55);

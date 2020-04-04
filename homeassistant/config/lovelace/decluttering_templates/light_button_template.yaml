@@ -2,6 +2,7 @@ light_button:
 
   default:
     - icon: mdi:lightbulb
+    #- icon: fas:lightbulb
     - cust_1_field: "[[[ return entity.state ]]]"
     - cust_2_field: ""
 

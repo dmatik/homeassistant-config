@@ -76,8 +76,8 @@ sensor:
         - padding-right: 0px
         - color: '[[icon_color]]'
       icon:
-        - width: 90%
-        - height: 90%
+        - width: 85% # Change to 80% for awesome
+        - height: 85% # Change to 80% for awesome
         - margin: none
       lock:
         - color: '[[lock_color]]'

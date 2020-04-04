@@ -1,5 +1,6 @@
 title: Main
 icon: mdi:home
+#icon: fas:home-lg-alt
 path: main
 
 cards:

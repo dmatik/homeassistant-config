@@ -50,6 +50,7 @@ cards:
               - entity: switch.yeelight_kitchen_strips
               - name: Lightstrip
               - icon: mdi:led-strip
+              #- icon: fas:lights-holiday
 
           - type: custom:decluttering-card # Service Balcony
             template: light_button

@@ -82,9 +82,11 @@ button:
         - padding-bottom: 0px
         - color: '[[icon_color]]'
       icon:
-        - width: 90%
-        - height: 90%
-        - margin: none
+        - width: 80%
+        - height: 80%
+        #- margin: none 
+        - margin-top: 3% # Change to 5% for awesome
+        - margin-left: 0% # Change to 5% for awesome
       lock:
         - color: '[[lock_color]]'
       custom_fields:
