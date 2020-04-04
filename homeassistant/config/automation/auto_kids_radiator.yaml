@@ -1,6 +1,6 @@
 ############################################################################
 #                                                                          #
-#   Kids Radiator                                                          #
+#   Turn On Kids Radiator                                                  #
 #                                                                          #
 ############################################################################
 
@@ -9,6 +9,10 @@
   trigger:
     - platform: time
       at: "19:00:00"
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "KIDS_RADIATOR_ON"
   condition:
     condition: and
     conditions:
@@ -19,16 +23,49 @@
     - service: switch.turn_on
       data:
         entity_id: switch.mqtt_kids_radiator
-    - service: notify.dimatelegram
+    # - service: notify.dimatelegram
+    #   data:
+    #     title: "Kids Radiator"
+    #     message: "ON"
+
+############################################################################
+#                                                                          #
+#   Turn ON Notification                                                   #
+#                                                                          #
+############################################################################
+
+- alias: 'Kids Radiator ON Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.mqtt_kids_radiator
+      to: "on"
+  action:
+    - service: notify.mobile_app_iphonexsdima
       data:
         title: "Kids Radiator"
         message: "ON"
+        data:
+          push:
+            category: "kids_radiator_off"
+
+
+
+############################################################################
+#                                                                          #
+#   Turn Off Kids Radiator                                                 #
+#                                                                          #
+############################################################################
 
 - id: turn_off_kids_radiator
   alias: 'Turn Off Kids Radiator'
   trigger:
     - platform: time
       at: "07:00:00"
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "KIDS_RADIATOR_OFF"
   condition:
     condition: and
     conditions:
@@ -39,7 +76,29 @@
     - service: switch.turn_off
       data:
         entity_id: switch.mqtt_kids_radiator
-    - service: notify.dimatelegram
+    # - service: notify.dimatelegram
+    #   data:
+    #     title: "Kids Radiator"
+    #     message: "OFF"
+
+
+############################################################################
+#                                                                          #
+#   Turn OFF Notification                                                  #
+#                                                                          #
+############################################################################
+
+- alias: 'Kids Radiator OFF Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.mqtt_kids_radiator
+      to: "off"
+  action:
+    - service: notify.mobile_app_iphonexsdima
       data:
         title: "Kids Radiator"
         message: "OFF"
+        data:
+          push:
+            category: "kids_radiator_on"
