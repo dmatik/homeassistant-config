@@ -25,6 +25,7 @@ dmatik-dark:
       # Custom Header
       ch-background: 'rgba(23, 23, 23, 0.95)'
       ch-active-tab-color: 'var(--accent-color)'
+      ch-all-tabs-color: 'var(--paper-item-icon-color)'
       ch-tab-indicator-color: 'var(--ch-active-tab-color)' #'rgba(240, 240, 240, 0)'
 
       # My Button Card Styles
@@ -42,7 +43,7 @@ dmatik-dark:
       button-color-green: 'var(--dmatik-green-color)'                                 # Button Card green background (ON mode)
       title-border-radius: 5px                                                        # Title border radius
       title-button-background: 'rgba(37, 129, 171, 0.7)'                              # Title button background color
-      title-button-text-color: 'var(--primary-text-color)'                            # Title button text color
+      title-button-text-color: 'var(--secondary-text-color)'                          # Title button text color
       remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
       remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
       remote-button-icon: 'var(--primary-text-color)'                                 # Remote button icon color
@@ -53,10 +54,11 @@ dmatik-dark:
 
       # Main colors
       primary-color: '#4A8DF6' #'rgba(74, 141, 246, 1)'                               # Header
-      accent-color: 'var(--primary-color)'                                            # Accent color
+      accent-color: '#4A8DF6'                                                         # Accent color
       dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
       light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
       app-header-background: 'var(--primary-background-color)'
+      app-header-background-color: 'var(--primary-background-color)'
 
       # Text colors                                                                  
       primary-text-color: 'var(--dmatik-white-color)'                                 # Primary text colour, here is referencing dark-primary-color                                                 # Primary text colour 
@@ -66,8 +68,8 @@ dmatik-dark:
       label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
 
       # Background colors                                                            
-      primary-background-color: 'rgba(5, 5, 5, 1)'                                    # Settings background
-      secondary-background-color: 'rgba(23, 23, 23, 1)'                               # Main card UI background  
+      primary-background-color: '#050505' #'rgba(5, 5, 5, 1)'                         # Settings background
+      secondary-background-color: '#171717' #'rgba(23, 23, 23, 1)'                    # Main card UI background  
       divider-color: 'var(--secondary-background-color)' #'rgba(61, 61, 63, 1)'       # Divider 
       card-background-color: 'var(--primary-background-color)'
 
@@ -86,7 +88,7 @@ dmatik-dark:
       paper-card-header-color: 'var(--accent-color)'                                  # Card header text colour
       paper-card-background-color: 'rgba(28, 28, 30, 1)'                              # Card background colour
       paper-dialog-background-color: 'var(--paper-card-background-color)'             # Card dialog background colour
-      paper-item-icon-color: 'rgba(129, 129, 129, 1)'                                 # Icon color
+      paper-item-icon-color: '#757479' #'rgba(129, 129, 129, 1)'                      # Icon color
       paper-item-icon-active-color: '#ffc107'                                         # Icon color active
       paper-item-icon_-_color: 'green'           
       paper-item-selected_-_background-color: 'var(--paper-card-background-color)'    # Popup item select                      
@@ -104,7 +106,11 @@ dmatik-dark:
       paper-toggle-button-checked-ink-color: 'var(--accent-color)'
       paper-toggle-button-unchecked-button-color: 'var(--disabled-text-color)'
       paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'
-      paper-toggle-button-unchecked-ink-color: 'var(--disabled-text-color)'  
+      paper-toggle-button-unchecked-ink-color: 'var(--disabled-text-color)' 
+      switch-checked-button-color: 'var(--dmatik-white-color)'
+      switch-unchecked-button-color: 'var(--dmatik-white-color)'
+      switch-checked-color: '#67CD67'
+      switch-unchecked-color: '#616065'
 
       # Sliders
       paper-slider-knob-color: 'var(--accent-color)'

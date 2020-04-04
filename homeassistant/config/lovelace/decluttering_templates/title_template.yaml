@@ -18,16 +18,16 @@ title_button_card:
       card:
         - border-radius: '[[border_radius]]'
         - background-color: '[[background_color]]'
-        - height: 20px #42px
+        - height: 16px #42px
         - box-shadow: 0px 0px 0px 0px
-        #- text-transform: uppercase
+        - text-transform: uppercase
         - padding: 0px
       name:
         - color: '[[text_color]]'
         - justify-self: start
         - padding-left: 2px #20px
-        - font-size: 18px #22px
-        - font-weight: bold
+        - font-size: 14px #22px
+        #- font-weight: bold
     tap_action:
       action: none
     hold_action:
