@@ -91,23 +91,25 @@ cards:
 
         - type: custom:bar-card
           style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              #overflow: hidden;
-              padding: 5px;
+            .card-content {
+              padding: 6px;
             }
-          columns: 2
-          title_position: 'inside'
-          icon: mdi:harddisk
-          icon_position: 'off'
+            #states > * {
+              margin-top: 0;
+            }
           unit_of_measurement: "%"
-          align: split
           color: 'rgba(117,189,111,1.0)'
+          stack: horizontal
+          positions:
+            icon: "off"
+            title: "inside"
+            value: "inside"
+            indicator: "off"
           entities:
-            - entity: sensor.dimka_hdd_usage_c
-              title: "Disk C"
-            - entity: sensor.dimka_hdd_usage_d
-              title: "Disk D"
+            - entity: sensor.dimka_hdd_usage_c #sensor.mfc_j650dw_black_ink_remaining
+              name: "Disk C"
+            - entity: sensor.dimka_hdd_usage_d #sensor.mfc_j650dw_black_ink_remaining
+              name: "Disk D"
             
         - type: custom:button-card
           template: shoulder_blank_card

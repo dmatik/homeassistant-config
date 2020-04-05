@@ -36,49 +36,57 @@ cards:
 
       - type: custom:bar-card
         style: |
-          ha-card {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            padding: 5px;
-          }       
-        columns: 1
-        title_position: 'inside'
-        show_icon: true
-        icon_position: 'inside'
+          .card-content {
+            padding: 6px;
+          }
+          #states > * {
+            margin-top: 0;
+          }
+          #card_sensor_xiaomi_button_kitchen_strip_left_battery_7 {
+            margin-bottom: 0;
+          }
         unit_of_measurement: "%"
-        align: split
-        width: 100%
+        color: 'rgba(117,189,111,1.0)'
+        stack: vertical
+        positions:
+          icon: "inside"
+          title: "inside"
+          value: "inside"
+          indicator: "off"
         severity:
-          - value: 10
-            color: '#bf4040'
-          - value: 35
-            color: '#bf9540'
-          - value: 100
-            color: 'rgba(117,189,111,1.0)'         
+          - color: '#bf4040'
+            from: 0
+            to: 10
+          - color: '#bf9540'
+            from: 11
+            to: 35
+          - color: 'rgba(117,189,111,1.0)'
+            from: 36
+            to: 100
         entities:
           - entity: sensor.xiaomi_work_room_temp_battery
-            title: Work Room Temperature Sensor
+            name: Work Room Temperature Sensor
             icon: mdi:thermometer
           - entity: sensor.xiaomi_living_room_motion_battery
-            title: Living Room Motion Sensor
+            name: Living Room Motion Sensor
             icon: mdi:run
           - entity: sensor.xiaomi_kitchen_motion_battery
-            title: Kitchen Motion Sensor
+            name: Kitchen Motion Sensor
             icon: mdi:run
           - entity: sensor.xiaomi_button_bedside_dima_battery
-            title: Dima's Bedside Button
+            name: Dima's Bedside Button
             icon: mdi:circle-outline
           - entity: sensor.xiaomi_button_bedside_galit_battery
-            title: Galit's Bedside Button
+            name: Galit's Bedside Button
             icon: mdi:circle-outline
           - entity: sensor.xiaomi_button_makeup_battery
-            title: Makeup Button
+            name: Makeup Button
             icon: mdi:circle-outline
           - entity: sensor.xiaomi_button_kitchen_strip_right_battery
-            title: Kitchen Strip Right Button
+            name: Kitchen Strip Right Button
             icon: mdi:circle-outline
           - entity: sensor.xiaomi_button_kitchen_strip_left_battery
-            title: Kitchen Strip Left Button
+            name: Kitchen Strip Left Button
             icon: mdi:circle-outline
                                  
       - type: custom:button-card

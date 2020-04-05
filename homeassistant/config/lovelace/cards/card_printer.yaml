@@ -82,32 +82,50 @@ cards:
         - type: custom:button-card
           template: shoulder_blank_card
 
-        - type: custom:bar-card
-          style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-              padding: 5px;
-            }
-          columns: 2
-          title_position: 'inside'
-          #icon: mdi:harddisk
-          icon_position: 'off'
-          unit_of_measurement: "%"
-          align: split    
-          entities:
-            - entity: sensor.mfc_j650dw_black_ink_remaining
-              title: Black
-              color: 'black'
-            - entity: sensor.mfc_j650dw_cyan_ink_remaining
-              title: Cyan
-              color: '#57DAFD'
-            - entity: sensor.mfc_j650dw_magenta_ink_remaining
-              title: Magenta
-              color: '#FF35C5'
-            - entity: sensor.mfc_j650dw_yellow_ink_remaining
-              title: Yellow
-              color: '#F9D95E'
+        - type: custom:vertical-stack-in-card
+          cards:
+            - type: custom:bar-card
+              style: |
+                .card-content {
+                  padding: 6px;
+                }
+                #states > * {
+                  margin-top: 0;
+                }
+              unit_of_measurement: "%"
+              stack: horizontal
+              positions:
+                icon: "off"
+                title: "inside"
+                value: "inside"
+                indicator: "off"
+              entities:
+                - entity: sensor.mfc_j650dw_black_ink_remaining
+                  name: Black
+                  color: 'black'
+                - entity: sensor.mfc_j650dw_cyan_ink_remaining
+                  name: Cyan
+                  color: '#57DAFD'
+            - type: custom:bar-card
+              style: |
+                .card-content {
+                  padding: 1px 6px 6px 6px;
+                }
+                #states > * {
+                  margin-top: 0;
+                }
+              unit_of_measurement: "%"
+              stack: horizontal
+              positions:
+                icon: "off"
+                title: "inside"
+              entities:
+                - entity: sensor.mfc_j650dw_magenta_ink_remaining
+                  name: Magenta
+                  color: '#FF35C5'
+                - entity: sensor.mfc_j650dw_yellow_ink_remaining
+                  name: Yellow
+                  color: '#F9D95E'
                   
         - type: custom:button-card
           template: shoulder_blank_card  

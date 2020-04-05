@@ -25,6 +25,7 @@
       authenticationRequired: true
       destructive: false
       behavior: 'default'
+
 - name: Switcher Off
   identifier: 'category_switcher_off'
   actions:

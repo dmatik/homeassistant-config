@@ -37,27 +37,34 @@ cards:
 
         - type: custom:bar-card
           style: |
-            ha-card {
-              border-radius: var(--border-radius);
-              overflow: hidden;
-              padding: 5px;
-          title_position: 'inside'
-          show_icon: true
-          width: 100%
-          icon_position: 'inside'
+            .card-content {
+              padding: 6px;
+            }
+            #states > * {
+              margin-top: 0;
+            }
+            #card_sensor_synology_zeg_memory_usage_real_2 {
+              margin-bottom: 0;
+            }
           unit_of_measurement: "%"
-          align: split
+          stack: vertical
+          positions:
+            icon: "inside"
+            title: "inside"
+            value: "inside"
+            indicator: "off"
+          unit_of_measurement: "%"
           entities:
             - entity: sensor.synology_zeg_volume_used_volume_1
-              title: HD
+              name: HD
               icon: mdi:harddisk
               color: 'rgba(117,189,111,1.0)'
             - entity: sensor.synology_zeg_cpu_load_system
-              title: CPU
+              name: CPU
               icon: mdi:chip
               color: 'rgb(43, 154, 249)'
             - entity: sensor.synology_zeg_memory_usage_real
-              title: Memory
+              name: Memory
               icon: mdi:memory
               color: 'rgb(87, 0, 127)'
                   
