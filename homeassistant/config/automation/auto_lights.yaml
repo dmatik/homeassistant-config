@@ -64,6 +64,10 @@
     - platform: sun
       event: sunset
       #offset: "-00:30:00"
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "HALLWAY_LIGHT_ON"
   condition:
     condition: and
     conditions:
@@ -74,10 +78,17 @@
     - service: light.turn_on
       data:
         entity_id: light.hall
-    - service: notify.dimatelegram
+    # - service: notify.dimatelegram
+    #   data:
+    #     title: "Hall Light"
+    #     message: "ON"
+    - service: notify.mobile_app_iphonexsdima
       data:
         title: "Hall Light"
         message: "ON"
+        data:
+          push:
+            category: "hallway_light_off"
 
 - alias: 'Turn Off Night Hall Light'
   #initial_state: 'true'
@@ -87,6 +98,10 @@
     - platform: sun
       event: sunrise
       offset: "+01:00:00"
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "HALLWAY_LIGHT_OFF"
   condition:
     condition: and
     conditions:
@@ -97,7 +112,14 @@
     - service: light.turn_off
       data:
         entity_id: light.hall
-    - service: notify.dimatelegram
+    # - service: notify.dimatelegram
+    #   data:
+    #     title: "Hall Light"
+    #     message: "OFF"
+    - service: notify.mobile_app_iphonexsdima
       data:
         title: "Hall Light"
         message: "OFF"
+        data:
+          push:
+            category: "hallway_light_on"

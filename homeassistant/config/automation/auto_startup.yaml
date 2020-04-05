@@ -19,7 +19,8 @@
         payload: ""
 
     # Startup Notification
-    - service: notify.dimatelegram 
+    #- service: notify.dimatelegram
+    - service: notify.mobile_app_iphonexsdima
       data:
         title: 'System'
         message: 'Up and Running'

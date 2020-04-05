@@ -98,7 +98,7 @@ cards:
               margin-top: 0;
             }
           unit_of_measurement: "%"
-          color: 'rgba(117,189,111,1.0)'
+          color: '#75BD6F'
           stack: horizontal
           positions:
             icon: "off"
@@ -106,9 +106,9 @@ cards:
             value: "inside"
             indicator: "off"
           entities:
-            - entity: sensor.dimka_hdd_usage_c #sensor.mfc_j650dw_black_ink_remaining
+            - entity: sensor.dimka_hdd_usage_c
               name: "Disk C"
-            - entity: sensor.dimka_hdd_usage_d #sensor.mfc_j650dw_black_ink_remaining
+            - entity: sensor.dimka_hdd_usage_d
               name: "Disk D"
             
         - type: custom:button-card

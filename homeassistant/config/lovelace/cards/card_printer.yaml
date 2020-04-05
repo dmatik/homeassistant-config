@@ -119,6 +119,8 @@ cards:
               positions:
                 icon: "off"
                 title: "inside"
+                value: "inside"
+                indicator: "off"
               entities:
                 - entity: sensor.mfc_j650dw_magenta_ink_remaining
                   name: Magenta

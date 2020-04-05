@@ -53,7 +53,6 @@ cards:
             title: "inside"
             value: "inside"
             indicator: "off"
-          unit_of_measurement: "%"
           entities:
             - entity: sensor.synology_blaze_volume_used_volume_1
               name: HD

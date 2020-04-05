@@ -1,0 +1,19 @@
+- name: Hallway Light On
+  identifier: 'hallway_light_on'
+  actions:
+    - identifier: 'HALLWAY_LIGHT_ON'
+      title: 'On'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+
+- name: Hallway Light Off
+  identifier: 'hallway_light_off'
+  actions:
+    - identifier: 'HALLWAY_LIGHT_OFF'
+      title: 'Off'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
