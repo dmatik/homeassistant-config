@@ -11,7 +11,8 @@ cards:
 
     - !include /config/lovelace/cards/iotlink/card_iotlink_dimka.yaml
 
-    - !include /config/lovelace/cards/card_printer.yaml
+    - !include /config/lovelace/cards/printer/card_printer.yaml
+    #- !include /config/lovelace/cards/printer/card_printer_alt.yaml
 
     #- !include /config/lovelace/cards/xiaomi/card_xiaomi_temp_work_room.yaml
 
