@@ -45,6 +45,9 @@ cards:
           #card_sensor_xiaomi_button_kitchen_strip_left_battery_7 {
             margin-bottom: 0;
           }
+          bar-card-iconbar {
+            color: var(--bar-card-icon-color);
+          }
         unit_of_measurement: "%"
         color: 'rgba(117,189,111,1.0)'
         stack: vertical

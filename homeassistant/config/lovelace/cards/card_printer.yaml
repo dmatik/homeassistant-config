@@ -91,6 +91,7 @@ cards:
                 }
                 #states > * {
                   margin-top: 0;
+                  margin-bottom: 0;
                 }
               unit_of_measurement: "%"
               stack: horizontal
@@ -113,6 +114,7 @@ cards:
                 }
                 #states > * {
                   margin-top: 0;
+                  margin-bottom: 0;
                 }
               unit_of_measurement: "%"
               stack: horizontal

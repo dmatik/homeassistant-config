@@ -28,6 +28,10 @@ dmatik-dark:
       ch-all-tabs-color: 'var(--paper-item-icon-color)'
       ch-tab-indicator-color: 'var(--ch-active-tab-color)' #'rgba(240, 240, 240, 0)'
 
+      # Bar Card
+      bar-card-disabled-color: 'var(--secondary-background-color)'
+      bar-card-icon-color: 'var(--primary-text-color)'
+
       # My Button Card Styles
       button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius
       button-card-background-color: 'var(--paper-card-background-color)'              # Button Card background color

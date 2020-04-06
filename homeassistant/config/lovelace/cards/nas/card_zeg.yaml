@@ -46,6 +46,9 @@ cards:
             #card_sensor_synology_zeg_memory_usage_real_2 {
               margin-bottom: 0;
             }
+            bar-card-iconbar {
+              color: var(--bar-card-icon-color);
+            }
           unit_of_measurement: "%"
           stack: vertical
           positions:
@@ -69,38 +72,6 @@ cards:
                   
         - type: custom:button-card
           template: shoulder_blank_card  
-
-  # - type: horizontal-stack
-  #   cards: 
-    
-  #       - type: custom:button-card
-  #         template: shoulder_blank_card  
-
-  #       - type: custom:vertical-stack-in-card
-  #         style: |
-  #           ha-card {
-  #             padding: 10px;
-  #           } 
-  #         cards:
-  #           - type: custom:decluttering-card
-  #             template: bar_card_single
-  #             variables:
-  #               - entity: sensor.synology_zeg_volume_used_volume_1
-  #               - name: HD
-  #               - icon: mdi:harddisk
-  #               - color: 'rgba(117,189,111,1.0)'
-  #               - unit_of_measurement: "%"
-  #           - type: custom:decluttering-card
-  #             template: bar_card_single
-  #             variables:
-  #               - entity: sensor.synology_zeg_cpu_load_system
-  #               - name: CPU
-  #               - icon: mdi:chip
-  #               - color: 'rgb(43, 154, 249)'
-  #               - unit_of_measurement: "%"
-                  
-  #       - type: custom:button-card
-  #         template: shoulder_blank_card  
 
 
   - !include /config/lovelace/styles/separator_card.yaml

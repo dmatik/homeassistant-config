@@ -46,6 +46,9 @@ cards:
             #card_sensor_synology_blaze_memory_usage_real_2 {
               margin-bottom: 0;
             }
+            bar-card-iconbar {
+              color: var(--bar-card-icon-color);
+            }
           unit_of_measurement: "%"
           stack: vertical
           positions:
