@@ -12,7 +12,6 @@ dmatik-dark:
 
       # My Styles
       ha-card-border-radius: 10px
-      bar-card-border-radius: 5px
       border-radius: 'var(--ha-card-border-radius)'
       picture-elements-text-color: 'var(--dmatik-white-color)'                        # Picture Element card text color
       picture-elements-icon-color: 'var(--dmatik-white-color)'                        # Picture Element card icon color
@@ -29,6 +28,7 @@ dmatik-dark:
       ch-tab-indicator-color: 'var(--ch-active-tab-color)' #'rgba(240, 240, 240, 0)'
 
       # Bar Card
+      bar-card-border-radius: 5px
       #bar-card-disabled-color: 'var(--secondary-background-color)'
       bar-card-icon-color: 'var(--primary-text-color)'
 

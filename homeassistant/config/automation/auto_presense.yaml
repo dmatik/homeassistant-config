@@ -5,7 +5,8 @@
       entity_id: device_tracker.life360_galit
       to: "home"
   action:
-    - service: notify.dimatelegram
+    #- service: notify.dimatelegram
+    - service: notify.mobile_app_iphonexsdima
       data:
         title: "Linka"
         message: "Almost home"

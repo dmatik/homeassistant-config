@@ -6,7 +6,8 @@
       entity_id: binary_sensor.updater
       to: 'on'
   action:
-    - service: notify.dimatelegram
+    #- service: notify.dimatelegram
+    - service: notify.mobile_app_iphonexsdima
       data_template:
         title: "New Version"
         message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available. \nCurrent: {{ states.sensor.ha_current_version.state }}. \nRelease notes: {{ state_attr('binary_sensor.updater', 'release_notes') }}"
@@ -23,10 +24,11 @@
     - condition: template
       value_template: "{{ (states(trigger.entity_id) | float) != 0}}"
   action:
-    service: notify.dimatelegram
-    data_template:
-      title: Updates pending in HACS
-      message: >-
-        {% for repo in state_attr(trigger.entity_id, 'repositories') %}
-          **{{ repo.display_name }}** _{{ repo["installed version"] }}_ -> _{{ repo["available version"] }}_
-        {% endfor %}
+    #- service: notify.dimatelegram
+    - service: notify.mobile_app_iphonexsdima
+      data_template:
+        title: Updates pending in HACS
+        message: >-
+          {% for repo in state_attr(trigger.entity_id, 'repositories') %}
+            {{ repo.display_name }}: {{ repo["installed version"] }} -> {{ repo["available version"] }}
+          {% endfor %}

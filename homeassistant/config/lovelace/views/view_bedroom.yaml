@@ -11,7 +11,7 @@ cards:
 
     - !include /config/lovelace/cards/ac/card_sensibo_bedroom.yaml
 
-    - !include /config/lovelace/cards/ac/card_sensibo_bedroom_thermo.yaml
+    #- !include /config/lovelace/cards/ac/card_sensibo_bedroom_thermo.yaml
 
     #- !include /config/lovelace/cards/lights/card_yeelight_bedroom.yaml
 
