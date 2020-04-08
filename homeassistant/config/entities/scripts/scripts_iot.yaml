@@ -8,8 +8,7 @@ dimka_wake:
   sequence:
     - service: wake_on_lan.send_magic_packet
       data:
-        #mac: "94:DE:80:2C:BB:EA"
-        mac: "1C:BF:CE:44:C2:0D"
+        mac: !secret dimka_mac
 
 dimka_shutdown:
   alias: "DIMKA - Shutdown"
