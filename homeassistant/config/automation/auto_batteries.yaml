@@ -9,7 +9,7 @@
       data:
         notification_id: "123451"
         title: "Work Room Temperature Sensor Battery"
-        message": "The battery is {{ state_attr('sensor.xiaomi_work_room_temperature', 'battery_level') }}%."
+        message: "The battery is {{ state_attr('sensor.xiaomi_work_room_temperature', 'battery_level') }}%."
 
 - alias: 'Kitchen Motion Sensor Battery'
   initial_state: 'true'
@@ -22,7 +22,7 @@
       data:
         notification_id: "123452"
         title: "Kitchen Motion Sensor Battery"
-        message": "The battery is {{ state_attr('binary_sensor.xiaomi_kitchen_motion', 'battery_level') }}%."
+        message: "The battery is {{ state_attr('binary_sensor.xiaomi_kitchen_motion', 'battery_level') }}%."
 
 - alias: 'Living Room Motion Sensor Battery'
   initial_state: 'true'
@@ -35,7 +35,7 @@
       data:
         notification_id: "123453"
         title: "Living Room Motion Sensor Battery"
-        message": "The battery is {{ state_attr('binary_sensor.xiaomi_living_room_motion', 'battery_level') }}%."
+        message: "The battery is {{ state_attr('binary_sensor.xiaomi_living_room_motion', 'battery_level') }}%."
 
 
 
@@ -57,7 +57,7 @@
       data:
         notification_id: "123454"
         title: "Bedside Button Dima Battery"
-        message": "The battery is {{ state_attr('binary_sensor.button_bedside_dima', 'battery_level') }}%."
+        message: "The battery is {{ state_attr('binary_sensor.button_bedside_dima', 'battery_level') }}%."
 
 - alias: 'Bedside Button Galit Battery'
   initial_state: 'true'
@@ -70,7 +70,7 @@
       data:
         notification_id: "123455"
         title: "Bedside Button Galit Battery"
-        message": "The battery is {{ state_attr('binary_sensor.button_bedside_galit', 'battery_level') }}%."
+        message: "The battery is {{ state_attr('binary_sensor.button_bedside_galit', 'battery_level') }}%."
 
 - alias: 'Makeup Button Battery'
   initial_state: 'true'
@@ -83,7 +83,7 @@
       data:
         notification_id: "123456"
         title: "Makeup Button Battery"
-        message": "The battery is {{ state_attr('binary_sensor.button_makeup', 'battery_level') }}%."
+        message: "The battery is {{ state_attr('binary_sensor.button_makeup', 'battery_level') }}%."
 
 - alias: 'Kitchen Strip Right Button Battery'
   initial_state: 'true'
@@ -96,7 +96,7 @@
       data:
         notification_id: "123457"
         title: "Kitchen Strip Right Button Battery"
-        message": "The battery is {{ state_attr('binary_sensor.button_kitchen_strip_right', 'battery_level') }}%."
+        message: "The battery is {{ state_attr('binary_sensor.button_kitchen_strip_right', 'battery_level') }}%."
 
 - alias: 'Kitchen Strip Left Button Battery'
   initial_state: 'true'
@@ -109,4 +109,4 @@
       data:
         notification_id: "123457"
         title: "Kitchen Strip Left Button Battery"
-        message": "The battery is {{ state_attr('binary_sensor.button_kitchen_strip_left', 'battery_level') }}%."
+        message: "The battery is {{ state_attr('binary_sensor.button_kitchen_strip_left', 'battery_level') }}%."
