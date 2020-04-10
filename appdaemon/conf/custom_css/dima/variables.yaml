@@ -49,10 +49,10 @@ body_includes:
 # Styles
 #
 
-white: "#fff"
+white: "#F0F0F0" #"#fff"
 red: "#ff0055"
-green: "#aaff00"
-blue: "#00aaff"
+green: "#67CD67" #"#aaff00"
+blue: "#4A8DF6" #"#00aaff"
 purple: "#aa00ff"
 yellow: "#ffff00"
 orange: "#ffaa00"
@@ -60,17 +60,18 @@ orange: "#ffaa00"
 gray_very_dark: "#333"
 gray_dark: "#444"
 gray_medium: "#666"
-gray_light: "#888"
+gray_light: "#757479" #"#888"
 
 #Page and widget defaults
 #background_style: "background-color: #444"
-background_style: "backdrop-filter: blur(60px); background-color: #444;"
+background_style: "background-color: #303032"
+#background_style: "backdrop-filter: blur(60px); background-color: #444;"
 text_style: "color: #fff"
 
 #These are used for icons and indicators
 style_inactive: "color: $gray_light"
 style_active: "color: $green"
-style_active_warn: "color: $red"
+style_active_warn: "color: $green" #"color: $red"
 style_info: "color: $blue"
 style_title: "color: $white"
 style_title2: "color: $white"

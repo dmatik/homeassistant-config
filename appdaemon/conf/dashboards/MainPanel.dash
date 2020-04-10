@@ -471,6 +471,25 @@ lights_off_script:
 
 
 
+############################################################################
+#                                                                          #
+#   Motion Sensors                                                         #
+#                                                                          #
+############################################################################
+
+living_room_motion_sensor:
+  widget_type: binary_sensor
+  entity: binary_sensor.xiaomi_living_room_motion
+  title: Living Room
+  icon_off: mdi-run
+  icon_on: mdi-run
+
+kitchen_motion_sensor:
+  widget_type: binary_sensor
+  entity: binary_sensor.xiaomi_kitchen_motion
+  title: Kitchen
+  icon_off: mdi-run
+  icon_on: mdi-run
 
 
 layout:
@@ -478,7 +497,7 @@ layout:
     - weather (3x2), sensibo_bedroom_switch_cool, sensibo_bedroom_switch_heat, bedroom_climate (2x1), living_room_volume_up_script, living_room_volume_down_script, living_room_volume_mute_script
     - sensibo_kids_room_switch_cool, sensibo_kids_room_switch_heat, kids_room_climate (1x1), kids_radiator_switch, switcher_switch, switcher_time_left_sensor, switcher_auto_off_time_sensor
     - dima_presence_mapped, galit_presence_mapped, spacer, living_room_light_switch, dining_light_switch, kitchen_light_switch, service_balcony_light_switch, spacer, switcher_turn_on_timer_script, switcher_timer_minutes_input_select 
-    - spacer (3x1), hallway_light_switch,  work_room_light_switch, kids_room_light_switch, balcony_light_switch
+    - spacer (3x1), hallway_light_switch,  work_room_light_switch, kids_room_light_switch, balcony_light_switch, spacer, living_room_motion_sensor, kitchen_motion_sensor
     - bedtime_script, lights_off_script, spacer, bedroom_light_switch, bedside_light_galit, bedside_light_dima, makeup_light_switch, spacer (2x1), refresh_main
     
     

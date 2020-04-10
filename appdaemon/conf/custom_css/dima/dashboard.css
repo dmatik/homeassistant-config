@@ -7,7 +7,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #222;
+  background-color: #050505 /* #222 */;
   font-size: 15px;
   color: #fff;
   padding: 0;
@@ -18,7 +18,7 @@ body {
 body::after
 {
   background-size:cover;
-  background-image: url(/custom_css/dima/img/background09.jpg);
+  /* background-image: url(/custom_css/dima/img/background09.jpg); */
   content: "";
   top: 0;
   left: 0;
@@ -143,10 +143,10 @@ input {
   width: 100%;
   display: table-cell;
   vertical-align: middle;
-  background-color: #444444;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;}
+  background-color:#444444;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;}
 
 .title {
   color: #fff;

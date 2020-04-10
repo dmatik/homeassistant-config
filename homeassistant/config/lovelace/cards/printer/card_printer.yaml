@@ -22,31 +22,6 @@ cards:
       - type: custom:button-card
         template: shoulder_blank_card          
 
-
-############################################################################
-#                                                                          #
-#   Colors                                                                 #
-#                                                                          #
-############################################################################
-
-  # - type: horizontal-stack
-  #   cards: 
-    
-  #       - type: custom:button-card
-  #         template: shoulder_blank_card
-
-  #       - type: entities
-  #         style: |
-  #           ha-card {
-  #             border-radius: var(--border-radius);
-  #             overflow: hidden;
-  #           }   
-  #         entities:
-  #           - sensor.mfc_j650dw_status
-
-  #       - type: custom:button-card
-  #         template: shoulder_blank_card
-
 ############################################################################
 #                                                                          #
 #   Picture with status                                                    #
@@ -82,54 +57,43 @@ cards:
         - type: custom:button-card
           template: shoulder_blank_card
 
-        - type: custom:vertical-stack-in-card
-          cards:
-            - type: custom:bar-card
-              style: |
-                .card-content {
-                  padding: 6px;
-                }
-                #states > * {
-                  margin-top: 0;
-                  margin-bottom: 0;
-                }
-              unit_of_measurement: "%"
-              stack: horizontal
-              positions:
-                icon: "off"
-                title: "inside"
-                value: "inside"
-                indicator: "off"
-              entities:
-                - entity: sensor.mfc_j650dw_black_ink_remaining
-                  name: Black
-                  color: 'black'
-                - entity: sensor.mfc_j650dw_cyan_ink_remaining
-                  name: Cyan
-                  color: '#57DAFD'
-            - type: custom:bar-card
-              style: |
-                .card-content {
-                  padding: 1px 6px 6px 6px;
-                }
-                #states > * {
-                  margin-top: 0;
-                  margin-bottom: 0;
-                }
-              unit_of_measurement: "%"
-              stack: horizontal
-              positions:
-                icon: "off"
-                title: "inside"
-                value: "inside"
-                indicator: "off"
-              entities:
-                - entity: sensor.mfc_j650dw_magenta_ink_remaining
-                  name: Magenta
-                  color: '#FF35C5'
-                - entity: sensor.mfc_j650dw_yellow_ink_remaining
-                  name: Yellow
-                  color: '#F9D95E'
+        - type: custom:bar-card
+          style: |
+            .card-content {
+              padding: 6px;
+            }
+            #states > * {
+              margin-top: 0;
+              margin-bottom: 6px;
+            }
+            #row_1 {
+              margin-bottom: 0;
+            }
+            bar-card-card {
+              margin-top: 0;
+              margin-bottom: 0;
+            }
+          unit_of_measurement: "%"
+          #stack: vertical
+          columns: 2
+          positions:
+            icon: "off"
+            title: "inside"
+            value: "inside"
+            indicator: "off"
+          entities:
+            - entity: sensor.mfc_j650dw_black_ink_remaining
+              name: Black
+              color: 'black'
+            - entity: sensor.mfc_j650dw_cyan_ink_remaining
+              name: Cyan
+              color: '#57DAFD'
+            - entity: sensor.mfc_j650dw_magenta_ink_remaining
+              name: Magenta
+              color: '#FF35C5'
+            - entity: sensor.mfc_j650dw_yellow_ink_remaining
+              name: Yellow
+              color: '#F9D95E'
                   
         - type: custom:button-card
           template: shoulder_blank_card  
