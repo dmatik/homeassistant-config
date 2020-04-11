@@ -5,9 +5,9 @@ switcher_set_auto_off_hours_slider:
     max: 23
     step: 1
     
-switcher_timer_minutes_input_number:
+switcher_timer_minutes:
     name: Timer minutes
-    initial: 15
+    #initial: 15
     min: 15
     max: 60
     step: 15

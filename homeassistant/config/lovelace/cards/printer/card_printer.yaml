@@ -64,7 +64,7 @@ cards:
             }
             #states > * {
               margin-top: 0;
-              margin-bottom: 6px;
+              margin-bottom: 8px;
             }
             #row_1 {
               margin-bottom: 0;
