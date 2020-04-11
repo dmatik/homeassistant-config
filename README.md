@@ -49,9 +49,7 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 ### Screens
 
 Mobile:
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile.png "Mobile")
-
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile_2.png "Mobile 2")
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile_dark.png "Mobile")
 
 ## HaDashboard
 
