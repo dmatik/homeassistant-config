@@ -14,4 +14,6 @@ cards:
     - !include /config/lovelace/cards/nas/card_blaze.yaml
 
     - !include /config/lovelace/cards/nas/card_zeg.yaml
+
+    - !include /config/lovelace/cards/nas/card_esense_db.yaml
  

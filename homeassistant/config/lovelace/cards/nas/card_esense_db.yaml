@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Home Assistant DB
+          - name: EarlySense DB
     
       - type: custom:button-card
         template: shoulder_blank_card         
@@ -29,28 +29,6 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
-    cards:
-      
-        - type: custom:button-card
-          template: shoulder_blank_card    
-
-        - type: custom:decluttering-card
-          template: graph
-          variables:
-              - entity: sensor.postgres_events_size
-              - name: Events
-              - icon: mdi:database
-
-        - type: custom:decluttering-card
-          template: graph
-          variables:
-              - entity: sensor.postgres_states_size
-              - name: States
-              - icon: mdi:database
-                    
-        - type: custom:button-card
-          template: shoulder_blank_card
 
   - type: horizontal-stack
     cards:
@@ -61,7 +39,7 @@ cards:
         - type: custom:decluttering-card
           template: graph
           variables:
-              - entity: sensor.postgres_db_size
+              - entity: sensor.earlysense_db_size
               - name: Full DB
               - icon: mdi:database
 

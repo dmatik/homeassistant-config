@@ -46,6 +46,8 @@ yeelight: !include /config/entities/yeelights.yaml
 binary_sensor: !include /config/entities/binary_sensors.yaml
 scene: !include_dir_merge_list /config/entities/scenes/ #scene: !include /config/entities/scenes.yaml
 rest_command: !include_dir_merge_named /config/entities/rest_commands/
+shell_command: !include_dir_merge_named /config/entities/shell_commands/
+
 
 lovelace:
   mode: yaml
@@ -79,7 +81,8 @@ lovelace:
 recorder:
   purge_interval: 1
   purge_keep_days: 3
-  db_url: !secret synology_db_connection
+  #db_url: !secret synology_db_connection
+  db_url: !secret synology_postgres_connection
   include:
     domains:
       - switcher_aio

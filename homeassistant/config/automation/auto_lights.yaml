@@ -123,3 +123,23 @@
         data:
           push:
             category: "hallway_light_on"
+
+
+
+############################################################################
+#                                                                          #
+#   Balcony Light                                                          #
+#                                                                          #
+############################################################################
+
+- alias: 'Balcony Light ON Notification'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: light.balcony
+      to: "on"
+  action:
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Balcony Light"
+        message: "ON"

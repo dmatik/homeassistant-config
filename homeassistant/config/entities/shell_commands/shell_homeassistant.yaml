@@ -1,0 +1,2 @@
+update_homeassistant_container: !secret update_homeassistant_container
+

@@ -52,6 +52,7 @@ cards:
           - automation.turn_off_kids_radiator
           - automation.ha_update_available_notification
           - automation.hacs_updates_notification
+          - automation.balcony_light_on_notification
 
       - type: custom:button-card
         template: shoulder_blank_card  
