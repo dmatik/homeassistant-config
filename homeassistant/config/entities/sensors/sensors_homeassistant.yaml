@@ -25,3 +25,19 @@
   source: docker
   image: default
   beta: false
+
+
+- platform: template
+  sensors:
+    ha_update_available:
+      friendly_name: "HA Update Available"
+      icon_template: mdi:update
+      entity_id:
+        - sensor.ha_available_version 
+        - sensor.ha_current_version
+      value_template: >-
+        {% if is_state( "sensor.ha_current_version", states('sensor.ha_available_version') ) %}
+            no
+        {% else %}
+            yes
+        {% endif %}

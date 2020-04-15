@@ -52,6 +52,9 @@ cards:
             name: Release Notes
             url: https://www.home-assistant.io/latest-release-notes/
             icon: mdi:note-multiple
+          - entity: script.update_homeassistant_container
+            icon: mdi:update
+            name: Update
 
       - type: custom:button-card
         template: shoulder_blank_card  

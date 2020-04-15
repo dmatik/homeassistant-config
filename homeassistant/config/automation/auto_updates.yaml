@@ -3,14 +3,14 @@
   alias: HA Update Available Notification
   trigger:
     - platform: state
-      entity_id: binary_sensor.updater
-      to: 'on'
+      entity_id: sensor.ha_update_available
+      to: 'yes'
   action:
     #- service: notify.dimatelegram
     - service: notify.mobile_app_iphonexsdima
       data_template:
         title: "New Version"
-        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available. \nCurrent: {{ states.sensor.ha_current_version.state }}. \nRelease notes: {{ state_attr('binary_sensor.updater', 'release_notes') }}"
+        message: "Home Assistant {{ states('sensor.ha_available_version') }} is available. \nCurrent: {{ states('sensor.ha_current_version') }}. \nRelease notes: https://www.home-assistant.io/latest-release-notes/"
 
 
 - id: hacs_updates_notification
