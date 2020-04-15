@@ -130,8 +130,8 @@ recorder:
   
 logger:
   default: info
-#  logs:
-#    homeassistant.components.websocket_api: debug
+  logs:
+    homeassistant.components.shell_command: debug
 
 input_text:
   dummy_input_text:
