@@ -10,7 +10,7 @@
     - service: notify.mobile_app_iphonexsdima
       data_template:
         title: "New Version"
-        message: "Home Assistant {{ states('sensor.ha_available_version') }} is available. \nCurrent: {{ states('sensor.ha_current_version') }}. \nRelease notes: https://www.home-assistant.io/latest-release-notes/"
+        message: "Home Assistant {{ states('sensor.ha_available_version') }} is available. \nCurrent: {{ states('sensor.ha_current_version') }}."
 
 
 - id: hacs_updates_notification
