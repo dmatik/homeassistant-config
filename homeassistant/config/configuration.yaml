@@ -60,13 +60,13 @@ lovelace:
       icon: mdi:view-dashboard
       show_in_sidebar: true
       require_admin: false
-  #   lovelace-wallpanel:
-  #     mode: yaml
-  #     filename: ui-wallpanel.yaml
-  #     title: "Wall Panel"
-  #     icon: mdi:view-dashboard
-  #     show_in_sidebar: true
-  #     require_admin: false
+    lovelace-wallpanel:
+      mode: yaml
+      filename: ui-wallpanel.yaml
+      title: "Wall Panel"
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
+      require_admin: false
 
 # switcher_aio:
 #   phone_id: !secret switcher_phone_id

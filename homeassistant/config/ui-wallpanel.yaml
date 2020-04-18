@@ -2,18 +2,21 @@ title: Wall Panel
 
 
 custom_header:
-    kiosk_mode: true
-
+  kiosk_mode: false
+  exceptions:
+    - conditions:
+        query_string: kiosk
+      config:
+        kiosk_mode: true
 
 # Button card templates  
-
 decluttering_templates:
-  !include /config/lovelace/decluttering_templates/decluttering_templates.yaml
+  !include_dir_merge_named /config/lovelace/decluttering_templates/
 
 button_card_templates:
   !include_dir_merge_named /config/lovelace/button_card_templates/
    
-background: var(--background-image)    
+background: var(--background-image)   
 views:
 
     # Kiosk        
