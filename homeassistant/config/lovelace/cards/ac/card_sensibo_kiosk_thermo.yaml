@@ -39,7 +39,7 @@ cards:
         template: sensibo_thermo
         variables:
           - name: living_room
-          - title: Living Room
+          - title: Living
 
       - type: custom:decluttering-card
         template: sensibo_thermo
@@ -63,7 +63,7 @@ cards:
         template: sensibo_thermo
         variables:
           - name: kids_room
-          - title: Kids Room
+          - title: Kids
 
       - type: "custom:button-card"
         color_type: blank-card
