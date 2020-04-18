@@ -41,9 +41,9 @@ switcher_elements:
           - type: state-label
             entity: '[[electric_current_sensor]]'
             style:
-              top: 85%
+              top: 81%
               left: 16%
-              font-size: 24px
+              font-size: 28px
               color: '[[text_color]]'
               #text-transform: lowercase
       - type: conditional
@@ -54,16 +54,16 @@ switcher_elements:
           - type: state-label
             entity: '[[time_left_sensor]]'
             style:
-              top: 85%
+              top: 81%
               left: 50%
-              font-size: 24px
+              font-size: 28px
               color: '[[text_color]]'
               text-transform: lowercase
       - type: state-label
         entity: '[[auto_off_sensor]]'
         style:
-          top: 85%
+          top: 81%
           left: 84%
-          font-size: 24px
+          font-size: 28px
           color: '[[text_color]]'
           text-transform: lowercase
