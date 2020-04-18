@@ -1,4 +1,4 @@
-switcher_elements:
+switcher_elements_kiosk_alt:
 
   default:
     - text_color: var(--picture-elements-text-color)
@@ -43,7 +43,7 @@ switcher_elements:
             style:
               top: 81%
               left: 16%
-              font-size: 24px
+              font-size: 28px
               color: '[[text_color]]'
               #text-transform: lowercase
       - type: conditional
@@ -56,7 +56,7 @@ switcher_elements:
             style:
               top: 81%
               left: 50%
-              font-size: 24px
+              font-size: 28px
               color: '[[text_color]]'
               text-transform: lowercase
       - type: state-label
@@ -64,6 +64,6 @@ switcher_elements:
         style:
           top: 81%
           left: 84%
-          font-size: 24px
+          font-size: 28px
           color: '[[text_color]]'
           text-transform: lowercase
