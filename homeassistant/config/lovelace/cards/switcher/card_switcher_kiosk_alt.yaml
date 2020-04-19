@@ -36,7 +36,9 @@ cards:
         template: shoulder_blank_card 
 
       - type: custom:decluttering-card
-        template: switcher_elements_kiosk_alt
+        template: switcher_elements
+        variables:
+          - font_size: 28px
                   
       - type: custom:button-card
         template: shoulder_blank_card
