@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Air Conditioners
+          - name: Air Conditioning
       
       - type: custom:button-card
         template: shoulder_blank_card  

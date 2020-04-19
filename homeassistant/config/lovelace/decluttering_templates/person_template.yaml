@@ -3,10 +3,14 @@ person_elements:
   default:
     - text_color: var(--picture-elements-text-color)
     - icon_color: var(--picture-elements-icon-color)
+    - font_size: 20px
+    - icon_transform: scale(0.7)
+    - icon_line_height: 33px
     - tap_action:
         action: more-info
     - hold_action:
         action: none
+
   card:
     type: picture-elements
     style: |
@@ -34,13 +38,14 @@ person_elements:
           left: 0
           bottom: 0
           pointer-events: none
-          font-size: 16px
+          font-size: '[[font_size]]'
           line-height: 24px
           color: '[[text_color]]'
           background-color: rgba(0, 0, 0, 0.3)
           width: 100%
           transform: initial
           padding: 0 8px
+          text-transform: lowercase
       - type: state-label
         entity: '[[battery]]'
         style:
@@ -48,7 +53,7 @@ person_elements:
           '[[direction]]': 0
           pointer-events: none
           transform: initial
-          font-size: 16px
+          font-size: '[[font_size]]'
           color: '[[text_color]]'
           line-height: 32px
           padding: 1px 26px
@@ -58,7 +63,7 @@ person_elements:
           top: 0
           '[[direction]]': 0
           pointer-events: none
-          transform: scale(0.8)
+          transform: '[[icon_transform]]'
           color: '[[icon_color]]'
-          line-height: 32px
+          line-height: '[[icon_line_height]]'
           padding: 8px 10px  
