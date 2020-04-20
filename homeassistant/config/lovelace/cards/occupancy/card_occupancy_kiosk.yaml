@@ -22,7 +22,7 @@ cards:
           - image_home: '/local/images/dima_2.png'
           - battery: sensor.life360_dima_battery
           - phone_icon: mdi:cellphone-iphone
-          - font_size: 22px
+          - font_size: 20px
           - icon_transform: scale(0.8)
           - icon_line_height: 32px
           # - tap_action:
@@ -39,7 +39,7 @@ cards:
           - image_home: '/local/images/galit_2.png'
           - battery: sensor.life360_galit_battery
           - phone_icon: mdi:cellphone-android
-          - font_size: 22px
+          - font_size: 20px
           - icon_transform: scale(0.8)
           - icon_line_height: 32px
           # - tap_action:

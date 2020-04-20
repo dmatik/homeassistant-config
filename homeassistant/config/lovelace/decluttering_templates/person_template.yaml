@@ -3,7 +3,7 @@ person_elements:
   default:
     - text_color: var(--picture-elements-text-color)
     - icon_color: var(--picture-elements-icon-color)
-    - font_size: 20px
+    - font_size: 18px
     - icon_transform: scale(0.7)
     - icon_line_height: 33px
     - tap_action:
