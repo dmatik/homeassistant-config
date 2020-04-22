@@ -165,6 +165,18 @@ Define Switch in HA, which uses the sensor and scripts we defined before.
                   data:
                     entity_id: script.switcher_turn_off
 
+### Automation
+Define Automation in HA, which run the script on input select change.
+
+    automation:
+      - id: switcher_time_changes
+        alias: switcher_time_changes
+        trigger:
+          - platform: state
+            entity_id: input_select.switcher_timer_minutes_input_select
+        action:
+          - service: script.switcher_turn_on_timer_script
+
 ## UI
 This is it. All that is left to define a nice UI and use all the above entities.
 But this is for another guide.
