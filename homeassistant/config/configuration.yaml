@@ -79,7 +79,7 @@ lovelace:
 #   device_password: !secret switcher_device_password
 
 recorder:
-  purge_interval: 1
+  purge_interval: 0
   purge_keep_days: 3
   #db_url: !secret synology_db_connection
   db_url: !secret synology_postgres_connection
@@ -132,6 +132,7 @@ logger:
   default: info
   logs:
     homeassistant.components.shell_command: debug
+    homeassistant.components.recorder: debug
 
 input_text:
   dummy_input_text:

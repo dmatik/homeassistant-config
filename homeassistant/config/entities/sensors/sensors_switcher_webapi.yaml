@@ -27,7 +27,15 @@
             {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
             {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
             {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
-            {{ hour | int }}h {{ min | int }}m
+            {% set min_int = min|int %}
+            {% set hour_int = hour|int %}
+            {% if hour_int == 0 and min_int == 0 %}
+                < 1 min
+            {% elif hour_int == 0 %}
+                {{ min_int }} min
+            {% else %}
+                {{ hour_int }}h {{ min_int }}m
+            {% endif %}
         {% endif %}
     
     switcher_webapi_auto_off_time:
