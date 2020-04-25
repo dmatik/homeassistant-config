@@ -44,10 +44,10 @@ Please join me in discord under the following [link](https://discord.gg/96MRxGv)
 
 ### Screens
 
-Mobile:
+Mobile:    
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile_dark.png "Mobile")
 
-Wallpanel:
+Wallpanel:     
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_kiosk.png "Wallpanel")
 
 ## HaDashboard
