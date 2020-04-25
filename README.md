@@ -1,6 +1,7 @@
 # dmatik’s Home Assistant configuration
 
-I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet on the wall. 
+I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet on the wall.    
+Please join me in discord under the following [link](https://discord.gg/96MRxGv), welcome to visit and ask questions.
 
 ## Hardware
 - Girier WiFi light switches (flashed with Tasmota)
@@ -39,7 +40,7 @@ I’m using Lovelace mostly for my mobile devices and HaDashboard for the tablet
 | Vertical Stack In Card | [github](https://github.com/custom-cards/vertical-stack-in-card) |
 | Vertical Style Card | [github](https://github.com/matisaul/vertical-style-card) |
 | Card-Mod | [github](https://github.com/thomasloven/lovelace-card-mod) |
-| Decluttering Card | [github](https://https://github.com/custom-cards/decluttering-card) |
+| Decluttering Card | [github](https://github.com/custom-cards/decluttering-card) |
 
 ### Screens
 
