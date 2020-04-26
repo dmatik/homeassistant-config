@@ -15,7 +15,7 @@
 - url: /hacsfiles/custom-header/custom-header.js
   type: module
 - url: /hacsfiles/bar-card/bar-card.js
-  type: js
+  type: module
 - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
   type: js
 - url: /hacsfiles/button-card/button-card.js

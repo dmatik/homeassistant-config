@@ -37,23 +37,17 @@ cards:
 
         - type: custom:bar-card
           style: |
-            .card-content {
-              padding: 6px;
-            }
-            #states > * {
-              margin-top: 0;
-            }
-            #card_sensor_synology_zeg_memory_usage_real_2 {
-              margin-bottom: 0;
+            #states {
+              padding: 8px;
             }
             bar-card-iconbar {
               color: var(--bar-card-icon-color);
             }
           unit_of_measurement: "%"
-          stack: vertical
+          #stack: vertical
           positions:
             icon: "inside"
-            title: "inside"
+            name: "inside"
             value: "inside"
             indicator: "off"
           entities:

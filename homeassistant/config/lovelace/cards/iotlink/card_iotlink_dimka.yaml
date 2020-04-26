@@ -91,19 +91,15 @@ cards:
 
         - type: custom:bar-card
           style: |
-            .card-content {
-              padding: 6px;
-            }
-            #states > * {
-              margin-top: 0;
-              margin-bottom: 0;
+            #states {
+              padding: 8px;
             }
           unit_of_measurement: "%"
           color: '#75BD6F'
           stack: horizontal
           positions:
             icon: "off"
-            title: "inside"
+            name: "inside"
             value: "inside"
             indicator: "off"
           entities:

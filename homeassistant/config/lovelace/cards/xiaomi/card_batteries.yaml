@@ -36,24 +36,18 @@ cards:
 
       - type: custom:bar-card
         style: |
-          .card-content {
-            padding: 6px;
-          }
-          #states > * {
-            margin-top: 0;
-          }
-          #card_sensor_xiaomi_button_kitchen_strip_left_battery_7 {
-            margin-bottom: 0;
+          #states {
+            padding: 8px;
           }
           bar-card-iconbar {
             color: var(--bar-card-icon-color);
           }
         unit_of_measurement: "%"
         color: 'rgba(117,189,111,1.0)'
-        stack: vertical
+        #stack: vertical
         positions:
           icon: "inside"
-          title: "inside"
+          name: "inside"
           value: "inside"
           indicator: "off"
         severity:
