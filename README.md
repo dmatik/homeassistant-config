@@ -1,7 +1,7 @@
 # dmatik’s Home Assistant configuration
 
 I’m using Lovelace mostly for my mobile devices and for Wallpanel tablet which some times used with HaDashboard instead.    
-Please join me in discord under the following [link](https://discord.gg/96MRxGv), welcome to visit and ask questions.
+Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg), welcome to visit and ask questions.
 
 ## Hardware
 - Girier WiFi light switches (flashed with Tasmota)
