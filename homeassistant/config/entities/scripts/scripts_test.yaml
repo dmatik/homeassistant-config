@@ -1,8 +1,0 @@
-input_datetime_test:
-    alias: Input DateTime Test
-    sequence:
-        - service: input_datetime.set_datetime
-          data_template:
-            entity_id: input_datetime.boiler_last_run
-            time: >
-              {{ ( now().timestamp() - as_timestamp(states.switch.boiler.last_changed) ) | timestamp_custom("%H:%M:%S", false) }}

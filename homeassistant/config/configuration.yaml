@@ -137,17 +137,6 @@ logger:
   logs:
     homeassistant.components.shell_command: debug
     homeassistant.components.recorder: debug
-
-input_text:
-  dummy_input_text:
-    name: Text 1
-    initial: Some Text
-
-input_datetime:
-  boiler_last_run:
-      name: Last Duration
-      has_time: true
-      has_date: false
     
     
 # Dark Sky    
