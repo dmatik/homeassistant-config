@@ -6,10 +6,11 @@ graph:
     - font_size_header: 14
     - line_width: 5
     - show_icon: true
-    - show_extrema: true
+    - show_extrema: false
     - show_fill: true
     - icon: ""
     - color: ""
+    - hours_to_show: 72
 
   card:
     type: custom:mini-graph-card
@@ -30,3 +31,4 @@ graph:
       icon: '[[show_icon]]'
       extrema: '[[show_extrema]]'
       fill: '[[show_fill]]'
+    hours_to_show: '[[hours_to_show]]'

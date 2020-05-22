@@ -51,15 +51,15 @@ cards:
             value: "inside"
             indicator: "off"
           entities:
-            - entity: sensor.synology_blaze_volume_used_volume_1
+            - entity: sensor.synology_volume_used_volume_1
               name: HD
               icon: mdi:harddisk
               color: 'rgba(117,189,111,1.0)'
-            - entity: sensor.synology_blaze_cpu_load_system
+            - entity: sensor.synology_cpu_load_system
               name: CPU
               icon: mdi:chip
               color: 'rgb(43, 154, 249)'
-            - entity: sensor.synology_blaze_memory_usage_real
+            - entity: sensor.synology_memory_usage_real
               name: Memory
               icon: mdi:memory
               color: 'rgb(87, 0, 127)'

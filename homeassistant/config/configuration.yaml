@@ -13,6 +13,9 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+  internal_url: !secret internal_url
+  external_url: !secret external_url
+
 frontend:
   themes: 
     !include_dir_merge_named themes
@@ -79,10 +82,11 @@ lovelace:
 #   device_password: !secret switcher_device_password
 
 recorder:
-  purge_interval: 1
+  #purge_interval: 1
+  auto_purge: true
   purge_keep_days: 3
-  #db_url: !secret synology_db_connection
-  db_url: !secret synology_postgres_connection
+  db_url: !secret synology_db_connection
+  #db_url: !secret synology_postgres_connection
   include:
     domains:
       - switcher_aio
@@ -138,6 +142,12 @@ input_text:
   dummy_input_text:
     name: Text 1
     initial: Some Text
+
+input_datetime:
+  boiler_last_run:
+      name: Last Duration
+      has_time: true
+      has_date: false
     
     
 # Dark Sky    
@@ -220,11 +230,11 @@ life360:
 
 wake_on_lan:
 
-tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: !secret tuya_country_code
-  platform: smart_life
+# tuya:
+#   username: !secret tuya_username
+#   password: !secret tuya_password
+#   country_code: !secret tuya_country_code
+#   platform: smart_life
 
 # docker_monitor:
 #   monitored_conditions:
@@ -238,3 +248,15 @@ ios:
   push:
     categories:
       !include_dir_merge_list /config/push_actions/
+
+synology_dsm:
+  - host: !secret synology_blaze_host
+    port: !secret synology_blaze_port
+    username: !secret synology_blaze_username
+    password: !secret synology_blaze_password
+    ssl: true
+  - host: !secret synology_zeg_host
+    port: !secret synology_zeg_port
+    username: !secret synology_zeg_username
+    password: !secret synology_zeg_password
+    ssl: true

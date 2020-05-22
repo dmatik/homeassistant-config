@@ -33,9 +33,7 @@ cards:
             cards:
               
               #- !include /config/lovelace/cards/ac/card_sensibo_living_room_kiosk.yaml
-
               #- !include /config/lovelace/cards/ac/card_sensibo_bedroom_kiosk.yaml
-
               #- !include /config/lovelace/cards/ac/card_sensibo_kids_room_kiosk.yaml
 
               - !include /config/lovelace/cards/ac/card_sensibo_kiosk_thermo.yaml

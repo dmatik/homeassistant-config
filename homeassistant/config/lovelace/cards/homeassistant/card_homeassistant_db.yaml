@@ -38,14 +38,14 @@ cards:
         - type: custom:decluttering-card
           template: graph
           variables:
-              - entity: sensor.postgres_events_size
+              - entity: sensor.events_size
               - name: Events
               - icon: mdi:database
 
         - type: custom:decluttering-card
           template: graph
           variables:
-              - entity: sensor.postgres_states_size
+              - entity: sensor.states_size
               - name: States
               - icon: mdi:database
                     
@@ -61,7 +61,7 @@ cards:
         - type: custom:decluttering-card
           template: graph
           variables:
-              - entity: sensor.postgres_db_size
+              - entity: sensor.db_size
               - name: Full DB
               - icon: mdi:database
 
