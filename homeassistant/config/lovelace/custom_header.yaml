@@ -1,5 +1,5 @@
 tab_container_css: 'padding-bottom: 30px'
-all_tabs_css: 'padding-right: 16px; padding-left: 16px; --iron-icon-width: 28px; --iron-icon-height: 28px;'
+all_tabs_css: 'padding-right: 16px; padding-left: 16px; --mdc-icon-size: 28px;'
 header_text: '{{ viewTitle }}'
 split_mode: true
 compact_mode: false

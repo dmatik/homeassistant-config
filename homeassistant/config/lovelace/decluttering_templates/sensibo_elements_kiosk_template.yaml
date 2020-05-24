@@ -10,6 +10,7 @@ sensibo_elements_kiosk:
     - icon_width: 34px
     - icon_height: 34px
     - font_size: 32px
+    - icon_size: 32px
 
   card:
     type: picture-elements
@@ -71,6 +72,7 @@ sensibo_elements_kiosk:
               color: '[[icon_color]]' #'[[cool_color]]'
               --iron-icon-width: '[[icon_width]]'
               --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[entity]]'
@@ -86,6 +88,7 @@ sensibo_elements_kiosk:
               color: '[[icon_color]]' #'[[heat_color]]'
               --iron-icon-width: '[[icon_width]]'
               --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[entity]]'
@@ -101,6 +104,7 @@ sensibo_elements_kiosk:
               color: '[[icon_color]]' #'[[fan_only_color]]'  
               --iron-icon-width: '[[icon_width]]'
               --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[entity]]'
@@ -116,6 +120,7 @@ sensibo_elements_kiosk:
               color: '[[icon_color]]' #'[[auto_color]]'
               --iron-icon-width: '[[icon_width]]'
               --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[sensor_fan]]'
@@ -133,6 +138,7 @@ sensibo_elements_kiosk:
               color: '[[icon_color]]'
               --iron-icon-width: '[[icon_width]]'
               --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[sensor_fan]]'
@@ -150,6 +156,7 @@ sensibo_elements_kiosk:
               color: '[[icon_color]]'
               --iron-icon-width: '[[icon_width]]'
               --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[sensor_fan]]'
@@ -167,6 +174,7 @@ sensibo_elements_kiosk:
               color: '[[icon_color]]'
               --iron-icon-width: '[[icon_width]]'
               --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[sensor_fan]]'
@@ -184,3 +192,4 @@ sensibo_elements_kiosk:
               color: '[[icon_color]]'
               --iron-icon-width: '[[icon_width]]'
               --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
