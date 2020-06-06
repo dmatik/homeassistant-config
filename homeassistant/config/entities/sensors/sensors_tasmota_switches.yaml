@@ -234,4 +234,32 @@
   qos: 0
 
 
+# Work Room Light Switch Version
+- platform: mqtt
+  name: "Tasmota Work Room Light Version"
+  state_topic: "stat/work_room/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/work_room/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Work Room Light Switch Uptime
+- platform: mqtt
+  name: "Tasmota Work Room Light Uptime"
+  state_topic: "stat/work_room/STATUS11"
+  value_template: >-
+    {% set uptime = value_json['StatusSTS'].Uptime  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+  availability_topic: "tele/work_room/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+
 

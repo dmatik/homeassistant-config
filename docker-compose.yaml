@@ -1,0 +1,314 @@
+version: '3.3'
+
+services:
+
+    appdaemon:
+        restart: always
+        hostname: appdaemon
+        container_name: appdaemon
+        image: acockburn/appdaemon:latest
+        network_mode: "bridge"
+        ports:
+            - "5050:5050"
+        volumes:
+            - /volume1/docker/appdaemon/conf:/conf
+        environment:
+            HA_URL: http://${ZEG_IP}:8123
+            TOKEN: ${APPDAEMON_TOKEN}
+            DASH_URL: http://${ZEG_IP}:5050
+            TZ: "Asia/Jerusalem"
+        
+    homeassistant:
+        restart: always
+        hostname: homeassistant
+        container_name: homeassistant
+        image: homeassistant/home-assistant:latest
+        environment:
+            TZ: "Asia/Jerusalem"
+        volumes:
+            - /volume1/docker/homeassistant/config:/config
+            - /var/run/docker.sock:/var/run/docker.sock
+        network_mode: "host"
+
+    mariadb:
+        restart: always
+        hostname: mariadb
+        container_name: mariadb
+        image: mariadb:latest
+        network_mode: "bridge"
+        ports:
+            - "3306:3306"
+        environment:
+            TZ: "Asia/Jerusalem"
+            MYSQL_DATABASE: TestDB
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        volumes:
+            - /volume1/docker/mariadb/config:/etc/mysql/conf.d
+            - /volume1/docker/mariadb/data:/var/lib/mysql
+        
+    phpMyAdmin:
+        restart: always
+        hostname: phpMyAdmin
+        container_name: phpMyAdmin
+        image: phpmyadmin/phpmyadmin:latest
+        network_mode: "bridge"
+        ports:
+            - "32770:80"
+        environment:
+            TZ: "Asia/Jerusalem"
+            PMA_HOST: ${ZEG_IP}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        
+    mosquitto:
+        restart: always
+        hostname: mosquitto
+        container_name: mosquitto
+        image: eclipse-mosquitto:latest
+        network_mode: "host"
+        environment:
+            TZ: "Asia/Jerusalem"
+        volumes:
+            - /volume1/docker/mqtt/log:/mqtt/log
+            - /volume1/docker/mqtt/data:/mqtt/data
+            - /volume1/docker/mqtt/config:/mqtt/config:ro
+        
+    radarr:
+        restart: always
+        hostname: radarr
+        container_name: radarr
+        image: linuxserver/radarr:latest
+        network_mode: "bridge"
+        ports:
+            - "7878:7878"
+        environment:
+            TZ: "Asia/Jerusalem"
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+        volumes:
+            - /volume1/torrent:/torrent
+            - /volume1/docker/radarr/config:/config
+        
+    sonarr:
+        restart: always
+        hostname: sonarr
+        container_name: sonarr
+        image: linuxserver/sonarr:latest
+        network_mode: "bridge"
+        ports:
+            - "8989:8989"
+            - "9898:9898"
+        environment:
+            TZ: "Asia/Jerusalem"
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+        volumes:
+            - /volume1/torrent:/torrent
+            - /volume1/docker/sonarr/config:/config
+            - /volume1/video:/video
+        
+    # watchtower:
+        # restart: always
+        # hostname: watchtower
+        # container_name: watchtower
+        # image: containrrr/watchtower:latest
+        # network_mode: "bridge"
+        # environment:
+            # TZ: "Asia/Jerusalem"
+        # volumes:
+            # - /var/run/docker.sock:/var/run/docker.sock
+        
+    portainer:
+        hostname: portainer
+        container_name: portainer
+        image: portainer/portainer:latest
+        restart: always
+        network_mode: "bridge"
+        ports:
+            - 9000:9000
+        environment:
+            TZ: "Asia/Jerusalem"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - /usr/syno/etc/certificate/system/default:/certs
+            
+    # plex:
+    #     restart: always
+    #     hostname: plex
+    #     container_name: plex
+    #     image: plexinc/pms-docker:latest
+    #     network_mode: "host"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         #VERSION: latest
+    #         PLEX_UID: ${ZEG_PUID}
+    #         PLEX_GID: ${ZEG_PGID}
+    #     volumes:
+    #         - /volume1/docker/plex/config:/config
+    #         - /volume1/docker/plex/transcode:/transcode
+    #         - /volume1/video:/video
+    #         - /volume1/torrent:/torrent
+            
+    ouroboros_zeg:
+        restart: always
+        container_name: ouroboros_zeg
+        hostname: ouroboros_zeg
+        image: pyouroboros/ouroboros:latest
+        environment:
+            CLEANUP: "true"
+            INTERVAL: 300
+            LOG_LEVEL: "info"
+            SELF_UPDATE: "true"
+            IGNORE: "homeassistant mariadb"
+            TZ: "Asia/Jerusalem"
+            NOTIFIERS: "tgram://${MY_DOCKER_BOT_TOKEN}/${TELEGRAM_CHAT_ID}"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            
+    tasmoadmin:
+        restart: always
+        container_name: tasmoadmin
+        hostname: tasmoadmin
+        image: raymondmm/tasmoadmin:latest
+        network_mode: "bridge"
+        ports:
+            - 5555:80
+        environment:
+            TZ: "Asia/Jerusalem"
+        volumes:
+            - /volume1/docker/tasmoadmin/data:/data
+            
+            
+    # ha_dockermon:
+        # container_name: ha_dockermon
+        # hostname: ha_dockermon
+        # image: philhawthorne/ha-dockermon
+        # restart: always
+        # volumes:
+          # - /var/run/docker.sock:/var/run/docker.sock
+          # - /volume1/docker/docker_mon/config:/config
+        # ports:
+          # - 8126:8126
+          
+    cloud9:
+        restart: always
+        image: linuxserver/cloud9:latest
+        container_name: cloud9
+        hostname: cloud9
+        network_mode: "bridge"
+        environment:
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+            TZ: "Asia/Jerusalem"
+        volumes:
+            - /volume1/docker:/code
+            - /var/run/docker.sock:/var/run/docker.sock
+        ports:
+            - 8000:8000
+
+    # homebridge:
+    #     image: oznu/homebridge:latest
+    #     container_name: homebridge
+    #     hostname: homebridge
+    #     restart: always
+    #     network_mode: host
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PGID: ${ZEG_PUID}
+    #         PUID: ${ZEG_PGID}
+    #         HOMEBRIDGE_CONFIG_UI: 1
+    #         HOMEBRIDGE_CONFIG_UI_PORT: 8080
+    #         DSM_HOSTNAME: "zeg"
+    #     volumes:
+    #         - /volume1/docker/homebridge:/homebridge
+
+
+    cloudflare-ddns:
+        container_name: cloudflare-ddns
+        hostname: cloudflare-ddns
+        image: hotio/cloudflare-ddns:latest
+        restart: always
+        volumes:
+            - /volume1/docker/cloudflare/config:/config
+            - /etc/localtime:/etc/localtime
+        environment:
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+            UMASK: 002
+            TZ: "Asia/Jerusalem"
+            ARGS: ""
+            INTERVAL: 300
+            DETECTION_MODE: "dig-opendns.com"
+            LOG_LEVEL: 2
+            CF_USER: ${CF_USER}
+            CF_APIKEY: ${CF_APIKEY}
+            CF_ZONES: ${CF_DOMAIN}
+            CF_HOSTS: ${CF_DOMAIN}
+            CF_RECORDTYPES: A
+        network_mode: bridge
+
+
+    switcher_webapi:
+        image: tomerfi/switcher_webapi:latest
+        container_name: switcher_webapi
+        hostname: switcher_webapi
+        restart: always
+        network_mode: bridge
+        ports:
+          - 8100:8000
+        environment:
+            CONF_DEVICE_IP_ADDR: ${SWITCHER_IP}
+            CONF_PHONE_ID: ${SWITCHER_PHONE_ID}
+            CONF_DEVICE_ID: ${SWITCHER_DEVICE_ID}
+            CONF_DEVICE_PASSWORD: ${SWITCHER_PASSWORD}
+            CONF_THROTTLE: 1.0
+        
+        
+    vscode:
+        image: linuxserver/code-server
+        container_name: vscode
+        hostname: vscode
+        restart: always
+        network_mode: bridge
+        ports:
+          - 8553:8443
+        environment:
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+            TZ: "Asia/Jerusalem"
+            PASSWORD: ${VSCODE_PASSWORD} #optional
+            #SUDO_PASSWORD: password #optional
+        volumes:
+            - /volume1/docker/vscode/config:/config
+            - /volume1/docker:/docker
+
+
+    postgres:
+        restart: always
+        hostname: postgres
+        container_name: postgres
+        image: postgres:latest
+        network_mode: bridge
+        ports:
+          - 35432:5432
+        environment:
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+            TZ: "Asia/Jerusalem"
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            #PGDATA: /var/lib/postgresql/data/pgdata
+        volumes:
+            - /volume1/docker/postgres/data:/var/lib/postgresql/data
+
+    pgadmin:
+        restart: always
+        hostname: pgadmin
+        container_name: pgadmin
+        image: dpage/pgadmin4:latest
+        network_mode: bridge
+        ports:
+          - 35050:80
+        environment:
+            TZ: "Asia/Jerusalem"
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}

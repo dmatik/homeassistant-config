@@ -3,6 +3,7 @@ sensibo_card_kiosk:
   default:
     - cool_color: var(--sensibo-cool-color)
     - heat_color: var(--sensibo-heat-color)
+    - icon_on_color: var(--primary-text-color)
     - scale: 22px
 
   card:
@@ -79,6 +80,8 @@ sensibo_card_kiosk:
                     styles:
                       card:
                         - background-color: '[[cool_color]]'
+                      icon:
+                        - color: '[[icon_on_color]]'
 
           - type: custom:decluttering-card # Heat Operation Mode
             template: simple_button
@@ -91,6 +94,8 @@ sensibo_card_kiosk:
                     styles:
                       card:
                         - background-color: '[[heat_color]]'
+                      icon:
+                        - color: '[[icon_on_color]]'
 
           - type: custom:decluttering-card # Decrease Target Temperature
             template: simple_script_button

@@ -1,5 +1,3 @@
-# Brodlink
-
 - platform: switch
   name: Living Room
   entity_id: switch.mqtt_living_room_light
@@ -38,4 +36,4 @@
   
 - platform: switch
   name: Work Room
-  entity_id: switch.tuya_work_room_light
+  entity_id: switch.mqtt_work_room_light

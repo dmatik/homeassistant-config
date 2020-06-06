@@ -86,6 +86,11 @@ cards:
               - name: Dining Light
               - switch: dining
           - type: custom:decluttering-card
+            template: tasmota_switch
+            variables:
+              - name: Work Room Light
+              - switch: work_room
+          - type: custom:decluttering-card
             template: tasmota_socket
             variables:
               - name: Kids Radiator Socket

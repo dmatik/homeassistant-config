@@ -153,8 +153,8 @@ weather:
 #  client_secret: !secret google_calendar_client_secret
 
 
-hacs:
-  token: !secret github_access_token
+# hacs:
+#   token: !secret github_access_token
 
 mqtt:
   discovery: true

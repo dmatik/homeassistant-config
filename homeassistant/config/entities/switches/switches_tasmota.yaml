@@ -184,3 +184,23 @@
   payload_available: "Online"
   payload_not_available: "Offline"
   retain: false
+
+
+############################################################################
+#                                                                          #
+#   Work Room Light Switch                                                 #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Work Room Light"
+  icon: mdi:lightbulb
+  state_topic: "stat/work_room/POWER"
+  command_topic: "cmnd/work_room/POWER"
+  availability_topic: "tele/work_room/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
