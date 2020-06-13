@@ -61,8 +61,8 @@ dmatik-dark:
       accent-color: '#4A8DF6'                                                         # Accent color
       dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
       light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
-      app-header-background: 'var(--primary-background-color)'
-      app-header-background-color: 'var(--primary-background-color)'
+      #app-header-background: 'var(--primary-background-color)'
+      app-header-background-color: '#171717'                                          # Application Header color
 
       # Text colors                                                                  
       primary-text-color: 'var(--dmatik-white-color)'                                 # Primary text colour, here is referencing dark-primary-color                                                 # Primary text colour 
