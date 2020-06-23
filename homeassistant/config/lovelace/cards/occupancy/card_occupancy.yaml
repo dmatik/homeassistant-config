@@ -16,11 +16,11 @@ cards:
       - type: custom:decluttering-card
         template: person_elements
         variables:
-          - name: life360_dima_trosman
+          - entity: person.dmatik
           - direction: left
           - image_away: '/local/images/dima_2_off.png'
           - image_home: '/local/images/dima_2.png'
-          - battery: sensor.life360_dima_battery
+          - battery: sensor.iphonexsdima_battery_level
           - phone_icon: mdi:cellphone-iphone
           # - tap_action:
           #     action: navigate
@@ -30,11 +30,11 @@ cards:
       - type: custom:decluttering-card
         template: person_elements
         variables:
-          - name: life360_galit
+          - entity: person.galit
           - direction: right
           - image_away: '/local/images/galit_2_off.png'
           - image_home: '/local/images/galit_2.png'
-          - battery: sensor.life360_galit_battery
+          - battery: sensor.sm_n960f_battery_level
           - phone_icon: mdi:cellphone-android
           # - tap_action:
           #     action: navigate

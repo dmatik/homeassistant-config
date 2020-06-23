@@ -10,3 +10,43 @@
       data:
         title: "Linka"
         message: "Almost home"
+
+- alias: 'Dima arrived to office'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphonexsdima
+      to: "Amdocs"
+  action:
+    #- service: notify.dimatelegram
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Dima"
+        message: "Arrived to office"
+    - service: google.add_event
+      data_template:
+        calendar_id: !secret work_hours_calendar_id
+        summary: Arrived to office
+        description: Arrived to office
+        start_date_time: '{{ ( now().timestamp() ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
+        end_date_time: '{{ ( now().timestamp() + 300 ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
+
+- alias: 'Dima left office'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphonexsdima
+      from: "Amdocs"
+  action:
+    #- service: notify.dimatelegram
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Dima"
+        message: "Left office"
+    - service: google.add_event
+      data_template:
+        calendar_id: !secret work_hours_calendar_id
+        summary: Left office
+        description: Left office
+        start_date_time: '{{ ( now().timestamp() ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
+        end_date_time: '{{ ( now().timestamp() + 300 ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'

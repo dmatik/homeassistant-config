@@ -43,6 +43,9 @@
         topic: "cmnd/tasmotas/STATUS"
         payload: "11"
 
+    # Fully Load URL
+    - service: rest_command.fully_load_url   
+
     # # Entrance Light Switch update status on startup
     # - service: mqtt.publish
     #   data:

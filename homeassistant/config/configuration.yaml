@@ -148,9 +148,9 @@ weather:
     longitude: !secret home_longitude    
 
 # Google    
-#google:
-#  client_id: !secret google_calendar_client_id
-#  client_secret: !secret google_calendar_client_secret
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_client_secret
 
 
 # hacs:

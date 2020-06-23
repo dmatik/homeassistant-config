@@ -1,0 +1,106 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Fully
+    
+      - type: custom:button-card
+        template: shoulder_blank_card         
+
+
+############################################################################
+#                                                                          #
+#   Versions                                                               #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+      - type: entities
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;            
+          }
+        show_header_toggle: false
+        entities:
+          - type: attribute
+            entity: sensor.fully_device_info
+            attribute: appVersionName
+            icon: mdi:clipboard-list
+            name: App Version
+          - type: attribute
+            entity: sensor.fully_device_info
+            attribute: isScreenOn
+            icon: mdi:overscan
+            name: Screen On
+          - type: attribute
+            entity: sensor.fully_device_info
+            attribute: ssid
+            icon: mdi:wifi
+            name: WiFi SSID
+          - type: attribute
+            entity: sensor.fully_device_info
+            attribute: wifiSignalLevel
+            icon: mdi:signal-variant
+            name: WiFi Signal Level
+          - type: attribute
+            entity: sensor.fully_device_info
+            attribute: batteryLevel
+            icon: mdi:battery
+            name: Battery level
+          - type: attribute
+            entity: sensor.fully_device_info
+            attribute: plugged
+            icon: mdi:battery-charging-100
+            name: Plugged
+          - type: attribute
+            entity: sensor.fully_device_info
+            attribute: ip4
+            icon: mdi:network
+            name: IP
+          - type: attribute
+            entity: sensor.fully_device_info
+            attribute: currentPage
+            icon: mdi:application
+            name: Page
+          - type: call-service
+            icon: mdi:reload
+            name: Reload URL
+            action_name: Reload
+            service: rest_command.fully_load_url
+          - type: call-service
+            icon: mdi:restart
+            name: Restart App
+            action_name: Restart
+            service: rest_command.fully_restart_app
+          - type: call-service
+            icon: mdi:cached
+            name: Clear Cache
+            action_name: Clear
+            service: rest_command.fully_clear_cache
+
+
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+
+  - !include /config/lovelace/styles/separator_card.yaml

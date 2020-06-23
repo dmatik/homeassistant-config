@@ -7,11 +7,11 @@ cards:
     #- !include /config/lovelace/cards/card_home_button.yaml
     #- !include /config/lovelace/cards/view_titles/card_view_title_homeassistant.yaml
 
-    #- !include /config/lovelace/cards/wallpanel/card_wallpanel.yaml
-
     - !include /config/lovelace/cards/homeassistant/card_ha_version.yaml
 
     - !include /config/lovelace/cards/homeassistant/card_homeassistant_db.yaml
+
+    - !include /config/lovelace/cards/wallpanel/card_fully.yaml
 
     - !include /config/lovelace/cards/homeassistant/card_automations.yaml
 

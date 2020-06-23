@@ -21,7 +21,7 @@ person_elements:
     image: '[[image_away]]'
     elements:
       - type: image
-        entity: device_tracker.[[name]]
+        entity: '[[entity]]'
         image: '[[image_away]]'
         state_image:
           "home": '[[image_home]]'     
@@ -33,7 +33,7 @@ person_elements:
           width: 100%
           heigth: 100%
       - type: state-label
-        entity: device_tracker.[[name]]
+        entity: '[[entity]]'
         style:
           left: 0
           bottom: 0
