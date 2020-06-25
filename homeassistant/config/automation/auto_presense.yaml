@@ -2,7 +2,7 @@
   #initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: device_tracker.life360_galit
+      entity_id: person.galit
       to: "home"
   action:
     #- service: notify.dimatelegram
@@ -50,3 +50,17 @@
         description: Left office
         start_date_time: '{{ ( now().timestamp() ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
         end_date_time: '{{ ( now().timestamp() + 300 ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
+
+- alias: 'Nobody home'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: group.home_residents
+      from: "home"
+      to: "not_home"
+  action:
+    #- service: notify.dimatelegram
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Home"
+        message: "Nobody home"

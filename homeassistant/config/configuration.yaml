@@ -31,7 +31,7 @@ default_config:
 tts:
   - platform: google_translate
 
-#group: !include groups.yaml
+group: !include_dir_merge_named /config/entities/groups/ #!include groups.yaml
 automation: !include_dir_merge_list automation/ #!include automations.yaml
 script: !include_dir_merge_named /config/entities/scripts/ #script: !include /config/entities/scripts.yaml
 switch: !include_dir_merge_list /config/entities/switches/ #switch: !include /config/entities/switches.yaml
@@ -198,24 +198,24 @@ notify:
 
 
 # Life360
-life360:
-  accounts:
-    - username: !secret life360_username
-      password: !secret life360_password
-  # MPH, assuming imperial units.
-  # If using metric (KPH), the equivalent would be 29.
-  driving_speed: 29
-  interval_seconds: 10
-  max_gps_accuracy: 200
-  max_update_wait:
-    minutes: 45
-  show_as_state:
-    - driving
-  # Set comm error thresholds so first is not logged,
-  # second is logged as a WARNING, and third and fourth
-  # are logged as ERRORs.
-  warning_threshold: 2
-  error_threshold: 3
+# life360:
+#   accounts:
+#     - username: !secret life360_username
+#       password: !secret life360_password
+#   # MPH, assuming imperial units.
+#   # If using metric (KPH), the equivalent would be 29.
+#   driving_speed: 29
+#   interval_seconds: 10
+#   max_gps_accuracy: 200
+#   max_update_wait:
+#     minutes: 45
+#   show_as_state:
+#     - driving
+#   # Set comm error thresholds so first is not logged,
+#   # second is logged as a WARNING, and third and fourth
+#   # are logged as ERRORs.
+#   warning_threshold: 2
+#   error_threshold: 3
 
 wake_on_lan:
 

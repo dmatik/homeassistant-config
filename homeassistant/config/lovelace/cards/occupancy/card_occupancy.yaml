@@ -25,7 +25,8 @@ cards:
           # - tap_action:
           #     action: navigate
           #     navigation_path: /lovelace/map/
-          - tap_action: none 
+          - tap_action:
+                action: more-info
 
       - type: custom:decluttering-card
         template: person_elements
@@ -39,7 +40,8 @@ cards:
           # - tap_action:
           #     action: navigate
           #     navigation_path: /lovelace/map/
-          - tap_action: none  
+          - tap_action:
+                action: more-info 
                       
       - type: custom:button-card
         template: shoulder_blank_card       

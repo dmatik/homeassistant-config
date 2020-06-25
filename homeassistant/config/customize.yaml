@@ -1,64 +1,70 @@
-# Light switches
-switch.tuya_work_room_light:
-   icon: mdi:lightbulb
-switch.tuya_hall_light:
-   icon: mdi:lightbulb
-switch.tuya_living_room_light:
-   icon: mdi:lightbulb
-switch.tuya_dining_light:
-   icon: mdi:lightbulb
-switch.tuya_kitchen_light:
-   icon: mdi:lightbulb
-switch.tuya_service_balcony_light:
-   icon: mdi:lightbulb
-switch.tuya_bedroom_light:
-   icon: mdi:lightbulb
-switch.tuya_balcony_light:
-   icon: mdi:lightbulb
-switch.tuya_entrance_light:
-   icon: mdi:lightbulb
-switch.tuya_kids_room_light:
-   icon: mdi:lightbulb
+#Persons
+person.dmatik:
+   entity_picture: '/local/images/dima.png'
+person.galit:
+   entity_picture: '/local/images/galit.png'
 
-light.bedside_yeelight_galit:
-   icon: mdi:lamp
-light.bedside_yeelight_dima:
-   icon: mdi:lamp
+# # Light switches
+# switch.tuya_work_room_light:
+#    icon: mdi:lightbulb
+# switch.tuya_hall_light:
+#    icon: mdi:lightbulb
+# switch.tuya_living_room_light:
+#    icon: mdi:lightbulb
+# switch.tuya_dining_light:
+#    icon: mdi:lightbulb
+# switch.tuya_kitchen_light:
+#    icon: mdi:lightbulb
+# switch.tuya_service_balcony_light:
+#    icon: mdi:lightbulb
+# switch.tuya_bedroom_light:
+#    icon: mdi:lightbulb
+# switch.tuya_balcony_light:
+#    icon: mdi:lightbulb
+# switch.tuya_entrance_light:
+#    icon: mdi:lightbulb
+# switch.tuya_kids_room_light:
+#    icon: mdi:lightbulb
 
-    
-# Harmony
-sensor.living_room:
-   icon: mdi:remote
-switch.baltic_tv:
-   icon: mdi:television-classic
-switch.shield_tv:
-   icon: mdi:movie
-switch.smart_tv:
-   icon: mdi:television
-script.reciever_volume_up:
-   icon: mdi:volume-plus
-script.reciever_volume_down:
-   icon: mdi:volume-minus
-script.reciever_volume_mute:
-   icon: mdi:volume-mute
+# light.bedside_yeelight_galit:
+#    icon: mdi:lamp
+# light.bedside_yeelight_dima:
+#    icon: mdi:lamp
 
     
-# Automation
-script.bedtime:
-   icon: mdi:hotel
-script.lights_off:
-   icon: mdi:flash-off
+# # Harmony
+# sensor.living_room:
+#    icon: mdi:remote
+# switch.baltic_tv:
+#    icon: mdi:television-classic
+# switch.shield_tv:
+#    icon: mdi:movie
+# switch.smart_tv:
+#    icon: mdi:television
+# script.reciever_volume_up:
+#    icon: mdi:volume-plus
+# script.reciever_volume_down:
+#    icon: mdi:volume-minus
+# script.reciever_volume_mute:
+#    icon: mdi:volume-mute
 
-# Switcher
-script.switcher_turn_on_timer_script:
-   icon: mdi:timer
-switch.boiler:
-   icon: mdi:shower   
+    
+# # Automation
+# script.bedtime:
+#    icon: mdi:hotel
+# script.lights_off:
+#    icon: mdi:flash-off
 
-# Power Sockets
-switch.tuya_ny_tree:
-   icon: mdi:pine-tree
-switch.tuya_kids_radiator:
-   icon: mdi:radiator
+# # Switcher
+# script.switcher_turn_on_timer_script:
+#    icon: mdi:timer
+# switch.boiler:
+#    icon: mdi:shower   
+
+# # Power Sockets
+# switch.tuya_ny_tree:
+#    icon: mdi:pine-tree
+# switch.tuya_kids_radiator:
+#    icon: mdi:radiator
     
     
