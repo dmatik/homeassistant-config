@@ -144,3 +144,22 @@
         title: "Balcony Light"
         message: "ON"
 
+
+
+############################################################################
+#                                                                          #
+#   Work Room Light                                                        #
+#                                                                          #
+############################################################################
+
+- alias: 'Work Room Light ON Notification'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: light.work_room
+      to: "on"
+  action:
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Work Room Light"
+        message: "ON"

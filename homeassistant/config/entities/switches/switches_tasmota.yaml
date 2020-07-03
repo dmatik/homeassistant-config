@@ -7,7 +7,8 @@
 - platform: mqtt  
   name: "MQTT Entrance Light"
   icon: mdi:lightbulb
-  state_topic: "stat/entrance/POWER"
+  state_topic: "stat/entrance/RESULT"
+  value_template: "{{ value_json.POWER }}"
   command_topic: "cmnd/entrance/POWER"
   availability_topic: "tele/entrance/LWT"
   qos: 1
@@ -28,7 +29,8 @@
 - platform: mqtt  
   name: "MQTT Living Room Light"
   icon: mdi:lightbulb
-  state_topic: "stat/living_room/POWER"
+  state_topic: "stat/living_room/RESULT"
+  value_template: "{{ value_json.POWER }}"
   command_topic: "cmnd/living_room/POWER"
   availability_topic: "tele/living_room/LWT"
   qos: 1
@@ -49,7 +51,8 @@
 - platform: mqtt  
   name: "MQTT Bedroom Light"
   icon: mdi:lightbulb
-  state_topic: "stat/bedroom/POWER"
+  state_topic: "stat/bedroom/RESULT"
+  value_template: "{{ value_json.POWER }}"
   command_topic: "cmnd/bedroom/POWER"
   availability_topic: "tele/bedroom/LWT"
   qos: 1
@@ -70,7 +73,8 @@
 - platform: mqtt  
   name: "MQTT Balcony Light"
   icon: mdi:lightbulb
-  state_topic: "stat/balcony/POWER"
+  state_topic: "stat/balcony/RESULT"
+  value_template: "{{ value_json.POWER }}"
   command_topic: "cmnd/balcony/POWER"
   availability_topic: "tele/balcony/LWT"
   qos: 1
@@ -91,7 +95,8 @@
 - platform: mqtt  
   name: "MQTT Hallway Light"
   icon: mdi:lightbulb
-  state_topic: "stat/hallway/POWER"
+  state_topic: "stat/hallway/RESULT"
+  value_template: "{{ value_json.POWER }}"
   command_topic: "cmnd/hallway/POWER"
   availability_topic: "tele/hallway/LWT"
   qos: 1
@@ -112,7 +117,8 @@
 - platform: mqtt  
   name: "MQTT Kids Room Light"
   icon: mdi:lightbulb
-  state_topic: "stat/kids_room/POWER"
+  state_topic: "stat/kids_room/RESULT"
+  value_template: "{{ value_json.POWER }}"
   command_topic: "cmnd/kids_room/POWER"
   availability_topic: "tele/kids_room/LWT"
   qos: 1
@@ -133,7 +139,8 @@
 - platform: mqtt  
   name: "MQTT Service Balcony Light"
   icon: mdi:lightbulb
-  state_topic: "stat/kitchen/POWER1"
+  state_topic: "stat/kitchen/RESULT"
+  value_template: "{{ value_json.POWER1 }}"
   command_topic: "cmnd/kitchen/POWER1"
   availability_topic: "tele/kitchen/LWT"
   qos: 1
@@ -154,7 +161,8 @@
 - platform: mqtt  
   name: "MQTT Kitchen Light"
   icon: mdi:lightbulb
-  state_topic: "stat/kitchen/POWER2"
+  state_topic: "stat/kitchen/RESULT"
+  value_template: "{{ value_json.POWER2 }}"
   command_topic: "cmnd/kitchen/POWER2"
   availability_topic: "tele/kitchen/LWT"
   qos: 1
@@ -175,7 +183,8 @@
 - platform: mqtt  
   name: "MQTT Dining Light"
   icon: mdi:lightbulb
-  state_topic: "stat/dining/POWER"
+  state_topic: "stat/dining/RESULT"
+  value_template: "{{ value_json.POWER }}"
   command_topic: "cmnd/dining/POWER"
   availability_topic: "tele/dining/LWT"
   qos: 1
@@ -195,7 +204,8 @@
 - platform: mqtt  
   name: "MQTT Work Room Light"
   icon: mdi:lightbulb
-  state_topic: "stat/work_room/POWER"
+  state_topic: "stat/work_room/RESULT"
+  value_template: "{{ value_json.POWER }}"
   command_topic: "cmnd/work_room/POWER"
   availability_topic: "tele/work_room/LWT"
   qos: 1

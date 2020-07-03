@@ -31,17 +31,17 @@
         topic: "cmnd/tasmotas/state"
         payload: ""
 
-    # Tasmota Firmware Version Check
-    - service: mqtt.publish
-      data:
-        topic: "cmnd/tasmotas/STATUS"
-        payload: "2"
+    # # Tasmota Firmware Version Check
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/tasmotas/STATUS"
+    #     payload: "2"
 
-    # Tasmota Uptime Check
-    - service: mqtt.publish
-      data:
-        topic: "cmnd/tasmotas/STATUS"
-        payload: "11"
+    # # Tasmota Uptime Check
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/tasmotas/STATUS"
+    #     payload: "11"
 
     # Fully Load URL
     - service: rest_command.fully_load_url   

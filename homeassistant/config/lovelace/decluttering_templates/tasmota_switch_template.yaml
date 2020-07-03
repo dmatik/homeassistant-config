@@ -13,6 +13,9 @@ tasmota_switch:
       - entity: sensor.tasmota_[[switch]]_light_uptime
         name : Uptime
         icon: none
+      - entity: sensor.tasmota_[[switch]]_light_wi_fi_quality
+        name : WiFi Signal
+        icon: none
       - entity: sensor.tasmota_[[switch]]_light_version
         name : Version
         icon: none

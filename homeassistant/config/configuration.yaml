@@ -81,26 +81,25 @@ lovelace:
 #   device_id: !secret switcher_device_id
 #   device_password: !secret switcher_device_password
 
+#Recorder
 recorder:
-  #purge_interval: 1
   auto_purge: true
-  purge_keep_days: 3
+  purge_keep_days: 5
   db_url: !secret synology_db_connection
-  #db_url: !secret synology_postgres_connection
   include:
     domains:
       - switcher_aio
       - switch
       - sensor
-      - device_tracker
+      - person
       - input_select
       - input_number
       - input_boolean
       - script
       - light
-      #- input_datetime
       - climate
       - binary_sensor
+      - group
   exclude:
     domains:
       - automation
@@ -132,6 +131,7 @@ recorder:
       - persistent_notifications_updated
       - config_entry_discovered
   
+#Logger
 logger:
   default: info
   logs:
@@ -176,13 +176,13 @@ climate:
 #  ssl_certificate: /config/ssl/fullchain.pem
 #  ssl_key: /config/ssl/privkey.pem
 
-# Xiaomi
-xiaomi_aqara:
-#  #discovery_retry: 5
-  gateways:
-    - key: !secret xiaomi_gateway_key
-      mac: !secret xiaomi_gateway_mac
-      host: !secret xiaomi_gateway_host
+# # Xiaomi
+# xiaomi_aqara:
+# #  #discovery_retry: 5
+#   gateways:
+#     - key: !secret xiaomi_gateway_key
+#       mac: !secret xiaomi_gateway_mac
+#       host: !secret xiaomi_gateway_host
       
 # Telegram      
 telegram_bot:

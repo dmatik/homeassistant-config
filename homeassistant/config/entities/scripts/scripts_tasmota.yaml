@@ -1,0 +1,17 @@
+############################################################################
+#                                                                          #
+#   Tasmotas STATEs sync                                                   #
+#                                                                          #
+############################################################################
+
+tasmotas_state_sync:
+    alias: Tasmotas STATEs sync
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "cmnd/tasmotas/state"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "cmnd/tasmotas/STATUS"
+          payload: "2"

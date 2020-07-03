@@ -13,6 +13,9 @@ tasmota_socket:
       - entity: sensor.tasmota_[[socket]]_power_socket_uptime
         name : Uptime
         icon: none
+      - entity: sensor.tasmota_[[socket]]_power_socket_wi_fi_quality
+        name : WiFi Signal
+        icon: none
       - entity: sensor.tasmota_[[socket]]_power_socket_version
         name : Version
         icon: none

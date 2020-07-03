@@ -1,0 +1,12 @@
+- id: 'Tasmota Firmware Installed'
+  alias: Tasmota Firmware Installed
+  trigger:
+    - platform: time
+      at: '00:00:00'
+    - platform: homeassistant
+      event: start
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/tasmotas/STATUS"
+        payload: "2"

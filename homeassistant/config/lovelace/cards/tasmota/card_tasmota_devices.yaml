@@ -95,6 +95,9 @@ cards:
             variables:
               - name: Kids Radiator Socket
               - socket: kids_radiator
+          - entity: script.tasmotas_state_sync
+            name: Sync states
+            icon: mdi:sync
 
 
       - type: custom:button-card
