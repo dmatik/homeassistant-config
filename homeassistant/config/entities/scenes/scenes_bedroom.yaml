@@ -43,16 +43,16 @@
 #                                                                          #
 ############################################################################
 
-- name: Makeup Lights On
-  entities:
-    light.makeup_yeelight_left:
-      state: on
-    light.makeup_yeelight_right:
-      state: on
+# - name: Makeup Lights On
+#   entities:
+#     light.makeup_yeelight_left:
+#       state: on
+#     light.makeup_yeelight_right:
+#       state: on
 
-- name: Makeup Lights Off
-  entities:
-    light.makeup_yeelight_left:
-      state: off
-    light.makeup_yeelight_right:
-      state: off
+# - name: Makeup Lights Off
+#   entities:
+#     light.makeup_yeelight_left:
+#       state: off
+#     light.makeup_yeelight_right:
+#       state: off

@@ -1,0 +1,40 @@
+############################################################################
+#                                                                          #
+#   Kids Radiator                                                          #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Kids Radiator"
+  icon: mdi:radiator
+  state_topic: "stat/kids_radiator/RESULT"
+  value_template: "{{ value_json.POWER }}"
+  command_topic: "cmnd/kids_radiator/POWER"
+  availability_topic: "tele/kids_radiator/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+############################################################################
+#                                                                          #
+#   Makeup                                                                 #
+#                                                                          #
+############################################################################
+
+- platform: mqtt  
+  name: "MQTT Makeup"
+  icon: mdi:track-light
+  state_topic: "stat/makeup/RESULT"
+  value_template: "{{ value_json.POWER }}"
+  command_topic: "cmnd/makeup/POWER"
+  availability_topic: "tele/makeup/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false  

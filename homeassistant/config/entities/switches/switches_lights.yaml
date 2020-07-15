@@ -100,15 +100,15 @@
 #                                                                          #
 ############################################################################
 
-    yeelight_makeup:
-        friendly_name: Makeup Light
-        icon_template: mdi:track-light
-        value_template: "{{ is_state('sensor.yeelight_makeup', 'on') }}"
-        turn_on:
-            service: scene.turn_on
-            data:
-                entity_id: scene.makeup_lights_on 
-        turn_off:
-            service: scene.turn_on
-            data:
-                entity_id: scene.makeup_lights_off
+    # yeelight_makeup:
+    #     friendly_name: Makeup Light
+    #     icon_template: mdi:track-light
+    #     value_template: "{{ is_state('sensor.yeelight_makeup', 'on') }}"
+    #     turn_on:
+    #         service: scene.turn_on
+    #         data:
+    #             entity_id: scene.makeup_lights_on 
+    #     turn_off:
+    #         service: scene.turn_on
+    #         data:
+    #             entity_id: scene.makeup_lights_off

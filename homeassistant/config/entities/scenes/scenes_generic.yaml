@@ -55,3 +55,16 @@
       state: off
     remote.living_room:
       state: off
+
+- name: Nobody Home
+  entities:
+    scene.lights_off:
+      state: on
+    remote.living_room:
+      state: off
+    climate.bedroom:
+      state: off
+    climate.kids_room:
+      state: off
+    climate.living_room:
+      state: off

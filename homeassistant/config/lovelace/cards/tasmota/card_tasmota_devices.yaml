@@ -95,6 +95,11 @@ cards:
             variables:
               - name: Kids Radiator Socket
               - socket: kids_radiator
+          - type: custom:decluttering-card
+            template: tasmota_socket
+            variables:
+              - name: Makeup Socket
+              - socket: makeup
           - entity: script.tasmotas_state_sync
             name: Sync states
             icon: mdi:sync

@@ -201,7 +201,7 @@ cards:
           - type: custom:decluttering-card # Makeup
             template: light_button
             variables:
-              - entity: switch.yeelight_makeup
+              - entity: switch.mqtt_makeup
               - name: Makeup
               - icon: mdi:track-light
 

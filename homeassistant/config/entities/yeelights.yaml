@@ -1,16 +1,16 @@
 devices:
-    10.0.0.51:
-      name: Bedroom Ceiling
-      save_on_change: true
-      model: ceiling3
-    10.0.0.31:
-      name: Makeup Yeelight left
-      save_on_change: true
-      model: color2
-    10.0.0.32:
-      name: Makeup Yeelight right
-      save_on_change: true
-      model: color2
+    # 10.0.0.51:
+    #   name: Bedroom Ceiling
+    #   save_on_change: true
+    #   model: ceiling3
+    # 10.0.0.31:
+    #   name: Makeup Yeelight left
+    #   save_on_change: true
+    #   model: color2
+    # 10.0.0.32:
+    #   name: Makeup Yeelight right
+    #   save_on_change: true
+    #   model: color2
     10.0.0.33:
       name: Kitchen Strip Left
       save_on_change: true

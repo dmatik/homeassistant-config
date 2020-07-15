@@ -86,7 +86,8 @@
   action:
     - service: switch.toggle
       data:
-        entity_id: switch.yeelight_makeup
+        #entity_id: switch.yeelight_makeup
+        entity_id: switch.mqtt_makeup
 
 
 
