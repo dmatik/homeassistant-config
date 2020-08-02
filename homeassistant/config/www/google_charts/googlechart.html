@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="loader.js"></script>
+    <script src='lodash.min.js'></script>
+    <script src='jquery.min.js'></script>
+    <style>
+     #chart {width: 100%; min-height: 315px;}
+     #status {position:relative; float:right; z-index:100;}
+    </style>
+    <script type="text/javascript">
+      // Chart refresh period in milliseconds
+      var chartrefreshtime = 5000;
+      window.setInterval(function(){init()}, chartrefreshtime);
+      function make_options(max) {
+          return {
+            title: "Power [W]",
+            bar: {groupWidth: '60%'},
+            legend: { position: 'none'},
+            titleTextStyle: {fontSize: 13, bold: false},
+            chartArea: {left:35,top:25,right: 5, width:'100%',height:'82%'},
+            tooltip: {trigger: 'selection'},
+            vAxis: {minorGridlines: {count: 2, color: '#F4F4F4'}, gridlines: {count: 6}, viewWindow: {min: 0}},
+            hAxis: {minorGridlines: {count: 2, color: '#F4F4F4'}, gridlines: {count: 6}, viewWindow: {min: 0}},
+            dataOpacity: 0.9,
+            fontSize: 11,
+            pieHole: 0.4,
+            pieSliceText: 'label',
+            pieSliceTextStyle: {fontSize:10},
+            is3D: false,
+            backgroundColor: { fill: 'white' },
+            animation:{duration: 300,easing: 'out',},
+            minorTicks: 5,
+            max: max,
+          };
+      }
+      var json = {"a": {}};
+      // Delete, change or add more variables here:
+      var router, fridge, laptop, boiler, tv, pc, oven, washer, other, monitor;
+      function init() {
+        
+        const status = document.getElementById('status');
+        google.charts.load('current', {'packages':['gauge', 'corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        $(document).ready(function() {
+            // Add your HASS URL here
+            ws = new WebSocket('ws://10.0.0.30:8123/api/websocket');
+            ws.addEventListener('open', function (event) {
+                // Add your Long-Lived-Access-Token here
+                ws.send(JSON.stringify({"type": "auth","access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI4ZjlkOTgyYmE4Zjc0NjcwOWE4MzYzYTBlNjY4YWY0OCIsImlhdCI6MTU5NTUxMzA0OSwiZXhwIjoxOTEwODczMDQ5fQ.IhFMUaaCeuTyB93DLtvtAIvMYcgRqS2s7yfMlrEHm1k"}));
+                ws.send('{"id": 19, "type": "get_states"}');
+            });
+            ws.onopen = function() {console.log('Websocket connected...');};
+            ws.onclose = function() {console.log('Socket connection closed normally!');};
+            ws.onerror = function(e) { console.log("WebSocket Error: " , e);};
+            ws.onmessage = function(event) {
+                console.log('Receiving data');
+                <!-- console.log(event.data); -->
+                if (event.data.length > 2000) {
+                    // Delete, change or add more variables here:
+                    window.makeup_wifi = JSON.parse(event.data)["result"].filter(function (el) { return el.entity_id == "sensor.tasmota_makeup_power_socket_wi_fi_quality"})[0].state;
+                    ws.close();
+                    }
+                    render();
+ 
+            };
+        });
+
+        function render() {
+          var error = false;
+          _.forEach(json, function(graph, key) {
+            try {
+
+              //Set value // Delete, change or add more variables here:
+              graph["data"].setValue(0, 1, makeup_wifi);
+
+              //Set annotation // Delete, change or add more variables here:
+              graph["data"].setValue(0, 2, makeup_wifi);
+
+              //Set name // Delete, change or add more variables here:
+              graph["data"].setValue(0, 0, 'Makeup WiFi');
+
+              //Set color
+              graph["data"].setValue(0, 3, '#00c853');
+ 
+              var b = document.getElementById("sortname");
+              var sortname = eval(b.options[b.selectedIndex].value);
+
+              var c = document.getElementById("sortorder");
+              var sortorder = eval(c.options[c.selectedIndex].value);
+
+              graph["data"].sort([{column: sortname, desc: sortorder}]);
+              graph["chart"].draw(graph["data"], make_options(graph["max"]));
+            } catch(e) {
+              status.innerHTML = "Error reading state for key: " + key;
+              error = true;
+            }
+            if(!error) status.innerHTML = "Updated: " + (new Date()).toLocaleString();
+          });
+        }
+
+        function drawChart() {
+
+          _.forEach(json, function(graph) {
+            graph.data = google.visualization.arrayToDataTable([
+           ['Label', 'Value',{ role: 'annotation' },  { role: 'style' }], 
+           ['a', -1, 'Error', 'a']
+          ]);
+           var a = document.getElementById("selectchartType");
+           var chartType = a.options[a.selectedIndex].value;
+           
+           graph.chart = new google.visualization[chartType](document.getElementById('chart'));
+          });
+       }
+    }
+    </script>
+</head>
+
+<body onload="init();">
+<span id='status' style="font-size:50%;">Connecting...</span>
+<div id='chart'></div>
+<div id="selectforms" on-tap='cardTapped'>
+<select id="selectchartType" onchange='init()'>
+  <option value="ColumnChart">Columns</option>
+  <option value="BarChart">Bars</option>
+  <option value="PieChart">Donut</option>
+</select>
+<select id="sortorder" onchange='init()'>
+  <option value="true">Desc</option>
+  <option value="false">Asc</option>
+</select>
+<select id="sortname" onchange='init()'>
+  <option value="1">Value</option>
+  <option value="0">Name</option>
+</select>
+</div>
+</table>
+</body>
+</html>

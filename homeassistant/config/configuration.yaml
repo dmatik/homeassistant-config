@@ -76,10 +76,10 @@ lovelace:
 #   device_id: !secret switcher_device_id
 #   device_password: !secret switcher_device_password
 
-# switcher_kis:
-#   phone_id: !secret switcher_phone_id
-#   device_id: !secret switcher_device_id
-#   device_password: !secret switcher_device_password
+switcher_kis:
+  phone_id: !secret switcher_phone_id
+  device_id: !secret switcher_device_id
+  device_password: !secret switcher_device_password
 
 #Recorder
 recorder:
@@ -134,9 +134,9 @@ recorder:
 #Logger
 logger:
   default: info
-  logs:
-    homeassistant.components.shell_command: debug
-    homeassistant.components.recorder: debug
+  #logs:
+    #homeassistant.components.shell_command: debug
+    #homeassistant.components.recorder: debug
     
     
 # Dark Sky    
@@ -198,24 +198,24 @@ notify:
 
 
 # Life360
-life360:
-  accounts:
-    - username: !secret life360_username
-      password: !secret life360_password
-  # MPH, assuming imperial units.
-  # If using metric (KPH), the equivalent would be 29.
-  driving_speed: 29
-  interval_seconds: 10
-  max_gps_accuracy: 200
-  max_update_wait:
-    minutes: 45
-  show_as_state:
-    - driving
-  # Set comm error thresholds so first is not logged,
-  # second is logged as a WARNING, and third and fourth
-  # are logged as ERRORs.
-  warning_threshold: 2
-  error_threshold: 3
+# life360:
+#   accounts:
+#     - username: !secret life360_username
+#       password: !secret life360_password
+#   # MPH, assuming imperial units.
+#   # If using metric (KPH), the equivalent would be 29.
+#   driving_speed: 29
+#   interval_seconds: 10
+#   max_gps_accuracy: 200
+#   max_update_wait:
+#     minutes: 45
+#   show_as_state:
+#     - driving
+#   # Set comm error thresholds so first is not logged,
+#   # second is logged as a WARNING, and third and fourth
+#   # are logged as ERRORs.
+#   warning_threshold: 2
+#   error_threshold: 3
 
 wake_on_lan:
 

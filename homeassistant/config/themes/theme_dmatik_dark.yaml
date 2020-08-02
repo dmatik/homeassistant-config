@@ -76,6 +76,7 @@ dmatik-dark:
       secondary-background-color: '#171717' #'rgba(23, 23, 23, 1)'                    # Main card UI background  
       divider-color: 'var(--secondary-background-color)' #'rgba(61, 61, 63, 1)'       # Divider 
       card-background-color: 'var(--primary-background-color)'
+      ha-card-background: 'rgba(28, 28, 30, 1)'
 
       # Table rows                                                                   
       table-row-background-color: '#353840'                                           # Table row
@@ -90,7 +91,7 @@ dmatik-dark:
 
       # Paper card                                                               
       paper-card-header-color: 'var(--accent-color)'                                  # Card header text colour
-      paper-card-background-color: 'rgba(28, 28, 30, 1)'                              # Card background colour
+      paper-card-background-color: 'var(--ha-card-background)' #'rgba(28, 28, 30, 1)' # Card background colour
       paper-dialog-background-color: 'var(--paper-card-background-color)'             # Card dialog background colour
       paper-item-icon-color: '#757479' #'rgba(129, 129, 129, 1)'                      # Icon color
       paper-item-icon-active-color: '#ffc107'                                         # Icon color active

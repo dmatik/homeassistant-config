@@ -68,7 +68,7 @@ cards:
         variables:
           - entity: script.switcher_turn_on_timer_script
           - name: ON With Timer
-          - icon: mdi:timer
+          - icon: mdi:timer-outline
         
       - type: custom:button-card
         template: shoulder_blank_card

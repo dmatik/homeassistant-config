@@ -51,13 +51,13 @@ person.galit:
     
 # # Automation
 # script.bedtime:
-#    icon: mdi:hotel
+#    icon: mdi:bed
 # script.lights_off:
 #    icon: mdi:flash-off
 
 # # Switcher
 # script.switcher_turn_on_timer_script:
-#    icon: mdi:timer
+#    icon: mdi:timer-outline
 # switch.boiler:
 #    icon: mdi:shower   
 

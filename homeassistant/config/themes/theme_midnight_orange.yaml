@@ -62,6 +62,7 @@ Midnight Orange:
       primary-background-color: '#383C45'                                             # Settings background
       secondary-background-color: '#383C45'                                           # Main card UI background  
       divider-color: 'rgba(0, 0, 0, .12)'                                             # Divider 
+      ha-card-background: 'rgba(67,73,84,0.5)'
   
 # Table rows                                                                   
       table-row-background-color: '#353840'                                           # Table row
@@ -76,7 +77,7 @@ Midnight Orange:
       
 # Paper card                                                               
       paper-card-header-color: 'var(--accent-color)'                                  # Card header text colour
-      paper-card-background-color: 'rgba(67,73,84,0.5)'                               # Card background colour
+      paper-card-background-color: 'var(--ha-card-background)' #'rgba(67,73,84,0.5)'  # Card background colour
       paper-dialog-background-color: '#434954'                                        # Card dialog background colour
       paper-item-icon-color: '#F0F0F0'                                                # Icon color
       paper-item-icon-active-color: '#ffc107'                                         # Icon color active

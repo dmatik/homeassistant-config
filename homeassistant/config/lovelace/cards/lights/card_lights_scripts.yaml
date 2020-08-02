@@ -39,14 +39,14 @@ cards:
       #   variables:
       #     - entity: script.goodnight_script
       #     - name: Bedtime
-      #     - icon: mdi:hotel      
+      #     - icon: mdi:bed      
 
       - type: custom:decluttering-card # Bedtime
         template: scene_button
         variables:
           - entity: scene.bedtime
           - name: Bedtime
-          - icon: mdi:hotel
+          - icon: mdi:bed
           #- icon: fas:bed         
 
       # - type: custom:decluttering-card # Lights Off

@@ -70,6 +70,7 @@ Midnight Blue:
       secondary-background-color: '#383C45'                                           # Main card UI background  
       divider-color: 'rgba(0, 0, 0, .12)'                                             # Divider 
       card-background-color: 'var(--primary-background-color)'
+      ha-card-background: 'rgba(67,73,84,0.7)'
 
       # Table rows                                                                   
       table-row-background-color: '#353840'                                           # Table row
@@ -84,7 +85,7 @@ Midnight Blue:
 
       # Paper card                                                               
       paper-card-header-color: 'var(--accent-color)'                                  # Card header text colour
-      paper-card-background-color: 'rgba(67,73,84,0.7)'                               # Card background colour
+      paper-card-background-color: 'var(--ha-card-background)' #'rgba(67,73,84,0.7)'  # Card background colour
       paper-dialog-background-color: '#434954'                                        # Card dialog background colour
       paper-item-icon-color: 'var(--dmatik-white-color)'                              # Icon color
       paper-item-icon-active-color: '#ffc107'                                         # Icon color active
