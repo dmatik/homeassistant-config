@@ -189,21 +189,21 @@ services:
         # ports:
           # - 8126:8126
           
-    cloud9:
-        restart: always
-        image: linuxserver/cloud9:latest
-        container_name: cloud9
-        hostname: cloud9
-        network_mode: "bridge"
-        environment:
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-            TZ: "Asia/Jerusalem"
-        volumes:
-            - /volume1/docker:/code
-            - /var/run/docker.sock:/var/run/docker.sock
-        ports:
-            - 8000:8000
+    # cloud9:
+    #     restart: always
+    #     image: linuxserver/cloud9:latest
+    #     container_name: cloud9
+    #     hostname: cloud9
+    #     network_mode: "bridge"
+    #     environment:
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #         - /volume1/docker:/code
+    #         - /var/run/docker.sock:/var/run/docker.sock
+    #     ports:
+    #         - 8000:8000
 
     # homebridge:
     #     image: oznu/homebridge:latest
@@ -333,3 +333,44 @@ services:
             # if using Mysql remove the data/ from the below line
             # if using Sqlite the data/ is required!
             - DBNAME=data/tasmobackup
+
+    # pihole:
+    #     container_name: pihole
+    #     hostname: pihole
+    #     image: pihole/pihole:latest
+    #     ports:
+    #         - "53:53/tcp"
+    #         - "53:53/udp"
+    #         - "67:67/udp"
+    #         - "1080:80/tcp"
+    #         - "10443:443/tcp"
+    #     environment:
+    #         TZ: 'Asia/Jerusalem'
+    #         WEBPASSWORD: ${PIHOLE_PASS}
+    #     volumes:
+    #         - '/volume1/docker/pihole/etc-pihole/:/etc/pihole/'
+    #         - '/volume1/docker/pihole/etc-hosts:/etc/hosts'
+    #         - '/volume1/docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
+    #     dns:
+    #         - 127.0.0.1
+    #         - 9.9.9.9
+    #     cap_add:
+    #         - NET_ADMIN
+    #     restart: always
+
+    jellyfin:
+        hostname: jellyfin
+        container_name: jellyfin
+        image: jellyfin/jellyfin
+        user: ${ZEG_PUID}:${ZEG_PGID}
+        network_mode: "host"
+        restart: "unless-stopped"
+        environment:
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+            TZ: "Asia/Jerusalem"
+        volumes:
+          - /volume1/docker/jellyfin/config:/config
+          - /volume1/docker/jellyfin/cache:/cache
+          - /volume1/video:/video
+          - /volume1/torrent:/torrent
