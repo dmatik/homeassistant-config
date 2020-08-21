@@ -12,6 +12,7 @@ cards:
     #- !include /config/lovelace/cards/sensors/card_sensors_kitchen.yaml
 
     - !include /config/lovelace/cards/switcher/card_switcher.yaml
+    - !include /config/lovelace/cards/switcher/card_switcher_buttons.yaml
 
 
 

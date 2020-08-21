@@ -39,7 +39,8 @@ cards:
               - !include /config/lovelace/cards/ac/card_sensibo_kiosk_thermo.yaml
 
               #- !include /config/lovelace/cards/switcher/card_switcher_kiosk.yaml
-              - !include /config/lovelace/cards/switcher/card_switcher_kiosk_alt.yaml
+              #- !include /config/lovelace/cards/switcher/card_switcher_kiosk_alt.yaml
+              - !include /config/lovelace/cards/switcher/card_switcher_buttons.yaml
               
           - type: vertical-stack
             cards:
