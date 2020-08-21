@@ -1,0 +1,18 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+      - type: weather-forecast
+        entity: weather.home
+        name: " "
+        #secondary_info_attribute: precipitation 
+          
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+  - !include /config/lovelace/styles/separator_card.yaml

@@ -15,7 +15,7 @@ cards:
             font-size: 18px;
             font-weight: normal;            
           }
-        entity: weather.dark_sky
+        entity: weather.home
         name: " "
         backdrop:
           day: "var(--paper-card-background-color)"
@@ -24,11 +24,11 @@ cards:
           - extrema
         secondary_info:
           - precipitation_probability
-        custom:
+        #custom:
           #- temp: sensor.dark_sky_apparent_temperature
           #- high: sensor.dark_sky_daytime_high_apparent_temperature_0d
           #- low: sensor.dark_sky_overnight_low_temperature_0d
-          - precipitation_probability: sensor.dark_sky_precip_probability
+          #- precipitation_probability: sensor.dark_sky_precip_probability
           
       - type: custom:button-card
         template: shoulder_blank_card  

@@ -68,3 +68,17 @@
       state: off
     climate.living_room:
       state: off
+
+- name: Night Lights On
+  entities:
+    light.dining:
+      state: on
+    light.hall:
+      state: on
+
+- name: Night Lights Off
+  entities:
+    light.dining:
+      state: off
+    light.hall:
+      state: off

@@ -14,11 +14,6 @@ graph:
 
   card:
     type: custom:mini-graph-card
-    style: |
-      ha-card {
-        border-radius: [[border_radius]];
-        overflow: hidden;
-      }
     entities:
         - entity: '[[entity]]'
           name: '[[name]]'

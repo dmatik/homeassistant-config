@@ -52,45 +52,25 @@
 
 ############################################################################
 #                                                                          #
-#   Hall Light                                                             #
+#   Night Lights                                                           #
 #                                                                          #
 ############################################################################
 
-- alias: 'Turn On Night Hall Light'
+- alias: 'Turn On Night Lights'
   #initial_state: 'true'
   trigger:
     # - platform: time
     #   at: "18:30:00"
     - platform: sun
       event: sunset
-      #offset: "-00:30:00"
-    - platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        actionName: "HALLWAY_LIGHT_ON"
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: light.hall
-        state: "off"
+      offset: "-00:30:00"
   action:
-    - service: light.turn_on
+    - service: scene.turn_on
       data:
-        entity_id: light.hall
-    # - service: notify.dimatelegram
-    #   data:
-    #     title: "Hall Light"
-    #     message: "ON"
-    - service: notify.mobile_app_iphonexsdima
-      data:
-        title: "Hall Light"
-        message: "ON"
-        data:
-          push:
-            category: "hallway_light_off"
+        entity_id: scene.night_lights_on
 
-- alias: 'Turn Off Night Hall Light'
+
+- alias: 'Turn Off Night Lights'
   #initial_state: 'true'
   trigger:
     # - platform: time
@@ -98,68 +78,8 @@
     - platform: sun
       event: sunrise
       offset: "+01:00:00"
-    - platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        actionName: "HALLWAY_LIGHT_OFF"
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: light.hall
-        state: "on"
   action:
-    - service: light.turn_off
+    - service: scene.turn_on
       data:
-        entity_id: light.hall
-    # - service: notify.dimatelegram
-    #   data:
-    #     title: "Hall Light"
-    #     message: "OFF"
-    - service: notify.mobile_app_iphonexsdima
-      data:
-        title: "Hall Light"
-        message: "OFF"
-        data:
-          push:
-            category: "hallway_light_on"
+        entity_id: scene.night_lights_off
 
-
-
-############################################################################
-#                                                                          #
-#   Balcony Light                                                          #
-#                                                                          #
-############################################################################
-
-- alias: 'Balcony Light ON Notification'
-  #initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: light.balcony
-      to: "on"
-  action:
-    - service: notify.mobile_app_iphonexsdima
-      data:
-        title: "Balcony Light"
-        message: "ON"
-
-
-
-############################################################################
-#                                                                          #
-#   Work Room Light                                                        #
-#                                                                          #
-############################################################################
-
-- alias: 'Work Room Light ON Notification'
-  #initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: light.work_room
-      to: "on"
-  action:
-    - service: notify.mobile_app_iphonexsdima
-      data:
-        title: "Work Room Light"
-        message: "ON"

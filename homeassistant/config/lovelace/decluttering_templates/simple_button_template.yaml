@@ -11,7 +11,7 @@ simple_button:
     - width: ""
     - height: ""
     - font_size: 14px
-    - font-weight: normal
+    - font_weight: normal
     - padding_top: 3%
     - padding_bottom: 3%
     - lock: false
@@ -47,7 +47,7 @@ simple_button:
         - background-color: '[[background_color]]'
         - padding-top: '[[padding_top]]'
         - padding-bottom: '[[padding_bottom]]'
-        - font-weight: '[[font-weight]]'
+        - font-weight: '[[font_weight]]'
         - width: '[[width]]'
         - height: '[[height]]'
       name:

@@ -14,11 +14,6 @@ sensibo_elements_kiosk:
 
   card:
     type: picture-elements
-    style: |
-      ha-card {
-        border-radius: var(--border-radius);
-        overflow: hidden;
-      }
     image: '[[image_off]]'
     elements:
       - type: image

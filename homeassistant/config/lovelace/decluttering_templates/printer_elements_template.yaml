@@ -4,12 +4,7 @@ printer_elements:
     - text_color: var(--picture-elements-text-color)
 
   card:
-    type: picture-elements
-    style: |
-      ha-card {
-        border-radius: var(--border-radius);
-        overflow: hidden;
-      }              
+    type: picture-elements       
     image: '[[image_on]]'
     elements:
       - type: image

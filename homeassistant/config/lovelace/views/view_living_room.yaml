@@ -14,7 +14,7 @@ cards:
 
     - !include /config/lovelace/cards/ac/card_sensibo_living_room.yaml
     
-    - !include /config/lovelace/cards/remotes/card_harmony_living_room.yaml
+    - !include /config/lovelace/cards/remotes/card_harmony_living_room_buttons.yaml
 
 
 

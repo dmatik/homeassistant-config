@@ -1,4 +1,4 @@
-simple_select_button:
+next_select_button:
 
   default:
     - color: var(--button-card-input-select-background)
@@ -6,7 +6,7 @@ simple_select_button:
     - color_type: card
     - show_name: true
     - show_icon: false
-    - font_size: 28px
+    - font_size: 38px
     - font_weight: normal
 
   card:
@@ -20,19 +20,13 @@ simple_select_button:
       - show_name: '[[show_name]]'
       - show_icon: '[[show_icon]]'
       - font_size: '[[font_size]]'
-      - font_weight: '[[font_weight]]'
+      - font-weight: '[[font_weight]]'
+      - height: '[[height]]'
+      - size: '[[size]]'
       - tap_action: 
           action: call-service
-          service: input_select.select_option
+          service: input_select.select_next
           service_data:
             entity_id: '[[entity]]'
-            option: '[[option]]'
       - hold_action:
           action: none
-      - state:
-          - value: '[[option]]'
-            styles:
-              card:
-                - background-color: '[[color]]'
-              name:
-                - color: '[[text_color]]'

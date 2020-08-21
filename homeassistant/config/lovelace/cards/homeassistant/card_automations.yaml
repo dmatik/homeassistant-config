@@ -35,18 +35,13 @@ cards:
         template: shoulder_blank_card
 
       - type: entities
-        style: |
-          ha-card {
-            border-radius: var(--border-radius);
-            overflow: hidden;            
-          }
         title: ""
         show_header_toggle: false
         entities:
           - automation.turn_on_kitchen_strip
           - automation.turn_off_kitchen_strip
-          - automation.turn_on_night_hall_light
-          - automation.turn_off_night_hall_light
+          - automation.turn_on_night_lights
+          - automation.turn_off_night_lights
           - automation.galit_home
           - automation.turn_on_kids_radiator
           - automation.turn_off_kids_radiator

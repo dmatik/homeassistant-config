@@ -20,12 +20,12 @@ cards:
               #- !include /config/lovelace/cards/card_clock.yaml
               - !include /config/lovelace/cards/card_clock_button.yaml
 
-              - !include /config/lovelace/cards/card_simple_weather.yaml
+              - !include /config/lovelace/cards/card_weather.yaml
               
               #- !include /config/lovelace/cards/occupancy/card_occupancy.yaml
               - !include /config/lovelace/cards/occupancy/card_occupancy_kiosk.yaml
 
-              - !include /config/lovelace/cards/remotes/card_harmony_living_room_kiosk.yaml
+              #- !include /config/lovelace/cards/remotes/card_harmony_living_room_kiosk.yaml
 
               - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
             

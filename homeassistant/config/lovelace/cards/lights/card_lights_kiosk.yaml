@@ -71,19 +71,25 @@ cards:
               - entity: light.kitchen
               - name: Kitchen
 
-          - type: custom:decluttering-card # Kitchen Strips
-            template: light_button
-            variables:
-              - entity: switch.yeelight_kitchen_strips
-              - name: Kitchen strip
-              - icon: mdi:led-strip
-              #- icon: fas:lights-holiday
+          # - type: custom:decluttering-card # Kitchen Strips
+          #   template: light_button
+          #   variables:
+          #     - entity: switch.yeelight_kitchen_strips
+          #     - name: Kitchen strip
+          #     - icon: mdi:led-strip
+          #     #- icon: fas:lights-holiday
 
           - type: custom:decluttering-card # Service Balcony
             template: light_button
             variables:
               - entity: light.service_balcony
               - name: Serv. Balcony
+
+          - type: custom:decluttering-card # Entrance
+            template: light_button
+            variables:
+              - entity: light.entrance
+              - name: Entrance
 
           - type: custom:button-card
             template: shoulder_blank_card
@@ -93,12 +99,6 @@ cards:
     
           - type: custom:button-card
             template: shoulder_blank_card  
-
-          - type: custom:decluttering-card # Entrance
-            template: light_button
-            variables:
-              - entity: light.entrance
-              - name: Entrance
 
           - type: custom:decluttering-card # Hallway
             template: light_button
@@ -111,6 +111,18 @@ cards:
             variables:
               - entity: light.work_room
               - name: Work Room
+
+          - type: custom:decluttering-card # Shield TV
+            template: switch_button
+            variables:
+              - entity: switch.shield_tv
+              - name: Living Room TV
+              - icon: mdi:television
+              - cust_2_field: "[[[
+                if (states['remote.living_room'].state == 'off') 
+                return `<span></span>`;
+                else return `<span>${states['sensor.living_room_tv'].state}</span>`;                               
+                ]]]"
 
           - type: custom:button-card
             template: shoulder_blank_card  

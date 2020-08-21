@@ -18,11 +18,6 @@ switcher_elements:
 
   card:
     type: picture-elements
-    style: |
-      ha-card {
-        border-radius: var(--border-radius);
-        overflow: hidden;
-      }            
     image: '[[image_on]]'
     elements:
       - type: image

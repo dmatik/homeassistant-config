@@ -35,11 +35,6 @@ cards:
         template: shoulder_blank_card
 
       - type: entities
-        style: |
-          ha-card {
-            border-radius: var(--border-radius);
-            overflow: hidden;            
-          }
         show_header_toggle: false
         entities:
           - entity: sensor.ha_current_version
