@@ -36,7 +36,7 @@ text_button:
     - border_radius: var(--button-card-border-radius)
     - background_color: var(--button-card-background-color)
     - text_color: var(--button-card-text-color)
-    - text_field_color: var(--button-card-text-color)
+    - text_field_color: var(--button-card-icon-color)
     - corner_text_color: var(--button-card-corner-text-color)
     - corner_2_text_color: var(--button-card-corner-text-color)
     - cust_1_text_color: var(--button-card-cust-1-text-color)
