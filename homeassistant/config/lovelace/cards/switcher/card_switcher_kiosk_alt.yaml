@@ -64,7 +64,6 @@ cards:
           - entity: switch.switcher_webapi
           - name: Power
           - icon: mdi:power-standby
-          - height: 60px
 
       - type: custom:decluttering-card # Turn ON with Timer
         template: simple_script_button
@@ -72,60 +71,14 @@ cards:
           - entity: script.switcher_turn_on_timer_script
           - name: ON With Timer
           - icon: mdi:timer-outline
-          - height: 60px
 
       - type: custom:decluttering-card # Timer Minutes 15/30/45/60
         template: next_select_button
         variables:
           - entity: input_select.switcher_timer_minutes_input_select
           - name: "[[[ return `<span>${states['input_select.switcher_timer_minutes_input_select'].state}</span>`; ]]]"
-          - height: 60px
         
       - type: custom:button-card
         template: shoulder_blank_card
-
-
-############################################################################
-#                                                                          #
-#   Timer Minutes buttons                                                  #
-#                                                                          #
-############################################################################
-
-  # - type: horizontal-stack
-  #   cards:
-    
-  #     - type: custom:button-card
-  #       template: shoulder_blank_card
-
-  #     - type: custom:decluttering-card # Timer Minutes - 15
-  #       template: simple_select_button
-  #       variables:
-  #         - entity: input_select.switcher_timer_minutes_input_select
-  #         - name: 15
-  #         - option: "15"
-
-  #     - type: custom:decluttering-card # Timer Minutes - 30
-  #       template: simple_select_button
-  #       variables:
-  #         - entity: input_select.switcher_timer_minutes_input_select
-  #         - name: 30
-  #         - option: "30"
-
-  #     - type: custom:decluttering-card # Timer Minutes - 45
-  #       template: simple_select_button
-  #       variables:
-  #         - entity: input_select.switcher_timer_minutes_input_select
-  #         - name: 45
-  #         - option: "45"
-
-  #     - type: custom:decluttering-card # Timer Minutes - 60
-  #       template: simple_select_button
-  #       variables:
-  #         - entity: input_select.switcher_timer_minutes_input_select
-  #         - name: 60
-  #         - option: "60"
-                
-  #     - type: custom:button-card
-  #       template: shoulder_blank_card
 
   - !include /config/lovelace/styles/separator_card.yaml

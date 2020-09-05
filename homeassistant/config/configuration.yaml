@@ -140,12 +140,18 @@ logger:
     
     
 # Dark Sky    
+# weather:
+#   - platform: darksky
+#     mode: daily
+#     api_key: !secret darksky_api_key
+#     latitude: !secret home_latitude
+#     longitude: !secret home_longitude   
+
+# Openweathermap
 weather:
-  - platform: darksky
-    mode: daily
-    api_key: !secret darksky_api_key
-    latitude: !secret home_latitude
-    longitude: !secret home_longitude    
+  - platform: openweathermap
+    api_key: !secret openweathermap_api_key
+    mode: hourly
 
 # Google    
 google:
@@ -170,19 +176,7 @@ mqtt:
 climate:
   - platform: sensibo
     api_key: !secret sensibo_api_key
-    
-#http:
-#  base_url: !secret duckdns_base_url
-#  ssl_certificate: /config/ssl/fullchain.pem
-#  ssl_key: /config/ssl/privkey.pem
 
-# # Xiaomi
-# xiaomi_aqara:
-# #  #discovery_retry: 5
-#   gateways:
-#     - key: !secret xiaomi_gateway_key
-#       mac: !secret xiaomi_gateway_mac
-#       host: !secret xiaomi_gateway_host
       
 # Telegram      
 telegram_bot:
@@ -190,6 +184,7 @@ telegram_bot:
     api_key: !secret telegram_bot_api_key
     allowed_chat_ids:
       - !secret telegram_bot_chat_id_1
+
       
 notify:
   - name: DimaTelegram
@@ -218,20 +213,6 @@ notify:
 #   error_threshold: 3
 
 wake_on_lan:
-
-# tuya:
-#   username: !secret tuya_username
-#   password: !secret tuya_password
-#   country_code: !secret tuya_country_code
-#   platform: smart_life
-
-# docker_monitor:
-#   monitored_conditions:
-#     - container_status
-#     - container_memory_usage
-#     - container_memory_percentage_usage
-#     - container_cpu_percentage_usage
-#     - container_uptime
 
 ios:
   push:

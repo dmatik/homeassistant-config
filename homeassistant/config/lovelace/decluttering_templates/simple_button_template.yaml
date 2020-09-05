@@ -9,7 +9,7 @@ simple_button:
     - icon_color: var(--button-card-icon-color)
     - size: 48px
     - width: ""
-    - height: ""
+    - height: 54px
     - font_size: 14px
     - font_weight: normal
     - padding_top: 3%

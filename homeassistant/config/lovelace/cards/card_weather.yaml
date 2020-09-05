@@ -8,9 +8,9 @@ cards:
         template: shoulder_blank_card  
 
       - type: weather-forecast
-        entity: weather.home
+        entity: weather.openweathermap
         name: " "
-        #secondary_info_attribute: precipitation 
+        #secondary_info_attribute: humidity
           
       - type: custom:button-card
         template: shoulder_blank_card  
