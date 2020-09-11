@@ -1,0 +1,2 @@
+sign_havid: !secret sign_havid_shell
+download_havid: !secret download_havid_shell

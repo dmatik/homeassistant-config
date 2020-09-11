@@ -17,5 +17,7 @@ cards:
 
     #- !include /config/lovelace/cards/ac/card_sensibo_kids_room_kiosk.yaml
 
+    - !include /config/lovelace/cards/card_havid-19.yaml
+
 
 

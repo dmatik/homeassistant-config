@@ -30,47 +30,47 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
         network_mode: "host"
 
-    mariadb:
-        restart: always
-        hostname: mariadb
-        container_name: mariadb
-        image: mariadb:latest
-        network_mode: "bridge"
-        ports:
-            - "3306:3306"
-        environment:
-            TZ: "Asia/Jerusalem"
-            MYSQL_DATABASE: TestDB
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        volumes:
-            - /volume1/docker/mariadb/config:/etc/mysql/conf.d
-            - /volume1/docker/mariadb/data:/var/lib/mysql
+    # mariadb:
+    #     restart: always
+    #     hostname: mariadb
+    #     container_name: mariadb
+    #     image: mariadb:latest
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "3306:3306"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         MYSQL_DATABASE: TestDB
+    #         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    #     volumes:
+    #         - /volume1/docker/mariadb/config:/etc/mysql/conf.d
+    #         - /volume1/docker/mariadb/data:/var/lib/mysql
         
-    phpMyAdmin:
-        restart: always
-        hostname: phpMyAdmin
-        container_name: phpMyAdmin
-        image: phpmyadmin/phpmyadmin:latest
-        network_mode: "bridge"
-        ports:
-            - "32770:80"
-        environment:
-            TZ: "Asia/Jerusalem"
-            PMA_HOST: ${ZEG_IP}
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    # phpMyAdmin:
+    #     restart: always
+    #     hostname: phpMyAdmin
+    #     container_name: phpMyAdmin
+    #     image: phpmyadmin/phpmyadmin:latest
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "32770:80"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PMA_HOST: ${ZEG_IP}
+    #         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         
     mosquitto:
         restart: always
         hostname: mosquitto
         container_name: mosquitto
-        image: eclipse-mosquitto:latest
+        image: eclipse-mosquitto:1.6.10
         network_mode: "host"
         environment:
             TZ: "Asia/Jerusalem"
         volumes:
             - /volume1/docker/mqtt/log:/mqtt/log
             - /volume1/docker/mqtt/data:/mqtt/data
-            - /volume1/docker/mqtt/config:/mqtt/config:ro
+            - /volume1/docker/mqtt/config:/mqtt/config
         
     radarr:
         restart: always
@@ -120,7 +120,7 @@ services:
     portainer:
         hostname: portainer
         container_name: portainer
-        image: portainer/portainer:latest
+        image: portainer/portainer-ce:latest
         restart: always
         network_mode: "bridge"
         ports:
@@ -365,6 +365,9 @@ services:
         user: ${ZEG_PUID}:${ZEG_PGID}
         network_mode: "host"
         restart: "unless-stopped"
+        privileged: true
+        devices:
+            - /dev/dri:/dev/dri
         environment:
             PUID: ${ZEG_PUID}
             PGID: ${ZEG_PGID}
@@ -374,3 +377,44 @@ services:
           - /volume1/docker/jellyfin/cache:/cache
           - /volume1/video:/video
           - /volume1/torrent:/torrent
+
+    bitwarden_server:
+        hostname: bitwarden_server
+        container_name: bitwarden_server
+        image: bitwardenrs/server:latest
+        network_mode: "bridge"
+        restart: "always"
+        privileged: true
+        ports:
+            - 5151:80
+        environment:
+            TZ: "Asia/Jerusalem"
+        volumes:
+          - /volume1/docker/bitwarden/data:/data
+
+
+    # dozzle:
+    #     hostname: dozzle
+    #     container_name: dozzle
+    #     image: amir20/dozzle:latest
+    #     network_mode: "bridge"
+    #     restart: "always"
+    #     volumes:
+    #         - /var/run/docker.sock:/var/run/docker.sock
+    #     ports:
+    #         - 9999:8080
+    #     environment:
+    #         tailSize: 300
+    #         TZ: "Asia/Jerusalem"
+
+    havid-19:
+        image: techblog/havid-19:latest
+        container_name: havid-19
+        restart: always
+        network_mode: "bridge"
+        ports:
+            - 6700:6700
+        environment:
+            TZ: "Asia/Jerusalem"
+            USER_ID: ${HAVID_USER_ID}
+            USER_KEY: ${HAVID_USER_KEY}
