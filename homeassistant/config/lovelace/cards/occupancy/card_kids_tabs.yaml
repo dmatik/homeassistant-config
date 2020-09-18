@@ -1,0 +1,75 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Kids Tablets
+    
+      - type: custom:button-card
+        template: shoulder_blank_card 
+
+
+############################################################################
+#                                                                          #
+#   Batteries card                                                         #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+      - type: custom:bar-card
+        style: |
+          #states {
+            padding: 8px;
+          }
+          bar-card-iconbar {
+            color: var(--bar-card-icon-color);
+          }
+        unit_of_measurement: "%"
+        color: 'rgba(117,189,111,1.0)'
+        #stack: vertical
+        positions:
+          icon: "off"
+          name: "inside"
+          value: "inside"
+          indicator: "off"
+        severity:
+          - color: '#bf4040'
+            from: 0
+            to: 20
+          - color: '#bf9540'
+            from: 21
+            to: 60
+          - color: 'rgba(117,189,111,1.0)'
+            from: 61
+            to: 100
+        entities:
+          - entity: sensor.ronen_tab_battery_level
+            name: Ronen
+            icon: mdi:thermometer
+          - entity: sensor.kfir_tab_battery_level
+            name: Kfir
+            icon: mdi:run
+                                 
+      - type: custom:button-card
+        template: shoulder_blank_card
+
+          
+  - !include /config/lovelace/styles/separator_card.yaml

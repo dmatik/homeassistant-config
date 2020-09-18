@@ -35,13 +35,13 @@
       friendly_name: "Bedside Lights Mode"
       icon_template: mdi:heart
       value_template: >-
-        {% if is_state('light.bedside_yeelight_dima', 'unavailable') or is_state('light.bedside_yeelight_galit', 'unavailable') %}
+        {% if is_state('light.bedside_dima_bulb', 'unavailable') or is_state('light.bedside_galit_bulb', 'unavailable') %}
             unavailable
-        {% elif is_state('light.bedside_yeelight_dima', 'off') and is_state('light.bedside_yeelight_galit', 'off') %}
+        {% elif is_state('light.bedside_dima_bulb', 'off') and is_state('light.bedside_galit_bulb', 'off') %}
             lights_off
-        {% elif ( state_attr('light.bedside_yeelight_dima', 'brightness') < 5 ) or ( state_attr('light.bedside_yeelight_galit', 'brightness') < 5 ) %}
+        {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') > 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') > 180 ) %}
             romantic
-        {% elif ( state_attr('light.bedside_yeelight_dima', 'brightness') >= 5 ) or ( state_attr('light.bedside_yeelight_galit', 'brightness') >= 5 ) %}
+        {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') < 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') < 180 ) %}
             normal
         {% else %}
             other

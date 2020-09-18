@@ -1,0 +1,21 @@
+tasmota_bulb:
+
+  default:
+    icon: mdi:lightbulb
+    
+  card:
+    type: custom:fold-entity-row
+    head:
+      entity: light.[[bulb]]_bulb
+      name : '[[name]]'
+      icon: '[[icon]]'
+    items:
+      - entity: sensor.tasmota_[[bulb]]_bulb_uptime
+        name : Uptime
+        icon: none
+      - entity: sensor.tasmota_[[bulb]]_bulb_wi_fi_quality
+        name : WiFi Signal
+        icon: none
+      - entity: sensor.tasmota_[[bulb]]_bulb_version
+        name : Version
+        icon: none

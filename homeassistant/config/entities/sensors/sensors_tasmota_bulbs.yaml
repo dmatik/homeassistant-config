@@ -1,0 +1,75 @@
+############################################################################
+#                                                                          #
+#   Light Bulbs                                                            #
+#                                                                          #
+############################################################################
+
+# Bedside Dima Bulb Version
+- platform: mqtt
+  name: "Tasmota Bedside Dima Bulb Version"
+  state_topic: "stat/bedside_dima_bulb/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/bedside_dima_bulb/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Bedside Dima Bulb Uptime
+- platform: mqtt
+  name: "Tasmota Bedside Dima Bulb Uptime"
+  state_topic: "tele/bedside_dima_bulb/STATE"
+  value_template: >-
+    {% set uptime = value_json["Uptime"]  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+
+# Bedside Dima Bulb Wi-Fi signal
+- platform: mqtt
+  name: "Tasmota Bedside Dima Bulb Wi-Fi Quality"
+  state_topic: "tele/bedside_dima_bulb/STATE"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json['Wifi'].RSSI }}"
+  availability_topic: "tele/bedside_dima_bulb/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: signal_strength
+
+
+
+# Bedside Galit Bulb Version
+- platform: mqtt
+  name: "Tasmota Bedside Galit Bulb Version"
+  state_topic: "stat/bedside_galit_bulb/STATUS2"
+  value_template: "{{value_json['StatusFWR'].Version }}"
+  availability_topic: "tele/bedside_galit_bulb/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 0
+
+# Bedside Galit Bulb Uptime
+- platform: mqtt
+  name: "Tasmota Bedside Galit Bulb Uptime"
+  state_topic: "tele/bedside_galit_bulb/STATE"
+  value_template: >-
+    {% set uptime = value_json["Uptime"]  %}
+    {% set days  = uptime.split('T')[0] %}
+    {% set time  = uptime.split('T')[1] %}
+    {% set hours  = time.split(':')[0] %}
+    {% set mins  = time.split(':')[1] %}
+    {% set secs  = time.split(':')[2] %}
+    {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+
+# Bedside Galit Bulb Wi-Fi signal
+- platform: mqtt
+  name: "Tasmota Bedside Galit Bulb Wi-Fi Quality"
+  state_topic: "tele/bedside_galit_bulb/STATE"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json['Wifi'].RSSI }}"
+  availability_topic: "tele/bedside_galit_bulb/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: signal_strength

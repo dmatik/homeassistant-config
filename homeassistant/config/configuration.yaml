@@ -43,8 +43,8 @@ input_boolean: !include /config/entities/input_boolean.yaml
 input_select: !include /config/entities/input_select.yaml
 input_number: !include /config/entities/input_number.yaml
 #media_player: !include /config/entities/media_player.yaml
-light: !include /config/entities/lights.yaml
-yeelight: !include /config/entities/yeelights.yaml
+light: !include_dir_merge_list /config/entities/lights/ #!include /config/entities/lights.yaml
+#yeelight: !include /config/entities/yeelights.yaml
 #timer: !include /config/entities/timers.yaml
 binary_sensor: !include /config/entities/binary_sensors.yaml
 scene: !include_dir_merge_list /config/entities/scenes/ #scene: !include /config/entities/scenes.yaml
@@ -147,26 +147,14 @@ logger:
 #     latitude: !secret home_latitude
 #     longitude: !secret home_longitude   
 
-# Openweathermap
-weather:
-  - platform: openweathermap
-    api_key: !secret openweathermap_api_key
-    mode: hourly
-
 # Google    
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_client_secret
 
-
-# hacs:
-#   token: !secret github_access_token
-
+# MQTT
 mqtt:
   discovery: true
-#  broker: core-mosquitto
-#  username: !secret mqtt_username
-#  password: !secret mqtt_password  
   broker: !secret syn_mqtt_broker
   username: !secret syn_mqtt_username
   password: !secret syn_mqtt_password

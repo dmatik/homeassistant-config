@@ -176,14 +176,15 @@ cards:
           - type: custom:decluttering-card # Bedside Galit
             template: yeelight_switch_button
             variables:
-              - entity: light.bedside_yeelight_galit
+              - entity: light.bedside_galit_bulb
               - name: Bedside Galit
               - icon: mdi:lamp
 
           - type: custom:decluttering-card # Bedside Dima
             template: yeelight_switch_button
             variables:
-              - entity: light.bedside_yeelight_dima
+              #- entity: light.bedside_yeelight_dima
+              - entity: light.bedside_dima_bulb
               - name: Bedside Dima
               - icon: mdi:lamp
       

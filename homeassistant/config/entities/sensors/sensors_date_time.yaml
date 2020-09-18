@@ -9,6 +9,6 @@
     my_date:
       friendly_name: "Date"
       icon_template: mdi:calendar
-      entity_id: sensor.date
+      #entity_id: sensor.date
       value_template: >-
         {{ now().timestamp() | timestamp_custom("%a, %B %d") }}

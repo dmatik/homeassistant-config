@@ -15,7 +15,7 @@
   action:
     - service: light.toggle
       data:
-        entity_id: light.bedside_yeelight_dima
+        entity_id: light.bedside_dima_bulb
 
 - alias: 'Bedside Galit Single Click'
   initial_state: 'true'
@@ -28,7 +28,7 @@
   action:
     - service: light.toggle
       data:
-        entity_id: light.bedside_yeelight_galit
+        entity_id: light.bedside_galit_bulb
 
 - alias: 'Bedside Long Click'
   initial_state: 'false'

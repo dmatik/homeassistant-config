@@ -6,34 +6,52 @@
 
 - name: Bedside Off
   entities:
-    light.bedside_yeelight_dima:
+    light.bedside_dima_bulb:
       state: off
-    light.bedside_yeelight_galit:
+    light.bedside_galit_bulb:
       state: off
 
 - name: Bedside Normal
   entities:
-    light.bedside_yeelight_dima:
+    # light.bedside_yeelight_dima:
+    #   state: on
+    #   color_temp: 254
+    #   brightness: 13
+    light.bedside_dima_bulb:
       state: on
-      color_temp: 254
-      brightness: 13
-    light.bedside_yeelight_galit:
+      xy_color: [0.323, 0.329]
+      brightness: 140
+    # light.bedside_yeelight_galit:
+    #   state: on
+    #   color_temp: 254
+    #   brightness: 13
+    light.bedside_galit_bulb:
       state: on
-      color_temp: 254
-      brightness: 13
+      xy_color: [0.323, 0.329]
+      brightness: 140
 
 - name: Bedside Romantic
   entities:
-    light.bedside_yeelight_dima:
+    # light.bedside_yeelight_dima:
+    #   state: on
+    #   #rgb_color: [155, 48, 255]
+    #   xy_color: [0.178, 0.068] #blue
+    #   brightness: 3
+    light.bedside_dima_bulb:
       state: on
       #rgb_color: [155, 48, 255]
-      xy_color: [0.178, 0.068] #blue
-      brightness: 3
-    light.bedside_yeelight_galit:
+      xy_color: [0.156, 0.049] #blue
+      brightness: 200
+    # light.bedside_yeelight_galit:
+    #   state: on
+    #   #rgb_color: [155, 48, 255]
+    #   xy_color: [0.178, 0.068] #blue
+    #   brightness: 3
+    light.bedside_galit_bulb:
       state: on
       #rgb_color: [155, 48, 255]
-      xy_color: [0.178, 0.068] #blue
-      brightness: 3
+      xy_color: [0.156, 0.049] #blue
+      brightness: 200
 
 
 

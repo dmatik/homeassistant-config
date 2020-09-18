@@ -95,6 +95,16 @@ cards:
             variables:
               - name: Makeup Socket
               - socket: makeup
+          - type: custom:decluttering-card
+            template: tasmota_bulb
+            variables:
+              - name: Bedside Dima Bulb
+              - bulb: bedside_dima
+          - type: custom:decluttering-card
+            template: tasmota_bulb
+            variables:
+              - name: Bedside Galit Bulb
+              - bulb: bedside_galit
           - entity: script.tasmotas_state_sync
             name: Sync states
             icon: mdi:sync
