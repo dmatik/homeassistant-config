@@ -1,0 +1,27 @@
+############################################################################
+#                                                                          #
+#   Switcher Actions                                                       #
+#                                                                          #
+############################################################################
+
+- alias: "Action Turn On Living Room AC"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_on_living_room_ac'
+  action:
+    service: climate.turn_on
+    entity_id: climate.living_room
+
+- alias: "Action Turn Off Living Room AC"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_off_living_room_ac'
+  action:
+    service: climate.turn_off
+    entity_id: climate.living_room

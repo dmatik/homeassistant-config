@@ -1,0 +1,67 @@
+############################################################################
+#                                                                          #
+#   Work Room                                                              #
+#                                                                          #
+############################################################################
+
+- name: turn_on_work_room_light
+  background_color: "#E8A75C"
+  label:
+    text: "Work Room"
+    color: "#ffffff"
+  icon:
+    icon: lightbulb
+    color: "#ffffff"
+
+- name: turn_off_work_room_light
+  background_color: "#E8A75C"
+  label:
+    text: "Work Room"
+    color: "#ffffff"
+  icon:
+    icon: lightbulb-off
+    color: "#ffffff"
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom                                                                #
+#                                                                          #
+############################################################################
+
+- name: turn_on_bedroom_light
+  background_color: "#E8A75C"
+  label:
+    text: "Bedroom"
+    color: "#ffffff"
+  icon:
+    icon: lightbulb
+    color: "#ffffff"
+
+- name: turn_off_bedroom_light
+  background_color: "#E8A75C"
+  label:
+    text: "Bedroom"
+    color: "#ffffff"
+  icon:
+    icon: lightbulb-off
+    color: "#ffffff"
+
+- name: turn_on_bedside_lights
+  background_color: "#E8A75C"
+  label:
+    text: "Bedside"
+    color: "#ffffff"
+  icon:
+    icon: lightbulb-multiple
+    color: "#ffffff"
+
+- name: turn_off_bedside_lights
+  background_color: "#E8A75C"
+  label:
+    text: "Bedside"
+    color: "#ffffff"
+  icon:
+    icon: lightbulb-multiple-off
+    color: "#ffffff"    

@@ -1,0 +1,27 @@
+############################################################################
+#                                                                          #
+#   Living Room TV Actions                                                 #
+#                                                                          #
+############################################################################
+
+- alias: "Action Turn On Living Room TV"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_on_living_room_tv'
+  action:
+    service: remote.turn_on
+    entity_id: remote.living_room
+
+- alias: "Action Turn Off Living Room TV"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_off_living_room_tv'
+  action:
+    service: remote.turn_off
+    entity_id: remote.living_room

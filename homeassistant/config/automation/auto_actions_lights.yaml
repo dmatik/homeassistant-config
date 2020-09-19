@@ -1,0 +1,83 @@
+############################################################################
+#                                                                          #
+#   Work Room                                                              #
+#                                                                          #
+############################################################################
+
+- alias: "Action Turn On Work Room Light"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_on_work_room_light'
+  action:
+    service: light.turn_on
+    entity_id: light.work_room
+
+- alias: "Action Turn Off Work Room Light"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_off_work_room_light'
+  action:
+    service: light.turn_off
+    entity_id: light.work_room
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom                                                                #
+#                                                                          #
+############################################################################
+
+- alias: "Action Turn On Bedroom Light"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_on_bedroom_light'
+  action:
+    service: light.turn_on
+    entity_id: light.bedroom
+
+- alias: "Action Turn Off Bedroom Light"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_off_bedroom_light'
+  action:
+    service: light.turn_off
+    entity_id: light.bedroom
+
+- alias: "Action Turn On Bedside Lights"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_on_bedside_lights'
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.bedside_dima_bulb
+      - light.bedside_galit_bulb
+
+- alias: "Action Turn Off Bedside Lights"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_off_bedside_lights'
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.bedside_dima_bulb
+      - light.bedside_galit_bulb

@@ -1,0 +1,23 @@
+############################################################################
+#                                                                          #
+#   Living Room AC                                                         #
+#                                                                          #
+############################################################################
+
+- name: turn_on_living_room_ac
+  background_color: "#948A86"
+  label:
+    text: "Living Room"
+    color: "#ffffff"
+  icon:
+    icon: snowflake
+    color: "#ffffff"
+
+- name: turn_off_living_room_ac
+  background_color: "#948A86"
+  label:
+    text: "Living Room"
+    color: "#ffffff"
+  icon:
+    icon: snowflake-off
+    color: "#ffffff"

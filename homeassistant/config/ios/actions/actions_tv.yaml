@@ -1,0 +1,23 @@
+############################################################################
+#                                                                          #
+#   Living Room TV                                                         #
+#                                                                          #
+############################################################################
+
+- name: turn_on_living_room_tv
+  background_color: "#63C065"
+  label:
+    text: "Living Room"
+    color: "#ffffff"
+  icon:
+    icon: television
+    color: "#ffffff"
+
+- name: turn_off_living_room_tv
+  background_color: "#63C065"
+  label:
+    text: "Living Room"
+    color: "#ffffff"
+  icon:
+    icon: television-off
+    color: "#ffffff"

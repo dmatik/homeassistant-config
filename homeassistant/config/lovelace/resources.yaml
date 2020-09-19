@@ -38,3 +38,5 @@
   type: module
 - url: /hacsfiles/refreshable-picture-card/refreshable-picture-card.js
   type: module
+- url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
+  type: module

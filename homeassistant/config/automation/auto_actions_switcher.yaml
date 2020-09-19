@@ -1,0 +1,27 @@
+############################################################################
+#                                                                          #
+#   Switcher Actions                                                       #
+#                                                                          #
+############################################################################
+
+- alias: "Action Turn On Boiler"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_on_boiler'
+  action:
+    service: switch.turn_on
+    entity_id: switch.switcher_webapi
+
+- alias: "Action Turn Off Boiler"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'turn_off_boiler'
+  action:
+    service: switch.turn_off
+    entity_id: switch.switcher_webapi

@@ -205,7 +205,9 @@ wake_on_lan:
 ios:
   push:
     categories:
-      !include_dir_merge_list /config/push_actions/
+      !include_dir_merge_list /config/ios/push_actions/
+  actions:
+    !include_dir_merge_list /config/ios/actions/
 
 synology_dsm:
   - host: !secret synology_blaze_host

@@ -1,0 +1,33 @@
+tablet_charge:
+
+  default:
+
+  card:
+    type: entities
+    style: |
+      #states {
+        padding: 8px;
+      }
+    entities:
+      - type: custom:bar-card
+        entity: '[[battery]]'
+        entity_row: true
+        unit_of_measurement: "%"
+        #color: 'rgba(117,189,111,1.0)'
+        positions:
+          icon: "off"
+          name: "off"
+          value: "inside"
+          indicator: "off"
+        severity:
+          - color: '#bf4040'
+            from: 0
+            to: 20
+          - color: '#bf9540'
+            from: 21
+            to: 60
+          - color: 'rgba(117,189,111,1.0)'
+            from: 61
+            to: 100
+      - entity: '[[charging]]'
+        name: "Charge"

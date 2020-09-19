@@ -17,7 +17,7 @@ cards:
 
     - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
 
-    - !include /config/lovelace/cards/occupancy/card_kids_tabs.yaml
+    - !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
 
 
 
