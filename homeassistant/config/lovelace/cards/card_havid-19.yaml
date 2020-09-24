@@ -9,18 +9,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards:  
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
           - name: Health Declaration
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
 
 
@@ -31,18 +25,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
 
       - type: custom:refreshable-picture-card
         title: null
         update_interval: 10
         static_picture: /local/havid.jpg
-          
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
 
 
@@ -54,9 +42,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card
         template: simple_button
@@ -81,8 +66,5 @@ cards:
           - tap_action: 
               action: call-service
               service: script.download_havid
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml

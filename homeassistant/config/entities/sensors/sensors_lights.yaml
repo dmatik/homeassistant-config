@@ -77,14 +77,14 @@
     #                                                                          #
     ############################################################################
 
-    yeelight_makeup:
-      friendly_name: "Makeup Light"
-      icon_template: mdi:track-light
-      value_template: >-
-        {% if is_state('light.makeup_yeelight_left', 'unavailable') or is_state('light.makeup_yeelight_right', 'unavailable')  %}
-            unavailable
-        {% elif is_state('light.makeup_yeelight_left', 'on') or is_state('light.makeup_yeelight_right', 'on') %}
-            on
-        {% else %}
-            off
-        {% endif %}
+    # yeelight_makeup:
+    #   friendly_name: "Makeup Light"
+    #   icon_template: mdi:track-light
+    #   value_template: >-
+    #     {% if is_state('light.makeup_yeelight_left', 'unavailable') or is_state('light.makeup_yeelight_right', 'unavailable')  %}
+    #         unavailable
+    #     {% elif is_state('light.makeup_yeelight_left', 'on') or is_state('light.makeup_yeelight_right', 'on') %}
+    #         on
+    #     {% else %}
+    #         off
+    #     {% endif %}

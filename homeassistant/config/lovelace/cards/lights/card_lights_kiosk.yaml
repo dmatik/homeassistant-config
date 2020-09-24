@@ -10,17 +10,11 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Main Switches
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Main Switches 
 
 
 ############################################################################
@@ -34,9 +28,6 @@ cards:
     
       - type: horizontal-stack
         cards:
-    
-          - type: custom:button-card
-            template: shoulder_blank_card  
 
           - type: custom:decluttering-card # Living Room
             template: light_button
@@ -55,15 +46,9 @@ cards:
             variables:
               - entity: light.balcony
               - name: Balcony
-      
-          - type: custom:button-card
-            template: shoulder_blank_card  
 
       - type: horizontal-stack
         cards:
-    
-          - type: custom:button-card
-            template: shoulder_blank_card  
 
           - type: custom:decluttering-card # Kitchen
             template: light_button
@@ -91,14 +76,8 @@ cards:
               - entity: light.entrance
               - name: Entrance
 
-          - type: custom:button-card
-            template: shoulder_blank_card
-
       - type: horizontal-stack
-        cards:
-    
-          - type: custom:button-card
-            template: shoulder_blank_card  
+        cards:  
 
           - type: custom:decluttering-card # Hallway
             template: light_button
@@ -122,10 +101,7 @@ cards:
                 if (states['remote.living_room'].state == 'off') 
                 return `<span></span>`;
                 else return `<span>${states['sensor.living_room_tv'].state}</span>`;                               
-                ]]]"
-
-          - type: custom:button-card
-            template: shoulder_blank_card  
+                ]]]" 
 
   - !include /config/lovelace/styles/separator_card.yaml
 
@@ -138,18 +114,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Bedrooms Switches
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Bedrooms Switches 
 
 
 ############################################################################
@@ -162,10 +132,7 @@ cards:
     cards:
 
       - type: horizontal-stack
-        cards:
-    
-          - type: custom:button-card
-            template: shoulder_blank_card  
+        cards: 
 
           - type: custom:decluttering-card # Bedroom
             template: light_button
@@ -187,15 +154,9 @@ cards:
               - entity: light.bedside_dima_bulb
               - name: Bedside Dima
               - icon: mdi:lamp
-      
-          - type: custom:button-card
-            template: shoulder_blank_card  
 
       - type: horizontal-stack
-        cards:
-    
-          - type: custom:button-card
-            template: shoulder_blank_card  
+        cards:  
 
           - type: custom:decluttering-card # Kids Room
             template: light_button
@@ -220,8 +181,5 @@ cards:
 
           # - type: "custom:button-card"
           #   color_type: blank-card
-      
-          - type: custom:button-card
-            template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml

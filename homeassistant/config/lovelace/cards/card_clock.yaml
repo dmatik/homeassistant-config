@@ -3,9 +3,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
         
       - type: custom:clock-card
         style: |
@@ -28,8 +25,5 @@ cards:
       #       title: ""
       #       entity: sensor.time
       #       scale: 35px
-          
-      - type: custom:button-card
-        template: shoulder_blank_card
 
   - !include /config/lovelace/styles/separator_card.yaml

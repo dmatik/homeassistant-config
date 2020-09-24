@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
     
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Tasmota Devices
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
+          - name: Tasmota Devices        
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: entities
         show_header_toggle: false
@@ -109,8 +100,5 @@ cards:
             name: Sync states
             icon: mdi:sync
 
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml

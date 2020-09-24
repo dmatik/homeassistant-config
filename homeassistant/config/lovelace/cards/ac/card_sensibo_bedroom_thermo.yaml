@@ -9,18 +9,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Bedroom AC
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Bedroom AC 
 
             
 ############################################################################
@@ -32,16 +26,10 @@ cards:
   - type: horizontal-stack
     cards:
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
       - type: custom:decluttering-card
         template: sensibo_thermo
         variables:
           - name: bedroom
 
       - type: "custom:button-card"
-        color_type: blank-card
-            
-      - type: custom:button-card
-        template: shoulder_blank_card      
+        color_type: blank-card    

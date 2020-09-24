@@ -2,17 +2,11 @@ type: vertical-stack
 cards:
 
   - type: horizontal-stack
-    cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
 
       - type: weather-forecast
         entity: weather.openweathermap
         name: " "
         #secondary_info_attribute: humidity
-          
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml

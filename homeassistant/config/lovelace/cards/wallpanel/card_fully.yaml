@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
     
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Fully
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
+          - name: Fully        
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: entities
         show_header_toggle: false
@@ -91,11 +82,7 @@ cards:
             icon: mdi:cached
             name: Clear Cache
             action_name: Clear
-            service: rest_command.fully_clear_cache
-
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+            service: rest_command.fully_clear_cache  
 
 
   - !include /config/lovelace/styles/separator_card.yaml

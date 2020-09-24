@@ -10,16 +10,10 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Recorder
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
+          - name: Recorder        
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: entities
         style: |
@@ -47,9 +38,6 @@ cards:
           - entity: input_boolean.recorder_purge_repack
             name: Repack
 
-      - type: custom:button-card
-        template: shoulder_blank_card  
-
 
 ############################################################################
 #                                                                          #
@@ -59,9 +47,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card
         template: simple_button
@@ -78,9 +63,6 @@ cards:
               service: recorder.purge
               service_data:
                 keep_days: "[[[ return entity.state | 0; ]]]"
-                repack: "[[[ states['input_boolean.recorder_purge_repack'].state ]]]"
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+                repack: "[[[ states['input_boolean.recorder_purge_repack'].state ]]]" 
 
   - !include /config/lovelace/styles/separator_card.yaml

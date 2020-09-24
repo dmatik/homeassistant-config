@@ -10,29 +10,20 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
           - name: Wallpanel
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
 
 ############################################################################
 #                                                                          #
-#   Sensors Bars                                                              #
+#   Sensors Bars                                                           #
 #                                                                          #
 ############################################################################
 
   - type: horizontal-stack
     cards:  
-
-        - type: custom:button-card
-          template: shoulder_blank_card 
 
         - type: custom:bar-card
           style: |
@@ -65,9 +56,6 @@ cards:
               #icon: mdi:harddisk
               min: 0
               max: 500
-            
-        - type: custom:button-card
-          template: shoulder_blank_card
 
 
 ############################################################################
@@ -78,9 +66,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
       # - type: custom:decluttering-card # Refresh
       #   template: script_button
@@ -117,8 +102,6 @@ cards:
 
       # - type: "custom:button-card"
       #   color_type: blank-card 
-        
-      - type: custom:button-card
-        template: shoulder_blank_card 
+
 
   - !include /config/lovelace/styles/separator_card.yaml  

@@ -17,18 +17,12 @@ sensibo_card:
 ############################################################################
 
       - type: horizontal-stack
-        cards:
-        
-          - type: custom:button-card
-            template: shoulder_blank_card  
+        cards: 
           
           - type: custom:decluttering-card
             template: title_button_card
             variables:
-              - name: '[[title]]'
-          
-          - type: custom:button-card
-            template: shoulder_blank_card  
+              - name: '[[title]]' 
 
             
 ############################################################################
@@ -40,9 +34,6 @@ sensibo_card:
       - type: horizontal-stack
         cards:
 
-          - type: custom:button-card
-            template: shoulder_blank_card
-
           - type: custom:decluttering-card
             template: sensibo_elements
             variables:
@@ -52,9 +43,7 @@ sensibo_card:
               - sensor_target_temp: 'sensor.sensibo_[[name]]_target_temp'
               - sensor_temp: 'sensor.sensibo_[[name]]_temp'
               - sensor_fan: 'sensor.sensibo_[[name]]_fan'
-                
-          - type: custom:button-card
-            template: shoulder_blank_card      
+
 
 ############################################################################
 #                                                                          #
@@ -64,9 +53,6 @@ sensibo_card:
 
       - type: horizontal-stack
         cards:
-        
-          - type: custom:button-card
-            template: shoulder_blank_card
 
           - type: custom:decluttering-card # Cool Operation Mode
             template: simple_button
@@ -107,8 +93,5 @@ sensibo_card:
             variables:
               - entity: script.sensibo_[[name]]_increase_target_temp
               - icon: mdi:plus
-
-          - type: custom:button-card
-            template: shoulder_blank_card
 
       - !include /config/lovelace/styles/separator_card.yaml

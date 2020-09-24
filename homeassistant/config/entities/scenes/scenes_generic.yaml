@@ -75,10 +75,14 @@
       state: on
     light.hall:
       state: on
+    switch.bedside_romantic_light:
+      state: on
 
 - name: Night Lights Off
   entities:
     light.dining:
       state: off
     light.hall:
+      state: off
+    switch.bedside_romantic_light:
       state: off

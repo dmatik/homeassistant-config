@@ -13,6 +13,9 @@ cards:
 
       - type: horizontal-stack
         cards:
+
+          - type: custom:button-card
+            template: shoulder_blank_card     
   
           - type: vertical-stack
             cards:
@@ -49,6 +52,9 @@ cards:
               - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
 
               #- !include /config/lovelace/cards/card_calendar_home.yaml
+
+          - type: custom:button-card
+            template: shoulder_blank_card    
 
       
 

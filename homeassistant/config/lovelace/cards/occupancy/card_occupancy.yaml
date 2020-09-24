@@ -9,10 +9,7 @@ cards:
 
   - type: horizontal-stack
     cards:
-
-      - type: custom:button-card
-        template: shoulder_blank_card                                     
-
+ 
       - type: custom:decluttering-card
         template: person_elements
         variables:
@@ -41,10 +38,7 @@ cards:
           #     action: navigate
           #     navigation_path: /lovelace/map/
           - tap_action:
-                action: more-info 
-                      
-      - type: custom:button-card
-        template: shoulder_blank_card       
+                action: more-info      
 
   #- !include /config/lovelace/styles/separator_card.yaml
   - type: custom:decluttering-card

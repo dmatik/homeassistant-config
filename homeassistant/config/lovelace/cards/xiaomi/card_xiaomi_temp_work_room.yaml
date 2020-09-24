@@ -10,16 +10,10 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
           - name: Climate
-    
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
 
 ############################################################################
@@ -31,9 +25,6 @@ cards:
   - type: horizontal-stack
     cards:
 
-      - type: custom:button-card
-        template: shoulder_blank_card 
-
       - type: custom:decluttering-card
         template: graph
         variables:
@@ -43,8 +34,6 @@ cards:
 
       - type: "custom:button-card"
         color_type: blank-card  
-                  
-      - type: custom:button-card
-        template: shoulder_blank_card
+
 
   - !include /config/lovelace/styles/separator_card.yaml        

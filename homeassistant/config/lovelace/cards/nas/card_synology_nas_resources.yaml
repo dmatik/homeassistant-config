@@ -9,18 +9,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
     
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: NAS Resources
-    
-      - type: custom:button-card
-        template: shoulder_blank_card          
+          - name: NAS Resources        
 
 
 ############################################################################
@@ -31,9 +25,6 @@ cards:
 
   - type: horizontal-stack
     cards: 
-    
-        - type: custom:button-card
-          template: shoulder_blank_card  
 
         - type: custom:bar-card
           style: |
@@ -63,17 +54,11 @@ cards:
               align: split 
               color: 'rgb(87, 0, 127)'
               padding: 4px
-              width: 100%
-                  
-        - type: custom:button-card
-          template: shoulder_blank_card  
+              width: 100% 
             
   
   - type: horizontal-stack
-    cards:
-    
-        - type: custom:button-card
-          template: shoulder_blank_card  
+    cards: 
 
         - type: custom:decluttering-card
           template: graph
@@ -90,9 +75,6 @@ cards:
               - name: Download
               - icon: mdi:download
               - color: green         
-                          
-        - type: custom:button-card
-          template: shoulder_blank_card  
 
 
   - !include /config/lovelace/styles/separator_card.yaml

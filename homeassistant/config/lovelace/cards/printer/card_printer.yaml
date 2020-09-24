@@ -11,16 +11,10 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Printer
-    
-      - type: custom:button-card
-        template: shoulder_blank_card          
+          - name: Printer      
 
 ############################################################################
 #                                                                          #
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
       - type: custom:decluttering-card
         template: printer_elements
@@ -42,9 +33,6 @@ cards:
           - image_on: /local/images/printer/printer_on.png
           - image_off: /local/images/printer/printer_off.png
 
-      - type: custom:button-card
-        template: shoulder_blank_card  
-
 ############################################################################
 #                                                                          #
 #   Colors                                                                 #
@@ -53,9 +41,6 @@ cards:
 
   - type: horizontal-stack
     cards: 
-    
-        - type: custom:button-card
-          template: shoulder_blank_card
 
         - type: custom:bar-card
           style: |
@@ -83,9 +68,6 @@ cards:
             - entity: sensor.mfc_j650dw_yellow_ink_remaining
               name: Yellow
               color: '#F9D95E'
-                  
-        - type: custom:button-card
-          template: shoulder_blank_card  
 
 
   - !include /config/lovelace/styles/separator_card.yaml

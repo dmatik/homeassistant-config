@@ -10,16 +10,10 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Backup
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
+          - name: Backup      
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
 
       - type: custom:list-card
@@ -51,8 +42,5 @@ cards:
           #  field: date
           - title: State
             field: state
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml

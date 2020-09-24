@@ -10,16 +10,10 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Themes
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
+          - name: Themes       
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: entities
         style: |
@@ -42,10 +33,7 @@ cards:
           }
         show_header_toggle: false
         entities:
-          - input_select.themes_list
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - input_select.themes_list 
 
 
 ############################################################################
@@ -56,9 +44,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card
         template: simple_button
@@ -76,9 +61,6 @@ cards:
               action: call-service
               service: frontend.set_theme
               service_data:
-                name: '[[[ return entity.state; ]]]'
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+                name: '[[[ return entity.state; ]]]'  
 
   - !include /config/lovelace/styles/separator_card.yaml

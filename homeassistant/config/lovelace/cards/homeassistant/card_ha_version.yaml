@@ -10,16 +10,10 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Home Assistant Version
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
+          - name: Home Assistant Version       
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: entities
         show_header_toggle: false
@@ -50,9 +41,6 @@ cards:
           - entity: script.update_homeassistant_container
             icon: mdi:update
             name: Update
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
 
   - !include /config/lovelace/styles/separator_card.yaml

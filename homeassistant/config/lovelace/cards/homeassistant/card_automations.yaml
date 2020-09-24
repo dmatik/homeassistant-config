@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
     
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Automations
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
+          - name: Automations       
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: entities
         title: ""
@@ -47,9 +38,6 @@ cards:
           - automation.turn_off_kids_radiator
           - automation.ha_update_available_notification
           - automation.hacs_updates_notification
-          - automation.nobody_home
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - automation.nobody_home 
 
   - !include /config/lovelace/styles/separator_card.yaml

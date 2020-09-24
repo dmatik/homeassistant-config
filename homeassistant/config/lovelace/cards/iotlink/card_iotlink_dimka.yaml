@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
     
       - type: custom:decluttering-card
         template: title_button_card
         variables:
           - name: DIMKA PC
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
 ############################################################################
 #                                                                          #
@@ -28,10 +22,7 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
 
       - type: custom:decluttering-card
         template: pc_elements
@@ -40,40 +31,6 @@ cards:
           - name: dimka
           - image_on: /local/images/iotlink/dimka_on.png
           - image_off: /local/images/iotlink/dimka_off.png
-
-      - type: custom:button-card
-        template: shoulder_blank_card
-
-############################################################################
-#                                                                          #
-#   CPU and Memory Graphs                                                  #
-#                                                                          #
-############################################################################
-
-  # - type: horizontal-stack
-  #   cards:  
-
-  #       - type: custom:button-card
-  #         template: shoulder_blank_card 
-
-  #       - type: custom:decluttering-card
-  #         template: graph
-  #         variables:
-  #             - entity: sensor.dimka_cpu_usage
-  #             - name: CPU
-  #             - icon: mdi:chip
-  #             - color: 'rgb(43, 154, 249)'  
-
-  #       - type: custom:decluttering-card
-  #         template: graph
-  #         variables:
-  #             - entity: sensor.dimka_ram_used
-  #             - name: RAM
-  #             - icon: mdi:memory
-  #             - color: 'rgb(87, 0, 127)' 
-
-  #       - type: custom:button-card
-  #         template: shoulder_blank_card
 
 
 
@@ -85,9 +42,6 @@ cards:
 
   - type: horizontal-stack
     cards:  
-
-        - type: custom:button-card
-          template: shoulder_blank_card 
 
         - type: custom:bar-card
           style: |
@@ -107,9 +61,7 @@ cards:
               name: "Disk C"
             - entity: sensor.dimka_hdd_usage_d
               name: "Disk D"
-            
-        - type: custom:button-card
-          template: shoulder_blank_card
+
 
 ############################################################################
 #                                                                          #
@@ -119,9 +71,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
       - type: custom:decluttering-card # Wake
         template: script_button
@@ -169,9 +118,6 @@ cards:
               enabled: true
               duration: 5
               unlock: tap
-          - cust_1_field: ""
-        
-      - type: custom:button-card
-        template: shoulder_blank_card 
+          - cust_1_field: "" 
 
   - !include /config/lovelace/styles/separator_card.yaml  

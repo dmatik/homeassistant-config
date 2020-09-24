@@ -11,16 +11,10 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
           - name: Rooms
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
         
 ############################################################################
@@ -32,8 +26,8 @@ cards:
   - type: horizontal-stack
     cards:
 
-      - type: custom:button-card
-        template: shoulder_blank_card
+#       - type: custom:button-card
+#         template: shoulder_blank_card
 
       - type: custom:decluttering-card
         template: menu_button
@@ -108,14 +102,8 @@ cards:
           #- icon: fas:door-open
           - path: hallway
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
   - type: horizontal-stack
     cards:
-
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card
         template: menu_button
@@ -227,9 +215,6 @@ cards:
                   if (states['switch.mqtt_kids_radiator'].state == 'on') return 'var(--paper-item-icon-active-color)';
                   ]]]" 
           - path: kids_room
-
-      - type: custom:button-card
-        template: shoulder_blank_card
 
 
   - !include /config/lovelace/styles/separator_card.yaml

@@ -11,16 +11,10 @@ cards:
   - type: horizontal-stack
     cards:
     
-      - type: custom:button-card
-        template: shoulder_blank_card  
-    
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Switcher
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Switcher 
 
 
 ############################################################################
@@ -32,14 +26,8 @@ cards:
   - type: horizontal-stack
     cards:
 
-      - type: custom:button-card
-        template: shoulder_blank_card 
-
       - type: custom:decluttering-card
         template: switcher_elements
-                  
-      - type: custom:button-card
-        template: shoulder_blank_card
 
 
 ############################################################################
@@ -50,9 +38,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # Boiler Power
         template: simple_button
@@ -75,8 +60,5 @@ cards:
         variables:
           - entity: input_select.switcher_timer_minutes_input_select
           - name: "[[[ return `<span>${states['input_select.switcher_timer_minutes_input_select'].state}</span>`; ]]]"
-        
-      - type: custom:button-card
-        template: shoulder_blank_card
 
   - !include /config/lovelace/styles/separator_card.yaml

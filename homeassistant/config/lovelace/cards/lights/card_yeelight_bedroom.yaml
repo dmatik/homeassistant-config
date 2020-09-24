@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Bedroom Yeelight
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Bedroom Yeelight  
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
       - type: custom:decluttering-card # Bedroom Yeelight
         template: yeelight_switch_button
@@ -65,8 +56,5 @@ cards:
           - light_entity: light.bedroom_ceiling
           - nightlight: "on"
           - mode: moonlight
-      
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
   - !include /config/lovelace/styles/separator_card.yaml

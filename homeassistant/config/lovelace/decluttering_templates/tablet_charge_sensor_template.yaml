@@ -1,22 +1,17 @@
-tablet_charge_circle:
+tablet_charge_sensor:
 
   default:
 
   card:
 
     type: picture-elements
-    image: '/local/images/empty.png'
+    image: '/local/images/empty_sensor.png'
 
-    # style: |
-    #   ha-card { 
-    #     background-color: rgba(0,0,0,0.0);
-    #   }
     elements:
 
       - type: custom:circle-sensor-card
-        name: '[[name]]'
+        #name: '[[name]]'
         entity: '[[battery]]'
-        attribute: null
         fill: 'rgba(0,0,0,0.0)'
         stroke_color: '#404040'
         stroke_bg_color: '#404040'
@@ -28,16 +23,16 @@ tablet_charge_circle:
         show_max: false
         gradient: false
         font_style:
-          font-size: 16px
+          font-size: 18px
         color_stops:
           0: '#bf4040'
           15: '#bf9540'
           40: '#75BD6F'
         style:
           top: 50%
-          left: 50%
-          width: 92%
-          height: 92%
+          left: 20%
+          width: 80%
+          height: 80%
 
       - type: conditional
         conditions:
@@ -49,17 +44,26 @@ tablet_charge_circle:
             tap_action:
               action: none
             style:
-              top: 25%
-              left: 50%
+              top: 28%
+              left: 20%
               color: 'var(--picture-elements-icon-color)'
-              --mdc-icon-size: 18px
-      
-      # - type: state-label
-      #   entity: '[[secondary]]'
-      #   style: 
-      #     top: 75%
-      #     left: 50%
-      #     font-size: 8px
-      #     text-transform: lowercase
-      #     transform: translate(-50%, -50%)
-      #     padding-left: 0px
+              --mdc-icon-size: 14px
+
+      - type: custom:text-element
+        text: '[[name]]'
+        style:
+          top: 25%
+          left: 42%
+          font-size: 16px
+          text-transform: lowercase
+          transform: translate(-0%, -50%)
+
+      - type: state-label
+        entity: '[[secondary]]'
+        style: 
+          top: 50%
+          left: 39%
+          font-size: 12px
+          text-transform: lowercase
+          transform: translate(-0%, -50%)
+          padding-left: 0px

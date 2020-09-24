@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards:  
     
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Docker
-    
-      - type: custom:button-card
-        template: shoulder_blank_card         
+          - name: Docker         
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-      
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: entities
         style: |
@@ -91,9 +82,6 @@ cards:
             template: docker_cont
             variables:
               - name: radarr
-              - container: radarr
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+              - container: radarr 
 
   - !include /config/lovelace/styles/separator_card.yaml

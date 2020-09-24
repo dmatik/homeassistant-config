@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Other Rooms
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Other Rooms 
 
 
 ############################################################################
@@ -32,10 +26,7 @@ cards:
     cards:
 
       - type: horizontal-stack
-        cards:
-    
-          - type: custom:button-card
-            template: shoulder_blank_card  
+        cards: 
 
           - type: custom:decluttering-card # Hall
             template: light_button
@@ -54,18 +45,12 @@ cards:
             variables:
               - entity: light.kids_room
               - name: Kids Room            
-      
-          - type: custom:button-card
-            template: shoulder_blank_card  
 
   - type: vertical-stack
     cards:
 
       - type: horizontal-stack
         cards:
-    
-          - type: custom:button-card
-            template: shoulder_blank_card  
 
           - type: custom:decluttering-card # Gateway
             template: color_light_button #yeelight_switch_button
@@ -79,8 +64,5 @@ cards:
 
           - type: "custom:button-card"
             color_type: blank-card          
-      
-          - type: custom:button-card
-            template: shoulder_blank_card  
 
   - !include /config/lovelace/styles/separator_card.yaml

@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
     
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: NAS Storage
-    
-      - type: custom:button-card
-        template: shoulder_blank_card          
+          - name: NAS Storage        
 
 
 ############################################################################
@@ -29,10 +23,7 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:  
-
-        - type: custom:button-card
-          template: shoulder_blank_card 
+    cards:   
 
         - type: custom:bar-card
           style: |
@@ -51,16 +42,10 @@ cards:
               align: split
               color: 'rgba(117,189,111,1.0)'
               padding: 4px
-              width: 100%
-            
-        - type: custom:button-card
-          template: shoulder_blank_card 
+              width: 100% 
 
   - type: horizontal-stack
     cards:
-      
-        - type: custom:button-card
-          template: shoulder_blank_card 
 
         - type: custom:decluttering-card
           template: graph
@@ -75,9 +60,6 @@ cards:
               - entity: sensor.synology_dsm_temperature_sdb
               - name: Disk 2
               - icon: mdi:thermometer   
-                    
-        - type: custom:button-card
-          template: shoulder_blank_card 
 
 
   - !include /config/lovelace/styles/separator_card.yaml
