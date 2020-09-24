@@ -10,17 +10,11 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
           - name: Living Room TV
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
 
 ############################################################################
@@ -31,9 +25,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
       - type: custom:decluttering-card # Shield TV
         template: switch_button
@@ -53,14 +44,8 @@ cards:
       - type: "custom:button-card"
         color_type: blank-card
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
   - type: horizontal-stack
     cards:
-
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # Volume Up
         template: script_button
@@ -82,8 +67,5 @@ cards:
           - entity: script.reciever_volume_mute
           - name: Mute
           - icon: mdi:volume-mute
-        
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
   - !include /config/lovelace/styles/separator_card.yaml        

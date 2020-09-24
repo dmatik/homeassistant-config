@@ -8,18 +8,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Baltic TV Remote
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Baltic TV Remote 
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
       - type: custom:decluttering-card # Volume Up
         template: remote_button
@@ -69,17 +60,11 @@ cards:
           - icon: mdi:exit-to-app
           - remote: living_room
           - command: Exit
-          - device: 59394437            
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - device: 59394437             
 
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
       - type: custom:decluttering-card # Volume Down
         template: remote_button
@@ -118,16 +103,10 @@ cards:
           - remote: living_room
           - command: DirectionRight
           - device: 59394437
-          - color: var(--remote-button-alt-background)
-
-      - type: custom:button-card
-        template: shoulder_blank_card    
+          - color: var(--remote-button-alt-background)    
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
 
       - type: custom:decluttering-card # Mute
         template: remote_button
@@ -164,10 +143,7 @@ cards:
           - icon: mdi:arrow-left
           - remote: living_room
           - command: Back
-          - device: 59394437
-
-      - type: custom:button-card
-        template: shoulder_blank_card   
+          - device: 59394437  
 
   - !include /config/lovelace/styles/separator_card.yaml
 
@@ -180,10 +156,7 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
 
       - type: custom:decluttering-card # Page Up
         template: remote_button
@@ -221,15 +194,9 @@ cards:
           - command: 3
           - device: 59394437
 
-      - type: custom:button-card
-        template: shoulder_blank_card  
-
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
 
       - type: custom:decluttering-card # Page Down
         template: remote_button
@@ -267,15 +234,9 @@ cards:
           - command: 6
           - device: 59394437
 
-      - type: custom:button-card
-        template: shoulder_blank_card  
-
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
 
       - type: custom:decluttering-card # Keyboard
         template: remote_button
@@ -313,15 +274,9 @@ cards:
           - command: 9
           - device: 59394437
 
-      - type: custom:button-card
-        template: shoulder_blank_card  
-
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
       - type: "custom:button-card" # Empty
         color_type: blank-card 
@@ -352,9 +307,6 @@ cards:
           - remote: living_room
           - command: Info
           - device: 59394437
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
   
 
 
@@ -366,9 +318,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
       - type: custom:decluttering-card # Green
         template: remote_button
@@ -408,10 +357,7 @@ cards:
           - remote: living_room
           - command: Yellow
           - device: 59394437
-          - icon_color: yellow
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - icon_color: yellow 
 
   - !include /config/lovelace/styles/separator_card.yaml
 

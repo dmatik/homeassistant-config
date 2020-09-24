@@ -9,18 +9,12 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Living Room TV
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Living Room TV  
 
 
 ############################################################################
@@ -31,9 +25,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
       - type: custom:decluttering-card
         template: harmony_elements
@@ -41,10 +32,7 @@ cards:
           - title: Living Room TV
           - name: living_room
           - image_on: /local/images/remotes/living_room_tv_on.png
-          - image_off: /local/images/remotes/living_room_tv_off.png
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - image_off: /local/images/remotes/living_room_tv_off.png 
 
 ############################################################################
 #                                                                          #
@@ -53,10 +41,7 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card 
+    cards: 
 
       - type: custom:decluttering-card # Baltic TV
         template: simple_button
@@ -78,9 +63,6 @@ cards:
           - entity: switch.smart_tv
           - name: Smart TV
           - icon: mdi:television
-        
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
 
 ############################################################################
@@ -91,9 +73,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
       - type: custom:decluttering-card # Volume Up
         template: simple_script_button
@@ -115,8 +94,5 @@ cards:
           - entity: script.reciever_volume_mute
           - name: Mute
           - icon: mdi:volume-mute
-        
-      - type: custom:button-card
-        template: shoulder_blank_card 
 
   - !include /config/lovelace/styles/separator_card.yaml        

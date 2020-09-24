@@ -9,17 +9,11 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Smart TV Remote
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
+          - name: Smart TV Remote 
 
 
 ############################################################################
@@ -30,9 +24,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # Volume Up
         template: remote_button
@@ -71,14 +62,8 @@ cards:
           - command: Home
           - device: 59394435
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # Volume Down
         template: remote_button
@@ -119,14 +104,8 @@ cards:
           - device: 59394435
           - color: var(--remote-button-alt-background)
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # Mute
         template: remote_button
@@ -165,9 +144,6 @@ cards:
           - command: Back
           - device: 59394435
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
   - !include /config/lovelace/styles/separator_card.yaml
 
 
@@ -179,9 +155,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # Play
         template: remote_button
@@ -220,9 +193,6 @@ cards:
           - device: 59394435
           - icon_color: red
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
   
 ############################################################################
 #                                                                          #
@@ -232,9 +202,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # SmartHub
         template: remote_button
@@ -272,15 +239,9 @@ cards:
           - command: 3
           - device: 59394435
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # Info
         template: remote_button
@@ -318,15 +279,9 @@ cards:
           - command: 6
           - device: 59394435
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: custom:decluttering-card # Guide
         template: remote_button
@@ -364,15 +319,9 @@ cards:
           - command: 9
           - device: 59394435
 
-      - type: custom:button-card
-        template: shoulder_blank_card
-
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card
 
       - type: "custom:button-card" # Empty
         color_type: blank-card 
@@ -391,9 +340,6 @@ cards:
 
       - type: "custom:button-card" # Empty
         color_type: blank-card               
-
-      - type: custom:button-card
-        template: shoulder_blank_card
   
 
 
@@ -404,10 +350,7 @@ cards:
 ############################################################################
 
   - type: horizontal-stack
-    cards:
-
-      - type: custom:button-card
-        template: shoulder_blank_card  
+    cards: 
 
       - type: custom:decluttering-card # Green
         template: remote_button
@@ -449,8 +392,6 @@ cards:
           - device: 59394435
           - icon_color: yellow
 
-      - type: custom:button-card
-        template: shoulder_blank_card
 
   - !include /config/lovelace/styles/separator_card.yaml
 
