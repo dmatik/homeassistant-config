@@ -32,7 +32,10 @@ cards:
 
               #- !include /config/lovelace/cards/lights/card_lights_scripts.yaml
               - !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
-            
+          
+          - type: custom:button-card
+            template: shoulder_blank_card
+
           - type: vertical-stack
             cards:
               
@@ -45,7 +48,10 @@ cards:
               #- !include /config/lovelace/cards/switcher/card_switcher_kiosk.yaml
               - !include /config/lovelace/cards/switcher/card_switcher_kiosk_alt.yaml
               #- !include /config/lovelace/cards/switcher/card_switcher_buttons.yaml
-              
+
+          - type: custom:button-card
+            template: shoulder_blank_card
+                          
           - type: vertical-stack
             cards:
 
