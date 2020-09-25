@@ -3,7 +3,7 @@
 #     icon: mdi:flash-auto
 
 
-recorder_purge_repack:
-    name: Recorder purge repack
-    icon: mdi:database-refresh
+# recorder_purge_repack:
+#     name: Recorder purge repack
+#     icon: mdi:database-refresh
     

@@ -1,0 +1,210 @@
+switch:
+
+    - platform: template
+      switches:
+                    
+            
+
+    ############################################################################
+    #                                                                          #
+    #   Kids Room                                                              #
+    #                                                                          #
+    ############################################################################
+
+        sensibo_kids_room_cool:
+            friendly_name: "Kids Room AC Cool"
+            icon_template: mdi:snowflake
+            value_template: "{{ is_state('climate.kids_room', 'cool') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.kids_room
+                    hvac_mode: "cool"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.kids_room
+                    hvac_mode: "off"     
+
+        sensibo_kids_room_heat:
+            friendly_name: "Kids Room AC Heat"
+            icon_template: mdi:fire
+            value_template: "{{ is_state('climate.kids_room', 'heat') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.kids_room
+                    hvac_mode: "heat"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.kids_room
+                    hvac_mode: "off"  
+
+        sensibo_kids_room_auto:
+            friendly_name: "Kids Room AC Auto"
+            icon_template: mdi:brightness-auto
+            value_template: "{{ is_state('climate.kids_room', 'heat_cool') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.kids_room
+                    hvac_mode: "heat_cool"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.kids_room
+                    hvac_mode: "off"   
+
+        sensibo_kids_room_fan:
+            friendly_name: "Kids Room AC Fan"
+            icon_template: mdi:fan
+            value_template: "{{ is_state('climate.kids_room', 'fan_only') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.kids_room
+                    hvac_mode: "fan_only"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.kids_room
+                    hvac_mode: "off"
+
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Bedroom                                                                #
+    #                                                                          #
+    ############################################################################
+
+        sensibo_bedroom_cool:
+            friendly_name: "Bedroom AC Cool"
+            icon_template: mdi:snowflake
+            value_template: "{{ is_state('climate.bedroom', 'cool') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.bedroom
+                    hvac_mode: "cool"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.bedroom
+                    hvac_mode: "off"     
+
+        sensibo_bedroom_heat:
+            friendly_name: "Bedroom AC Heat"
+            icon_template: mdi:fire
+            value_template: "{{ is_state('climate.bedroom', 'heat') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.bedroom
+                    hvac_mode: "heat"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.bedroom
+                    hvac_mode: "off"  
+
+        sensibo_bedroom_auto:
+            friendly_name: "Bedroom AC Auto"
+            icon_template: mdi:brightness-auto
+            value_template: "{{ is_state('climate.bedroom', 'heat_cool') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.bedroom
+                    hvac_mode: "heat_cool"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.bedroom
+                    hvac_mode: "off"   
+
+        sensibo_bedroom_fan:
+            friendly_name: "Bedroom AC Fan"
+            icon_template: mdi:fan
+            value_template: "{{ is_state('climate.bedroom', 'fan_only') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.bedroom
+                    hvac_mode: "fan_only"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.bedroom
+                    hvac_mode: "off"
+
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Living Room                                                            #
+    #                                                                          #
+    ############################################################################
+
+        sensibo_living_room_cool:
+            friendly_name: "Living Room AC Cool"
+            icon_template: mdi:snowflake
+            value_template: "{{ is_state('climate.living_room', 'cool') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.living_room
+                    hvac_mode: "cool"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.living_room
+                    hvac_mode: "off"     
+
+        sensibo_living_room_heat:
+            friendly_name: "Living Room AC Heat"
+            icon_template: mdi:fire
+            value_template: "{{ is_state('climate.living_room', 'heat') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.living_room
+                    hvac_mode: "heat"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.living_room
+                    hvac_mode: "off"  
+
+        sensibo_living_room_auto:
+            friendly_name: "Living Room AC Auto"
+            icon_template: mdi:brightness-auto
+            value_template: "{{ is_state('climate.living_room', 'heat_cool') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.living_room
+                    hvac_mode: "heat_cool"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.living_room
+                    hvac_mode: "off"   
+
+        sensibo_living_room_fan:
+            friendly_name: "Living Room AC Fan"
+            icon_template: mdi:fan
+            value_template: "{{ is_state('climate.living_room', 'fan_only') }}"
+            turn_on:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.living_room
+                    hvac_mode: "fan_only"
+            turn_off:
+                service: climate.set_hvac_mode
+                data:
+                    entity_id: climate.living_room
+                    hvac_mode: "off"

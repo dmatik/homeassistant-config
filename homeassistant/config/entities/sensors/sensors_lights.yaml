@@ -10,18 +10,18 @@
     ############################################################################
 
     bedroom_ceiling_moonlight:
-      friendly_name: "Bedroom Moonlight Mode"
-      icon_template: mdi:brightness-4
-      value_template: >-
-        {% if is_state('light.bedroom_ceiling', 'unavailable') %}
-            unavailable
-        {% else %}
-            {% if is_state('binary_sensor.bedroom_ceiling_nightlight', 'on') %}
-                moonlight
+        friendly_name: "Bedroom Moonlight Mode"
+        icon_template: mdi:brightness-4
+        value_template: >-
+            {% if is_state('light.bedroom_ceiling', 'unavailable') %}
+                unavailable
             {% else %}
-                normal
+                {% if is_state('binary_sensor.bedroom_ceiling_nightlight', 'on') %}
+                    moonlight
+                {% else %}
+                    normal
+                {% endif %}
             {% endif %}
-        {% endif %}
 
 
 
@@ -32,20 +32,20 @@
     ############################################################################
 
     bedside_lights_mode:
-      friendly_name: "Bedside Lights Mode"
-      icon_template: mdi:heart
-      value_template: >-
-        {% if is_state('light.bedside_dima_bulb', 'unavailable') or is_state('light.bedside_galit_bulb', 'unavailable') %}
-            unavailable
-        {% elif is_state('light.bedside_dima_bulb', 'off') and is_state('light.bedside_galit_bulb', 'off') %}
-            lights_off
-        {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') > 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') > 180 ) %}
-            romantic
-        {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') < 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') < 180 ) %}
-            normal
-        {% else %}
-            other
-        {% endif %}
+        friendly_name: "Bedside Lights Mode"
+        icon_template: mdi:heart
+        value_template: >-
+            {% if is_state('light.bedside_dima_bulb', 'unavailable') or is_state('light.bedside_galit_bulb', 'unavailable') %}
+                unavailable
+            {% elif is_state('light.bedside_dima_bulb', 'off') and is_state('light.bedside_galit_bulb', 'off') %}
+                lights_off
+            {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') > 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') > 180 ) %}
+                romantic
+            {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') < 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') < 180 ) %}
+                normal
+            {% else %}
+                other
+            {% endif %}
 
 
 
@@ -56,18 +56,18 @@
     ############################################################################
 
     yeelight_kitchen_strips:
-      friendly_name: "Kitchen Strips"
-      icon_template: mdi:led-strip
-      value_template: >-
-        {% if is_state('light.kitchen_strip_left', 'unavailable') or is_state('light.kitchen_strip_right', 'unavailable')  %}
-            unavailable
-        {% else %}
-            {% if is_state('light.kitchen_strip_left', 'on') or is_state('light.kitchen_strip_right', 'on') %}
-                on
+        friendly_name: "Kitchen Strips"
+        icon_template: mdi:led-strip
+        value_template: >-
+            {% if is_state('light.kitchen_strip_left', 'unavailable') or is_state('light.kitchen_strip_right', 'unavailable')  %}
+                unavailable
             {% else %}
-                off
+                {% if is_state('light.kitchen_strip_left', 'on') or is_state('light.kitchen_strip_right', 'on') %}
+                    on
+                {% else %}
+                    off
+                {% endif %}
             {% endif %}
-        {% endif %}
 
 
 

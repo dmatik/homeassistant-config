@@ -1,0 +1,10 @@
+rest_command:
+
+  switcher_turn_on:
+    url: !secret switcher_web_api_turn_on
+    method: "POST"
+    payload: '{"minutes": "{{ minutes }}"}'
+
+  switcher_turn_off:
+    url: !secret switcher_web_api_turn_off
+    method: "POST"

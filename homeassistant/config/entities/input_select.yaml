@@ -1,11 +1,11 @@
-switcher_timer_minutes_input_select:
-    name: Timer minutes
-    #initial: 15
-    options:
-        - 15
-        - 30
-        - 45
-        - 60
+# switcher_timer_minutes_input_select:
+#     name: Timer minutes
+#     #initial: 15
+#     options:
+#         - 15
+#         - 30
+#         - 45
+#         - 60
 
 themes_list:
     name: Themes

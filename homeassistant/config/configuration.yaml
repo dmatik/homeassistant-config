@@ -16,6 +16,10 @@ homeassistant:
   internal_url: !secret internal_url
   external_url: !secret external_url
 
+  packages:
+    switcher: !include_dir_merge_named /config/packages/switcher/
+    sensibo: !include_dir_merge_named /config/packages/sensibo/
+
 frontend:
   themes: 
     !include_dir_merge_named themes
@@ -50,6 +54,7 @@ binary_sensor: !include /config/entities/binary_sensors.yaml
 scene: !include_dir_merge_list /config/entities/scenes/ #scene: !include /config/entities/scenes.yaml
 rest_command: !include_dir_merge_named /config/entities/rest_commands/
 shell_command: !include_dir_merge_named /config/entities/shell_commands/
+
 
 
 lovelace:
@@ -154,7 +159,7 @@ google:
 
 # MQTT
 mqtt:
-  discovery: true
+  discovery: false
   broker: !secret syn_mqtt_broker
   username: !secret syn_mqtt_username
   password: !secret syn_mqtt_password
