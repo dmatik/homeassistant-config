@@ -1,10 +1,12 @@
+script:
+
 ############################################################################
 #                                                                          #
 #   Update Home Assistant Container                                        #
 #                                                                          #
 ############################################################################
 
-update_homeassistant_container:
-  alias: "Update"
-  sequence:
-    - service: shell_command.update_homeassistant_container
+  update_homeassistant_container:
+    alias: "Update"
+    sequence:
+      - service: shell_command.update_homeassistant_container

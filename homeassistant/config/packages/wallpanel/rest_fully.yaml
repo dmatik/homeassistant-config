@@ -1,0 +1,13 @@
+rest_command:
+
+  fully_load_url:
+    url: !secret fully_load_url
+    method: "GET"
+
+  fully_restart_app:
+    url: !secret fully_restart_app
+    method: "GET"
+
+  fully_clear_cache:
+    url: !secret fully_clear_cache
+    method: "GET"

@@ -5,6 +5,7 @@ script_button:
     - cust_2_field: ""
     - color: var(--button-color-green)
     - color_type: card
+    - icon_color: var(--primary-text-color)
 
   card:
     type: custom:decluttering-card
@@ -37,3 +38,5 @@ script_button:
             styles:
               card:
                 - background-color: '[[color]]'
+              icon:
+                - color: '[[icon_color]]'

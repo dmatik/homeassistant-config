@@ -22,6 +22,9 @@ homeassistant:
     lights: !include_dir_merge_named /config/packages/lights/
     tasmota_devices: !include_dir_merge_named /config/packages/tasmota_devices/
     power_sockets: !include_dir_merge_named /config/packages/power_sockets/
+    homeassistant: !include_dir_merge_named /config/packages/homeassistant/
+    wallpanel: !include_dir_merge_named /config/packages/wallpanel/
+    presense: !include_dir_merge_named /config/packages/presense/
 
 frontend:
   themes: 

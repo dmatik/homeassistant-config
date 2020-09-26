@@ -1,0 +1,16 @@
+script:
+
+    fully_load_url:
+        alias: Reload URL
+        sequence:
+            - service: rest_command.fully_load_url
+
+    fully_restart_app:
+        alias: Restart App
+        sequence:
+            - service: rest_command.fully_restart_app
+
+    fully_clear_cache:
+        alias: Clear Cache
+        sequence:
+            - service: rest_command.fully_clear_cache

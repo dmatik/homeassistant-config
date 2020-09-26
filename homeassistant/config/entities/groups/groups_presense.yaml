@@ -1,5 +1,0 @@
-home_residents:
-  name: Home Residents
-  entities:
-    - person.dmatik
-    - person.galit

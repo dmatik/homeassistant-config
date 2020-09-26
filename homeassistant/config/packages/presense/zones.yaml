@@ -1,0 +1,43 @@
+zone:
+
+  - name: Amdocs
+    latitude: 31.5232554
+    longitude: 34.6038532
+    radius: 200
+    icon: mdi:briefcase
+      
+  - name: Home
+    latitude: 31.779634
+    longitude: 34.631910
+    radius: 80
+    icon: mdi:home
+
+  - name: Paamonim
+    latitude: 31.7743554
+    longitude: 34.6288553
+    radius: 100
+    icon: mdi:map-marker
+
+  - name: Earlysense
+    latitude: 32.0836753
+    longitude: 34.8040491
+    radius: 100
+    icon: mdi:briefcase
+
+  - name: Trosmans
+    latitude: 31.6007251
+    longitude: 34.7542144
+    radius: 100
+    icon: mdi:map-marker  
+
+  - name: Fellers
+    latitude: 31.8125622
+    longitude: 34.6406031
+    radius: 100
+    icon: mdi:map-marker
+
+  - name: BlokFit
+    latitude: 31.807262
+    longitude: 34.6517956
+    radius: 100
+    icon: mdi:map-marker
