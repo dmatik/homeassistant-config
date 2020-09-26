@@ -22,7 +22,7 @@
         entity_id: sensor.xiaomi_kitchen_light_level
         below: 100
       - condition: state
-        entity_id: sensor.yeelight_kitchen_strips
+        entity_id: light.kitchen_strips
         state: "off"
   action:
     - service: light.turn_on
