@@ -17,6 +17,7 @@ homeassistant:
   external_url: !secret external_url
 
   packages:
+    general: !include_dir_merge_named /config/packages/general/
     switcher: !include_dir_merge_named /config/packages/switcher/
     sensibo: !include_dir_merge_named /config/packages/sensibo/
     lights: !include_dir_merge_named /config/packages/lights/
@@ -25,14 +26,16 @@ homeassistant:
     homeassistant: !include_dir_merge_named /config/packages/homeassistant/
     wallpanel: !include_dir_merge_named /config/packages/wallpanel/
     presense: !include_dir_merge_named /config/packages/presense/
+    havid_19: !include_dir_merge_named /config/packages/havid_19/
+    iotlink: !include_dir_merge_named /config/packages/iotlink/
+    harmony: !include_dir_merge_named /config/packages/harmony/
+    xiaomi: !include_dir_merge_named /config/packages/xiaomi/
+    devices: !include_dir_merge_named /config/packages/devices/
+    themes: !include_dir_merge_named /config/packages/themes/
 
 frontend:
   themes: 
     !include_dir_merge_named themes
-  # extra_html_url:
-  #   - /local/fontawesome/hass-fontawesome-solid.html
-  #   #- /local/fontawesome/hass-fontawesome-regular.html
-  #   #- /local/fontawesome/hass-fontawesome-brands.html
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -41,25 +44,26 @@ default_config:
 tts:
   - platform: google_translate
 
-group: !include_dir_merge_named /config/entities/groups/ #!include groups.yaml
-automation: !include_dir_merge_list automation/ #!include automations.yaml
-script: !include_dir_merge_named /config/entities/scripts/ #script: !include /config/entities/scripts.yaml
-switch: !include_dir_merge_list /config/entities/switches/ #switch: !include /config/entities/switches.yaml
-sensor: !include_dir_merge_list /config/entities/sensors/ #sensor: !include /config/entities/sensors.yaml
-zone: !include /config/entities/zones.yaml
-remote: !include /config/entities/remotes.yaml
+
+automation: !include_dir_merge_list automation/
+#group: !include_dir_merge_named /config/entities/groups/
+#script: !include_dir_merge_named /config/entities/scripts/
+#switch: !include_dir_merge_list /config/entities/switches/
+#sensor: !include_dir_merge_list /config/entities/sensors/
+#zone: !include /config/entities/zones.yaml
+#remote: !include /config/entities/remotes.yaml
 #homekit: !include homekit.yaml
-input_boolean: !include /config/entities/input_boolean.yaml
-input_select: !include /config/entities/input_select.yaml
-input_number: !include /config/entities/input_number.yaml
+#input_boolean: !include /config/entities/input_boolean.yaml
+#input_select: !include /config/entities/input_select.yaml
+#input_number: !include /config/entities/input_number.yaml
 #media_player: !include /config/entities/media_player.yaml
-light: !include_dir_merge_list /config/entities/lights/ #!include /config/entities/lights.yaml
+#light: !include_dir_merge_list /config/entities/lights/
 #yeelight: !include /config/entities/yeelights.yaml
 #timer: !include /config/entities/timers.yaml
-binary_sensor: !include /config/entities/binary_sensors.yaml
-scene: !include_dir_merge_list /config/entities/scenes/ #scene: !include /config/entities/scenes.yaml
-rest_command: !include_dir_merge_named /config/entities/rest_commands/
-shell_command: !include_dir_merge_named /config/entities/shell_commands/
+#binary_sensor: !include /config/entities/binary_sensors.yaml
+#scene: !include_dir_merge_list /config/entities/scenes/
+#rest_command: !include_dir_merge_named /config/entities/rest_commands/
+#shell_command: !include_dir_merge_named /config/entities/shell_commands/
 
 
 

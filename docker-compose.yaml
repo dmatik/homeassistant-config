@@ -158,7 +158,7 @@ services:
             INTERVAL: 300
             LOG_LEVEL: "info"
             SELF_UPDATE: "true"
-            IGNORE: "homeassistant mariadb"
+            IGNORE: "homeassistant mariadb postgres pgadmin"
             TZ: "Asia/Jerusalem"
             NOTIFIERS: "tgram://${MY_DOCKER_BOT_TOKEN}/${TELEGRAM_CHAT_ID}"
         volumes:

@@ -1,0 +1,9 @@
+binary_sensor:
+
+  # iPad Mini is Charging
+  - platform: template
+    sensors:
+      ipadminidima_is_charging:
+        friendly_name: "iPadMiniDima Is Charging"
+        value_template: >-
+          {{ is_state("sensor.ipadminidima_battery_state", "Charging") }}

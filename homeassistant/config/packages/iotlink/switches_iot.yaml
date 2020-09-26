@@ -1,0 +1,17 @@
+switch:
+
+  - platform: template
+    switches:
+
+      dimka:
+          friendly_name: "DIMKA"
+          value_template: "{{ is_state('binary_sensor.dimka_connected', 'on') }}"
+          icon_template: mdi:laptop
+          turn_on:
+              service: script.dimka_wake
+          turn_off:
+              service: script.dimka_suspend
+
+
+            
+

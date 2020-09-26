@@ -1,0 +1,51 @@
+sensor:
+
+############################################################################
+#                                                                          #
+#   DIMKA IOT Link                                                         #
+#                                                                          #
+############################################################################
+
+  - platform: mqtt
+    name: "DIMKA - HDD Usage (C)"
+    state_topic: "iotlink/home/dimka/windows-monitor/stats/hard-drive/c/drive-usage"
+    unit_of_measurement: '%'
+    icon: mdi:chart-donut
+    value_template: "{{ value }}"
+    availability_topic: "iotlink/home/dimka/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    qos: 1
+
+  - platform: mqtt
+    name: "DIMKA - HDD Usage (D)"
+    state_topic: "iotlink/home/dimka/windows-monitor/stats/hard-drive/d/drive-usage"
+    unit_of_measurement: '%'
+    icon: mdi:chart-donut
+    value_template: "{{ value }}"
+    availability_topic: "iotlink/home/dimka/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    qos: 1
+
+  - platform: mqtt
+    name: "DIMKA - CPU Usage"
+    state_topic: "iotlink/home/dimka/windows-monitor/stats/cpu/usage"
+    unit_of_measurement: '%'
+    icon: mdi:speedometer
+    value_template: "{{ value }}"
+    availability_topic: "iotlink/home/dimka/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    qos: 1
+
+  - platform: mqtt
+    name: "DIMKA - RAM Used"
+    state_topic: "iotlink/home/dimka/windows-monitor/stats/memory/used"
+    unit_of_measurement: 'MB'
+    icon: mdi:memory
+    value_template: "{{ value }}"
+    availability_topic: "iotlink/home/dimka/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    qos: 1

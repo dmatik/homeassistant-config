@@ -1,0 +1,9 @@
+input_select:
+
+    themes_list:
+        name: Themes
+        icon: mdi:format-list-bulleted-square
+        options:
+            - "Midnight Blue"
+            - "Midnight Orange"
+            - "Google Dark"
