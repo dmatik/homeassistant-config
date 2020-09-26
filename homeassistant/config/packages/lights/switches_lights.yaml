@@ -1,0 +1,293 @@
+switch:
+
+    - platform: template
+      switches:
+
+
+
+############################################################################
+#                                                                          #
+#   Bedside                                                                #
+#                                                                          #
+############################################################################
+
+        bedside_romantic_light_toggle:
+            friendly_name: Bedside Romantic Light Toggle
+            icon_template: mdi:brightness-4
+            value_template: "{{ is_state('sensor.bedside_lights_mode', 'romantic') }}"
+            turn_on:
+                service: scene.turn_on
+                data:
+                    entity_id: scene.bedside_romantic 
+            turn_off:
+                service: scene.turn_on
+                data:
+                    entity_id: scene.bedside_normal                    
+
+        bedside_romantic_light:
+            friendly_name: Bedside Romantic Light
+            icon_template: mdi:lamp
+            value_template: "{{ is_state('sensor.bedside_lights_mode', 'romantic') }}"
+            turn_on:
+                service: scene.turn_on
+                data:
+                    entity_id: scene.bedside_romantic 
+            turn_off:
+                service: scene.turn_on
+                data:
+                    entity_id: scene.bedside_off
+
+        bedside_normal_light:
+            friendly_name: Bedside Normal Light
+            icon_template: mdi:lamp
+            value_template: "{{ is_state('sensor.bedside_lights_mode', 'normal') }}"
+            turn_on:
+                service: scene.turn_on
+                data:
+                    entity_id: scene.bedside_normal 
+            turn_off:
+                service: scene.turn_on
+                data:
+                    entity_id: scene.bedside_off
+
+
+
+############################################################################
+#                                                                          #
+#   Xiaomi Gateway                                                         #
+#                                                                          #
+############################################################################
+
+        xiaomi_gateway_light:
+            friendly_name: Xiaomi Gateway Light
+            icon_template: mdi:lightbulb
+            value_template: "{{ is_state('light.xiaomi_gateway_servers', 'on') }}"
+            turn_on:
+                service: light.turn_on
+                data:
+                    entity_id: light.xiaomi_gateway_servers
+                    brightness: 68
+                    rgb_color: [36,91,255] 
+            turn_off:
+                service: light.turn_off
+                data:
+                    entity_id: light.xiaomi_gateway_servers
+
+
+
+############################################################################
+#                                                                          #
+#   Entrance Light Switch                                                  #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Entrance Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/entrance/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/entrance/POWER"
+      availability_topic: "tele/entrance/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Living Room Light Switch                                               #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Living Room Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/living_room/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/living_room/POWER"
+      availability_topic: "tele/living_room/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom Light Switch                                                   #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Bedroom Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/bedroom/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/bedroom/POWER"
+      availability_topic: "tele/bedroom/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Balcony Light Switch                                                   #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Balcony Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/balcony/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/balcony/POWER"
+      availability_topic: "tele/balcony/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Hallway Light Switch                                                   #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Hallway Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/hallway/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/hallway/POWER"
+      availability_topic: "tele/hallway/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Kids Room Light Switch                                                 #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Kids Room Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/kids_room/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/kids_room/POWER"
+      availability_topic: "tele/kids_room/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Service Balcony Light Switch                                           #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Service Balcony Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/kitchen/RESULT"
+      value_template: "{{ value_json.POWER1 }}"
+      command_topic: "cmnd/kitchen/POWER1"
+      availability_topic: "tele/kitchen/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Kitchen Light Switch                                                   #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Kitchen Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/kitchen/RESULT"
+      value_template: "{{ value_json.POWER2 }}"
+      command_topic: "cmnd/kitchen/POWER2"
+      availability_topic: "tele/kitchen/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Dining Light Switch                                                    #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Dining Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/dining/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/dining/POWER"
+      availability_topic: "tele/dining/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false
+
+
+############################################################################
+#                                                                          #
+#   Work Room Light Switch                                                 #
+#                                                                          #
+############################################################################
+
+    - platform: mqtt  
+      name: "MQTT Work Room Light"
+      icon: mdi:lightbulb
+      state_topic: "stat/work_room/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/work_room/POWER"
+      availability_topic: "tele/work_room/LWT"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      retain: false

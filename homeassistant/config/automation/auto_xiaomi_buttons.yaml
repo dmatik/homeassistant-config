@@ -111,6 +111,6 @@
         entity_id: binary_sensor.button_kitchen_strip_left
         click_type: single
   action:
-    - service: switch.toggle
+    - service: light.toggle
       data:
-        entity_id: switch.yeelight_kitchen_strips
+        entity_id: light.kitchen_strips

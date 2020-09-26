@@ -1,34 +1,3 @@
-- name: Lights Off
-  entities:
-    light.living_room:
-      state: off
-    light.dining:
-      state: off
-    light.balcony:
-      state: off
-    light.enterence:
-      state: off
-    light.kitchen:
-      state: off
-    light.service_balcony:
-      state: off
-    light.hall:
-      state: off
-    light.bedroom:
-      state: off
-    light.kids_room:
-      state: off
-    light.work_room:
-      state: off
-    light.bedside_yeelight_dima:
-      state: off
-    light.bedside_yeelight_galit:
-      state: off
-    light.kitchen_strip_left:
-      state: off
-    light.kitchen_strip_right:
-      state: off
-
 - name: Bedtime
   entities:
     light.living_room:
@@ -69,20 +38,3 @@
     climate.living_room:
       state: off
 
-- name: Night Lights On
-  entities:
-    light.dining:
-      state: on
-    light.hall:
-      state: on
-    switch.bedside_romantic_light:
-      state: on
-
-- name: Night Lights Off
-  entities:
-    light.dining:
-      state: off
-    light.hall:
-      state: off
-    switch.bedside_romantic_light:
-      state: off

@@ -19,6 +19,9 @@ homeassistant:
   packages:
     switcher: !include_dir_merge_named /config/packages/switcher/
     sensibo: !include_dir_merge_named /config/packages/sensibo/
+    lights: !include_dir_merge_named /config/packages/lights/
+    tasmota_devices: !include_dir_merge_named /config/packages/tasmota_devices/
+    power_sockets: !include_dir_merge_named /config/packages/power_sockets/
 
 frontend:
   themes: 

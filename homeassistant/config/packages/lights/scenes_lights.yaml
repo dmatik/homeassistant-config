@@ -1,0 +1,121 @@
+scene:
+
+############################################################################
+#                                                                          #
+#   Bedside                                                                #
+#                                                                          #
+############################################################################
+
+  - name: Bedside Off
+    entities:
+      light.bedside_dima_bulb:
+        state: off
+      light.bedside_galit_bulb:
+        state: off
+
+  - name: Bedside Normal
+    entities:
+      # light.bedside_yeelight_dima:
+      #   state: on
+      #   color_temp: 254
+      #   brightness: 13
+      light.bedside_dima_bulb:
+        state: on
+        xy_color: [0.323, 0.329]
+        brightness: 140
+      # light.bedside_yeelight_galit:
+      #   state: on
+      #   color_temp: 254
+      #   brightness: 13
+      light.bedside_galit_bulb:
+        state: on
+        xy_color: [0.323, 0.329]
+        brightness: 140
+
+  - name: Bedside Romantic
+    entities:
+      # light.bedside_yeelight_dima:
+      #   state: on
+      #   #rgb_color: [155, 48, 255]
+      #   xy_color: [0.178, 0.068] #blue
+      #   brightness: 3
+      light.bedside_dima_bulb:
+        state: on
+        #rgb_color: [155, 48, 255]
+        xy_color: [0.156, 0.049] #blue
+        brightness: 200
+      # light.bedside_yeelight_galit:
+      #   state: on
+      #   #rgb_color: [155, 48, 255]
+      #   xy_color: [0.178, 0.068] #blue
+      #   brightness: 3
+      light.bedside_galit_bulb:
+        state: on
+        #rgb_color: [155, 48, 255]
+        xy_color: [0.156, 0.049] #blue
+        brightness: 200
+
+
+
+############################################################################
+#                                                                          #
+#   Lights Off                                                             #
+#                                                                          #
+############################################################################
+
+  - name: Lights Off
+    entities:
+      light.living_room:
+        state: off
+      light.dining:
+        state: off
+      light.balcony:
+        state: off
+      light.enterence:
+        state: off
+      light.kitchen:
+        state: off
+      light.service_balcony:
+        state: off
+      light.hall:
+        state: off
+      light.bedroom:
+        state: off
+      light.kids_room:
+        state: off
+      light.work_room:
+        state: off
+      light.bedside_yeelight_dima:
+        state: off
+      light.bedside_yeelight_galit:
+        state: off
+      light.kitchen_strip_left:
+        state: off
+      light.kitchen_strip_right:
+        state: off
+
+
+
+############################################################################
+#                                                                          #
+#   Night Lights                                                           #
+#                                                                          #
+############################################################################
+
+  - name: Night Lights On
+    entities:
+      light.dining:
+        state: on
+      light.hall:
+        state: on
+      switch.bedside_romantic_light:
+        state: on
+
+  - name: Night Lights Off
+    entities:
+      light.dining:
+        state: off
+      light.hall:
+        state: off
+      switch.bedside_romantic_light:
+        state: off

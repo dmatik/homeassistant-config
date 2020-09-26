@@ -38,7 +38,7 @@ cards:
           - type: custom:decluttering-card # Kitchen Strips
             template: light_button
             variables:
-              - entity: switch.yeelight_kitchen_strips
+              - entity: light.kitchen_strips
               - name: Lightstrip
               - icon: mdi:led-strip
               #- icon: fas:lights-holiday
