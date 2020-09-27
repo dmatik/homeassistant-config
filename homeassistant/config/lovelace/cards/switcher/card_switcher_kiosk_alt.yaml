@@ -58,10 +58,9 @@ cards:
           - icon: mdi:timer-outline
 
       - type: custom:decluttering-card # Timer Minutes 15/30/45/60
-        template: next_select_button
+        template: next_select_simple_button
         variables:
           - entity: input_select.switcher_timer_minutes_input_select
-          - name: "[[[ return `<span>${states['input_select.switcher_timer_minutes_input_select'].state}</span>`; ]]]"
 
 
   - !include /config/lovelace/styles/separator_card.yaml

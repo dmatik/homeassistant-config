@@ -83,3 +83,46 @@
       data:
         entity_id: scene.night_lights_off
 
+
+
+############################################################################
+#                                                                          #
+#   Bedside Lights                                                         #
+#                                                                          #
+############################################################################
+
+- id: bedside_lamps_off
+  alias: 'Bedside Lamps Off'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.bedside_modes
+      to: "Off"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.bedsides
+
+- id: bedside_lamps_normal
+  alias: 'Bedside Lamps Normal'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.bedside_modes
+      to: "Normal"
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedside_normal
+
+- id: bedside_lamps_romantic
+  alias: 'Bedside Lamps Romantic'
+  #initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.bedside_modes
+      to: "Romantic"
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedside_romantic

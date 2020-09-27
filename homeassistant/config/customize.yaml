@@ -1,8 +1,8 @@
 #Persons
-person.dmatik:
-   entity_picture: '/local/images/dima.png'
-person.galit:
-   entity_picture: '/local/images/galit.png'
+# person.dmatik:
+#    entity_picture: '/local/images/dima.png'
+# person.galit:
+#    entity_picture: '/local/images/galit.png'
 
 # # Light switches
 # switch.tuya_work_room_light:

@@ -1,0 +1,8 @@
+input_select:
+
+  bedside_modes:
+    name: Bedside Modes
+    options:
+        - "Off"
+        - "Normal"
+        - "Romantic"

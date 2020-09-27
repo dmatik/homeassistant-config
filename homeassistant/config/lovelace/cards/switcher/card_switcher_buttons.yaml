@@ -60,7 +60,6 @@ cards:
         template: next_select_button_alt
         variables:
           - entity: input_select.switcher_timer_minutes_input_select
-          - text_field: "[[[ return `<span>${states['input_select.switcher_timer_minutes_input_select'].state}</span>`; ]]]"
           - name: Minutes
           - cust_1_field: Select
 

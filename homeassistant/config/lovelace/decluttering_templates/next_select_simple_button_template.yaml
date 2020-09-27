@@ -1,8 +1,9 @@
-next_select_button_alt:
+next_select_simple_button:
 
   default:
     - color: var(--button-card-input-select-background)
     - text_color: var(--button-card-input-select-text)
+    - name_color: var(--button-card-icon-color)
     - color_type: card
     - show_name: true
     - show_icon: false
@@ -11,13 +12,12 @@ next_select_button_alt:
 
   card:
     type: custom:decluttering-card
-    template: text_button
+    template: simple_button
     variables:
       - entity: '[[entity]]'
-      - name: '[[name]]'
-      - text_field: "[[[ return `<span>${states['[[entity]]'].state}</span>`; ]]]"
-      - cust_1_field: '[[cust_1_field]]'
-      - cust_2_field: '[[cust_2_field]]'
+      - name: "[[[ return `<span>${states['[[entity]]'].state}</span>`; ]]]"
+      - name_color: '[[name_color]]'
+      - icon: '[[icon]]'
       - color_type: '[[color_type]]'
       - show_name: '[[show_name]]'
       - show_icon: '[[show_icon]]'
