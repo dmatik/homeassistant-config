@@ -54,33 +54,40 @@ cards:
       - type: horizontal-stack
         cards:
 
-          - type: custom:decluttering-card # Bedside Normal
-            template: button
+          - type: custom:decluttering-card
+            template: next_select_button
             variables:
-              - entity: switch.bedside_normal_light
-              - name: Normal
-              - icon: mdi:lightbulb-on
-              #- icon: fas:lightbulb-on
-              - cust_1_field: "[[[ return entity.state ]]]"
-              - cust_2_field: "Bedside"
-              - tap_action: 
-                  action: toggle
-              - hold_action:
-                  action: more-info
+              - icon: mdi:lamps
+              - entity: light.bedsides
+              - input_select: input_select.bedside_modes
+              - name: Bedside
+          # - type: custom:decluttering-card # Bedside Normal
+          #   template: button
+          #   variables:
+          #     - entity: switch.bedside_normal_light
+          #     - name: Normal
+          #     - icon: mdi:lightbulb-on
+          #     #- icon: fas:lightbulb-on
+          #     - cust_1_field: "[[[ return entity.state ]]]"
+          #     - cust_2_field: "Bedside"
+          #     - tap_action: 
+          #         action: toggle
+          #     - hold_action:
+          #         action: more-info
 
-          - type: custom:decluttering-card # Bedside Romantic
-            template: button
-            variables:
-              - entity: switch.bedside_romantic_light
-              - name: Romantic
-              - icon: mdi:heart
-              #- icon: fas:heart
-              - cust_1_field: "[[[ return entity.state ]]]"
-              - cust_2_field: "Bedside"
-              - tap_action: 
-                  action: toggle
-              - hold_action:
-                  action: more-info
+          # - type: custom:decluttering-card # Bedside Romantic
+          #   template: button
+          #   variables:
+          #     - entity: switch.bedside_romantic_light
+          #     - name: Romantic
+          #     - icon: mdi:heart
+          #     #- icon: fas:heart
+          #     - cust_1_field: "[[[ return entity.state ]]]"
+          #     - cust_2_field: "Bedside"
+          #     - tap_action: 
+          #         action: toggle
+          #     - hold_action:
+          #         action: more-info
 
           - type: custom:decluttering-card # Makeup
             template: light_button
@@ -88,10 +95,10 @@ cards:
               #- entity: switch.yeelight_makeup
               - entity: switch.mqtt_makeup
               - name: Makeup
-              - icon: mdi:track-light
+              - icon: mdi:string-lights
               #- icon: fas:lamp-desk
 
-          #- type: "custom:button-card"
-          #  color_type: blank-card
+          - type: "custom:button-card"
+            color_type: blank-card
 
   - !include /config/lovelace/styles/separator_card.yaml

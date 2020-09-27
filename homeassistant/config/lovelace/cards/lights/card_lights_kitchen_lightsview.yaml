@@ -40,7 +40,7 @@ cards:
             variables:
               - entity: light.kitchen_strips
               - name: Lightstrip
-              - icon: mdi:led-strip
+              - icon: mdi:led-strip-variant
               #- icon: fas:lights-holiday
 
           - type: custom:decluttering-card # Service Balcony

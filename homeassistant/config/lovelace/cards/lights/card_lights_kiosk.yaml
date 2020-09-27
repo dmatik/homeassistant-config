@@ -177,7 +177,7 @@ cards:
             variables:
               - entity: switch.mqtt_makeup
               - name: Makeup
-              - icon: mdi:track-light
+              - icon: mdi:string-lights
 
           # - type: "custom:button-card"
           #   color_type: blank-card

@@ -97,7 +97,7 @@ cards:
               #- entity: switch.yeelight_makeup
               - entity: switch.mqtt_makeup
               - name: Makeup
-              - icon: mdi:track-light
+              - icon: mdi:string-lights
               #- icon: fas:lamp-desk
 
           - type: "custom:button-card"
