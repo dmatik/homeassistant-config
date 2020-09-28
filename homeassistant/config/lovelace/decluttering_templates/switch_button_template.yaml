@@ -7,7 +7,7 @@ switch_button:
 
   card:
     type: custom:decluttering-card
-    template: button
+    template: button_two_rows
     variables:
       - entity: '[[entity]]'
       - name: '[[name]]'

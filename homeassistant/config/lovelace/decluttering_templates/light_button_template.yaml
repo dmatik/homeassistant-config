@@ -4,11 +4,18 @@ light_button:
     - icon: mdi:lightbulb
     #- icon: fas:lightbulb
     - cust_1_field: "[[[ return entity.state ]]]"
-    - cust_2_field: ""
+    - cust_2_field: "[[[
+        var bri = Math.round(entity.attributes.brightness / 2.55);
+        if (entity.attributes.brightness)
+          return (bri ? bri : '0') + '%';
+        else
+          return '';                  
+        ]]]"
+    - color: auto-no-temperature
 
   card:
     type: custom:decluttering-card
-    template: button
+    template: button_two_rows
     variables:
       - entity: '[[entity]]'
       - name: '[[name]]'

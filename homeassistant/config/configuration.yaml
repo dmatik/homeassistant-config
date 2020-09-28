@@ -16,22 +16,8 @@ homeassistant:
   internal_url: !secret internal_url
   external_url: !secret external_url
 
-  packages:
-    general: !include_dir_merge_named /config/packages/general/
-    switcher: !include_dir_merge_named /config/packages/switcher/
-    sensibo: !include_dir_merge_named /config/packages/sensibo/
-    lights: !include_dir_merge_named /config/packages/lights/
-    tasmota_devices: !include_dir_merge_named /config/packages/tasmota_devices/
-    power_sockets: !include_dir_merge_named /config/packages/power_sockets/
-    homeassistant: !include_dir_merge_named /config/packages/homeassistant/
-    wallpanel: !include_dir_merge_named /config/packages/wallpanel/
-    presense: !include_dir_merge_named /config/packages/presense/
-    havid_19: !include_dir_merge_named /config/packages/havid_19/
-    iotlink: !include_dir_merge_named /config/packages/iotlink/
-    harmony: !include_dir_merge_named /config/packages/harmony/
-    xiaomi: !include_dir_merge_named /config/packages/xiaomi/
-    devices: !include_dir_merge_named /config/packages/devices/
-    themes: !include_dir_merge_named /config/packages/themes/
+  packages: !include_dir_named packages/
+
 
 frontend:
   themes: 

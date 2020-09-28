@@ -28,7 +28,7 @@ tablet_charge_circle:
         show_max: false
         gradient: false
         font_style:
-          font-size: 16px
+          font-size: 15px
         color_stops:
           0: '#bf4040'
           15: '#bf9540'

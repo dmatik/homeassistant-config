@@ -95,7 +95,7 @@ cards:
             template: switch_button
             variables:
               - entity: switch.shield_tv
-              - name: Living Room TV
+              - name: Main TV
               - icon: mdi:television
               - cust_2_field: "[[[
                 if (states['remote.living_room'].state == 'off') 
@@ -141,18 +141,18 @@ cards:
               - name: Bedroom
 
           - type: custom:decluttering-card # Bedside Galit
-            template: yeelight_switch_button
+            template: light_button
             variables:
               - entity: light.bedside_galit_bulb
-              - name: Bedside Galit
+              - name: Galit
               - icon: mdi:lamp
 
           - type: custom:decluttering-card # Bedside Dima
-            template: yeelight_switch_button
+            template: light_button
             variables:
               #- entity: light.bedside_yeelight_dima
               - entity: light.bedside_dima_bulb
-              - name: Bedside Dima
+              - name: Dima
               - icon: mdi:lamp
 
       - type: horizontal-stack
@@ -165,12 +165,12 @@ cards:
               - name: Kids Room
 
           - type: custom:decluttering-card # Kids Radiator
-            template: switch_button
+            template: socket_button
             variables:
               - entity: switch.mqtt_kids_radiator
               - name: Kids Radiator
               - icon: mdi:radiator
-              - cust_2_field: "[[[ return `<span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span>` ]]]"
+              - sensor_current: sensor.mqtt_kids_radiator_current
 
           - type: custom:decluttering-card # Makeup
             template: light_button

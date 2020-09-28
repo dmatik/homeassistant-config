@@ -57,23 +57,24 @@ button:
     styles:
       card:
         - padding: 8%
-        - font-size: 12px
+        - font-size: 11px
         #- font-weight: bold
-        - text-transform: lowercase
+        - text-transform: capitalize
         - border-radius: '[[border_radius]]'
         - background-color: '[[background_color]]'
         - color: '[[text_color]]'
       grid:
         - grid-template-areas: '"i corner" "i corner_2" "n n" "cust_1 cust_1" "cust_2 cust_2"'
-        - grid-template-columns: 1fr 1fr
-        - grid-template-rows: 1fr 3fr 2fr 1fr 1fr
+        - grid-template-columns: 2fr 3fr
+        - grid-template-rows: 1fr 2fr 3fr 1fr 1fr
       name:
-        - font-size: 16px
+        - font-size: 15px
         - align-self: middle
         - justify-self: start
+        - align-self: end
         - padding-top: 8px
         - padding-bottom: 4px
-        - text-transform: lowercase        
+        #- text-transform: lowercase        
       img_cell:
         - justify-content: start
         - align-items: start
@@ -82,8 +83,8 @@ button:
         - padding-bottom: 0px
         - color: '[[icon_color]]'
       icon:
-        - width: 80%
-        - height: 80%
+        - width: 85%
+        - height: 85%
         #- margin: none 
         - margin-top: 3% # Change to 5% for awesome
         - margin-left: 0% # Change to 5% for awesome

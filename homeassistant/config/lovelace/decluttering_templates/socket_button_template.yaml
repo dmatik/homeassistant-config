@@ -1,14 +1,9 @@
-scene_button:
+socket_button:
 
   default:
-    - cust_1_field: "Scene"
-    - cust_2_field: ""
-    - color: var(--button-color-green)
-    - color_type: card
-    - lock:
-        enabled: true
-        duration: 5
-        unlock: tap
+    - icon: mdi:light-switch
+    - cust_1_field: "[[[ return entity.state ]]]"
+
 
   card:
     type: custom:decluttering-card
@@ -18,7 +13,6 @@ scene_button:
       - name: '[[name]]'
       - icon: '[[icon]]'
       - color: '[[color]]'
-      - lock: '[[lock]]'
       - color_type: '[[color_type]]'
       - corner_text_color: ""
       - corner_icon_color: ""
@@ -28,11 +22,14 @@ scene_button:
       - cust_2_icon_color: "[[cust_2_icon_color]]"
       - corner_field: ""
       - cust_1_field: "[[cust_1_field]]"
-      - cust_2_field: "[[cust_2_field]]"
+      - cust_2_field: "[[[
+            if (states['[[entity]]'].state == 'on')
+              return `<span style='text-transform: capitalize'>${states['[[sensor_current]]'].state}A</span>`;
+            else
+              return '';                  
+          ]]]"
       - tap_action: 
-          action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: '[[entity]]'
+          action: toggle
       - hold_action:
-          action: none
+          action: more-info
+      - state: "[[state]]"

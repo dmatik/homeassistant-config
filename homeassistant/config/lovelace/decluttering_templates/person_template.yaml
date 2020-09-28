@@ -40,7 +40,7 @@ person_elements:
           width: 100%
           transform: initial
           padding: 0 8px
-          text-transform: lowercase
+          #text-transform: lowercase
       - type: state-label
         entity: '[[battery]]'
         style:

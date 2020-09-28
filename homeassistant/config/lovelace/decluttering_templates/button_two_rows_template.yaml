@@ -1,11 +1,12 @@
-sensor:
+button_two_rows:
 
   default:
     - cust_1_field: ""
     - cust_2_field: ""
+    - corner_field: ""
+    - corner_2_field: ""
     - color: auto
     - color_type: icon
-    #- size: 48px
     - lock:
         enabled: false
         duration: 5
@@ -22,6 +23,10 @@ sensor:
             name:
               - color: var(--button-card-disabled-text-color)
             custom_fields:
+              corner:
+                - color: var(--button-card-disabled-text-color)
+              corner_2:
+                - color: var(--button-card-disabled-text-color)
               cust_1:
                 - color: var(--button-card-disabled-text-color)
               cust_2:
@@ -32,6 +37,8 @@ sensor:
     - background_color: var(--button-card-background-color)
     - icon_color: var(--button-card-icon-color)
     - text_color: var(--button-card-text-color)
+    - corner_text_color: var(--button-card-corner-text-color)
+    - corner_2_text_color: var(--button-card-corner-text-color)
     - cust_1_text_color: var(--button-card-cust-1-text-color)
     - cust_2_text_color: var(--button-card-cust-2-text-color)
     - lock_color: var(--button-card-lock-color)
@@ -41,15 +48,15 @@ sensor:
     type: custom:button-card
     entity: '[[entity]]'
     icon: '[[icon]]'
+    aspect_ratio: 1/1
     name: '[[name]]'
     color: '[[color]]'
     color_type: '[[color_type]]'
     show_last_changed: false
     lock: '[[lock]]'
-    size: '[[size]]'
     styles:
       card:
-        - padding: 4%
+        - padding: 8%
         - font-size: 11px
         #- font-weight: bold
         - text-transform: capitalize
@@ -57,15 +64,16 @@ sensor:
         - background-color: '[[background_color]]'
         - color: '[[text_color]]'
       grid:
-        - grid-template-areas: '"i n" "i cust_1" "i cust_2"'
-        - grid-template-columns: 3fr 5fr
-        - grid-template-rows: 1fr 1fr 1fr
+        - grid-template-areas: '"i corner" "i corner_2" "n n" "cust_1 cust_2"'
+        - grid-template-columns: 2fr 3fr
+        - grid-template-rows: 1fr 2fr 4fr 1fr
       name:
         - font-size: 15px
         - align-self: middle
         - justify-self: start
-        - padding-top: 0px
-        - padding-bottom: 0px
+        - align-self: end
+        - padding-top: 8px
+        - padding-bottom: 4px
         #- text-transform: lowercase        
       img_cell:
         - justify-content: start
@@ -73,28 +81,43 @@ sensor:
         - margin: none
         - height: 100%
         - padding-bottom: 0px
-        - padding-right: 0px
         - color: '[[icon_color]]'
       icon:
-        - width: 85% # Change to 80% for awesome
-        - height: 85% # Change to 80% for awesome
-        - margin: none
+        - width: 85%
+        - height: 85%
+        #- margin: none 
+        - margin-top: 3% # Change to 5% for awesome
+        - margin-left: 0% # Change to 5% for awesome
       lock:
         - color: '[[lock_color]]'
       custom_fields:
+        corner:
+          - align-self: start
+          - justify-self: end
+          - font-size: 14px
+          - color: "[[corner_text_color]]"
+          - --icon-color-sensor: "[[corner_icon_color]]"
+        corner_2:
+          - padding-top: 8px
+          - align-self: start
+          - justify-self: end
+          - color: "[[corner_2_text_color]]"
+          - --icon-color-sensor: "[[corner_2_icon_color]]"
         cust_1:
-          - padding-bottom: 0px
+          - padding-bottom: 2px
           - align-self: middle
           - justify-self: start
           - color: "[[cust_1_text_color]]"
           - --icon-color-sensor: "[[cust_1_icon_color]]"
         cust_2:
-          - padding-bottom: 0px
+          - padding-bottom: 2px
           - align-self: middle
-          - justify-self: start
+          - justify-self: end
           - color: "[[cust_2_text_color]]"
           - --icon-color-sensor: "[[cust_2_icon_color]]"
     custom_fields:
+      corner: "[[corner_field]]"
+      corner_2: "[[corner_2_field]]"
       cust_1: "[[cust_1_field]]"
       cust_2: "[[cust_2_field]]"
     tap_action: '[[tap_action]]'

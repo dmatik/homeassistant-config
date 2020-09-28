@@ -36,13 +36,14 @@ cards:
               - name: Main Light
     
           - type: custom:decluttering-card # Kids Radiator
-            template: switch_button
+            template: socket_button
             variables:
               - entity: switch.mqtt_kids_radiator
               - name: Radiator
               - icon: mdi:radiator
               #- icon: fas:heat
-              - cust_2_field: "[[[ return `<span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span>` ]]]" 
+              #- cust_2_field: "[[[ return `<span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span>` ]]]" 
+              - sensor_current: sensor.mqtt_kids_radiator_current
 
           - type: "custom:button-card"
             color_type: blank-card 
