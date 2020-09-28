@@ -57,7 +57,7 @@ button_two_rows:
     styles:
       card:
         - padding: 8%
-        - font-size: 11px
+        - font-size: 12px
         #- font-weight: bold
         - text-transform: capitalize
         - border-radius: '[[border_radius]]'
@@ -68,7 +68,7 @@ button_two_rows:
         - grid-template-columns: 2fr 3fr
         - grid-template-rows: 1fr 2fr 4fr 1fr
       name:
-        - font-size: 15px
+        - font-size: 1.35em #15px
         - align-self: middle
         - justify-self: start
         - align-self: end
@@ -94,7 +94,7 @@ button_two_rows:
         corner:
           - align-self: start
           - justify-self: end
-          - font-size: 14px
+          - font-size: 1.3em #14px
           - color: "[[corner_text_color]]"
           - --icon-color-sensor: "[[corner_icon_color]]"
         corner_2:

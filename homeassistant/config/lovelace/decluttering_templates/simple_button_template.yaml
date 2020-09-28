@@ -7,7 +7,7 @@ simple_button:
     - background_color: var(--button-card-background-color)
     - name_color: var(--button-card-text-color)
     - icon_color: var(--button-card-icon-color)
-    - size: 48px
+    - size: 40px
     - width: ""
     - height: 54px
     - font_size: 14px

@@ -7,7 +7,7 @@ next_select_simple_button:
     - color_type: card
     - show_name: true
     - show_icon: false
-    - font_size: 38px
+    - font_size: 34px
     - font_weight: normal
 
   card:

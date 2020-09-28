@@ -68,7 +68,7 @@ text_button:
         - grid-template-columns: 1fr 1fr
         - grid-template-rows: 1fr 3fr 2fr 1fr 1fr
       name:
-        - font-size: 16px
+        - font-size: 1.35em #15px
         - align-self: middle
         - justify-self: start
         - padding-top: 8px
@@ -88,7 +88,7 @@ text_button:
         corner:
           - align-self: start
           - justify-self: end
-          - font-size: 14px
+          - font-size: 1.3em #14px
           - color: "[[corner_text_color]]"
           - --icon-color-sensor: "[[corner_icon_color]]"
         corner_2:

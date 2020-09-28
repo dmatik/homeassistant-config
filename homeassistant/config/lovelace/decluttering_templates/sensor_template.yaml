@@ -50,7 +50,7 @@ sensor:
     styles:
       card:
         - padding: 4%
-        - font-size: 11px
+        - font-size: 12px
         #- font-weight: bold
         - text-transform: capitalize
         - border-radius: '[[border_radius]]'
@@ -61,7 +61,7 @@ sensor:
         - grid-template-columns: 3fr 5fr
         - grid-template-rows: 1fr 1fr 1fr
       name:
-        - font-size: 15px
+        - font-size: 1.35em #15px
         - align-self: middle
         - justify-self: start
         - padding-top: 0px
