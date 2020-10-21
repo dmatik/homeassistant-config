@@ -12,7 +12,7 @@ cards:
             - font-size: 52px
             - border-radius: var(--button-card-border-radius)
             - background-color: var(--button-card-background-color)
-            - color: var(--button-card-text-color)
+            - color: var(--primary-text-color)
           grid:
             - grid-template-areas: '"time date"'
             - grid-template-columns: 2fr 3fr

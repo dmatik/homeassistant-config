@@ -21,6 +21,7 @@ printer_elements:
         style:
           top: 85%
           left: 78%
-          font-size: 24px
+          font-size: 18px
+          font-weight: bold
           color: '[[text_color]]'
           text-transform: lowercase

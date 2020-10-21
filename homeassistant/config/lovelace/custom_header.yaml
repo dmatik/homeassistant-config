@@ -1,18 +1,21 @@
-tab_container_css: 'padding-bottom: 30px'
+view_css: 'padding-top: 96px !important'
+tab_container_css: 'padding-bottom: 26px'
 all_tabs_css: 'padding-right: 16px; padding-left: 16px; --mdc-icon-size: 28px;'
-header_text: '{{ viewTitle }}'
-split_mode: true
-compact_mode: false
-footer_mode: false
+#header_text: '{{ viewTitle }}'
+split_mode: false
+compact_mode: true
+footer_mode: true
 indicator_top: true
-#background: 'var(--cch-background)'
 voice_hide: true
 chevrons: false
 hide_help: true
 hide_unused: true
 hide_config: true
-# exceptions:
-#   - conditions:
-#       query_string: kiosk
-#     config:
-#       kiosk_mode: true
+hidden_tab_redirect: false
+reverse_tab_direction: false
+reverse_button_direction: false
+fit_tabs: true
+menu_hide: true
+show_tabs:
+  - main
+  - menu

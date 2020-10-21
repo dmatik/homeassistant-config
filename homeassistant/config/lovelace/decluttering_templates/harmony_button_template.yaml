@@ -1,0 +1,149 @@
+harmony_button:
+
+  default:
+    - state:
+        - value: "on"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              svg_icon:
+                - --button-card-light-color-no-temperature: var(--accent-color)
+              corner:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              corner_2:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+        - value: "unavailable"
+          styles:
+            icon:
+              - color: var(--button-card-disabled-text-color)
+            name:
+              - color: var(--button-card-disabled-text-color)
+            custom_fields:
+              svg_icon:
+                - --button-card-light-color-no-temperature: var(--button-card-disabled-text-color)
+              corner:
+                - color: var(--button-card-disabled-text-color)
+              corner_2:
+                - color: var(--button-card-disabled-text-color)
+              cust_1:
+                - color: var(--button-card-disabled-text-color)
+              cust_2:
+                - color: var(--button-card-disabled-text-color)
+
+
+  card:
+    type: custom:decluttering-card
+    template: button_two_rows_svg
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[title]]'
+      - icon: '[[icon]]'
+      - svg_fill: '[[svg_fill]]'
+      - svg_path: '[[svg_path]]'
+      - svg_fill_on: '[[svg_fill_on]]'
+      - svg_path_on: '[[svg_path_on]]'
+      - cust_1_field: "[[[
+            if ( entity.state == 'off' ) 
+              return entity.state;
+            else 
+              return `${states['sensor.[[name]]_tv'].state}`;
+          ]]]"
+      - cust_2_field: '[[cust_2_field]]'
+      - state: "[[state]]"
+      - tap_action:
+          #haptic: light
+          action: call-service
+          service: switch.toggle
+          service_data:
+            entity_id: '[[entity]]'
+      - hold_action:
+          haptic: heavy
+          action: call-service
+          service: browser_mod.popup
+          service_data:
+            title: ' '
+            style:
+              .: |
+                :host {
+                  --mdc-theme-surface: rgba(0,0,0,0);
+                  --secondary-background-color: rgba(0,0,0,0);
+                  --ha-card-background: rgba(0,0,0,0);
+                  --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+                  --mdc-dialog-min-height: 100%;
+                  --mdc-dialog-min-width: 100%;
+                  --mdc-dialog-max-width: 100%;
+                  --paper-slider-knob-color: #FFFFFF !important;
+                  --paper-slider-active-color: #dedede !important;
+                  --switch-checked-button-color: #FFFFFF !important;
+                  --switch-unchecked-button-color: #FFFFFF !important;
+                  --switch-checked-track-color: green !important;
+                  --switch-unchecked-track-color: red !important;
+                }
+                app-header, app-toolbar {
+                  background-color: rgba(0,0,0,0.0) !important;
+                }
+                mwc-icon-button {
+                  color: #FFF;
+                }
+            card:
+
+              type: horizontal-stack
+              cards:
+                
+                - type: custom:button-card
+                  template: shoulder_blank_card
+
+                - type: vertical-stack
+                  cards:
+
+                    - type: custom:decluttering-card
+                      template: harmony_elements
+                      variables:
+                        - title: '[[title]]'
+                        - name: '[[name]]'
+                        - image_on: '[[image_on]]'
+                        - image_off: '[[image_off]]' 
+
+                    - type: horizontal-stack
+                      cards:
+
+                        - type: custom:decluttering-card # Power
+                          template: simple_button
+                          variables:
+                            - entity: '[[entity]]'
+                            - name: '[[title]]'
+                            - icon: '[[icon]]'
+
+
+                        - type: custom:decluttering-card # Volume Up
+                          template: simple_script_button
+                          variables:
+                            - entity: script.reciever_volume_up
+                            - name: Volume
+                            - icon: mdi:volume-plus
+
+                        - type: custom:decluttering-card # Volume Down
+                          template: simple_script_button
+                          variables:
+                            - entity: script.reciever_volume_down
+                            - name: Volume
+                            - icon: mdi:volume-minus
+
+                        - type: custom:decluttering-card # Volume Mute
+                          template: simple_script_button
+                          variables:
+                            - entity: script.reciever_volume_mute
+                            - name: Mute
+                            - icon: mdi:volume-mute
+
+                - type: custom:button-card
+                  template: shoulder_blank_card
+
+            deviceID:
+              - this

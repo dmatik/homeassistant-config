@@ -27,6 +27,8 @@ simple_button:
               - background-color: 'var(--button-color-green)'
             icon:
               - color: 'var(--primary-text-color)'
+            name:
+              - color: 'var(--primary-text-color)'
 
   card:
     type: custom:button-card
@@ -51,7 +53,7 @@ simple_button:
         - width: '[[width]]'
         - height: '[[height]]'
       name:
-        - text-transform: lowercase
+        #- text-transform: lowercase
         - color: '[[name_color]]'
         - font-size: '[[font_size]]'
       img_cell:

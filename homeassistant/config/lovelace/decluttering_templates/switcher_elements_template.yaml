@@ -2,7 +2,7 @@ switcher_elements:
 
   default:
     - text_color: var(--picture-elements-text-color)
-    - font_size: 24px
+    - font_size: 18px
     - image_on: /local/images/switcher/switcher_on.png
     - image_off: /local/images/switcher/switcher_off.png
     #- entity: switch.switcher_aio_switch
@@ -40,6 +40,7 @@ switcher_elements:
               top: 81%
               left: 16%
               font-size: '[[font_size]]'
+              font-weight: bold
               color: '[[text_color]]'
               #text-transform: lowercase
       - type: conditional
@@ -53,6 +54,7 @@ switcher_elements:
               top: 81%
               left: 50%
               font-size: '[[font_size]]'
+              font-weight: bold
               color: '[[text_color]]'
               text-transform: lowercase
       - type: state-label
@@ -61,5 +63,6 @@ switcher_elements:
           top: 81%
           left: 84%
           font-size: '[[font_size]]'
+          font-weight: bold
           color: '[[text_color]]'
           text-transform: lowercase

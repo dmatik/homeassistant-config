@@ -1,25 +1,25 @@
 light_button:
 
   default:
-    - icon: mdi:lightbulb
-    #- icon: fas:lightbulb
+    - icon: mdi:ceiling-light
     - cust_1_field: "[[[ return entity.state ]]]"
-    - cust_2_field: "[[[
-        var bri = Math.round(entity.attributes.brightness / 2.55);
-        if (entity.attributes.brightness)
-          return (bri ? bri : '0') + '%';
-        else
-          return '';                  
-        ]]]"
     - color: auto-no-temperature
+    - svg_path: 'M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'
+    - svg_fill_on: var(--button-card-light-color-no-temperature)
+    - svg_path_on: 'm 7.957375,9 h 3 -3 8 -3 3 l 4.062,8 h -16 l 3.938,-8 m 6.06975,5.256348 c 0.763134,0.727302 -0.531684,1.303507 -1.636253,1.303507 -1.104569,0 -3.0516803,-1.562904 -3.0602403,-2.667473 z'
+
 
   card:
     type: custom:decluttering-card
-    template: button_two_rows
+    template: button_two_rows_svg
     variables:
       - entity: '[[entity]]'
       - name: '[[name]]'
       - icon: '[[icon]]'
+      - svg_fill: '[[svg_fill]]'
+      - svg_path: '[[svg_path]]'
+      - svg_fill_on: '[[svg_fill_on]]'
+      - svg_path_on: '[[svg_path_on]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - corner_text_color: ""
@@ -34,5 +34,5 @@ light_button:
       - tap_action: 
           action: toggle
       - hold_action:
-          action: more-info
+          action: none
       - state: "[[state]]"

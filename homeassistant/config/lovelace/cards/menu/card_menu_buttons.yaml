@@ -1,0 +1,145 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Menu
+
+        
+############################################################################
+#                                                                          #
+#   Menu                                                                   #
+#                                                                          #
+############################################################################
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Health
+          - icon: mdi:pill
+          - cust_1_field: "Overview"
+          - path: health
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Motion
+          - icon: mdi:run
+          - corner_field_entity: sensor.number_of_motion_sensors_on
+          - cust_1_field: "Overview"
+          - path: motion
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Hass
+          - icon: mdi:home-assistant
+          - corner_field_entity: sensor.ha_current_version
+          - cust_1_field: "Overview"
+          - path: homeassistant
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Fully
+          - icon: mdi:view-dashboard
+          - cust_1_field: "Overview"
+          - path: fully
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Automation
+          - icon: mdi:robot
+          - cust_1_field: "Control"
+          - path: automation
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Tasmota
+          - icon: mdi:chip
+          - corner_field_entity: sensor.tasmota_latest
+          - cust_1_field: "Overview"
+          - path: tasmota
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Printer
+          - icon: mdi:printer
+          - corner_field_entity: sensor.number_of_inks_low
+          - corner_field: ""
+          - cust_1_field: "Control"
+          - path: printer
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Batteries
+          - icon: mdi:battery
+          - corner_field_entity: sensor.number_of_batteries_low
+          - cust_1_field: "Overview"
+          - path: batteries
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Synology
+          - icon: mdi:nas
+          - cust_1_field: "Overview"
+          - path: synology
+
+      # - type: "custom:button-card"
+      #   color_type: blank-card
+
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Devices
+          - icon: mdi:power-plug
+          - corner_field_entity: sensor.number_of_devices_on
+          - cust_1_field: "Overview"
+          - path: devices
+
+      - type: "custom:button-card"
+        color_type: blank-card
+
+      - type: "custom:button-card"
+        color_type: blank-card
+
+
+  - !include /config/lovelace/styles/separator_card.yaml

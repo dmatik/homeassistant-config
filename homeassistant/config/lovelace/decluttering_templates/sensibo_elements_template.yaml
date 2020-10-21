@@ -7,9 +7,10 @@ sensibo_elements:
     - heat_color: 'var(--sensibo-heat-color)'
     - fan_only_color: 'var(--sensibo-fan-only-color)'
     - auto_color: 'var(--sensibo-auto-color)'  
-    - icon_width: 26px
-    - icon_height: 26px
-    - font_size: 24px
+    # - icon_width: 20px
+    # - icon_height: 20px
+    - icon_size: 22px
+    - font_size: 18px
 
   card:
     type: picture-elements
@@ -43,6 +44,7 @@ sensibo_elements:
               top: 85%
               left: 31%
               font-size: '[[font_size]]'
+              font-weight: bold
               color: '[[text_color]]'
       - type: state-label
         entity: '[[sensor_temp]]'
@@ -50,6 +52,7 @@ sensibo_elements:
           top: 85%
           left: 85%
           font-size: '[[font_size]]'
+          font-weight: bold
           color: '[[text_color]]'       
       - type: conditional
         conditions:
@@ -64,8 +67,9 @@ sensibo_elements:
               top: 85%
               left: 8%
               color: '[[icon_color]]' #'[[cool_color]]'
-              --iron-icon-width: '[[icon_width]]'
-              --iron-icon-height: '[[icon_height]]'
+              # --iron-icon-width: '[[icon_width]]'
+              # --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[entity]]'
@@ -79,8 +83,9 @@ sensibo_elements:
               top: 85%
               left: 8%
               color: '[[icon_color]]' #'[[heat_color]]'
-              --iron-icon-width: '[[icon_width]]'
-              --iron-icon-height: '[[icon_height]]'
+              # --iron-icon-width: '[[icon_width]]'
+              # --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[entity]]'
@@ -94,8 +99,9 @@ sensibo_elements:
               top: 85%
               left: 8%
               color: '[[icon_color]]' #'[[fan_only_color]]'
-              --iron-icon-width: '[[icon_width]]'
-              --iron-icon-height: '[[icon_height]]'
+              # --iron-icon-width: '[[icon_width]]'
+              # --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[entity]]'
@@ -109,8 +115,9 @@ sensibo_elements:
               top: 85%
               left: 8%
               color: '[[icon_color]]' #'[[auto_color]]'
-              --iron-icon-width: '[[icon_width]]'
-              --iron-icon-height: '[[icon_height]]'
+              # --iron-icon-width: '[[icon_width]]'
+              # --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[sensor_fan]]'
@@ -126,8 +133,9 @@ sensibo_elements:
               top: 85%
               left: 19%
               color: '[[icon_color]]'
-              --iron-icon-width: '[[icon_width]]'
-              --iron-icon-height: '[[icon_height]]'
+              # --iron-icon-width: '[[icon_width]]'
+              # --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[sensor_fan]]'
@@ -143,8 +151,9 @@ sensibo_elements:
               top: 85%
               left: 19%
               color: '[[icon_color]]'
-              --iron-icon-width: '[[icon_width]]'
-              --iron-icon-height: '[[icon_height]]'
+              # --iron-icon-width: '[[icon_width]]'
+              # --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[sensor_fan]]'
@@ -160,8 +169,9 @@ sensibo_elements:
               top: 85%
               left: 19%
               color: '[[icon_color]]'
-              --iron-icon-width: '[[icon_width]]'
-              --iron-icon-height: '[[icon_height]]'
+              # --iron-icon-width: '[[icon_width]]'
+              # --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'
       - type: conditional
         conditions:
           - entity: '[[sensor_fan]]'
@@ -177,5 +187,6 @@ sensibo_elements:
               top: 85%
               left: 19%
               color: '[[icon_color]]'
-              --iron-icon-width: '[[icon_width]]'
-              --iron-icon-height: '[[icon_height]]'
+              # --iron-icon-width: '[[icon_width]]'
+              # --iron-icon-height: '[[icon_height]]'
+              --mdc-icon-size: '[[icon_size]]'

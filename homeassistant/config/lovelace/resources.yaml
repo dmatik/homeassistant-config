@@ -1,7 +1,5 @@
 - url: /hacsfiles/lovelace-card-tools/card-tools.js
   type: js
-- url: /hacsfiles/custom-header/custom-header.js
-  type: module
 - url: /hacsfiles/bar-card/bar-card.js
   type: module
 - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
@@ -39,4 +37,16 @@
 - url: /hacsfiles/refreshable-picture-card/refreshable-picture-card.js
   type: module
 - url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
+  type: module
+- url: /hacsfiles/lovelace-layout-card/layout-card.js
+  type: module
+- url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+  type: module
+- url: /hacsfiles/thermostat-popup-card/thermostat-popup-card.js
+  type: module
+- url: /hacsfiles/light-popup-card/light-popup-card.js
+  type: module
+- url: /hacsfiles/light-entity-card/light-entity-card.js
+  type: module
+- url: /hacsfiles/custom-header/custom-header.js
   type: module

@@ -1,12 +1,36 @@
-title: Devices
-icon: mdi:home-automation
-path: devices
+# lovelace_gen
 
+title: Devices
+icon: mdi:power-plug
+path: devices
+visible: false
+panel: true
+  
 cards:
 
-    #- !include /config/lovelace/cards/view_titles/card_view_title_devices.yaml
+    - type: vertical-stack
+      cards:
 
-    - !include /config/lovelace/cards/tasmota/card_tasmota_devices.yaml
+        - !include
+            - /config/lovelace/gen_templates/view_title_template.yaml
+            #{% raw %}
+            - title: "Devices"
+            #{% endraw %}
 
-    - !include /config/lovelace/cards/xiaomi/card_batteries.yaml
+        - !include /config/lovelace/styles/separator_card.yaml
  
+        - type: horizontal-stack
+          cards:
+
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
+
+
+
+            - type: custom:button-card
+              template: shoulder_blank_card

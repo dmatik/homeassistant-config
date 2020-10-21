@@ -13,7 +13,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Climate
+          - name: Temperature
 
 
 ############################################################################
@@ -29,7 +29,7 @@ cards:
         template: graph
         variables:
             - entity: sensor.xiaomi_work_room_temperature
-            - name: Temperature
+            - name: Work Room
             - icon: mdi:thermometer
 
       - type: "custom:button-card"

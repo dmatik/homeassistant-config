@@ -1,17 +1,42 @@
+# lovelace_gen
+
 title: Lights
 icon: mdi:lightbulb
-#icon: fas:lightbulb
 path: lights
+visible: false
+panel: true
   
 cards:
 
-    #- !include /config/lovelace/cards/card_home_button.yaml
-    #- !include /config/lovelace/cards/view_titles/card_view_title_lights.yaml
+    - type: vertical-stack
+      cards:
 
-    - !include /config/lovelace/cards/lights/card_lights_living_room_lightsview.yaml
+        - !include
+            - /config/lovelace/gen_templates/view_title_template.yaml
+            #{% raw %}
+            - title: "Lights"
+            #{% endraw %}
 
-    - !include /config/lovelace/cards/lights/card_lights_kitchen_lightsview.yaml
+        - !include /config/lovelace/styles/separator_card.yaml
+ 
+        - type: horizontal-stack
+          cards:
 
-    - !include /config/lovelace/cards/lights/card_lights_bedroom_lightsview.yaml
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
 
-    - !include /config/lovelace/cards/lights/card_lights_other_rooms.yaml
+                - !include /config/lovelace/cards/lights/card_lights_living_room_lightsview.yaml
+
+                - !include /config/lovelace/cards/lights/card_lights_kitchen_lightsview.yaml
+
+                - !include /config/lovelace/cards/lights/card_lights_bedroom_lightsview.yaml
+
+                - !include /config/lovelace/cards/lights/card_lights_other_rooms.yaml
+
+            - type: custom:button-card
+              template: shoulder_blank_card

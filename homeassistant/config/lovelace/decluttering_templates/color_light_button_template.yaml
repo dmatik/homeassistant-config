@@ -2,21 +2,29 @@ color_light_button:
 
   default:
     - icon: mdi:lightbulb
-    #- icon: fas:lightbulb
-    - cust_1_field: "[[[ return entity.state ]]]"
-    - cust_2_field: "[[[
-        var bri = Math.round(entity.attributes.brightness / 2.55);
-        return (bri ? bri : '0') + '%';                  
+    - cust_1_field: "[[[ 
+          var bri = Math.round(entity.attributes.brightness / 2.55);
+          if (entity.attributes.brightness)
+            return (bri ? bri : '0') + '%';
+          else
+            return entity.state; 
         ]]]"
     - color: auto-no-temperature
+    - svg_path: 'M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'
+    - svg_fill_on: var(--button-card-light-color-no-temperature)
+    - svg_path_on: 'm 7.957375,9 h 3 -3 8 -3 3 l 4.062,8 h -16 l 3.938,-8 m 6.06975,5.256348 c 0.763134,0.727302 -0.531684,1.303507 -1.636253,1.303507 -1.104569,0 -3.0516803,-1.562904 -3.0602403,-2.667473 z'
 
   card:
     type: custom:decluttering-card
-    template: button
+    template: button_two_rows_svg
     variables:
       - entity: '[[entity]]'
       - name: '[[name]]'
       - icon: '[[icon]]'
+      - svg_fill: '[[svg_fill]]'
+      - svg_path: '[[svg_path]]'
+      - svg_fill_on: '[[svg_fill_on]]'
+      - svg_path_on: '[[svg_path_on]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - corner_text_color: ""
@@ -29,10 +37,44 @@ color_light_button:
       - cust_1_field: "[[cust_1_field]]"
       - cust_2_field: "[[cust_2_field]]"
       - tap_action: 
-          action: call-service
-          service: switch.toggle
-          service_data:
-            entity_id: "[[switch_entity]]"
+          action: toggle
       - hold_action:
-          action: more-info
+          haptic: heavy
+          action: call-service
+          service: browser_mod.popup
+          service_data:
+            title: ' '
+            style:
+              .: |
+                :host {
+                  --mdc-theme-surface: rgba(0,0,0,0);
+                  --secondary-background-color: rgba(0,0,0,0);
+                  --ha-card-background: rgba(0,0,0,0);
+                  --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+                  --mdc-dialog-min-height: 100%;
+                  --mdc-dialog-min-width: 100%;
+                  --mdc-dialog-max-width: 100%;
+                  --paper-slider-knob-color: #FFFFFF !important;
+                  --paper-slider-active-color: #dedede !important;
+                  --switch-checked-button-color: #FFFFFF !important;
+                  --switch-unchecked-button-color: #FFFFFF !important;
+                  --switch-checked-track-color: green !important;
+                  --switch-unchecked-track-color: red !important;
+                }
+                app-header, app-toolbar {
+                  background-color: rgba(0,0,0,0.0) !important;
+                }
+                mwc-icon-button {
+                  color: #FFF;
+                }
+            card:
+
+              type: custom:decluttering-card
+              template: color_light_popup
+              variables:
+                - entity: '[[entity]]'
+                - icon: '[[icon]]'
+
+            deviceID:
+              - this
       - state: '[[state]]'

@@ -1,0 +1,37 @@
+# lovelace_gen
+
+title: Tasmota
+icon: mdi:chip
+path: tasmota
+visible: false
+panel: true
+  
+cards:
+
+    - type: vertical-stack
+      cards:
+
+        - !include
+            - /config/lovelace/gen_templates/view_title_template.yaml
+            #{% raw %}
+            - title: "Tasmota"
+            #{% endraw %}
+
+        - !include /config/lovelace/styles/separator_card.yaml
+ 
+        - type: horizontal-stack
+          cards:
+
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
+
+                - !include /config/lovelace/cards/tasmota/card_tasmota_devices.yaml
+
+            - type: custom:button-card
+              template: shoulder_blank_card
+ 

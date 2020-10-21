@@ -39,7 +39,22 @@ sensor:
                   {{ hour_int }}h {{ min_int }}m
               {% endif %}
           {% endif %}
-      
+
+      switcher_webapi_time_left_short:
+        friendly_name: "Time Left"
+        icon_template: mdi:timelapse
+        value_template: >-
+          {% if is_state("sensor.switcher_webapi_state", "off") %}
+              off
+          {% else %}
+              {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
+              {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
+              {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
+              {% set min_int = min|int %}
+              {% set hour_int = hour|int %}
+              {{hour + ':' + min}}
+          {% endif %}
+
       switcher_webapi_auto_off_time:
         friendly_name: "Auto Off"
         icon_template: mdi:av-timer

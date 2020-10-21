@@ -108,7 +108,9 @@ scene:
         state: on
       light.hall:
         state: on
-      switch.bedside_romantic_light:
+      light.bedside_dima_bulb:
+        state: on
+      light.bedside_galit_bulb:
         state: on
 
   - name: Night Lights Off
@@ -117,5 +119,7 @@ scene:
         state: off
       light.hall:
         state: off
-      switch.bedside_romantic_light:
+      light.bedside_dima_bulb:
+        state: off
+      light.bedside_galit_bulb:
         state: off

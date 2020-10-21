@@ -15,6 +15,17 @@ sensor:
           styles:
             card:
               - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              corner:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              corner_2:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+
         - value: "unavailable"
           styles:
             icon:
@@ -51,7 +62,7 @@ sensor:
       card:
         - padding: 4%
         - font-size: 12px
-        #- font-weight: bold
+        - font-weight: bold
         - text-transform: capitalize
         - border-radius: '[[border_radius]]'
         - background-color: '[[background_color]]'
@@ -61,7 +72,7 @@ sensor:
         - grid-template-columns: 3fr 5fr
         - grid-template-rows: 1fr 1fr 1fr
       name:
-        - font-size: 1.35em #15px
+        - font-size: 1.2em #15px
         - align-self: middle
         - justify-self: start
         - padding-top: 0px

@@ -31,8 +31,8 @@ tablet_charge_circle:
           font-size: 15px
         color_stops:
           0: '#bf4040'
-          15: '#bf9540'
-          40: '#75BD6F'
+          10: '#bf9540'
+          30: '#75BD6F'
         style:
           top: 50%
           left: 50%

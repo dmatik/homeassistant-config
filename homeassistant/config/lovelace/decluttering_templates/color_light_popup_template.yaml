@@ -1,0 +1,75 @@
+color_light_popup:
+
+  default:
+    - icon: mdi:lightbulb
+    - slider_height: 410px
+    - display_type: 'auto'
+    - slider_colored_by_light: 'true'
+    - service_color_1: [255, 253, 253]
+    - color_1: '#C4C3C3'
+    - service_color_2: [255, 0, 95]
+    - color_2: '#ff005f'
+    - service_color_3: [40, 255, 0]
+    - color_3: '#28ff00' 
+    - service_color_4: [255, 255, 145]
+    - color_4: '#C6C671'
+    - service_color_5: [131, 0, 255]
+    - color_5: '#8300ff' 
+    - service_color_6: [66, 0, 255]
+    - color_6: '#3B00E2'
+
+  card:
+
+    type: custom:light-popup-card
+    entity: '[[entity]]'
+    icon: '[[icon]]'
+    brightnessWidth: 110px
+    brightnessHeight: '[[slider_height]]'
+    switchWidth: 110px
+    switchHeight: '[[slider_height]]'
+    displayType: '[[display_type]]'
+    fullscreen: false
+    settings: true
+    settingsPosition: bottom
+    settingsCard:
+      type: custom:light-entity-card
+      cardOptions:
+        entity: '[[entity]]'
+        persist_features: true
+        smooth_color_wheel: true
+        child_card: true
+        consolidate_entities: true
+    actionsInARow: 3
+    actionSize: 30px
+    sliderColoredByLight: '[[slider_colored_by_light]]'
+    actions:
+      - service: light.turn_on
+        service_data:
+          entity_id: '[[entity]]'
+          rgb_color: '[[service_color_1]]'
+        color: '[[color_1]]'
+      - service: light.turn_on
+        service_data:
+          entity_id: '[[entity]]'
+          rgb_color: '[[service_color_2]]'
+        color: '[[color_2]]'
+      - service: light.turn_on
+        service_data:
+          entity_id: '[[entity]]'
+          rgb_color: '[[service_color_3]]'
+        color: '[[color_3]]'
+      - service: light.turn_on
+        service_data:
+          entity_id: '[[entity]]'
+          rgb_color: '[[service_color_4]]'
+        color: '[[color_4]]'
+      - service: light.turn_on
+        service_data:
+          entity_id: '[[entity]]'
+          rgb_color: '[[service_color_5]]'
+        color: '[[color_5]]'
+      - service: light.turn_on
+        service_data:
+          entity_id: '[[entity]]'
+          rgb_color: '[[service_color_6]]'
+        color: '[[color_6]]'

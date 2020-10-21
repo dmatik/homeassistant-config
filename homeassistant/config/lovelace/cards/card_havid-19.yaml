@@ -31,6 +31,7 @@ cards:
         title: null
         update_interval: 10
         static_picture: /local/havid.jpg
+        navigate: /local/havid.jpg
 
 
 

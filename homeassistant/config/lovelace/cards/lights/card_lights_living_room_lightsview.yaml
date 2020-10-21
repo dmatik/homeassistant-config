@@ -33,7 +33,7 @@ cards:
             template: light_button
             variables:
               - entity: light.living_room
-              - name: Main Light
+              - name: Living Room
 
           - type: custom:decluttering-card # Dining
             template: light_button

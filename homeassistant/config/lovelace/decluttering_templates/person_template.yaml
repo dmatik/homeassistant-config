@@ -3,8 +3,8 @@ person_elements:
   default:
     - text_color: var(--picture-elements-text-color)
     - icon_color: var(--picture-elements-icon-color)
-    - font_size: 18px
-    - icon_transform: scale(0.7)
+    - font_size: 15px
+    - icon_transform: scale(0.6)
     - icon_line_height: 33px
     - tap_action:
         action: more-info
@@ -34,6 +34,7 @@ person_elements:
           bottom: 0
           pointer-events: none
           font-size: '[[font_size]]'
+          font-weight: bold
           line-height: 24px
           color: '[[text_color]]'
           background-color: rgba(0, 0, 0, 0.3)
@@ -49,6 +50,7 @@ person_elements:
           pointer-events: none
           transform: initial
           font-size: '[[font_size]]'
+          font-weight: bold
           color: '[[text_color]]'
           line-height: 32px
           padding: 1px 26px

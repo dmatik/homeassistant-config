@@ -1,12 +1,12 @@
 dmatik-dark-wallpanel:
 
       # Background image
-      #background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
+      background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
 
       # Colors
       dmatik-white-color: '#F0F0F0'
-      dmatik-light-blue-color: 'rgba(43, 154, 249, 0.7)'
-      dmatik-orange-color: 'rgba(255, 129, 0, 0.7)'
+      dmatik-light-blue-color: '#45A8E9'
+      dmatik-orange-color: '#C98638'
       dmatik-dark-grey-color: 'rgba(117, 189, 111, 0.7)'
       dmatik-green-color: 'rgba(117,189,111,0.7)'
 
@@ -22,10 +22,10 @@ dmatik-dark-wallpanel:
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
 
       # Custom Header
-      ch-background: 'rgba(23, 23, 23, 0.95)'
+      ch-background: 'rgba(41, 43, 47, 0.95)' #'rgba(23, 23, 23, 0.95)'
       ch-active-tab-color: 'var(--accent-color)'
       ch-all-tabs-color: 'var(--paper-item-icon-color)'
-      ch-tab-indicator-color: 'var(--ch-active-tab-color)' #'rgba(240, 240, 240, 0)'
+      ch-tab-indicator-color: 'rgba(0, 0, 0, 0)' #'var(--ch-active-tab-color)'
 
       # Bar Card
       bar-card-border-radius: 5px
@@ -36,14 +36,20 @@ dmatik-dark-wallpanel:
       button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius
       button-card-background-color: 'var(--paper-card-background-color)'              # Button Card background color
       button-card-icon-color: 'var(--paper-item-icon-color)'                          # Button Card icon color
-      button-card-text-color: 'var(--primary-text-color)'                             # Button Card text color
-      button-card-corner-text-color: 'var(--secondary-text-color)'                    # Button card corner field text color
-      button-card-cust-1-text-color: 'var(--secondary-text-color)'                    # Button Card cust_1 field text color
-      button-card-cust-2-text-color: 'var(--secondary-text-color)'                    # Button Card cust_2 field text color
+      button-card-svg-off-color: '#9da0a2'                                            # Button Card SVG OFF color
+      button-card-text-color: '#8D8E93' #'var(--primary-text-color)'                  # Button Card text color
+      button-card-on-text-color: 'var(--dmatik-white-color)' #'#040404'               # Button Card On text color
+      button-card-corner-text-color: '#797A7F' #'var(--secondary-text-color)'         # Button card corner field text color
+      button-card-cust-1-text-color: '#797A7F' #'var(--secondary-text-color)'         # Button Card cust_1 field text color
+      button-card-cust-2-text-color: '#797A7F' #'var(--secondary-text-color)'         # Button Card cust_2 field text color
+      button-card-corner-on-text-color: '#A5A7AB' #'#5B5C61'                          # Button card corner field On text color
+      button-card-cust-1-on-text-color: '#A5A7AB' #'#5B5C61'                          # Button Card cust_1 field On text color
+      button-card-cust-2-on-text-color: '#A5A7AB' #'#5B5C61'                          # Button Card cust_2 field On text color
+      button-card-text-field-color: 'rgba(47, 49, 54, 1)'                             # Button Card text field color
       button-card-disabled-text-color: 'var(--disabled-text-color)'                   # Button Card disabled text color
       button-card-input-select-background: 'var(--button-card-on-background)'         # Button Card selected item color
       button-card-input-select-text: 'var(--primary-color)'                           # Button Card selected item text color
-      button-card-on-background: 'var(--paper-card-background-color)'                 # Button Card ON color
+      button-card-on-background: '#393C43' #'#BEBEBE'                                 # Button Card ON color
       button-color-green: 'var(--dmatik-green-color)'                                 # Button Card green background (ON mode)
       title-border-radius: 5px                                                        # Title border radius
       title-button-background: 'rgba(37, 129, 171, 0.7)'                              # Title button background color
@@ -61,8 +67,8 @@ dmatik-dark-wallpanel:
       accent-color: '#4A8DF6'                                                         # Accent color
       dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
       light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
-      app-header-background: 'var(--primary-background-color)'
-      app-header-background-color: 'var(--primary-background-color)'
+      #app-header-background: 'var(--primary-background-color)'
+      app-header-background-color: '#292B2F' #'#171717'                               # Application Header color
 
       # Text colors                                                                  
       primary-text-color: 'var(--dmatik-white-color)'                                 # Primary text colour, here is referencing dark-primary-color                                                 # Primary text colour 
@@ -72,11 +78,11 @@ dmatik-dark-wallpanel:
       label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
 
       # Background colors                                                            
-      primary-background-color: '#050505' #'rgba(5, 5, 5, 1)'                         # Settings background
-      secondary-background-color: '#171717' #'rgba(23, 23, 23, 1)'                    # Main card UI background  
+      primary-background-color: '#202225' #'#050505' #'rgba(5, 5, 5, 1)'              # Settings background
+      secondary-background-color: '#292B2F' #'#171717' #'rgba(23, 23, 23, 1)'         # Main card UI background  
       divider-color: 'var(--secondary-background-color)' #'rgba(61, 61, 63, 1)'       # Divider 
       card-background-color: 'var(--primary-background-color)'
-      ha-card-background: '#303032'
+      ha-card-background: 'rgba(47, 49, 54, 0.7)' #'#2F3136' #'rgba(28, 28, 30, 1)'
 
       # Table rows                                                                   
       table-row-background-color: '#353840'                                           # Table row
@@ -91,10 +97,10 @@ dmatik-dark-wallpanel:
 
       # Paper card                                                               
       paper-card-header-color: 'var(--accent-color)'                                  # Card header text colour
-      paper-card-background-color: 'var(--ha-card-background)' #'#303032'             # Card background colour
+      paper-card-background-color: 'var(--ha-card-background)' #'rgba(28, 28, 30, 1)' # Card background colour
       paper-dialog-background-color: 'var(--paper-card-background-color)'             # Card dialog background colour
       paper-item-icon-color: '#757479' #'rgba(129, 129, 129, 1)'                      # Icon color
-      paper-item-icon-active-color: '#ffc107'                                         # Icon color active
+      paper-item-icon-active-color: '#E2BF3D' #'#C2A120' #'#C49B13' #'#ffc107'        # Icon color active
       paper-item-icon_-_color: 'green'           
       paper-item-selected_-_background-color: 'var(--paper-card-background-color)'    # Popup item select                      
       paper-tabs-selection-bar-color: 'green'

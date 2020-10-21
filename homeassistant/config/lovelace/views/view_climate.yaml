@@ -1,0 +1,44 @@
+# lovelace_gen
+
+title: Climate
+icon: mdi:thermometer
+path: climate
+visible: false
+panel: true
+  
+cards:
+
+    - type: vertical-stack
+      cards:
+
+        - !include
+            - /config/lovelace/gen_templates/view_title_template.yaml
+            #{% raw %}
+            - title: "Climate"
+            #{% endraw %}
+
+        - !include /config/lovelace/styles/separator_card.yaml
+ 
+        - type: horizontal-stack
+          cards:
+
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
+
+                - !include /config/lovelace/cards/ac/card_climate_buttons.yaml
+
+                #- !include /config/lovelace/cards/ac/card_sensibo_living_room.yaml
+
+                #- !include /config/lovelace/cards/ac/card_sensibo_bedroom.yaml
+
+                #- !include /config/lovelace/cards/ac/card_sensibo_kids_room.yaml
+
+                - !include /config/lovelace/cards/xiaomi/card_xiaomi_temp_work_room.yaml
+
+            - type: custom:button-card
+              template: shoulder_blank_card

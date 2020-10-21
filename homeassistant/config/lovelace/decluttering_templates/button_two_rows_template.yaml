@@ -16,6 +16,16 @@ button_two_rows:
           styles:
             card:
               - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              corner:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              corner_2:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
         - value: "unavailable"
           styles:
             icon:
@@ -58,7 +68,7 @@ button_two_rows:
       card:
         - padding: 8%
         - font-size: 12px
-        #- font-weight: bold
+        - font-weight: bold
         - text-transform: capitalize
         - border-radius: '[[border_radius]]'
         - background-color: '[[background_color]]'
@@ -68,7 +78,7 @@ button_two_rows:
         - grid-template-columns: 2fr 3fr
         - grid-template-rows: 1fr 2fr 4fr 1fr
       name:
-        - font-size: 1.35em #15px
+        - font-size: 1.20em #15px
         - align-self: middle
         - justify-self: start
         - align-self: end
@@ -83,8 +93,8 @@ button_two_rows:
         - padding-bottom: 0px
         - color: '[[icon_color]]'
       icon:
-        - width: 85%
-        - height: 85%
+        - width: 95%
+        - height: 95%
         #- margin: none 
         - margin-top: 3% # Change to 5% for awesome
         - margin-left: 0% # Change to 5% for awesome
@@ -94,9 +104,16 @@ button_two_rows:
         corner:
           - align-self: start
           - justify-self: end
-          - font-size: 1.3em #14px
+          - font-size: 1em #14px
+          - font-weight: bold
           - color: "[[corner_text_color]]"
           - --icon-color-sensor: "[[corner_icon_color]]"
+          - border-radius: "[[corner_border_radius]]"
+          - background-color: "[[corner_background_color]]"
+          - min-width: 12px
+          - line-height: 22px
+          - padding: 0px 5px
+          - height: 22px
         corner_2:
           - padding-top: 8px
           - align-self: start

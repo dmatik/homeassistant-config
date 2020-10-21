@@ -1,0 +1,178 @@
+text_button_two_rows:
+
+  default:
+    - cust_1_field: ""
+    - cust_2_field: ""
+    - corner_field: ""
+    - corner_2_field: ""
+    - color: auto
+    - color_type: icon
+    - lock:
+        enabled: false
+        duration: 5
+        unlock: tap
+    - state:
+        - value: "on"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              corner:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              corner_2:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+        - value: "unavailable"
+          styles:
+            name:
+              - color: var(--button-card-disabled-text-color)
+            custom_fields:
+              corner:
+                - color: var(--button-card-disabled-text-color)
+              corner_2:
+                - color: var(--button-card-disabled-text-color)
+              cust_1:
+                - color: var(--button-card-disabled-text-color)
+              cust_2:
+                - color: var(--button-card-disabled-text-color)
+        - value: "cool"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              text_field:
+                - background-color: var(--sensibo-cool-color)
+                - color: var(--button-card-on-background)
+              corner:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              corner_2:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+        - value: "heat"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              text_field:
+                - background-color: var(--sensibo-heat-color)
+                - color: var(--button-card-on-background)
+              corner:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              corner_2:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+
+    # Styles
+    - border_radius: var(--button-card-border-radius)
+    - background_color: var(--button-card-background-color)
+    - text_color: var(--button-card-text-color)
+    - text_field_color: var(--button-card-text-field-color)
+    - text_field_background: var(--button-card-icon-color)
+    - corner_text_color: var(--button-card-corner-text-color)
+    - corner_2_text_color: var(--button-card-corner-text-color)
+    - cust_1_text_color: var(--button-card-cust-1-text-color)
+    - cust_2_text_color: var(--button-card-cust-2-text-color)
+    - lock_color: var(--button-card-lock-color)
+
+
+  card:
+    type: custom:button-card
+    entity: '[[entity]]'
+    icon: '[[icon]]'
+    aspect_ratio: 1/1
+    name: '[[name]]'
+    color: '[[color]]'
+    color_type: '[[color_type]]'
+    show_last_changed: false
+    lock: '[[lock]]'
+    styles:
+      card:
+        - padding: 8%
+        - font-size: 12px
+        - font-weight: bold
+        - text-transform: capitalize
+        - border-radius: '[[border_radius]]'
+        - background-color: '[[background_color]]'
+        - color: '[[text_color]]'
+      grid:
+        - grid-template-areas: '"text_field corner" "text_field corner_2" "n n" "cust_1 cust_2"'
+        - grid-template-columns: 2fr 3fr
+        - grid-template-rows: 1fr 2fr 4fr 1fr
+      name:
+        - font-size: 1.2em #15px
+        - align-self: middle
+        - justify-self: start
+        - align-self: end
+        - padding-top: 8px
+        - padding-bottom: 4px
+        #- text-transform: lowercase        
+      lock:
+        - color: '[[lock_color]]'
+      custom_fields:
+        text_field:
+          #- justify-content: start
+          #- align-items: start
+          - align-self: middle
+          - text-align: center
+          - font-size: 20px
+          - font-weight: bold
+          - margin: none
+          - height: 40px
+          - width: 40px
+          - line-height: 40px
+          - padding: 3px 3px
+          - color: '[[text_field_color]]'
+          - background: '[[text_field_background]]'
+          - border-radius: 50%
+        corner:
+          - align-self: start
+          - justify-self: end
+          - font-size: 1em #14px
+          - font-weight: bold
+          - color: "[[corner_text_color]]"
+          - --icon-color-sensor: "[[corner_icon_color]]"
+          - border-radius: "[[corner_border_radius]]"
+          - background-color: "[[corner_background_color]]"
+          - min-width: 12px
+          - line-height: 22px
+          - padding: 0px 5px
+          - height: 22px
+        corner_2:
+          - padding-top: 8px
+          - align-self: start
+          - justify-self: end
+          - color: "[[corner_2_text_color]]"
+          - --icon-color-sensor: "[[corner_2_icon_color]]"
+        cust_1:
+          - padding-bottom: 2px
+          - align-self: middle
+          - justify-self: start
+          - color: "[[cust_1_text_color]]"
+          - --icon-color-sensor: "[[cust_1_icon_color]]"
+        cust_2:
+          - padding-bottom: 2px
+          - align-self: middle
+          - justify-self: end
+          - color: "[[cust_2_text_color]]"
+          - --icon-color-sensor: "[[cust_2_icon_color]]"
+    custom_fields:
+      text_field: "[[text_field]]"
+      corner: "[[corner_field]]"
+      corner_2: "[[corner_2_field]]"
+      cust_1: "[[cust_1_field]]"
+      cust_2: "[[cust_2_field]]"
+    tap_action: '[[tap_action]]'
+    hold_action: '[[hold_action]]'
+    state: "[[state]]"

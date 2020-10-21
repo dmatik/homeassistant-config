@@ -1,0 +1,148 @@
+sensor:
+
+  - platform: template
+    sensors:
+
+############################################################################
+#                                                                          #
+#   Number of Lights On                                                    #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on:
+        friendly_name: "Number of lights on"
+        icon_template: mdi:lightbulb
+        value_template: >-
+            {{ states|selectattr('entity_id','in',state_attr('group.all_light_entities','entity_id'))|selectattr('state','eq','on')|list|count }} 
+
+
+
+############################################################################
+#                                                                          #
+#   Number of Climates On                                                  #
+#                                                                          #
+############################################################################
+
+      number_of_climate_entities_on:
+        friendly_name: "Number of Climates On"
+        icon_template: mdi:thermometer
+        value_template: >-
+          {% set heat = states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','heat')|list|count %}
+          {% set cool = states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','cool')|list|count %}
+          {% set other = states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','on')|list|count %}
+          {% set total = heat + cool + other %}
+          {{ total }}
+
+
+
+############################################################################
+#                                                                          #
+#   Number of Devices On                                                   #
+#                                                                          #
+############################################################################
+
+      number_of_devices_on:
+        friendly_name: "Number of Devices On"
+        icon_template: mdi:power-plug
+        value_template: >-
+            {{ states|selectattr('entity_id','in',state_attr('group.all_device_switch_entities','entity_id'))|selectattr('state','eq','on')|list|count }}
+
+
+
+############################################################################
+#                                                                          #
+#   Number of Tablets with Low Power                                       #
+#                                                                          #
+############################################################################
+
+      number_of_tablets_low_power:
+        friendly_name: "Number of Tablets with Low Power"
+        icon_template: mdi:cellphone-charging
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in states.group.all_tablets_battery_entities.attributes.entity_id %}
+            {% if (states(entity_id) | int) < 40 %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Motion Sensors On                                            #
+#                                                                          #
+############################################################################
+
+      number_of_motion_sensors_on:
+        friendly_name: "Number of Motion Sensors On"
+        icon_template: mdi:run
+        value_template: >-
+            {{ states|selectattr('entity_id','in',state_attr('group.all_motion_sensor_entities','entity_id'))|selectattr('state','eq','on')|list|count }}
+
+
+
+############################################################################
+#                                                                          #
+#   Number of Batteries Low                                                #
+#                                                                          #
+############################################################################
+
+      number_of_batteries_low:
+        friendly_name: "Number of Batteries Low"
+        icon_template: mdi:battery
+        value_template: >-
+            {% set count = namespace(value=0) %}
+            {% for entity_id in states.group.all_batteries_sensor_entities.attributes.entity_id %}
+              {% if (states(entity_id) | int) < 10 %}
+                {% set count.value = count.value + 1 %}
+              {% endif %}
+            {% endfor %}
+            {{ count.value }}
+
+
+
+############################################################################
+#                                                                          #
+#   Number of Inks Low                                                     #
+#                                                                          #
+############################################################################
+
+      number_of_inks_low:
+        friendly_name: "Number of Inks Low"
+        icon_template: mdi:format-color-fill
+        value_template: >-
+            {% set count = namespace(value=0) %}
+            {% for entity_id in states.group.all_ink_sensor_entities.attributes.entity_id %}
+              {% if (states(entity_id) | int) < 10 %}
+                {% set count.value = count.value + 1 %}
+              {% endif %}
+            {% endfor %}
+            {{ count.value }}
+
+
+
+############################################################################
+#                                                                          #
+#   Number of Computers On                                                 #
+#                                                                          #
+############################################################################
+
+      number_of_computers_on:
+        friendly_name: "Number of Computers On"
+        icon_template: mdi:desktop-classic
+        value_template: >-
+            {{ states|selectattr('entity_id','in',state_attr('group.all_computer_switch_entities','entity_id'))|selectattr('state','eq','on')|list|count }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Computers On                                                 #
+#                                                                          #
+############################################################################
+
+      number_of_media_on:
+        friendly_name: "Number of Media Devices On"
+        icon_template: mdi:play-box-multiple
+        value_template: >-
+            {{ states|selectattr('entity_id','in',state_attr('group.all_media_entities','entity_id'))|selectattr('state','eq','on')|list|count }}

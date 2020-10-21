@@ -1,0 +1,117 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Main Menu
+
+
+############################################################################
+#                                                                          #
+#   Menu                                                                   #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Lights
+          - icon: mdi:lightbulb
+          - corner_field_entity: sensor.number_of_lights_on
+          - cust_1_field: "Overview"
+          - path: lights
+
+      - type: custom:decluttering-card
+        template: menu_switcher_button
+        variables:
+          - entity: switch.switcher_webapi
+          - name: Switcher
+          - icon: mdi:water-boiler
+          - corner_field_entity: sensor.switcher_webapi_time_left
+          - cust_1_field: "Control"
+          #- path: switcher
+          #- color: auto
+
+#       - type: "custom:button-card"
+#         color_type: blank-card
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Climate
+          - icon: mdi:thermometer
+          - corner_field_entity: sensor.number_of_climate_entities_on
+          - cust_1_field: "Overview"
+          - path: climate
+
+
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Computers
+          - icon: mdi:desktop-classic
+          - corner_field_entity: sensor.number_of_computers_on
+          - cust_1_field: "Overview"
+          - path: computers
+
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Tablets
+          - icon: mdi:tablet
+          - corner_field_entity: sensor.number_of_tablets_low_power
+          - cust_1_field: "Overview"
+          - path: tablets
+
+      # - type: custom:decluttering-card
+      #   template: menu_harmony_button
+      #   variables:
+      #     - entity: switch.shield_tv
+      #     - title: Main TV
+      #     - name: living_room
+      #     - icon: mdi:television
+      #     - corner_field_entity: sensor.living_room_tv
+      #     - cust_1_field: "Control"
+      #     #- color: auto
+      #     - image_on: /local/images/remotes/living_room_tv_on.png
+      #     - image_off: /local/images/remotes/living_room_tv_off.png
+
+      # - type: "custom:button-card"
+      #   color_type: blank-card
+
+      - type: custom:decluttering-card
+        template: menu_new_button
+        variables:
+          - entity: ""
+          - name: Media
+          - icon: mdi:play-box-multiple
+          - corner_field_entity: sensor.number_of_media_on
+          - cust_1_field: "Overview"
+          - path: media
+
+
+
+  - !include /config/lovelace/styles/separator_card.yaml

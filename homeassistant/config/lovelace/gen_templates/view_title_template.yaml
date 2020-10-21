@@ -1,0 +1,44 @@
+# lovelace_gen
+
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    background: var(--ch-background);
+    border-radius: 0px !important;
+  }
+  .card-content {
+    padding: 0
+  }
+  :host {
+    z-index: 999;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+  }
+entities:
+  - type: custom:hui-vertical-stack-card
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: markdown
+            style: |
+              ha-card {
+                box-shadow: none;
+                height: 50px;
+                margin-top: 1px;
+                margin-left: 2px;
+                letter-spacing: -1px;
+                overflow: visible;
+                #font-size: 20px
+              }
+            content: >
+              ## {{ title|default('undefined') }}
+          - !include
+            - 'header_sensor_icon_template.yaml'
+            - icon: mdi:run
+              sensor: sensor.number_of_motion_sensors_on
+              path: motion
+              group: group.all_motion_sensor_entities
+          - type: custom:button-card
+            template: shoulder_blank_card

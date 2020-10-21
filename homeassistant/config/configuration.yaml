@@ -51,19 +51,21 @@ automation: !include_dir_merge_list automation/
 #rest_command: !include_dir_merge_named /config/entities/rest_commands/
 #shell_command: !include_dir_merge_named /config/entities/shell_commands/
 
+lovelace_gen:
 
+browser_mod:
 
 lovelace:
   mode: yaml
   resources: !include /config/lovelace/resources.yaml
   dashboards:
-    lovelace-system:
-      mode: yaml
-      filename: ui-system.yaml
-      title: "System"
-      icon: mdi:view-dashboard
-      show_in_sidebar: true
-      require_admin: false
+    # lovelace-system:
+    #   mode: yaml
+    #   filename: ui-system.yaml
+    #   title: "System"
+    #   icon: mdi:view-dashboard
+    #   show_in_sidebar: true
+    #   require_admin: false
     lovelace-wallpanel:
       mode: yaml
       filename: ui-wallpanel.yaml

@@ -1,22 +1,38 @@
+# lovelace_gen
+
 title: Home Assistant
 icon: mdi:home-assistant
 path: homeassistant
-
+visible: false
+panel: true
+  
 cards:
 
-    #- !include /config/lovelace/cards/card_home_button.yaml
-    #- !include /config/lovelace/cards/view_titles/card_view_title_homeassistant.yaml
+    - type: vertical-stack
+      cards:
 
-    - !include /config/lovelace/cards/homeassistant/card_ha_version.yaml
+        - !include
+            - /config/lovelace/gen_templates/view_title_template.yaml
+            #{% raw %}
+            - title: "Home Assistant"
+            #{% endraw %}
 
-    - !include /config/lovelace/cards/homeassistant/card_homeassistant_db.yaml
+        - !include /config/lovelace/styles/separator_card.yaml
+ 
+        - type: horizontal-stack
+          cards:
 
-    - !include /config/lovelace/cards/wallpanel/card_fully.yaml
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
 
-    - !include /config/lovelace/cards/homeassistant/card_automations.yaml
+                - !include /config/lovelace/cards/homeassistant/card_ha_version.yaml
 
-    #- !include /config/lovelace/cards/homeassistant/card_snapshot_backup.yaml
+                - !include /config/lovelace/cards/homeassistant/card_homeassistant_db.yaml
 
-    #- !include /config/lovelace/cards/homeassistant/card_recorder_purge.yaml
-
-    #- !include /config/lovelace/cards/homeassistant/card_theme_select.yaml
+            - type: custom:button-card
+              template: shoulder_blank_card
