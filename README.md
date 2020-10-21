@@ -46,6 +46,9 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 | Card-Mod | [github](https://github.com/thomasloven/lovelace-card-mod) |
 | Decluttering Card | [github](https://github.com/custom-cards/decluttering-card) |
 | Refreshable Picture card | [github](https://github.com/dimagoltsman/refreshable-picture-card) |
+| fold-entity-row | [github](https://github.com/thomasloven/lovelace-fold-entity-row) |
+| Circle Sensor Card | [github](https://github.com/custom-cards/circle-sensor-card) |
+| layout-card | [github](https://github.com/thomasloven/lovelace-layout-card) |
 
 ### Screens
 
