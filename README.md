@@ -49,6 +49,9 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 | fold-entity-row | [github](https://github.com/thomasloven/lovelace-fold-entity-row) |
 | Circle Sensor Card | [github](https://github.com/custom-cards/circle-sensor-card) |
 | layout-card | [github](https://github.com/thomasloven/lovelace-layout-card) |
+| auto-entities | [github](https://github.com/thomasloven/lovelace-auto-entities) |
+| Thermostat popup card (homekit style) | [github](https://github.com/DBuit/thermostat-popup-card) |
+| Light popup card (homekit style) | [github](https://github.com/DBuit/light-popup-card) |
 
 ### Screens
 
