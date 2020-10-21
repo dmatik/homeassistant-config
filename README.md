@@ -13,7 +13,8 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 - Xiaomi Mijia Gateway
 - Xiaomi Aqara Temperature Humidity Sensor
 - Xiaomi Aqara Buttons
-- Yeelight Color Bulbs
+- Tasmota Color Bulbs
+- Yeelight LED Strips
 
 ## Components
 
@@ -41,15 +42,16 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 | Vertical Style Card | [github](https://github.com/matisaul/vertical-style-card) |
 | Card-Mod | [github](https://github.com/thomasloven/lovelace-card-mod) |
 | Decluttering Card | [github](https://github.com/custom-cards/decluttering-card) |
+| Refreshable Picture card | [github](https://github.com/dimagoltsman/refreshable-picture-card) |
 
 ### Screens
 
-Mobile:    
+Mobile (To be updated soon):    
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile_dark.png "Mobile")
 
 Wallpanel:     
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_kiosk.png "Wallpanel")
 
-## HaDashboard
+## HaDashboard (Not in use)
 
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/hadash.png "HaDashboard")
