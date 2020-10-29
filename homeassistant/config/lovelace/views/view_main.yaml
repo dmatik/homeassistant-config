@@ -1,6 +1,6 @@
 # lovelace_gen
 
-title: Main
+title: Home
 icon: mdi:home
 path: main
 visible: true
@@ -14,7 +14,7 @@ cards:
         - !include
             - /config/lovelace/gen_templates/view_title_template.yaml
             #{% raw %}
-            - title: "Main"
+            - title: "Home"
             #{% endraw %}
 
         - !include /config/lovelace/styles/separator_card.yaml

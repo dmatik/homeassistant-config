@@ -17,3 +17,19 @@ script:
         - delay:
             seconds: 30
         - service: script.download_havid
+        - service: notify.dimatelegram
+          data:
+            title: 'Health Declaration'
+            message: 'Signed'
+            data:
+              photo:
+                - file: /config/www/havid.jpg
+                  caption: "Health Declaration" 
+        # - service: notify.mobile_app_iphonexsdima
+        #   data:
+        #     title: 'Health Declaration'
+        #     message: 'Signed'
+        #     data:
+        #       attachment:
+        #         url: "/local/havid.jpg"
+        #         hide-thumbnail: false     

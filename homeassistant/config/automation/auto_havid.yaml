@@ -1,0 +1,13 @@
+############################################################################
+#                                                                          #
+#   Havid sign                                                             #
+#                                                                          #
+############################################################################
+
+- alias: 'Havid sign'
+  initial_state: 'true'
+  trigger:
+    - platform: time
+      at: "07:12:00"
+  action:
+    - service: script.sign_and_download_havid

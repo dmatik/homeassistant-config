@@ -24,7 +24,7 @@ menu_new_button:
       - cust_2_text_color: "[[cust_2_text_color]]"
       - cust_2_icon_color: "[[cust_2_icon_color]]"
       - corner_field: "[[[ 
-            if ('[[corner_field_entity]]' == '')
+            if ('[[corner_field_entity]]' == '' || states['[[corner_field_entity]]'].state == '0')
               return '';
             else
               return states['[[corner_field_entity]]'].state; 

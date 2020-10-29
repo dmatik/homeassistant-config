@@ -16,6 +16,9 @@ homeassistant:
   internal_url: !secret internal_url
   external_url: !secret external_url
 
+  allowlist_external_dirs:
+    - /config/www
+
   packages: !include_dir_named packages/
 
 
@@ -73,11 +76,6 @@ lovelace:
       icon: mdi:view-dashboard
       show_in_sidebar: true
       require_admin: false
-
-# switcher_aio:
-#   phone_id: !secret switcher_phone_id
-#   device_id: !secret switcher_device_id
-#   device_password: !secret switcher_device_password
 
 # switcher_kis:
 #   phone_id: !secret switcher_phone_id
@@ -169,18 +167,18 @@ climate:
     api_key: !secret sensibo_api_key
 
       
-# Telegram      
-# telegram_bot:
-#   - platform: polling
-#     api_key: !secret telegram_bot_api_key
-#     allowed_chat_ids:
-#       - !secret telegram_bot_chat_id_1
+#Telegram      
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+      - !secret telegram_bot_chat_id_1
 
       
-# notify:
-#   - name: DimaTelegram
-#     platform: telegram
-#     chat_id: !secret telegram_bot_chat_id_1
+notify:
+  - name: DimaTelegram
+    platform: telegram
+    chat_id: !secret telegram_bot_chat_id_1
 
 
 # Life360
