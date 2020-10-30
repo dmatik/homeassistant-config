@@ -13,7 +13,13 @@ sensor:
         friendly_name: "Number of lights on"
         icon_template: mdi:lightbulb
         value_template: >-
-            {{ states|selectattr('entity_id','in',state_attr('group.all_light_entities','entity_id'))|selectattr('state','eq','on')|list|count }} 
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_light_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 
 
 
@@ -27,11 +33,13 @@ sensor:
         friendly_name: "Number of Climates On"
         icon_template: mdi:thermometer
         value_template: >-
-          {% set heat = states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','heat')|list|count %}
-          {% set cool = states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','cool')|list|count %}
-          {% set other = states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','on')|list|count %}
-          {% set total = heat + cool + other %}
-          {{ total }}
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_climate_entities','entity_id') %}
+            {% if (states(entity_id) == 'on' or states(entity_id) == 'heat' or states(entity_id) == 'cool') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 
 
 
@@ -45,7 +53,13 @@ sensor:
         friendly_name: "Number of Devices On"
         icon_template: mdi:power-plug
         value_template: >-
-            {{ states|selectattr('entity_id','in',state_attr('group.all_device_switch_entities','entity_id'))|selectattr('state','eq','on')|list|count }}
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_device_switch_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 
 
 
@@ -78,7 +92,13 @@ sensor:
         friendly_name: "Number of Motion Sensors On"
         icon_template: mdi:run
         value_template: >-
-            {{ states|selectattr('entity_id','in',state_attr('group.all_motion_sensor_entities','entity_id'))|selectattr('state','eq','on')|list|count }}
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_motion_sensor_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 
 
 
@@ -132,7 +152,13 @@ sensor:
         friendly_name: "Number of Computers On"
         icon_template: mdi:desktop-classic
         value_template: >-
-            {{ states|selectattr('entity_id','in',state_attr('group.all_computer_switch_entities','entity_id'))|selectattr('state','eq','on')|list|count }}
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_computer_switch_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 
 
 ############################################################################
@@ -145,4 +171,10 @@ sensor:
         friendly_name: "Number of Media Devices On"
         icon_template: mdi:play-box-multiple
         value_template: >-
-            {{ states|selectattr('entity_id','in',state_attr('group.all_media_entities','entity_id'))|selectattr('state','eq','on')|list|count }}
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_media_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}

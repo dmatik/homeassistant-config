@@ -8,6 +8,16 @@
   initial_state: 'true'
   trigger:
     - platform: time
-      at: "07:12:00"
+      at: "07:00:00"
+  condition:
+    condition: time
+    weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
   action:
+    - delay: '00:{{ (range(0, 30)|random|int) }}:00'
     - service: script.sign_and_download_havid

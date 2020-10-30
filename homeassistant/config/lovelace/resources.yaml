@@ -48,5 +48,5 @@
   type: module
 - url: /hacsfiles/light-entity-card/light-entity-card.js
   type: module
-- url: /hacsfiles/custom-header/custom-header.js
+- url: /local/custom-lovelace/custom-header/custom-header.js
   type: module

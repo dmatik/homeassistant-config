@@ -12,7 +12,7 @@ group:
       - climate.living_room
       - climate.bedroom
       - climate.kids_room
-      - sensor.mqtt_kids_radiator_current
+      - switch.mqtt_kids_radiator
 
 
 

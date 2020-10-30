@@ -38,5 +38,7 @@ cards:
 
                 - !include /config/lovelace/cards/lights/card_lights_other_rooms.yaml
 
+                - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
+
             - type: custom:button-card
               template: shoulder_blank_card
