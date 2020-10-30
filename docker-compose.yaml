@@ -30,6 +30,20 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
         network_mode: "host"
 
+    # hass_hki:
+    #     restart: "unless-stopped"
+    #     hostname: hass_hki
+    #     container_name: hass_hki
+    #     image: homeassistant/home-assistant:latest
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #         - /volume1/docker/hass_hki/config:/config
+    #         - /var/run/docker.sock:/var/run/docker.sock
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "8234:8123"
+
     # mariadb:
     #     restart: always
     #     hostname: mariadb
@@ -418,3 +432,30 @@ services:
             TZ: "Asia/Jerusalem"
             USER_ID: ${HAVID_USER_ID}
             USER_KEY: ${HAVID_USER_KEY}
+
+    botvid:
+        image: techblog/botvid-19:latest
+        container_name: botvid
+        restart: always
+        environment:
+            TZ: "Asia/Jerusalem"
+            API_KEY: ${MY_DOCKER_BOT_TOKEN}
+            ALLOWED_IDS: ${TELEGRAM_CHAT_ID}
+        volumes:
+            - /volume1/docker/botvid/config:/opt/dockerbot/config
+
+    minecraft-server:
+        image: itzg/minecraft-bedrock-server:latest
+        container_name: minecraft-server
+        restart: "unless-stopped"
+        network_mode: "bridge"
+        ports:
+            - 19132:19132/udp
+        environment:
+            TZ: "Asia/Jerusalem"
+            EULA: "TRUE"
+            GAMEMODE: "creative"
+            DIFFICULTY: "peaceful"
+        volumes:
+            - /volume1/docker/mc/data:/data 
+            #- /etc/timezone:/etc/timezone:ro
