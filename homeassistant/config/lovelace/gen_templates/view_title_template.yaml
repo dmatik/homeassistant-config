@@ -6,6 +6,9 @@ style: |
     --ha-card-background: transparant;
     background: var(--ch-background);
     border-radius: 0px !important;
+    -webkit-box-shadow: var(--header-shadow);
+    -moz-box-shadow: var(--header-shadow);
+    box-shadow: var(--header-shadow);
   }
   .card-content {
     padding: 0

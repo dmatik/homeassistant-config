@@ -1,14 +1,29 @@
 script:
 
+
+############################################################################
+#                                                                          #
+#   Havid                                                                  #
+#                                                                          #
+############################################################################
+
   sign_havid:
     alias: Sign HAvid-19
     sequence:
         - service: rest_command.sign_havid
+          data:
+            ip: !secret synology_zeg_host
+            port: !secret havid_port
+            system: "edu"
 
   download_havid:
     alias: Download HAvid-19
     sequence:
         - service: shell_command.download_havid
+          data:
+            ip: !secret synology_zeg_host
+            port: !secret havid_port
+            system: "edu"
 
   sign_and_download_havid:
     alias: Sign and Download HAvid-19
@@ -24,12 +39,46 @@ script:
             data:
               photo:
                 - file: /config/www/havid.jpg
-                  caption: "Health Declaration" 
-        # - service: notify.mobile_app_iphonexsdima
-        #   data:
-        #     title: 'Health Declaration'
-        #     message: 'Signed'
-        #     data:
-        #       attachment:
-        #         url: "/local/havid.jpg"
-        #         hide-thumbnail: false     
+                  caption: "Health Declaration"  
+
+
+
+############################################################################
+#                                                                          #
+#   Havid Amdocs                                                           #
+#                                                                          #
+############################################################################
+
+  sign_havid_amdocs:
+    alias: Sign HAvid-19 Amdocs
+    sequence:
+        - service: rest_command.sign_havid
+          data:
+            ip: !secret synology_zeg_host
+            port: !secret havid_port
+            system: "amdocs"
+
+  download_havid_amdocs:
+    alias: Download HAvid-19 Amdocs
+    sequence:
+        - service: shell_command.download_havid
+          data:
+            ip: !secret synology_zeg_host
+            port: !secret havid_port
+            system: "amdocs"
+
+  sign_and_download_havid_amdocs:
+    alias: Sign and Download HAvid-19 Amdocs
+    sequence:
+        - service: script.sign_havid_amdocs
+        - delay:
+            seconds: 30
+        - service: script.download_havid_amdocs
+        - service: notify.dimatelegram
+          data:
+            title: 'Health Declaration Amdocs'
+            message: 'Signed'
+            data:
+              photo:
+                - file: /config/www/havid_amdocs.jpg
+                  caption: "Health Declaration Amdocs"  

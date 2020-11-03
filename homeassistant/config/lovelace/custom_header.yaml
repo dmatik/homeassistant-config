@@ -1,6 +1,12 @@
-view_css: 'padding-top: 96px !important'
-tab_container_css: 'padding-bottom: 26px'
-all_tabs_css: 'padding-right: 16px; padding-left: 16px; --mdc-icon-size: 28px;'
+view_css: 'padding-top: 96px !important;'
+header_css:
+  '
+  height: 70px !important;
+  -webkit-box-shadow: var(--footer-shadow); 
+  -moz-box-shadow: var(--footer-shadow); 
+  box-shadow: var(--footer-shadow);
+  '
+all_tabs_css: '--mdc-icon-size: 28px;'
 #header_text: '{{ viewTitle }}'
 split_mode: false
 compact_mode: true
@@ -16,6 +22,3 @@ reverse_tab_direction: false
 reverse_button_direction: false
 fit_tabs: true
 menu_hide: true
-show_tabs:
-  - main
-  - menu

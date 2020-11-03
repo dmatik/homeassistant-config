@@ -1,6 +1,6 @@
 rest_command:
 
   sign_havid:
-    url: !secret sign_havid_rest 
+    url: "http://{{ip}}:{{port}}/{{system}}/sign" 
     method: "GET"
     timeout: 60
