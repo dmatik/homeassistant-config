@@ -30,7 +30,9 @@ cards:
               max_columns: 3
               cards:
 
-                - !include /config/lovelace/cards/card_havid-19.yaml
+                - !include /config/lovelace/cards/havid/card_havid_edu.yaml
+
+                - !include /config/lovelace/cards/havid/card_havid_amdocs.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card

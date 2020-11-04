@@ -7,7 +7,7 @@ script:
 #                                                                          #
 ############################################################################
 
-  sign_havid:
+  sign_havid_edu:
     alias: Sign HAvid-19
     sequence:
         - service: rest_command.sign_havid
@@ -16,7 +16,7 @@ script:
             port: !secret havid_port
             system: "edu"
 
-  download_havid:
+  download_havid_edu:
     alias: Download HAvid-19
     sequence:
         - service: shell_command.download_havid
@@ -25,20 +25,20 @@ script:
             port: !secret havid_port
             system: "edu"
 
-  sign_and_download_havid:
+  sign_and_download_havid_edu:
     alias: Sign and Download HAvid-19
     sequence:
-        - service: script.sign_havid
+        - service: script.sign_havid_edu
         - delay:
             seconds: 30
-        - service: script.download_havid
+        - service: script.download_havid_edu
         - service: notify.dimatelegram
           data:
             title: 'Health Declaration'
             message: 'Signed'
             data:
               photo:
-                - file: /config/www/havid.jpg
+                - file: /config/www/havid_edu.jpg
                   caption: "Health Declaration"  
 
 

@@ -1,0 +1,5 @@
+type: custom:decluttering-card
+template: havid_card
+variables:
+  - title: Amdocs
+  - system: amdocs

@@ -1,0 +1,78 @@
+havid_card:
+
+  default:
+
+    
+  card:
+
+    type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:  
+          
+          - type: custom:decluttering-card
+            template: title_button_card
+            variables:
+              - name: '[[title]]'
+
+
+
+############################################################################
+#                                                                          #
+#   HAvid-19                                                               #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards: 
+
+          - type: custom:refreshable-picture-card
+            title: null
+            update_interval: 10
+            static_picture: /local/havid_[[system]].jpg
+            navigate: /local/havid_[[system]].jpg
+
+
+
+############################################################################
+#                                                                          #
+#   Buttons                                                                #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:decluttering-card
+            template: simple_button
+            variables:
+              - entity: script.sign_and_download_havid_[[system]]
+              - name: Sign
+              - font_size: 20px
+              - show_name: true
+              - show_icon: false
+              - tap_action: 
+                  action: call-service
+                  service: script.sign_and_download_havid_[[system]]
+
+          - type: custom:decluttering-card
+            template: simple_button
+            variables:
+              - entity: script.download_havid_[[system]]
+              - name: Refresh
+              - font_size: 20px
+              - show_name: true
+              - show_icon: false
+              - tap_action: 
+                  action: call-service
+                  service: script.download_havid_[[system]]
+
+      - !include /config/lovelace/styles/separator_card.yaml
