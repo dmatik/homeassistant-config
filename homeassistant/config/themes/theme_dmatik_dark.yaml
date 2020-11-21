@@ -1,4 +1,13 @@
 dmatik-dark:
+      # Card Mod
+      card-mod-theme: dmatik-dark
+      card-mod-root: |
+            app-header {
+                  display: none !important;
+            }
+            #view {
+                  min-height: calc(100vh) !important;
+            }
 
       # Background image
       background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'

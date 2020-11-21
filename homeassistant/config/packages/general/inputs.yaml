@@ -1,0 +1,3 @@
+input_boolean:
+  dummy1:
+    initial: off

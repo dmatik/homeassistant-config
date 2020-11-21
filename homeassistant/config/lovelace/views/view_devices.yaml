@@ -13,9 +13,7 @@ cards:
 
         - !include
             - /config/lovelace/gen_templates/view_title_template.yaml
-            #{% raw %}
             - title: "Devices"
-            #{% endraw %}
 
         - !include /config/lovelace/styles/separator_card.yaml
  
@@ -30,7 +28,7 @@ cards:
               max_columns: 3
               cards:
 
-
+                - !include /config/lovelace/styles/view_bottom_gap.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card

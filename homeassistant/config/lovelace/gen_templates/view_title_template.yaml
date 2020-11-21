@@ -24,6 +24,13 @@ entities:
     cards:
       - type: horizontal-stack
         cards:
+          - type: custom:button-card
+            template: shoulder_blank_card
+          - !include
+            - 'nav_icons.yaml'
+            - icon: {{ nav_icon|default('mdi:chevron-left') }}
+              path: {{ nav_path|default('main') }}
+              icon_size: "{{ icon_size|default('100%') }}"
           - type: markdown
             style: |
               ha-card {

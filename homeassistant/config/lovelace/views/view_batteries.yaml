@@ -13,9 +13,7 @@ cards:
 
         - !include
             - /config/lovelace/gen_templates/view_title_template.yaml
-            #{% raw %}
             - title: "Batteries"
-            #{% endraw %}
 
         - !include /config/lovelace/styles/separator_card.yaml
  
@@ -31,6 +29,8 @@ cards:
               cards:
 
                 - !include /config/lovelace/cards/xiaomi/card_batteries.yaml
+
+                - !include /config/lovelace/styles/view_bottom_gap.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card

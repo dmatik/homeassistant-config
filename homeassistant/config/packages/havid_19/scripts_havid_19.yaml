@@ -30,7 +30,7 @@ script:
     sequence:
         - service: script.sign_havid_edu
         - delay:
-            seconds: 30
+            seconds: 60
         - service: script.download_havid_edu
         - service: notify.dimatelegram
           data:
@@ -72,7 +72,7 @@ script:
     sequence:
         - service: script.sign_havid_amdocs
         - delay:
-            seconds: 30
+            seconds: 60
         - service: script.download_havid_amdocs
         - service: notify.dimatelegram
           data:

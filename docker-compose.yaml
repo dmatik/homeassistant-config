@@ -175,6 +175,7 @@ services:
             IGNORE: "homeassistant mariadb postgres pgadmin"
             TZ: "Asia/Jerusalem"
             NOTIFIERS: "tgram://${MY_DOCKER_BOT_TOKEN}/${TELEGRAM_CHAT_ID}"
+            CRON: "0 6 * * *"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             
@@ -432,6 +433,20 @@ services:
             TZ: "Asia/Jerusalem"
         volumes:
             - /volume1/docker/havid/config:/opt/dockerbot/config
+            
+    # havid_amd:
+    #     image: techblog/havid-19:latest
+    #     container_name: havid_amd
+    #     restart: always
+    #     network_mode: "bridge"
+    #     ports:
+    #         - 6800:6700
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #         - /volume1/docker/havid_amd/config:/opt/dockerbot/config
+    #         - /volume1/docker/havid_amd/Amdocs_Health_Statements.py:/opt/dockerbot/Amdocs_Health_Statements.py
+    #         - /volume1/docker/havid_amd/dockerbot.py:/opt/dockerbot/dockerbot.py
 
     botvid:
         image: techblog/botvid-19:latest
@@ -443,6 +458,41 @@ services:
             ALLOWED_IDS: ${TELEGRAM_CHAT_ID}
         volumes:
             - /volume1/docker/botvid/config:/opt/dockerbot/config
+
+    # botvid_yuri:
+    #     image: techblog/botvid-19:latest
+    #     container_name: botvid_yuri
+    #     restart: always
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         API_KEY: ${YURI_BOT_TOKEN}
+    #         ALLOWED_IDS: ${YURI_TELEGRAM_CHAT_ID}
+    #     volumes:
+    #         - /volume1/docker/botvid_yuri/config:/opt/dockerbot/config
+
+    botvid_amosov:
+        image: techblog/botvid-19:latest
+        container_name: botvid_amosov
+        restart: always
+        environment:
+            TZ: "Asia/Jerusalem"
+            API_KEY: ${AMOSOV_BOT_TOKEN}
+            ALLOWED_IDS: ${AMOSOV_TELEGRAM_CHAT_ID}
+        volumes:
+            - /volume1/docker/botvid_amosov/config:/opt/dockerbot/config
+
+    # botvid_amd:
+    #     image: techblog/botvid-19:latest
+    #     container_name: botvid_amd
+    #     restart: always
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         API_KEY: ${TEST_BOT_TOKEN}
+    #         ALLOWED_IDS: ${TELEGRAM_CHAT_ID}
+    #     volumes:
+    #         - /volume1/docker/botvid_amd/config:/opt/dockerbot/config
+    #         - /volume1/docker/botvid_amd/Amdocs_Health_Statements.py:/opt/dockerbot/Amdocs_Health_Statements.py
+    #         - /volume1/docker/botvid_amd/dockerbot.py:/opt/dockerbot/dockerbot.py
 
     minecraft-server:
         image: itzg/minecraft-bedrock-server:latest
@@ -456,6 +506,8 @@ services:
             EULA: "TRUE"
             GAMEMODE: "creative"
             DIFFICULTY: "peaceful"
+            MAX_PLAYERS: "30"
+            SERVER_NAME: "Trosmans"
+            OPS: ${MC_DMATIK_ID}
         volumes:
-            - /volume1/docker/mc/data:/data 
-            #- /etc/timezone:/etc/timezone:ro
+            - /volume1/docker/mc/data:/data

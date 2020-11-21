@@ -40,5 +40,7 @@ cards:
 
                 - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
 
+                - !include /config/lovelace/styles/view_bottom_gap.yaml
+
             - type: custom:button-card
               template: shoulder_blank_card

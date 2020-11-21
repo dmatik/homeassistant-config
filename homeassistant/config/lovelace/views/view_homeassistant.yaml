@@ -13,9 +13,7 @@ cards:
 
         - !include
             - /config/lovelace/gen_templates/view_title_template.yaml
-            #{% raw %}
             - title: "Home Assistant"
-            #{% endraw %}
 
         - !include /config/lovelace/styles/separator_card.yaml
  
@@ -33,6 +31,8 @@ cards:
                 - !include /config/lovelace/cards/homeassistant/card_ha_version.yaml
 
                 - !include /config/lovelace/cards/homeassistant/card_homeassistant_db.yaml
+
+                - !include /config/lovelace/styles/view_bottom_gap.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card

@@ -1,7 +1,7 @@
 sensor:
 
-    - platform: template
-      sensors:
+    # - platform: template
+    #   sensors:
 
 
 
@@ -11,19 +11,19 @@ sensor:
         #                                                                          #
         ############################################################################
 
-        bedroom_ceiling_moonlight:
-            friendly_name: "Bedroom Moonlight Mode"
-            icon_template: mdi:brightness-4
-            value_template: >-
-                {% if is_state('light.bedroom_ceiling', 'unavailable') %}
-                    unavailable
-                {% else %}
-                    {% if is_state('binary_sensor.bedroom_ceiling_nightlight', 'on') %}
-                        moonlight
-                    {% else %}
-                        normal
-                    {% endif %}
-                {% endif %}
+        # bedroom_ceiling_moonlight:
+        #     friendly_name: "Bedroom Moonlight Mode"
+        #     icon_template: mdi:brightness-4
+        #     value_template: >-
+        #         {% if is_state('light.bedroom_ceiling', 'unavailable') %}
+        #             unavailable
+        #         {% else %}
+        #             {% if is_state('binary_sensor.bedroom_ceiling_nightlight', 'on') %}
+        #                 moonlight
+        #             {% else %}
+        #                 normal
+        #             {% endif %}
+        #         {% endif %}
 
 
 
@@ -33,21 +33,21 @@ sensor:
         #                                                                          #
         ############################################################################
 
-        bedside_lights_mode:
-            friendly_name: "Bedside Lights Mode"
-            icon_template: mdi:heart
-            value_template: >-
-                {% if is_state('light.bedside_dima_bulb', 'unavailable') or is_state('light.bedside_galit_bulb', 'unavailable') %}
-                    unavailable
-                {% elif is_state('light.bedside_dima_bulb', 'off') and is_state('light.bedside_galit_bulb', 'off') %}
-                    lights_off
-                {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') > 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') > 180 ) %}
-                    romantic
-                {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') < 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') < 180 ) %}
-                    normal
-                {% else %}
-                    other
-                {% endif %}
+        # bedside_lights_mode:
+        #     friendly_name: "Bedside Lights Mode"
+        #     icon_template: mdi:heart
+        #     value_template: >-
+        #         {% if is_state('light.bedside_dima_bulb', 'unavailable') or is_state('light.bedside_galit_bulb', 'unavailable') %}
+        #             unavailable
+        #         {% elif is_state('light.bedside_dima_bulb', 'off') and is_state('light.bedside_galit_bulb', 'off') %}
+        #             lights_off
+        #         {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') > 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') > 180 ) %}
+        #             romantic
+        #         {% elif ( state_attr('light.bedside_dima_bulb', 'brightness') < 180 ) or ( state_attr('light.bedside_galit_bulb', 'brightness') < 180 ) %}
+        #             normal
+        #         {% else %}
+        #             other
+        #         {% endif %}
 
 
                 

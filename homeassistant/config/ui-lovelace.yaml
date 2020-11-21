@@ -1,7 +1,7 @@
 title: Home
 
-custom_header: 
-  !include /config/lovelace/custom_header.yaml
+# custom_header: 
+#   !include /config/lovelace/custom_header.yaml
 
 # Button card templates  
 decluttering_templates:
