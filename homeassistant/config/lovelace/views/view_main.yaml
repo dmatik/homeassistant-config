@@ -17,6 +17,8 @@ cards:
               nav_icon: mdi:menu
               #nav_path: menu
               icon_size: 80%
+              show_icon: false
+              nav_size: 0px
 
         # - type: custom:decluttering-card
         #   template: view_title

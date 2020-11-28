@@ -30,7 +30,8 @@ cards:
 
               #- !include /config/lovelace/cards/remotes/card_harmony_living_room_kiosk.yaml
 
-              - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
+              #- !include /config/lovelace/cards/lights/card_lights_scripts.yaml
+              - !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
           
           - type: custom:button-card
             template: shoulder_blank_card
@@ -43,7 +44,7 @@ cards:
               #- !include /config/lovelace/cards/ac/card_sensibo_kids_room_kiosk.yaml
               - !include /config/lovelace/cards/ac/card_climate_buttons.yaml
 
-              - !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
+              - !include /config/lovelace/cards/devices/card_devices_buttons.yaml
 
               - !include /config/lovelace/cards/switcher/card_switcher.yaml
 

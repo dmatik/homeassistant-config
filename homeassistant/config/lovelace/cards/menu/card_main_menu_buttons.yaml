@@ -8,13 +8,13 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
-    cards:
+  # - type: horizontal-stack
+  #   cards:
     
-      - type: custom:decluttering-card
-        template: title_button_card
-        variables:
-          - name: Main Menu
+  #     - type: custom:decluttering-card
+  #       template: title_button_card
+  #       variables:
+  #         - name: Main Menu
 
 
 ############################################################################
@@ -56,7 +56,7 @@ cards:
           - entity: ""
           - name: Climate
           - icon: mdi:thermometer
-          - corner_field_entity: sensor.number_of_climate_entities_on
+          - corner_field_entity: sensor.sensibo_living_room_temp_unit
           - cust_1_field: "Overview"
           - path: climate
 
@@ -69,35 +69,21 @@ cards:
         template: menu_new_button
         variables:
           - entity: ""
-          - name: Computers
-          - icon: mdi:desktop-classic
-          - corner_field_entity: sensor.number_of_computers_on
+          - name: Devices
+          - icon: mdi:power-plug
+          - corner_field_entity: sensor.number_of_devices_on
           - cust_1_field: "Overview"
-          - path: computers
+          - path: devices
 
 
       - type: custom:decluttering-card
         template: menu_new_button
         variables:
           - entity: ""
-          - name: Tablets
-          - icon: mdi:tablet
-          - corner_field_entity: sensor.number_of_tablets_low_power
+          - name: IT
+          - icon: mdi:desktop-classic
           - cust_1_field: "Overview"
-          - path: tablets
-
-      # - type: custom:decluttering-card
-      #   template: menu_harmony_button
-      #   variables:
-      #     - entity: switch.shield_tv
-      #     - title: Main TV
-      #     - name: living_room
-      #     - icon: mdi:television
-      #     - corner_field_entity: sensor.living_room_tv
-      #     - cust_1_field: "Control"
-      #     #- color: auto
-      #     - image_on: /local/images/remotes/living_room_tv_on.png
-      #     - image_off: /local/images/remotes/living_room_tv_off.png
+          - path: computers
 
       # - type: "custom:button-card"
       #   color_type: blank-card

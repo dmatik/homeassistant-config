@@ -8,13 +8,13 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
-    cards:
+  # - type: horizontal-stack
+  #   cards:
     
-      - type: custom:decluttering-card
-        template: title_button_card
-        variables:
-          - name: Menu
+  #     - type: custom:decluttering-card
+  #       template: title_button_card
+  #       variables:
+  #         - name: Menu
 
         
 ############################################################################
@@ -92,17 +92,6 @@ cards:
         template: menu_new_button
         variables:
           - entity: ""
-          - name: Printer
-          - icon: mdi:printer
-          - corner_field_entity: sensor.number_of_inks_low
-          - corner_field: ""
-          - cust_1_field: "Control"
-          - path: printer
-
-      - type: custom:decluttering-card
-        template: menu_new_button
-        variables:
-          - entity: ""
           - name: Batteries
           - icon: mdi:battery
           - corner_field_entity: sensor.number_of_batteries_low
@@ -113,30 +102,10 @@ cards:
         template: menu_new_button
         variables:
           - entity: ""
-          - name: Synology
+          - name: NAS
           - icon: mdi:nas
           - cust_1_field: "Overview"
           - path: synology
-
-      # - type: "custom:button-card"
-      #   color_type: blank-card
-
-
-  - type: horizontal-stack
-    cards:
-
-      - type: custom:decluttering-card
-        template: menu_new_button
-        variables:
-          - entity: ""
-          - name: Devices
-          - icon: mdi:power-plug
-          - corner_field_entity: sensor.number_of_devices_on
-          - cust_1_field: "Overview"
-          - path: devices
-
-      - type: "custom:button-card"
-        color_type: blank-card
 
       - type: "custom:button-card"
         color_type: blank-card

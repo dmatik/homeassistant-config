@@ -18,8 +18,8 @@ button_two_rows_svg:
               - background-color: var(--button-card-on-background)
               - color: var(--button-card-on-text-color) #'#040404'
             custom_fields:
-              corner:
-                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              # corner:
+              #   - color: var(--button-card-corner-on-text-color) #'#6F7075'
               corner_2:
                 - color: var(--button-card-corner-on-text-color) #'#6F7075'
               cust_1:

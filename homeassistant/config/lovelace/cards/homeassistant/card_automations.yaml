@@ -40,5 +40,7 @@ cards:
           - automation.hacs_updates_notification
           - automation.nobody_home 
           - automation.havid_sign
+          - automation.turn_off_living_room_ac_in_the_morning
+          - automation.turn_on_living_room_ac_in_the_morning
 
   - !include /config/lovelace/styles/separator_card.yaml

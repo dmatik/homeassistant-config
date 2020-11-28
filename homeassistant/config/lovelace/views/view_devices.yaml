@@ -28,6 +28,8 @@ cards:
               max_columns: 3
               cards:
 
+                - !include /config/lovelace/cards/devices/card_devices_buttons.yaml
+
                 - !include /config/lovelace/styles/view_bottom_gap.yaml
 
             - type: custom:button-card

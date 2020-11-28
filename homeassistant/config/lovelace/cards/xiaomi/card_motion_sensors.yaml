@@ -26,20 +26,20 @@ cards:
     cards:
 
       - type: custom:decluttering-card # Living Room Motion Sensor
-        template: motion_sensor
+        template: motion_sensor_button
         variables:
           - entity: binary_sensor.xiaomi_living_room_motion
           - name: Living Room
           - light_level_sensor: sensor.xiaomi_living_room_light_level
 
       - type: custom:decluttering-card # Kitchen Motion Sensor
-        template: motion_sensor
+        template: motion_sensor_button
         variables:
           - entity: binary_sensor.xiaomi_kitchen_motion
           - name: Kitchen
           - light_level_sensor: sensor.xiaomi_kitchen_light_level
 
-      #- type: "custom:button-card"
-      #  color_type: blank-card 
+      - type: "custom:button-card"
+        color_type: blank-card 
 
   - !include /config/lovelace/styles/separator_card.yaml        

@@ -119,6 +119,23 @@ services:
             - /volume1/torrent:/torrent
             - /volume1/docker/sonarr/config:/config
             - /volume1/video:/video
+
+    bazarr:
+        restart: always
+        hostname: bazarr
+        container_name: bazarr
+        image: linuxserver/bazarr:latest
+        network_mode: "bridge"
+        ports:
+            - "6767:6767"
+        environment:
+            TZ: "Asia/Jerusalem"
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+        volumes:
+            - /volume1/torrent:/torrent
+            - /volume1/docker/bazarr/config:/config
+            - /volume1/video:/video
         
     # watchtower:
         # restart: always

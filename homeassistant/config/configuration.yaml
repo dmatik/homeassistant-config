@@ -35,24 +35,6 @@ tts:
 
 
 automation: !include_dir_merge_list automation/
-#group: !include_dir_merge_named /config/entities/groups/
-#script: !include_dir_merge_named /config/entities/scripts/
-#switch: !include_dir_merge_list /config/entities/switches/
-#sensor: !include_dir_merge_list /config/entities/sensors/
-#zone: !include /config/entities/zones.yaml
-#remote: !include /config/entities/remotes.yaml
-#homekit: !include homekit.yaml
-#input_boolean: !include /config/entities/input_boolean.yaml
-#input_select: !include /config/entities/input_select.yaml
-#input_number: !include /config/entities/input_number.yaml
-#media_player: !include /config/entities/media_player.yaml
-#light: !include_dir_merge_list /config/entities/lights/
-#yeelight: !include /config/entities/yeelights.yaml
-#timer: !include /config/entities/timers.yaml
-#binary_sensor: !include /config/entities/binary_sensors.yaml
-#scene: !include_dir_merge_list /config/entities/scenes/
-#rest_command: !include_dir_merge_named /config/entities/rest_commands/
-#shell_command: !include_dir_merge_named /config/entities/shell_commands/
 
 lovelace_gen:
 
@@ -135,9 +117,11 @@ recorder:
 #Logger
 logger:
   default: info
-  #logs:
-    #homeassistant.components.shell_command: debug
-    #homeassistant.components.recorder: debug
+  logs:
+    custom_components.hacs: debug
+    hacs: debug
+    queueman: debug
+    AIOGitHubAPI: debug
     
     
 # Dark Sky    

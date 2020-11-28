@@ -31,27 +31,27 @@ sensor:
 
 ############################################################################
 #                                                                          #
-#   Makeup Power Socket                                                    #
+#   Washer Power Socket                                                    #
 #                                                                          #
 ############################################################################
 
   - platform: mqtt
-    name: "MQTT Makeup Energy Today"
-    state_topic: "tele/makeup/SENSOR"
+    name: "MQTT Washer Energy Today"
+    state_topic: "tele/washer/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Today"] }}'
     unit_of_measurement: "kWh"
   - platform: mqtt
-    name: "MQTT Makeup Power"
-    state_topic: "tele/makeup/SENSOR"
+    name: "MQTT Washer Power"
+    state_topic: "tele/washer/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Power"] }}'
     unit_of_measurement: "W"
   - platform: mqtt
-    name: "MQTT Makeup Voltage"
-    state_topic: "tele/makeup/SENSOR"
+    name: "MQTT Washer Voltage"
+    state_topic: "tele/washer/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
     unit_of_measurement: "V"
   - platform: mqtt
-    name: "MQTT Makeup Current"
-    state_topic: "tele/makeup/SENSOR"
+    name: "MQTT Washer Current"
+    state_topic: "tele/washer/SENSOR"
     value_template: '{{ value_json["ENERGY"]["Current"] }}'
     unit_of_measurement: "A"

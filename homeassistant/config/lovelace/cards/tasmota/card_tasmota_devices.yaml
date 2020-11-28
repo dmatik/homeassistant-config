@@ -82,10 +82,15 @@ cards:
               - name: Kids Radiator Socket
               - socket: kids_radiator
           - type: custom:decluttering-card
-            template: tasmota_socket
+            template: tasmota_simple_socket
             variables:
               - name: Makeup Socket
               - socket: makeup
+          - type: custom:decluttering-card
+            template: tasmota_socket
+            variables:
+              - name: Washer Socket
+              - socket: washer
           - type: custom:decluttering-card
             template: tasmota_bulb
             variables:

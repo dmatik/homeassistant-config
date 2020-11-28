@@ -4,32 +4,45 @@
 #                                                                          #
 ############################################################################
 
-- alias: 'Kids Room AC ON Notification'
+- alias: 'Kids Room AC Notification'
   initial_state: 'true'
   trigger:
     - platform: state
       entity_id: climate.kids_room
       from: "off"
-      to: "on"
+      to: "cool"
+    - platform: state
+      entity_id: climate.kids_room
+      from: "off"
+      to: "heat"
+    - platform: state
+      entity_id: climate.kids_room
+      from: "off"
+      to: "heat_cool"
+    - platform: state
+      entity_id: climate.kids_room
+      from: "cool"
+      to: "off"
+    - platform: state
+      entity_id: climate.kids_room
+      from: "heat"
+      to: "off"
+    - platform: state
+      entity_id: climate.kids_room
+      from: "heat_cool"
+      to: "off"
   action:
     - service: notify.mobile_app_iphonexsdima
       data_template:
         title: 'Kids Room AC' 
-        message: "ON\nTemp: {{ state_attr('climate.kids_room', 'current_temperature') }}°C\nOperation: {{ states('climate.kids_room') }}\nFan: {{ state_attr('climate.kids_room', 'fan_mode') }}\nTarget: {{ state_attr('climate.kids_room', 'temperature') }}°C"
-
-
-- alias: 'Kids Room AC OFF Notification'
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: climate.kids_room
-      from: "on"
-      to: "off"
-  action:
-    - service: notify.mobile_app_iphonexsdima
-      data_template:
-        title: 'Kids Room AC'
-        message: "OFF"
+        message: >-
+          {% if trigger.to_state.state == 'cool' %}
+            Cooling to {{ state_attr('climate.kids_room', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat' %}      
+            Heating to {{ state_attr('climate.kids_room', 'temperature') }}°C
+          {% else %}
+            OFF
+          {% endif %}
 
 
 
@@ -39,65 +52,130 @@
 #                                                                          #
 ############################################################################
 
-- alias: 'Bedroom AC ON Notification'
+- alias: 'Bedroom AC Notification'
   initial_state: 'true'
   trigger:
     - platform: state
       entity_id: climate.bedroom
       from: "off"
-      to: "on"
+      to: "cool"
+    - platform: state
+      entity_id: climate.bedroom
+      from: "off"
+      to: "heat"
+    - platform: state
+      entity_id: climate.bedroom
+      from: "off"
+      to: "heat_cool"
+    - platform: state
+      entity_id: climate.bedroom
+      from: "cool"
+      to: "off"
+    - platform: state
+      entity_id: climate.bedroom
+      from: "heat"
+      to: "off"
+    - platform: state
+      entity_id: climate.bedroom
+      from: "heat_cool"
+      to: "off"
   action:
     - service: notify.mobile_app_iphonexsdima
       data_template:
         title: 'Bedroom AC' 
-        message: "ON\nTemp: {{ state_attr('climate.bedroom', 'current_temperature') }}°C\nOperation: {{ states('climate.bedroom') }}\nFan: {{ state_attr('climate.bedroom', 'fan_mode') }}\nTarget: {{ state_attr('climate.bedroom', 'temperature') }}°C"
-
-
-- alias: 'Bedroom AC OFF Notification'
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: climate.bedroom
-      from: "on"
-      to: "off"
-  action:
-    - service: notify.mobile_app_iphonexsdima
-      data_template:
-        title: 'Bedroom AC'
-        message: "OFF"
+        message: >-
+          {% if trigger.to_state.state == 'cool' %}
+            Cooling to {{ state_attr('climate.bedroom', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat' %}      
+            Heating to {{ state_attr('climate.bedroom', 'temperature') }}°C
+          {% else %}
+            OFF
+          {% endif %}
 
 
 
 ############################################################################
 #                                                                          #
-#   Bedroom AC Notification                                                #
+#   Living Room AC Notification                                            #
 #                                                                          #
 ############################################################################
 
-- alias: 'Living Room AC ON Notification'
+- alias: 'Living Room AC Notification'
   initial_state: 'true'
   trigger:
     - platform: state
       entity_id: climate.living_room
       from: "off"
-      to: "on"
-  action:
-    - service: notify.mobile_app_iphonexsdima
-      data_template:
-        title: 'Living Room AC' 
-        message: "ON\nTemp: {{ state_attr('climate.living_room', 'current_temperature') }}°C\nOperation: {{ states('climate.living_room') }}\nFan: {{ state_attr('climate.living_room', 'fan_mode') }}\nTarget: {{ state_attr('climate.living_room', 'temperature') }}°C"
-
-
-- alias: 'Living Room AC OFF Notification'
-  initial_state: 'true'
-  trigger:
+      to: "cool"
     - platform: state
       entity_id: climate.living_room
-      from: "on"
+      from: "off"
+      to: "heat"
+    - platform: state
+      entity_id: climate.living_room
+      from: "off"
+      to: "heat_cool"
+    - platform: state
+      entity_id: climate.living_room
+      from: "cool"
+      to: "off"
+    - platform: state
+      entity_id: climate.living_room
+      from: "heat"
+      to: "off"
+    - platform: state
+      entity_id: climate.living_room
+      from: "heat_cool"
       to: "off"
   action:
     - service: notify.mobile_app_iphonexsdima
       data_template:
-        title: 'Living Room AC'
-        message: "OFF"
+        title: 'Living Room AC' 
+        message: >-
+          {% if trigger.to_state.state == 'cool' %}
+            Cooling to {{ state_attr('climate.living_room', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat' %}      
+            Heating to {{ state_attr('climate.living_room', 'temperature') }}°C
+          {% else %}
+            OFF
+          {% endif %}
 
+
+
+
+############################################################################
+#                                                                          #
+#   Turn On/Off Living Room AC in the morning                              #
+#                                                                          #
+############################################################################
+
+- alias: 'Turn On Living Room AC in the morning'
+  #initial_state: 'true'
+  trigger:
+    - platform: time
+      at: "06:30:00"
+  condition:
+    - condition: state
+      entity_id: climate.living_room
+      state: "off"
+  action:
+    - service: climate.turn_on
+      data:
+        entity_id: climate.living_room
+
+- alias: 'Turn Off Living Room AC in the morning'
+  #initial_state: 'true'
+  trigger:
+    - platform: time
+      at: "07:45:00"
+  condition:
+    - condition: state
+      entity_id: climate.living_room
+      state: 
+        - cool
+        - heat
+        - heat_cool
+  action:
+    - service: climate.turn_off
+      data:
+        entity_id: climate.living_room

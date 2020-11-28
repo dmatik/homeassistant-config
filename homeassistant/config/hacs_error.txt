@@ -1,0 +1,103 @@
+2020-11-26 10:07:14 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry  for hacs
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 236, in async_setup
+    result = await component.async_setup_entry(hass, self)  # type: ignore
+  File "/config/custom_components/hacs/__init__.py", line 30, in async_setup_entry
+    return await hacs_ui_setup(hass, config_entry)
+  File "/config/custom_components/hacs/operational/setup.py", line 66, in async_setup_entry
+    return await async_startup_wrapper_for_config_entry()
+  File "/config/custom_components/hacs/operational/setup.py", line 91, in async_startup_wrapper_for_config_entry
+    startup_result = await async_hacs_startup()
+  File "/config/custom_components/hacs/operational/setup.py", line 128, in async_hacs_startup
+    lovelace_info = await system_health_info(hacs.hass)
+  File "/usr/src/homeassistant/homeassistant/components/lovelace/system_health.py", line 19, in system_health_info
+    health_info.update(await hass.data[DOMAIN]["dashboards"][None].async_get_info())
+  File "/usr/src/homeassistant/homeassistant/components/lovelace/dashboard.py", line 174, in async_get_info
+    config = await self.async_load(False)
+  File "/usr/src/homeassistant/homeassistant/components/lovelace/dashboard.py", line 185, in async_load
+    is_updated, config = await self.hass.async_add_executor_job(
+  File "/usr/local/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/src/homeassistant/homeassistant/components/lovelace/dashboard.py", line 204, in _load_config
+    config = load_yaml(self.path)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 59, in load_yaml
+    return parse_yaml(conf_file)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 70, in parse_yaml
+    return yaml.load(content, Loader=SafeLineLoader) or OrderedDict()
+  File "/usr/local/lib/python3.8/site-packages/yaml/__init__.py", line 114, in load
+    return loader.get_single_data()
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 51, in get_single_data
+    return self.construct_document(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 55, in construct_document
+    data = self.construct_object(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 100, in construct_object
+    data = constructor(self, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 198, in _ordered_dict
+    nodes = loader.construct_pairs(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 155, in construct_pairs
+    value = self.construct_object(value_node, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 100, in construct_object
+    data = constructor(self, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 229, in _construct_seq
+    (obj,) = loader.construct_yaml_seq(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 408, in construct_yaml_seq
+    data.extend(self.construct_sequence(node))
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 129, in construct_sequence
+    return [self.construct_object(child, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 129, in <listcomp>
+    return [self.construct_object(child, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 100, in construct_object
+    data = constructor(self, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 117, in _include_yaml
+    return _add_reference(load_yaml(fname), loader, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 59, in load_yaml
+    return parse_yaml(conf_file)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 70, in parse_yaml
+    return yaml.load(content, Loader=SafeLineLoader) or OrderedDict()
+  File "/usr/local/lib/python3.8/site-packages/yaml/__init__.py", line 114, in load
+    return loader.get_single_data()
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 51, in get_single_data
+    return self.construct_document(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 55, in construct_document
+    data = self.construct_object(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 100, in construct_object
+    data = constructor(self, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 198, in _ordered_dict
+    nodes = loader.construct_pairs(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 155, in construct_pairs
+    value = self.construct_object(value_node, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 100, in construct_object
+    data = constructor(self, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 229, in _construct_seq
+    (obj,) = loader.construct_yaml_seq(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 408, in construct_yaml_seq
+    data.extend(self.construct_sequence(node))
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 129, in construct_sequence
+    return [self.construct_object(child, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 129, in <listcomp>
+    return [self.construct_object(child, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 100, in construct_object
+    data = constructor(self, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 198, in _ordered_dict
+    nodes = loader.construct_pairs(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 155, in construct_pairs
+    value = self.construct_object(value_node, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 100, in construct_object
+    data = constructor(self, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 229, in _construct_seq
+    (obj,) = loader.construct_yaml_seq(node)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 408, in construct_yaml_seq
+    data.extend(self.construct_sequence(node))
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 129, in construct_sequence
+    return [self.construct_object(child, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 129, in <listcomp>
+    return [self.construct_object(child, deep=deep)
+  File "/usr/local/lib/python3.8/site-packages/yaml/constructor.py", line 100, in construct_object
+    data = constructor(self, node)
+  File "/usr/src/homeassistant/homeassistant/util/yaml/loader.py", line 115, in _include_yaml
+    fname = os.path.join(os.path.dirname(loader.name), node.value)
+  File "/usr/local/lib/python3.8/posixpath.py", line 90, in join
+    genericpath._check_arg_types('join', a, *p)
+  File "/usr/local/lib/python3.8/genericpath.py", line 152, in _check_arg_types
+    raise TypeError(f'{funcname}() argument must be str, bytes, or '
+TypeError: join() argument must be str, bytes, or os.PathLike object, not 'list'

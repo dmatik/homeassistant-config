@@ -39,6 +39,8 @@ group:
       - light.bedside_galit_bulb
       - light.kitchen_strips
       - light.xiaomi_gateway_servers
+      - switch.mqtt_makeup
+      - switch.mqtt_new_year_tree
 
 
 
@@ -51,6 +53,7 @@ group:
   all_device_switch_entities:
     name: All Device Entities
     entities:
+      - sensor.washer
 
 
 

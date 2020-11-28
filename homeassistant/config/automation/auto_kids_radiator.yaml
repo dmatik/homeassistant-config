@@ -50,6 +50,31 @@
             category: "kids_radiator_off"
 
 
+############################################################################
+#                                                                          #
+#   Turn Off Action                                                        #
+#                                                                          #
+############################################################################
+
+- alias: Action Kids Radiator Off
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "KIDS_RADIATOR_OFF"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.mqtt_kids_radiator
+        state: "on"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.mqtt_kids_radiator
+
+
 
 ############################################################################
 #                                                                          #
@@ -102,3 +127,28 @@
         data:
           push:
             category: "kids_radiator_on"
+
+
+############################################################################
+#                                                                          #
+#   Turn On Action                                                         #
+#                                                                          #
+############################################################################
+
+- alias: Action Kids Radiator On
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "KIDS_RADIATOR_ON"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.mqtt_kids_radiator
+        state: "off"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.mqtt_kids_radiator

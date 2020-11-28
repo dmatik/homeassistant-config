@@ -60,7 +60,7 @@ socket_button:
       - corner_field: ""
       - cust_1_field: "[[[
             if (entity.state == 'on')
-              return states['[[sensor_current]]'].state + ' A';
+              return states['[[sensor_power]]'].state + ' W';
             else
               return entity.state;                  
           ]]]"

@@ -13,7 +13,7 @@ cards:
 
         - !include
             - /config/lovelace/gen_templates/view_title_template.yaml
-            - title: "Synology"
+            - title: "NAS"
 
         - !include /config/lovelace/styles/separator_card.yaml
  

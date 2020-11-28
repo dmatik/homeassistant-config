@@ -17,7 +17,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: New Year Tree
+          - name: Devices
       
       - type: custom:button-card
         template: shoulder_blank_card  
@@ -33,7 +33,17 @@ cards:
     cards:
    
       - type: horizontal-stack
-        cards: 
+        cards:
+
+          - type: custom:decluttering-card # Washer
+            template: power_sensor_button
+            variables:
+              - entity: sensor.washer
+              - name: Washer
+              - icon: mdi:washing-machine
+              - sensor_power: sensor.mqtt_washer_power
+              - svg_path: 'M14.83,11.17C16.39,12.73 16.39,15.27 14.83,16.83C13.27,18.39 10.73,18.39 9.17,16.83L14.83,11.17M6,2H18A2,2 0 0,1 20,4V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2M7,4A1,1 0 0,0 6,5A1,1 0 0,0 7,6A1,1 0 0,0 8,5A1,1 0 0,0 7,4M10,4A1,1 0 0,0 9,5A1,1 0 0,0 10,6A1,1 0 0,0 11,5A1,1 0 0,0 10,4M12,8A6,6 0 0,0 6,14A6,6 0 0,0 12,20A6,6 0 0,0 18,14A6,6 0 0,0 12,8Z'
+              - svg_path_on: 'm 6,2 h 12 c 1.104569,0 2,0.8954305 2,2 v 16 c 0,1.104569 -0.895431,2 -2,2 H 6 C 4.8954305,22 4,21.104569 4,20 V 4 C 4,2.8954305 4.8954305,2 6,2 M 7,4 C 6.4477153,4 6,4.4477153 6,5 6,5.5522847 6.4477153,6 7,6 7.5522847,6 8,5.5522847 8,5 8,4.4477153 7.5522847,4 7,4 m 3,0 C 9.4477153,4 9,4.4477153 9,5 9,5.5522847 9.4477153,6 10,6 10.552285,6 11,5.5522847 11,5 11,4.4477153 10.552285,4 10,4 m 2,4 c -3.3137085,0 -6,2.686292 -6,6 0,3.313708 2.6862915,6 6,6 3.313708,0 6,-2.686292 6,-6 0,-3.313708 -2.686292,-6 -6,-6 z'
 
           - type: custom:decluttering-card # New Year Tree
             template: light_button
@@ -43,11 +53,8 @@ cards:
               - icon: mdi:pine-tree
               - svg_path: 'M10,21V18H3L8,13H5L10,8H7L12,3L17,8H14L19,13H16L21,18H14V21H10Z'
               - svg_path_on: 'M 10,18 H 3 L 8,13 H 5 L 10,8 H 7 l 5,-5 5,5 h -3 l 5,5 h -3 l 5,5 h -7 c 0,0 0,0 -4,0 z'
-
-          - type: "custom:button-card"
-            color_type: blank-card
                     
           - type: "custom:button-card"
-            color_type: blank-card   
+            color_type: blank-card 
 
   - !include /config/lovelace/styles/separator_card.yaml

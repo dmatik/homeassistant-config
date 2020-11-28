@@ -40,9 +40,9 @@ views:
     # Devices
     - !include /config/lovelace/views/view_devices.yaml
     # Tablets
-    - !include /config/lovelace/views/view_tablets.yaml
+    #- !include /config/lovelace/views/view_tablets.yaml
     # Printer
-    - !include /config/lovelace/views/view_printer.yaml
+    #- !include /config/lovelace/views/view_printer.yaml
     # Motion
     - !include /config/lovelace/views/view_motion.yaml
     # Home Assistant

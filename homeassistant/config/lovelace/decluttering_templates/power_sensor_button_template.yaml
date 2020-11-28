@@ -1,9 +1,12 @@
-switch_button:
+power_sensor_button:
 
   default:
-    - icon: mdi:light-switch
-    - cust_1_field: "[[[ return entity.state ]]]"
+    - icon: mdi:power-socket-eu
+    - cust_1_field: "[[[ return entity.state; ]]]"
     - cust_2_field: ""
+    - corner_background_color: "[[[ return 'var(--secondary-text-color)'; ]]]"
+    - corner_border_radius: 12px
+    - corner_text_color: "var(--button-card-text-field-color)"
     - state:
         - value: "on"
           styles:
@@ -13,10 +16,10 @@ switch_button:
             custom_fields:
               svg_icon:
                 - --button-card-light-color-no-temperature: var(--accent-color)
-              corner:
-                - color: var(--button-card-corner-on-text-color) #'#6F7075'
-              corner_2:
-                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              #corner:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              #corner_2:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
               cust_1:
                 - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
               cust_2:
@@ -53,17 +56,29 @@ switch_button:
       - svg_path_on: '[[svg_path_on]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
-      - corner_text_color: ""
+      - corner_text_color: "[[corner_text_color]]"
       - corner_icon_color: ""
       - cust_1_text_color: "[[cust_1_text_color]]"
       - cust_1_icon_color: "[[cust_1_icon_color]]"
       - cust_2_text_color: "[[cust_2_text_color]]"
       - cust_2_icon_color: "[[cust_2_icon_color]]"
-      - corner_field: ""
+      - corner_field: "[[[ 
+            if ('[[sensor_power]]' == '' || entity.state == 'off')
+              return '';
+            else
+              return states['[[sensor_power]]'].state + ' W'; 
+          ]]]"
+      - corner_border_radius: "[[corner_border_radius]]"
+      - corner_background_color: "[[[
+            if ('[[sensor_power]]' == '' || entity.state == 'off')
+              return 'rgba(0,0,0,0)';
+            else
+              return 'var(--secondary-text-color)';
+          ]]]"
       - cust_1_field: "[[cust_1_field]]"
       - cust_2_field: "[[cust_2_field]]"
       - tap_action: 
-          action: toggle
+          action: more-info
       - hold_action:
           action: more-info
       - state: "[[state]]"

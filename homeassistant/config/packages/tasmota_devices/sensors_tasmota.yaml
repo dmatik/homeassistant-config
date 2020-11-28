@@ -413,6 +413,48 @@ sensor:
 
 ############################################################################
 #                                                                          #
+#   Washer Power Socket                                                    #
+#                                                                          #
+############################################################################
+
+  # Washer Power Socket Version
+  - platform: mqtt
+    name: "Tasmota Washer Power Socket Version"
+    state_topic: "stat/washer/STATUS2"
+    value_template: "{{value_json['StatusFWR'].Version }}"
+    availability_topic: "tele/washer/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
+  # Washer Power Socket Uptime
+  - platform: mqtt
+    name: "Tasmota Washer Power Socket Uptime"
+    state_topic: "tele/washer/STATE"
+    value_template: >-
+      {% set uptime = value_json["Uptime"]  %}
+      {% set days  = uptime.split('T')[0] %}
+      {% set time  = uptime.split('T')[1] %}
+      {% set hours  = time.split(':')[0] %}
+      {% set mins  = time.split(':')[1] %}
+      {% set secs  = time.split(':')[2] %}
+      {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+
+  # Washer Power Socket Wi-Fi signal
+  - platform: mqtt
+    name: "Tasmota Washer Power Socket Wi-Fi Quality"
+    state_topic: "tele/washer/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json['Wifi'].RSSI }}"
+    availability_topic: "tele/washer/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    device_class: signal_strength  
+
+
+
+############################################################################
+#                                                                          #
 #   Light Bulbs                                                            #
 #                                                                          #
 ############################################################################

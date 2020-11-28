@@ -93,6 +93,13 @@ sensor:
         icon_template: mdi:thermometer
         value_template: >-
           {{ states.climate.living_room.attributes.current_temperature }}
+
+      sensibo_living_room_temp_unit:
+        friendly_name: "Living Room Temperature (Sensibo)"
+        #unit_of_measurement: "°C"
+        icon_template: mdi:thermometer
+        value_template: >-
+          {{ states.climate.living_room.attributes.current_temperature }}°C
           
       sensibo_living_room_humidity:
         friendly_name: "Living Room Humidity (Sensibo)"

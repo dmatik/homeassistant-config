@@ -30,17 +30,22 @@ entities:
             - 'nav_icons.yaml'
             - icon: {{ nav_icon|default('mdi:chevron-left') }}
               path: {{ nav_path|default('main') }}
-              icon_size: "{{ icon_size|default('100%') }}"
+              icon_size: "{{ icon_size|default('80%') }}"
+              show_icon: {{ show_icon|default('true') }}
+              nav_size: {{ nav_size|default('50px') }}
           - type: markdown
             style: |
               ha-card {
                 box-shadow: none;
                 height: 50px;
                 margin-top: 1px;
-                margin-left: 2px;
+                margin-left: 0px;
                 letter-spacing: -1px;
                 overflow: visible;
                 #font-size: 20px
+              }
+              ha-markdown.no-header {
+                padding: 0px 2px 16px
               }
             content: >
               ## {{ title|default('undefined') }}
