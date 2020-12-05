@@ -1,10 +1,10 @@
-graph:
+graph_embedded:
 
   default:
     - border_radius: var(--graph-border-radius)
     - font_size: 52
     - font_size_header: 12
-    - line_width: 5
+    - line_width: 8
     - show_name: true
     - show_icon: true
     - show_extrema: false
@@ -18,6 +18,18 @@ graph:
     - height: 100
 
   card:
+    style: |
+      ha-card {
+        box-shadow: none;
+        background: none;
+        border-radius: 0;
+      }
+      .graph {
+        padding-bottom: 4px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 12px;
+      }
     type: custom:mini-graph-card
     entities:
         - entity: '[[entity]]'

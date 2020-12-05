@@ -5,7 +5,7 @@ cards:
     cards: 
 
       - type: weather-forecast
-        entity: weather.accuweather_home
+        entity: weather.openweathermap
         name: " "
         #secondary_info_attribute: humidity
 

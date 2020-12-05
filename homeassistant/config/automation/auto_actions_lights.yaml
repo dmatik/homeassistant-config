@@ -1,83 +1,179 @@
 ############################################################################
 #                                                                          #
-#   Work Room                                                              #
+#   Main Lights                                                            #
 #                                                                          #
 ############################################################################
 
-- alias: "Action Turn On Work Room Light"
+- alias: "Action Main Lights"
   initial_state: true
   trigger:
     - platform: event
       event_type: ios.action_fired
       event_data:
-        actionName: 'turn_on_work_room_light'
+        actionName: 'main_lights'
   action:
-    service: light.turn_on
-    entity_id: light.work_room
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Main Lights"
+        message: "Living Room: {{ states('light.living_room') }}\nDining: {{ states('light.dining') }}\nKitchen: {{ states('light.kitchen') }}\nHallway: {{ states('light.hall') }}"
+        data:
+          push:
+            category: "main_lights"
 
-- alias: "Action Turn Off Work Room Light"
-  initial_state: true
+
+- alias: Action Living Room Light
+  initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.action_fired
+      event_type: ios.notification_action_fired
       event_data:
-        actionName: 'turn_off_work_room_light'
+        actionName: "LIVING_ROOM_LIGHT"
   action:
-    service: light.turn_off
-    entity_id: light.work_room
+    - service: light.toggle
+      data:
+        entity_id: light.living_room
+
+- alias: Action Dining Light
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "DINING_LIGHT"
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.dining
+
+- alias: Action Kitchen Light
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "KITCHEN_LIGHT"
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.kitchen
+
+- alias: Action Hallway Light
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "HALLWAY_LIGHT"
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.hall
 
 
 
 ############################################################################
 #                                                                          #
-#   Bedroom                                                                #
+#   Bedroom Lights                                                         #
 #                                                                          #
 ############################################################################
 
-- alias: "Action Turn On Bedroom Light"
+- alias: "Action Bedroom Lights"
   initial_state: true
   trigger:
     - platform: event
       event_type: ios.action_fired
       event_data:
-        actionName: 'turn_on_bedroom_light'
+        actionName: 'bedroom_lights'
   action:
-    service: light.turn_on
-    entity_id: light.bedroom
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Bedroom Lights"
+        message: "Bedroom: {{ states('light.bedroom') }}\nDima: {{ states('light.bedside_dima_bulb') }}\nGalit: {{ states('light.bedside_galit_bulb') }}"
+        data:
+          push:
+            category: "bedroom_lights"
 
-- alias: "Action Turn Off Bedroom Light"
-  initial_state: true
-  trigger:
-    - platform: event
-      event_type: ios.action_fired
-      event_data:
-        actionName: 'turn_off_bedroom_light'
-  action:
-    service: light.turn_off
-    entity_id: light.bedroom
 
-- alias: "Action Turn On Bedside Lights"
-  initial_state: true
+- alias: Action Bedroom Light
+  initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.action_fired
+      event_type: ios.notification_action_fired
       event_data:
-        actionName: 'turn_on_bedside_lights'
+        actionName: "BEDROOM_LIGHT"
   action:
-    service: light.turn_on
-    entity_id: 
-      - light.bedside_dima_bulb
-      - light.bedside_galit_bulb
+    - service: light.toggle
+      data:
+        entity_id: light.bedroom
 
-- alias: "Action Turn Off Bedside Lights"
+- alias: Action Dima Light
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "DIMA_LIGHT"
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.bedside_dima_bulb
+
+- alias: Action Galit Light
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "GALIT_LIGHT"
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.bedside_galit_bulb
+
+
+############################################################################
+#                                                                          #
+#   Rooms Lights                                                           #
+#                                                                          #
+############################################################################
+
+- alias: "Action Rooms Lights"
   initial_state: true
   trigger:
     - platform: event
       event_type: ios.action_fired
       event_data:
-        actionName: 'turn_off_bedside_lights'
+        actionName: 'rooms_lights'
   action:
-    service: light.turn_off
-    entity_id: 
-      - light.bedside_dima_bulb
-      - light.bedside_galit_bulb
+    - service: notify.mobile_app_iphonexsdima
+      data:
+        title: "Rooms Lights"
+        message: "Kids Room: {{ states('light.kids_room') }}\nWork Room: {{ states('light.work_room') }}"
+        data:
+          push:
+            category: "rooms_lights"
+
+
+- alias: Action Kids Room Light
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "KIDS_ROOM_LIGHT"
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.kids_room
+
+- alias: Action Work Room Light
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "WORK_ROOM_LIGHT"
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.work_room

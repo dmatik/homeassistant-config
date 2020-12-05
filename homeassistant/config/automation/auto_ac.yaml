@@ -41,8 +41,11 @@
           {% elif trigger.to_state.state == 'heat' %}      
             Heating to {{ state_attr('climate.kids_room', 'temperature') }}°C
           {% else %}
-            OFF
+            Off
           {% endif %}
+        data:
+          push:
+            category: "kids_room_ac"
 
 
 
@@ -89,8 +92,11 @@
           {% elif trigger.to_state.state == 'heat' %}      
             Heating to {{ state_attr('climate.bedroom', 'temperature') }}°C
           {% else %}
-            OFF
+            Off
           {% endif %}
+        data:
+          push:
+            category: "bedroom_ac"
 
 
 
@@ -130,15 +136,18 @@
   action:
     - service: notify.mobile_app_iphonexsdima
       data_template:
-        title: 'Living Room AC' 
+        title: '{{ trigger.to_state.name }} AC' 
         message: >-
           {% if trigger.to_state.state == 'cool' %}
             Cooling to {{ state_attr('climate.living_room', 'temperature') }}°C
           {% elif trigger.to_state.state == 'heat' %}      
             Heating to {{ state_attr('climate.living_room', 'temperature') }}°C
           {% else %}
-            OFF
+            Off
           {% endif %}
+        data:
+          push:
+            category: "living_room_ac"
 
 
 

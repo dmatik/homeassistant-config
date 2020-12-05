@@ -107,7 +107,7 @@ text_button_two_rows:
         - background-color: '[[background_color]]'
         - color: '[[text_color]]'
       grid:
-        - grid-template-areas: '"text_field corner" "text_field corner_2" "n n" "cust_1 cust_2"'
+        - grid-template-areas: '"text_field corner" "text_field corner_2" "n n" "cust_1 cust_1"'
         - grid-template-columns: 2fr 3fr
         - grid-template-rows: 1fr 2fr 4fr 1fr
       name:

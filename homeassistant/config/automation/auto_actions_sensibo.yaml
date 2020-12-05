@@ -1,27 +1,168 @@
 ############################################################################
 #                                                                          #
-#   Switcher Actions                                                       #
+#   Living Room                                                            #
 #                                                                          #
 ############################################################################
 
-- alias: "Action Turn On Living Room AC"
+- alias: "Action Living Room AC"
   initial_state: true
   trigger:
     - platform: event
       event_type: ios.action_fired
       event_data:
-        actionName: 'turn_on_living_room_ac'
+        actionName: 'living_room_ac'
   action:
-    service: climate.turn_on
-    entity_id: climate.living_room
+    - service: notify.mobile_app_iphonexsdima
+      data_template:
+        title: 'Living Room AC' 
+        message: >-
+          {% if states('climate.living_room') == 'cool' %}
+            Cooling to {{ state_attr('climate.living_room', 'temperature') }}°C
+          {% elif states('climate.living_room') == 'heat' %}      
+            Heating to {{ state_attr('climate.living_room', 'temperature') }}°C
+          {% else %}
+            Off
+          {% endif %}
+        data:
+          push:
+            category: "living_room_ac"
 
-- alias: "Action Turn Off Living Room AC"
+
+- alias: Action Living Room AC On
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "LIVING_ROOM_AC_ON"
+  action:
+    - service: climate.turn_on
+      data:
+        entity_id: climate.living_room
+
+
+- alias: Action Living Room AC Off
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "LIVING_ROOM_AC_OFF"
+  action:
+    - service: climate.turn_off
+      data:
+        entity_id: climate.living_room
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom                                                                #
+#                                                                          #
+############################################################################
+
+- alias: "Action Bedroom AC"
   initial_state: true
   trigger:
     - platform: event
       event_type: ios.action_fired
       event_data:
-        actionName: 'turn_off_living_room_ac'
+        actionName: 'bedroom_ac'
   action:
-    service: climate.turn_off
-    entity_id: climate.living_room
+    - service: notify.mobile_app_iphonexsdima
+      data_template:
+        title: 'Bedroom AC' 
+        message: >-
+          {% if states('climate.bedroom') == 'cool' %}
+            Cooling to {{ state_attr('climate.bedroom', 'temperature') }}°C
+          {% elif states('climate.bedroom') == 'heat' %}      
+            Heating to {{ state_attr('climate.bedroom', 'temperature') }}°C
+          {% else %}
+            Off
+          {% endif %}
+        data:
+          push:
+            category: "bedroom_ac"
+
+
+- alias: Action Bedroom AC On
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "BEDROOM_AC_ON"
+  action:
+    - service: climate.turn_on
+      data:
+        entity_id: climate.bedroom
+
+
+- alias: Action Bedroom AC Off
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "BEDROOM_AC_OFF"
+  action:
+    - service: climate.turn_off
+      data:
+        entity_id: climate.bedroom
+
+
+
+############################################################################
+#                                                                          #
+#   Kids Room                                                              #
+#                                                                          #
+############################################################################
+
+- alias: "Action Kids Room AC"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'kids_room_ac'
+  action:
+    - service: notify.mobile_app_iphonexsdima
+      data_template:
+        title: 'Kids Room AC' 
+        message: >-
+          {% if states('climate.kids_room') == 'cool' %}
+            Cooling to {{ state_attr('climate.kids_room', 'temperature') }}°C
+          {% elif states('climate.kids_room') == 'heat' %}      
+            Heating to {{ state_attr('climate.kids_room', 'temperature') }}°C
+          {% else %}
+            Off
+          {% endif %}
+        data:
+          push:
+            category: "kids_room_ac"
+
+
+- alias: Action Kids Room AC On
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "KIDS_ROOM_AC_ON"
+  action:
+    - service: climate.turn_on
+      data:
+        entity_id: climate.kids_room
+
+
+- alias: Action Kids Room AC Off
+  initial_state: 'true'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: "KIDS_ROOM_AC_OFF"
+  action:
+    - service: climate.turn_off
+      data:
+        entity_id: climate.kids_room

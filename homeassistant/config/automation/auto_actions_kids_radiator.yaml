@@ -1,26 +1,26 @@
 ############################################################################
 #                                                                          #
-#   Switcher Actions                                                       #
+#   Kids Radiator Actions                                                  #
 #                                                                          #
 ############################################################################
 
-- alias: "Action Boiler"
+- alias: "Action Kids Radiator"
   initial_state: true
   trigger:
     - platform: event
       event_type: ios.action_fired
       event_data:
-        actionName: 'boiler'
+        actionName: 'kids_radiator'
   action:
     - service: notify.mobile_app_iphonexsdima
       data:
-        title: "Boiler"
+        title: "Kids Radiator"
         message: >-
-          {% if states('switch.switcher_webapi') == 'on' %}
-            On until {{ states('sensor.switcher_webapi_auto_off_time') }}
+          {% if states('switch.mqtt_kids_radiator') == 'on' %}
+            On
           {% else %}
             Off
           {% endif %}
         data:
           push:
-            category: "category_switcher"
+            category: "kids_radiator"

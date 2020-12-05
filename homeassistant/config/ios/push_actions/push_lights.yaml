@@ -1,0 +1,67 @@
+- name: Main Lights
+  identifier: 'main_lights'
+  actions:
+    - identifier: 'LIVING_ROOM_LIGHT'
+      title: 'Living Room'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'DINING_LIGHT'
+      title: 'Dining'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'KITCHEN_LIGHT'
+      title: 'Kitchen'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'HALLWAY_LIGHT'
+      title: 'Hallway'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+
+
+- name: Bedroom Lights
+  identifier: 'bedroom_lights'
+  actions:
+    - identifier: 'BEDROOM_LIGHT'
+      title: 'Bedroom'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'DIMA_LIGHT'
+      title: 'Dima'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'GALIT_LIGHT'
+      title: 'Galit'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+
+
+- name: Rooms Lights
+  identifier: 'rooms_lights'
+  actions:
+    - identifier: 'KIDS_ROOM_LIGHT'
+      title: 'Kids Room'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'WORK_ROOM_LIGHT'
+      title: 'Work Room'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'

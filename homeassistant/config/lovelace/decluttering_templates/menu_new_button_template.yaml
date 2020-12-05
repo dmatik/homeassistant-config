@@ -3,7 +3,10 @@ menu_new_button:
   default:
     - color: var(--paper-item-icon-color)
     - corner_field_entity: ""
-    - text_color: var(--primary-text-color)
+    - text_color: var(--button-card-on-text-color)
+    #- background_color: var(--button-card-on-background)
+    - corner_text_color: var(--button-card-text-field-color)
+    #- cust_1_text_color: var(--button-card-cust-1-on-text-color)
 
   card:
     type: custom:decluttering-card
@@ -15,7 +18,8 @@ menu_new_button:
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - text_color: '[[text_color]]'
-      - corner_text_color: "var(--button-card-text-field-color)"
+      - background_color: '[[background_color]]'
+      - corner_text_color: '[[corner_text_color]]'
       - corner_icon_color: "[[corner_icon_color]]"
       - corner_2_text_color: "[[corner_2_text_color]]"
       - corner_2_icon_color: "[[corner_2_icon_color]]"

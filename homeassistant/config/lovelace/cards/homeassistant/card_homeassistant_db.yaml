@@ -38,10 +38,7 @@ cards:
           variables:
               - entity: sensor.states_size
               - name: States
-              - icon: mdi:database
-
-  - type: horizontal-stack
-    cards:   
+              - icon: mdi:database  
 
         - type: custom:decluttering-card
           template: graph

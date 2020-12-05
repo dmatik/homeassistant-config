@@ -1,23 +1,15 @@
 ############################################################################
 #                                                                          #
-#   Living Room TV                                                         #
+#   Kids Radiator                                                          #
 #                                                                          #
 ############################################################################
 
-- name: turn_on_living_room_tv
-  background_color: "#63C065"
+- name: kids_radiator
+  background_color: "#948A86"
   label:
-    text: "Living Room"
+    text: "Kids Radiator"
     color: "#ffffff"
   icon:
-    icon: television
+    icon: radiator
     color: "#ffffff"
 
-- name: turn_off_living_room_tv
-  background_color: "#63C065"
-  label:
-    text: "Living Room"
-    color: "#ffffff"
-  icon:
-    icon: television-off
-    color: "#ffffff"

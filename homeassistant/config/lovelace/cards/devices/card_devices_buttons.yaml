@@ -10,17 +10,11 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
-      - type: custom:button-card
-        template: shoulder_blank_card  
       
       - type: custom:decluttering-card
         template: title_button_card
         variables:
           - name: Devices
-      
-      - type: custom:button-card
-        template: shoulder_blank_card  
 
 
 ############################################################################

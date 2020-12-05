@@ -1,35 +1,47 @@
-- name: Switcher On
-  identifier: 'category_switcher_on'
+- name: Living Room AC
+  identifier: 'living_room_ac'
   actions:
-    - identifier: 'SWITCHER_ON_15'
-      title: 'On 15 min'
+    - identifier: 'LIVING_ROOM_AC_ON'
+      title: 'On'
       activationMode: 'background'
       authenticationRequired: true
       destructive: false
       behavior: 'default'
-    - identifier: 'SWITCHER_ON_30'
-      title: 'On 30 min'
-      activationMode: 'background'
-      authenticationRequired: true
-      destructive: false
-      behavior: 'default'
-    - identifier: 'SWITCHER_ON_45'
-      title: 'On 45 min'
-      activationMode: 'background'
-      authenticationRequired: true
-      destructive: false
-      behavior: 'default'
-    - identifier: 'SWITCHER_ON_60'
-      title: 'On 60 min'
+    - identifier: 'LIVING_ROOM_AC_OFF'
+      title: 'Off'
       activationMode: 'background'
       authenticationRequired: true
       destructive: false
       behavior: 'default'
 
-- name: Switcher Off
-  identifier: 'category_switcher_off'
+
+- name: Bedroom AC
+  identifier: 'bedroom_ac'
   actions:
-    - identifier: 'SWITCHER_OFF'
+    - identifier: 'BEDROOM_AC_ON'
+      title: 'On'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'BEDROOM_AC_OFF'
+      title: 'Off'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+
+
+- name: Kids Room AC
+  identifier: 'kids_room_ac'
+  actions:
+    - identifier: 'KIDS_ROOM_AC_ON'
+      title: 'On'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'KIDS_ROOM_AC_OFF'
       title: 'Off'
       activationMode: 'background'
       authenticationRequired: true

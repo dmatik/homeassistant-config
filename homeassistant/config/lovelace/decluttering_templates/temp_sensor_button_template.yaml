@@ -1,0 +1,28 @@
+temp_sensor_button:
+
+  default:
+    - temperature_entity: "[[[ return Math.round(entity.state) + '°' ]]]"
+
+  card:
+    type: custom:decluttering-card
+    template: text_button_two_rows
+    variables:
+      - entity: '[[entity]]'
+      - text_field: '[[temperature_entity]]'
+      - name: '[[title]]'
+      - cust_1_field:
+          card:
+            type: custom:decluttering-card
+            template: graph_embedded
+            variables:
+                - entity: '[[entity]]'
+                - name: Work Room
+                - show_icon: false
+                - show_state: false
+                - show_name: false
+                - show_fill: false
+      - cust_2_field: '[[cust_2_field]]'
+      - tap_action:
+          action: more-info
+      - hold_action:
+          action: none

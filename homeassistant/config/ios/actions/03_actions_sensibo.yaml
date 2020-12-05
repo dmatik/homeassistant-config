@@ -1,23 +1,32 @@
 ############################################################################
 #                                                                          #
-#   Switcher                                                               #
+#   Living Room AC                                                         #
 #                                                                          #
 ############################################################################
 
-- name: turn_on_boiler
-  background_color: "#48ABEA"
+- name: living_room_ac
+  background_color: "#948A86"
   label:
-    text: "Boiler"
+    text: "Living Room"
     color: "#ffffff"
   icon:
-    icon: water
+    icon: snowflake
     color: "#ffffff"
 
-- name: turn_off_boiler
-  background_color: "#48ABEA"
+- name: bedroom_ac
+  background_color: "#948A86"
   label:
-    text: "Boiler"
+    text: "Bedroom"
     color: "#ffffff"
   icon:
-    icon: water-off
+    icon: snowflake
+    color: "#ffffff"
+
+- name: kids_room_ac
+  background_color: "#948A86"
+  label:
+    text: "Kids Room"
+    color: "#ffffff"
+  icon:
+    icon: snowflake
     color: "#ffffff"

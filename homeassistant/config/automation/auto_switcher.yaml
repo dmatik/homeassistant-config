@@ -34,7 +34,7 @@
     - service: notify.mobile_app_iphonexsdima
       data:
         title: "Boiler"
-        message: "ON\nAuto off {{ states('sensor.switcher_webapi_auto_off_time') }}."
+        message: "On until {{ states('sensor.switcher_webapi_auto_off_time') }}"
         data:
           push:
             category: "category_switcher_off"
@@ -86,7 +86,7 @@
     - service: notify.mobile_app_iphonexsdima
       data:
         title: "Boiler"
-        message: "OFF"
+        message: "Off"
         data:
           push:
             category: "category_switcher_on"
@@ -112,10 +112,6 @@
         entity_id: switch.switcher_webapi
         state: "off"
   action:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.switcher_webapi
-
     - service: rest_command.switcher_turn_on
       data_template:
         minutes: '15'
@@ -143,10 +139,6 @@
         entity_id: switch.switcher_webapi
         state: "off"
   action:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.switcher_webapi
-
     - service: rest_command.switcher_turn_on
       data_template:
         minutes: '30'
@@ -174,10 +166,6 @@
         entity_id: switch.switcher_webapi
         state: "off"
   action:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.switcher_webapi
-
     - service: rest_command.switcher_turn_on
       data_template:
         minutes: '45'
@@ -205,10 +193,6 @@
         entity_id: switch.switcher_webapi
         state: "off"
   action:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.switcher_webapi
-
     - service: rest_command.switcher_turn_on
       data_template:
         minutes: '60'

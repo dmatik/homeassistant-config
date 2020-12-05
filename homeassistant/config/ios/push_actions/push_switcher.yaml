@@ -1,0 +1,59 @@
+- name: Switcher On
+  identifier: 'category_switcher_on'
+  actions:
+    # - identifier: 'SWITCHER_ON_15'
+    #   title: 'On 15 min'
+    #   activationMode: 'background'
+    #   authenticationRequired: true
+    #   destructive: false
+    #   behavior: 'default'
+    - identifier: 'SWITCHER_ON_30'
+      title: 'On 30 min'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    # - identifier: 'SWITCHER_ON_45'
+    #   title: 'On 45 min'
+    #   activationMode: 'background'
+    #   authenticationRequired: true
+    #   destructive: false
+    #   behavior: 'default'
+    - identifier: 'SWITCHER_ON_60'
+      title: 'On 60 min'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+
+- name: Switcher Off
+  identifier: 'category_switcher_off'
+  actions:
+    - identifier: 'SWITCHER_OFF'
+      title: 'Off'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+
+- name: Switcher
+  identifier: 'category_switcher'
+  actions:
+    - identifier: 'SWITCHER_ON_30'
+      title: 'On 30 min'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'SWITCHER_ON_60'
+      title: 'On 60 min'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
+    - identifier: 'SWITCHER_OFF'
+      title: 'Off'
+      activationMode: 'background'
+      authenticationRequired: true
+      destructive: false
+      behavior: 'default'
