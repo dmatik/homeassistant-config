@@ -127,7 +127,7 @@ services:
         image: linuxserver/bazarr:latest
         network_mode: "bridge"
         ports:
-            - "6767:6767"
+            - "6868:6767"
         environment:
             TZ: "Asia/Jerusalem"
             PUID: ${ZEG_PUID}
@@ -445,7 +445,7 @@ services:
         restart: always
         network_mode: "bridge"
         ports:
-            - 6700:6700
+            - 6800:6700
         environment:
             TZ: "Asia/Jerusalem"
         volumes:

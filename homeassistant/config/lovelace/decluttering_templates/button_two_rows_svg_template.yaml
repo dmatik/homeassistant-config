@@ -50,6 +50,7 @@ button_two_rows_svg:
     #- icon_color: var(--button-card-icon-color)
     - text_color: var(--button-card-text-color)
     - corner_text_color: var(--button-card-corner-text-color)
+    - text_transform: capitalize
     - corner_2_text_color: var(--button-card-corner-text-color)
     - cust_1_text_color: var(--button-card-cust-1-text-color)
     - cust_2_text_color: var(--button-card-cust-2-text-color)
@@ -73,7 +74,7 @@ button_two_rows_svg:
         - padding: 8%
         - font-size: 12px
         - font-weight: bold
-        - text-transform: capitalize
+        - text-transform: '[[text_transform]]'
         - border-radius: '[[border_radius]]'
         - background-color: '[[background_color]]'
         - color: '[[text_color]]'

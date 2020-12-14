@@ -3,21 +3,42 @@ graph:
   default:
     - border_radius: var(--graph-border-radius)
     - font_size: 52
-    - font_size_header: 12
+    - font_size_header: 11
     - line_width: 5
     - show_name: true
     - show_icon: true
     - show_extrema: false
-    - show_fill: true
+    - show_fill: false
     - show_state: true
     - name_adaptive_color: false
     - icon_adaptive_color: false
     - icon: ""
     - color: ""
     - hours_to_show: 72
-    - height: 100
+    - height: 150
 
   card:
+    style: |
+      ha-card.flex.type-custom-mini-graph-card {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .graph {
+        padding-bottom: 0px;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 0px;
+      }
+      div.states.flex {
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      div.header.flex {
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
     type: custom:mini-graph-card
     entities:
         - entity: '[[entity]]'

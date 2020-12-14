@@ -53,7 +53,11 @@ group:
   all_device_switch_entities:
     name: All Device Entities
     entities:
-      - sensor.washer
+      #- sensor.washer
+      #- sensor.dryer
+      #- sensor.dishwasher
+      - remote.living_room
+      - switch.switcher_webapi
 
 
 
@@ -155,7 +159,7 @@ group:
 #                                                                          #
 ############################################################################
 
-  all_media_entities:
-    name: All Media Entities
-    entities:
-      - remote.living_room
+  # all_media_entities:
+  #   name: All Media Entities
+  #   entities:
+      

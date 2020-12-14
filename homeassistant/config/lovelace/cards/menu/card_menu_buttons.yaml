@@ -48,11 +48,11 @@ cards:
         template: menu_new_button
         variables:
           - entity: ""
-          - name: Hass
-          - icon: mdi:home-assistant
-          - corner_field_entity: sensor.ha_current_version
+          - name: Batteries
+          - icon: mdi:battery
+          - corner_field_entity: sensor.number_of_batteries_low
           - cust_1_field: "Overview"
-          - path: homeassistant
+          - path: batteries
 
   - type: horizontal-stack
     cards:
@@ -92,16 +92,6 @@ cards:
         template: menu_new_button
         variables:
           - entity: ""
-          - name: Batteries
-          - icon: mdi:battery
-          - corner_field_entity: sensor.number_of_batteries_low
-          - cust_1_field: "Overview"
-          - path: batteries
-
-      - type: custom:decluttering-card
-        template: menu_new_button
-        variables:
-          - entity: ""
           - name: NAS
           - icon: mdi:nas
           - cust_1_field: "Overview"
@@ -110,5 +100,7 @@ cards:
       - type: "custom:button-card"
         color_type: blank-card
 
+      - type: "custom:button-card"
+        color_type: blank-card
 
   - !include /config/lovelace/styles/separator_card.yaml

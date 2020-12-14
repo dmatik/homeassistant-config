@@ -67,6 +67,50 @@ switch:
 
 ############################################################################
 #                                                                          #
+#   Dryer                                                                  #
+#                                                                          #
+############################################################################
+
+  # - platform: mqtt
+  #   name: "MQTT Dryer"
+  #   icon: mdi:track-light
+  #   state_topic: "stat/dryer/RESULT"
+  #   value_template: "{{ value_json.POWER }}"
+  #   command_topic: "cmnd/dryer/POWER"
+  #   availability_topic: "tele/dryer/LWT"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+  #   retain: false
+
+
+
+############################################################################
+#                                                                          #
+#   Dishwasher                                                             #
+#                                                                          #
+############################################################################
+
+  - platform: mqtt
+    name: "MQTT Dishwasher"
+    icon: mdi:track-light
+    state_topic: "stat/dishwasher/RESULT"
+    value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/dishwasher/POWER"
+    availability_topic: "tele/dishwasher/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: false
+
+
+
+############################################################################
+#                                                                          #
 #   New Year Tree                                                          #
 #                                                                          #
 ############################################################################

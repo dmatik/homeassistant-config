@@ -20,19 +20,21 @@ climate_button:
       - name: '[[title]]'
       - cust_1_field: '[[cust_1_field]]'
       - cust_2_field: '[[cust_2_field]]'
-      - tap_action:
-          #haptic: light
-          action: call-service
-          service: "[[[
-              if ( entity.state == 'off')
-                return 'climate.turn_on';
-              else
-                return 'climate.turn_off';
-            ]]]"
-          service_data:
-            entity_id: 'climate.[[name]]'
+      # - tap_action:
+      #     #haptic: light
+      #     action: call-service
+      #     service: "[[[
+      #         if ( entity.state == 'off')
+      #           return 'climate.turn_on';
+      #         else
+      #           return 'climate.turn_off';
+      #       ]]]"
+      #     service_data:
+      #       entity_id: 'climate.[[name]]'
       - hold_action:
-          haptic: heavy
+          action: none
+      - tap_action:
+          #haptic: heavy
           action: call-service
           service: browser_mod.popup
           service_data:

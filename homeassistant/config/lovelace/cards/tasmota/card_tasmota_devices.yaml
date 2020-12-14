@@ -86,11 +86,21 @@ cards:
             variables:
               - name: Makeup Socket
               - socket: makeup
-          - type: custom:decluttering-card
-            template: tasmota_socket
-            variables:
-              - name: Washer Socket
-              - socket: washer
+          # - type: custom:decluttering-card
+          #   template: tasmota_socket
+          #   variables:
+          #     - name: Washer Socket
+          #     - socket: washer
+          # - type: custom:decluttering-card
+          #   template: tasmota_socket
+          #   variables:
+          #     - name: Dryer Socket
+          #     - socket: dryer
+          # - type: custom:decluttering-card
+          #   template: tasmota_socket
+          #   variables:
+          #     - name: Dishwasher Socket
+          #     - socket: dishwasher
           - type: custom:decluttering-card
             template: tasmota_bulb
             variables:

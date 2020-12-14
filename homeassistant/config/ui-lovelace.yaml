@@ -60,7 +60,7 @@ views:
     # Computers
     - !include /config/lovelace/views/view_computers.yaml
     # Media
-    - !include /config/lovelace/views/view_media.yaml
+    #- !include /config/lovelace/views/view_media.yaml
     # Health
     - !include /config/lovelace/views/view_health.yaml
 

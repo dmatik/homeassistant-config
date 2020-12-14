@@ -1,14 +1,14 @@
 temp_sensor_button:
 
   default:
-    - temperature_entity: "[[[ return Math.round(entity.state) + '°' ]]]"
+    - text_field: "[[[ return Math.round(entity.state) + '°' ]]]"
 
   card:
     type: custom:decluttering-card
     template: text_button_two_rows
     variables:
       - entity: '[[entity]]'
-      - text_field: '[[temperature_entity]]'
+      - text_field: '[[text_field]]'
       - name: '[[title]]'
       - cust_1_field:
           card:
