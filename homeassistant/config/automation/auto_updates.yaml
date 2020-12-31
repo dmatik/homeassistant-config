@@ -7,7 +7,7 @@
       to: 'yes'
   action:
     #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data_template:
         title: "New Version"
         message: "Home Assistant {{ states('sensor.ha_available_version') }} is available. \nCurrent: {{ states('sensor.ha_current_version') }}."
@@ -25,7 +25,7 @@
       value_template: "{{ (states(trigger.entity_id) | float) != 0}}"
   action:
     #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data_template:
         title: Updates pending in HACS
         message: >-

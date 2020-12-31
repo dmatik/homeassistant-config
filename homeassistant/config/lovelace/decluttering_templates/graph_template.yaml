@@ -4,7 +4,7 @@ graph:
     - border_radius: var(--graph-border-radius)
     - font_size: 52
     - font_size_header: 11
-    - line_width: 5
+    - line_width: 6
     - show_name: true
     - show_icon: true
     - show_extrema: false

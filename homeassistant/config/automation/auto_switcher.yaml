@@ -31,7 +31,7 @@
     #     title: 'Boiler'
     #     message: "ON\nAuto off {{ states('sensor.switcher_webapi_auto_off_time') }}."
 
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Boiler"
         message: "On until {{ states('sensor.switcher_webapi_auto_off_time') }}"
@@ -83,7 +83,7 @@
     #   data_template:
     #     title: 'Boiler'
     #     message: "OFF"
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Boiler"
         message: "Off"

@@ -12,7 +12,7 @@
       event_data:
         actionName: 'kids_radiator'
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Kids Radiator"
         message: >-

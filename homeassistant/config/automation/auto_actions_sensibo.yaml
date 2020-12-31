@@ -12,7 +12,7 @@
       event_data:
         actionName: 'living_room_ac'
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data_template:
         title: 'Living Room AC' 
         message: >-
@@ -69,7 +69,7 @@
       event_data:
         actionName: 'bedroom_ac'
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data_template:
         title: 'Bedroom AC' 
         message: >-
@@ -126,7 +126,7 @@
       event_data:
         actionName: 'kids_room_ac'
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data_template:
         title: 'Kids Room AC' 
         message: >-

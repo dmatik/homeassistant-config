@@ -32,7 +32,7 @@
       from: "heat_cool"
       to: "off"
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data_template:
         title: 'Kids Room AC' 
         message: >-
@@ -83,7 +83,7 @@
       from: "heat_cool"
       to: "off"
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data_template:
         title: 'Bedroom AC' 
         message: >-
@@ -134,7 +134,7 @@
       from: "heat_cool"
       to: "off"
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data_template:
         title: '{{ trigger.to_state.name }} AC' 
         message: >-

@@ -4,7 +4,7 @@ graph_embedded:
     - border_radius: var(--graph-border-radius)
     - font_size: 52
     - font_size_header: 12
-    - line_width: 8
+    - line_width: 6
     - show_name: true
     - show_icon: true
     - show_extrema: false
@@ -14,8 +14,8 @@ graph_embedded:
     - icon_adaptive_color: false
     - icon: ""
     - color: ""
-    - hours_to_show: 72
-    - height: 100
+    - hours_to_show: 48
+    - height: 50
 
   card:
     style: |
@@ -24,11 +24,15 @@ graph_embedded:
         background: none;
         border-radius: 0;
       }
+      ha-card.flex.type-custom-mini-graph-card {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
       .graph {
-        padding-bottom: 4px;
+        padding-bottom: 0px;
         padding-left: 0px;
         padding-right: 0px;
-        padding-top: 12px;
+        padding-top: 0px;
       }
     type: custom:mini-graph-card
     entities:

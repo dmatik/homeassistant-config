@@ -51,7 +51,7 @@ menu_switcher_button:
           service: browser_mod.popup
           service_data:
             hide_header: false
-            title: " "
+            title: ' '
             style:
               .: |
                 :host {
@@ -85,6 +85,11 @@ menu_switcher_button:
 
                 - type: vertical-stack
                   cards:
+                        
+                    - type: custom:decluttering-card
+                      template: title_button_card
+                      variables:
+                        - name: '[[name]]' 
 
                     - type: custom:decluttering-card
                       template: switcher_elements

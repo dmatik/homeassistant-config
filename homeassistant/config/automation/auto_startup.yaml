@@ -20,7 +20,7 @@
 
     # Startup Notification
     #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: 'System'
         message: 'Up and Running'

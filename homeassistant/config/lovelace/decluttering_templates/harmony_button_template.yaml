@@ -103,6 +103,11 @@ harmony_button:
                   cards:
 
                     - type: custom:decluttering-card
+                      template: title_button_card
+                      variables:
+                        - name: '[[title]]' 
+
+                    - type: custom:decluttering-card
                       template: harmony_elements
                       variables:
                         - title: '[[title]]'

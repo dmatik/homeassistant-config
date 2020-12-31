@@ -6,7 +6,7 @@
       to: "home"
   action:
     #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Linka"
         message: "Almost home"
@@ -19,7 +19,7 @@
       to: "Amdocs"
   action:
     #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Dima"
         message: "Arrived to office"
@@ -39,7 +39,7 @@
       from: "Amdocs"
   action:
     #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Dima"
         message: "Left office"
@@ -62,7 +62,7 @@
         minutes: 20
   action:
     #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Home"
         message: "Nobody home"

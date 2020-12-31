@@ -12,7 +12,7 @@
       event_data:
         actionName: 'boiler'
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Boiler"
         message: >-

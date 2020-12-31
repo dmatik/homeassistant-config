@@ -12,7 +12,7 @@
       event_data:
         actionName: 'main_lights'
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Main Lights"
         message: "Living Room: {{ states('light.living_room') }}\nDining: {{ states('light.dining') }}\nKitchen: {{ states('light.kitchen') }}\nHallway: {{ states('light.hall') }}"
@@ -85,7 +85,7 @@
       event_data:
         actionName: 'bedroom_lights'
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Bedroom Lights"
         message: "Bedroom: {{ states('light.bedroom') }}\nDima: {{ states('light.bedside_dima_bulb') }}\nGalit: {{ states('light.bedside_galit_bulb') }}"
@@ -145,7 +145,7 @@
       event_data:
         actionName: 'rooms_lights'
   action:
-    - service: notify.mobile_app_iphonexsdima
+    - service: notify.mobile_app_iphonedima
       data:
         title: "Rooms Lights"
         message: "Kids Room: {{ states('light.kids_room') }}\nWork Room: {{ states('light.work_room') }}"

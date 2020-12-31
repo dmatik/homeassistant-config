@@ -52,7 +52,7 @@ cards:
             from: 36
             to: 100
         entities:
-          - entity: sensor.xiaomi_work_room_temp_battery
+          - entity: sensor.xiaomi_work_room_temp_battery2
             name: Work Room Temperature Sensor
             icon: mdi:thermometer
           - entity: sensor.xiaomi_living_room_motion_battery
