@@ -1,0 +1,124 @@
+printer_button:
+
+  default:
+    - icon: mdi:printer-wireless
+    - cust_1_field: "[[[ return entity.state; ]]]"
+    - cust_2_field: ""
+    #- corner_background_color: "[[[ return 'var(--secondary-text-color)'; ]]]"
+    - corner_border_radius: 12px
+    - corner_text_color: "var(--button-card-text-field-color)"
+    - svg_fill_on: var(--paper-item-icon-active-color)
+    - state:
+        - value: "ready"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              svg_icon:
+                - --paper-item-icon-active-color: var(--accent-color)
+              #corner:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              #corner_2:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+        - value: "unavailable"
+          styles:
+            icon:
+              - color: var(--button-card-disabled-text-color)
+            name:
+              - color: var(--button-card-disabled-text-color)
+            custom_fields:
+              svg_icon:
+                - --paper-item-icon-active-color: var(--button-card-disabled-text-color)
+              corner:
+                - color: var(--button-card-disabled-text-color)
+              corner_2:
+                - color: var(--button-card-disabled-text-color)
+              cust_1:
+                - color: var(--button-card-disabled-text-color)
+              cust_2:
+                - color: var(--button-card-disabled-text-color)
+
+
+  card:
+    type: custom:decluttering-card
+    template: button_two_rows_svg
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - icon: '[[icon]]'
+      - svg_fill: '[[svg_fill]]'
+      - svg_path: '[[svg_path]]'
+      - svg_fill_on: '[[svg_fill_on]]'
+      - svg_path_on: '[[svg_path_on]]'
+      - color: '[[color]]'
+      - color_type: '[[color_type]]'
+      - text_transform: none
+      - corner_text_color: "[[corner_text_color]]"
+      - corner_icon_color: ""
+      - cust_1_text_color: "[[cust_1_text_color]]"
+      - cust_1_icon_color: "[[cust_1_icon_color]]"
+      - cust_2_text_color: "[[cust_2_text_color]]"
+      - cust_2_icon_color: "[[cust_2_icon_color]]"
+      - corner_field: "[[corner_field]]"
+      - corner_border_radius: "[[corner_border_radius]]"
+      - corner_background_color: "[[corner_background_color]]"
+      - cust_1_field: "[[cust_1_field]]"
+      - cust_2_field: "[[cust_2_field]]"
+      - state: "[[state]]"
+      - hold_action:
+          action: more-info
+      - tap_action:
+          #haptic: heavy
+          action: call-service
+          service: browser_mod.popup
+          service_data:
+            hide_header: false
+            title: '[[name]]'
+            deviceID: this
+            
+            card:
+
+              type: entities
+              state_color: true
+              show_header_toggle: false
+              style: |
+                ha-card.type-entities {
+                  background: none;
+                  box-shadow: none;
+                  padding: 0.3em 1.25em 0.4em 0.5em;
+                }
+              entities:
+
+                - entity: sensor.mfc_j650dw_status
+                  name: Status
+                  icon: mdi:printer-wireless
+
+                - type: custom:bar-card
+                  width: 55%
+                  height: 2em
+                  decimal: 0
+                  unit_of_measurement: '%'
+                  icon: mdi:water
+                  positions: &pos
+                    icon: outside
+                    indicator: 'off'
+                    name: outside
+                  entity_row: true
+                  entities:
+                    - entity: sensor.mfc_j650dw_black_ink_remaining
+                      name: Black
+                      color: 'black'
+                    - entity: sensor.mfc_j650dw_cyan_ink_remaining
+                      name: Cyan
+                      color: '#3E9BB2' #'#57DAFD'
+                    - entity: sensor.mfc_j650dw_magenta_ink_remaining
+                      name: Magenta
+                      color: '#B2258A' #'#FF35C5'
+                    - entity: sensor.mfc_j650dw_yellow_ink_remaining
+                      name: Yellow
+                      color: '#B29A43' #'#F9D95E'

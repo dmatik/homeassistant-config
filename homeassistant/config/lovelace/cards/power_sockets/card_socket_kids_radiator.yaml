@@ -32,7 +32,7 @@ cards:
           - type: custom:decluttering-card # Kids Radiator
             template: socket_button
             variables:
-              - entity: switch.mqtt_kids_radiator
+              - entity: switch.kids_radiator
               - name: Kids Radiator
               - icon: mdi:radiator
               - sensor_current: sensor.mqtt_kids_radiator_current

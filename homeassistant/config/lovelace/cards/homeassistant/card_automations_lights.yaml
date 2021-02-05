@@ -1,0 +1,41 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards: 
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Lights       
+
+
+############################################################################
+#                                                                          #
+#   Automations                                                            #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: entities
+        style: |
+          ha-card.type-entities {
+            padding: 0em 1.3em 0em 0.5em;
+          }
+        title: ""
+        show_header_toggle: false
+        entities:
+          - automation.turn_on_kitchen_strip
+          - automation.turn_off_kitchen_strip
+          - automation.turn_on_night_lights
+          - automation.turn_off_night_lights
+
+  - !include /config/lovelace/styles/separator_card.yaml

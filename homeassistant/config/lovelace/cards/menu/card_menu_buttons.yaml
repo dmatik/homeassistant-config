@@ -83,7 +83,7 @@ cards:
           - icon: mdi:chip
           - corner_field_entity: sensor.tasmota_latest
           - cust_1_field: "Overview"
-          - path: tasmota
+          - path: ha_devices
 
   - type: horizontal-stack
     cards:

@@ -1,0 +1,44 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Accessories 
+
+
+############################################################################
+#                                                                          #
+#   Accessories                                                            #
+#                                                                          #
+############################################################################
+
+  - type: grid
+    columns: 3
+    square: false
+    cards:
+
+      - type: custom:decluttering-card # Hallway Light
+        template: light_button
+        variables:
+          - entity: light.hallway
+          - name: Hallway
+
+      - type: custom:decluttering-card # Gateway Light
+        template: light_button #yeelight_switch_button
+        variables:
+          - entity: light.xiaomi_gateway_servers
+          - switch_entity: switch.xiaomi_gateway_light
+          - name: Gateway
+
+  - !include /config/lovelace/styles/separator_card.yaml

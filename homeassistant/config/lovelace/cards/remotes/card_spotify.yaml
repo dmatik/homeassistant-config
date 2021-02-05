@@ -1,0 +1,40 @@
+type: vertical-stack
+cards:
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Spotify 
+
+
+
+############################################################################
+#                                                                          #
+#   Spotify                                                                #
+#                                                                          #
+############################################################################
+
+  - type: custom:mini-media-player
+    icon: mdi:spotify
+    entity: media_player.spotify_dima_trosman
+    artwork: material
+    source: full
+    info: short
+    scale: 1
+    sound_mode: full
+    hide:
+      volume: true
+      power: true
+      progress: true
+
+          
+  - !include /config/lovelace/styles/separator_card.yaml

@@ -144,4 +144,5 @@ button_two_rows_svg:
       cust_2: "[[cust_2_field]]"
     tap_action: '[[tap_action]]'
     hold_action: '[[hold_action]]'
+    double_tap_action: '[[double_tap_action]]'
     state: "[[state]]"

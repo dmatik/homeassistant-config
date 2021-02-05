@@ -1,18 +1,34 @@
 title: Kitchen
 icon: mdi:kettle
 path: kitchen
+visible: true
+panel: true
   
 cards:
 
-    #- !include /config/lovelace/cards/card_home_button.yaml
-    #- !include /config/lovelace/cards/view_titles/card_view_title_kitchen.yaml
+    - type: vertical-stack
+      cards:
 
-    - !include /config/lovelace/cards/lights/card_lights_kitchen.yaml
-    
-    #- !include /config/lovelace/cards/sensors/card_sensors_kitchen.yaml
+        - type: custom:decluttering-card
+          template: view_title
+          variables:
+            - title: Kitchen
+ 
+        - type: horizontal-stack
+          cards:
 
-    - !include /config/lovelace/cards/switcher/card_switcher.yaml
-    #- !include /config/lovelace/cards/switcher/card_switcher_buttons.yaml
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
+
+                - !include /config/lovelace/cards/accessories/card_accessories_kitchen.yaml
+
+            - type: custom:button-card
+              template: shoulder_blank_card
 
 
 

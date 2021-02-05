@@ -1,5 +1,3 @@
-# lovelace_gen
-
 title: Home
 icon: mdi:home
 path: main
@@ -11,21 +9,10 @@ cards:
     - type: vertical-stack
       cards:
 
-        - !include
-            - /config/lovelace/gen_templates/view_title_template.yaml
-            - title: "Home"
-              nav_icon: mdi:menu
-              #nav_path: menu
-              icon_size: 80%
-              show_icon: false
-              nav_size: 0px
-
-        # - type: custom:decluttering-card
-        #   template: view_title
-        #   variables:
-        #     - title: HomeDima
-
-        - !include /config/lovelace/styles/separator_card.yaml
+        - type: custom:decluttering-card
+          template: view_title
+          variables:
+            - title: Home
         
         - type: horizontal-stack
           cards:
@@ -40,13 +27,13 @@ cards:
 
                 - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
 
-                - !include /config/lovelace/cards/menu/card_main_menu_buttons.yaml
+                #- !include /config/lovelace/cards/menu/card_main_menu_buttons.yaml
 
-                - !include /config/lovelace/cards/menu/card_menu_buttons.yaml
+                #- !include /config/lovelace/cards/menu/card_menu_buttons.yaml
 
-                #- !include /config/lovelace/cards/power_sockets/card_socket_ny_tree.yaml
+                - !include /config/lovelace/cards/accessories/card_accessories_home.yaml
 
-                - !include /config/lovelace/styles/view_bottom_gap.yaml
+                #- !include /config/lovelace/styles/view_bottom_gap.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card 

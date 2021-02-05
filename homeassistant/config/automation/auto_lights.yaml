@@ -8,9 +8,6 @@
   alias: 'Turn On Kitchen Strip'
   #initial_state: 'true'
   trigger:
-    # - platform: state
-    #   entity_id: binary_sensor.xiaomi_kitchen_motion
-    #   to: "on"
     - platform: event
       event_type: xiaomi_aqara.motion
       event_data:
@@ -44,9 +41,6 @@
           light.turn_off
         {% endif %}
       entity_id: light.kitchen_strips
-    # - service: scene.turn_on
-    #   data:
-    #     entity_id: scene.kitchen_strips_off
 
 
 

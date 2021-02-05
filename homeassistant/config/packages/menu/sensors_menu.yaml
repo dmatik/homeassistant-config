@@ -22,6 +22,23 @@ sensor:
           {{ count.value }}
 
 
+############################################################################
+#                                                                          #
+#   Only Light On                                                          #
+#                                                                          #
+############################################################################
+
+      only_light_on:
+        friendly_name: "Only Light On"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% for entity_id in state_attr('group.all_light_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {{ states[entity_id].attributes.friendly_name }}
+            {% endif %}
+          {% endfor %}
+
+
 
 ############################################################################
 #                                                                          #
@@ -41,6 +58,22 @@ sensor:
           {% endfor %}
           {{ count.value }}
 
+
+############################################################################
+#                                                                          #
+#   Only Climate On                                                        #
+#                                                                          #
+############################################################################
+
+      only_climate_on:
+        friendly_name: "Only Climate On"
+        icon_template: mdi:thermometer
+        value_template: >-
+          {% for entity_id in state_attr('group.all_climate_entities','entity_id') %}
+            {% if (states(entity_id) == 'on' or states(entity_id) == 'heat' or states(entity_id) == 'cool') %}
+              {{ states[entity_id].attributes.friendly_name }}
+            {% endif %}
+          {% endfor %}
 
 
 ############################################################################
@@ -100,6 +133,22 @@ sensor:
           {% endfor %}
           {{ count.value }}
 
+
+############################################################################
+#                                                                          #
+#   Only Motion Sensor On                                                  #
+#                                                                          #
+############################################################################
+
+      only_motion_sensor_on:
+        friendly_name: "Only Motion Sensor On"
+        icon_template: mdi:run
+        value_template: >-
+          {% for entity_id in state_attr('group.all_motion_sensor_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {{ states[entity_id].attributes.friendly_name }}
+            {% endif %}
+          {% endfor %}
 
 
 ############################################################################

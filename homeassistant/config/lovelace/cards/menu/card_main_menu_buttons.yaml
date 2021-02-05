@@ -14,7 +14,7 @@ cards:
   #     - type: custom:decluttering-card
   #       template: title_button_card
   #       variables:
-  #         - name: Main Menu
+  #         - name: Menu
 
 
 ############################################################################
@@ -23,7 +23,9 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
+  - type: grid
+    columns: 3
+    square: false
     cards:
 
       - type: custom:decluttering-card
@@ -37,18 +39,14 @@ cards:
           - path: lights
 
       - type: custom:decluttering-card
-        template: menu_switcher_button
+        template: menu_new_button
         variables:
-          - entity: switch.switcher_webapi
-          - name: Switcher
-          - icon: mdi:water-boiler
-          - corner_field_entity: sensor.switcher_webapi_time_left
-          - cust_1_field: "Control"
-          #- path: switcher
-          #- color: auto
-
-#       - type: "custom:button-card"
-#         color_type: blank-card
+          - entity: ""
+          - name: Motion
+          - icon: mdi:run
+          - corner_field_entity: sensor.number_of_motion_sensors_on
+          - cust_1_field: "Overview"
+          - path: motion
 
       - type: custom:decluttering-card
         template: menu_new_button
@@ -61,42 +59,37 @@ cards:
           - path: climate
 
 
+      # - type: custom:decluttering-card
+      #   template: menu_new_button
+      #   variables:
+      #     - entity: ""
+      #     - name: Devices
+      #     - icon: mdi:power-plug
+      #     - corner_field_entity: sensor.number_of_devices_on
+      #     - cust_1_field: "Overview"
+      #     - path: devices
 
-  - type: horizontal-stack
-    cards:
+      # - type: custom:decluttering-card
+      #   template: menu_new_button
+      #   variables:
+      #     - entity: ""
+      #     - name: IT
+      #     - icon: mdi:desktop-classic
+      #     - cust_1_field: "Overview"
+      #     - path: computers
 
-      - type: custom:decluttering-card
-        template: menu_new_button
-        variables:
-          - entity: ""
-          - name: Devices
-          - icon: mdi:power-plug
-          - corner_field_entity: sensor.number_of_devices_on
-          - cust_1_field: "Overview"
-          - path: devices
+      # # - type: "custom:button-card"
+      # #   color_type: blank-card
 
-
-      - type: custom:decluttering-card
-        template: menu_new_button
-        variables:
-          - entity: ""
-          - name: IT
-          - icon: mdi:desktop-classic
-          - cust_1_field: "Overview"
-          - path: computers
-
-      # - type: "custom:button-card"
-      #   color_type: blank-card
-
-      - type: custom:decluttering-card
-        template: menu_new_button
-        variables:
-          - entity: ""
-          - name: Hass
-          - icon: mdi:home-assistant
-          - corner_field_entity: sensor.ha_current_version
-          - cust_1_field: "Overview"
-          - path: homeassistant
+      # - type: custom:decluttering-card
+      #   template: menu_new_button
+      #   variables:
+      #     - entity: ""
+      #     - name: Hass
+      #     - icon: mdi:home-assistant
+      #     - corner_field_entity: sensor.ha_current_version
+      #     - cust_1_field: "Overview"
+      #     - path: homeassistant
 
 
 

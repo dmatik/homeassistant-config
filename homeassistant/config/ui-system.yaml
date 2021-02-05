@@ -15,7 +15,13 @@ views:
 
     # Hassio Tab        
     - !include /config/lovelace/views/view_homeassistant.yaml
+    # Automation
+    - !include /config/lovelace/views/view_automation.yaml
     # Devices Tab
     - !include /config/lovelace/views/view_ha_devices.yaml
+    # Wall Panel
+    - !include /config/lovelace/views/view_wallpanel.yaml
     # Sysytem Tab        
     - !include /config/lovelace/views/view_system.yaml
+    # Batteries
+    - !include /config/lovelace/views/view_batteries.yaml

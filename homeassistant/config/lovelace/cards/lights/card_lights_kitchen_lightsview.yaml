@@ -23,11 +23,10 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: vertical-stack
+  - type: grid
+    columns: 3
+    square: false
     cards:
-   
-      - type: horizontal-stack
-        cards:
 
           - type: custom:decluttering-card # Kitchen
             template: light_button
@@ -49,8 +48,6 @@ cards:
             variables:
               - entity: light.service_balcony
               - name: S. Balcony
-                    
-          # - type: "custom:button-card"
-          #   color_type: blank-card   
+  
 
   - !include /config/lovelace/styles/separator_card.yaml

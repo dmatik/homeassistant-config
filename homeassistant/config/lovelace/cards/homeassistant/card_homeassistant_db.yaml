@@ -23,31 +23,31 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
-    cards:  
+  - type: grid
+    columns: 3
+    square: true
+    cards: 
 
-        - type: custom:decluttering-card
-          template: graph
-          variables:
-              - entity: sensor.events_size
-              - name: Events
-              - icon: mdi:database
+      - type: custom:decluttering-card
+        template: graph
+        variables:
+            - entity: sensor.events_size
+            - name: Events
+            - icon: mdi:database
 
-        - type: custom:decluttering-card
-          template: graph
-          variables:
-              - entity: sensor.states_size
-              - name: States
-              - icon: mdi:database  
+      - type: custom:decluttering-card
+        template: graph
+        variables:
+            - entity: sensor.states_size
+            - name: States
+            - icon: mdi:database  
 
-        - type: custom:decluttering-card
-          template: graph
-          variables:
-              - entity: sensor.db_size
-              - name: Full DB
-              - icon: mdi:database
+      - type: custom:decluttering-card
+        template: graph
+        variables:
+            - entity: sensor.db_size
+            - name: Full DB
+            - icon: mdi:database
 
-        # - type: "custom:button-card"
-        #   color_type: blank-card
         
   - !include /config/lovelace/styles/separator_card.yaml

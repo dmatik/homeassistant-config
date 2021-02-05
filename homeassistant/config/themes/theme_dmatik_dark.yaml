@@ -1,13 +1,4 @@
 dmatik-dark:
-      # Card Mod
-      card-mod-theme: dmatik-dark
-      card-mod-root: |
-            app-header {
-                  display: none !important;
-            }
-            #view {
-                  min-height: calc(100vh) !important;
-            }
 
       # Background image
       background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
@@ -147,3 +138,34 @@ dmatik-dark:
       # Google colors
       google-red-500: '#E45E65'
       google-green-500: '#39E949'
+
+      # Card Mod
+      card-mod-theme: dmatik-dark
+
+      card-mod-more-info-yaml: |
+            .: |
+                  mwc-icon-button {
+                        margin-top: -8px;
+                        color: #9e9e9e;
+                  }
+                  .main-title {
+                        margin-top: 0px;
+                  }
+            $: |
+                  .mdc-dialog__scrim {
+                        backdrop-filter: blur(20px) brightness(70%);
+                        -webkit-backdrop-filter: blur(20px) brightness(70%);
+                  }
+                  .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+                        box-shadow: none;
+                        border-radius: 0px;
+                        background: var(--primary-background-color);
+                  }
+
+      card-mod-root-yaml: |
+            .: |
+                  @media (orientation: portrait) {
+                        a.menu-link[target="_blank"], ha-button-menu, [main-title] {
+                              display: none;
+                        }
+                  }

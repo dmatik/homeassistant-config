@@ -32,7 +32,7 @@ cards:
           - type: custom:decluttering-card # Hall
             template: light_button
             variables:
-              - entity: light.hall
+              - entity: light.hallway
               - name: Hallway
 
           - type: custom:decluttering-card # Gateway

@@ -1,13 +1,34 @@
 title: Hallway
 icon: mdi:door-open
 path: hallway
+visible: true
+panel: true
   
 cards:
 
-    #- !include /config/lovelace/cards/card_home_button.yaml
-    #- !include /config/lovelace/cards/view_titles/card_view_title_hallway.yaml
+    - type: vertical-stack
+      cards:
 
-    - !include /config/lovelace/cards/lights/card_lights_hallway.yaml
+        - type: custom:decluttering-card
+          template: view_title
+          variables:
+            - title: Hallway
+ 
+        - type: horizontal-stack
+          cards:
+
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
+
+                - !include /config/lovelace/cards/accessories/card_accessories_hallway.yaml
+
+            - type: custom:button-card
+              template: shoulder_blank_card
 
 
 

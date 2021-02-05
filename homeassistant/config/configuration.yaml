@@ -44,13 +44,13 @@ lovelace:
   mode: yaml
   resources: !include /config/lovelace/resources.yaml
   dashboards:
-    # lovelace-system:
-    #   mode: yaml
-    #   filename: ui-system.yaml
-    #   title: "System"
-    #   icon: mdi:view-dashboard
-    #   show_in_sidebar: true
-    #   require_admin: false
+    lovelace-system:
+      mode: yaml
+      filename: ui-system.yaml
+      title: "System"
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
+      require_admin: false
     lovelace-wallpanel:
       mode: yaml
       filename: ui-wallpanel.yaml
@@ -205,3 +205,8 @@ synology_dsm:
     username: !secret synology_zeg_username
     password: !secret synology_zeg_password
     ssl: true
+
+
+# spotify:
+#   client_id: !secret spotify_client_id
+#   client_secret: !secret spotify_client_secret

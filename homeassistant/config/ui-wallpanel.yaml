@@ -1,15 +1,7 @@
 title: Wall Panel
 
 kiosk_mode:
-  hide_sidebar: true
-
-# custom_header:
-#   kiosk_mode: false
-#   exceptions:
-#     - conditions:
-#         query_string: kiosk
-#       config:
-#         kiosk_mode: true
+  kiosk: true
 
 # Button card templates  
 decluttering_templates:

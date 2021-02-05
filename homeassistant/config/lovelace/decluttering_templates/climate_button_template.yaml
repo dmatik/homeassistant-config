@@ -10,6 +10,9 @@ climate_button:
             return entity.state;
         ]]]"
     - temperature_entity: "[[[ return Math.round(entity.attributes.current_temperature) + '°' ]]]"
+    - cool_color: var(--sensibo-cool-color)
+    - heat_color: var(--sensibo-heat-color)
+    - icon_on_color: var(--primary-text-color)
 
   card:
     type: custom:decluttering-card
@@ -38,52 +41,77 @@ climate_button:
           action: call-service
           service: browser_mod.popup
           service_data:
-            title: ' '
-            style:
-              .: |
-                :host {
-                  --mdc-theme-surface: rgba(0,0,0,0);
-                  --secondary-background-color: rgba(0,0,0,0);
-                  --ha-card-background: rgba(0,0,0,0);
-                  --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
-                  --mdc-dialog-min-height: 100%;
-                  --mdc-dialog-min-width: 100%;
-                  --mdc-dialog-max-width: 100%;
-                  --paper-slider-knob-color: #FFFFFF !important;
-                  --paper-slider-active-color: #dedede !important;
-                  --switch-checked-button-color: #FFFFFF !important;
-                  --switch-unchecked-button-color: #FFFFFF !important;
-                  --switch-checked-track-color: green !important;
-                  --switch-unchecked-track-color: red !important;
-                }
-                app-header, app-toolbar {
-                  background-color: rgba(0,0,0,0.0) !important;
-                }
-                mwc-icon-button {
-                  color: #FFF;
-                }
+            hide_header: false
+            title: '[[title]] AC'
+            deviceID: this
+
             card:
-              # type: custom:thermostat-popup-card
-              # entity: '[[entity]]'
-              # fullscreen: false
-              # stepSize: 1
-              # settings: false
-              type: horizontal-stack
-              cards:
-                
-                - type: custom:button-card
-                  template: shoulder_blank_card
 
-                - type: custom:decluttering-card
-                  template: sensibo_card
-                  variables:
-                    - title: '[[title]]'
-                    - name: '[[name]]'
-                    - image_on: '[[image_on]]'
-                    - image_off: '[[image_off]]'
+              type: entities
+              state_color: true
+              show_header_toggle: false
+              style: |
+                ha-card.type-entities {
+                  background: none;
+                  box-shadow: none;
+                  padding: 0.3em 1.25em 0.4em 0.5em;
+                }
+              entities:
+                - entity: 'climate.[[name]]'
+                  name: Operation mode
+                - entity: 'sensor.sensibo_[[name]]_fan'
+                  name: Fan mode
+                # - entity: 'sensor.sensibo_[[name]]_target_temp'
+                #   name: Target temperature
+                # - entity: 'sensor.sensibo_[[name]]_temp'
+                #   name: Current temperature
+              
+                - type: custom:hui-element
+                  card_type: horizontal-stack
+                  style: |
+                    #root {
+                      justify-content: space-evenly;
+                      margin: 1.4em -0.7em 0.7em 0;
+                    }
+                  cards:
 
-                - type: custom:button-card
-                  template: shoulder_blank_card
 
-            deviceID:
-              - this
+                    - type: custom:decluttering-card # Cool Operation Mode
+                      template: simple_button
+                      variables:
+                        - entity: switch.sensibo_[[name]]_cool
+                        - name: Cool
+                        - icon: mdi:snowflake
+                        - state:
+                            - value: "on"
+                              styles:
+                                card:
+                                  - background-color: '[[cool_color]]'
+                                icon:
+                                  - color: '[[icon_on_color]]'
+
+                    - type: custom:decluttering-card # Heat Operation Mode
+                      template: simple_button
+                      variables:
+                        - entity: switch.sensibo_[[name]]_heat
+                        - name: Heat
+                        - icon: mdi:fire
+                        - state:
+                            - value: "on"
+                              styles:
+                                card:
+                                  - background-color: '[[heat_color]]'
+                                icon:
+                                  - color: '[[icon_on_color]]'
+
+                    - type: custom:decluttering-card # Decrease Target Temperature
+                      template: simple_script_button
+                      variables:
+                        - entity: script.sensibo_[[name]]_decrease_target_temp
+                        - icon: mdi:minus
+
+                    - type: custom:decluttering-card # Increase Target Temperature
+                      template: simple_script_button
+                      variables:
+                        - entity: script.sensibo_[[name]]_increase_target_temp
+                        - icon: mdi:plus

@@ -13,7 +13,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Tasmota Devices        
+          - name: Tasmota        
 
 
 ############################################################################
@@ -26,6 +26,10 @@ cards:
     cards:
 
       - type: entities
+        style: |
+          ha-card.type-entities {
+            padding: 0em 1.3em 0em 0.5em;
+          }
         show_header_toggle: false
         entities:
           - entity: sensor.tasmota_latest
@@ -111,9 +115,28 @@ cards:
             variables:
               - name: Bedside Galit Bulb
               - bulb: bedside_galit
+
+
+############################################################################
+#                                                                          #
+#   Buttons                                                                #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card
+        template: simple_button
+        variables:
           - entity: script.tasmotas_state_sync
-            name: Sync states
-            icon: mdi:sync
+          - name: Sync states
+          - font_size: 20px
+          - show_name: true
+          - show_icon: false
+          - tap_action: 
+              action: call-service
+              service: script.tasmotas_state_sync
 
 
   - !include /config/lovelace/styles/separator_card.yaml

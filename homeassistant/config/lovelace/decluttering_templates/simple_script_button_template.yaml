@@ -11,10 +11,13 @@ simple_script_button:
     variables:
       - entity: '[[entity]]'
       - name: '[[name]]'
+      - show_name: '[[show_name]]'
       - icon: '[[icon]]'
+      - size: '[[size]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - height: '[[height]]'
+      - layout: '[[layout]]'
       - tap_action: 
           action: call-service
           service: script.turn_on

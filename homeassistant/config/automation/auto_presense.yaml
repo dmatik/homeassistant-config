@@ -26,8 +26,8 @@
     - service: google.add_event
       data_template:
         calendar_id: !secret work_hours_calendar_id
-        summary: Arrived to office
-        description: Arrived to office
+        summary: Arrived at office
+        description: Arrived at office
         start_date_time: '{{ ( now().timestamp() ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
         end_date_time: '{{ ( now().timestamp() + 300 ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
 

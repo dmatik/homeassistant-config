@@ -13,7 +13,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Automations       
+          - name: Climate       
 
 
 ############################################################################
@@ -26,20 +26,15 @@ cards:
     cards:
 
       - type: entities
+        style: |
+          ha-card.type-entities {
+            padding: 0em 1.3em 0em 0.5em;
+          }
         title: ""
         show_header_toggle: false
         entities:
-          - automation.turn_on_kitchen_strip
-          - automation.turn_off_kitchen_strip
-          - automation.turn_on_night_lights
-          - automation.turn_off_night_lights
-          - automation.galit_home
           - automation.turn_on_kids_radiator
           - automation.turn_off_kids_radiator
-          - automation.ha_update_available_notification
-          - automation.hacs_updates_notification
-          - automation.nobody_home 
-          - automation.havid_sign
           - automation.turn_off_living_room_ac_in_the_morning
           - automation.turn_on_living_room_ac_in_the_morning
 

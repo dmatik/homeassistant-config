@@ -96,7 +96,7 @@ cards:
       - type: custom:decluttering-card
         template: menu_button
         variables:
-          - entity: light.hall
+          - entity: light.hallway
           - name: Hallway
           - icon: mdi:door-open
           #- icon: fas:door-open
@@ -203,16 +203,16 @@ cards:
                   if (states['climate.kids_room'].state == 'heat') return 'var(--sensibo-heat-color)';
                   ]]]"
           - cust_2_field: "[[[
-                  if (states['switch.mqtt_kids_radiator'].state == 'off')
+                  if (states['switch.kids_radiator'].state == 'off')
                   return `<ha-icon icon='mdi:radiator' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
                   <span><span>off</span></span>`;               
                   else return `<ha-icon icon='mdi:radiator' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
-                  <span><span>${states['switch.mqtt_kids_radiator'].state}</span> <span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span></span>`
+                  <span><span>${states['switch.kids_radiator'].state}</span> <span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span></span>`
                   ]]]"
           - cust_2_icon_color: "[[[
-                  if (states['switch.mqtt_kids_radiator'].state == 'unavailable') return 'var(--button-card-icon-color)';
-                  if (states['switch.mqtt_kids_radiator'].state == 'off') return 'var(--button-card-icon-color)';
-                  if (states['switch.mqtt_kids_radiator'].state == 'on') return 'var(--paper-item-icon-active-color)';
+                  if (states['switch.kids_radiator'].state == 'unavailable') return 'var(--button-card-icon-color)';
+                  if (states['switch.kids_radiator'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['switch.kids_radiator'].state == 'on') return 'var(--paper-item-icon-active-color)';
                   ]]]" 
           - path: kids_room
 

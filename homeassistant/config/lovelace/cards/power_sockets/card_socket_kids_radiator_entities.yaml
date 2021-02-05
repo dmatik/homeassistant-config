@@ -43,7 +43,7 @@ cards:
               overflow: hidden;
             }          
           entities:
-            - switch.mqtt_kids_radiator
+            - switch.kids_radiator
             - sensor.mqtt_kids_radiator_current
             - sensor.mqtt_kids_radiator_energy_today
             - sensor.mqtt_kids_radiator_power

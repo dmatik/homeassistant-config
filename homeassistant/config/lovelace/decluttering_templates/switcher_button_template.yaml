@@ -92,75 +92,53 @@ switcher_button:
           service: browser_mod.popup
           service_data:
             hide_header: false
-            title: ' '
-            style:
-              .: |
-                :host {
-                  --mdc-theme-surface: rgba(0,0,0,0);
-                  --secondary-background-color: rgba(0,0,0,0);
-                  --ha-card-background: rgba(0,0,0,0);
-                  --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
-                  --mdc-dialog-min-height: 100%;
-                  --mdc-dialog-min-width: 100%;
-                  --mdc-dialog-max-width: 100%;
-                  --paper-slider-knob-color: #FFFFFF !important;
-                  --paper-slider-active-color: #dedede !important;
-                  --switch-checked-button-color: #FFFFFF !important;
-                  --switch-unchecked-button-color: #FFFFFF !important;
-                  --switch-checked-track-color: green !important;
-                  --switch-unchecked-track-color: red !important;
-                }
-                app-header, app-toolbar {
-                  background-color: rgba(0,0,0,0.0) !important;
-                }
-                mwc-icon-button {
-                  color: #FFF;
-                }
+            title: '[[name]]'
+            deviceID: this
+            
             card:
 
-              type: horizontal-stack
-              cards:
-                
-                - type: custom:button-card
-                  template: shoulder_blank_card
+              type: entities
+              state_color: true
+              show_header_toggle: false
+              style: |
+                ha-card.type-entities {
+                  background: none;
+                  box-shadow: none;
+                  padding: 0.3em 1.25em 0.4em 0.5em;
+                }
+              entities:
 
-                - type: vertical-stack
+                - entity: sensor.switcher_webapi_electric_current
+                  name: Current
+                - entity: sensor.switcher_webapi_time_left
+                  name: Time left
+                - entity: sensor.switcher_webapi_auto_off_time
+                  name: Off time
+
+                - type: custom:hui-element
+                  card_type: horizontal-stack
+                  style: |
+                    #root {
+                      justify-content: space-evenly;
+                      margin: 1.4em -0.7em 0.7em 0;
+                    }
                   cards:
 
-                    - type: custom:decluttering-card
-                      template: title_button_card
+                    - type: custom:decluttering-card # Boiler Power
+                      template: simple_button
                       variables:
-                        - name: '[[name]]' 
+                        - entity: '[[entity]]'
+                        - name: Power
+                        - icon: mdi:power-standby
 
-                    - type: custom:decluttering-card
-                      template: switcher_elements
+                    - type: custom:decluttering-card # Turn ON with Timer
+                      template: simple_script_button
+                      variables:
+                        - entity: script.switcher_turn_on_timer_script
+                        - name: ON With Timer
+                        - icon: mdi:timer-outline
 
-                    - type: horizontal-stack
-                      cards:
-
-                        - type: custom:decluttering-card # Boiler Power
-                          template: simple_button
-                          variables:
-                            #- entity: switch.switcher_aio_switch
-                            #- entity: switch.boiler
-                            - entity: '[[entity]]'
-                            - name: Power
-                            - icon: mdi:power-standby
-
-                        - type: custom:decluttering-card # Turn ON with Timer
-                          template: simple_script_button
-                          variables:
-                            - entity: script.switcher_turn_on_timer_script
-                            - name: ON With Timer
-                            - icon: mdi:timer-outline
-
-                        - type: custom:decluttering-card # Timer Minutes 15/30/45/60
-                          template: next_select_simple_button
-                          variables:
-                            - entity: input_select.switcher_timer_minutes_input_select
-
-                - type: custom:button-card
-                  template: shoulder_blank_card
-
-            deviceID:
-              - this
+                    - type: custom:decluttering-card # Timer Minutes 15/30/45/60
+                      template: next_select_simple_button
+                      variables:
+                        - entity: input_select.switcher_timer_minutes_input_select

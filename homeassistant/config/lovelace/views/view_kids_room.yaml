@@ -1,23 +1,34 @@
 title: Kids Room
 icon: mdi:face
 path: kids_room
+visible: true
+panel: true
   
 cards:
 
-    #- !include /config/lovelace/cards/card_home_button.yaml
-    #- !include /config/lovelace/cards/view_titles/card_view_title_kids_room.yaml
+    - type: vertical-stack
+      cards:
 
-    - !include /config/lovelace/cards/lights/card_lights_kids_room.yaml
+        - type: custom:decluttering-card
+          template: view_title
+          variables:
+            - title: Kids Room
+ 
+        - type: horizontal-stack
+          cards:
 
-    #- !include /config/lovelace/cards/power_sockets/card_socket_kids_radiator.yaml
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
 
-    - !include /config/lovelace/cards/ac/card_sensibo_kids_room.yaml
+                - !include /config/lovelace/cards/accessories/card_accessories_kids_room.yaml
 
-    #- !include /config/lovelace/cards/power_sockets/card_socket_kids_radiator_entities.yaml
-
-    #- !include /config/lovelace/cards/ac/card_sensibo_kids_room_kiosk.yaml
-
-    - !include /config/lovelace/cards/card_havid-19.yaml
+            - type: custom:button-card
+              template: shoulder_blank_card
 
 
 

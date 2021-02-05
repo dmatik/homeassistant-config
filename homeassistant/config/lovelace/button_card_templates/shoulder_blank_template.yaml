@@ -4,4 +4,4 @@ shoulder_blank_card:
   color_type: blank-card
   styles:
     card:
-      - width: 0px
+      - width: 8px

@@ -1,9 +1,7 @@
-# lovelace_gen
-
-title: Tasmota
+title: Devices
 icon: mdi:chip
-path: tasmota
-visible: false
+path: ha_devices
+visible: true
 panel: true
   
 cards:
@@ -11,11 +9,10 @@ cards:
     - type: vertical-stack
       cards:
 
-        - !include
-            - /config/lovelace/gen_templates/view_title_template.yaml
-            - title: "Tasmota"
-
-        - !include /config/lovelace/styles/separator_card.yaml
+        - type: custom:decluttering-card
+          template: view_title
+          variables:
+            - title: Devices
  
         - type: horizontal-stack
           cards:
@@ -30,8 +27,10 @@ cards:
 
                 - !include /config/lovelace/cards/tasmota/card_tasmota_devices.yaml
 
-                - !include /config/lovelace/styles/view_bottom_gap.yaml
+                #- !include /config/lovelace/styles/view_bottom_gap.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card
+
+        - !include /config/lovelace/styles/separator_card.yaml
  

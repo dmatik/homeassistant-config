@@ -22,7 +22,9 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
+  - type: grid
+    columns: 3
+    square: false
     cards:
  
       - type: custom:decluttering-card # Bedtime
@@ -41,7 +43,5 @@ cards:
           - icon: mdi:flash-off
           #- icon: fas:lightbulb-slash
 
-      - type: "custom:button-card"
-        color_type: blank-card 
 
   - !include /config/lovelace/styles/separator_card.yaml

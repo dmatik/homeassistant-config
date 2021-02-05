@@ -8,7 +8,9 @@
   alias: 'Turn On Kids Radiator'
   trigger:
     - platform: time
-      at: "19:00:00"
+      at: 
+        - "19:00:00"
+        - "23:00:00"
     - platform: event
       event_type: ios.notification_action_fired
       event_data:
@@ -17,16 +19,13 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.mqtt_kids_radiator
+        entity_id: switch.kids_radiator
         state: "off"
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.mqtt_kids_radiator
-    # - service: notify.dimatelegram
-    #   data:
-    #     title: "Kids Radiator"
-    #     message: "ON"
+        entity_id: switch.kids_radiator
+
 
 ############################################################################
 #                                                                          #
@@ -38,7 +37,7 @@
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: switch.mqtt_kids_radiator
+      entity_id: switch.kids_radiator
       from: "off"
       to: "on"
   action:
@@ -68,12 +67,12 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.mqtt_kids_radiator
+        entity_id: switch.kids_radiator
         state: "on"
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.mqtt_kids_radiator
+        entity_id: switch.kids_radiator
 
 
 
@@ -87,7 +86,9 @@
   alias: 'Turn Off Kids Radiator'
   trigger:
     - platform: time
-      at: "07:00:00"
+      at: 
+        - "07:00:00"
+        - "19:45:00"
     - platform: event
       event_type: ios.notification_action_fired
       event_data:
@@ -96,12 +97,12 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.mqtt_kids_radiator
+        entity_id: switch.kids_radiator
         state: "on"
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.mqtt_kids_radiator
+        entity_id: switch.kids_radiator
     # - service: notify.dimatelegram
     #   data:
     #     title: "Kids Radiator"
@@ -118,7 +119,7 @@
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: switch.mqtt_kids_radiator
+      entity_id: switch.kids_radiator
       from: "on"
       to: "off"
   action:
@@ -148,9 +149,9 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.mqtt_kids_radiator
+        entity_id: switch.kids_radiator
         state: "off"
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.mqtt_kids_radiator
+        entity_id: switch.kids_radiator

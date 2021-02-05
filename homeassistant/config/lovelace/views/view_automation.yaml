@@ -1,9 +1,7 @@
-# lovelace_gen
-
 title: Automation
 icon: mdi:robot
 path: automation
-visible: false
+visible: true
 panel: true
   
 cards:
@@ -11,11 +9,10 @@ cards:
     - type: vertical-stack
       cards:
 
-        - !include
-            - /config/lovelace/gen_templates/view_title_template.yaml
-            - title: "Automation"
-
-        - !include /config/lovelace/styles/separator_card.yaml
+        - type: custom:decluttering-card
+          template: view_title
+          variables:
+            - title: Automation
  
         - type: horizontal-stack
           cards:
@@ -28,9 +25,17 @@ cards:
               max_columns: 3
               cards:
 
-                - !include /config/lovelace/cards/homeassistant/card_automations.yaml
+                - !include /config/lovelace/cards/homeassistant/card_automations_lights.yaml
 
-                - !include /config/lovelace/styles/view_bottom_gap.yaml
+                - !include /config/lovelace/cards/homeassistant/card_automations_climate.yaml
+
+                - !include /config/lovelace/cards/homeassistant/card_automations_presence.yaml
+
+                - !include /config/lovelace/cards/homeassistant/card_automations_misc.yaml
+
+                #- !include /config/lovelace/styles/view_bottom_gap.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card
+
+        - !include /config/lovelace/styles/separator_card.yaml

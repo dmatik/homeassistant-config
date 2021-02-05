@@ -13,7 +13,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Home Assistant Version       
+          - name: Home Assistant Version      
 
 
 ############################################################################
@@ -27,6 +27,10 @@ cards:
 
       - type: entities
         show_header_toggle: false
+        style: |
+          ha-card.type-entities {
+            padding: 0em 1.3em 0em 0.5em;
+          }
         entities:
           - entity: sensor.ha_current_version
             icon: mdi:home-assistant
@@ -34,13 +38,37 @@ cards:
           - entity: sensor.ha_available_version
             icon: mdi:package-down
             name: Available Version
-          - type: weblink
-            name: Release Notes
-            url: https://www.home-assistant.io/latest-release-notes/
-            icon: mdi:note-multiple
-          - entity: script.update_homeassistant_container
-            icon: mdi:update
-            name: Update
 
+############################################################################
+#                                                                          #
+#   Buttons                                                                #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card # Release Notes
+        template: simple_button
+        variables:
+          - name: Release Notes
+          - font_size: 20px
+          - show_name: true
+          - show_icon: false
+          - tap_action: 
+              action: url
+              url_path: https://www.home-assistant.io/latest-release-notes/
+
+      - type: custom:decluttering-card
+        template: simple_button
+        variables:
+          - entity: script.update_homeassistant_container
+          - name: Update
+          - font_size: 20px
+          - show_name: true
+          - show_icon: false
+          - tap_action: 
+              action: call-service
+              service: script.update_homeassistant_container
 
   - !include /config/lovelace/styles/separator_card.yaml

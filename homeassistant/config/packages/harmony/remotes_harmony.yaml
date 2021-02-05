@@ -1,7 +1,0 @@
-remote:
-
-  - platform: harmony
-    name: Living room
-    host: !secret harmony_living_room_host
-    port: 8088
-    activity: ”Shield TV”

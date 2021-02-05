@@ -14,7 +14,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Switcher
+          - name: Boiler
 
 
 ############################################################################

@@ -12,7 +12,7 @@ group:
       - climate.living_room
       - climate.bedroom
       - climate.kids_room
-      - switch.mqtt_kids_radiator
+      - switch.kids_radiator
 
 
 
@@ -31,7 +31,7 @@ group:
       - light.service_balcony
       - light.balcony
       - light.entrance
-      - light.hall
+      - light.hallway
       - light.bedroom
       - light.kids_room
       - light.work_room

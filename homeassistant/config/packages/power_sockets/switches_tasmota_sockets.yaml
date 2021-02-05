@@ -6,8 +6,9 @@ switch:
 #                                                                          #
 ############################################################################
 
-  - platform: mqtt  
-    name: "MQTT Kids Radiator"
+  - platform: mqtt 
+    unique_id: mqtt_kids_radiator 
+    name: "Kids Radiator"
     icon: mdi:radiator
     state_topic: "stat/kids_radiator/RESULT"
     value_template: "{{ value_json.POWER }}"
@@ -49,19 +50,19 @@ switch:
 #                                                                          #
 ############################################################################
 
-  - platform: mqtt
-    name: "MQTT Washer"
-    icon: mdi:track-light
-    state_topic: "stat/washer/RESULT"
-    value_template: "{{ value_json.POWER }}"
-    command_topic: "cmnd/washer/POWER"
-    availability_topic: "tele/washer/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: false
+  # - platform: mqtt
+  #   name: "MQTT Washer"
+  #   icon: mdi:track-light
+  #   state_topic: "stat/washer/RESULT"
+  #   value_template: "{{ value_json.POWER }}"
+  #   command_topic: "cmnd/washer/POWER"
+  #   availability_topic: "tele/washer/LWT"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+  #   retain: false
 
 
 
@@ -93,19 +94,19 @@ switch:
 #                                                                          #
 ############################################################################
 
-  - platform: mqtt
-    name: "MQTT Dishwasher"
-    icon: mdi:track-light
-    state_topic: "stat/dishwasher/RESULT"
-    value_template: "{{ value_json.POWER }}"
-    command_topic: "cmnd/dishwasher/POWER"
-    availability_topic: "tele/dishwasher/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: false
+  # - platform: mqtt
+  #   name: "MQTT Dishwasher"
+  #   icon: mdi:track-light
+  #   state_topic: "stat/dishwasher/RESULT"
+  #   value_template: "{{ value_json.POWER }}"
+  #   command_topic: "cmnd/dishwasher/POWER"
+  #   availability_topic: "tele/dishwasher/LWT"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+  #   retain: false
 
 
 
@@ -115,16 +116,16 @@ switch:
 #                                                                          #
 ############################################################################
 
-  - platform: mqtt
-    name: "MQTT New Year Tree"
-    icon: mdi:pine-tree
-    state_topic: "stat/power_socket_01/RESULT"
-    value_template: "{{ value_json.POWER }}"
-    command_topic: "cmnd/power_socket_01/POWER"
-    availability_topic: "tele/power_socket_01/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: false  
+  # - platform: mqtt
+  #   name: "MQTT New Year Tree"
+  #   icon: mdi:pine-tree
+  #   state_topic: "stat/power_socket_01/RESULT"
+  #   value_template: "{{ value_json.POWER }}"
+  #   command_topic: "cmnd/power_socket_01/POWER"
+  #   availability_topic: "tele/power_socket_01/LWT"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+  #   retain: false  

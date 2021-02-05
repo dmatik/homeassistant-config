@@ -26,6 +26,10 @@ cards:
     cards:
 
       - type: entities
+        style: |
+          ha-card.type-entities {
+            padding: 0em 1.3em 0em 0.5em;
+          }
         show_header_toggle: false
         entities:
           - type: attribute
@@ -68,21 +72,66 @@ cards:
             attribute: currentPage
             icon: mdi:application
             name: Page
-          - type: call-service
-            icon: mdi:reload
-            name: Reload URL
-            action_name: Reload
-            service: rest_command.fully_load_url
-          - type: call-service
-            icon: mdi:restart
-            name: Restart App
-            action_name: Restart
-            service: rest_command.fully_restart_app
-          - type: call-service
-            icon: mdi:cached
-            name: Clear Cache
-            action_name: Clear
-            service: rest_command.fully_clear_cache  
+          # - type: call-service
+          #   icon: mdi:reload
+          #   name: Reload URL
+          #   action_name: Reload
+          #   service: rest_command.fully_load_url
+          # - type: call-service
+          #   icon: mdi:restart
+          #   name: Restart App
+          #   action_name: Restart
+          #   service: rest_command.fully_restart_app
+          # - type: call-service
+          #   icon: mdi:cached
+          #   name: Clear Cache
+          #   action_name: Clear
+          #   service: rest_command.fully_clear_cache  
+
+############################################################################
+#                                                                          #
+#   Buttons                                                                #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:decluttering-card # Reload URL
+        template: simple_button
+        variables:
+          - entity: rest_command.fully_load_url
+          - name: Reload URL
+          - font_size: 20px
+          - show_name: true
+          - show_icon: false
+          - tap_action: 
+              action: call-service
+              service: rest_command.fully_load_url
+
+      - type: custom:decluttering-card # Restart App
+        template: simple_button
+        variables:
+          - entity: rest_command.fully_restart_app
+          - name: Restart App
+          - font_size: 20px
+          - show_name: true
+          - show_icon: false
+          - tap_action: 
+              action: call-service
+              service: rest_command.fully_restart_app
+
+      - type: custom:decluttering-card # Clear Cache
+        template: simple_button
+        variables:
+          - entity: rest_command.fully_clear_cache
+          - name: Clear Cache
+          - font_size: 20px
+          - show_name: true
+          - show_icon: false
+          - tap_action: 
+              action: call-service
+              service: rest_command.fully_clear_cache
 
 
   - !include /config/lovelace/styles/separator_card.yaml

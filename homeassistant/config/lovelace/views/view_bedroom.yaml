@@ -1,19 +1,35 @@
 title: Bedroom
 icon: mdi:bed-empty
 path: bedroom
+visible: true
+panel: true
   
 cards:
 
-    #- !include /config/lovelace/cards/card_home_button.yaml
-    #- !include /config/lovelace/cards/view_titles/card_view_title_bedroom.yaml
+    - type: vertical-stack
+      cards:
 
-    - !include /config/lovelace/cards/lights/card_lights_bedroom.yaml
+        - type: custom:decluttering-card
+          template: view_title
+          variables:
+            - title: Bedroom
+ 
+        - type: horizontal-stack
+          cards:
 
-    - !include /config/lovelace/cards/ac/card_sensibo_bedroom.yaml
+            - type: custom:button-card
+              template: shoulder_blank_card
+                
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 3
+              cards:
 
-    #- !include /config/lovelace/cards/ac/card_sensibo_bedroom_thermo.yaml
+                - !include /config/lovelace/cards/accessories/card_accessories_bedroom.yaml
 
-    #- !include /config/lovelace/cards/lights/card_yeelight_bedroom.yaml
+            - type: custom:button-card
+              template: shoulder_blank_card
+
 
 
 

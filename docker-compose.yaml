@@ -73,18 +73,36 @@ services:
     #         PMA_HOST: ${ZEG_IP}
     #         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         
+    # mosquitto:
+    #     restart: always
+    #     hostname: mosquitto
+    #     container_name: mosquitto
+    #     image: eclipse-mosquitto:1.6.10
+    #     network_mode: "host"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #         - /volume1/docker/mqtt/log:/mqtt/log
+    #         - /volume1/docker/mqtt/data:/mqtt/data
+    #         - /volume1/docker/mqtt/config:/mqtt/config
+
     mosquitto:
         restart: always
         hostname: mosquitto
         container_name: mosquitto
-        image: eclipse-mosquitto:1.6.10
-        network_mode: "host"
+        image: eclipse-mosquitto:latest
         environment:
             TZ: "Asia/Jerusalem"
+            USER: ${MQTT_USER}
+            PASS: ${MQTT_PASS}
         volumes:
-            - /volume1/docker/mqtt/log:/mqtt/log
-            - /volume1/docker/mqtt/data:/mqtt/data
-            - /volume1/docker/mqtt/config:/mqtt/config
+            - /volume1/docker/mosquitto/data:/mosquitto/data
+            - /volume1/docker/mosquitto/config:/mosquitto/config
+            - /volume1/docker/mosquitto/log:/mosquitto/log
+        network_mode: "bridge"
+        ports:
+            - "1883:1883"
+            - "9001:9001"
         
     radarr:
         restart: always
@@ -237,21 +255,21 @@ services:
     #     ports:
     #         - 8000:8000
 
-    # homebridge:
-    #     image: oznu/homebridge:latest
-    #     container_name: homebridge
-    #     hostname: homebridge
-    #     restart: always
-    #     network_mode: host
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         PGID: ${ZEG_PUID}
-    #         PUID: ${ZEG_PGID}
-    #         HOMEBRIDGE_CONFIG_UI: 1
-    #         HOMEBRIDGE_CONFIG_UI_PORT: 8080
-    #         DSM_HOSTNAME: "zeg"
-    #     volumes:
-    #         - /volume1/docker/homebridge:/homebridge
+    homebridge:
+        image: oznu/homebridge:latest
+        container_name: homebridge
+        hostname: homebridge
+        restart: always
+        network_mode: host
+        environment:
+            TZ: "Asia/Jerusalem"
+            PGID: ${ZEG_PUID}
+            PUID: ${ZEG_PGID}
+            HOMEBRIDGE_CONFIG_UI: 1
+            HOMEBRIDGE_CONFIG_UI_PORT: 8080
+            DSM_HOSTNAME: "zeg"
+        volumes:
+            - /volume1/docker/homebridge:/homebridge
 
 
     cloudflare-ddns:

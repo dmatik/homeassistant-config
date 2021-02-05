@@ -16,7 +16,7 @@
       data:
         title: "Kids Radiator"
         message: >-
-          {% if states('switch.mqtt_kids_radiator') == 'on' %}
+          {% if states('switch.kids_radiator') == 'on' %}
             On
           {% else %}
             Off

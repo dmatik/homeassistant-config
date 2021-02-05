@@ -20,45 +20,45 @@ views:
     # Menu
     #- !include /config/lovelace/views/view_menu.yaml
     # Lights
-    - !include /config/lovelace/views/view_lights.yaml
+    #- !include /config/lovelace/views/view_lights.yaml
     # Living Room
-    #- !include /config/lovelace/views/view_living_room.yaml
+    - !include /config/lovelace/views/view_living_room.yaml
     # Kitchen
-    #- !include /config/lovelace/views/view_kitchen.yaml
+    - !include /config/lovelace/views/view_kitchen.yaml
     # Bedroom
-    #- !include /config/lovelace/views/view_bedroom.yaml
+    - !include /config/lovelace/views/view_bedroom.yaml
     # Kids Room
-    #- !include /config/lovelace/views/view_kids_room.yaml    
+    - !include /config/lovelace/views/view_kids_room.yaml    
     # Work Room
-    #- !include /config/lovelace/views/view_work_room.yaml   
+    - !include /config/lovelace/views/view_work_room.yaml   
     # Hallway
-    #- !include /config/lovelace/views/view_hallway.yaml 
+    - !include /config/lovelace/views/view_hallway.yaml 
     # Switcher
-    - !include /config/lovelace/views/view_switcher.yaml
+    #- !include /config/lovelace/views/view_switcher.yaml
     # Climate
-    - !include /config/lovelace/views/view_climate.yaml
+    #- !include /config/lovelace/views/view_climate.yaml
     # Devices
-    - !include /config/lovelace/views/view_devices.yaml
+    #- !include /config/lovelace/views/view_devices.yaml
     # Tablets
     #- !include /config/lovelace/views/view_tablets.yaml
     # Printer
     #- !include /config/lovelace/views/view_printer.yaml
     # Motion
-    - !include /config/lovelace/views/view_motion.yaml
+    #- !include /config/lovelace/views/view_motion.yaml
     # Home Assistant
-    - !include /config/lovelace/views/view_homeassistant.yaml
+    #- !include /config/lovelace/views/view_homeassistant.yaml
     # Fully
-    - !include /config/lovelace/views/view_fully.yaml
+    #- !include /config/lovelace/views/view_fully.yaml
     # Automation
-    - !include /config/lovelace/views/view_automation.yaml
+    #- !include /config/lovelace/views/view_automation.yaml
     # Tasmota
-    - !include /config/lovelace/views/view_tasmota.yaml
+    #- !include /config/lovelace/views/view_tasmota.yaml
     # Batteries
-    - !include /config/lovelace/views/view_batteries.yaml
+    #- !include /config/lovelace/views/view_batteries.yaml
     # Synology
-    - !include /config/lovelace/views/view_synology.yaml
+    #- !include /config/lovelace/views/view_synology.yaml
     # Computers
-    - !include /config/lovelace/views/view_computers.yaml
+    #- !include /config/lovelace/views/view_computers.yaml
     # Media
     #- !include /config/lovelace/views/view_media.yaml
     # Health

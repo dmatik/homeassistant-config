@@ -3,7 +3,7 @@
 title: Batteries
 icon: mdi:battery
 path: batteries
-visible: false
+visible: true
 panel: true
   
 cards:
@@ -11,11 +11,10 @@ cards:
     - type: vertical-stack
       cards:
 
-        - !include
-            - /config/lovelace/gen_templates/view_title_template.yaml
-            - title: "Batteries"
-
-        - !include /config/lovelace/styles/separator_card.yaml
+        - type: custom:decluttering-card
+          template: view_title
+          variables:
+            - title: Batteries
  
         - type: horizontal-stack
           cards:
@@ -30,7 +29,7 @@ cards:
 
                 - !include /config/lovelace/cards/xiaomi/card_batteries.yaml
 
-                - !include /config/lovelace/styles/view_bottom_gap.yaml
+                #- !include /config/lovelace/styles/view_bottom_gap.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card

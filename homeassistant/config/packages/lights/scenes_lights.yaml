@@ -57,7 +57,7 @@ scene:
         state: off
       light.service_balcony:
         state: off
-      light.hall:
+      light.hallway:
         state: off
       light.bedroom:
         state: off
@@ -86,7 +86,7 @@ scene:
     entities:
       light.dining:
         state: on
-      light.hall:
+      light.hallway:
         state: on
       light.bedside_dima_bulb:
         state: on
@@ -97,7 +97,7 @@ scene:
     entities:
       light.dining:
         state: off
-      light.hall:
+      light.hallway:
         state: off
       light.bedside_dima_bulb:
         state: off

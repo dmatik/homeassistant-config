@@ -1,13 +1,32 @@
 type: vertical-stack
 cards:
-        
+
+  
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  # - type: horizontal-stack
+  #   cards:
+    
+  #     - type: custom:decluttering-card
+  #       template: title_button_card
+  #       variables:
+  #         - name: Presence
+
+
+
 ############################################################################
 #                                                                          #
 #   Device trackers                                                        #
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
+  - type: grid
+    columns: 2
+    square: false
     cards:
  
       - type: custom:decluttering-card
@@ -40,6 +59,6 @@ cards:
           - tap_action:
                 action: more-info      
 
-  #- !include /config/lovelace/styles/separator_card.yaml
-  - type: custom:decluttering-card
-    template: separator
+  - !include /config/lovelace/styles/separator_card.yaml
+  # - type: custom:decluttering-card
+  #   template: separator

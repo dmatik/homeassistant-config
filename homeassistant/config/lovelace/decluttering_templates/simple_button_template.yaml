@@ -1,6 +1,7 @@
 simple_button:
 
   default:
+    - layout: vertical
     - show_name: false
     - show_icon: true
     - border_radius: var(--button-card-border-radius)
@@ -41,7 +42,7 @@ simple_button:
     show_name: '[[show_name]]'
     show_icon: '[[show_icon]]'
     size: '[[size]]'
-    layout: vertical
+    layout: '[[layout]]'
     lock: '[[lock]]'
     styles:
       card:

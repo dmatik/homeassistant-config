@@ -15,7 +15,7 @@
     - service: notify.mobile_app_iphonedima
       data:
         title: "Main Lights"
-        message: "Living Room: {{ states('light.living_room') }}\nDining: {{ states('light.dining') }}\nKitchen: {{ states('light.kitchen') }}\nHallway: {{ states('light.hall') }}"
+        message: "Living Room: {{ states('light.living_room') }}\nDining: {{ states('light.dining') }}\nKitchen: {{ states('light.kitchen') }}\nHallway: {{ states('light.hallway') }}"
         data:
           push:
             category: "main_lights"
@@ -67,7 +67,7 @@
   action:
     - service: light.toggle
       data:
-        entity_id: light.hall
+        entity_id: light.hallway
 
 
 
