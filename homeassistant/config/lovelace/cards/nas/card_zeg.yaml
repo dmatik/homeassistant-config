@@ -26,34 +26,68 @@ cards:
   - type: horizontal-stack
     cards:  
 
-        - type: custom:bar-card
-          style: |
-            #states {
-              padding: 8px;
-            }
-            bar-card-iconbar {
-              color: var(--bar-card-icon-color);
-            }
-          unit_of_measurement: "%"
-          #stack: vertical
-          positions:
-            icon: "inside"
-            name: "inside"
-            value: "inside"
-            indicator: "off"
-          entities:
-            - entity: sensor.synology_volume_used_volume_1_2
-              name: HD
-              icon: mdi:harddisk
-              color: 'rgba(117,189,111,1.0)'
-            - entity: sensor.synology_cpu_load_system_2
-              name: CPU
-              icon: mdi:chip
-              color: 'rgb(43, 154, 249)'
-            - entity: sensor.synology_memory_usage_real_2
-              name: Memory
-              icon: mdi:memory
-              color: 'rgb(87, 0, 127)'  
+      - type: entities
+        state_color: true
+        show_header_toggle: false
+        style: |
+          ha-card.type-entities {
+            padding: 0.3em 1.25em 0.4em 0.5em;
+          }
+        entities:
+
+          - type: custom:bar-card
+            width: 55%
+            height: 2em
+            decimal: 0
+            unit_of_measurement: '%'
+            #color: '#5F995A'
+            positions: &pos
+              icon: outside
+              indicator: 'off'
+              name: outside
+            entity_row: true
+            entities:
+              - entity: sensor.synology_volume_used_volume_1_2
+                name: HD
+                icon: mdi:harddisk
+                color: '#5F995A'
+              - entity: sensor.synology_cpu_load_system_2
+                name: CPU
+                icon: mdi:chip
+                color: '#2377B2'
+              - entity: sensor.synology_memory_usage_real_2
+                name: Memory
+                icon: mdi:memory
+                color: 'rgb(87, 0, 127)' 
+
+      # - type: custom:bar-card
+      #   style: |
+      #     #states {
+      #       padding: 8px;
+      #     }
+      #     bar-card-iconbar {
+      #       color: var(--bar-card-icon-color);
+      #     }
+      #   unit_of_measurement: "%"
+      #   #stack: vertical
+      #   positions:
+      #     icon: "inside"
+      #     name: "inside"
+      #     value: "inside"
+      #     indicator: "off"
+      #   entities:
+      #     - entity: sensor.synology_volume_used_volume_1_2
+      #       name: HD
+      #       icon: mdi:harddisk
+      #       color: 'rgba(117,189,111,1.0)'
+      #     - entity: sensor.synology_cpu_load_system_2
+      #       name: CPU
+      #       icon: mdi:chip
+      #       color: 'rgb(43, 154, 249)'
+      #     - entity: sensor.synology_memory_usage_real_2
+      #       name: Memory
+      #       icon: mdi:memory
+      #       color: 'rgb(87, 0, 127)'  
 
 
   - !include /config/lovelace/styles/separator_card.yaml

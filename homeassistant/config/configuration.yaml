@@ -36,7 +36,7 @@ tts:
 
 automation: !include_dir_merge_list automation/
 
-lovelace_gen:
+#lovelace_gen:
 
 browser_mod:
 

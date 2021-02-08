@@ -25,57 +25,114 @@ cards:
   - type: horizontal-stack
     cards: 
 
-      - type: custom:bar-card
+      - type: entities
+        state_color: true
+        show_header_toggle: false
         style: |
-          #states {
-            padding: 8px;
+          ha-card.type-entities {
+            padding: 0.3em 1.25em 0.4em 0.5em;
           }
-          bar-card-iconbar {
-            color: var(--bar-card-icon-color);
-          }
-        unit_of_measurement: "%"
-        color: 'rgba(117,189,111,1.0)'
-        #stack: vertical
-        positions:
-          icon: "inside"
-          name: "inside"
-          value: "inside"
-          indicator: "off"
-        severity:
-          - color: '#bf4040'
-            from: 0
-            to: 10
-          - color: '#bf9540'
-            from: 11
-            to: 35
-          - color: 'rgba(117,189,111,1.0)'
-            from: 36
-            to: 100
         entities:
-          - entity: sensor.xiaomi_work_room_temp_battery2
-            name: Work Room Temperature Sensor
-            icon: mdi:thermometer
-          - entity: sensor.xiaomi_living_room_motion_battery
-            name: Living Room Motion Sensor
-            icon: mdi:run
-          - entity: sensor.xiaomi_kitchen_motion_battery
-            name: Kitchen Motion Sensor
-            icon: mdi:run
-          - entity: sensor.xiaomi_button_bedside_dima_battery
-            name: Dima's Bedside Button
-            icon: mdi:circle-outline
-          - entity: sensor.xiaomi_button_bedside_galit_battery
-            name: Galit's Bedside Button
-            icon: mdi:circle-outline
-          - entity: sensor.xiaomi_button_makeup_battery
-            name: Makeup Button
-            icon: mdi:circle-outline
-          - entity: sensor.xiaomi_button_kitchen_strip_right_battery
-            name: Kitchen Strip Right Button
-            icon: mdi:circle-outline
-          - entity: sensor.xiaomi_button_kitchen_strip_left_battery
-            name: Kitchen Strip Left Button
-            icon: mdi:circle-outline
+
+          - type: custom:bar-card
+            width: 55%
+            height: 2em
+            decimal: 0
+            unit_of_measurement: '%'
+            icon: mdi:harddisk
+            #color: '#5F995A'
+            positions: &pos
+              icon: outside
+              indicator: 'off'
+              name: outside
+            severity:
+              - color: '#bf4040'
+                from: 0
+                to: 10
+              - color: '#bf9540'
+                from: 11
+                to: 35
+              - color: '#5F995A'
+                from: 36
+                to: 100
+            entity_row: true
+            entities:
+              - entity: sensor.xiaomi_work_room_temp_battery2
+                name: Work Room Temp. Sensor
+                icon: mdi:thermometer
+              - entity: sensor.xiaomi_living_room_motion_battery
+                name: Living Room Motion Sensor
+                icon: mdi:run
+              - entity: sensor.xiaomi_kitchen_motion_battery
+                name: Kitchen Motion Sensor
+                icon: mdi:run
+              - entity: sensor.xiaomi_button_bedside_dima_battery
+                name: Dima's Bedside Button
+                icon: mdi:circle-outline
+              - entity: sensor.xiaomi_button_bedside_galit_battery
+                name: Galit's Bedside Button
+                icon: mdi:circle-outline
+              - entity: sensor.xiaomi_button_makeup_battery
+                name: Makeup Button
+                icon: mdi:circle-outline
+              - entity: sensor.xiaomi_button_kitchen_strip_right_battery
+                name: Kitchen Strip Right Button
+                icon: mdi:circle-outline
+              - entity: sensor.xiaomi_button_kitchen_strip_left_battery
+                name: Kitchen Strip Left Button
+                icon: mdi:circle-outline
+
+      # - type: custom:bar-card
+      #   style: |
+      #     #states {
+      #       padding: 8px;
+      #     }
+      #     bar-card-iconbar {
+      #       color: var(--bar-card-icon-color);
+      #     }
+      #   unit_of_measurement: "%"
+      #   color: 'rgba(117,189,111,1.0)'
+      #   #stack: vertical
+      #   positions:
+      #     icon: "inside"
+      #     name: "inside"
+      #     value: "inside"
+      #     indicator: "off"
+      #   severity:
+      #     - color: '#bf4040'
+      #       from: 0
+      #       to: 10
+      #     - color: '#bf9540'
+      #       from: 11
+      #       to: 35
+      #     - color: 'rgba(117,189,111,1.0)'
+      #       from: 36
+      #       to: 100
+      #   entities:
+      #     - entity: sensor.xiaomi_work_room_temp_battery2
+      #       name: Work Room Temperature Sensor
+      #       icon: mdi:thermometer
+      #     - entity: sensor.xiaomi_living_room_motion_battery
+      #       name: Living Room Motion Sensor
+      #       icon: mdi:run
+      #     - entity: sensor.xiaomi_kitchen_motion_battery
+      #       name: Kitchen Motion Sensor
+      #       icon: mdi:run
+      #     - entity: sensor.xiaomi_button_bedside_dima_battery
+      #       name: Dima's Bedside Button
+      #       icon: mdi:circle-outline
+      #     - entity: sensor.xiaomi_button_bedside_galit_battery
+      #       name: Galit's Bedside Button
+      #       icon: mdi:circle-outline
+      #     - entity: sensor.xiaomi_button_makeup_battery
+      #       name: Makeup Button
+      #       icon: mdi:circle-outline
+      #     - entity: sensor.xiaomi_button_kitchen_strip_right_battery
+      #       name: Kitchen Strip Right Button
+      #       icon: mdi:circle-outline
+      #     - entity: sensor.xiaomi_button_kitchen_strip_left_battery
+      #       name: Kitchen Strip Left Button
+      #       icon: mdi:circle-outline
 
 
           

@@ -34,7 +34,7 @@ cards:
           - entity: light.living_room
           - name: Main Light
 
-      - type: custom:decluttering-card #Living Room AC
+      - type: custom:decluttering-card # Living Room AC
         template: climate_button
         variables:
           - title: Living Room
@@ -44,7 +44,7 @@ cards:
         template: harmony_button
         variables:
           - entity: switch.shield_tv
-          - title: Main TV
+          - title: TV
           - name: living_room
           - image_on: /local/images/remotes/living_room_tv_on.png
           - image_off: /local/images/remotes/living_room_tv_off.png
@@ -76,7 +76,7 @@ cards:
         template: motion_sensor_button
         variables:
           - entity: binary_sensor.xiaomi_living_room_motion
-          - name: Living Room
+          - name: Motion
           - light_level_sensor: sensor.xiaomi_living_room_light_level
         
       # - type: "custom:button-card"

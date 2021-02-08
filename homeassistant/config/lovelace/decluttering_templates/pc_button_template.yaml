@@ -56,7 +56,7 @@ pc_button:
       - svg_path_on: '[[svg_path_on]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
-      - text_transform: none
+      - text_transform: capitalize
       - corner_text_color: "[[corner_text_color]]"
       - corner_icon_color: ""
       - cust_1_text_color: "[[cust_1_text_color]]"
@@ -99,7 +99,7 @@ pc_button:
                   decimal: 0
                   unit_of_measurement: '%'
                   icon: mdi:harddisk
-                  color: '#75BD6F'
+                  color: '#5F995A'
                   positions: &pos
                     icon: outside
                     indicator: 'off'
