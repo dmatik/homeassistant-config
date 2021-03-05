@@ -71,14 +71,14 @@ sensor:
 
       switcher_webapi_electric_current:
         friendly_name: "Electric Current"
-        icon_template: mdi:flash
+        icon_template: mdi:flash-circle
         unit_of_measurement: A
         value_template: >-
           {{ state_attr('sensor.switcher_webapi', 'electric_current') }}
 
       switcher_webapi_power_consumption:
         friendly_name: "Power Consumption"
-        icon_template: mdi:flash
+        icon_template: mdi:flash-circle
         unit_of_measurement: kW
         value_template: >-
           {{ state_attr('sensor.switcher_webapi', 'power_consumption') }}

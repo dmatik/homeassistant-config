@@ -3,6 +3,7 @@ simple_button:
   default:
     - layout: vertical
     - show_name: false
+    - show_label: false
     - show_icon: true
     - border_radius: var(--button-card-border-radius)
     - background_color: var(--button-card-background-color)
@@ -13,10 +14,11 @@ simple_button:
     - height: 54px
     - font_size: 14px
     - font_weight: normal
+    - label_font_size: 14px
     - padding_top: 3%
     - padding_bottom: 3%
     - lock: false
-    - lock_color: var(--button-card-lock-color)
+    - lock_color: var(--button-card-text-color) #var(--button-card-lock-color)
     - tap_action:
         action: toggle
     - hold_action:
@@ -35,10 +37,11 @@ simple_button:
     type: custom:button-card
     entity: '[[entity]]'
     name: '[[name]]'
+    label: "[[label]]"
     icon: '[[icon]]'
     color_type: card
     show_state: false
-    show_label: false
+    show_label: '[[show_label]]'
     show_name: '[[show_name]]'
     show_icon: '[[show_icon]]'
     size: '[[size]]'
@@ -57,10 +60,15 @@ simple_button:
         #- text-transform: lowercase
         - color: '[[name_color]]'
         - font-size: '[[font_size]]'
+      label:
+        - color: '[[name_color]]'
+        - font-size: '[[label_font_size]]'
       img_cell:
         - color: '[[icon_color]]'
       lock:
         - color: '[[lock_color]]'
+        - justify-content: flex-end
+        - align-items: flex-start
     state:
       '[[state]]'
     tap_action:

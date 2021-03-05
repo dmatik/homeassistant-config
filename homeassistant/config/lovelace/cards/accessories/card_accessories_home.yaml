@@ -28,21 +28,21 @@ cards:
     square: false
     cards:
 
-      - type: custom:decluttering-card # Lights
-        template: lights_view_button
-        variables:
-          - name: Lights
+      # - type: custom:decluttering-card # Lights
+      #   template: lights_view_button
+      #   variables:
+      #     - name: Lights
 
-      - type: custom:decluttering-card # Motion
-        template: motion_view_button
-        variables:
-          - name: Motion
+      # - type: custom:decluttering-card # Motion
+      #   template: motion_view_button
+      #   variables:
+      #     - name: Motion
 
 
-      - type: custom:decluttering-card # Climate
-        template: climate_view_button
-        variables:
-          - name: Climate
+      # - type: custom:decluttering-card # Climate
+      #   template: climate_view_button
+      #   variables:
+      #     - name: Climate
       
       - type: custom:decluttering-card # Living Room TV
         template: harmony_button
@@ -73,7 +73,58 @@ cards:
           - svg_path: 'M7.95,3L6.53,5.19L7.95,7.4H7.94L5.95,10.5L4.22,9.6L5.64,7.39L4.22,5.19L6.22,2.09L7.95,3M13.95,2.89L12.53,5.1L13.95,7.3L13.94,7.31L11.95,10.4L10.22,9.5L11.64,7.3L10.22,5.1L12.22,2L13.95,2.89M20,2.89L18.56,5.1L20,7.3V7.31L18,10.4L16.25,9.5L17.67,7.3L16.25,5.1L18.25,2L20,2.89M2,22V14A2,2 0 0,1 4,12H20A2,2 0 0,1 22,14V22H20V20H4V22H2M6,14A1,1 0 0,0 5,15V17A1,1 0 0,0 6,18A1,1 0 0,0 7,17V15A1,1 0 0,0 6,14M10,14A1,1 0 0,0 9,15V17A1,1 0 0,0 10,18A1,1 0 0,0 11,17V15A1,1 0 0,0 10,14M14,14A1,1 0 0,0 13,15V17A1,1 0 0,0 14,18A1,1 0 0,0 15,17V15A1,1 0 0,0 14,14M18,14A1,1 0 0,0 17,15V17A1,1 0 0,0 18,18A1,1 0 0,0 19,17V15A1,1 0 0,0 18,14Z'
           - svg_path_on: 'm 2,22 v -8 c 0,-1.104569 0.8954305,-2 2,-2 h 16 c 1.104569,0 2,0.895431 2,2 v 8 H 20 V 20 H 4 v 2 H 2 m 4,-8 c -0.5522847,0 -1,0.447715 -1,1 v 2 c 0,0.552285 0.4477153,1 1,1 0.5522847,0 1,-0.447715 1,-1 V 15 C 7,14.447715 6.5522847,14 6,14 m 4,0 c -0.5522847,0 -1,0.447715 -1,1 v 2 c 0,0.552285 0.4477153,1 1,1 0.552285,0 1,-0.447715 1,-1 v -2 c 0,-0.552285 -0.447715,-1 -1,-1 m 4,0 c -0.552285,0 -1,0.447715 -1,1 v 2 c 0,0.552285 0.447715,1 1,1 0.552285,0 1,-0.447715 1,-1 v -2 c 0,-0.552285 -0.447715,-1 -1,-1 m 4,0 c -0.552285,0 -1,0.447715 -1,1 v 2 c 0,0.552285 0.447715,1 1,1 0.552285,0 1,-0.447715 1,-1 v -2 c 0,-0.552285 -0.447715,-1 -1,-1 z'
 
-      - type: custom:decluttering-card
+      - type: custom:decluttering-card # Living Room Light
+        template: light_button
+        variables:
+          - entity: light.living_room
+          - name: Living Room
+
+      - type: custom:decluttering-card # Dining Light
+        template: light_button
+        variables:
+          - entity: light.dining
+          - name: Dining
+
+      - type: custom:decluttering-card # Hallway Light
+        template: light_button
+        variables:
+          - entity: light.hallway
+          - name: Hallway
+
+      - type: custom:decluttering-card # Kitchen Light
+        template: light_button
+        variables:
+          - entity: light.kitchen
+          - name: Kitchen
+
+      - type: custom:decluttering-card # Bedside Galit Light
+        template: color_light_button
+        variables:
+          - entity: light.bedside_galit_bulb
+          - name: Galit
+          - icon: mdi:lamp
+          - svg_path: 'M8,2H16L20,14H4L8,2M11,15H13V20H18V22H6V20H11V15Z'
+          - svg_path_on: 'm 8,2 h 8 l 4,12 H 4 L 8,2'
+
+      - type: custom:decluttering-card # Bedside Dima Light
+        template: color_light_button
+        variables:
+          - entity: light.bedside_dima_bulb
+          - name: Dima
+          - icon: mdi:lamp
+          - svg_path: 'M8,2H16L20,14H4L8,2M11,15H13V20H18V22H6V20H11V15Z'
+          - svg_path_on: 'm 8,2 h 8 l 4,12 H 4 L 8,2'
+
+      - type: custom:decluttering-card # Dimka PC
+        template: pc_button
+        variables:
+          - entity: switch.dimka
+          - name: Dimka PC
+          - icon: mdi:desktop-classic
+          - svg_path: 'M6,2C4.89,2 4,2.89 4,4V12C4,13.11 4.89,14 6,14H18C19.11,14 20,13.11 20,12V4C20,2.89 19.11,2 18,2H6M6,4H18V12H6V4M4,15C2.89,15 2,15.89 2,17V20C2,21.11 2.89,22 4,22H20C21.11,22 22,21.11 22,20V17C22,15.89 21.11,15 20,15H4M8,17H20V20H8V17M9,17.75V19.25H13V17.75H9M15,17.75V19.25H19V17.75H15Z'
+          - svg_path_on: 'M 6,2 C 4.89,2 4,2.89 4,4 v 8 c 0,1.11 0.89,2 2,2 h 12 c 1.11,0 2,-0.89 2,-2 V 4 C 20,2.89 19.11,2 18,2 H 6 m 0,2 h 12 v 8 H 6 V 4 M 4,15 c -1.11,0 -2,0.89 -2,2 v 3 c 0,1.11 0.89,2 2,2 h 16 c 1.11,0 2,-0.89 2,-2 v -3 c 0,-1.11 -0.89,-2 -2,-2 H 4 m 4,2 h 12 v 3 H 8 v -3'
+          
+      - type: custom:decluttering-card # Hovid
         template: menu_new_button
         variables:
           - entity: ""

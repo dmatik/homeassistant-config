@@ -13,6 +13,7 @@ cards:
           template: view_title
           variables:
             - title: Home
+            - bottom_padding: 8px
         
         - type: horizontal-stack
           cards:
@@ -25,7 +26,9 @@ cards:
               max_columns: 3
               cards:
 
-                - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
+                - !include /config/lovelace/cards/badges/card_badges_home.yaml
+
+                #- !include /config/lovelace/cards/presence/card_presence.yaml
 
                 #- !include /config/lovelace/cards/menu/card_main_menu_buttons.yaml
 

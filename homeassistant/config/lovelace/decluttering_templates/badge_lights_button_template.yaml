@@ -1,4 +1,4 @@
-lights_view_button:
+badge_lights_button:
 
   default:
     - entity: sensor.number_of_lights_on
@@ -9,30 +9,19 @@ lights_view_button:
     - svg_path: 'M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z'
     - svg_fill_on: var(--paper-item-icon-active-color)
     - svg_path_on: 'M 12,2 C 8.1340068,2 5,5.1340068 5,9 c 0,2.38 1.19,4.47 3,5.74 V 17 c 0,0.552285 0.4477153,1 1,1 h 6 c 0.552285,0 1,-0.447715 1,-1 V 14.74 C 17.81,13.47 19,11.38 19,9 19,5.1340068 15.865993,2 12,2'
-    - cust_2_field: ""
     - cust_1_text_color: var(--button-card-cust-1-on-text-color)
-    - cust_2_text_color: var(--button-card-cust-2-on-text-color)
-    - corner_border_radius: 12px
-    - corner_text_color: "var(--button-card-text-field-color)"
-    - corner_background_color: rgba(0,0,0,0)
-    - corner_field: ''
     - state:
         - value: "0"
           styles:
             card:
-              - background-color: var(--button-card-background-color)
+              #- background-color: var(--button-card-background-color)
               - color: var(--button-card-text-color) #'#040404'
             custom_fields:
               svg_icon:
                 - --paper-item-icon-active-color: var(--paper-item-icon-color)
-              #corner:
-              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
-              #corner_2:
-              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+                - background-color: var(--button-card-background-color)
               cust_1:
                 - color: var(--button-card-cust-1-text-color) #'#6F7075'
-              cust_2:
-                - color: var(--button-card-cust-2-text-color) #'#6F7075'
         - value: "unavailable"
           styles:
             icon:
@@ -42,19 +31,13 @@ lights_view_button:
             custom_fields:
               svg_icon:
                 - --paper-item-icon-active-color: var(--button-card-disabled-text-color)
-              corner:
-                - color: var(--button-card-disabled-text-color)
-              corner_2:
-                - color: var(--button-card-disabled-text-color)
               cust_1:
-                - color: var(--button-card-disabled-text-color)
-              cust_2:
                 - color: var(--button-card-disabled-text-color)
 
 
   card:
     type: custom:decluttering-card
-    template: button_two_rows_svg
+    template: badge_button_svg
     variables:
       - entity: '[[entity]]'
       - name: '[[name]]'
@@ -68,36 +51,16 @@ lights_view_button:
       - background_color: '[[background_color]]'
       - text_color: '[[text_color]]'
       - text_transform: none
-      - corner_text_color: "[[corner_text_color]]"
-      - corner_icon_color: ""
       - cust_1_text_color: "[[cust_1_text_color]]"
       - cust_1_icon_color: "[[cust_1_icon_color]]"
-      - cust_2_text_color: "[[cust_2_text_color]]"
-      - cust_2_icon_color: "[[cust_2_icon_color]]"
-      # - corner_field: "[[[ 
-      #       if ( entity.state == '0' )
-      #         return '';
-      #       else
-      #         return entity.state; 
-      #     ]]]"
-      - corner_field: "[[corner_field]]"
-      - corner_border_radius: "[[corner_border_radius]]"
-      # - corner_background_color: "[[[
-      #       if ( entity.state == '0' )
-      #         return 'rgba(0,0,0,0)';
-      #       else
-      #         return 'var(--secondary-text-color)';
-      #     ]]]"
-      - corner_background_color: "[[corner_background_color]]"
       - cust_1_field: "[[[
             if ( entity.state == '0' )
               return 'Off';
             else if ( entity.state == '1' )
-              return states['sensor.only_light_on'].state;
+              return states['sensor.only_light_on'].state + ' Light On';
             else
               return entity.state + ' Lights On'; 
           ]]]"
-      - cust_2_field: "[[cust_2_field]]"
       - state: "[[state]]"
       - hold_action:
           action: more-info

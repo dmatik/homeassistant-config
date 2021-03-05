@@ -73,12 +73,11 @@ pc_button:
           action: more-info
       - tap_action:
           #haptic: heavy
-          action: call-service
-          service: browser_mod.popup
-          service_data:
+          action: fire-dom-event
+          browser_mod:
+            command: popup
             hide_header: false
             title: '[[name]]'
-            deviceID: this
             
             card:
 
@@ -106,6 +105,14 @@ pc_button:
                     name: outside
                   entity_row: true
                   entities:
+                    - entity: sensor.dimka_ram_usage
+                      name: "RAM"
+                      icon: mdi:memory
+                      color: 'rgb(87, 0, 127)' 
+                    - entity: sensor.dimka_cpu_usage
+                      name: "CPU"
+                      icon: mdi:chip
+                      color: '#2377B2'
                     - entity: sensor.dimka_hdd_usage_c
                       name: "Disk C"
                     - entity: sensor.dimka_hdd_usage_d
@@ -121,49 +128,62 @@ pc_button:
                   cards:
 
                     - type: custom:decluttering-card # Wake
-                      template: script_button
+                      template: simple_script_button
                       variables:
                         - entity: script.dimka_wake
                         - name: Wake
                         - icon: mdi:lan-connect
+                        - show_name: true
+                        - height: 68px
                         - lock:
                             enabled: true
                             duration: 5
                             unlock: tap
-                        - cust_1_field: ""
 
                     - type: custom:decluttering-card # Sleep
-                      template: script_button
+                      template: simple_script_button
                       variables:
                         - entity: script.dimka_suspend
                         - name: Sleep
                         - icon: mdi:power-sleep
+                        - show_name: true
+                        - height: 68px
                         - lock:
                             enabled: true
                             duration: 5
                             unlock: tap
-                        - cust_1_field: ""
 
-                    - type: custom:decluttering-card # Shutdown
-                      template: script_button
-                      variables:
-                        - entity: script.dimka_shutdown
-                        - name: Shutdown
-                        - icon: mdi:power
-                        - lock:
-                            enabled: true
-                            duration: 5
-                            unlock: tap
-                        - cust_1_field: ""
+                - type: custom:hui-element
+                  card_type: horizontal-stack
+                  style: |
+                    #root {
+                      justify-content: space-evenly;
+                      margin: 1.4em -0.7em 0.7em 0;
+                    }
+                  cards:
 
                     - type: custom:decluttering-card # Restart
-                      template: script_button
+                      template: simple_script_button
                       variables:
                         - entity: script.dimka_reboot
                         - name: Restart
                         - icon: mdi:restart
+                        - show_name: true
+                        - height: 68px
+                        - lock:
+                            enabled: true
+                            duration: 5
+                            unlock: tap 
+                            
+                    - type: custom:decluttering-card # Shutdown
+                      template: simple_script_button
+                      variables:
+                        - entity: script.dimka_shutdown
+                        - name: Shutdown
+                        - icon: mdi:power
+                        - show_name: true
+                        - height: 68px
                         - lock:
                             enabled: true
                             duration: 5
                             unlock: tap
-                        - cust_1_field: "" 

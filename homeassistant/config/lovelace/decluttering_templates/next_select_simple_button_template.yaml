@@ -1,34 +1,85 @@
 next_select_simple_button:
 
   default:
-    - color: var(--button-card-input-select-background)
-    - text_color: var(--button-card-input-select-text)
-    - name_color: var(--button-card-icon-color)
-    - color_type: card
+    - layout: vertical
     - show_name: true
+    - show_label: true
     - show_icon: false
-    - font_size: 34px
+    - border_radius: var(--button-card-border-radius)
+    - background_color: var(--button-card-background-color)
+    - name_color: var(--button-card-icon-color)
+    - icon_color: var(--button-card-icon-color)
+    - size: 40px
+    - width: ""
+    - height: 68px
+    - font_size: 38px
     - font_weight: normal
+    - label_font_size: 14px
+    - label_height: 16.73px
+    - padding_top: 3%
+    - padding_bottom: 3%
+    - lock: false
+    - lock_color: var(--button-card-text-color) #var(--button-card-lock-color)
+    - tap_action:
+        action: toggle
+    - hold_action:
+        action: none
+    - state:
+        - value: "on"
+          styles:
+            card:
+              - background-color: 'var(--button-color-green)'
+            icon:
+              - color: 'var(--primary-text-color)'
+            name:
+              - color: 'var(--primary-text-color)'
 
   card:
-    type: custom:decluttering-card
-    template: simple_button
-    variables:
-      - entity: '[[entity]]'
-      - name: "[[[ return `<span>${states['[[entity]]'].state}</span>`; ]]]"
-      - name_color: '[[name_color]]'
-      - icon: '[[icon]]'
-      - color_type: '[[color_type]]'
-      - show_name: '[[show_name]]'
-      - show_icon: '[[show_icon]]'
-      - font_size: '[[font_size]]'
-      - font-weight: '[[font_weight]]'
-      - height: '[[height]]'
-      - size: '[[size]]'
-      - tap_action: 
-          action: call-service
-          service: input_select.select_next
-          service_data:
-            entity_id: '[[entity]]'
-      - hold_action:
-          action: none
+    type: custom:button-card
+    entity: '[[entity]]'
+    name: "[[[ return `<span>${states['[[entity]]'].state}</span>`; ]]]"
+    label: "[[label]]"
+    icon: '[[icon]]'
+    color_type: card
+    show_state: false
+    show_label: '[[show_label]]'
+    show_name: '[[show_name]]'
+    show_icon: '[[show_icon]]'
+    size: '[[size]]'
+    layout: '[[layout]]'
+    lock: '[[lock]]'
+    styles:
+      card:
+        - border-radius: '[[border_radius]]'
+        - background-color: '[[background_color]]'
+        - padding-top: '[[padding_top]]'
+        - padding-bottom: '[[padding_bottom]]'
+        - font-weight: '[[font_weight]]'
+        - width: '[[width]]'
+        - height: '[[height]]'
+      grid:
+        - grid-template-areas: '"n" "l"'
+        - grid-template-rows: 3fr 1fr
+      name:
+        #- text-transform: lowercase
+        - color: '[[name_color]]'
+        - font-size: '[[font_size]]'
+      label:
+        - color: '[[name_color]]'
+        - font-size: '[[label_font_size]]'
+        - height: '[[label_height]]'
+      img_cell:
+        - color: '[[icon_color]]'
+      lock:
+        - color: '[[lock_color]]'
+        - justify-content: flex-end
+        - align-items: flex-start
+    state:
+      '[[state]]'
+    tap_action: 
+      action: call-service
+      service: input_select.select_next
+      service_data:
+        entity_id: '[[entity]]'
+    hold_action:
+      action: none

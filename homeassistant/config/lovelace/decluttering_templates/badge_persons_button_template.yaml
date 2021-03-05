@@ -1,38 +1,27 @@
-climate_view_button:
+badge_persons_button:
 
   default:
-    - entity: sensor.number_of_climate_entities_on
-    - corner_field: "[[[ return states['sensor.sensibo_living_room_temp_unit'].state ]]]"
-    - name: Lights
-    - icon: mdi:run
+    - entity: sensor.number_of_persons_home
+    - name: Presence
+    - icon: mdi:account-circle
     - background_color: var(--button-card-on-background)
     - text_color: var(--button-card-on-text-color)
-    - svg_path: 'M17 3H21V5H17V3M17 7H21V9H17V7M17 11H21V13H17.75L17 12.1V11M21 15V17H19C19 16.31 18.9 15.63 18.71 15H21M7 3V5H3V3H7M7 7V9H3V7H7M7 11V12.1L6.25 13H3V11H7M3 15H5.29C5.1 15.63 5 16.31 5 17H3V15M15 13V5C15 3.34 13.66 2 12 2S9 3.34 9 5V13C6.79 14.66 6.34 17.79 8 20S12.79 22.66 15 21 17.66 16.21 16 14C15.72 13.62 15.38 13.28 15 13M12 4C12.55 4 13 4.45 13 5V8H11V5C11 4.45 11.45 4 12 4Z'
+    - svg_path: 'M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z'
     - svg_fill_on: var(--paper-item-icon-active-color)
-    - svg_path_on: 'M 15,13 V 5 C 15,3.34 13.66,2 12,2 10.34,2 9,3.34 9,5 v 8 c -2.21,1.66 -2.66,4.79 -1,7 1.66,2.21 4.79,2.66 7,1 2.21,-1.66 2.66,-4.79 1,-7 -0.28,-0.38 -0.62,-0.72 -1,-1 M 12,4 c 0.55,0 1,0.45 1,1 V 8 H 11 V 5 c 0,-0.55 0.45,-1 1,-1 z'
-    - cust_2_field: ""
+    - svg_path_on: 'M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z'
     - cust_1_text_color: var(--button-card-cust-1-on-text-color)
-    - cust_2_text_color: var(--button-card-cust-2-on-text-color)
-    - corner_border_radius: 12px
-    - corner_background_color: var(--secondary-text-color)
-    - corner_text_color: "var(--button-card-text-field-color)"
     - state:
         - value: "0"
           styles:
             card:
-              - background-color: var(--button-card-background-color)
+              #- background-color: var(--button-card-background-color)
               - color: var(--button-card-text-color) #'#040404'
             custom_fields:
               svg_icon:
                 - --paper-item-icon-active-color: var(--paper-item-icon-color)
-              #corner:
-              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
-              #corner_2:
-              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+                - background-color: var(--button-card-background-color)
               cust_1:
                 - color: var(--button-card-cust-1-text-color) #'#6F7075'
-              cust_2:
-                - color: var(--button-card-cust-2-text-color) #'#6F7075'
         - value: "unavailable"
           styles:
             icon:
@@ -42,19 +31,13 @@ climate_view_button:
             custom_fields:
               svg_icon:
                 - --paper-item-icon-active-color: var(--button-card-disabled-text-color)
-              corner:
-                - color: var(--button-card-disabled-text-color)
-              corner_2:
-                - color: var(--button-card-disabled-text-color)
               cust_1:
-                - color: var(--button-card-disabled-text-color)
-              cust_2:
                 - color: var(--button-card-disabled-text-color)
 
 
   card:
     type: custom:decluttering-card
-    template: button_two_rows_svg
+    template: badge_button_svg
     variables:
       - entity: '[[entity]]'
       - name: '[[name]]'
@@ -68,24 +51,16 @@ climate_view_button:
       - background_color: '[[background_color]]'
       - text_color: '[[text_color]]'
       - text_transform: none
-      - corner_text_color: "[[corner_text_color]]"
-      - corner_icon_color: ""
       - cust_1_text_color: "[[cust_1_text_color]]"
       - cust_1_icon_color: "[[cust_1_icon_color]]"
-      - cust_2_text_color: "[[cust_2_text_color]]"
-      - cust_2_icon_color: "[[cust_2_icon_color]]"
-      - corner_field: "[[corner_field]]"
-      - corner_border_radius: "[[corner_border_radius]]"
-      - corner_background_color: "[[corner_background_color]]"
       - cust_1_field: "[[[
             if ( entity.state == '0' )
-              return 'Off';
+              return 'Nobody Home';
             else if ( entity.state == '1' )
-              return states['sensor.only_climate_on'].state;
+              return states['sensor.only_person_home'].state + ' Home';
             else
-              return entity.state + ' Devices On'; 
+              return entity.state + ' Persons Home'; 
           ]]]"
-      - cust_2_field: "[[cust_2_field]]"
       - state: "[[state]]"
       - hold_action:
           action: more-info
@@ -116,7 +91,9 @@ climate_view_button:
                       max_columns: 3
                       cards:
 
-                        - !include /config/lovelace/cards/ac/card_climate_buttons.yaml
+                        - !include /config/lovelace/cards/presence/card_presence.yaml
+
+                        #- !include /config/lovelace/styles/view_bottom_gap.yaml
 
                     - type: custom:button-card
                       template: shoulder_blank_card

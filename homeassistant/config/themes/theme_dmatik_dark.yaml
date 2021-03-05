@@ -1,7 +1,7 @@
 dmatik-dark:
 
       # Background image
-      background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
+      #background-image: 'center / cover no-repeat url("/local/images/backgrounds/gray_2.jpg") fixed'
 
       # Colors
       dmatik-white-color: '#F0F0F0'
@@ -84,7 +84,7 @@ dmatik-dark:
       secondary-background-color: '#292B2F' #'#171717' #'rgba(23, 23, 23, 1)'         # Main card UI background  
       divider-color: 'var(--secondary-background-color)' #'rgba(61, 61, 63, 1)'       # Divider 
       card-background-color: 'var(--primary-background-color)'
-      ha-card-background: 'rgba(47, 49, 54, 0.7)' #'#2F3136' #'rgba(28, 28, 30, 1)'
+      ha-card-background: 'rgba(47, 49, 54, 0.8)' #'#2F3136' #'rgba(28, 28, 30, 1)'
 
       # Table rows                                                                   
       table-row-background-color: '#353840'                                           # Table row

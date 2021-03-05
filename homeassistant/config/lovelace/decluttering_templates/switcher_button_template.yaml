@@ -67,7 +67,7 @@ switcher_button:
             if (entity.state == 'off')
               return '';
             else
-              return states['sensor.switcher_webapi_electric_current'].state + ' A'; 
+              return states['sensor.switcher_webapi_time_left'].state; 
           ]]]"
       - corner_border_radius: "[[corner_border_radius]]"
       - corner_background_color: "[[[
@@ -88,12 +88,11 @@ switcher_button:
           action: more-info
       - tap_action:
           #haptic: heavy
-          action: call-service
-          service: browser_mod.popup
-          service_data:
+          action: fire-dom-event
+          browser_mod:
+            command: popup
             hide_header: false
             title: '[[name]]'
-            deviceID: this
             
             card:
 
@@ -110,6 +109,8 @@ switcher_button:
 
                 - entity: sensor.switcher_webapi_electric_current
                   name: Current
+                - entity: sensor.switcher_webapi_power_consumption
+                  name: Power
                 - entity: sensor.switcher_webapi_time_left
                   name: Time left
                 - entity: sensor.switcher_webapi_auto_off_time
@@ -129,16 +130,21 @@ switcher_button:
                       variables:
                         - entity: '[[entity]]'
                         - name: Power
+                        - show_name: true
+                        - height: 68px
                         - icon: mdi:power-standby
 
                     - type: custom:decluttering-card # Turn ON with Timer
                       template: simple_script_button
                       variables:
                         - entity: script.switcher_turn_on_timer_script
-                        - name: ON With Timer
+                        - name: Timer
+                        - show_name: true
+                        - height: 68px
                         - icon: mdi:timer-outline
 
                     - type: custom:decluttering-card # Timer Minutes 15/30/45/60
                       template: next_select_simple_button
                       variables:
                         - entity: input_select.switcher_timer_minutes_input_select
+                        - label: Minutes

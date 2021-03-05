@@ -163,3 +163,15 @@ group:
   #   name: All Media Entities
   #   entities:
       
+
+############################################################################
+#                                                                          #
+#   All Persons Entities                                                   #
+#                                                                          #
+############################################################################
+
+  all_person_entities:
+    name: All Persons Entities
+    entities:
+      - person.dmatik
+      - person.galit

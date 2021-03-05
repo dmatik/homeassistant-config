@@ -43,6 +43,17 @@ sensor:
           {% endif %}
 
 
+      sensibo_kids_room_oper:
+        friendly_name: "Kids Room Operation Mode (Sensibo)"
+        icon_template: mdi:thermostat
+        value_template: >-
+          {% if states('climate.kids_room').state == 'off' %}
+              off
+          {% else %}      
+              {{ states['climate.kids_room'].state }}
+          {% endif %}
+
+
       ############################################################################
       #                                                                          #
       #   Sensibo - Bedroom                                                      #
@@ -80,6 +91,15 @@ sensor:
               op_auto
           {% endif %}
 
+      sensibo_bedroom_oper:
+        friendly_name: "Bedroom Operation Mode (Sensibo)"
+        icon_template: mdi:thermostat
+        value_template: >-
+          {% if states('climate.bedroom').state == 'off' %}
+              off
+          {% else %}      
+              {{ states['climate.bedroom'].state }}
+          {% endif %}
 
       ############################################################################
       #                                                                          #
@@ -123,6 +143,16 @@ sensor:
               {{ state_attr('climate.living_room', 'fan_mode') }}
           {% else %}      
               op_auto
+          {% endif %}
+
+      sensibo_living_room_oper:
+        friendly_name: "Living Room Operation Mode (Sensibo)"
+        icon_template: mdi:thermostat
+        value_template: >-
+          {% if states('climate.living_room').state == 'off' %}
+              off
+          {% else %}      
+              {{ states['climate.living_room'].state }}
           {% endif %}
 
 

@@ -12,6 +12,7 @@ climate_button:
     - temperature_entity: "[[[ return Math.round(entity.attributes.current_temperature) + '°' ]]]"
     - cool_color: var(--sensibo-cool-color)
     - heat_color: var(--sensibo-heat-color)
+    - text_on_color: var(--primary-text-color)
     - icon_on_color: var(--primary-text-color)
 
   card:
@@ -38,12 +39,11 @@ climate_button:
           action: none
       - tap_action:
           #haptic: heavy
-          action: call-service
-          service: browser_mod.popup
-          service_data:
+          action: fire-dom-event
+          browser_mod:
+            command: popup
             hide_header: false
             title: '[[title]] AC'
-            deviceID: this
 
             card:
 
@@ -55,17 +55,69 @@ climate_button:
                   background: none;
                   box-shadow: none;
                   padding: 0.3em 1.25em 0.4em 0.5em;
+                  text-transform: capitalize;
                 }
               entities:
-                - entity: 'climate.[[name]]'
+                - entity: 'sensor.sensibo_[[name]]_temp'
+                  name: Current temperature
+                #- entity: 'climate.[[name]]'
+                #  name: Operation mode
+                - entity: 'sensor.sensibo_[[name]]_oper'
                   name: Operation mode
                 - entity: 'sensor.sensibo_[[name]]_fan'
                   name: Fan mode
-                # - entity: 'sensor.sensibo_[[name]]_target_temp'
+                #- entity: 'sensor.sensibo_[[name]]_target_temp'
                 #   name: Target temperature
-                # - entity: 'sensor.sensibo_[[name]]_temp'
-                #   name: Current temperature
-              
+
+
+                ############################################################################
+                #                                                                          #
+                #   Target Temperature Set                                                 #
+                #                                                                          #
+                ############################################################################
+
+                - type: custom:hui-element
+                  card_type: horizontal-stack
+                  style: |
+                    #root {
+                      justify-content: space-evenly;
+                      margin: 1.4em -0.7em 0.7em 0;
+                    }
+                    bignumber-card {
+                      align-self: center;
+                    }
+                  cards:
+
+                    - type: custom:decluttering-card # Decrease Target Temperature
+                      template: simple_script_button
+                      variables:
+                        - entity: script.sensibo_[[name]]_decrease_target_temp
+                        - icon: mdi:minus
+
+                    - type: custom:bignumber-card
+                      style: |
+                        ha-card {
+                          background: none;
+                          box-shadow: none;                          
+                          padding-top: 4px;
+                          padding-bottom: 4px;
+                        }
+                      entity: sensor.sensibo_[[name]]_target_temp
+                      scale: 28px
+
+                    - type: custom:decluttering-card # Increase Target Temperature
+                      template: simple_script_button
+                      variables:
+                        - entity: script.sensibo_[[name]]_increase_target_temp
+                        - icon: mdi:plus
+
+
+                ############################################################################
+                #                                                                          #
+                #   Operation Mode and Sate Sync                                           #
+                #                                                                          #
+                ############################################################################
+
                 - type: custom:hui-element
                   card_type: horizontal-stack
                   style: |
@@ -81,12 +133,16 @@ climate_button:
                       variables:
                         - entity: switch.sensibo_[[name]]_cool
                         - name: Cool
+                        - show_name: true
                         - icon: mdi:snowflake
+                        - height: 68px
                         - state:
                             - value: "on"
                               styles:
                                 card:
                                   - background-color: '[[cool_color]]'
+                                name:
+                                  - color: '[[text_on_color]]'
                                 icon:
                                   - color: '[[icon_on_color]]'
 
@@ -95,23 +151,84 @@ climate_button:
                       variables:
                         - entity: switch.sensibo_[[name]]_heat
                         - name: Heat
+                        - show_name: true
                         - icon: mdi:fire
+                        - height: 68px
                         - state:
                             - value: "on"
                               styles:
                                 card:
                                   - background-color: '[[heat_color]]'
+                                name:
+                                  - color: '[[text_on_color]]'
                                 icon:
                                   - color: '[[icon_on_color]]'
 
-                    - type: custom:decluttering-card # Decrease Target Temperature
-                      template: simple_script_button
+                    - type: custom:decluttering-card # Assumed State Sync
+                      template: sensibo_assumed_state_button
                       variables:
-                        - entity: script.sensibo_[[name]]_decrease_target_temp
-                        - icon: mdi:minus
+                        - entity: climate.[[name]]
 
-                    - type: custom:decluttering-card # Increase Target Temperature
-                      template: simple_script_button
+
+                ############################################################################
+                #                                                                          #
+                #   Fan speed set                                                          #
+                #                                                                          #
+                ############################################################################
+
+                - type: custom:hui-element
+                  card_type: horizontal-stack
+                  style: |
+                    #root {
+                      justify-content: space-evenly;
+                      margin: 1.6em -0.7em 0.7em 0;
+                    }
+                  cards:
+      
+                    - type: custom:decluttering-card
+                      template: title_button_card
                       variables:
-                        - entity: script.sensibo_[[name]]_increase_target_temp
-                        - icon: mdi:plus
+                        - name: Fan 
+
+
+                - type: custom:hui-element
+                  card_type: horizontal-stack
+                  style: |
+                    #root {
+                      justify-content: space-evenly;
+                      margin: 0 -0.7em 0.7em 0;
+                    }
+                  cards:
+
+                    - type: custom:decluttering-card # Low Fan
+                      template: sensibo_fan_select_button
+                      variables:
+                        - entity: sensor.sensibo_[[name]]_fan
+                        - name: Low
+                        - fan_mode: "low"
+                        - climate_entity: climate.[[name]]
+
+                    - type: custom:decluttering-card # Med Fan
+                      template: sensibo_fan_select_button
+                      variables:
+                        - entity: sensor.sensibo_[[name]]_fan
+                        - name: Med
+                        - fan_mode: "medium"
+                        - climate_entity: climate.[[name]]
+                              
+                    - type: custom:decluttering-card # High Fan
+                      template: sensibo_fan_select_button
+                      variables:
+                        - entity: sensor.sensibo_[[name]]_fan
+                        - name: High
+                        - fan_mode: "high"
+                        - climate_entity: climate.[[name]]
+
+                    - type: custom:decluttering-card # Auto Fan
+                      template: sensibo_fan_select_button
+                      variables:
+                        - entity: sensor.sensibo_[[name]]_fan
+                        - name: Auto
+                        - fan_mode: "auto"
+                        - climate_entity: climate.[[name]]
+

@@ -1,10 +1,13 @@
-simple_script_button:
+sensibo_assumed_state_button:
 
   default:
     - color: var(--button-color-green)
     - icon_color: var(--primary-text-color)
-    - name_color: var(--primary-text-color)
     - color_type: card
+    - icon: mdi:sync-circle
+    - show_name: true
+    - height: 68px
+    - name: State Sync
 
   card:
     type: custom:decluttering-card
@@ -19,12 +22,17 @@ simple_script_button:
       - color_type: '[[color_type]]'
       - height: '[[height]]'
       - layout: '[[layout]]'
-      - lock: '[[lock]]'
       - tap_action: 
           action: call-service
-          service: script.turn_on
+          service: sensibo.assume_state
           service_data:
             entity_id: '[[entity]]'
+            state: "[[[
+                if (entity.state == 'off')
+                  return 'on';
+                else
+                  return 'off';
+              ]]]"
       - hold_action:
           action: none
       - state:
@@ -34,5 +42,3 @@ simple_script_button:
                 - background-color: '[[color]]'
               icon:
                 - color: '[[icon_color]]'
-              name:
-                - color: '[[name_color]]'

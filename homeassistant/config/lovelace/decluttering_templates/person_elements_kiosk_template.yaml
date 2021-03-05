@@ -1,4 +1,4 @@
-person_elements:
+person_elements_kiosk:
 
   default:
     - text_color: var(--picture-elements-text-color)

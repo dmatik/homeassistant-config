@@ -1,0 +1,127 @@
+badge_button_text:
+
+  default:
+    - cust_1_field: ""
+    - cust_2_field: ""
+    - corner_field: ""
+    - corner_2_field: ""
+    - color: auto
+    - color_type: icon
+    - lock:
+        enabled: false
+        duration: 5
+        unlock: tap
+    - state:
+        - value: "on"
+          styles:
+            card:
+              #- background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+                - background-color: var(--button-card-on-background)
+        - value: "unavailable"
+          styles:
+            icon:
+              - color: var(--button-card-disabled-text-color)
+            name:
+              - color: var(--button-card-disabled-text-color)
+            custom_fields:
+              svg_icon:
+                - --button-card-light-color-no-temperature: var(--button-card-disabled-text-color)
+              cust_2:
+                - color: var(--button-card-disabled-text-color)
+
+    # Styles
+    - border_radius: var(--button-card-border-radius)
+    - background_color: var(--button-card-background-color)
+    #- icon_color: var(--button-card-icon-color)
+    - text_color: var(--button-card-text-color)
+    - corner_text_color: var(--button-card-corner-text-color)
+    - text_transform: capitalize
+    - corner_2_text_color: var(--button-card-corner-text-color)
+    - cust_1_text_color: var(--button-card-cust-1-text-color)
+    - cust_2_text_color: var(--button-card-cust-2-text-color)
+    - lock_color: var(--button-card-lock-color)
+    - svg_fill: var(--button-card-svg-off-color)
+    - svg_fill_on: var(--button-card-light-color-no-temperature)
+    - text_field_color: var(--button-card-text-color)
+
+
+  card:
+    type: custom:button-card
+    style: |
+      ha-card {
+        background: none;
+        box-shadow: none;
+      }
+    entity: '[[entity]]'
+    icon: '[[icon]]'
+    aspect_ratio: 4/6
+    #name: '[[name]]'
+    show_name: false
+    show_icon: false
+    color: '[[color]]'
+    color_type: '[[color_type]]'
+    show_last_changed: false
+    lock: '[[lock]]'
+    styles:
+      card:
+        - padding: 8%
+        - font-size: 12px
+        - font-weight: bold
+        - text-transform: '[[text_transform]]'
+        - border-radius: '[[border_radius]]'
+        #- background-color: rgba(0,0,0,0)
+        - color: '[[text_color]]'
+        - box-shadow: none;
+        #- backdrop-filter: blur(20px)
+      grid:
+        - grid-template-areas: '"text_field" "cust_1"'
+        - grid-template-rows: 4fr 2fr
+      custom_fields:
+        text_field:
+          - display: flex
+          - justify-content: center
+          - align-items: center
+          - font-size: 24px
+          - font-weight: bold
+          - text-align: center
+          - line-height: 100%
+          - align-self: center
+          - justify-self: center
+          - margin: none
+          - height: 50%
+          - width: 50%
+          - padding-bottom: 20.4%
+          - padding-top: 20.4%
+          - padding-left: 22%
+          - padding-right: 22%
+          - background-color: '[[background_color]]'
+          - color: '[[text_field_color]]'
+          - border-radius: 50%
+          - aspect_ratio: 1/1
+        cust_1:
+          - display: flex
+          - justify-content: center
+          - align-items: self-start
+          #- line-height: 100%
+          - align-self: normal
+          - place-self: normal
+          - padding-top: 4px
+          - padding-bottom: 2px
+          - align-self: center
+          - justify-self: center
+          - color: "[[cust_1_text_color]]"
+          - --icon-color-sensor: "[[cust_1_icon_color]]"
+          - text-overflow: unset
+          - white-space: unset
+          - word-break: break-word
+    custom_fields:  
+      text_field: "[[text_field]]"
+      cust_1: "[[cust_1_field]]"
+    tap_action: '[[tap_action]]'
+    hold_action: '[[hold_action]]'
+    double_tap_action: '[[double_tap_action]]'
+    state: "[[state]]"

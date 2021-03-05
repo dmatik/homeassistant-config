@@ -15,7 +15,7 @@
   #initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: device_tracker.iphonexsdima
+      entity_id: person.dmatik
       to: "Amdocs"
   action:
     #- service: notify.dimatelegram
@@ -35,7 +35,7 @@
   #initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: device_tracker.iphonexsdima
+      entity_id: person.dmatik
       from: "Amdocs"
   action:
     #- service: notify.dimatelegram

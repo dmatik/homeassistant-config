@@ -1,4 +1,4 @@
-button_two_rows_svg:
+badge_button_svg:
 
   default:
     - cust_1_field: ""
@@ -15,17 +15,12 @@ button_two_rows_svg:
         - value: "on"
           styles:
             card:
-              - background-color: var(--button-card-on-background)
+              #- background-color: var(--button-card-on-background)
               - color: var(--button-card-on-text-color) #'#040404'
             custom_fields:
-              # corner:
-              #   - color: var(--button-card-corner-on-text-color) #'#6F7075'
-              corner_2:
-                - color: var(--button-card-corner-on-text-color) #'#6F7075'
               cust_1:
                 - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
-              cust_2:
-                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+                - background-color: var(--button-card-on-background)
         - value: "unavailable"
           styles:
             icon:
@@ -35,12 +30,6 @@ button_two_rows_svg:
             custom_fields:
               svg_icon:
                 - --button-card-light-color-no-temperature: var(--button-card-disabled-text-color)
-              corner:
-                - color: var(--button-card-disabled-text-color)
-              corner_2:
-                - color: var(--button-card-disabled-text-color)
-              cust_1:
-                - color: var(--button-card-disabled-text-color)
               cust_2:
                 - color: var(--button-card-disabled-text-color)
 
@@ -61,10 +50,17 @@ button_two_rows_svg:
 
   card:
     type: custom:button-card
+    style: |
+      ha-card {
+        background: none;
+        box-shadow: none;
+      }
     entity: '[[entity]]'
     icon: '[[icon]]'
-    aspect_ratio: 1/1
-    name: '[[name]]'
+    aspect_ratio: 4/6
+    #name: '[[name]]'
+    show_name: false
+    show_icon: false
     color: '[[color]]'
     color_type: '[[color_type]]'
     show_last_changed: false
@@ -76,62 +72,47 @@ button_two_rows_svg:
         - font-weight: bold
         - text-transform: '[[text_transform]]'
         - border-radius: '[[border_radius]]'
-        - background-color: '[[background_color]]'
+        #- background-color: rgba(0,0,0,0)
         - color: '[[text_color]]'
-        - backdrop-filter: blur(20px)
+        - box-shadow: none;
+        #- backdrop-filter: blur(20px)
       grid:
-        - grid-template-areas: '"svg_icon corner" "svg_icon corner_2" "n n" "cust_1 cust_2"'
-        - grid-template-columns: 2fr 3fr
-        - grid-template-rows: 1fr 2fr 4fr 1fr
-      name:
-        - font-size: 1.20em #15px
-        - align-self: middle
-        - justify-self: start
-        - align-self: end
-        - padding-top: 8px
-        - padding-bottom: 4px
-        #- text-transform: lowercase
-      lock:
-        - color: '[[lock_color]]'
+        - grid-template-areas: '"svg_icon" "cust_1"'
+        - grid-template-rows: 4fr 2fr
       custom_fields:
         svg_icon:
-          - justify-content: start
-          - align-items: start
+          #- justify-content: center
+          #- align-items: center
+          - align-self: center
+          - justify-self: center
           - margin: none
-          - height: 100%
-          - padding-bottom: 0px
+          - height: 50%
+          - width: 50%
+          - padding-bottom: 20.4%
+          - padding-top: 20.4%
+          - padding-left: 22%
+          - padding-right: 22%
+          - background-color: '[[background_color]]'
           #- color: '[[icon_color]]'
-        corner:
-          - align-self: start
-          - justify-self: end
-          - font-size: 1em #14px
-          - font-weight: bold
-          - color: "[[corner_text_color]]"
-          - --icon-color-sensor: "[[corner_icon_color]]"
-          - border-radius: "[[corner_border_radius]]"
-          - background-color: "[[corner_background_color]]"
-          - min-width: 12px
-          - line-height: 22px
-          - padding: 0px 5px
-          - height: 22px
-        corner_2:
-          - padding-top: 8px
-          - align-self: start
-          - justify-self: end
-          - color: "[[corner_2_text_color]]"
-          - --icon-color-sensor: "[[corner_2_icon_color]]"
+          - border-radius: 50%
+          - aspect_ratio: 1/1
         cust_1:
+          - display: flex
+          - justify-content: center
+          - align-items: self-start
+          #- line-height: 100%
+          - align-self: normal
+          - place-self: normal
+          - padding-top: 4px
           - padding-bottom: 2px
-          - align-self: middle
-          - justify-self: start
+          - align-self: center
+          - justify-self: center
           - color: "[[cust_1_text_color]]"
           - --icon-color-sensor: "[[cust_1_icon_color]]"
-        cust_2:
-          - padding-bottom: 2px
-          - align-self: middle
-          - justify-self: end
-          - color: "[[cust_2_text_color]]"
-          - --icon-color-sensor: "[[cust_2_icon_color]]"
+          - text-overflow: unset
+          - white-space: unset
+          - word-break: break-word
+
     custom_fields:  
       svg_icon: "[[[ 
         const state = entity.state === 'on' ? 'animate' : null;
@@ -139,10 +120,7 @@ button_two_rows_svg:
         <path fill='[[svg_fill]]' d='[[svg_path]]'/>
         <path class='${state}' fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
         ]]]"
-      corner: "[[corner_field]]"
-      corner_2: "[[corner_2_field]]"
       cust_1: "[[cust_1_field]]"
-      cust_2: "[[cust_2_field]]"
     tap_action: '[[tap_action]]'
     hold_action: '[[hold_action]]'
     double_tap_action: '[[double_tap_action]]'

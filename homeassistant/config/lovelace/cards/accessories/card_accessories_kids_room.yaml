@@ -39,8 +39,6 @@ cards:
         variables:
           - title: Kids Room
           - name: kids_room
-          - image_on: /local/images/sensibo/kids_room_ac_on.png
-          - image_off: /local/images/sensibo/kids_room_ac_off.png
 
       - type: custom:decluttering-card # Kids Room Radiator
         template: socket_button

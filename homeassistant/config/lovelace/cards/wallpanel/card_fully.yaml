@@ -37,16 +37,16 @@ cards:
             attribute: appVersionName
             icon: mdi:clipboard-list
             name: App Version
-          - type: attribute
-            entity: sensor.fully_device_info
-            attribute: isScreenOn
-            icon: mdi:overscan
-            name: Screen On
-          - type: attribute
-            entity: sensor.fully_device_info
-            attribute: ssid
-            icon: mdi:wifi
-            name: WiFi SSID
+          # - type: attribute
+          #   entity: sensor.fully_device_info
+          #   attribute: isScreenOn
+          #   icon: mdi:overscan
+          #   name: Screen On
+          # - type: attribute
+          #   entity: sensor.fully_device_info
+          #   attribute: ssid
+          #   icon: mdi:wifi
+          #   name: WiFi SSID
           - type: attribute
             entity: sensor.fully_device_info
             attribute: wifiSignalLevel

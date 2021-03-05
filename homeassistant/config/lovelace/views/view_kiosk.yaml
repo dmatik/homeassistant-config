@@ -25,8 +25,7 @@ cards:
 
               - !include /config/lovelace/cards/card_weather.yaml
               
-              #- !include /config/lovelace/cards/occupancy/card_occupancy.yaml
-              - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
+              - !include /config/lovelace/cards/presence/card_presence_kiosk.yaml
 
               #- !include /config/lovelace/cards/remotes/card_harmony_living_room_kiosk.yaml
 

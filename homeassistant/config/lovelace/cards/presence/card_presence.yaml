@@ -8,13 +8,13 @@ cards:
 #                                                                          #
 ############################################################################
 
-  # - type: horizontal-stack
-  #   cards:
+  - type: horizontal-stack
+    cards:
     
-  #     - type: custom:decluttering-card
-  #       template: title_button_card
-  #       variables:
-  #         - name: Presence
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Presence
 
 
 
@@ -25,7 +25,7 @@ cards:
 ############################################################################
 
   - type: grid
-    columns: 2
+    columns: 3
     square: false
     cards:
  

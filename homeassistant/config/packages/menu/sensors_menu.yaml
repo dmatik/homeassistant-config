@@ -227,3 +227,40 @@ sensor:
       #       {% endif %}
       #     {% endfor %}
       #     {{ count.value }}
+
+
+
+############################################################################
+#                                                                          #
+#   Number of Persons Home                                                 #
+#                                                                          #
+############################################################################
+
+      number_of_persons_home:
+        friendly_name: "Number of persons home"
+        icon_template: mdi:account-circle
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_person_entities','entity_id') %}
+            {% if (states(entity_id) == 'home') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Only Person On                                                         #
+#                                                                          #
+############################################################################
+
+      only_person_home:
+        friendly_name: "Only Person Home"
+        icon_template: mdi:account-circle
+        value_template: >-
+          {% for entity_id in state_attr('group.all_person_entities','entity_id') %}
+            {% if (states(entity_id) == 'home') %}
+              {{ states[entity_id].attributes.friendly_name }}
+            {% endif %}
+          {% endfor %}

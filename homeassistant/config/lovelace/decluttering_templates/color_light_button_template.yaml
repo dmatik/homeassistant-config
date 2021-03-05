@@ -43,12 +43,12 @@ color_light_button:
           action: none
       - double_tap_action:
           haptic: heavy
-          action: call-service
-          service: browser_mod.popup
-          service_data:
+          action: fire-dom-event
+          browser_mod:
+            command: popup
             hide_header: false
             title: '[[name]]'
-            deviceID: this
+
             card:
 
               type: custom:decluttering-card
