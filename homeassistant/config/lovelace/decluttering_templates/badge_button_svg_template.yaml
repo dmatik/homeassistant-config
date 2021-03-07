@@ -97,10 +97,18 @@ badge_button_svg:
           - border-radius: 50%
           - aspect_ratio: 1/1
         cust_1:
-          - display: flex
+          - line-height: 15px
+          - height: 29px
+          - overflow: hidden
+
+          - text-overflow: ellipsis
+          - display: -webkit-box
+          - -webkit-box-orient: vertical
+          - -webkit-line-clamp: 2
+
+          #- display: flex
           - justify-content: center
           - align-items: self-start
-          #- line-height: 100%
           - align-self: normal
           - place-self: normal
           - padding-top: 4px
@@ -109,7 +117,7 @@ badge_button_svg:
           - justify-self: center
           - color: "[[cust_1_text_color]]"
           - --icon-color-sensor: "[[cust_1_icon_color]]"
-          - text-overflow: unset
+          #- text-overflow: unset
           - white-space: unset
           - word-break: break-word
 

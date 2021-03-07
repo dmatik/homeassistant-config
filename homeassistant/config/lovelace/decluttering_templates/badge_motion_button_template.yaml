@@ -57,7 +57,7 @@ badge_motion_button:
             if ( entity.state == '0' )
               return 'Clear';
             else if ( entity.state == '1' )
-              return states['sensor.only_motion_sensor_on'].state + ' On';
+              return states['sensor.only_motion_sensor_on'].state + ' Motion';
             else
               return 'Motion In ' + entity.state + ' Rooms'; 
           ]]]"
