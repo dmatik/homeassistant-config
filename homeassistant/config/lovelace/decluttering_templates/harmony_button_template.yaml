@@ -56,16 +56,18 @@ harmony_button:
           ]]]"
       - cust_2_field: '[[cust_2_field]]'
       - state: "[[state]]"
-      - tap_action:
-          #haptic: light
-          action: call-service
-          service: switch.toggle
-          service_data:
-            entity_id: '[[entity]]'
+      # - tap_action:
+      #     #haptic: light
+      #     action: call-service
+      #     service: switch.toggle
+      #     service_data:
+      #       entity_id: '[[entity]]'
       - hold_action: 
           action: none
       - double_tap_action:
-          haptic: heavy
+          action: none
+      - tap_action:
+          #haptic: heavy
           action: fire-dom-event
           browser_mod:
             command: popup
@@ -102,8 +104,10 @@ harmony_button:
                       template: simple_button
                       variables:
                         - entity: '[[entity]]'
-                        - name: '[[title]]'
+                        - name: Shield TV
                         - icon: '[[icon]]'
+                        - show_name: true
+                        - height: 68px
 
 
                     - type: custom:decluttering-card # Volume Up
@@ -112,6 +116,8 @@ harmony_button:
                         - entity: script.reciever_volume_up
                         - name: Volume
                         - icon: mdi:volume-plus
+                        - show_name: true
+                        - height: 68px
 
                     - type: custom:decluttering-card # Volume Down
                       template: simple_script_button
@@ -119,6 +125,8 @@ harmony_button:
                         - entity: script.reciever_volume_down
                         - name: Volume
                         - icon: mdi:volume-minus
+                        - show_name: true
+                        - height: 68px
 
                     - type: custom:decluttering-card # Volume Mute
                       template: simple_script_button
@@ -126,3 +134,5 @@ harmony_button:
                         - entity: script.reciever_volume_mute
                         - name: Mute
                         - icon: mdi:volume-mute
+                        - show_name: true
+                        - height: 68px

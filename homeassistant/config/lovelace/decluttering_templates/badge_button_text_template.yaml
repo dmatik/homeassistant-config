@@ -85,7 +85,7 @@ badge_button_text:
           - display: flex
           - justify-content: center
           - align-items: center
-          - font-size: 24px
+          - font-size: 26px
           - font-weight: bold
           - text-align: center
           - line-height: 100%

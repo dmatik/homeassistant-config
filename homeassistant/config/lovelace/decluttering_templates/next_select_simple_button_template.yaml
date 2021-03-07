@@ -9,6 +9,7 @@ next_select_simple_button:
     - background_color: var(--button-card-background-color)
     - name_color: var(--button-card-icon-color)
     - icon_color: var(--button-card-icon-color)
+    - label_color: var(--button-card-text-color)
     - size: 40px
     - width: ""
     - height: 68px
@@ -16,6 +17,7 @@ next_select_simple_button:
     - font_weight: normal
     - label_font_size: 14px
     - label_height: 16.73px
+    - label_font_weight: bold
     - padding_top: 3%
     - padding_bottom: 3%
     - lock: false
@@ -65,9 +67,10 @@ next_select_simple_button:
         - color: '[[name_color]]'
         - font-size: '[[font_size]]'
       label:
-        - color: '[[name_color]]'
+        - color: '[[label_color]]'
         - font-size: '[[label_font_size]]'
         - height: '[[label_height]]'
+        - font-weight: '[[label_font_weight]]'
       img_cell:
         - color: '[[icon_color]]'
       lock:

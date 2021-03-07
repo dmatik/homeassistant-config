@@ -13,7 +13,7 @@ simple_button:
     - width: ""
     - height: 54px
     - font_size: 14px
-    - font_weight: normal
+    - font_weight: bold
     - label_font_size: 14px
     - padding_top: 3%
     - padding_bottom: 3%

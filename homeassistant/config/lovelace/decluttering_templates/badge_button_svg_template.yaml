@@ -81,8 +81,9 @@ badge_button_svg:
         - grid-template-rows: 4fr 2fr
       custom_fields:
         svg_icon:
-          #- justify-content: center
-          #- align-items: center
+          - display: flex
+          - justify-content: center
+          - align-items: center
           - align-self: center
           - justify-self: center
           - margin: none
