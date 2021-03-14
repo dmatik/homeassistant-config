@@ -22,17 +22,13 @@ cards:
               template: shoulder_blank_card
                 
             - type: custom:layout-card
-              min_columns: 1
-              max_columns: 3
+              layout_type: masonry
+              layout_options:
+                width: 300
+                max_cols: 3
               cards:
 
                 - !include /config/lovelace/cards/badges/card_badges_home.yaml
-
-                #- !include /config/lovelace/cards/presence/card_presence.yaml
-
-                #- !include /config/lovelace/cards/menu/card_main_menu_buttons.yaml
-
-                #- !include /config/lovelace/cards/menu/card_menu_buttons.yaml
 
                 - !include /config/lovelace/cards/accessories/card_accessories_home.yaml
 

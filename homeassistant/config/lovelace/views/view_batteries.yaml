@@ -23,8 +23,10 @@ cards:
               template: shoulder_blank_card
                 
             - type: custom:layout-card
-              min_columns: 1
-              max_columns: 3
+              layout_type: masonry
+              layout_options:
+                width: 300
+                max_cols: 3
               cards:
 
                 - !include /config/lovelace/cards/xiaomi/card_batteries.yaml
