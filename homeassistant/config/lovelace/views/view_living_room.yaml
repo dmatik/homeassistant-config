@@ -25,19 +25,14 @@ cards:
               min_columns: 1
               max_columns: 3
               cards:
-                #- !include /config/lovelace/cards/card_home_button.yaml
-                #- !include /config/lovelace/cards/view_titles/card_view_title_living_room.yaml
 
                 - !include /config/lovelace/cards/accessories/card_accessories_living_room.yaml
-                
-                #- !include /config/lovelace/cards/sensors/card_sensors_living_room.yaml
-
-                #- !include /config/lovelace/cards/ac/card_sensibo_living_room.yaml
-                
-                #- !include /config/lovelace/cards/remotes/card_harmony_living_room_buttons.yaml
 
             - type: custom:button-card
               template: shoulder_blank_card
+
+        - type: custom:decluttering-card # Bottom space
+          template: blank_card
 
 
 

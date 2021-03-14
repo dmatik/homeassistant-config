@@ -37,7 +37,7 @@ cards:
       - type: custom:decluttering-card # Living Room AC
         template: climate_button
         variables:
-          - title: Living Room
+          - title: Main AC
           - name: living_room
 
       - type: custom:decluttering-card # Living Room TV

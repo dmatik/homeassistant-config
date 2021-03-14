@@ -37,7 +37,7 @@ cards:
       - type: custom:decluttering-card # Bedroom AC
         template: climate_button
         variables:
-          - title: Bedroom
+          - title: Bedroom AC
           - name: bedroom
 
       - type: custom:decluttering-card # Makeup Light

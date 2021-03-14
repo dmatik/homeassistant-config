@@ -126,17 +126,14 @@ cards:
   - type: horizontal-stack
     cards:
 
-      - type: custom:decluttering-card
-        template: simple_button
+      - type: custom:decluttering-card # States sync
+        template: simple_script_button
         variables:
           - entity: script.tasmotas_state_sync
-          - name: Sync states
-          - font_size: 20px
+          - name: Sync States
           - show_name: true
-          - show_icon: false
-          - tap_action: 
-              action: call-service
-              service: script.tasmotas_state_sync
+          - height: 68px
+          - icon: mdi:autorenew
 
 
   - !include /config/lovelace/styles/separator_card.yaml

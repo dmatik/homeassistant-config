@@ -62,6 +62,6 @@ views:
     # Media
     #- !include /config/lovelace/views/view_media.yaml
     # Health
-    - !include /config/lovelace/views/view_health.yaml
+    #- !include /config/lovelace/views/view_health.yaml
 
 

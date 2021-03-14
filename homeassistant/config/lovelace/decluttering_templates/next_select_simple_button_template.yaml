@@ -15,11 +15,12 @@ next_select_simple_button:
     - height: 68px
     - font_size: 38px
     - font_weight: normal
+    - line_height: 40px
     - label_font_size: 14px
     - label_height: 16.73px
     - label_font_weight: bold
-    - padding_top: 3%
-    - padding_bottom: 3%
+    - padding_top: 6px
+    - padding_bottom: 6px
     - lock: false
     - lock_color: var(--button-card-text-color) #var(--button-card-lock-color)
     - tap_action:
@@ -66,6 +67,13 @@ next_select_simple_button:
         #- text-transform: lowercase
         - color: '[[name_color]]'
         - font-size: '[[font_size]]'
+        - line-height: '[[line_height]]'
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - align-self: center
+        - justify-self: center
+        - text-align: center
       label:
         - color: '[[label_color]]'
         - font-size: '[[label_font_size]]'

@@ -1,0 +1,11 @@
+sensor:
+
+  - platform: template
+    sensors:
+
+      havid_view_dummy:
+        friendly_name: "Havid View Dummy"
+        icon_template: mdi:pill
+        value_template: >-
+          off
+          

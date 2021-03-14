@@ -43,7 +43,7 @@ climate_button:
           browser_mod:
             command: popup
             hide_header: false
-            title: '[[title]] AC'
+            title: '[[title]]'
 
             card:
 

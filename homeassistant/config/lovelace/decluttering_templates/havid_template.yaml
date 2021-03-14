@@ -51,28 +51,23 @@ havid_card:
       - type: horizontal-stack
         cards:
 
-          - type: custom:decluttering-card
-            template: simple_button
+          - type: custom:decluttering-card # Sign
+            template: simple_script_button
             variables:
               - entity: script.sign_and_download_havid_[[system]]
               - name: Sign
-              - font_size: 20px
               - show_name: true
-              - show_icon: false
-              - tap_action: 
-                  action: call-service
-                  service: script.sign_and_download_havid_[[system]]
+              - height: 68px
+              - icon: mdi:pen
 
-          - type: custom:decluttering-card
-            template: simple_button
+          - type: custom:decluttering-card # Refresh
+            template: simple_script_button
             variables:
               - entity: script.download_havid_[[system]]
               - name: Refresh
-              - font_size: 20px
               - show_name: true
-              - show_icon: false
-              - tap_action: 
-                  action: call-service
-                  service: script.download_havid_[[system]]
+              - height: 68px
+              - icon: mdi:refresh
+
 
       - !include /config/lovelace/styles/separator_card.yaml

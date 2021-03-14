@@ -30,6 +30,9 @@ cards:
             - type: custom:button-card
               template: shoulder_blank_card
 
+        - type: custom:decluttering-card # Bottom space
+          template: blank_card
+
 
 
 

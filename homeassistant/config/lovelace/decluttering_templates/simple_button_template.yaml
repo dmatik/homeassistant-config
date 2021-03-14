@@ -15,8 +15,8 @@ simple_button:
     - font_size: 14px
     - font_weight: bold
     - label_font_size: 14px
-    - padding_top: 3%
-    - padding_bottom: 3%
+    - padding_top: 6px
+    - padding_bottom: 6px
     - lock: false
     - lock_color: var(--button-card-text-color) #var(--button-card-lock-color)
     - tap_action:

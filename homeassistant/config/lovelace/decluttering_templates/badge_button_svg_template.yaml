@@ -81,22 +81,21 @@ badge_button_svg:
         - grid-template-rows: 4fr 2fr
       custom_fields:
         svg_icon:
-          - display: flex
-          - justify-content: center
-          - align-items: center
+          #- display: flex
+          #- justify-content: center
+          #- align-items: center
           - align-self: center
           - justify-self: center
           - margin: none
           - height: 50%
           - width: 50%
-          - padding-bottom: 20.4%
-          - padding-top: 20.4%
+          - padding-bottom: 18.8%
+          - padding-top: 22%
           - padding-left: 22%
           - padding-right: 22%
           - background-color: '[[background_color]]'
           #- color: '[[icon_color]]'
           - border-radius: 50%
-          - aspect_ratio: 1/1
         cust_1:
           - line-height: 15px
           - height: 29px

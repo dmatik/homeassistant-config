@@ -31,13 +31,13 @@ cards:
       - type: custom:decluttering-card # Living Room AC
         template: climate_button
         variables:
-          - title: Living Room
+          - title: Main AC
           - name: living_room
 
       - type: custom:decluttering-card # Bedroom AC
         template: climate_button
         variables:
-          - title: Bedroom
+          - title: Bedroom AC
           - name: bedroom
 
       - type: custom:decluttering-card # Work Room Temperature
@@ -59,7 +59,7 @@ cards:
       - type: custom:decluttering-card # Kids Room AC
         template: climate_button
         variables:
-          - title: Kids Room
+          - title: Kids Room AC
           - name: kids_room
                 
       - type: "custom:button-card"

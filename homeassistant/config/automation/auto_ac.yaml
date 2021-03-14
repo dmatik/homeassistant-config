@@ -136,7 +136,7 @@
   action:
     - service: notify.mobile_app_iphonedima
       data_template:
-        title: '{{ trigger.to_state.name }} AC' 
+        title: 'Living Room AC' 
         message: >-
           {% if trigger.to_state.state == 'cool' %}
             Cooling to {{ state_attr('climate.living_room', 'temperature') }}°C

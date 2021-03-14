@@ -102,9 +102,9 @@ cards:
         variables:
           - entity: rest_command.fully_load_url
           - name: Reload URL
-          - font_size: 20px
           - show_name: true
-          - show_icon: false
+          - height: 68px
+          - icon: mdi:refresh
           - tap_action: 
               action: call-service
               service: rest_command.fully_load_url
@@ -114,9 +114,9 @@ cards:
         variables:
           - entity: rest_command.fully_restart_app
           - name: Restart App
-          - font_size: 20px
           - show_name: true
-          - show_icon: false
+          - height: 68px
+          - icon: mdi:restart
           - tap_action: 
               action: call-service
               service: rest_command.fully_restart_app
@@ -126,9 +126,9 @@ cards:
         variables:
           - entity: rest_command.fully_clear_cache
           - name: Clear Cache
-          - font_size: 20px
           - show_name: true
-          - show_icon: false
+          - height: 68px
+          - icon: mdi:cached
           - tap_action: 
               action: call-service
               service: rest_command.fully_clear_cache

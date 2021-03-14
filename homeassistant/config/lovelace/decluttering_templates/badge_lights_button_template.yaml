@@ -57,7 +57,7 @@ badge_lights_button:
             if ( entity.state == '0' )
               return 'Off';
             else if ( entity.state == '1' )
-              return states['sensor.only_light_on'].state + ' Light On';
+              return states['sensor.only_light_on'].state + ' On';
             else
               return entity.state + ' Lights On'; 
           ]]]"
@@ -106,4 +106,5 @@ badge_lights_button:
                     - type: custom:button-card
                       template: shoulder_blank_card
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Bottom space
+                  template: blank_card

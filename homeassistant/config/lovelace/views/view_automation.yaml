@@ -33,9 +33,8 @@ cards:
 
                 - !include /config/lovelace/cards/homeassistant/card_automations_misc.yaml
 
-                #- !include /config/lovelace/styles/view_bottom_gap.yaml
-
             - type: custom:button-card
               template: shoulder_blank_card
 
-        - !include /config/lovelace/styles/separator_card.yaml
+        - type: custom:decluttering-card # Bottom space
+          template: blank_card

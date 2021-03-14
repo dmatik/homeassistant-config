@@ -29,8 +29,9 @@ cards:
 
                 - !include /config/lovelace/cards/nas/card_zeg.yaml
 
-                #- !include /config/lovelace/styles/view_bottom_gap.yaml
-
             - type: custom:button-card
               template: shoulder_blank_card
+
+        - type: custom:decluttering-card # Bottom space
+          template: blank_card
  

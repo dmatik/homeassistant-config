@@ -99,7 +99,7 @@ text_button_two_rows:
     lock: '[[lock]]'
     styles:
       card:
-        - padding: 8%
+        - padding: 10%
         - font-size: 12px
         - font-weight: bold
         - text-transform: capitalize

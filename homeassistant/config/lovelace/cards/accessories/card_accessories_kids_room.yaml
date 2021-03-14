@@ -37,7 +37,7 @@ cards:
       - type: custom:decluttering-card # Kids Room AC
         template: climate_button
         variables:
-          - title: Kids Room
+          - title: Kids Room AC
           - name: kids_room
 
       - type: custom:decluttering-card # Kids Room Radiator
