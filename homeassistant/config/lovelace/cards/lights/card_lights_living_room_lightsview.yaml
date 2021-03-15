@@ -23,9 +23,19 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: grid
-    columns: 3
-    square: false
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 2px
+      mediaquery:
+        "(max-width: 450px)":
+          grid-template-columns: 1fr 1fr 1fr
+  # - type: grid
+  #   columns: 3
+  #   square: false
     cards:
 
           - type: custom:decluttering-card # Living Room

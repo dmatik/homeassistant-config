@@ -17,20 +17,21 @@ cards:
         - type: horizontal-stack
           cards:
 
-            - type: custom:button-card
-              template: shoulder_blank_card
+            # - type: custom:button-card
+            #   template: shoulder_blank_card
                 
             - type: custom:layout-card
               layout_type: masonry
               layout_options:
-                width: 300
-                max_cols: 3
+                width: 500
+                max_width: 500
+                max_cols: 1
               cards:
 
                 - !include /config/lovelace/cards/accessories/card_accessories_work_room.yaml
 
-            - type: custom:button-card
-              template: shoulder_blank_card
+            # - type: custom:button-card
+            #   template: shoulder_blank_card
 
         - type: custom:decluttering-card # Bottom space
           template: blank_card

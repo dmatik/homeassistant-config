@@ -83,19 +83,22 @@ badge_persons_button:
                 - type: horizontal-stack
                   cards:
 
-                    - type: custom:button-card
-                      template: shoulder_blank_card
+                    # - type: custom:button-card
+                    #   template: shoulder_blank_card
                         
                     - type: custom:layout-card
-                      min_columns: 1
-                      max_columns: 3
+                      layout_type: masonry
+                      layout_options:
+                        width: 500
+                        max_width: 500
+                        max_cols: 1
                       cards:
 
                         - !include /config/lovelace/cards/presence/card_presence.yaml
 
                         #- !include /config/lovelace/styles/view_bottom_gap.yaml
 
-                    - type: custom:button-card
-                      template: shoulder_blank_card
+                    # - type: custom:button-card
+                    #   template: shoulder_blank_card
 
                 - !include /config/lovelace/styles/separator_card.yaml
