@@ -23,11 +23,20 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: vertical-stack
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+      # mediaquery:
+      #   "(max-width: 450px)":
+      #     grid-template-columns: 1fr 1fr 1fr
+  # - type: grid
+  #   columns: 3
+  #   square: false
     cards:
-    
-      - type: horizontal-stack
-        cards:
 
           - type: custom:decluttering-card # Living Room
             template: light_button
@@ -46,9 +55,6 @@ cards:
             variables:
               - entity: light.balcony
               - name: Balcony
-
-      - type: horizontal-stack
-        cards:
 
           - type: custom:decluttering-card # Kitchen
             template: light_button
@@ -78,9 +84,6 @@ cards:
           #     - entity: light.entrance
           #     - name: Entrance
 
-      - type: horizontal-stack
-        cards:  
-
           - type: custom:decluttering-card # Hallway
             template: light_button
             variables:
@@ -108,8 +111,6 @@ cards:
           #     - svg_path: 'M10,21V18H3L8,13H5L10,8H7L12,3L17,8H14L19,13H16L21,18H14V21H10Z'
           #     - svg_path_on: 'M 10,18 H 3 L 8,13 H 5 L 10,8 H 7 l 5,-5 5,5 h -3 l 5,5 h -3 l 5,5 h -7 c 0,0 0,0 -4,0 z'
           
-          - type: "custom:button-card"
-            color_type: blank-card
 
   - !include /config/lovelace/styles/separator_card.yaml
 
@@ -136,11 +137,20 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: vertical-stack
-    cards:
+  - type: custom:layout-card
+    layout_type: grid
 
-      - type: horizontal-stack
-        cards: 
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+      # mediaquery:
+      #   "(max-width: 450px)":
+      #     grid-template-columns: 1fr 1fr 1fr
+  # - type: grid
+  #   columns: 3
+  #   square: false
+    cards:
 
           - type: custom:decluttering-card # Bedroom
             template: light_button
@@ -166,9 +176,6 @@ cards:
               - icon: mdi:lamp
               - svg_path: 'M8,2H16L20,14H4L8,2M11,15H13V20H18V22H6V20H11V15Z'
               - svg_path_on: 'm 8,2 h 8 l 4,12 H 4 L 8,2'
-
-      - type: horizontal-stack
-        cards:  
 
           - type: custom:decluttering-card # Work Room
             template: light_button

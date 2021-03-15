@@ -42,7 +42,7 @@ cards:
               #- !include /config/lovelace/cards/ac/card_sensibo_living_room_kiosk.yaml
               #- !include /config/lovelace/cards/ac/card_sensibo_bedroom_kiosk.yaml
               #- !include /config/lovelace/cards/ac/card_sensibo_kids_room_kiosk.yaml
-              - !include /config/lovelace/cards/ac/card_climate_buttons_kiosk.yaml
+              - !include /config/lovelace/cards/ac/card_climate_buttons.yaml
 
               - !include /config/lovelace/cards/devices/card_devices_buttons.yaml
 

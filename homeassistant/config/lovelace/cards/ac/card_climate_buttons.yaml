@@ -29,7 +29,7 @@ cards:
     layout_options:
       grid-template-columns: 1fr 1fr 1fr
       grid-template-rows: auto
-      grid-gap: 0px 2px
+      grid-gap: 0px 4px
       # mediaquery:
       #   "(max-width: 450px)":
       #     grid-template-columns: 1fr 1fr 1fr
@@ -69,7 +69,7 @@ cards:
       - type: custom:decluttering-card # Kids Room AC
         template: climate_button
         variables:
-          - title: Kids Room AC
+          - title: Kids AC
           - name: kids_room
                 
       - type: "custom:button-card"
