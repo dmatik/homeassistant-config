@@ -28,12 +28,12 @@ cards:
     layout_type: grid
 
     layout_options:
-      grid-template-columns: 1fr 1fr
+      grid-template-columns: 48% 48%
       grid-template-rows: auto
       grid-gap: 0px 4px
       # mediaquery:
       #   "(max-width: 450px)":
-      #     grid-template-columns: 1fr 1fr 1fr
+      #     grid-template-columns: 32% 32% 32%
   # - type: grid
   #   columns: 2
   #   square: false
