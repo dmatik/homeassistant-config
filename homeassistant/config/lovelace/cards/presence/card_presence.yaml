@@ -28,7 +28,7 @@ cards:
     layout_type: grid
 
     layout_options:
-      grid-template-columns: 48% 48%
+      grid-template-columns: 48.3% 48.3%
       grid-template-rows: auto
       grid-gap: 0px 4px
       # mediaquery:

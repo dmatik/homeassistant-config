@@ -65,7 +65,7 @@ text_button:
         - color: '[[text_color]]'
       grid:
         - grid-template-areas: '"text_field corner" "text_field corner_2" "n n" "cust_1 cust_1" "cust_2 cust_2"'
-        - grid-template-columns: 48% 48%
+        - grid-template-columns: 1fr 1fr
         - grid-template-rows: 1fr 3fr 2fr 1fr 1fr
       name:
         - font-size: 1.35em #15px
