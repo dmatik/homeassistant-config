@@ -13,7 +13,8 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Misc       
+          - name: Misc
+          - padding_left: 0px
 
 
 ############################################################################

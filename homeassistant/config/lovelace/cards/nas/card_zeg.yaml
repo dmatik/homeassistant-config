@@ -14,7 +14,8 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: zeg         
+          - name: zeg
+          - padding_left: 0px
 
 
 ############################################################################

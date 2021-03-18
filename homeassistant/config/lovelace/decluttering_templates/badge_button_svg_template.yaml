@@ -89,10 +89,10 @@ badge_button_svg:
           - margin: none
           - height: 50%
           - width: 50%
-          - padding-bottom: 18.8%
-          - padding-top: 22%
-          - padding-left: 22%
-          - padding-right: 22%
+          - padding-bottom: 22.8%
+          - padding-top: 26%
+          - padding-left: 26%
+          - padding-right: 26%
           - background-color: '[[background_color]]'
           #- color: '[[icon_color]]'
           - border-radius: 50%

@@ -76,28 +76,34 @@ harmony_button:
             
             card:
 
-              type: entities
-              state_color: true
-              show_header_toggle: false
-              style: |
-                ha-card.type-entities {
-                  background: none;
-                  box-shadow: none;
-                  padding: 0.3em 1.25em 0.4em 0.5em;
-                }
-              entities:
+              type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr
+                grid-template-rows: auto
+              cards:
 
-                - entity: sensor.[[name]]_tv
-                  name: Activity
-
-
-                - type: custom:hui-element
-                  card_type: horizontal-stack
+                - type: entities
+                  state_color: true
+                  show_header_toggle: false
                   style: |
-                    #root {
-                      justify-content: space-evenly;
-                      margin: 1.4em -0.7em 0.7em 0;
+                    ha-card.type-entities {
+                      background: none;
+                      box-shadow: none;
+                      padding: 0.3em 1.25em 0.4em 0.5em;
                     }
+                  entities:
+
+                    - entity: sensor.[[name]]_tv
+                      name: Activity
+
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 4px
                   cards:
 
                     - type: custom:decluttering-card # Power
@@ -109,6 +115,14 @@ harmony_button:
                         - show_name: true
                         - height: 68px
 
+                    - type: custom:decluttering-card # Volume Mute
+                      template: simple_script_button
+                      variables:
+                        - entity: script.reciever_volume_mute
+                        - name: Mute
+                        - icon: mdi:volume-mute
+                        - show_name: true
+                        - height: 68px
 
                     - type: custom:decluttering-card # Volume Up
                       template: simple_script_button
@@ -128,11 +142,3 @@ harmony_button:
                         - show_name: true
                         - height: 68px
 
-                    - type: custom:decluttering-card # Volume Mute
-                      template: simple_script_button
-                      variables:
-                        - entity: script.reciever_volume_mute
-                        - name: Mute
-                        - icon: mdi:volume-mute
-                        - show_name: true
-                        - height: 68px

@@ -14,6 +14,7 @@ cards:
         template: title_button_card
         variables:
           - name: Xiaomi Sensors
+          - padding_left: 0px
 
 
 ############################################################################

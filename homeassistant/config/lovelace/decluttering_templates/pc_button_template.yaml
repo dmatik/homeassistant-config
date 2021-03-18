@@ -81,50 +81,57 @@ pc_button:
             
             card:
 
-              type: entities
-              state_color: true
-              show_header_toggle: false
-              style: |
-                ha-card.type-entities {
-                  background: none;
-                  box-shadow: none;
-                  padding: 0.3em 1.25em 0.4em 0.5em;
-                }
-              entities:
+              type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr
+                grid-template-rows: auto
+              cards:
 
-                - type: custom:bar-card
-                  width: 55%
-                  height: 2em
-                  decimal: 0
-                  unit_of_measurement: '%'
-                  icon: mdi:harddisk
-                  color: '#5F995A'
-                  positions: &pos
-                    icon: outside
-                    indicator: 'off'
-                    name: outside
-                  entity_row: true
-                  entities:
-                    - entity: sensor.dimka_ram_usage
-                      name: "RAM"
-                      icon: mdi:memory
-                      color: 'rgb(87, 0, 127)' 
-                    - entity: sensor.dimka_cpu_usage
-                      name: "CPU"
-                      icon: mdi:chip
-                      color: '#2377B2'
-                    - entity: sensor.dimka_hdd_usage_c
-                      name: "Disk C"
-                    - entity: sensor.dimka_hdd_usage_d
-                      name: "Disk D"
-
-                - type: custom:hui-element
-                  card_type: horizontal-stack
+                - type: entities
+                  state_color: true
+                  show_header_toggle: false
                   style: |
-                    #root {
-                      justify-content: space-evenly;
-                      margin: 1.4em -0.7em 0.7em 0;
+                    ha-card.type-entities {
+                      background: none;
+                      box-shadow: none;
+                      padding: 0.3em 1.25em 0.4em 0.5em;
                     }
+                  entities:
+
+                    - type: custom:bar-card
+                      width: 55%
+                      height: 2em
+                      decimal: 0
+                      unit_of_measurement: '%'
+                      icon: mdi:harddisk
+                      color: '#5F995A'
+                      positions: &pos
+                        icon: outside
+                        indicator: 'off'
+                        name: outside
+                      entity_row: true
+                      entities:
+                        - entity: sensor.dimka_ram_usage
+                          name: "RAM"
+                          icon: mdi:memory
+                          color: 'rgb(87, 0, 127)' 
+                        - entity: sensor.dimka_cpu_usage
+                          name: "CPU"
+                          icon: mdi:chip
+                          color: '#2377B2'
+                        - entity: sensor.dimka_hdd_usage_c
+                          name: "Disk C"
+                        - entity: sensor.dimka_hdd_usage_d
+                          name: "Disk D"
+
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 4px
                   cards:
 
                     - type: custom:decluttering-card # Wake
@@ -152,15 +159,6 @@ pc_button:
                             enabled: true
                             duration: 5
                             unlock: tap
-
-                - type: custom:hui-element
-                  card_type: horizontal-stack
-                  style: |
-                    #root {
-                      justify-content: space-evenly;
-                      margin: 1.4em -0.7em 0.7em 0;
-                    }
-                  cards:
 
                     - type: custom:decluttering-card # Restart
                       template: simple_script_button

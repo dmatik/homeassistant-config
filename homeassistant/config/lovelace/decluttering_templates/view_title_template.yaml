@@ -19,13 +19,13 @@ view_title:
       ha-markdown {
         padding-top: 8px;
         padding-bottom: [[bottom_padding]];
-        padding-left: 16px;
+        padding-left: 8px;
         padding-right: 16px;
       }
       ha-markdown.no-header {
         padding-top: 8px;
         padding-bottom: [[bottom_padding]];
-        padding-left: 16px;
+        padding-left: 8px;
         padding-right: 16px;
       }
     content: >

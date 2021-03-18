@@ -21,10 +21,7 @@ cards:
               template: shoulder_blank_card
                 
             - type: custom:layout-card
-              layout_type: masonry
-              layout_options:
-                width: 300
-                max_cols: 3
+              layout_type: horizontal
               cards:
 
                 - !include /config/lovelace/cards/tasmota/card_tasmota_devices.yaml

@@ -14,7 +14,8 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Home Assistant DB      
+          - name: Home Assistant DB
+          - padding_left: 0px  
 
 
 ############################################################################

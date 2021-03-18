@@ -12,12 +12,12 @@ cards:
     layout_type: grid
 
     layout_options:
-      grid-template-columns: 13.7% 13.7% 13.7% 13.7% 13.7% 13.7% 13.7%
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
       grid-template-rows: auto
       grid-gap: 0px 4px
       mediaquery:
         "(max-width: 450px)":
-          grid-template-columns: 24% 24% 24% 24%
+          grid-template-columns: 1fr 1fr 1fr 1fr
 
   # - type: grid
   #   columns: 4

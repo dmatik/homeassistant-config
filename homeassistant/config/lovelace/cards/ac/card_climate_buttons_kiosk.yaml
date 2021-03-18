@@ -23,9 +23,16 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: grid
-    columns: 3
-    square: false
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+  # - type: grid
+  #   columns: 3
+  #   square: false
     cards:
 
       - type: custom:decluttering-card # Living Room AC
@@ -59,7 +66,7 @@ cards:
       - type: custom:decluttering-card # Kids Room AC
         template: climate_button
         variables:
-          - title: Kids Room AC
+          - title: Kids AC
           - name: kids_room
                 
       - type: "custom:button-card"
