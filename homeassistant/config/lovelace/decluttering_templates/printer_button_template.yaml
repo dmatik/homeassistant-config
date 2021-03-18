@@ -82,42 +82,48 @@ printer_button:
             
             card:
 
-              type: entities
-              state_color: true
-              show_header_toggle: false
-              style: |
-                ha-card.type-entities {
-                  background: none;
-                  box-shadow: none;
-                  padding: 0.3em 1.25em 0.4em 0.5em;
-                }
-              entities:
+              type: custom:layout-card
+              layout_type: vertical
+              cards:
 
-                - entity: sensor.mfc_j650dw_status
-                  name: Status
-                  icon: mdi:printer-wireless
-
-                - type: custom:bar-card
-                  width: 55%
-                  height: 2em
-                  decimal: 0
-                  unit_of_measurement: '%'
-                  icon: mdi:water
-                  positions: &pos
-                    icon: outside
-                    indicator: 'off'
-                    name: outside
-                  entity_row: true
+                - type: entities
+                  state_color: true
+                  show_header_toggle: false
+                  style: |
+                    ha-card.type-entities {
+                      background: none;
+                      box-shadow: none;
+                      padding: 0.3em 1.25em 0.4em 0.5em;
+                    }
                   entities:
-                    - entity: sensor.mfc_j650dw_black_ink_remaining
-                      name: Black
-                      color: 'black'
-                    - entity: sensor.mfc_j650dw_cyan_ink_remaining
-                      name: Cyan
-                      color: '#3E9BB2' #'#57DAFD'
-                    - entity: sensor.mfc_j650dw_magenta_ink_remaining
-                      name: Magenta
-                      color: '#B2258A' #'#FF35C5'
-                    - entity: sensor.mfc_j650dw_yellow_ink_remaining
-                      name: Yellow
-                      color: '#B29A43' #'#F9D95E'
+
+                    - entity: sensor.mfc_j650dw_status
+                      name: Status
+                      icon: mdi:printer-wireless
+
+                    - type: custom:bar-card
+                      width: 55%
+                      height: 2em
+                      decimal: 0
+                      unit_of_measurement: '%'
+                      icon: mdi:water
+                      positions: &pos
+                        icon: outside
+                        indicator: 'off'
+                        name: outside
+                      entity_row: true
+                      entities:
+                        - entity: sensor.mfc_j650dw_black_ink_remaining
+                          name: Black
+                          color: 'black'
+                        - entity: sensor.mfc_j650dw_cyan_ink_remaining
+                          name: Cyan
+                          color: '#3E9BB2' #'#57DAFD'
+                        - entity: sensor.mfc_j650dw_magenta_ink_remaining
+                          name: Magenta
+                          color: '#B2258A' #'#FF35C5'
+                        - entity: sensor.mfc_j650dw_yellow_ink_remaining
+                          name: Yellow
+                          color: '#B29A43' #'#F9D95E'
+
+                - !include /config/lovelace/styles/separator_card.yaml

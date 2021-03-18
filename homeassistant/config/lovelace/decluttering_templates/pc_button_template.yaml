@@ -82,10 +82,7 @@ pc_button:
             card:
 
               type: custom:layout-card
-              layout_type: grid
-              layout_options:
-                grid-template-columns: 1fr
-                grid-template-rows: auto
+              layout_type: vertical
               cards:
 
                 - type: entities

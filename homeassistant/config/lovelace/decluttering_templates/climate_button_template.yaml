@@ -47,27 +47,31 @@ climate_button:
 
             card:
 
-              type: entities
-              state_color: true
-              show_header_toggle: false
-              style: |
-                ha-card.type-entities {
-                  background: none;
-                  box-shadow: none;
-                  padding: 0.3em 1.25em 0.4em 0.5em;
-                  text-transform: capitalize;
-                }
-              entities:
-                - entity: 'sensor.sensibo_[[name]]_temp'
-                  name: Current temperature
-                #- entity: 'climate.[[name]]'
-                #  name: Operation mode
-                - entity: 'sensor.sensibo_[[name]]_oper'
-                  name: Operation mode
-                - entity: 'sensor.sensibo_[[name]]_fan'
-                  name: Fan mode
-                #- entity: 'sensor.sensibo_[[name]]_target_temp'
-                #   name: Target temperature
+              type: custom:layout-card
+              layout_type: vertical
+              cards:
+
+                - type: entities
+                  state_color: true
+                  show_header_toggle: false
+                  style: |
+                    ha-card.type-entities {
+                      background: none;
+                      box-shadow: none;
+                      padding: 0.3em 1.25em 0.4em 0.5em;
+                      text-transform: capitalize;
+                    }
+                  entities:
+                    - entity: 'sensor.sensibo_[[name]]_temp'
+                      name: Current temperature
+                    #- entity: 'climate.[[name]]'
+                    #  name: Operation mode
+                    - entity: 'sensor.sensibo_[[name]]_oper'
+                      name: Operation mode
+                    - entity: 'sensor.sensibo_[[name]]_fan'
+                      name: Fan mode
+                    #- entity: 'sensor.sensibo_[[name]]_target_temp'
+                    #   name: Target temperature
 
 
                 ############################################################################
@@ -76,16 +80,12 @@ climate_button:
                 #                                                                          #
                 ############################################################################
 
-                - type: custom:hui-element
-                  card_type: horizontal-stack
-                  style: |
-                    #root {
-                      justify-content: space-evenly;
-                      margin: 1.4em -0.7em 0.7em 0;
-                    }
-                    bignumber-card {
-                      align-self: center;
-                    }
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 4px
                   cards:
 
                     - type: custom:decluttering-card # Decrease Target Temperature
@@ -97,9 +97,11 @@ climate_button:
                     - type: custom:bignumber-card
                       style: |
                         ha-card {
+                          display: flex;
+                          justify-content: center;
                           background: none;
                           box-shadow: none;                          
-                          padding-top: 4px;
+                          padding-top: 8px;
                           padding-bottom: 4px;
                         }
                       entity: sensor.sensibo_[[name]]_target_temp
@@ -118,13 +120,12 @@ climate_button:
                 #                                                                          #
                 ############################################################################
 
-                - type: custom:hui-element
-                  card_type: horizontal-stack
-                  style: |
-                    #root {
-                      justify-content: space-evenly;
-                      margin: 1.4em -0.7em 0.7em 0;
-                    }
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 4px
                   cards:
 
 
@@ -176,28 +177,23 @@ climate_button:
                 #                                                                          #
                 ############################################################################
 
-                - type: custom:hui-element
-                  card_type: horizontal-stack
-                  style: |
-                    #root {
-                      justify-content: space-evenly;
-                      margin: 1.6em -0.7em 0.7em 0;
-                    }
+                - !include /config/lovelace/styles/separator_card.yaml
+
+                - type: horizontal-stack
                   cards:
-      
+
                     - type: custom:decluttering-card
                       template: title_button_card
                       variables:
                         - name: Fan 
 
 
-                - type: custom:hui-element
-                  card_type: horizontal-stack
-                  style: |
-                    #root {
-                      justify-content: space-evenly;
-                      margin: 0 -0.7em 0.7em 0;
-                    }
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 4px
                   cards:
 
                     - type: custom:decluttering-card # Low Fan
