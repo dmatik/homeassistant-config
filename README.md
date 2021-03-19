@@ -56,11 +56,12 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 ### Screens
 
 Mobile:    
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/mobile.png "Mobile")
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/ha_responsive.gif "Responsive UI")
+
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/ha_badges.gif "Badges")
+
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/ha_rooms.gif "Rooms")
 
 Wallpanel:     
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/view_kiosk.png "Wallpanel")
 
-## HaDashboard (Not in use)
-
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/hadash.png "HaDashboard")
