@@ -1,0 +1,53 @@
+wallpanel_view_button:
+
+  default:
+    - name: Wall Panel
+    - svg_path: 'M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z'
+    - svg_path_on: 'M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z'
+    - cust_1_field: Fully
+    - corner_field_entity: ""
+
+
+  card:
+    type: custom:decluttering-card
+    template: accessory_view_button
+    variables:
+      - entity: '[[entity]]'
+      - svg_path: '[[svg_path]]'
+      - svg_path_on: '[[svg_path_on]]'
+      - corner_field_entity: '[[corner_field_entity]]'
+      - name: '[[name]]'
+      - cust_1_field: '[[cust_1_field]]'
+      - tap_action:
+          #haptic: heavy
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            hide_header: false
+            title: '[[name]]'
+            large: true
+            
+            card:
+
+              type: vertical-stack
+              cards:
+
+                - !include /config/lovelace/styles/separator_card.yaml
+        
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: shoulder_blank_card
+
+                    - type: custom:layout-card
+                      layout_type: horizontal
+                      cards:
+
+                        - !include /config/lovelace/cards/wallpanel/card_fully.yaml
+
+                    - type: custom:button-card
+                      template: shoulder_blank_card
+
+                - type: custom:decluttering-card # Bottom space
+                  template: blank_card

@@ -50,11 +50,18 @@ cards:
           - title: Bedroom AC
           - name: bedroom
 
+      # - type: custom:decluttering-card # Work Room Temperature
+      #   template: temp_sensor_button
+      #   variables:
+      #     - title: Work Room
+      #     - entity: sensor.xiaomi_work_room_temperature
+
       - type: custom:decluttering-card # Work Room Temperature
-        template: temp_sensor_button
+        template: temp_sensor_button_alt
         variables:
-          - title: Work Room
+          - name: Work Room
           - entity: sensor.xiaomi_work_room_temperature
+          - humidity_sensor: sensor.xiaomi_work_room_humidity
 
       - type: custom:decluttering-card # Kids Radiator
         template: socket_button

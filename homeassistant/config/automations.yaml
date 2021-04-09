@@ -1,34 +1,44 @@
-- id: '1615182091474'
-  alias: Kids Radiator On 2
-  description: ''
-  trigger:
-  - platform: time
-    at: '19:00'
-  - platform: time
-    at: '23:00'
-  condition:
-  - condition: state
-    entity_id: switch.kids_radiator
-    state: 'off'
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.kids_radiator
-  mode: single
-- id: '1615182386530'
-  alias: Kids Radiator On
-  description: ''
-  trigger:
-  - platform: time
-    at: '19:00'
-  - platform: time
-    at: '23:00'
-  condition:
-  - condition: state
-    entity_id: switch.kids_radiator
-    state: 'off'
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.kids_radiator
-  mode: single
+- id: '1616736935086'
+  alias: Morning Living Room AC
+  description: Morning Living Room AC
+  use_blueprint:
+    path: on_off_schedule_state_persistence.yaml
+    input:
+      off_time: '8:00:00'
+      on_time: '6:00:00'
+      automation_target:
+        entity_id: climate.living_room
+      trigger_at_homeassistant_startup: false
+- id: '1616737272376'
+  alias: Night Kids Radiator 1
+  description: Night Kids Radiator 1
+  use_blueprint:
+    path: on_off_schedule_state_persistence.yaml
+    input:
+      off_time: '19:45:00'
+      automation_target:
+        entity_id: switch.kids_radiator
+      on_time: '19:00:00'
+      trigger_at_homeassistant_startup: true
+- id: '1616737314427'
+  alias: Night Kids Radiator 2
+  description: Night Kids Radiator 2
+  use_blueprint:
+    path: on_off_schedule_state_persistence.yaml
+    input:
+      off_time: '7:30:00'
+      automation_target:
+        entity_id: switch.kids_radiator
+      on_time: '3:00:00'
+      trigger_at_homeassistant_startup: true
+- id: '1616739703903'
+  alias: Night Lights
+  description: Night Lights
+  use_blueprint:
+    path: scene_on_off_schedule_state_persistence.yaml
+    input:
+      off_time: '7:00:00'
+      on_time: '18:00:00'
+      trigger_at_homeassistant_startup: false
+      on_scene: scene.night_lights_on
+      off_scene: scene.night_lights_off

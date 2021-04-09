@@ -1,0 +1,59 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Accessories 
+
+
+############################################################################
+#                                                                          #
+#   Accessories                                                            #
+#                                                                          #
+############################################################################
+
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+      mediaquery:
+        "(max-width: 450px)":
+          grid-template-columns: 1fr 1fr 1fr
+  # - type: grid
+  #   columns: 3
+  #   square: false
+    cards:
+
+      - type: custom:decluttering-card # Home Assistant
+        template: homeassistant_view_button
+
+      - type: custom:decluttering-card # Automation
+        template: automation_view_button
+
+      - type: custom:decluttering-card # Tasmota
+        template: tasmota_view_button
+
+      - type: custom:decluttering-card # Wall Panel
+        template: wallpanel_view_button
+
+      - type: custom:decluttering-card # NAS
+        template: nas_view_button
+
+      - type: custom:decluttering-card # Batteries
+        template: batteries_view_button
+
+  - !include /config/lovelace/styles/separator_card.yaml

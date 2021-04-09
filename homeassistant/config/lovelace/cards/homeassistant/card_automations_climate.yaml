@@ -34,9 +34,8 @@ cards:
         title: ""
         show_header_toggle: false
         entities:
-          - automation.turn_on_kids_radiator
-          - automation.turn_off_kids_radiator
-          - automation.turn_off_living_room_ac_in_the_morning
-          - automation.turn_on_living_room_ac_in_the_morning
+          - automation.night_kids_radiator_1
+          - automation.night_kids_radiator_2
+          - automation.morning_living_room_ac
 
   - !include /config/lovelace/styles/separator_card.yaml

@@ -1,0 +1,122 @@
+person_button_alt:
+
+  default:
+    - location_field: "[[[
+            if ( entity.state == 'home' )
+              return 'Home';
+            else if ( entity.state == 'not_home' )
+              return 'Away';
+            else
+              return entity.state;
+          ]]]"
+    - color: auto
+    - color_type: icon
+    - battery_text_color: "var(--button-card-text-color)"
+    - lock:
+        enabled: false
+        duration: 5
+        unlock: tap
+    - state:
+        - value: "home"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              battery:
+                - color: var(--button-card-on-text-color)
+              location:
+                - color: var(--button-card-on-text-color)
+        - value: "unavailable"
+          styles:
+            img_cell:
+              - color: var(--button-card-disabled-text-color)
+            custom_fields:
+              battery:
+                - color: var(--button-card-disabled-text-color)
+              location:
+                - color: var(--button-card-disabled-text-color)
+
+    # Styles
+    - border_radius: var(--button-card-border-radius)
+    - background_color: var(--button-card-background-color)
+    #- icon_color: var(--button-card-icon-color)
+    - text_color: var(--button-card-text-color)
+    - text_transform: capitalize
+    - location_text_color: var(--button-card-text-color)
+    - lock_color: var(--button-card-lock-color)
+
+
+  card:
+    type: custom:button-card
+    entity: '[[entity]]'
+    icon: '[[icon]]'
+    aspect_ratio: 1/1
+    name: '[[name]]'
+    show_name: false
+    color: '[[color]]'
+    color_type: '[[color_type]]'
+    show_last_changed: false
+    lock: '[[lock]]'
+    show_entity_picture: true
+    entity_picture: "[[[
+            if ( entity.state == 'home' )
+              return '[[image_home]]';
+            else
+              return '[[image_away]]';
+          ]]]"
+    styles:
+      card:
+        - padding: 10%
+        - font-size: 12px
+        - font-weight: bold
+        - text-transform: '[[text_transform]]'
+        - border-radius: '[[border_radius]]'
+        - background-color: '[[background_color]]'
+        - color: '[[text_color]]'
+        - backdrop-filter: blur(20px)
+      grid:
+        - grid-template-areas: '"location battery" "i i"'
+        - grid-template-columns: 2fr 1fr
+        - grid-template-rows: 1fr 7fr
+      name:
+        - font-size: 1.20em #15px
+        - align-self: middle
+        - justify-self: start
+        - align-self: end
+        - padding-top: 8px
+        - padding-bottom: 4px
+        #- text-transform: lowercase
+      img_cell: 
+        - justify-content: center
+        - align-items: flex-end
+        - margin: none
+        - height: 100%
+        - width: 80%
+        - padding-bottom: 0px
+        #- color: '[[icon_color]]'
+      icon:
+        - width: 100%
+        - border-radius: 50%
+      lock:
+        - color: '[[lock_color]]'
+      custom_fields:
+        battery:
+          - justify-self: end
+          - align-self: middle
+          - padding-top: 2px
+          - padding-bottom: 2px
+          - color: "[[battery_text_color]]"
+        location:
+          - padding-top: 2px
+          - padding-bottom: 2px
+          - align-self: middle
+          - justify-self: start
+          - color: "[[location_text_color]]"
+    custom_fields: 
+      battery: "[[[ return Math.round( states['[[battery]]'].state ) + '%'; ]]]"
+      location: "[[location_field]]"
+    tap_action: '[[tap_action]]'
+    hold_action: '[[hold_action]]'
+    double_tap_action: '[[double_tap_action]]'
+    state: "[[state]]"

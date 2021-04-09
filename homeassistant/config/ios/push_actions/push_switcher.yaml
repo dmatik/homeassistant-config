@@ -36,24 +36,24 @@
       destructive: false
       behavior: 'default'
 
-- name: Switcher
-  identifier: 'category_switcher'
-  actions:
-    - identifier: 'SWITCHER_ON_30'
-      title: 'On 30 min'
-      activationMode: 'background'
-      authenticationRequired: true
-      destructive: false
-      behavior: 'default'
-    - identifier: 'SWITCHER_ON_60'
-      title: 'On 60 min'
-      activationMode: 'background'
-      authenticationRequired: true
-      destructive: false
-      behavior: 'default'
-    - identifier: 'SWITCHER_OFF'
-      title: 'Off'
-      activationMode: 'background'
-      authenticationRequired: true
-      destructive: false
-      behavior: 'default'
+# - name: Switcher
+#   identifier: 'category_switcher'
+#   actions:
+#     - identifier: 'SWITCHER_ON_30'
+#       title: 'On 30 min'
+#       activationMode: 'background'
+#       authenticationRequired: true
+#       destructive: false
+#       behavior: 'default'
+#     - identifier: 'SWITCHER_ON_60'
+#       title: 'On 60 min'
+#       activationMode: 'background'
+#       authenticationRequired: true
+#       destructive: false
+#       behavior: 'default'
+#     - identifier: 'SWITCHER_OFF'
+#       title: 'Off'
+#       activationMode: 'background'
+#       authenticationRequired: true
+#       destructive: false
+#       behavior: 'default'

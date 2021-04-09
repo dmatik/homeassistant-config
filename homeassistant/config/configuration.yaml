@@ -21,7 +21,9 @@ homeassistant:
 
   packages: !include_dir_named packages/
 
-
+zeroconf:
+  default_interface: true
+  
 frontend:
   themes: 
     !include_dir_merge_named themes
@@ -34,7 +36,10 @@ tts:
   - platform: google_translate
 
 
-automation: !include_dir_merge_list automation/
+#automation: !include_dir_merge_list automation/
+
+automation manual: !include_dir_merge_list automation/
+automation ui: !include automations.yaml
 
 #lovelace_gen:
 
@@ -44,13 +49,13 @@ lovelace:
   mode: yaml
   resources: !include /config/lovelace/resources.yaml
   dashboards:
-    lovelace-system:
-      mode: yaml
-      filename: ui-system.yaml
-      title: "System"
-      icon: mdi:view-dashboard
-      show_in_sidebar: true
-      require_admin: false
+    # lovelace-system:
+    #   mode: yaml
+    #   filename: ui-system.yaml
+    #   title: "System"
+    #   icon: mdi:view-dashboard
+    #   show_in_sidebar: true
+    #   require_admin: false
     lovelace-wallpanel:
       mode: yaml
       filename: ui-wallpanel.yaml
@@ -191,8 +196,8 @@ ios:
   push:
     categories:
       !include_dir_merge_list /config/ios/push_actions/
-  actions:
-    !include_dir_merge_list /config/ios/actions/
+  # actions:
+  #   !include_dir_merge_list /config/ios/actions/
 
 synology_dsm:
   - host: !secret synology_blaze_host

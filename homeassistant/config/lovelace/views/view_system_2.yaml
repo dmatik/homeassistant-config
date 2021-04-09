@@ -1,6 +1,6 @@
-title: Home
-icon: mdi:home
-path: main
+title: System
+icon: mdi:gauge
+path: system_2
 visible: true
 #panel: true
 type: custom:grid-layout
@@ -10,20 +10,15 @@ layout:
   mediaquery:
     "(min-width: 800px)":
       grid-template-columns: 700px
-
+  
 cards:
 
   - type: custom:decluttering-card
     template: view_title
     variables:
-      - title: Home
-      - bottom_padding: 8px
-  
-  - !include /config/lovelace/cards/badges/card_badges_home.yaml
+      - title: System
 
-  - !include /config/lovelace/cards/accessories/card_accessories_home.yaml
-
-  #- !include /config/lovelace/cards/accessories/card_accessories_example_full_button.yaml
+  - !include /config/lovelace/cards/accessories/card_accessories_system.yaml
 
   - type: custom:decluttering-card # Bottom space
     template: blank_card

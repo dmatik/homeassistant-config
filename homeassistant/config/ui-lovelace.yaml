@@ -33,6 +33,8 @@ views:
     - !include /config/lovelace/views/view_work_room.yaml   
     # Hallway
     - !include /config/lovelace/views/view_hallway.yaml 
+    # System
+    - !include /config/lovelace/views/view_system_2.yaml     
     # Switcher
     #- !include /config/lovelace/views/view_switcher.yaml
     # Climate

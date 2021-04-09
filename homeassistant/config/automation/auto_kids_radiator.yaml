@@ -4,27 +4,23 @@
 #                                                                          #
 ############################################################################
 
-- id: turn_on_kids_radiator
-  alias: 'Turn On Kids Radiator'
-  trigger:
-    - platform: time
-      at: 
-        - "19:00:00"
-        - "23:00:00"
-    - platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        actionName: "KIDS_RADIATOR_ON"
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: switch.kids_radiator
-        state: "off"
-  action:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.kids_radiator
+# - id: turn_on_kids_radiator
+#   alias: 'Turn On Kids Radiator'
+#   trigger:
+#     - platform: time
+#       at: 
+#         - "19:00:00"
+#         - "03:00:00"
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: switch.kids_radiator
+#         state: "off"
+#   action:
+#     - service: switch.turn_on
+#       data:
+#         entity_id: switch.kids_radiator
 
 
 ############################################################################
@@ -82,31 +78,23 @@
 #                                                                          #
 ############################################################################
 
-- id: turn_off_kids_radiator
-  alias: 'Turn Off Kids Radiator'
-  trigger:
-    - platform: time
-      at: 
-        - "07:00:00"
-        - "19:45:00"
-    - platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        actionName: "KIDS_RADIATOR_OFF"
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: switch.kids_radiator
-        state: "on"
-  action:
-    - service: switch.turn_off
-      data:
-        entity_id: switch.kids_radiator
-    # - service: notify.dimatelegram
-    #   data:
-    #     title: "Kids Radiator"
-    #     message: "OFF"
+# - id: turn_off_kids_radiator
+#   alias: 'Turn Off Kids Radiator'
+#   trigger:
+#     - platform: time
+#       at: 
+#         - "07:00:00"
+#         - "19:45:00"
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: switch.kids_radiator
+#         state: "on"
+#   action:
+#     - service: switch.turn_off
+#       data:
+#         entity_id: switch.kids_radiator
 
 
 ############################################################################

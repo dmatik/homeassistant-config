@@ -1,0 +1,59 @@
+automation_view_button:
+
+  default:
+    - name: Automation
+    - svg_path: 'M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z'
+    - svg_path_on: 'M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z'
+    - cust_1_field: Overview
+    - corner_field_entity: ""
+
+
+  card:
+    type: custom:decluttering-card
+    template: accessory_view_button
+    variables:
+      - entity: '[[entity]]'
+      - svg_path: '[[svg_path]]'
+      - svg_path_on: '[[svg_path_on]]'
+      - corner_field_entity: '[[corner_field_entity]]'
+      - name: '[[name]]'
+      - cust_1_field: '[[cust_1_field]]'
+      - tap_action:
+          #haptic: heavy
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            hide_header: false
+            title: '[[name]]'
+            large: true
+            
+            card:
+
+              type: vertical-stack
+              cards:
+
+                - !include /config/lovelace/styles/separator_card.yaml
+        
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: shoulder_blank_card
+
+                    - type: custom:layout-card
+                      layout_type: horizontal
+                      cards:
+
+                        - !include /config/lovelace/cards/homeassistant/card_automations_lights.yaml
+
+                        - !include /config/lovelace/cards/homeassistant/card_automations_climate.yaml
+
+                        - !include /config/lovelace/cards/homeassistant/card_automations_presence.yaml
+
+                        - !include /config/lovelace/cards/homeassistant/card_automations_misc.yaml
+
+                    - type: custom:button-card
+                      template: shoulder_blank_card
+
+                - type: custom:decluttering-card # Bottom space
+                  template: blank_card

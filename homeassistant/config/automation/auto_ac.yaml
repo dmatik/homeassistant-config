@@ -158,33 +158,33 @@
 #                                                                          #
 ############################################################################
 
-- alias: 'Turn On Living Room AC in the morning'
-  #initial_state: 'true'
-  trigger:
-    - platform: time
-      at: "06:30:00"
-  condition:
-    - condition: state
-      entity_id: climate.living_room
-      state: "off"
-  action:
-    - service: climate.turn_on
-      data:
-        entity_id: climate.living_room
+# - alias: 'Turn On Living Room AC in the morning'
+#   #initial_state: 'true'
+#   trigger:
+#     - platform: time
+#       at: "06:00:00"
+#   condition:
+#     - condition: state
+#       entity_id: climate.living_room
+#       state: "off"
+#   action:
+#     - service: climate.turn_on
+#       data:
+#         entity_id: climate.living_room
 
-- alias: 'Turn Off Living Room AC in the morning'
-  #initial_state: 'true'
-  trigger:
-    - platform: time
-      at: "07:45:00"
-  condition:
-    - condition: state
-      entity_id: climate.living_room
-      state: 
-        - cool
-        - heat
-        - heat_cool
-  action:
-    - service: climate.turn_off
-      data:
-        entity_id: climate.living_room
+# - alias: 'Turn Off Living Room AC in the morning'
+#   #initial_state: 'true'
+#   trigger:
+#     - platform: time
+#       at: "07:00:00"
+#   condition:
+#     - condition: state
+#       entity_id: climate.living_room
+#       state: 
+#         - cool
+#         - heat
+#         - heat_cool
+#   action:
+#     - service: climate.turn_off
+#       data:
+#         entity_id: climate.living_room

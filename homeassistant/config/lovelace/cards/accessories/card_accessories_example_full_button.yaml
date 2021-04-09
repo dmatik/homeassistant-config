@@ -1,0 +1,152 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Example Button 
+
+
+############################################################################
+#                                                                          #
+#   Accessories                                                            #
+#                                                                          #
+############################################################################
+
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+      mediaquery:
+        "(max-width: 450px)":
+          grid-template-columns: 1fr 1fr 1fr
+
+    cards:
+
+      - type: custom:button-card
+        entity: light.work_room
+        #icon: '[[icon]]'
+        aspect_ratio: 1/1
+        name: Work Room
+        color: auto
+        color_type: icon
+        show_last_changed: false
+        lock:
+          enabled: false
+          duration: 5
+          unlock: tap
+        styles:
+          card:
+            - padding: 10%
+            - font-size: 12px
+            - font-weight: bold
+            - text-transform: capitalize
+            - border-radius: 16px
+            - background-color: 'rgba(47, 49, 54, 0.8)'
+            - color: '#8D8E93'
+            - backdrop-filter: blur(20px)
+          grid:
+            - grid-template-areas: '"svg_icon corner" "svg_icon corner_2" "n n" "cust_1 cust_2"'
+            - grid-template-columns: 2fr 3fr
+            - grid-template-rows: 1fr 2fr 4fr 1fr
+          name:
+            - font-size: 1.20em #15px
+            - align-self: middle
+            - justify-self: start
+            - align-self: end
+            - padding-top: 8px
+            - padding-bottom: 4px
+          lock:
+            - color: '#BEBEBE'
+          custom_fields:
+            svg_icon:
+              - justify-content: start
+              - align-items: start
+              - margin: none
+              - height: 100%
+              - padding-bottom: 0px
+            corner:
+              - align-self: start
+              - justify-self: end
+              - font-size: 1em #14px
+              - font-weight: bold
+              - color: '#797A7F'
+              - min-width: 12px
+              - line-height: 22px
+              - padding: 0px 5px
+              - height: 22px
+            corner_2:
+              - padding-top: 8px
+              - align-self: start
+              - justify-self: end
+              - color: '#797A7F'
+            cust_1:
+              - padding-bottom: 2px
+              - align-self: middle
+              - justify-self: start
+              - color: '#797A7F'
+            cust_2:
+              - padding-bottom: 2px
+              - align-self: middle
+              - justify-self: end
+              - color: '#797A7F'
+        custom_fields:  
+          svg_icon: "[[[ 
+            const state = entity.state === 'on' ? 'animate' : null;
+            return `<svg viewBox='0 0 24 24'>
+            <path fill='#9da0a2' d='M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'/>
+            <path class='${state}' fill='var(--button-card-light-color-no-temperature)' d='m 7.957375,9 h 3 -3 8 -3 3 l 4.062,8 h -16 l 3.938,-8 m 6.06975,5.256348 c 0.763134,0.727302 -0.531684,1.303507 -1.636253,1.303507 -1.104569,0 -3.0516803,-1.562904 -3.0602403,-2.667473 z'/> </svg>`;
+            ]]]"
+          corner: ""
+          corner_2: ""
+          cust_1: "[[[ return entity.state ]]]"
+          cust_2: ""
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+        state: 
+        - value: "on"
+          styles:
+            card:
+              - background-color: '#393C43'
+              - color: '#F0F0F0'
+            custom_fields:
+              cust_1:
+                - color: '#A5A7AB'
+              cust_2:
+                - color: '#A5A7AB'
+        - value: "unavailable"
+          styles:
+            icon:
+              - color: '#7F848E'  
+            name:
+              - color: '#7F848E'  
+            custom_fields:
+              svg_icon:
+                - --button-card-light-color-no-temperature: '#7F848E'  
+              corner:
+                - color: '#7F848E'  
+              corner_2:
+                - color: '#7F848E'  
+              cust_1:
+                - color: '#7F848E'  
+              cust_2:
+                - color: '#7F848E'  
+
+  - !include /config/lovelace/styles/separator_card.yaml

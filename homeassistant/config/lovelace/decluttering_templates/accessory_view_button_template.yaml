@@ -1,16 +1,11 @@
-menu_new_button:
+accessory_view_button:
 
   default:
-    - color: var(--paper-item-icon-color)
-    - svg_path: 'M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'
-    - svg_fill_on: var(--button-card-light-color-no-temperature)
-    - svg_path_on: 'm 7.957375,9 h 3 -3 8 -3 3 l 4.062,8 h -16 l 3.938,-8 m 6.06975,5.256348 c 0.763134,0.727302 -0.531684,1.303507 -1.636253,1.303507 -1.104569,0 -3.0516803,-1.562904 -3.0602403,-2.667473 z'
-
-    - corner_field_entity: ""
-    - text_color: var(--button-card-on-text-color)
-    #- background_color: var(--button-card-on-background)
+    - entity: sensor.havid_view_dummy
+    - cust_1_field: ""
+    - cust_2_field: ""
     - corner_text_color: var(--button-card-text-field-color)
-    #- cust_1_text_color: var(--button-card-cust-1-on-text-color)
+
 
   card:
     type: custom:decluttering-card
@@ -25,12 +20,11 @@ menu_new_button:
       - svg_path_on: '[[svg_path_on]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
-      - text_color: '[[text_color]]'
       - background_color: '[[background_color]]'
-      - corner_text_color: '[[corner_text_color]]'
-      - corner_icon_color: "[[corner_icon_color]]"
-      - corner_2_text_color: "[[corner_2_text_color]]"
-      - corner_2_icon_color: "[[corner_2_icon_color]]"
+      - text_color: '[[text_color]]'
+      - text_transform: none
+      - corner_text_color: "[[corner_text_color]]"
+      - corner_icon_color: ""
       - cust_1_text_color: "[[cust_1_text_color]]"
       - cust_1_icon_color: "[[cust_1_icon_color]]"
       - cust_2_text_color: "[[cust_2_text_color]]"
@@ -52,6 +46,6 @@ menu_new_button:
       - cust_1_field: "[[cust_1_field]]"
       - cust_2_field: "[[cust_2_field]]"
       - state: "[[state]]"
-      - tap_action: "[[tap_action]]"
       - hold_action:
           action: none
+      - tap_action: "[[tap_action]]"

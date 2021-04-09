@@ -4,7 +4,7 @@ title_button_card:
     - border_radius: var(--title-border-radius)
     - background_color: 'rgba(37, 129, 171, 0.0)' #var(--title-button-background)
     - text_color: var(--title-button-text-color)
-    - padding_left: 8px
+    - padding_left: 10px
 
   card:
     type: 'custom:button-card'
