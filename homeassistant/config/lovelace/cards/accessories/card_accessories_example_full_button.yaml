@@ -36,6 +36,13 @@ cards:
 
     cards:
 
+
+      ############################################################################
+      #                                                                          #
+      #   Light Example                                                          #
+      #                                                                          #
+      ############################################################################
+
       - type: custom:button-card
         entity: light.work_room
         #icon: '[[icon]]'
@@ -147,6 +154,118 @@ cards:
               cust_1:
                 - color: '#7F848E'  
               cust_2:
-                - color: '#7F848E'  
+                - color: '#7F848E'
+
+
+
+      ############################################################################
+      #                                                                          #
+      #   Person Example                                                         #
+      #                                                                          #
+      ############################################################################
+
+      - type: custom:button-card
+        entity: person.dmatik
+        aspect_ratio: 1/1
+        name: Person Example
+        show_name: false
+        color: auto
+        color_type: icon
+        show_last_changed: false
+        lock:
+          enabled: false
+          duration: 5
+          unlock: tap
+        show_entity_picture: true
+        entity_picture: "[[[
+                if ( entity.state == 'home' )
+                  return '/local/images/dima.png';
+                else
+                  return '/local/images/dima_off.png';
+              ]]]"
+        styles:
+          card:
+            - padding: 10%
+            - font-size: 12px
+            - font-weight: bold
+            - text-transform: capitalize
+            - border-radius: 16px
+            - background-color: 'rgba(47, 49, 54, 0.8)'
+            - color: '#8D8E93'
+            - backdrop-filter: blur(20px)
+          grid:
+            - grid-template-areas: '"i i" "location battery"'
+            - grid-template-columns: 2fr 1fr
+            - grid-template-rows: 7fr 1fr
+          name:
+            - font-size: 1.20em #15px
+            - align-self: middle
+            - justify-self: start
+            - align-self: end
+            - padding-top: 8px
+            - padding-bottom: 4px
+            #- text-transform: lowercase
+          img_cell: 
+            - justify-content: center
+            - align-items: flex-start
+            - margin: none
+            - height: 100%
+            - width: 80%
+            - padding-bottom: 0px
+            #- color: '[[icon_color]]'
+          icon:
+            - width: 100%
+            - border-radius: 8% #50%
+          lock:
+            - color: '#BEBEBE'
+          custom_fields:
+            battery:
+              - justify-self: end
+              - align-self: middle
+              - padding-top: 2px
+              - padding-bottom: 2px
+              - color: '#8D8E93'
+            location:
+              - padding-top: 2px
+              - padding-bottom: 2px
+              - align-self: middle
+              - justify-self: start
+              - color: '#8D8E93'
+        custom_fields: 
+          battery: "[[[ return Math.round( states['sensor.iphonedima_battery_level'].state ) + '%'; ]]]"
+          location: "[[[
+                if ( entity.state == 'home' )
+                  return 'Home';
+                else if ( entity.state == 'not_home' )
+                  return 'Away';
+                else
+                  return entity.state;
+              ]]]"
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+        state:
+            - value: "home"
+              styles:
+                card:
+                  - background-color: '#393C43'
+                  - color: '#F0F0F0'
+                custom_fields:
+                  battery:
+                    - color: '#F0F0F0'
+                  location:
+                    - color: '#F0F0F0'
+            - value: "unavailable"
+              styles:
+                img_cell:
+                  - color: '#7F848E'
+                custom_fields:
+                  battery:
+                    - color: '#7F848E'
+                  location:
+                    - color: '#7F848E'
 
   - !include /config/lovelace/styles/separator_card.yaml

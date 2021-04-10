@@ -97,7 +97,7 @@ person_button_alt:
         #- color: '[[icon_color]]'
       icon:
         - width: 100%
-        - border-radius: 50%
+        - border-radius: 8% #50%
       lock:
         - color: '[[lock_color]]'
       custom_fields:
