@@ -21,4 +21,4 @@
   action:
     - delay: '00:{{ (range(0, 30)|random|int) }}:00'
     - service: script.sign_and_download_havid_edu
-    - service: script.sign_and_download_havid_amdocs
+    #- service: script.sign_and_download_havid_amdocs

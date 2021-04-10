@@ -76,9 +76,9 @@ person_button_alt:
         - color: '[[text_color]]'
         - backdrop-filter: blur(20px)
       grid:
-        - grid-template-areas: '"location battery" "i i"'
+        - grid-template-areas: '"i i" "location battery"'
         - grid-template-columns: 2fr 1fr
-        - grid-template-rows: 1fr 7fr
+        - grid-template-rows: 7fr 1fr
       name:
         - font-size: 1.20em #15px
         - align-self: middle
@@ -89,7 +89,7 @@ person_button_alt:
         #- text-transform: lowercase
       img_cell: 
         - justify-content: center
-        - align-items: flex-end
+        - align-items: flex-start
         - margin: none
         - height: 100%
         - width: 80%
