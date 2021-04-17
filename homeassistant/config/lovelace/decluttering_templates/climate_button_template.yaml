@@ -12,8 +12,8 @@ climate_button:
     - temperature_entity: "[[[ return Math.round(entity.attributes.current_temperature) + '°' ]]]"
     - cool_color: var(--sensibo-cool-color)
     - heat_color: var(--sensibo-heat-color)
-    - text_on_color: var(--primary-text-color)
-    - icon_on_color: var(--primary-text-color)
+    - text_on_color: var(--button-card-on-text-color)
+    - icon_on_color: var(--button-card-on-text-color)
 
   card:
     type: custom:decluttering-card

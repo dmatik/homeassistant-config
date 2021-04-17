@@ -38,7 +38,7 @@ cards:
           - type: custom:decluttering-card # Bedside Galit
             template: light_button
             variables:
-              - entity: light.bedside_galit_bulb
+              - entity: light.bedside_galit
               - name: Galit
               - icon: mdi:lamp
               #- icon: fas:lamp
@@ -47,7 +47,7 @@ cards:
             template: light_button
             variables:
               #- entity: light.bedside_yeelight_dima
-              - entity: light.bedside_dima_bulb
+              - entity: light.bedside_dima
               - name: Dima
               - icon: mdi:lamp
               #- icon: fas:lamp

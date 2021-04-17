@@ -47,7 +47,7 @@ cards:
           - type: custom:decluttering-card # Bedside Galit
             template: color_light_button
             variables:
-              - entity: light.bedside_galit_bulb
+              - entity: light.bedside_galit
               - name: Galit
               - icon: mdi:lamp
               - svg_path: 'M8,2H16L20,14H4L8,2M11,15H13V20H18V22H6V20H11V15Z'
@@ -56,7 +56,7 @@ cards:
           - type: custom:decluttering-card # Bedside Dima
             template: color_light_button
             variables:
-              - entity: light.bedside_dima_bulb
+              - entity: light.bedside_dima
               - name: Dima
               - icon: mdi:lamp
               - svg_path: 'M8,2H16L20,14H4L8,2M11,15H13V20H18V22H6V20H11V15Z'

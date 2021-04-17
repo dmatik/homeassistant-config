@@ -7,6 +7,7 @@ badge_button_text:
     - corner_2_field: ""
     - color: auto
     - color_type: icon
+    - box_shadow: var(--ha-card-box-shadow)
     - lock:
         enabled: false
         duration: 5
@@ -102,6 +103,7 @@ badge_button_text:
           - color: '[[text_field_color]]'
           - border-radius: 50%
           - aspect_ratio: 1/1
+          - box-shadow: '[[box_shadow]]'
         cust_1:
           - line-height: 15px
           - height: 29px

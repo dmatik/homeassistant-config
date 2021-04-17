@@ -6,11 +6,9 @@
   action:
   
     # Set Theme on Startup
-    - service: frontend.set_theme
-      data:
-        #name: "ios-dark-mode"
-        #name: "Midnight Blue"
-        name: "dmatik-dark"
+    # - service: frontend.set_theme
+    #   data:
+    #     name: "dmatik-dark"
 
     # DIMKA status update on Startup
     - service: mqtt.publish 

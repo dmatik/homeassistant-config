@@ -55,7 +55,7 @@ light:
 ############################################################################
 
   - platform: mqtt
-    name: "Bedside Dima Bulb"
+    name: "Bedside Dima"
     command_topic: "cmnd/bedside_dima_bulb/POWER"
     state_topic: "tele/bedside_dima_bulb/STATE"
     state_value_template: "{{ value_json.POWER }}"
@@ -93,7 +93,7 @@ light:
 ############################################################################
 
   - platform: mqtt
-    name: "Bedside Galit Bulb"
+    name: "Bedside Galit"
     command_topic: "cmnd/bedside_galit_bulb/POWER"
     state_topic: "tele/bedside_galit_bulb/STATE"
     state_value_template: "{{ value_json.POWER }}"
@@ -132,8 +132,8 @@ light:
   - platform: group
     name: Bedsides
     entities:
-      - light.bedside_dima_bulb
-      - light.bedside_galit_bulb     
+      - light.bedside_dima
+      - light.bedside_galit     
 
 
       

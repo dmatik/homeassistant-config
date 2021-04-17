@@ -110,7 +110,7 @@ cards:
       - type: custom:decluttering-card # Bedside Galit Light
         template: color_light_button
         variables:
-          - entity: light.bedside_galit_bulb
+          - entity: light.bedside_galit
           - name: Galit
           - icon: mdi:lamp
           - svg_path: 'M8,2H16L20,14H4L8,2M11,15H13V20H18V22H6V20H11V15Z'
@@ -119,7 +119,7 @@ cards:
       - type: custom:decluttering-card # Bedside Dima Light
         template: color_light_button
         variables:
-          - entity: light.bedside_dima_bulb
+          - entity: light.bedside_dima
           - name: Dima
           - icon: mdi:lamp
           - svg_path: 'M8,2H16L20,14H4L8,2M11,15H13V20H18V22H6V20H11V15Z'
@@ -149,9 +149,12 @@ cards:
       #     - cust_1_field: "Overview"
       #     - path: health
 
-      - type: custom:decluttering-card # Health
-        template: health_view_button
-        variables:
-          - name: Health
+      # - type: custom:decluttering-card # Health
+      #   template: health_view_button
+      #   variables:
+      #     - name: Health
+
+      # - type: custom:decluttering-card # Crypto
+      #   template: crypto_view_button
 
   - !include /config/lovelace/styles/separator_card.yaml

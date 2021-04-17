@@ -35,8 +35,8 @@ group:
       - light.bedroom
       - light.kids_room
       - light.work_room
-      - light.bedside_dima_bulb
-      - light.bedside_galit_bulb
+      - light.bedside_dima
+      - light.bedside_galit
       - light.kitchen_strips
       - light.xiaomi_gateway_servers
       - switch.mqtt_makeup

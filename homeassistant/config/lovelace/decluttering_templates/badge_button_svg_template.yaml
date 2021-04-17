@@ -7,6 +7,7 @@ badge_button_svg:
     - corner_2_field: ""
     - color: auto
     - color_type: icon
+    - box_shadow: var(--ha-card-box-shadow)
     - lock:
         enabled: false
         duration: 5
@@ -96,6 +97,7 @@ badge_button_svg:
           - background-color: '[[background_color]]'
           #- color: '[[icon_color]]'
           - border-radius: 50%
+          - box-shadow: '[[box_shadow]]'
         cust_1:
           - line-height: 15px
           - height: 29px

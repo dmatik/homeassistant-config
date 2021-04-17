@@ -8,29 +8,29 @@ scene:
 
   # - name: Bedside Off
   #   entities:
-  #     light.bedside_dima_bulb:
+  #     light.bedside_dima:
   #       state: off
-  #     light.bedside_galit_bulb:
+  #     light.bedside_galit:
   #       state: off
 
   # - name: Bedside Normal
   #   entities:
-  #     light.bedside_dima_bulb:
+  #     light.bedside_dima:
   #       state: on
   #       xy_color: [0.323, 0.329]
   #       brightness: 140
-  #     light.bedside_galit_bulb:
+  #     light.bedside_galit:
   #       state: on
   #       xy_color: [0.323, 0.329]
   #       brightness: 140
 
   # - name: Bedside Romantic
   #   entities:
-  #     light.bedside_dima_bulb:
+  #     light.bedside_dima:
   #       state: on
   #       xy_color: [0.156, 0.049] #blue
   #       brightness: 200
-  #     light.bedside_galit_bulb:
+  #     light.bedside_galit:
   #       state: on
   #       xy_color: [0.156, 0.049] #blue
   #       brightness: 200
@@ -88,9 +88,9 @@ scene:
         state: on
       light.hallway:
         state: on
-      light.bedside_dima_bulb:
+      light.bedside_dima:
         state: on
-      light.bedside_galit_bulb:
+      light.bedside_galit:
         state: on
 
   - name: Night Lights Off
@@ -99,7 +99,7 @@ scene:
         state: off
       light.hallway:
         state: off
-      light.bedside_dima_bulb:
+      light.bedside_dima:
         state: off
-      light.bedside_galit_bulb:
+      light.bedside_galit:
         state: off

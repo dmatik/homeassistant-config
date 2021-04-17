@@ -40,7 +40,7 @@ cards:
     cards:
  
       - type: custom:decluttering-card
-        template: person_button_alt
+        template: person_button
         variables:
           - entity: person.dmatik
           - name: Dima
@@ -52,7 +52,7 @@ cards:
                 action: more-info
 
       - type: custom:decluttering-card
-        template: person_button_alt
+        template: person_button
         variables:
           - entity: person.galit
           - name: Galit

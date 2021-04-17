@@ -90,14 +90,14 @@ person_button_alt:
       img_cell: 
         - justify-content: center
         - align-items: flex-start
+        - align-self: flex-start
         - margin: none
-        - height: 100%
-        - width: 80%
+        - height: 92%
+        - width: 100%
         - padding-bottom: 0px
-        #- color: '[[icon_color]]'
+        - border-radius: 8px
       icon:
         - width: 100%
-        - border-radius: 8% #50%
       lock:
         - color: '[[lock_color]]'
       custom_fields:

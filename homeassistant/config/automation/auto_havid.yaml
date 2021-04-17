@@ -5,7 +5,7 @@
 ############################################################################
 
 - alias: 'Havid sign'
-  initial_state: 'true'
+  #initial_state: 'true'
   trigger:
     - platform: time
       at: "06:40:00"
