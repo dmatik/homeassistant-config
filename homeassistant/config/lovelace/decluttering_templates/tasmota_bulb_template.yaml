@@ -6,7 +6,7 @@ tasmota_bulb:
   card:
     type: custom:fold-entity-row
     head:
-      entity: light.[[bulb]]_bulb
+      entity: light.[[bulb]]
       name : '[[name]]'
       icon: '[[icon]]'
     items:
