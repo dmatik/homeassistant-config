@@ -2,7 +2,7 @@ title: Kiosk
 icon: mdi:view-dashboard
 path: kiosk
 panel: true
-theme: dmatik-dark-wallpanel
+#theme: dmatik-dark-wallpanel
   
 cards:
 

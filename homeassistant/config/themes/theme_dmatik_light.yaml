@@ -84,7 +84,7 @@ dmatik-light:
       secondary-background-color: '#F1F3F7'                                           # Main card UI background  
       divider-color: '#C9CBCF'                                                        # Divider 
       card-background-color: 'var(--primary-background-color)'
-      ha-card-background: 'rgba(242, 244, 249, 0.8)'
+      ha-card-background: 'rgba(237, 239, 244, 1)'
       ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05)'
 
       # Table rows                                                                   

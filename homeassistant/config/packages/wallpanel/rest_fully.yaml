@@ -11,3 +11,7 @@ rest_command:
   fully_clear_cache:
     url: !secret fully_clear_cache
     method: "GET"
+
+  fully_disable_kiosk_mode:
+    url: !secret fully_disable_kiosk_mode
+    method: "GET"

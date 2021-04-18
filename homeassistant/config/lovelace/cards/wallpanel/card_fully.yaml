@@ -95,7 +95,12 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
+  # - type: horizontal-stack
+  #   cards:
+
+  - type: grid
+    columns: 2
+    square: false
     cards:
 
       - type: custom:decluttering-card # Reload URL
@@ -109,6 +114,18 @@ cards:
           - tap_action: 
               action: call-service
               service: rest_command.fully_load_url
+
+      - type: custom:decluttering-card # Disable Kiosk Mode
+        template: simple_button
+        variables:
+          - entity: rest_command.fully_disable_kiosk_mode
+          - name: Disable Kiosk
+          - show_name: true
+          - height: 68px
+          - icon: mdi:view-dashboard-outline
+          - tap_action: 
+              action: call-service
+              service: rest_command.fully_disable_kiosk_mode
 
       - type: custom:decluttering-card # Restart App
         template: simple_button

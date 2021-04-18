@@ -25,6 +25,22 @@ printer_button:
                 - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
               cust_2:
                 - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+        - value: "ink low"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              svg_icon:
+                - --paper-item-icon-active-color: var(--accent-color)
+              #corner:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              #corner_2:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
         - value: "unavailable"
           styles:
             icon:
