@@ -37,7 +37,7 @@ cards:
     cards:
  
       - type: custom:decluttering-card
-        template: person_elements_kiosk
+        template: person_button_alt
         variables:
           - entity: person.dmatik
           - direction: left
@@ -52,7 +52,7 @@ cards:
                 action: more-info
 
       - type: custom:decluttering-card
-        template: person_elements_kiosk
+        template: person_button_alt
         variables:
           - entity: person.galit
           - direction: right

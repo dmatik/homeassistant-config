@@ -85,7 +85,8 @@ dmatik-dark:
       divider-color: 'var(--secondary-background-color)' #'rgba(61, 61, 63, 1)'       # Divider 
       card-background-color: 'var(--primary-background-color)'
       ha-card-background: 'rgba(42, 44, 49, 1)' #'#2F3136' #'rgba(28, 28, 30, 1)'
-      ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05)'
+      #ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05)'
+      ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.2), 1px 1px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 1px 0px rgba(0,0,0,0.12)'
 
       # Table rows                                                                   
       table-row-background-color: '#353840'                                           # Table row

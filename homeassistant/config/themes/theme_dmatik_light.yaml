@@ -85,11 +85,12 @@ dmatik-light:
       divider-color: '#C9CBCF'                                                        # Divider 
       card-background-color: 'var(--primary-background-color)'
       ha-card-background: 'rgba(237, 239, 244, 1)'
-      ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05)'
+      #ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05)'
+      ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05), 1px 1px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 1px 0px rgba(0,0,0,0.12)'
 
       # Table rows                                                                   
-      table-row-background-color: '#353840'                                           # Table row
-      table-row-alternative-background-color: '#3E424B'                               # Table row alternative
+      table-row-background-color: '#E8EAED'                                           # Table row
+      table-row-alternative-background-color: '#F2F4F7'                               # Table row alternative
                                                                               
       # Nav Menu                                                                   
       paper-listbox-color: 'var(--paper-item-icon-color)'                             # Navigation menu selection hoover
