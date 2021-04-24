@@ -45,7 +45,7 @@ rooms_menu:
         - background-color: '[[background_color]]'
         - color: '[[text_color]]'
         - backdrop-filter: blur(20px)
-        - padding: 8px
+        - padding: 10px
       grid:
         - grid-template-areas: '"svg_icon n temp motion light"'
         - grid-template-columns: 2fr 4.5fr 1.5fr 1fr 1fr
@@ -64,9 +64,9 @@ rooms_menu:
           - align-self: center
           - justify-self: center
           - margin: none
-          - height: 70%
-          - width: 70%
-          - padding-bottom: 8px
+          - height: 60%
+          - width: 60%
+          - padding-bottom: 10px
           - padding-top: 0px
           #- color: '[[icon_color]]'
         temp:
