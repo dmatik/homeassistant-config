@@ -21,7 +21,7 @@ dmatik-light:
       sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
       header-shadow: 0px 1px 1px 0px rgba(0,0,0,0.14)                                 # Header shadow
-      footer-shadow: 0px -1px 3px 0px rgba(0,0,0,0.14)                              # Footer shadow
+      footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)                              # Footer shadow
 
       # Custom Header
       ch-background: 'rgba(41, 43, 47, 0.95)' #'rgba(23, 23, 23, 0.95)'
