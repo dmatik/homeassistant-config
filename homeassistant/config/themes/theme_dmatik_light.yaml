@@ -21,7 +21,7 @@ dmatik-light:
       sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
       header-shadow: 0px 1px 1px 0px rgba(0,0,0,0.14)                                 # Header shadow
-      footer-shadow: 0px -1px 1px 0px rgba(0,0,0,0.14)                                # Footer shadow
+      footer-shadow: 0px -0.5px 1px 0px rgba(0,0,0,0.10)                              # Footer shadow
 
       # Custom Header
       ch-background: 'rgba(41, 43, 47, 0.95)' #'rgba(23, 23, 23, 0.95)'
@@ -70,7 +70,7 @@ dmatik-light:
       dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
       light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
       #app-header-background: 'var(--primary-background-color)'
-      app-header-background-color: '#F1F3F7' #'#171717'                               # Application Header color
+      app-header-background-color: '#F1F3F7'                                          # Application Header color
 
       # Text colors                                                                  
       primary-text-color: '#1E232D' #'646973'                                         # Primary text colour, here is referencing dark-primary-color                                                 # Primary text colour 
@@ -142,7 +142,7 @@ dmatik-light:
       google-green-500: '#39E949'
 
       # Card Mod
-      card-mod-theme: dmatik-dark
+      card-mod-theme: dmatik-light
 
       card-mod-more-info-yaml: |
             .: |
@@ -170,4 +170,32 @@ dmatik-light:
                         a.menu-link[target="_blank"], ha-button-menu, [main-title] {
                               display: none;
                         }
+                  }
+                  app-header {
+                        top: auto !important;
+                        bottom: 0 !important;
+                        transform: unset !important;
+                        box-shadow: var(--footer-shadow);
+                        height: 80px;
+                  }
+                  app-toolbar {
+                        transform: none;
+                        height: 48px;
+                        padding-bottom: 32px;
+                  }
+                  #view {
+                        margin-top: -81px !important;
+                  }
+                  ha-tabs {
+                        --paper-tabs-selection-bar-color: 'rgba(0, 0, 0, 0)' !important;
+                  }
+                  paper-tab[aria-selected=true] {
+                        color: var(--primary-color) !important;
+                  }
+                  paper-tab {
+                        padding-left: 34px;
+                        padding-right: 34px;
+                  }
+                  ha-tabs {
+                        --mdc-icon-size: 28px;
                   }

@@ -1,0 +1,68 @@
+rooms_menu:
+
+  default:
+    - color: auto
+    - color_type: icon
+    - border_radius: var(--button-card-border-radius)
+    - background_color: var(--button-card-background-color)
+    - text_color: var(--button-card-text-color)
+    - text_transform: capitalize
+    - svg_fill: var(--button-card-svg-off-color)
+    - svg_fill_on: var(--paper-item-icon-color)
+    - entity: ""
+
+
+  card:
+    type: custom:button-card
+    entity: '[[entity]]'
+    #icon: '[[icon]]'
+    name: '[[name]]'
+    #color: '[[color]]'
+    #color_type: '[[color_type]]'
+    show_last_changed: false
+    styles:
+      card:
+        - padding: 10%
+        - font-size: 12px
+        - font-weight: bold
+        - text-transform: '[[text_transform]]'
+        - border-radius: '[[border_radius]]'
+        - background-color: '[[background_color]]'
+        - color: '[[text_color]]'
+        - backdrop-filter: blur(20px)
+        - padding: 8px
+      grid:
+        - grid-template-areas: '"svg_icon n"'
+        - grid-template-columns: 1fr 4fr
+        - grid-template-rows: 1fr
+      name:
+        - font-size: 1.50em
+        - align-self: middle
+        - justify-self: start
+        - align-self: center
+        - padding-top: 0px
+        - padding-bottom: 0px
+        - padding-left: 10px
+        #- text-transform: lowercase
+      custom_fields:
+        svg_icon:
+          - align-self: center
+          - justify-self: center
+          - margin: none
+          - height: 70%
+          - width: 70%
+          - padding-bottom: 8px
+          - padding-top: 0px
+          #- color: '[[icon_color]]'
+    custom_fields:  
+      svg_icon: "[[[ 
+        return `<svg viewBox='0 0 24 24'>
+        <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+        <path fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+        ]]]"
+    tap_action: 
+      action: navigate
+      navigation_path: /lovelace/[[path]]/
+    hold_action: '[[hold_action]]'
+    double_tap_action: '[[double_tap_action]]'
+    #state: "[[state]]"

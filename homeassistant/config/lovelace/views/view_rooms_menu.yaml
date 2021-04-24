@@ -1,8 +1,7 @@
-title: Living Room
-icon: mdi:sofa
-#icon: fas:couch
-path: living_room
-visible: false
+title: Rooms
+icon: mdi:floor-plan
+path: rooms
+visible: true
 #panel: true
 type: custom:grid-layout
 layout:
@@ -17,9 +16,9 @@ cards:
   - type: custom:decluttering-card
     template: view_title
     variables:
-      - title: Living Room
+      - title: Rooms
 
-  - !include /config/lovelace/cards/accessories/card_accessories_living_room.yaml
+  - !include /config/lovelace/cards/menu/card_rooms_menu.yaml
 
   - type: custom:decluttering-card # Bottom space
     template: blank_card

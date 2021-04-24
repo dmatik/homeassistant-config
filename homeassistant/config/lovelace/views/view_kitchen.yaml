@@ -1,7 +1,7 @@
 title: Kitchen
 icon: mdi:kettle
 path: kitchen
-visible: true
+visible: false
 #panel: true
 type: custom:grid-layout
 layout:

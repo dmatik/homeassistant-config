@@ -1,7 +1,7 @@
 title: Bedroom
 icon: mdi:bed-empty
 path: bedroom
-visible: true
+visible: false
 #panel: true
 type: custom:grid-layout
 layout:
