@@ -76,7 +76,7 @@ dmatik-dark:
       primary-text-color: 'var(--dmatik-white-color)'                                 # Primary text colour, here is referencing dark-primary-color                                                 # Primary text colour 
       text-primary-color: 'var(--dmatik-white-color)'                                 # Primary text colour
       secondary-text-color: '#BEBEBE'                                                 # For secondary titles in more info boxes etc.
-      disabled-text-color: '#7F848E'                                                  # Disabled text colour
+      disabled-text-color: '#505050'                                                  # Disabled text colour
       label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
 
       # Background colors                                                            
@@ -165,10 +165,14 @@ dmatik-dark:
                   }
 
       card-mod-root-yaml: |
+            ha-tabs$: |
+                  #tabsContent {
+                        width: 97%;
+                  }
             .: |
                   @media (orientation: portrait) {
-                        a.menu-link[target="_blank"], ha-button-menu, [main-title] {
-                              display: none;
+                        a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
+                              display: none !important;
                         }
                   }
                   app-header {
@@ -176,26 +180,25 @@ dmatik-dark:
                         bottom: 0 !important;
                         transform: unset !important;
                         box-shadow: var(--footer-shadow);
-                        height: 85px;
+                        height: 80px;
                   }
                   app-toolbar {
                         transform: none;
                         height: 48px;
-                        padding-bottom: 37px;
+                        padding-bottom: 32px;
                   }
                   #view {
-                        margin-top: -86px !important;
+                        margin-top: -81px !important;
                   }
                   ha-tabs {
                         --paper-tabs-selection-bar-color: 'rgba(0, 0, 0, 0)' !important;
+                        --mdc-icon-size: 26px;
                   }
                   paper-tab[aria-selected=true] {
                         color: var(--primary-color) !important;
                   }
                   paper-tab {
-                        padding-left: 34px;
-                        padding-right: 34px;
-                  }
-                  ha-tabs {
-                        --mdc-icon-size: 28px;
+                        padding-left: 0px;
+                        padding-right: 0px;
+                        width: calc(100% / 3);
                   }

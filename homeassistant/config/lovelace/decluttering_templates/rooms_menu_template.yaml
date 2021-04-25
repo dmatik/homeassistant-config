@@ -13,6 +13,7 @@ rooms_menu:
     - temp_entity: ""
     - motion_entity: ""
     - light_entity: ""
+    - svg_fill_disabled: var(--button-card-disabled-text-color)
     - light_svg_fill: var(--button-card-svg-off-color)
     - light_svg_fill_on: var(--paper-item-icon-active-color)
     - light_svg_fill_off: var(--paper-item-icon-color)
@@ -103,7 +104,7 @@ rooms_menu:
       motion: "[[[ 
         if ( '[[motion_entity]]' == '' )
           return `<svg viewBox='0 0 24 24'>
-          <path fill='[[motion_svg_fill]]' d='[[motion_svg_path]]'/> </svg>`;
+          <path fill='[[svg_fill_disabled]]' d='[[motion_svg_path]]'/> </svg>`;
         else if ( states['[[motion_entity]]'].state === 'on' )
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[motion_svg_fill]]' d='[[motion_svg_path]]'/>
@@ -116,7 +117,7 @@ rooms_menu:
       light: "[[[ 
         if ( '[[light_entity]]' == '' )
           return `<svg viewBox='0 0 24 24'>
-          <path fill='[[light_svg_fill]]' d='[[light_svg_path]]'/> </svg>`;
+          <path fill='[[svg_fill_disabled]]' d='[[light_svg_path]]'/> </svg>`;
         else if ( states['[[light_entity]]'].state === 'on' )
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[light_svg_fill]]' d='[[light_svg_path]]'/>
