@@ -1,6 +1,7 @@
 button_two_rows_svg:
 
   default:
+    - entity: ""
     - cust_1_field: ""
     - cust_2_field: ""
     - corner_field: ""
@@ -20,8 +21,22 @@ button_two_rows_svg:
             custom_fields:
               # corner:
               #   - color: var(--button-card-corner-on-text-color) #'#6F7075'
-              corner_2:
-                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              #corner_2:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+        - value: "ready"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              # corner:
+              #   - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              #corner_2:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
               cust_1:
                 - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
               cust_2:
@@ -56,7 +71,8 @@ button_two_rows_svg:
     - cust_2_text_color: var(--button-card-cust-2-text-color)
     - lock_color: var(--button-card-lock-color)
     - svg_fill: var(--button-card-svg-off-color)
-    - svg_fill_on: var(--button-card-light-color-no-temperature)
+    - svg_fill_on: var(--accent-color) #var(--button-card-light-color-no-temperature)
+    - svg_fill_off: var(--paper-item-icon-color)
 
 
   card:
@@ -133,12 +149,28 @@ button_two_rows_svg:
           - color: "[[cust_2_text_color]]"
           - --icon-color-sensor: "[[cust_2_icon_color]]"
     custom_fields:  
-      svg_icon: "[[[ 
-        const state = entity.state === 'on' ? 'animate' : null;
-        return `<svg viewBox='0 0 24 24'>
-        <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-        <path class='${state}' fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+      # svg_icon: "[[[ 
+      #   const state = entity.state === 'on' ? 'animate' : null;
+      #   return `<svg viewBox='0 0 24 24'>
+      #   <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+      #   <path class='${state}' fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+      #   ]]]"
+
+      svg_icon: "[[[
+        if ( '[[entity]]' == '' )
+          return `<svg viewBox='0 0 24 24'>
+          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+          <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
+        else if ( entity.state == 'on' || entity.state == 'Detected' || entity.state == 'ready' )
+          return `<svg viewBox='0 0 24 24'>
+          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+          <path fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+        else
+          return `<svg viewBox='0 0 24 24'>
+          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+          <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
         ]]]"
+
       corner: "[[corner_field]]"
       corner_2: "[[corner_2_field]]"
       cust_1: "[[cust_1_field]]"

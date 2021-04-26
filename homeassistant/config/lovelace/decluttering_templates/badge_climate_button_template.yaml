@@ -11,29 +11,6 @@ badge_climate_button:
     - svg_fill_on: var(--paper-item-icon-active-color)
     - svg_path_on: 'M 15,13 V 5 C 15,3.34 13.66,2 12,2 10.34,2 9,3.34 9,5 v 8 c -2.21,1.66 -2.66,4.79 -1,7 1.66,2.21 4.79,2.66 7,1 2.21,-1.66 2.66,-4.79 1,-7 -0.28,-0.38 -0.62,-0.72 -1,-1 M 12,4 c 0.55,0 1,0.45 1,1 V 8 H 11 V 5 c 0,-0.55 0.45,-1 1,-1 z'
     - cust_1_text_color: var(--button-card-cust-1-on-text-color)
-    - state:
-        - value: "0"
-          styles:
-            card:
-              #- background-color: var(--button-card-background-color)
-              - color: var(--button-card-text-color) #'#040404'
-            custom_fields:
-              text_field:
-                - --paper-item-icon-active-color: var(--paper-item-icon-color)
-                - background-color: var(--button-card-background-color)
-              cust_1:
-                - color: var(--button-card-cust-1-text-color) #'#6F7075'
-        - value: "unavailable"
-          styles:
-            icon:
-              - color: var(--button-card-disabled-text-color)
-            name:
-              - color: var(--button-card-disabled-text-color)
-            custom_fields:
-              text_field:
-                - --paper-item-icon-active-color: var(--button-card-disabled-text-color)
-              cust_1:
-                - color: var(--button-card-disabled-text-color)
 
 
   card:

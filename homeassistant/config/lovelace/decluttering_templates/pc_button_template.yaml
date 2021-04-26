@@ -7,40 +7,6 @@ pc_button:
     #- corner_background_color: "[[[ return 'var(--secondary-text-color)'; ]]]"
     - corner_border_radius: 12px
     - corner_text_color: "var(--button-card-text-field-color)"
-    - state:
-        - value: "on"
-          styles:
-            card:
-              - background-color: var(--button-card-on-background)
-              - color: var(--button-card-on-text-color) #'#040404'
-            custom_fields:
-              svg_icon:
-                - --button-card-light-color-no-temperature: var(--accent-color)
-              #corner:
-              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
-              #corner_2:
-              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
-              cust_1:
-                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
-              cust_2:
-                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
-        - value: "unavailable"
-          styles:
-            icon:
-              - color: var(--button-card-disabled-text-color)
-            name:
-              - color: var(--button-card-disabled-text-color)
-            custom_fields:
-              svg_icon:
-                - --button-card-light-color-no-temperature: var(--button-card-disabled-text-color)
-              corner:
-                - color: var(--button-card-disabled-text-color)
-              corner_2:
-                - color: var(--button-card-disabled-text-color)
-              cust_1:
-                - color: var(--button-card-disabled-text-color)
-              cust_2:
-                - color: var(--button-card-disabled-text-color)
 
 
   card:

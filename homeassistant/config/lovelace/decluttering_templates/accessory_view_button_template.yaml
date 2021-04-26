@@ -1,7 +1,7 @@
 accessory_view_button:
 
   default:
-    - entity: sensor.havid_view_dummy
+    #- entity: sensor.havid_view_dummy
     - cust_1_field: ""
     - cust_2_field: ""
     - corner_text_color: var(--button-card-text-field-color)

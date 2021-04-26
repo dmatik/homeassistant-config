@@ -1,5 +1,5 @@
 title: Rooms
-icon: mdi:floor-plan
+icon: mdi:view-grid
 path: rooms
 visible: true
 #panel: true

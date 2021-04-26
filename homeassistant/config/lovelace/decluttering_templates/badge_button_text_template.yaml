@@ -13,15 +13,17 @@ badge_button_text:
         duration: 5
         unlock: tap
     - state:
-        - value: "on"
+        - value: "0"
           styles:
             card:
-              #- background-color: var(--button-card-on-background)
-              - color: var(--button-card-on-text-color) #'#040404'
+              #- background-color: var(--button-card-background-color)
+              - color: var(--button-card-text-color) #'#040404'
             custom_fields:
+              text_field:
+                - --paper-item-icon-active-color: var(--paper-item-icon-color)
+                - background-color: var(--button-card-background-color)
               cust_1:
-                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
-                - background-color: var(--button-card-on-background)
+                - color: var(--button-card-cust-1-text-color) #'#6F7075'
         - value: "unavailable"
           styles:
             icon:
@@ -29,9 +31,9 @@ badge_button_text:
             name:
               - color: var(--button-card-disabled-text-color)
             custom_fields:
-              svg_icon:
-                - --button-card-light-color-no-temperature: var(--button-card-disabled-text-color)
-              cust_2:
+              text_field:
+                - --paper-item-icon-active-color: var(--button-card-disabled-text-color)
+              cust_1:
                 - color: var(--button-card-disabled-text-color)
 
     # Styles

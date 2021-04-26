@@ -13,15 +13,17 @@ badge_button_svg:
         duration: 5
         unlock: tap
     - state:
-        - value: "on"
+        - value: "0"
           styles:
             card:
-              #- background-color: var(--button-card-on-background)
-              - color: var(--button-card-on-text-color) #'#040404'
+              #- background-color: var(--button-card-background-color)
+              - color: var(--button-card-text-color) #'#040404'
             custom_fields:
+              svg_icon:
+                #- --paper-item-icon-active-color: var(--paper-item-icon-color)
+                - background-color: var(--button-card-background-color)
               cust_1:
-                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
-                - background-color: var(--button-card-on-background)
+                - color: var(--button-card-cust-1-text-color) #'#6F7075'
         - value: "unavailable"
           styles:
             icon:
@@ -30,8 +32,8 @@ badge_button_svg:
               - color: var(--button-card-disabled-text-color)
             custom_fields:
               svg_icon:
-                - --button-card-light-color-no-temperature: var(--button-card-disabled-text-color)
-              cust_2:
+                - --paper-item-icon-active-color: var(--button-card-disabled-text-color)
+              cust_1:
                 - color: var(--button-card-disabled-text-color)
 
     # Styles
@@ -46,7 +48,8 @@ badge_button_svg:
     - cust_2_text_color: var(--button-card-cust-2-text-color)
     - lock_color: var(--button-card-lock-color)
     - svg_fill: var(--button-card-svg-off-color)
-    - svg_fill_on: var(--button-card-light-color-no-temperature)
+    - svg_fill_on: var(--paper-item-icon-active-color)
+    - svg_fill_off: var(--paper-item-icon-color)
 
 
   card:
@@ -124,12 +127,17 @@ badge_button_svg:
           - word-break: break-word
 
     custom_fields:  
-      svg_icon: "[[[ 
-        const state = entity.state === 'on' ? 'animate' : null;
-        return `<svg viewBox='0 0 24 24'>
-        <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-        <path class='${state}' fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+      svg_icon: "[[[
+        if ( '[[entity]]' == '' || entity.state == '0' )
+          return `<svg viewBox='0 0 24 24'>
+          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+          <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
+        else
+          return `<svg viewBox='0 0 24 24'>
+          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+          <path fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
         ]]]"
+
       cust_1: "[[cust_1_field]]"
     tap_action: '[[tap_action]]'
     hold_action: '[[hold_action]]'
