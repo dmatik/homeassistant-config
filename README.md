@@ -6,6 +6,10 @@ The UI is partially isnspired by [Homekit Infused](https://github.com/jimz011/ho
 
 Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg), welcome to visit and ask questions.
 
+[![buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/bg7MaEJHc)
+
+![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/banner.png "Banner")
+
 ## Hardware
 - Girier WiFi light switches (flashed with Tasmota)
 - Logitech Harmony Hub
