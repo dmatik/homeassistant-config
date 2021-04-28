@@ -6,7 +6,7 @@ The UI is partially isnspired by [Homekit Infused](https://github.com/jimz011/ho
 
 Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg), welcome to visit and ask questions.
 
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="bg7MaEJHc" data-color="#FFDD00" data-emoji=""  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+[![buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/bg7MaEJHc)
 
 ## Hardware
 - Girier WiFi light switches (flashed with Tasmota)
