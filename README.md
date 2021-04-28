@@ -6,6 +6,8 @@ The UI is partially isnspired by [Homekit Infused](https://github.com/jimz011/ho
 
 Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg), welcome to visit and ask questions.
 
+                    buymeacoffee.com/bg7MaEJHc                
+
 ## Hardware
 - Girier WiFi light switches (flashed with Tasmota)
 - Logitech Harmony Hub
