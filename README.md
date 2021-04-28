@@ -1,3 +1,10 @@
+![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
+[![GitHub last commit](https://img.shields.io/github/last-commit/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/commits/master)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2021.4.6%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![Commits/Year](https://img.shields.io/github/commit-activity/y/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/commits/master)
+[![GitHub stars](https://img.shields.io/github/stars/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/stargazers)
+
+
 # dmatik’s Home Assistant configuration
 
 I’m using Lovelace mostly for my mobile devices and for Wallpanel tablet which some times used with HaDashboard instead.
