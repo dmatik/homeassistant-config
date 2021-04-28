@@ -19,6 +19,7 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 
 ## Features
 - HomeKit style design using [Button Card](https://github.com/custom-cards/button-card)
+- HomeKit style dynamic badges for People, Lights, Motion sensors and Climate devices.
 - Templating with [Decluttering Card](https://github.com/custom-cards/decluttering-card)
 - Responsive design using CSS Grid with [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
 - Dark and Light themes created specially for this design, automatically changing.
