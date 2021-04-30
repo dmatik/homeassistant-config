@@ -65,8 +65,8 @@ dmatik-dark:
 
 
       # Main colors
-      primary-color: '#4A8DF6' #'rgba(74, 141, 246, 1)'                               # Header
-      accent-color: '#4A8DF6'                                                         # Accent color
+      primary-color: 'var(--accent-color)' #'#4A8DF6' #'rgba(74, 141, 246, 1)'        # Header
+      accent-color: '#3478F5' #'#4A8DF6'                                              # Accent color
       dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
       light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
       #app-header-background: 'var(--primary-background-color)'
