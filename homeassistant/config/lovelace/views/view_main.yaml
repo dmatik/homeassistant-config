@@ -1,5 +1,5 @@
 title: Home
-icon: mdi:home
+icon: mdi:home-variant
 path: main
 visible: true
 #panel: true
