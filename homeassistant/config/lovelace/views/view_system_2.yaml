@@ -1,5 +1,5 @@
 title: System
-icon: mdi:gauge
+icon: mdi:cog
 path: system_2
 visible: true
 #panel: true
