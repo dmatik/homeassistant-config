@@ -1,8 +1,0 @@
-markdown:
-
-  default:
-    - content: "Test"
-
-  card:
-    type: markdown
-    content: '[[content]]'

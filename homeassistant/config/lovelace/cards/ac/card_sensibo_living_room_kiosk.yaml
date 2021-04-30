@@ -1,7 +1,0 @@
-type: custom:decluttering-card
-template: sensibo_card_kiosk
-variables:
-  - title: Living Room AC
-  - name: living_room
-  - image_on: /local/images/sensibo/living_room_ac_kiosk_on.png
-  - image_off: /local/images/sensibo/living_room_ac_kiosk_off.png

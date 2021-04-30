@@ -1,9 +1,0 @@
-title: Remotes
-icon: mdi:remote
-path: remotes
-
-cards:
-
-    - !include /config/lovelace/cards/card_home_button.yaml
-
-    - !include /config/lovelace/cards/remotes/card_remote_swipe.yaml

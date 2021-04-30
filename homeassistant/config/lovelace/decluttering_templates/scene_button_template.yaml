@@ -12,7 +12,7 @@ scene_button:
 
   card:
     type: custom:decluttering-card
-    template: button_two_rows
+    template: button_two_rows_svg
     variables:
       - entity: '[[entity]]'
       - name: '[[name]]'
@@ -29,6 +29,8 @@ scene_button:
       - corner_field: ""
       - cust_1_field: "[[cust_1_field]]"
       - cust_2_field: "[[cust_2_field]]"
+      - svg_path: "[[svg_path]]"
+      - svg_path_on: "[[svg_path_on]]"
       - tap_action: 
           action: call-service
           service: scene.turn_on

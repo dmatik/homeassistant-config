@@ -1,4 +1,0 @@
-type: custom:decluttering-card
-template: view_title
-variables:
-  - title: Kids Room

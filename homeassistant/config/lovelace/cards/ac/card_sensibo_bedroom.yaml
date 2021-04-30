@@ -1,7 +1,0 @@
-type: custom:decluttering-card
-template: sensibo_card
-variables:
-  - title: Bedroom AC
-  - name: bedroom
-  - image_on: /local/images/sensibo/bedroom_ac_on.png
-  - image_off: /local/images/sensibo/bedroom_ac_off.png

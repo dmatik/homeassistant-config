@@ -1,8 +1,0 @@
-title: Map
-icon: mdi:tooltip-account
-path: map
-panel: true
-  
-cards:
-
-    - !include /config/lovelace/cards/card_map.yaml
