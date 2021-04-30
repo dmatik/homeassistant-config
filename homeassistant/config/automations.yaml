@@ -37,8 +37,8 @@
   use_blueprint:
     path: scene_on_off_schedule_state_persistence.yaml
     input:
-      off_time: '7:00:00'
-      on_time: '18:00:00'
+      off_time: '7:30:00'
+      on_time: '19:00:00'
       trigger_at_homeassistant_startup: false
       on_scene: scene.night_lights_on
       off_scene: scene.night_lights_off
