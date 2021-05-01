@@ -20,14 +20,13 @@ dmatik-dark-wallpanel:
       sensibo-fan-only-color: 'var(--dmatik-dark-grey-color)'                         # Sensibo fan only color
       sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
-      header-shadow: 0px 1px 1px 0px rgba(0,0,0,0.14)                                 # Header shadow
-      footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)                              # Footer shadow
 
-      # Custom Header
-      ch-background: 'rgba(41, 43, 47, 0.95)' #'rgba(23, 23, 23, 0.95)'
-      ch-active-tab-color: 'var(--accent-color)'
-      ch-all-tabs-color: 'var(--paper-item-icon-color)'
-      ch-tab-indicator-color: 'rgba(0, 0, 0, 0)' #'var(--ch-active-tab-color)'
+      # Header / Footer
+      header-active-tab-color: 'var(--primary-color)'                                 # Header active tab icon color
+      header-all-tabs-color: 'var(--paper-item-icon-color)'                           # Header icons color
+      header-tab-indicator-color: 'rgba(0, 0, 0, 0)'                                  # Header selected tab bar color
+      header-shadow: 0px 1px 1px 0px rgba(0,0,0,0.14)                                 # Header shadow
+      footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.2)                       # Footer shadow
 
       # Bar Card
       bar-card-border-radius: 5px
@@ -76,7 +75,7 @@ dmatik-dark-wallpanel:
       primary-text-color: 'var(--dmatik-white-color)'                                 # Primary text colour, here is referencing dark-primary-color                                                 # Primary text colour 
       text-primary-color: 'var(--dmatik-white-color)'                                 # Primary text colour
       secondary-text-color: '#BEBEBE'                                                 # For secondary titles in more info boxes etc.
-      disabled-text-color: '#7F848E'                                                  # Disabled text colour
+      disabled-text-color: '#505050'                                                  # Disabled text colour
       label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
 
       # Background colors                                                            

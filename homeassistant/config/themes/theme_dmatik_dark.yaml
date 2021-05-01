@@ -20,14 +20,13 @@ dmatik-dark:
       sensibo-fan-only-color: 'var(--dmatik-dark-grey-color)'                         # Sensibo fan only color
       sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
-      header-shadow: 0px 1px 1px 0px rgba(0,0,0,0.14)                                 # Header shadow
-      footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)                              # Footer shadow
 
-      # Custom Header
-      ch-background: 'rgba(41, 43, 47, 0.95)' #'rgba(23, 23, 23, 0.95)'
-      ch-active-tab-color: 'var(--accent-color)'
-      ch-all-tabs-color: 'var(--paper-item-icon-color)'
-      ch-tab-indicator-color: 'rgba(0, 0, 0, 0)' #'var(--ch-active-tab-color)'
+      # Header / Footer
+      header-active-tab-color: 'var(--primary-color)'                                 # Header active tab icon color
+      header-all-tabs-color: 'var(--paper-item-icon-color)'                           # Header icons color
+      header-tab-indicator-color: 'rgba(0, 0, 0, 0)'                                  # Header selected tab bar color
+      header-shadow: 0px 1px 1px 0px rgba(0,0,0,0.14)                                 # Header shadow
+      footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.2)                       # Footer shadow
 
       # Bar Card
       bar-card-border-radius: 5px
@@ -195,14 +194,15 @@ dmatik-dark:
                         margin-top: -81px !important;
                   }
                   ha-tabs {
-                        --paper-tabs-selection-bar-color: 'rgba(0, 0, 0, 0)' !important;
+                        --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
                         --mdc-icon-size: 28px;
                   }
                   paper-tab[aria-selected=true] {
-                        color: var(--primary-color) !important;
+                        color: var(--header-active-tab-color) !important;
                   }
                   paper-tab {
                         padding-left: 0px;
                         padding-right: 0px;
                         width: calc(100% / 3);
+                        color: var(--header-all-tabs-color) !important;
                   }
