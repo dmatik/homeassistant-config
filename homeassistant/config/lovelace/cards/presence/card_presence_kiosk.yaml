@@ -41,8 +41,8 @@ cards:
         variables:
           - entity: person.dmatik
           - direction: left
-          - image_away: '/local/images/dima_2_off.png'
-          - image_home: '/local/images/dima_2.png'
+          - image_away: '/local/images/dima_2_wide_off.png'
+          - image_home: '/local/images/dima_2_wide.png'
           - battery: sensor.iphonedima_battery_level
           - phone_icon: mdi:cellphone-iphone
           # - tap_action:
@@ -56,8 +56,8 @@ cards:
         variables:
           - entity: person.galit
           - direction: right
-          - image_away: '/local/images/galit_2_off.png'
-          - image_home: '/local/images/galit_2.png'
+          - image_away: '/local/images/galit_2_wide_off.png'
+          - image_home: '/local/images/galit_2_wide.png'
           - battery: sensor.sm_n960f_battery_level
           - phone_icon: mdi:cellphone-android
           # - tap_action:
