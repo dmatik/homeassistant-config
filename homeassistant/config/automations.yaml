@@ -26,7 +26,7 @@
   use_blueprint:
     path: on_off_schedule_state_persistence.yaml
     input:
-      off_time: '7:30:00'
+      off_time: '7:00:00'
       automation_target:
         entity_id: switch.kids_radiator
       on_time: '3:00:00'
