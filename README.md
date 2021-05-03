@@ -25,6 +25,7 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 - Dark and Light themes created specially for this design, automatically changing.
 - Setting the header to the buttom and customizing it, all as part of the themes using [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
 - Popups with [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
+- Two colored SVG icons made by me from Material Design Icons, took the idea from [This Guy](https://community.home-assistant.io/t/a-different-take-on-designing-a-lovelace-ui/162594) 
 
 ### Screens
 
