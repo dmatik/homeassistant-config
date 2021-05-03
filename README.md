@@ -13,7 +13,7 @@ The UI is partially isnspired by [Homekit Infused](https://github.com/jimz011/ho
 
 Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg), welcome to visit and ask questions.
 
-[![buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/bg7MaEJHc)
+<a href="https://www.buymeacoffee.com/bg7MaEJHc" target="_blank"><img height="41px" width="167px" src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee"></a>
 
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/banner.png "Banner")
 
