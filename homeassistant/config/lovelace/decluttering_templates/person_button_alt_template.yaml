@@ -16,27 +16,7 @@ person_button_alt:
         enabled: false
         duration: 5
         unlock: tap
-    - state:
-        - value: "home"
-          styles:
-            card:
-              - background-color: var(--button-card-on-background)
-              - color: var(--button-card-on-text-color) #'#040404'
-            custom_fields:
-              battery:
-                - color: var(--button-card-on-text-color)
-              location:
-                - color: var(--button-card-on-text-color)
-        - value: "unavailable"
-          styles:
-            img_cell:
-              - color: var(--button-card-disabled-text-color)
-            custom_fields:
-              battery:
-                - color: var(--button-card-disabled-text-color)
-              location:
-                - color: var(--button-card-disabled-text-color)
-
+        
     # Styles
     - border_radius: var(--button-card-border-radius)
     - background_color: var(--button-card-background-color)
@@ -80,7 +60,7 @@ person_button_alt:
         - grid-template-columns: 2fr 1fr
         - grid-template-rows: 7fr 1fr
       name:
-        - font-size: 1.20em #15px
+        - font-size: 1.20em
         - align-self: middle
         - justify-self: start
         - align-self: end
@@ -107,16 +87,18 @@ person_button_alt:
           - padding-top: 2px
           - padding-bottom: 2px
           - color: "[[battery_text_color]]"
+          - font-size: 1.20em
         location:
           - padding-top: 2px
           - padding-bottom: 2px
           - align-self: middle
           - justify-self: start
           - color: "[[location_text_color]]"
+          - font-size: 1.20em
     custom_fields: 
       battery: "[[[ return Math.round( states['[[battery]]'].state ) + '%'; ]]]"
       location: "[[location_field]]"
     tap_action: '[[tap_action]]'
     hold_action: '[[hold_action]]'
     double_tap_action: '[[double_tap_action]]'
-    state: "[[state]]"
+    #state: "[[state]]"
