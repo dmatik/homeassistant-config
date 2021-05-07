@@ -30,15 +30,19 @@ accessory_view_button:
       - cust_2_text_color: "[[cust_2_text_color]]"
       - cust_2_icon_color: "[[cust_2_icon_color]]"
       - corner_field: "[[[ 
-            if ('[[corner_field_entity]]' == '' || states['[[corner_field_entity]]'].state == '0')
+            if ( '[[corner_field_entity]]' == '' || states['[[corner_field_entity]]'].state == '0' || states['[[corner_field_entity]]'].state == 'off' )
               return '';
+            else if ( states['[[corner_field_entity]]'].state == 'on' )
+              return 'New';
             else
               return states['[[corner_field_entity]]'].state; 
           ]]]"
       - corner_border_radius: 12px
       - corner_background_color: "[[[
-            if ('[[corner_field_entity]]' == '' || states['[[corner_field_entity]]'].state == '0')
+            if ( '[[corner_field_entity]]' == '' || states['[[corner_field_entity]]'].state == '0' || states['[[corner_field_entity]]'].state == 'off' )
               return 'rgba(0,0,0,0)';
+            else if ( states['[[corner_field_entity]]'].state == 'on' )
+              return 'var(--primary-color)';
             else
               return 'var(--secondary-text-color)';
           ]]]"

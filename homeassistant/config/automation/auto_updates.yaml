@@ -3,8 +3,8 @@
   alias: HA Update Available Notification
   trigger:
     - platform: state
-      entity_id: sensor.ha_update_available
-      to: 'yes'
+      entity_id: binary_sensor.ha_update_available
+      to: 'on'
   action:
     #- service: notify.dimatelegram
     - service: notify.mobile_app_iphonedima
