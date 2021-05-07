@@ -2,48 +2,48 @@
   type: js
 - url: /hacsfiles/bar-card/bar-card.js
   type: module
-- url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
-  type: js
+# - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+#   type: js
 - url: /hacsfiles/button-card/button-card.js
   type: module
-- url: /hacsfiles/vertical-style-card/vertical-style-card.js
-  type: js
+# - url: /hacsfiles/vertical-style-card/vertical-style-card.js
+#   type: js
 - url: /hacsfiles/bignumber-card/bignumber-card.js
   type: js
-- url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js #/hacsfiles/mini-graph-card/mini-graph-card.js
+- url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   type: module
 - url: /hacsfiles/lovelace-gap-card/gap-card.js
   type: js
-- url: /hacsfiles/text-element/text-element.js
-  type: js
-- url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
-  type: module
-- url: /local/custom-lovelace/hebrew-calendar-card/hebrew-calendar-card.js
-  type: module
+# - url: /hacsfiles/text-element/text-element.js
+#   type: js
+# - url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
+#   type: module
+# - url: /local/custom-lovelace/hebrew-calendar-card/hebrew-calendar-card.js
+#   type: module
 - url: /hacsfiles/decluttering-card/decluttering-card.js
   type: module
 - url: /hacsfiles/lovelace-card-mod/card-mod.js
   type: js
-- url: /hacsfiles/swipe-card/swipe-card.js
-  type: module
-- url: /hacsfiles/list-card/list-card.js
-  type: js
+# - url: /hacsfiles/swipe-card/swipe-card.js
+#   type: module
+# - url: /hacsfiles/list-card/list-card.js
+#   type: js
 - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
   type: module
-- url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
-  type: module
-- url: /hacsfiles/lovelace-thermostat-card/main.js
-  type: module
-- url: /hacsfiles/refreshable-picture-card/refreshable-picture-card.js
-  type: module
+# - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+#   type: module
+# - url: /hacsfiles/lovelace-thermostat-card/main.js
+#   type: module
+# - url: /hacsfiles/refreshable-picture-card/refreshable-picture-card.js
+#   type: module
 - url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
   type: module
 - url: /hacsfiles/lovelace-layout-card/layout-card.js
   type: module
-- url: /hacsfiles/lovelace-auto-entities/auto-entities.js
-  type: module
-- url: /hacsfiles/thermostat-popup-card/thermostat-popup-card.js
-  type: module
+# - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+#   type: module
+# - url: /hacsfiles/thermostat-popup-card/thermostat-popup-card.js
+#   type: module
 - url: /hacsfiles/light-popup-card/light-popup-card.js
   type: module
 - url: /hacsfiles/light-entity-card/light-entity-card.js
