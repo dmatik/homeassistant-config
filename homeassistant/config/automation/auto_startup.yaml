@@ -28,6 +28,10 @@
       data:
         topic: "cmnd/tasmotas/state"
         payload: ""
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/tasmotas/power0"
+        payload: ""
 
     # # Tasmota Firmware Version Check
     # - service: mqtt.publish

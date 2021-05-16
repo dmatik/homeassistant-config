@@ -216,8 +216,8 @@ switch:
     - platform: mqtt  
       name: "MQTT Service Balcony Light"
       icon: mdi:lightbulb
-      state_topic: "stat/kitchen/RESULT"
-      value_template: "{{ value_json.POWER1 }}"
+      state_topic: "stat/kitchen/POWER1"
+      #value_template: "{{ value_json.POWER1 }}"
       command_topic: "cmnd/kitchen/POWER1"
       availability_topic: "tele/kitchen/LWT"
       qos: 1
@@ -238,8 +238,8 @@ switch:
     - platform: mqtt  
       name: "MQTT Kitchen Light"
       icon: mdi:lightbulb
-      state_topic: "stat/kitchen/RESULT"
-      value_template: "{{ value_json.POWER2 }}"
+      state_topic: "stat/kitchen/POWER2"
+      #value_template: "{{ value_json.POWER2 }}"
       command_topic: "cmnd/kitchen/POWER2"
       availability_topic: "tele/kitchen/LWT"
       qos: 1
