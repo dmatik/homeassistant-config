@@ -11,7 +11,7 @@ dmatik-dark:
       dmatik-green-color: 'rgba(117,189,111,0.7)'
 
       # My Styles
-      ha-card-border-radius: 16px
+      ha-card-border-radius: 18px
       border-radius: 'var(--ha-card-border-radius)'
       picture-elements-text-color: 'var(--dmatik-white-color)'                        # Picture Element card text color
       picture-elements-icon-color: 'var(--dmatik-white-color)'                        # Picture Element card icon color
