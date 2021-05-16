@@ -69,9 +69,15 @@ badge_lights_button:
 
                 - !include /config/lovelace/cards/lights/card_lights_bedroom_lightsview.yaml
 
-                - !include /config/lovelace/cards/lights/card_lights_other_rooms.yaml
+                - !include /config/lovelace/cards/lights/card_lights_work_room_lightsview.yaml
 
-                - !include /config/lovelace/cards/lights/card_lights_scripts.yaml
+                - !include /config/lovelace/cards/lights/card_lights_kids_room_lightsview.yaml
+
+                - !include /config/lovelace/cards/lights/card_lights_hallway_lightsview.yaml
+
+                #- !include /config/lovelace/cards/lights/card_lights_other_rooms.yaml
+
+                #- !include /config/lovelace/cards/lights/card_lights_scripts.yaml
 
                 #- !include /config/lovelace/styles/view_bottom_gap.yaml
 

@@ -1,0 +1,81 @@
+group:
+
+############################################################################
+#                                                                          #
+#   Living Room                                                            #
+#                                                                          #
+############################################################################
+
+  living_room_lights:
+    name: Living Room Lights
+    entities:
+      - light.living_room
+      - light.dining
+      - light.balcony
+      - light.entrance
+
+
+############################################################################
+#                                                                          #
+#   Kitchen                                                                #
+#                                                                          #
+############################################################################
+
+  kitchen_lights:
+    name: Kitchen Lights
+    entities:
+      - light.kitchen
+      - light.kitchen_strips
+      - light.service_balcony
+
+
+############################################################################
+#                                                                          #
+#   Bedroom                                                                #
+#                                                                          #
+############################################################################
+
+  bedroom_lights:
+    name: Bedroom Lights
+    entities:
+      - light.bedroom
+      - light.bedside_dima
+      - light.bedside_galit
+      - switch.mqtt_makeup
+
+
+############################################################################
+#                                                                          #
+#   Work Room                                                              #
+#                                                                          #
+############################################################################
+
+  work_room_lights:
+    name: Work Room Lights
+    entities:
+      - light.work_room
+
+
+############################################################################
+#                                                                          #
+#   Kids Room                                                              #
+#                                                                          #
+############################################################################
+
+  kids_room_lights:
+    name: Kids Room Lights
+    entities:
+      - light.kids_room
+
+
+############################################################################
+#                                                                          #
+#   Hallway                                                                #
+#                                                                          #
+############################################################################
+
+  hallway_lights:
+    name: Hallway Lights
+    entities:
+      - light.hallway
+      - light.xiaomi_gateway_servers

@@ -1,6 +1,6 @@
 type: conditional
 conditions:
-  - entity: group.living_room_lights
+  - entity: group.hallway_lights
     state: "on"
 card:
   type: vertical-stack
@@ -19,7 +19,7 @@ card:
         - type: custom:decluttering-card
           template: title_button_card
           variables:
-            - name: Living Room
+            - name: Hallway
 
 
   ############################################################################
@@ -43,58 +43,31 @@ card:
     #   square: false
       cards:
 
-        - type: conditional # Living Room
+        - type: conditional # Hallway
           conditions:
-            - entity: light.living_room
+            - entity: light.hallway
               state: "on"
-          card:
+          card:            
             type: custom:decluttering-card
             template: light_button
             variables:
-              - entity: light.living_room
-              - name: Living Room
+              - entity: light.hallway
+              - name: Hallway
 
-        - type: conditional # Dining
+        - type: conditional # Gateway
           conditions:
-            - entity: light.dining
+            - entity: light.xiaomi_gateway_servers
               state: "on"
-          card:
+          card:            
             type: custom:decluttering-card
-            template: light_button
+            template: color_light_button
             variables:
-              - entity: light.dining
-              - name: Dining
+              - entity: light.xiaomi_gateway_servers
+              - name: Gateway
+              - icon: mdi:lightbulb
+              - svg_path: 'M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z'
+              - svg_path_on: 'M 12,2 C 8.1340068,2 5,5.1340068 5,9 c 0,2.38 1.19,4.47 3,5.74 V 17 c 0,0.552285 0.4477153,1 1,1 h 6 c 0.552285,0 1,-0.447715 1,-1 V 14.74 C 17.81,13.47 19,11.38 19,9 19,5.1340068 15.865993,2 12,2'
+        
 
-        - type: conditional # Balcony
-          conditions:
-            - entity: light.balcony
-              state: "on"
-          card:
-            type: custom:decluttering-card
-            template: light_button
-            variables:
-              - entity: light.balcony
-              - name: Balcony
-
-        - type: conditional # Entrance
-          conditions:
-            - entity: light.entrance
-              state: "on"
-          card:
-            type: custom:decluttering-card
-            template: light_button
-            variables:
-              - entity: light.entrance
-              - name: Entrance
-
-            # - type: custom:decluttering-card # New Year Tree
-            #   template: light_button
-            #   variables:
-            #     - entity: switch.mqtt_new_year_tree
-            #     - name: Tree Lights
-            #     - icon: mdi:pine-tree
-            #     - svg_path: 'M10,21V18H3L8,13H5L10,8H7L12,3L17,8H14L19,13H16L21,18H14V21H10Z'
-            #     - svg_path_on: 'M 10,18 H 3 L 8,13 H 5 L 10,8 H 7 l 5,-5 5,5 h -3 l 5,5 h -3 l 5,5 h -7 c 0,0 0,0 -4,0 z'
-              
 
     - !include /config/lovelace/styles/separator_card.yaml
