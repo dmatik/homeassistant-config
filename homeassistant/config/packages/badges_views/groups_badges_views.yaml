@@ -175,3 +175,28 @@ group:
     entities:
       - person.dmatik
       - person.galit
+
+
+
+############################################################################
+#                                                                          #
+#   All Tasmota Versions                                                   #
+#                                                                          #
+############################################################################
+
+  all_tasmota_versions:
+    name: All Tasmota Versions
+    entities:
+      - sensor.tasmota_entrance_light_version
+      - sensor.tasmota_living_room_light_version
+      - sensor.tasmota_bedroom_light_version
+      - sensor.tasmota_balcony_light_version
+      - sensor.tasmota_hallway_light_version
+      - sensor.tasmota_kids_room_light_version
+      - sensor.tasmota_kitchen_light_version
+      - sensor.tasmota_dining_light_version
+      - sensor.tasmota_work_room_light_version
+      - sensor.tasmota_kids_radiator_power_socket_version
+      - sensor.tasmota_makeup_power_socket_version
+      - sensor.tasmota_bedside_dima_bulb_version
+      - sensor.tasmota_bedside_galit_bulb_version
