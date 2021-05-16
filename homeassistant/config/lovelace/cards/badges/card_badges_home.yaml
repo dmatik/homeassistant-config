@@ -29,21 +29,40 @@ cards:
         variables:
           - name: Presence
 
-      - type: custom:decluttering-card # Lights
-        template: badge_lights_button
-        variables:
-          - name: Lights
-
-      - type: custom:decluttering-card # Motion
-        template: badge_motion_button
-        variables:
-          - name: Motion
-
-
       - type: custom:decluttering-card # Climate
         template: badge_climate_button
         variables:
           - name: Climate
+
+      - type: conditional # Lights
+        conditions:
+          - entity: sensor.number_of_lights_on
+            state_not: "0"
+        card:
+          type: custom:decluttering-card # Lights
+          template: badge_lights_button
+          variables:
+            - name: Lights
+
+      - type: conditional # Motion
+        conditions:
+          - entity: sensor.number_of_motion_sensors_on
+            state_not: "0"
+        card:
+          type: custom:decluttering-card # Motion
+          template: badge_motion_button
+          variables:
+            - name: Motion
+
+      - type: conditional # Red Alert
+        conditions:
+          - entity: binary_sensor.redalert_all
+            state: "on"
+        card:
+          type: custom:decluttering-card
+          template: badge_redalert_button
+          variables:
+            - name: "צבע אדום"
       
 
   #- !include /config/lovelace/styles/separator_card.yaml

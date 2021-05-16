@@ -24,6 +24,17 @@ badge_button_svg:
                 - background-color: var(--button-card-background-color)
               cust_1:
                 - color: var(--button-card-cust-1-text-color) #'#6F7075'
+        - value: "off"
+          styles:
+            card:
+              #- background-color: var(--button-card-background-color)
+              - color: var(--button-card-text-color) #'#040404'
+            custom_fields:
+              svg_icon:
+                #- --paper-item-icon-active-color: var(--paper-item-icon-color)
+                - background-color: var(--button-card-background-color)
+              cust_1:
+                - color: var(--button-card-cust-1-text-color) #'#6F7075'
         - value: "unavailable"
           styles:
             icon:
@@ -50,6 +61,7 @@ badge_button_svg:
     - svg_fill: var(--button-card-svg-off-color)
     - svg_fill_on: var(--paper-item-icon-active-color)
     - svg_fill_off: var(--paper-item-icon-color)
+    - border_color: var(--button-card-on-background)
 
 
   card:
@@ -93,14 +105,17 @@ badge_button_svg:
           - margin: none
           - height: 50%
           - width: 50%
-          - padding-bottom: 22.8%
-          - padding-top: 26%
-          - padding-left: 26%
-          - padding-right: 26%
+          - padding-bottom: 20.8%
+          - padding-top: 24%
+          - padding-left: 24%
+          - padding-right: 24%
           - background-color: '[[background_color]]'
           #- color: '[[icon_color]]'
           - border-radius: 50%
           - box-shadow: '[[box_shadow]]'
+          - border-color: '[[border_color]]'
+          - border-style: solid
+          - border-width: 3px
         cust_1:
           - line-height: 15px
           - height: 29px
@@ -128,7 +143,7 @@ badge_button_svg:
 
     custom_fields:  
       svg_icon: "[[[
-        if ( '[[entity]]' == '' || entity.state == '0' )
+        if ( '[[entity]]' == '' || entity.state == '0' || entity.state == 'off' )
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[svg_fill]]' d='[[svg_path]]'/>
           <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;

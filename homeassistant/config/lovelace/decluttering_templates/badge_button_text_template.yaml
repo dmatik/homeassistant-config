@@ -50,6 +50,7 @@ badge_button_text:
     - svg_fill: var(--button-card-svg-off-color)
     - svg_fill_on: var(--button-card-light-color-no-temperature)
     - text_field_color: var(--button-card-text-color)
+    - border_color: var(--button-card-on-background)
 
 
   card:
@@ -88,7 +89,7 @@ badge_button_text:
           - display: flex
           - justify-content: center
           - align-items: center
-          - font-size: 26px
+          - font-size: 27px
           - font-weight: bold
           - text-align: center
           - line-height: 100%
@@ -97,15 +98,18 @@ badge_button_text:
           - margin: none
           - height: 50%
           - width: 50%
-          - padding-bottom: 24.4%
-          - padding-top: 24.4%
-          - padding-left: 26%
-          - padding-right: 26%
+          - padding-bottom: 22.4%
+          - padding-top: 22.4%
+          - padding-left: 24%
+          - padding-right: 24%
           - background-color: '[[background_color]]'
           - color: '[[text_field_color]]'
           - border-radius: 50%
           - aspect_ratio: 1/1
           - box-shadow: '[[box_shadow]]'
+          - border-color: '[[border_color]]'
+          - border-style: solid
+          - border-width: 3px
         cust_1:
           - line-height: 15px
           - height: 29px
