@@ -1,0 +1,54 @@
+############################################################################
+#                                                                          #
+#   Red Alert Ashdod                                                       #
+#                                                                          #
+############################################################################
+
+- alias: 'Red Alert Ashdod'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_ashdod
+      to: "on"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        title: "צבע אדום"
+        message: "אשדוד"
+        data:
+          push:
+            sound:
+              name: "default"
+              critical: 1
+    - service: notify.mobile_app_sm_n960f
+      data:
+        title: "צבע אדום"
+        message: "אשדוד"
+        data:
+          priority: high
+          channel: alarm_stream
+
+
+
+############################################################################
+#                                                                          #
+#   Red Alert Qiryat Gat                                                   #
+#                                                                          #
+############################################################################
+
+- alias: 'Red Alert Qiryat Gat'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_qiryat_gat
+      to: "on"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        title: "צבע אדום"
+        message: "קריית גת"
+        data:
+          push:
+            sound:
+              name: "default"
+              critical: 1
