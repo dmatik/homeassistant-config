@@ -5,7 +5,7 @@ tasmota_view_button:
     - svg_path: 'M6,4H18V5H21V7H18V9H21V11H18V13H21V15H18V17H21V19H18V20H6V19H3V17H6V15H3V13H6V11H3V9H6V7H3V5H6V4M11,15V18H12V15H11M13,15V18H14V15H13M15,15V18H16V15H15Z'
     - svg_path_on: 'm 6,4 h 12 v 1 2 -2 2 2 2 -2 2 2 2 -2 2 2 2 -2 2 1 H 6 V 19 17 19 17 15 13 15 13 11 9 11 9 7 5 7 5 4 m 5,11 v 3 h 1 v -3 h -1 m 2,0 v 3 h 1 v -3 h -1 m 2,0 v 3 h 1 v -3 z'
     - cust_1_field: Devices
-    - corner_field_entity: sensor.tasmota_latest
+    - corner_field_entity: sensor.number_of_tasmota_versions_old
 
 
   card:
