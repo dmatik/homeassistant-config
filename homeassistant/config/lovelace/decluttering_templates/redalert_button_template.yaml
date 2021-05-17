@@ -67,14 +67,32 @@ redalert_button:
                       box-shadow: none;
                       padding: 0.3em 1.25em 0.4em 0.5em;
                       text-align: right;
+                      direction: rtl;
                     }
                   entity_id: sensor.redalert
                   content: |
-                    {% if state_attr('sensor.redalert', 'data') != none %}
-                      {% for l in state_attr('sensor.redalert', 'data') %}
-                        {{ l }} *
+                    {% if state_attr('sensor.redalert', 'alert') == "true" %}
+                      <ul style="color: '#bf4040'">
+                      {% for l in state_attr('sensor.redalert', 'current')['data'] %}
+                        <li>{{ l }}</li>
                       {%- endfor %}
+                      </ul>
                     {% else %}
-                      אין התרעות
+                      אין התרעות כרגע
                     {% endif %}
+
+                - type: markdown
+                  style: |
+                    ha-card.type-markdown {
+                      background: none;
+                      box-shadow: none;
+                      padding: 0.3em 1.25em 0.4em 0.5em;
+                      text-align: right;
+                      direction: rtl;
+                    }
+                  entity_id: sensor.redalert_history
+                  content: |
+                    {% for l in state_attr('sensor.redalert_history', 'lastDay') %}
+                      {{l['date']}}   {{l['time']}}   {{l['data']}}
+                    {%- endfor %}
                     

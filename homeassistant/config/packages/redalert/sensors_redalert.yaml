@@ -6,21 +6,32 @@ sensor:
 #                                                                          #
 ############################################################################
 
+  # - platform: rest
+  #   resource: https://www.oref.org.il/WarningMessages/alert/alerts.json
+  #   name: redalert
+  #   value_template: 'OK'
+  #   json_attributes:
+  #     - alertDate
+  #     - title
+  #     - data
+  #   scan_interval: 5
+  #   headers:
+  #     Accept: application/json
+  #     Content-Type: application/json
+  #     x-requested-with: XMLHttpRequest
+  #     Referer: https://www.oref.org.il//12481-he/Pakar.aspx
+
+
   - platform: rest
-    resource: https://www.oref.org.il/WarningMessages/alert/alerts.json
-    #resource: https://2218a2f3-f45e-4985-a013-2cc051759ad8.mock.pstmn.io/redalert
+    resource: http://10.0.0.30:49000/current
+    #resource: https://c4d33ccf-e342-47a4-9c3e-c9f514dab834.mock.pstmn.io/current
     name: redalert
     value_template: 'OK'
     json_attributes:
-      - alertDate
-      - title
-      - data
+      - alert
+      - current
     scan_interval: 5
-    headers:
-      Accept: application/json
-      Content-Type: application/json
-      x-requested-with: XMLHttpRequest
-      Referer: https://www.oref.org.il//12481-he/Pakar.aspx
+    timeout: 30
 
 
 
@@ -30,17 +41,12 @@ sensor:
 #                                                                          #
 ############################################################################
 
-  # - platform: rest
-  #   resource: https://www.oref.org.il//Shared/Ajax/GetAlarmsHistory.aspx?lang=he&mode=1
-  #   #resource: https://2218a2f3-f45e-4985-a013-2cc051759ad8.mock.pstmn.io/redalert
-  #   name: redalert_history
-  #   value_template: 'OK'
-  #   scan_interval: 60
-  #   json_attributes:
-  #     - ".[]"
-  #   headers:
-  #     Accept: application/json
-  #     Content-Type: application/json
-  #     x-requested-with: XMLHttpRequest
-  #     Referer: https://www.oref.org.il//12481-he/Pakar.aspx
+  - platform: rest
+    resource: http://10.0.0.30:49000/last_day
+    name: redalert_history
+    value_template: 'OK'
+    json_attributes:
+      - "lastDay"
+    scan_interval: 120
+    timeout: 30
 

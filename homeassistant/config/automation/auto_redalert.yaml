@@ -16,6 +16,7 @@
         title: "צבע אדום"
         message: "אשדוד"
         data:
+          tag: "redalert-ahsdod"
           push:
             sound:
               name: "default"
@@ -25,8 +26,26 @@
         title: "צבע אדום"
         message: "אשדוד"
         data:
+          timeout: 120
           priority: high
           channel: alarm_stream
+    - service: scene.turn_on
+      data:
+        entity_id: scene.red_alert_lights
+
+
+- alias: 'Red Alert Ashdod Off'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_ashdod
+      to: "off"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        message: "clear_notification"
+        data:
+          tag: "redalert-ahsdod"
 
 
 
@@ -48,7 +67,22 @@
         title: "צבע אדום"
         message: "קריית גת"
         data:
+          tag: "redalert-qiryat-gat"
           push:
             sound:
               name: "default"
               critical: 1
+
+
+- alias: 'Red Alert Qiryat Gat Off'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_qiryat_gat
+      to: "off"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        message: "clear_notification"
+        data:
+          tag: "redalert-qiryat-gat"

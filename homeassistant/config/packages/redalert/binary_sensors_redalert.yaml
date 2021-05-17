@@ -13,7 +13,7 @@ binary_sensor:
       redalert_all:
         friendly_name: "Redalert All"
         value_template: >-
-          {{ state_attr('sensor.redalert', 'data') != none }}
+          {{ state_attr('sensor.redalert', 'alert') == "true" }}
 
 
 ############################################################################
@@ -25,8 +25,8 @@ binary_sensor:
       redalert_ashdod:
         friendly_name: "Redalert Ashdod"
         value_template: >-
-          {{ state_attr('sensor.redalert', 'data') != none and 
-                    'אשדוד - יא,יב,טו,יז,מרינה' in state_attr('sensor.redalert', 'data') }}
+          {{ state_attr('sensor.redalert', 'alert') == "true" and 
+                    'אשדוד - יא,יב,טו,יז,מרינה' in state_attr('sensor.redalert', 'current')['data'] }}
 
 
 
@@ -39,5 +39,5 @@ binary_sensor:
       redalert_qiryat_gat:
         friendly_name: "Redalert Qiryat Gat"
         value_template: >-
-          {{ state_attr('sensor.redalert', 'data') != none and 
-                    'קריית גת, כרמי גת' in state_attr('sensor.redalert', 'data') }}
+          {{ state_attr('sensor.redalert', 'alert') == "true" and 
+                    'קריית גת, כרמי גת' in state_attr('sensor.redalert', 'current')['data'] }}
