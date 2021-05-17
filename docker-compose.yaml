@@ -29,6 +29,8 @@ services:
             - /volume1/docker/homeassistant/config:/config
             - /var/run/docker.sock:/var/run/docker.sock
         network_mode: "host"
+        labels:
+            - com.centurylinklabs.watchtower.enable=false
 
     # hass_hki:
     #     restart: "unless-stopped"
@@ -155,17 +157,6 @@ services:
             - /volume1/docker/bazarr/config:/config
             - /volume1/video:/video
         
-    # watchtower:
-        # restart: always
-        # hostname: watchtower
-        # container_name: watchtower
-        # image: containrrr/watchtower:latest
-        # network_mode: "bridge"
-        # environment:
-            # TZ: "Asia/Jerusalem"
-        # volumes:
-            # - /var/run/docker.sock:/var/run/docker.sock
-        
     portainer:
         hostname: portainer
         container_name: portainer
@@ -197,20 +188,35 @@ services:
     #         - /volume1/video:/video
     #         - /volume1/torrent:/torrent
             
-    ouroboros_zeg:
+    # ouroboros_zeg:
+    #     restart: always
+    #     container_name: ouroboros_zeg
+    #     hostname: ouroboros_zeg
+    #     image: pyouroboros/ouroboros:latest
+    #     environment:
+    #         CLEANUP: "true"
+    #         INTERVAL: 300
+    #         LOG_LEVEL: "info"
+    #         SELF_UPDATE: "true"
+    #         IGNORE: "homeassistant mariadb postgres pgadmin"
+    #         TZ: "Asia/Jerusalem"
+    #         NOTIFIERS: "tgram://${MY_DOCKER_BOT_TOKEN}/${TELEGRAM_CHAT_ID}"
+    #         CRON: "0 6 * * *"
+    #     volumes:
+    #         - /var/run/docker.sock:/var/run/docker.sock
+
+    watchtower:
         restart: always
-        container_name: ouroboros_zeg
-        hostname: ouroboros_zeg
-        image: pyouroboros/ouroboros:latest
+        hostname: watchtower
+        container_name: watchtower
+        image: containrrr/watchtower:latest
+        network_mode: "bridge"
         environment:
-            CLEANUP: "true"
-            INTERVAL: 300
-            LOG_LEVEL: "info"
-            SELF_UPDATE: "true"
-            IGNORE: "homeassistant mariadb postgres pgadmin"
             TZ: "Asia/Jerusalem"
-            NOTIFIERS: "tgram://${MY_DOCKER_BOT_TOKEN}/${TELEGRAM_CHAT_ID}"
-            CRON: "0 6 * * *"
+            WATCHTOWER_CLEANUP: "true"
+            WATCHTOWER_SCHEDULE: "0 0 6 * * *"
+            WATCHTOWER_NOTIFICATIONS: "shoutrrr"
+            WATCHTOWER_NOTIFICATION_URL: "telegram://${MY_DOCKER_BOT_TOKEN}@telegram?channels=${TELEGRAM_CHAT_ID}"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             
@@ -295,6 +301,8 @@ services:
             CF_HOSTS: ${CF_DOMAIN}
             CF_RECORDTYPES: A
         network_mode: bridge
+        labels:
+            - com.centurylinklabs.watchtower.enable=false
 
 
     switcher_webapi:
@@ -349,6 +357,8 @@ services:
             #PGDATA: /var/lib/postgresql/data/pgdata
         volumes:
             - /volume1/docker/postgres/data:/var/lib/postgresql/data
+        labels:
+            - com.centurylinklabs.watchtower.enable=false
 
     pgadmin:
         restart: always
@@ -362,6 +372,8 @@ services:
             TZ: "Asia/Jerusalem"
             PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
             PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+        labels:
+            - com.centurylinklabs.watchtower.enable=false
 
     tasmobackup:
         restart: always
@@ -457,17 +469,17 @@ services:
     #         tailSize: 300
     #         TZ: "Asia/Jerusalem"
 
-    havid:
-        image: techblog/havid-19:latest
-        container_name: havid
-        restart: always
-        network_mode: "bridge"
-        ports:
-            - 6800:6700
-        environment:
-            TZ: "Asia/Jerusalem"
-        volumes:
-            - /volume1/docker/havid/config:/opt/dockerbot/config
+    # havid:
+    #     image: techblog/havid-19:latest
+    #     container_name: havid
+    #     restart: always
+    #     network_mode: "bridge"
+    #     ports:
+    #         - 6800:6700
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #         - /volume1/docker/havid/config:/opt/dockerbot/config
             
     # havid_amd:
     #     image: techblog/havid-19:latest
@@ -483,16 +495,16 @@ services:
     #         - /volume1/docker/havid_amd/Amdocs_Health_Statements.py:/opt/dockerbot/Amdocs_Health_Statements.py
     #         - /volume1/docker/havid_amd/dockerbot.py:/opt/dockerbot/dockerbot.py
 
-    botvid:
-        image: techblog/botvid-19:latest
-        container_name: botvid
-        restart: always
-        environment:
-            TZ: "Asia/Jerusalem"
-            API_KEY: ${MY_DOCKER_BOT_TOKEN}
-            ALLOWED_IDS: ${TELEGRAM_CHAT_ID}
-        volumes:
-            - /volume1/docker/botvid/config:/opt/dockerbot/config
+    # botvid:
+    #     image: techblog/botvid-19:latest
+    #     container_name: botvid
+    #     restart: always
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         API_KEY: ${MY_DOCKER_BOT_TOKEN}
+    #         ALLOWED_IDS: ${TELEGRAM_CHAT_ID}
+    #     volumes:
+    #         - /volume1/docker/botvid/config:/opt/dockerbot/config
 
     # botvid_yuri:
     #     image: techblog/botvid-19:latest
@@ -505,16 +517,16 @@ services:
     #     volumes:
     #         - /volume1/docker/botvid_yuri/config:/opt/dockerbot/config
 
-    botvid_amosov:
-        image: techblog/botvid-19:latest
-        container_name: botvid_amosov
-        restart: always
-        environment:
-            TZ: "Asia/Jerusalem"
-            API_KEY: ${AMOSOV_BOT_TOKEN}
-            ALLOWED_IDS: ${AMOSOV_TELEGRAM_CHAT_ID}
-        volumes:
-            - /volume1/docker/botvid_amosov/config:/opt/dockerbot/config
+    # botvid_amosov:
+    #     image: techblog/botvid-19:latest
+    #     container_name: botvid_amosov
+    #     restart: always
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         API_KEY: ${AMOSOV_BOT_TOKEN}
+    #         ALLOWED_IDS: ${AMOSOV_TELEGRAM_CHAT_ID}
+    #     volumes:
+    #         - /volume1/docker/botvid_amosov/config:/opt/dockerbot/config
 
     # botvid_amd:
     #     image: techblog/botvid-19:latest
@@ -544,5 +556,32 @@ services:
             MAX_PLAYERS: "30"
             SERVER_NAME: "Trosmans"
             OPS: ${MC_DMATIK_ID}
+            ALLOW_CHEATS: "true"
+            SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
         volumes:
             - /volume1/docker/mc/data:/data
+
+
+    # redalert:
+    #     image: techblog/redalert:latest
+    #     container_name: redalert
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         MQTT_HOST: ${ZEG_IP}
+    #         MQTT_USER: ${MQTT_USER}
+    #         MQTT_PASS: ${MQTT_PASS}
+    #         DEBUG_MODE: "False"
+    #     restart: unless-stopped
+
+
+    oref-alerts:
+        image: dmatik/oref-alerts:latest
+        container_name: oref-alerts
+        network_mode: "bridge"
+        ports:
+          - 49000:3000
+        environment:
+            TZ: "Asia/Jerusalem"
+        restart: unless-stopped
+
+            
