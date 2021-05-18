@@ -72,13 +72,14 @@ redalert_button:
                   entity_id: sensor.redalert
                   content: |
                     {% if state_attr('sensor.redalert', 'alert') == "true" %}
-                      <ul style="color: '#bf4040'">
+                      ### התרעות
+                      <ul>
                       {% for l in state_attr('sensor.redalert', 'current')['data'] %}
                         <li>{{ l }}</li>
                       {%- endfor %}
                       </ul>
                     {% else %}
-                      אין התרעות כרגע
+                     אין התרעות כרגע
                     {% endif %}
 
                 - type: markdown
@@ -92,7 +93,8 @@ redalert_button:
                     }
                   entity_id: sensor.redalert_history
                   content: |
+                    ### יממה אחרונה
                     {% for l in state_attr('sensor.redalert_history', 'lastDay') %}
-                      {{l['date']}}   {{l['time']}}   {{l['data']}}
+                      {{l['date']}} - {{l['time']}} - {{l['data']}}
                     {%- endfor %}
                     

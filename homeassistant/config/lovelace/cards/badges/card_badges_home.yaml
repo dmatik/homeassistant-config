@@ -56,7 +56,7 @@ cards:
 
       - type: conditional # Red Alert
         conditions:
-          - entity: binary_sensor.redalert_all
+          - entity: binary_sensor.redalert_ashdod
             state: "on"
         card:
           type: custom:decluttering-card
