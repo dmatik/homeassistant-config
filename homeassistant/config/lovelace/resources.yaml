@@ -26,8 +26,8 @@
   type: js
 # - url: /hacsfiles/swipe-card/swipe-card.js
 #   type: module
-# - url: /hacsfiles/list-card/list-card.js
-#   type: js
+- url: /hacsfiles/list-card/list-card.js
+  type: js
 - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
   type: module
 # - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js

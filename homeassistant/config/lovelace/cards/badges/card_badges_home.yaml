@@ -54,15 +54,15 @@ cards:
           variables:
             - name: Motion
 
-      - type: conditional # Red Alert
-        conditions:
-          - entity: binary_sensor.redalert_ashdod
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: badge_redalert_button
-          variables:
-            - name: "צבע אדום"
+      # - type: conditional # Red Alert
+      #   conditions:
+      #     - entity: binary_sensor.redalert_ashdod
+      #       state: "on"
+      #   card:
+      #     type: custom:decluttering-card
+      #     template: badge_redalert_button
+      #     variables:
+      #       - name: "צבע אדום"
       
 
   #- !include /config/lovelace/styles/separator_card.yaml
