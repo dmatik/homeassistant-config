@@ -21,8 +21,8 @@ homeassistant:
 
   packages: !include_dir_named packages/
 
-zeroconf:
-  default_interface: true
+# zeroconf:
+#   default_interface: true
   
 frontend:
   themes: 
@@ -76,7 +76,6 @@ recorder:
   db_url: !secret synology_db_connection
   include:
     domains:
-      - switcher_aio
       - switch
       - sensor
       - person
@@ -122,20 +121,11 @@ recorder:
 #Logger
 logger:
   default: info
-  logs:
-    custom_components.hacs: debug
-    hacs: debug
-    queueman: debug
-    AIOGitHubAPI: debug
-    
-    
-# Dark Sky    
-# weather:
-#   - platform: darksky
-#     mode: daily
-#     api_key: !secret darksky_api_key
-#     latitude: !secret home_latitude
-#     longitude: !secret home_longitude   
+  # logs:
+  #   custom_components.hacs: debug
+  #   hacs: debug
+  #   queueman: debug
+  #   AIOGitHubAPI: debug
 
 # Google    
 google:
@@ -199,17 +189,17 @@ ios:
   # actions:
   #   !include_dir_merge_list /config/ios/actions/
 
-synology_dsm:
-  - host: !secret synology_blaze_host
-    port: !secret synology_blaze_port
-    username: !secret synology_blaze_username
-    password: !secret synology_blaze_password
-    ssl: true
-  - host: !secret synology_zeg_host
-    port: !secret synology_zeg_port
-    username: !secret synology_zeg_username
-    password: !secret synology_zeg_password
-    ssl: true
+# synology_dsm:
+#   - host: !secret synology_blaze_host
+#     port: !secret synology_blaze_port
+#     username: !secret synology_blaze_username
+#     password: !secret synology_blaze_password
+#     ssl: true
+#   - host: !secret synology_zeg_host
+#     port: !secret synology_zeg_port
+#     username: !secret synology_zeg_username
+#     password: !secret synology_zeg_password
+#     ssl: true
 
 
 # spotify:
