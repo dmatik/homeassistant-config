@@ -584,4 +584,49 @@ services:
             TZ: "Asia/Jerusalem"
         restart: unless-stopped
 
-            
+
+    # mylar3:
+    #     image: ghcr.io/linuxserver/mylar3
+    #     container_name: mylar3
+    #     environment:
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #     volumes:
+    #         - /volume1/docker/mylar3/config:/config
+    #         - /volume1/eBooks/Comics:/comics
+    #         - /volume1/torrent/Comics:/downloads
+    #         - /volume1/torrent/Incoming:/watchdir
+    #     ports:
+    #         - 8090:8090
+    #     restart: unless-stopped
+
+
+    komga:
+        image: gotson/komga
+        container_name: komga
+        volumes:
+            - /volume1/docker/komga/config:/config
+            - /volume1/eBooks:/data
+        ports:
+            - 38080:8080
+        user: "${ZEG_PUID}:${ZEG_PUID}"
+        environment:
+            TZ: "Asia/Jerusalem"
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+        restart: unless-stopped
+
+
+    # conreq:
+    #     image: hotio/conreq
+    #     container_name: conreq
+    #     volumes:
+    #         - /volume1/docker/conreq/config:/config
+    #     ports:
+    #         - 8300:8000
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #         UMASK: "002"
+    #     restart: unless-stopped
