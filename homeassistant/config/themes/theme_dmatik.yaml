@@ -1,0 +1,376 @@
+dmatik:
+
+  modes:
+
+
+    ############################################################################
+    #                                                                          #
+    #   Light mode                                                             #
+    #                                                                          #
+    ############################################################################
+
+    light:
+
+      # Background image
+      #background-image: 'center / cover no-repeat url("/local/images/backgrounds/gray_2.jpg") fixed'
+
+      # Colors
+      dmatik-white-color: '#F0F0F0'
+      dmatik-light-blue-color: '#45A8E9'
+      dmatik-orange-color: '#C98638'
+      dmatik-dark-grey-color: 'rgba(117, 189, 111, 0.7)'
+      dmatik-green-color: 'rgba(117,189,111,0.7)'
+
+      # My Styles
+      ha-card-border-radius: 18px
+      border-radius: 'var(--ha-card-border-radius)'
+      picture-elements-text-color: 'var(--dmatik-white-color)'                        # Picture Element card text color
+      picture-elements-icon-color: 'var(--dmatik-white-color)'                        # Picture Element card icon color
+      sensibo-cool-color: 'var(--dmatik-light-blue-color)'                            # Sensibo cool color
+      sensibo-heat-color: 'var(--dmatik-orange-color)'                                # Sensibo heat color
+      sensibo-fan-only-color: 'var(--dmatik-dark-grey-color)'                         # Sensibo fan only color
+      sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
+      graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
+
+      # Header / Footer
+      header-active-tab-color: 'var(--primary-color)'                                 # Header active tab icon color
+      header-all-tabs-color: 'var(--paper-item-icon-color)'                           # Header icons color
+      header-tab-indicator-color: 'rgba(0, 0, 0, 0)'                                  # Header selected tab bar color
+      header-shadow: 0px 1px 1px 0px rgba(0,0,0,0.14)                                 # Header shadow
+      footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)                             # Footer shadow
+
+      # Bar Card
+      bar-card-border-radius: 5px
+      #bar-card-disabled-color: 'var(--secondary-background-color)'
+      bar-card-icon-color: 'var(--primary-text-color)'
+
+      # My Button Card Styles
+      button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius
+      button-card-background-color: 'var(--paper-card-background-color)'              # Button Card background color
+      button-card-icon-color: 'var(--paper-item-icon-color)'                          # Button Card icon color
+      button-card-svg-off-color: '#9da0a2'                                            # Button Card SVG OFF color
+      button-card-text-color: '#646973'                                               # Button Card text color
+      button-card-on-text-color: '#060606'                                            # Button Card On text color
+      button-card-corner-text-color: 'var(--secondary-text-color)'                    # Button card corner field text color
+      button-card-cust-1-text-color: 'var(--secondary-text-color)'                    # Button Card cust_1 field text color
+      button-card-cust-2-text-color: 'var(--secondary-text-color)'                    # Button Card cust_2 field text color
+      button-card-corner-on-text-color: 'var(--secondary-text-color)'                 # Button card corner field On text color
+      button-card-cust-1-on-text-color: 'var(--secondary-text-color)'                 # Button Card cust_1 field On text color
+      button-card-cust-2-on-text-color: 'var(--secondary-text-color)'                 # Button Card cust_2 field On text color
+      button-card-text-field-color: 'var(--button-card-on-background)'                # Button Card text field color
+      button-card-disabled-text-color: 'var(--disabled-text-color)'                   # Button Card disabled text color
+      button-card-input-select-background: 'var(--button-card-on-background)'         # Button Card selected item color
+      button-card-input-select-text: 'var(--primary-color)'                           # Button Card selected item text color
+      button-card-on-background: white #'#F5F8FF' #'#BEBEBE'                          # Button Card ON color
+      button-color-green: 'var(--dmatik-green-color)'                                 # Button Card green background (ON mode)
+      title-border-radius: 5px                                                        # Title border radius
+      title-button-background: 'rgba(37, 129, 171, 0.7)'                              # Title button background color
+      title-button-text-color: 'var(--secondary-text-color)'                          # Title button text color
+      remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
+      remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
+      remote-button-icon: 'var(--primary-text-color)'                                 # Remote button icon color
+      remote-button-border-radius: 5px                                                # Remote button border radius
+      button-card-lock-color: 'var(--secondary-text-color)'                           # Button Card lock color
+      menu-card-icon-color: 'var(--button-card-icon-color)'
+
+
+      # Main colors
+      primary-color: 'var(--accent-color)' #'#4A8DF6' #'rgba(74, 141, 246, 1)'        # Header
+      accent-color: '#3478F5' #'#4A8DF6'                                              # Accent color
+      dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
+      light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
+      #app-header-background: 'var(--primary-background-color)'
+      app-header-background-color: '#F1F3F7'                                          # Application Header color
+
+      # Text colors                                                                  
+      primary-text-color: '#1E232D' #'646973'                                         # Primary text colour, here is referencing dark-primary-color                                                 # Primary text colour 
+      text-primary-color: '#1E232D'                                                   # Primary text colour
+      secondary-text-color: '#767E8B'                                                 # For secondary titles in more info boxes etc.
+      disabled-text-color: '#B1B6C0'                                                  # Disabled text colour
+      label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
+
+      # Background colors                                                            
+      primary-background-color: '#DEE0E3'                                             # Settings background
+      secondary-background-color: '#F1F3F7'                                           # Main card UI background  
+      divider-color: '#C9CBCF'                                                        # Divider 
+      card-background-color: 'var(--primary-background-color)'
+      ha-card-background: 'rgba(237, 239, 244, 1)'
+      #ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05)'
+      ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05), 1px 1px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 1px 0px rgba(0,0,0,0.12)'
+
+      # Table rows                                                                   
+      table-row-background-color: '#E8EAED'                                           # Table row
+      table-row-alternative-background-color: '#F2F4F7'                               # Table row alternative
+                                                                              
+      # Nav Menu                                                                   
+      paper-listbox-color: 'var(--paper-item-icon-color)'                             # Navigation menu selection hoover
+      paper-listbox-background-color: 'var(--primary-background-color)'               # Navigation menu background
+      paper-grey-50: 'var(--paper-item-icon-color)'                                   
+      paper-grey-200: '#414A59'                                                       # Navigation menu selection
+      sidebar-icon-color: 'var(--paper-item-icon-color)' 
+
+      # Paper card                                                               
+      paper-card-header-color: 'var(--accent-color)'                                  # Card header text colour
+      paper-card-background-color: 'var(--ha-card-background)' #'rgba(28, 28, 30, 1)' # Card background colour
+      paper-dialog-background-color: 'var(--paper-card-background-color)'             # Card dialog background colour
+      paper-item-icon-color: '#646973' #'rgba(129, 129, 129, 1)'                      # Icon color
+      paper-item-icon-active-color: '#E2BF3D' #'#C2A120' #'#C49B13' #'#ffc107'        # Icon color active
+      paper-item-icon_-_color: 'green'           
+      paper-item-selected_-_background-color: 'var(--paper-card-background-color)'    # Popup item select                      
+      paper-tabs-selection-bar-color: 'green'
+
+      # Labels 
+      label-badge-red: 'var(--accent-color)'                                          # References the brand colour label badge border
+      label-badge-text-color: 'var(--paper-item-icon-color)'                          # Now same as label badge border but that's a matter of taste
+      label-badge-background-color: '#2E333A'                                         # Same, but can also be set to transparent here
+
+
+      # Switches
+      paper-toggle-button-checked-button-color: 'var(--accent-color)'
+      paper-toggle-button-checked-bar-color: 'var(--accent-color)'
+      paper-toggle-button-checked-ink-color: 'var(--accent-color)'
+      paper-toggle-button-unchecked-button-color: 'var(--disabled-text-color)'
+      paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'
+      paper-toggle-button-unchecked-ink-color: 'var(--disabled-text-color)' 
+      switch-checked-button-color: 'var(--paper-item-icon-color)'
+      switch-unchecked-button-color: 'var(--paper-item-icon-color)'
+      switch-checked-color: '#67CD67'
+      switch-unchecked-color: '#616065'
+
+      # Sliders
+      paper-slider-knob-color: 'var(--accent-color)'
+      paper-slider-knob-start-color: 'var(--accent-color)'
+      paper-slider-pin-color: 'var(--accent-color)'
+      paper-slider-active-color: 'var(--accent-color)'
+      paper-slider-container-color: 'linear-gradient(var(--primary-background-color), var(--secondary-background-color)) no-repeat'
+      paper-slider-secondary-color: 'var(--secondary-background-color)'
+      paper-slider-disabled-active-color: 'var(--disabled-text-color)'
+      paper-slider-disabled-secondary-color: 'var(--disabled-text-color)'
+
+      # Google colors
+      google-red-500: '#E45E65'
+      google-green-500: '#39E949'
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Dark mode                                                              #
+    #                                                                          #
+    ############################################################################
+
+    dark:
+
+      # Background image
+      #background-image: 'center / cover no-repeat url("/local/images/backgrounds/background09.jpg") fixed'
+
+      # Colors
+      dmatik-white-color: '#F0F0F0'
+      dmatik-light-blue-color: '#45A8E9'
+      dmatik-orange-color: '#C98638'
+      dmatik-dark-grey-color: 'rgba(117, 189, 111, 0.7)'
+      dmatik-green-color: 'rgba(117,189,111,0.7)'
+
+      # My Styles
+      ha-card-border-radius: 18px
+      border-radius: 'var(--ha-card-border-radius)'
+      picture-elements-text-color: 'var(--dmatik-white-color)'                        # Picture Element card text color
+      picture-elements-icon-color: 'var(--dmatik-white-color)'                        # Picture Element card icon color
+      sensibo-cool-color: 'var(--dmatik-light-blue-color)'                            # Sensibo cool color
+      sensibo-heat-color: 'var(--dmatik-orange-color)'                                # Sensibo heat color
+      sensibo-fan-only-color: 'var(--dmatik-dark-grey-color)'                         # Sensibo fan only color
+      sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
+      graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
+
+      # Header / Footer
+      header-active-tab-color: 'var(--primary-color)'                                 # Header active tab icon color
+      header-all-tabs-color: 'var(--paper-item-icon-color)'                           # Header icons color
+      header-tab-indicator-color: 'rgba(0, 0, 0, 0)'                                  # Header selected tab bar color
+      header-shadow: 0px 1px 1px 0px rgba(0,0,0,0.14)                                 # Header shadow
+      footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.2)                       # Footer shadow
+
+      # Bar Card
+      bar-card-border-radius: 5px
+      #bar-card-disabled-color: 'var(--secondary-background-color)'
+      bar-card-icon-color: 'var(--primary-text-color)'
+
+      # My Button Card Styles
+      button-card-border-radius: 'var(--border-radius)'                               # Button Card border radius
+      button-card-background-color: 'var(--paper-card-background-color)'              # Button Card background color
+      button-card-icon-color: 'var(--paper-item-icon-color)'                          # Button Card icon color
+      button-card-svg-off-color: '#9da0a2'                                            # Button Card SVG OFF color
+      button-card-text-color: '#8D8E93' #'var(--primary-text-color)'                  # Button Card text color
+      button-card-on-text-color: 'var(--dmatik-white-color)' #'#040404'               # Button Card On text color
+      button-card-corner-text-color: '#797A7F' #'var(--secondary-text-color)'         # Button card corner field text color
+      button-card-cust-1-text-color: '#797A7F' #'var(--secondary-text-color)'         # Button Card cust_1 field text color
+      button-card-cust-2-text-color: '#797A7F' #'var(--secondary-text-color)'         # Button Card cust_2 field text color
+      button-card-corner-on-text-color: '#A5A7AB' #'#5B5C61'                          # Button card corner field On text color
+      button-card-cust-1-on-text-color: '#A5A7AB' #'#5B5C61'                          # Button Card cust_1 field On text color
+      button-card-cust-2-on-text-color: '#A5A7AB' #'#5B5C61'                          # Button Card cust_2 field On text color
+      button-card-text-field-color: 'rgba(47, 49, 54, 1)'                             # Button Card text field color
+      button-card-disabled-text-color: 'var(--disabled-text-color)'                   # Button Card disabled text color
+      button-card-input-select-background: 'var(--button-card-on-background)'         # Button Card selected item color
+      button-card-input-select-text: 'var(--primary-color)'                           # Button Card selected item text color
+      button-card-on-background: '#393C43' #'#BEBEBE'                                 # Button Card ON color
+      button-color-green: 'var(--dmatik-green-color)'                                 # Button Card green background (ON mode)
+      title-border-radius: 5px                                                        # Title border radius
+      title-button-background: 'rgba(37, 129, 171, 0.7)'                              # Title button background color
+      title-button-text-color: 'var(--secondary-text-color)'                          # Title button text color
+      remote-button-background: 'var(--paper-card-background-color)'                  # Remote button background color
+      remote-button-alt-background: 'var(--disabled-text-color)'                      # Remote button alternative background color
+      remote-button-icon: 'var(--primary-text-color)'                                 # Remote button icon color
+      remote-button-border-radius: 5px                                                # Remote button border radius
+      button-card-lock-color: 'var(--secondary-text-color)'                           # Button Card lock color
+      menu-card-icon-color: 'var(--button-card-icon-color)'
+
+
+      # Main colors
+      primary-color: 'var(--accent-color)' #'#4A8DF6' #'rgba(74, 141, 246, 1)'        # Header
+      accent-color: '#3478F5' #'#4A8DF6'                                              # Accent color
+      dark-primary-color: 'var(--accent-color)'                                       # Hyperlinks                                         
+      light-primary-color: 'var(--accent-color)'                                      # Horizontal line in about
+      #app-header-background: 'var(--primary-background-color)'
+      app-header-background-color: '#292B2F' #'#171717'                               # Application Header color
+
+      # Text colors                                                                  
+      primary-text-color: 'var(--dmatik-white-color)'                                 # Primary text colour, here is referencing dark-primary-color                                                 # Primary text colour 
+      text-primary-color: 'var(--dmatik-white-color)'                                 # Primary text colour
+      secondary-text-color: '#BEBEBE'                                                 # For secondary titles in more info boxes etc.
+      disabled-text-color: '#505050'                                                  # Disabled text colour
+      label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
+
+      # Background colors                                                            
+      primary-background-color: '#202225' #'#050505' #'rgba(5, 5, 5, 1)'              # Settings background
+      secondary-background-color: '#292B2F' #'#171717' #'rgba(23, 23, 23, 1)'         # Main card UI background  
+      divider-color: 'var(--secondary-background-color)' #'rgba(61, 61, 63, 1)'       # Divider 
+      card-background-color: 'var(--primary-background-color)'
+      ha-card-background: 'rgba(42, 44, 49, 1)' #'#2F3136' #'rgba(28, 28, 30, 1)'
+      #ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.05)'
+      ha-card-box-shadow: '0px 0.5px 1px 0.6px rgba(0,0,0,0.2), 1px 1px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 1px 0px rgba(0,0,0,0.12)'
+
+      # Table rows                                                                   
+      table-row-background-color: '#353840'                                           # Table row
+      table-row-alternative-background-color: '#3E424B'                               # Table row alternative
+                                                                              
+      # Nav Menu                                                                   
+      paper-listbox-color: 'var(--dmatik-white-color)'                                # Navigation menu selection hoover
+      paper-listbox-background-color: 'var(--primary-background-color)'               # Navigation menu background
+      paper-grey-50: 'var(--dmatik-white-color)'                                   
+      paper-grey-200: '#414A59'                                                       # Navigation menu selection
+      sidebar-icon-color: 'var(--dmatik-white-color)' 
+
+      # Paper card                                                               
+      paper-card-header-color: 'var(--accent-color)'                                  # Card header text colour
+      paper-card-background-color: 'var(--ha-card-background)' #'rgba(28, 28, 30, 1)' # Card background colour
+      paper-dialog-background-color: 'var(--paper-card-background-color)'             # Card dialog background colour
+      paper-item-icon-color: '#757479' #'rgba(129, 129, 129, 1)'                      # Icon color
+      paper-item-icon-active-color: '#E2BF3D' #'#C2A120' #'#C49B13' #'#ffc107'        # Icon color active
+      paper-item-icon_-_color: 'green'           
+      paper-item-selected_-_background-color: 'var(--paper-card-background-color)'    # Popup item select                      
+      paper-tabs-selection-bar-color: 'green'
+
+      # Labels 
+      label-badge-red: 'var(--accent-color)'                                          # References the brand colour label badge border
+      label-badge-text-color: 'var(--dmatik-white-color)'                             # Now same as label badge border but that's a matter of taste
+      label-badge-background-color: '#2E333A'                                         # Same, but can also be set to transparent here
+
+
+      # Switches
+      paper-toggle-button-checked-button-color: 'var(--accent-color)'
+      paper-toggle-button-checked-bar-color: 'var(--accent-color)'
+      paper-toggle-button-checked-ink-color: 'var(--accent-color)'
+      paper-toggle-button-unchecked-button-color: 'var(--disabled-text-color)'
+      paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'
+      paper-toggle-button-unchecked-ink-color: 'var(--disabled-text-color)' 
+      switch-checked-button-color: 'var(--dmatik-white-color)'
+      switch-unchecked-button-color: 'var(--dmatik-white-color)'
+      switch-checked-color: '#67CD67'
+      switch-unchecked-color: '#616065'
+
+      # Sliders
+      paper-slider-knob-color: 'var(--accent-color)'
+      paper-slider-knob-start-color: 'var(--accent-color)'
+      paper-slider-pin-color: 'var(--accent-color)'
+      paper-slider-active-color: 'var(--accent-color)'
+      paper-slider-container-color: 'linear-gradient(var(--primary-background-color), var(--secondary-background-color)) no-repeat'
+      paper-slider-secondary-color: 'var(--secondary-background-color)'
+      paper-slider-disabled-active-color: 'var(--disabled-text-color)'
+      paper-slider-disabled-secondary-color: 'var(--disabled-text-color)'
+
+      # Google colors
+      google-red-500: '#E45E65'
+      google-green-500: '#39E949'
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Card mode                                                              #
+  #                                                                          #
+  ############################################################################
+
+  card-mod-theme: dmatik
+
+  card-mod-more-info-yaml: |
+        .: |
+              mwc-icon-button {
+                    margin-top: -8px;
+                    color: var(--primary-text-color);
+              }
+              .main-title {
+                    margin-top: 0px;
+              }
+        $: |
+              .mdc-dialog__scrim {
+                    backdrop-filter: blur(20px) brightness(70%);
+                    -webkit-backdrop-filter: blur(20px) brightness(70%);
+              }
+              .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+                    box-shadow: none;
+                    border-radius: 0px;
+                    background: var(--primary-background-color);
+              }
+
+  card-mod-root-yaml: |
+        ha-tabs$: |
+              #tabsContent {
+                    width: 97%;
+              }
+        .: |
+              @media (orientation: portrait) {
+                    a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
+                          display: none !important;
+                    }
+                    app-toolbar {
+                          padding-right: 0px;
+                          padding-left: 0px;
+                    }
+              }
+              app-header {
+                    top: auto !important;
+                    bottom: 0 !important;
+                    transform: unset !important;
+                    box-shadow: var(--footer-shadow);
+                    height: 80px;
+              }
+              app-toolbar {
+                    transform: none;
+                    height: 48px;
+                    padding-bottom: 32px;
+              }
+              #view {
+                    margin-top: -81px !important;
+              }
+              ha-tabs {
+                    --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
+                    --mdc-icon-size: 28px;
+              }
+              paper-tab[aria-selected=true] {
+                    color: var(--header-active-tab-color) !important;
+              }
+              paper-tab {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                    width: calc(100% / 3);
+                    color: var(--header-all-tabs-color) !important;
+              }

@@ -147,7 +147,7 @@ dmatik-light:
             .: |
                   mwc-icon-button {
                         margin-top: -8px;
-                        color: #1E232D;
+                        color: var(--primary-text-color);
                   }
                   .main-title {
                         margin-top: 0px;
