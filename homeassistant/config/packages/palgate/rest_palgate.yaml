@@ -1,0 +1,8 @@
+rest_command:
+
+  open_parking_gate:
+    url: "https://api1.pal-es.com/v1/bt/device/{{deviceId}}/open-gate?outputNum=1" 
+    method: "GET"
+    headers:
+      x-bt-user-token: !secret palgate_token
+    timeout: 60

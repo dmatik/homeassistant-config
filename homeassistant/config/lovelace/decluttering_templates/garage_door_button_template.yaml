@@ -1,0 +1,46 @@
+garage_door_button:
+
+  default:
+    - cust_2_field: ""
+    - color: var(--button-color-green)
+    - color_type: card
+    - svg_path: 'M22 9V20H20V11H4V20H2V9L12 5L22 9M19 12H5V14H19V12M19 18H5V20H19V18M19 15H5V17H19V15Z'
+    - svg_path_on: 'M 22,9 V 20 H 20 V 11 H 4 v 9 H 2 V 9 L 12,5 22,9'
+    - lock:
+        enabled: false
+        duration: 5
+        unlock: tap
+
+  card:
+    type: custom:decluttering-card
+    template: script_button
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - icon: '[[icon]]'
+      - color: '[[color]]'
+      - lock: '[[lock]]'
+      - color_type: '[[color_type]]'
+      - corner_text_color: ""
+      - corner_icon_color: ""
+      - cust_1_text_color: "[[cust_1_text_color]]"
+      - cust_1_icon_color: "[[cust_1_icon_color]]"
+      - cust_2_text_color: "[[cust_2_text_color]]"
+      - cust_2_icon_color: "[[cust_2_icon_color]]"
+      - corner_field: ""
+      - cust_1_field: "[[[ 
+            if (entity.state == 'off')
+              return 'Closed';
+            else
+              return 'Opening...'; 
+          ]]]"
+      - cust_2_field: "[[cust_2_field]]"
+      - svg_path: "[[svg_path]]"
+      - svg_path_on: "[[svg_path_on]]"
+      - tap_action: 
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: '[[entity]]'
+      - hold_action:
+          action: none

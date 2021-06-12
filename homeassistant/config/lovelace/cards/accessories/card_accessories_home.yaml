@@ -131,6 +131,18 @@ cards:
           - entity: light.hallway
           - name: Hallway
 
+      - type: custom:decluttering-card # Parking Gate Kineret 74
+        template: garage_door_button
+        variables:
+          - entity: script.open_parking_gate_74
+          - name: Kineret 74
+
+      - type: custom:decluttering-card # Parking Gate Kineret 72
+        template: garage_door_button
+        variables:
+          - entity: script.open_parking_gate_72
+          - name: Kineret 72
+
       - type: custom:decluttering-card # Dimka PC
         template: pc_button
         variables:
@@ -139,6 +151,8 @@ cards:
           - icon: mdi:desktop-classic
           - svg_path: 'M6,2C4.89,2 4,2.89 4,4V12C4,13.11 4.89,14 6,14H18C19.11,14 20,13.11 20,12V4C20,2.89 19.11,2 18,2H6M6,4H18V12H6V4M4,15C2.89,15 2,15.89 2,17V20C2,21.11 2.89,22 4,22H20C21.11,22 22,21.11 22,20V17C22,15.89 21.11,15 20,15H4M8,17H20V20H8V17M9,17.75V19.25H13V17.75H9M15,17.75V19.25H19V17.75H15Z'
           - svg_path_on: 'M 6,2 C 4.89,2 4,2.89 4,4 v 8 c 0,1.11 0.89,2 2,2 h 12 c 1.11,0 2,-0.89 2,-2 V 4 C 20,2.89 19.11,2 18,2 H 6 m 0,2 h 12 v 8 H 6 V 4 M 4,15 c -1.11,0 -2,0.89 -2,2 v 3 c 0,1.11 0.89,2 2,2 h 16 c 1.11,0 2,-0.89 2,-2 v -3 c 0,-1.11 -0.89,-2 -2,-2 H 4 m 4,2 h 12 v 3 H 8 v -3'
+
+    
 
       # - type: custom:decluttering-card # Red Alert
       #   template: redalert_button
