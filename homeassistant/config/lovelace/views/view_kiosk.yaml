@@ -30,7 +30,7 @@ cards:
               #- !include /config/lovelace/cards/remotes/card_harmony_living_room_kiosk.yaml
 
               #- !include /config/lovelace/cards/lights/card_lights_scripts.yaml
-              - !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
+              #- !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
               #- !include /config/lovelace/cards/remotes/card_spotify.yaml
           
           - type: custom:button-card
