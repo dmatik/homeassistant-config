@@ -34,8 +34,8 @@ tablet_charge_circle:
           10: '#bf9540'
           30: '#75BD6F'
         style:
-          top: 50%
-          left: 50%
+          top: 46%
+          left: 46%
           width: 92%
           height: 92%
 
