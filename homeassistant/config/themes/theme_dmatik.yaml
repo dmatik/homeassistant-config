@@ -24,8 +24,8 @@ dmatik:
       # My Styles
       ha-card-border-radius: 18px
       border-radius: 'var(--ha-card-border-radius)'
-      picture-elements-text-color: 'var(--dmatik-white-color)'                        # Picture Element card text color
-      picture-elements-icon-color: 'var(--dmatik-white-color)'                        # Picture Element card icon color
+      picture-elements-text-color: 'var(--primary-text-color)'                        # Picture Element card text color
+      picture-elements-icon-color: 'var(--primary-text-color)'                        # Picture Element card icon color
       sensibo-cool-color: 'var(--dmatik-light-blue-color)'                            # Sensibo cool color
       sensibo-heat-color: 'var(--dmatik-orange-color)'                                # Sensibo heat color
       sensibo-fan-only-color: 'var(--dmatik-dark-grey-color)'                         # Sensibo fan only color
