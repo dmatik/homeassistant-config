@@ -10,8 +10,8 @@ switch:
     unique_id: mqtt_kids_radiator 
     name: "Kids Radiator"
     icon: mdi:radiator
-    state_topic: "stat/kids_radiator/RESULT"
-    value_template: "{{ value_json.POWER }}"
+    state_topic: "stat/kids_radiator/POWER"
+    #value_template: "{{ value_json.POWER }}"
     command_topic: "cmnd/kids_radiator/POWER"
     availability_topic: "tele/kids_radiator/LWT"
     qos: 1
@@ -31,8 +31,8 @@ switch:
   - platform: mqtt
     name: "MQTT Makeup"
     icon: mdi:track-light
-    state_topic: "stat/makeup/RESULT"
-    value_template: "{{ value_json.POWER }}"
+    state_topic: "stat/makeup/POWER"
+    #value_template: "{{ value_json.POWER }}"
     command_topic: "cmnd/makeup/POWER"
     availability_topic: "tele/makeup/LWT"
     qos: 1
