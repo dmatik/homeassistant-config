@@ -2,9 +2,10 @@ color_light_popup:
 
   default:
     - icon: mdi:lightbulb
+    - hide_icon: false
     - slider_height: 410px
-    - display_type: 'auto'
-    - slider_colored_by_light: 'true'
+    - display_type: 'slider'
+    - slider_colored_by_light: true
     - service_color_1: [255, 253, 253]
     - color_1: '#C4C3C3'
     - service_color_2: [255, 0, 95]
@@ -23,6 +24,7 @@ color_light_popup:
     type: custom:light-popup-card
     entity: '[[entity]]'
     icon: '[[icon]]'
+    hideIcon: '[[hide_icon]]'
     brightnessWidth: 110px
     brightnessHeight: '[[slider_height]]'
     switchWidth: 110px
@@ -39,6 +41,10 @@ color_light_popup:
         smooth_color_wheel: true
         child_card: true
         consolidate_entities: true
+        color_picker: true
+        color_temp: true
+        brightness: true
+        show_slider_percent: true
     actionsInARow: 3
     actionSize: 30px
     sliderColoredByLight: '[[slider_colored_by_light]]'

@@ -1,0 +1,37 @@
+harmony_remote_button:
+
+  default:
+
+  card:
+    type: custom:decluttering-card
+    template: simple_button
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - show_name: '[[show_name]]'
+      - icon: '[[icon]]'
+      - size: '[[size]]'
+      - color: '[[color]]'
+      - color_type: '[[color_type]]'
+      - height: '[[height]]'
+      - layout: '[[layout]]'
+      - lock: '[[lock]]'
+      - tap_action: 
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: '[[entity]]'
+            command:
+                - '[[command]]'
+            device: '[[device]]'
+      - hold_action:
+          action: none
+      - state:
+          - value: "on"
+            styles:
+              card:
+                #- background-color: '[[color]]'
+              icon:
+                #- color: '[[icon_color]]'
+              name:
+                #- color: '[[name_color]]'

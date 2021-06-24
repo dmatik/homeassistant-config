@@ -1,0 +1,168 @@
+harmony_samsung_tv_remote:
+
+  default:
+    - device_id: 59394435
+    - height: 68px
+    - show_name: false
+
+  card:
+    type: custom:layout-card
+    layout_type: grid
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+    cards:
+
+      
+      - type: custom:decluttering-card # Power
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Power
+          - icon: mdi:power-standby
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "PowerToggle"
+          - device: '[[device_id]]'
+
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+      - type: custom:decluttering-card # Smart Hub
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Home
+          - icon: mdi:dots-horizontal-circle
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "SmartHub"
+          - device: '[[device_id]]'
+
+      - type: custom:decluttering-card # Up
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Up
+          - icon: mdi:chevron-up
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "DirectionUp"
+          - device: '[[device_id]]'
+
+      - type: custom:decluttering-card # Info
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Info
+          - icon: mdi:information-outline
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "Info"
+          - device: '[[device_id]]'
+
+
+      - type: custom:decluttering-card # Left
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Left
+          - icon: mdi:chevron-left
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "DirectionLeft"
+          - device: '[[device_id]]'
+
+
+      - type: custom:decluttering-card # OK
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: OK
+          - icon: mdi:circle-outline
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "Select"
+          - device: '[[device_id]]'
+
+      - type: custom:decluttering-card # Right
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Right
+          - icon: mdi:chevron-right
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "DirectionRight"
+          - device: '[[device_id]]'
+
+      - type: custom:decluttering-card # Menu
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Menu
+          - icon: mdi:menu
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "Menu"
+          - device: '[[device_id]]'
+
+      - type: custom:decluttering-card # Down
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Down
+          - icon: mdi:chevron-down
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "DirectionDown"
+          - device: '[[device_id]]'
+
+      - type: custom:decluttering-card # Back
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Back
+          - icon: mdi:arrow-left
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "Return"
+          - device: '[[device_id]]'
+
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+      - type: custom:decluttering-card # Play/Pause
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Play/Pause
+          - icon: mdi:play-pause
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "Pause"
+          - device: '[[device_id]]'
+
+      - type: custom:decluttering-card # Exit
+        template: harmony_remote_button
+        variables:
+          - entity: '[[entity]]'
+          - name: Exit
+          - icon: mdi:exit-run
+          - show_name: '[[show_name]]'
+          - height: '[[height]]'
+          - command: "Exit"
+          - device: '[[device_id]]'
