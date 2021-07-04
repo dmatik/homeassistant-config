@@ -51,7 +51,8 @@ harmony_button:
                 #                                                                          #
                 ############################################################################
                 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator
                 
                 - type: horizontal-stack
                   cards:
@@ -94,7 +95,8 @@ harmony_button:
                 #     - entity: sensor.[[name]]_tv
                 #       name: Activity
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator
                 
                 - type: horizontal-stack
                   cards:
@@ -137,7 +139,8 @@ harmony_button:
                         - height: 68px
 
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator
 
                 - type: conditional
                   conditions:
@@ -186,7 +189,8 @@ harmony_button:
                       - entity: '[[entity]]'
 
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator
                 
                 ############################################################################
                 #                                                                          #

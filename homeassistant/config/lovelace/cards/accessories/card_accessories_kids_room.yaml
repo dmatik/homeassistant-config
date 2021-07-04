@@ -47,7 +47,8 @@ cards:
       - type: custom:decluttering-card # Kids Room AC
         template: climate_button
         variables:
-          - title: Kids AC
+          - title: AC
+          - room: Kids Room
           - name: kids_room
 
       - type: custom:decluttering-card # Kids Room Radiator
@@ -61,4 +62,7 @@ cards:
           - svg_path_on: 'm 2,22 v -8 c 0,-1.104569 0.8954305,-2 2,-2 h 16 c 1.104569,0 2,0.895431 2,2 v 8 H 20 V 20 H 4 v 2 H 2 m 4,-8 c -0.5522847,0 -1,0.447715 -1,1 v 2 c 0,0.552285 0.4477153,1 1,1 0.5522847,0 1,-0.447715 1,-1 V 15 C 7,14.447715 6.5522847,14 6,14 m 4,0 c -0.5522847,0 -1,0.447715 -1,1 v 2 c 0,0.552285 0.4477153,1 1,1 0.552285,0 1,-0.447715 1,-1 v -2 c 0,-0.552285 -0.447715,-1 -1,-1 m 4,0 c -0.552285,0 -1,0.447715 -1,1 v 2 c 0,0.552285 0.447715,1 1,1 0.552285,0 1,-0.447715 1,-1 v -2 c 0,-0.552285 -0.447715,-1 -1,-1 m 4,0 c -0.552285,0 -1,0.447715 -1,1 v 2 c 0,0.552285 0.447715,1 1,1 0.552285,0 1,-0.447715 1,-1 v -2 c 0,-0.552285 -0.447715,-1 -1,-1 z'
 
 
-  - !include /config/lovelace/styles/separator_card.yaml
+  - type: custom:decluttering-card # Separator
+    template: separator
+    variables:
+      - height: 120

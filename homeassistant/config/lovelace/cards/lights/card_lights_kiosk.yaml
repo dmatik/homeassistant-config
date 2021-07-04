@@ -109,7 +109,8 @@ cards:
           #     - svg_path_on: 'M 10,18 H 3 L 8,13 H 5 L 10,8 H 7 l 5,-5 5,5 h -3 l 5,5 h -3 l 5,5 h -7 c 0,0 0,0 -4,0 z'
           
 
-  - !include /config/lovelace/styles/separator_card.yaml
+  - type: custom:decluttering-card # Separator
+    template: separator
 
 
 
@@ -203,4 +204,5 @@ cards:
           # - type: "custom:button-card"
           #   color_type: blank-card
 
-  - !include /config/lovelace/styles/separator_card.yaml
+  - type: custom:decluttering-card # Separator
+    template: separator

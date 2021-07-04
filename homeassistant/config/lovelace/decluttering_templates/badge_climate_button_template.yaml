@@ -64,9 +64,10 @@ badge_climate_button:
                     grid-template-columns: 700px
               cards:
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator
 
                 - !include /config/lovelace/cards/ac/card_climate_buttons.yaml
 
-                - type: custom:decluttering-card # Bottom space
-                  template: blank_card
+                - type: custom:decluttering-card # Separator
+                  template: separator

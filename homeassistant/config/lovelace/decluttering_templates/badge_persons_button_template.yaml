@@ -61,11 +61,12 @@ badge_persons_button:
                     grid-template-columns: 700px
               cards:
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator
 
                 #- !include /config/lovelace/cards/presence/card_presence.yaml
 
                 - !include /config/lovelace/cards/presence/card_presence_button.yaml
 
-                - type: custom:decluttering-card # Bottom space
-                  template: blank_card
+                - type: custom:decluttering-card # Separator
+                  template: separator

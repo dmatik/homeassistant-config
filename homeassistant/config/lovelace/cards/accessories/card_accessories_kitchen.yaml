@@ -75,4 +75,7 @@ cards:
           - name: Motion
           - light_level_sensor: sensor.xiaomi_kitchen_light_level
 
-  - !include /config/lovelace/styles/separator_card.yaml
+  - type: custom:decluttering-card # Separator
+    template: separator
+    variables:
+      - height: 120

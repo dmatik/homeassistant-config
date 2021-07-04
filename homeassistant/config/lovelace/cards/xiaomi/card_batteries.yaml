@@ -137,4 +137,5 @@ cards:
 
 
           
-  - !include /config/lovelace/styles/separator_card.yaml
+  - type: custom:decluttering-card # Separator
+    template: separator

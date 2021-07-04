@@ -47,7 +47,8 @@ cards:
       - type: custom:decluttering-card # Bedroom AC
         template: climate_button
         variables:
-          - title: Bedroom AC
+          - title: AC
+          - room: Bedroom
           - name: bedroom
 
       - type: custom:decluttering-card # Makeup Light
@@ -80,4 +81,7 @@ cards:
           - svg_path_on: 'm 8,2 h 8 l 4,12 H 4 L 8,2'
 
 
-  - !include /config/lovelace/styles/separator_card.yaml
+  - type: custom:decluttering-card # Separator
+    template: separator
+    variables:
+      - height: 120

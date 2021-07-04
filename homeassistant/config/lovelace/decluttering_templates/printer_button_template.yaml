@@ -91,4 +91,5 @@ printer_button:
                           name: Yellow
                           color: '#B29A43' #'#F9D95E'
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator

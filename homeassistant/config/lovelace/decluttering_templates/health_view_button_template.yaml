@@ -54,7 +54,8 @@ health_view_button:
               type: vertical-stack
               cards:
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator
         
                 - type: horizontal-stack
                   cards:
@@ -73,5 +74,7 @@ health_view_button:
                     - type: custom:button-card
                       template: shoulder_blank_card
 
-                - type: custom:decluttering-card # Bottom space
-                  template: blank_card
+                - type: custom:decluttering-card # Separator
+                  template: separator
+                  variables:
+                    - height: 80

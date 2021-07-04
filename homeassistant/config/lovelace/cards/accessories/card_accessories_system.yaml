@@ -56,4 +56,7 @@ cards:
       - type: custom:decluttering-card # Batteries
         template: batteries_view_button
 
-  - !include /config/lovelace/styles/separator_card.yaml
+  - type: custom:decluttering-card # Separator
+    template: separator
+    variables:
+      - height: 120

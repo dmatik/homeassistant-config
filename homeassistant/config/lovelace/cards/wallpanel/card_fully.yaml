@@ -152,4 +152,5 @@ cards:
               service: rest_command.fully_clear_cache
 
 
-  - !include /config/lovelace/styles/separator_card.yaml
+  - type: custom:decluttering-card # Separator
+    template: separator

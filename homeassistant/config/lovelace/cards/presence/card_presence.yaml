@@ -69,6 +69,5 @@ cards:
           - tap_action:
                 action: more-info      
 
-  - !include /config/lovelace/styles/separator_card.yaml
-  # - type: custom:decluttering-card
-  #   template: separator
+  - type: custom:decluttering-card # Separator
+    template: separator
