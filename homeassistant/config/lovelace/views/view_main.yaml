@@ -25,8 +25,8 @@ cards:
 
   #- !include /config/lovelace/cards/accessories/card_accessories_example_full_button.yaml
 
-  - type: custom:decluttering-card # Bottom space
-    template: blank_card
+  - type: custom:decluttering-card # Separator
+    template: separator
 
 
 

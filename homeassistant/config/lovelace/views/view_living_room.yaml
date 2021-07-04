@@ -21,8 +21,8 @@ cards:
 
   - !include /config/lovelace/cards/accessories/card_accessories_living_room.yaml
 
-  - type: custom:decluttering-card # Bottom space
-    template: blank_card
+  - type: custom:decluttering-card # Separator
+    template: separator
 
 
 
