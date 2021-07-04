@@ -12,8 +12,8 @@
   type: js
 - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   type: module
-- url: /hacsfiles/lovelace-gap-card/gap-card.js
-  type: js
+# - url: /hacsfiles/lovelace-gap-card/gap-card.js
+#   type: js
 # - url: /hacsfiles/text-element/text-element.js
 #   type: js
 # - url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
