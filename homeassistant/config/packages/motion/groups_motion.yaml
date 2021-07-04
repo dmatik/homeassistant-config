@@ -1,0 +1,24 @@
+group:
+
+############################################################################
+#                                                                          #
+#   Living Room                                                            #
+#                                                                          #
+############################################################################
+
+  living_room_motion_sensors:
+    name: Living Room Motion Sensors
+    entities:
+      - binary_sensor.xiaomi_living_room_motion
+
+
+############################################################################
+#                                                                          #
+#   Kitchen                                                                #
+#                                                                          #
+############################################################################
+
+  kitchen_motion_sensors:
+    name: Kitchen Motion Sensors
+    entities:
+      - binary_sensor.xiaomi_kitchen_motion
