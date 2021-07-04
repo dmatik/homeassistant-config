@@ -39,7 +39,7 @@ sensor:
           {% if state_attr('climate.kids_room', 'fan_mode') %}
               {{ state_attr('climate.kids_room', 'fan_mode') }}
           {% else %}      
-              op_auto
+              auto
           {% endif %}
 
 
@@ -47,8 +47,8 @@ sensor:
         friendly_name: "Kids Room Operation Mode (Sensibo)"
         icon_template: mdi:thermostat
         value_template: >-
-          {% if states('climate.kids_room').state == 'off' %}
-              off
+          {% if states['climate.kids_room'].state == 'heat_cool' %}
+              auto
           {% else %}      
               {{ states['climate.kids_room'].state }}
           {% endif %}
@@ -88,15 +88,15 @@ sensor:
           {% if state_attr('climate.bedroom', 'fan_mode') %}
               {{ state_attr('climate.bedroom', 'fan_mode') }}
           {% else %}      
-              op_auto
+              auto
           {% endif %}
 
       sensibo_bedroom_oper:
         friendly_name: "Bedroom Operation Mode (Sensibo)"
         icon_template: mdi:thermostat
         value_template: >-
-          {% if states('climate.bedroom').state == 'off' %}
-              off
+          {% if states['climate.bedroom'].state == 'heat_cool' %}
+              auto
           {% else %}      
               {{ states['climate.bedroom'].state }}
           {% endif %}
@@ -142,15 +142,15 @@ sensor:
           {% if state_attr('climate.living_room', 'fan_mode') %}
               {{ state_attr('climate.living_room', 'fan_mode') }}
           {% else %}      
-              op_auto
+              auto
           {% endif %}
 
       sensibo_living_room_oper:
         friendly_name: "Living Room Operation Mode (Sensibo)"
         icon_template: mdi:thermostat
         value_template: >-
-          {% if states('climate.living_room').state == 'off' %}
-              off
+          {% if states['climate.living_room'].state == 'heat_cool' %}
+              auto
           {% else %}      
               {{ states['climate.living_room'].state }}
           {% endif %}

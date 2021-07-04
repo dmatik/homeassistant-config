@@ -29,7 +29,7 @@ dmatik:
       sensibo-cool-color: 'var(--dmatik-light-blue-color)'                            # Sensibo cool color
       sensibo-heat-color: 'var(--dmatik-orange-color)'                                # Sensibo heat color
       sensibo-fan-only-color: 'var(--dmatik-dark-grey-color)'                         # Sensibo fan only color
-      sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
+      sensibo-auto-color: 'var(--dmatik-green-color)'                                 # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
 
       # Header / Footer
@@ -179,7 +179,7 @@ dmatik:
       sensibo-cool-color: 'var(--dmatik-light-blue-color)'                            # Sensibo cool color
       sensibo-heat-color: 'var(--dmatik-orange-color)'                                # Sensibo heat color
       sensibo-fan-only-color: 'var(--dmatik-dark-grey-color)'                         # Sensibo fan only color
-      sensibo-auto-color: 'var(--picture-elements-icon-color)'                        # Sensibo auto color
+      sensibo-auto-color: 'var(--dmatik-green-color)'                                 # Sensibo auto color
       graph-border-radius: 'var(--border-radius)'                                     # Graph border radius
 
       # Header / Footer

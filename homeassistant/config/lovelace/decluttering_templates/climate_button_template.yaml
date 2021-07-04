@@ -6,14 +6,20 @@ climate_button:
             return 'Cooling to ' + entity.attributes.temperature + '°';
           else if (entity.state == 'heat')
             return 'Heating to ' + entity.attributes.temperature + '°';
+          else if (entity.state == 'heat_cool')
+            return 'Auto to ' + entity.attributes.temperature + '°';
+          else if (entity.state == 'off')
+            return 'Off';
           else
             return entity.state;
         ]]]"
     - temperature_entity: "[[[ return Math.round(entity.attributes.current_temperature) + '°' ]]]"
     - cool_color: var(--sensibo-cool-color)
     - heat_color: var(--sensibo-heat-color)
+    - auto_color: var(--sensibo-auto-color)
     - text_on_color: var(--button-card-on-text-color)
     - icon_on_color: var(--button-card-on-text-color)
+    - room: ""
 
   card:
     type: custom:decluttering-card
@@ -43,7 +49,7 @@ climate_button:
           browser_mod:
             command: popup
             hide_header: false
-            title: '[[title]]'
+            title: '[[room]] [[title]]'
 
             card:
 
@@ -123,7 +129,7 @@ climate_button:
                 - type: custom:layout-card
                   layout_type: grid
                   layout_options:
-                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-columns: 1fr 1fr
                     grid-template-rows: auto
                     grid-gap: 0px 4px
                   cards:
@@ -165,6 +171,24 @@ climate_button:
                                 icon:
                                   - color: '[[icon_on_color]]'
 
+                    - type: custom:decluttering-card # Auto Operation Mode
+                      template: simple_button
+                      variables:
+                        - entity: switch.sensibo_[[name]]_auto
+                        - name: Auto
+                        - show_name: true
+                        - icon: mdi:autorenew
+                        - height: 68px
+                        - state:
+                            - value: "on"
+                              styles:
+                                card:
+                                  - background-color: '[[auto_color]]'
+                                name:
+                                  - color: '[[text_on_color]]'
+                                icon:
+                                  - color: '[[icon_on_color]]'
+
                     - type: custom:decluttering-card # Assumed State Sync
                       template: sensibo_assumed_state_button
                       variables:
@@ -177,7 +201,8 @@ climate_button:
                 #                                                                          #
                 ############################################################################
 
-                - !include /config/lovelace/styles/separator_card.yaml
+                - type: custom:decluttering-card # Separator
+                  template: separator
 
                 - type: horizontal-stack
                   cards:

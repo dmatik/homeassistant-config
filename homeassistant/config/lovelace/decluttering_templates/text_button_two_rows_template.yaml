@@ -73,6 +73,23 @@ text_button_two_rows:
                 - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
               cust_2:
                 - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+        - value: "heat_cool"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              text_field:
+                - background-color: var(--sensibo-auto-color)
+                - color: var(--button-card-on-background)
+              corner:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              corner_2:
+                - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
 
     # Styles
     - border_radius: var(--button-card-border-radius)

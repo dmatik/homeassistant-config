@@ -40,6 +40,8 @@
             Cooling to {{ state_attr('climate.kids_room', 'temperature') }}°C
           {% elif trigger.to_state.state == 'heat' %}      
             Heating to {{ state_attr('climate.kids_room', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat_cool' %}      
+            Auto to {{ state_attr('climate.kids_room', 'temperature') }}°C
           {% else %}
             Off
           {% endif %}
@@ -91,6 +93,8 @@
             Cooling to {{ state_attr('climate.bedroom', 'temperature') }}°C
           {% elif trigger.to_state.state == 'heat' %}      
             Heating to {{ state_attr('climate.bedroom', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat_cool' %}      
+            Auto to {{ state_attr('climate.bedroom', 'temperature') }}°C
           {% else %}
             Off
           {% endif %}
@@ -142,6 +146,8 @@
             Cooling to {{ state_attr('climate.living_room', 'temperature') }}°C
           {% elif trigger.to_state.state == 'heat' %}      
             Heating to {{ state_attr('climate.living_room', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat_cool' %}      
+            Auto to {{ state_attr('climate.living_room', 'temperature') }}°C
           {% else %}
             Off
           {% endif %}
