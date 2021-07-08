@@ -13,4 +13,4 @@ binary_sensor:
       ha_update_available:
         friendly_name: "HA Update Available"
         value_template: >-
-          {{ not is_state( "sensor.ha_current_version", states('sensor.ha_available_version') ) }}
+          {{ not is_state( "sensor.ha_available_version", states('sensor.ha_current_version')|replace('.0','') )  }}
