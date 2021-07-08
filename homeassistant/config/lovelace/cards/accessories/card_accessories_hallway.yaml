@@ -42,7 +42,7 @@ cards:
         template: light_button
         variables:
           - entity: light.hallway
-          - name: Light
+          - name: Ceiling
 
       - type: custom:decluttering-card # Gateway Light
         template: light_button #yeelight_switch_button

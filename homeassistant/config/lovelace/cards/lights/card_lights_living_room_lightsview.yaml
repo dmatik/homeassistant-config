@@ -52,7 +52,7 @@ card:
             template: light_button
             variables:
               - entity: light.living_room
-              - name: Living Room
+              - name: Ceiling
 
         - type: conditional # Dining
           conditions:

@@ -42,7 +42,7 @@ cards:
         template: light_button
         variables:
           - entity: light.work_room
-          - name: Light
+          - name: Ceiling
 
       - type: custom:decluttering-card # Printer
         template: printer_button

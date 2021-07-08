@@ -42,7 +42,7 @@ cards:
         template: light_button
         variables:
           - entity: light.kitchen
-          - name: Light
+          - name: Ceiling
 
       - type: custom:decluttering-card # Kitchen Strips
         template: color_light_button

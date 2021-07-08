@@ -52,7 +52,7 @@ card:
             template: light_button
             variables:
               - entity: light.work_room
-              - name: Work Room
+              - name: Ceiling
 
 
     - type: custom:decluttering-card # Separator

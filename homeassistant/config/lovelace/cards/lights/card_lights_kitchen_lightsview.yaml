@@ -52,7 +52,7 @@ card:
             template: light_button
             variables:
               - entity: light.kitchen
-              - name: Kitchen
+              - name: Ceiling
 
         - type: conditional # Kitchen Strips
           conditions:

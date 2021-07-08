@@ -42,7 +42,7 @@ cards:
         template: light_button
         variables:
           - entity: light.living_room
-          - name: Main Light
+          - name: Ceiling
 
       - type: custom:decluttering-card # Living Room AC
         template: climate_button

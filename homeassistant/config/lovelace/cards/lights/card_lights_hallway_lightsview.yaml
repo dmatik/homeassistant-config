@@ -52,7 +52,7 @@ card:
             template: light_button
             variables:
               - entity: light.hallway
-              - name: Hallway
+              - name: Ceiling
 
         - type: conditional # Gateway
           conditions:

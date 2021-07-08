@@ -52,7 +52,7 @@ card:
             template: light_button
             variables:
               - entity: light.bedroom
-              - name: Bedroom
+              - name: Ceiling
 
         - type: conditional # Bedside Galit
           conditions:
