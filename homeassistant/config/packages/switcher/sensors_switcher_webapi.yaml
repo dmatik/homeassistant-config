@@ -17,6 +17,7 @@ sensor:
       - electric_current
     value_template: 'OK'
 
+
   - platform: template
     sensors:
       switcher_webapi_time_left:
@@ -87,4 +88,8 @@ sensor:
         friendly_name: "State"
         icon_template: mdi:shower
         value_template: >-
-          {{ state_attr('sensor.switcher_webapi', 'state') }}
+          {% if state_attr('sensor.switcher_webapi', 'state') == 'ON' %}
+              on
+          {% else %}
+              off
+          {% endif %}

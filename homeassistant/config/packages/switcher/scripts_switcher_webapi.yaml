@@ -11,8 +11,12 @@ script:
       sequence:
           - delay:
               milliseconds: 100
-          - service: rest_command.switcher_turn_on
+          - service: rest_command.switcher_turn_on_timer
             data_template:
+              switcher_web_api_ip: !secret switcher_web_api_ip
+              switcher_web_api_port: !secret switcher_web_api_port
+              switcher_device_id: !secret switcher_device_id
+              switcher_ip: !secret switcher_local_ip_addr
               minutes: '{{ states("input_select.switcher_timer_minutes_input_select") }}'
           - service: homeassistant.update_entity
             entity_id: sensor.switcher_webapi
@@ -28,6 +32,11 @@ script:
       alias: Turn On
       sequence:
           - service: rest_command.switcher_turn_on
+            data_template:
+              switcher_web_api_ip: !secret switcher_web_api_ip
+              switcher_web_api_port: !secret switcher_web_api_port
+              switcher_device_id: !secret switcher_device_id
+              switcher_ip: !secret switcher_local_ip_addr
           - service: homeassistant.update_entity
             entity_id: sensor.switcher_webapi
 
@@ -35,5 +44,10 @@ script:
       alias: Turn Off
       sequence:
           - service: rest_command.switcher_turn_off
+            data_template:
+              switcher_web_api_ip: !secret switcher_web_api_ip
+              switcher_web_api_port: !secret switcher_web_api_port
+              switcher_device_id: !secret switcher_device_id
+              switcher_ip: !secret switcher_local_ip_addr
           - service: homeassistant.update_entity
             entity_id: sensor.switcher_webapi

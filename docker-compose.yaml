@@ -304,7 +304,6 @@ services:
         labels:
             - com.centurylinklabs.watchtower.enable=false
 
-
     switcher_webapi:
         image: tomerfi/switcher_webapi:latest
         container_name: switcher_webapi
@@ -312,14 +311,10 @@ services:
         restart: always
         network_mode: bridge
         ports:
-          - 8100:8000
+          - 8150:8000
         environment:
-            CONF_DEVICE_IP_ADDR: ${SWITCHER_IP}
-            CONF_PHONE_ID: ${SWITCHER_PHONE_ID}
-            CONF_DEVICE_ID: ${SWITCHER_DEVICE_ID}
-            CONF_DEVICE_PASSWORD: ${SWITCHER_PASSWORD}
-            CONF_THROTTLE: 1.0
-        
+            TZ: "Asia/Jerusalem"
+            LOG_LEVEL: "INFO"
         
     vscode:
         image: linuxserver/code-server
