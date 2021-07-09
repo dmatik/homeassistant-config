@@ -144,21 +144,18 @@ mqtt:
   username: !secret syn_mqtt_username
   password: !secret syn_mqtt_password
   
-  
 # Sensibo
 climate:
   - platform: sensibo
     api_key: !secret sensibo_api_key
-
-      
+    
 #Telegram      
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_bot_api_key
     allowed_chat_ids:
       - !secret telegram_bot_chat_id_1
-
-      
+  
 notify:
   - name: DimaTelegram
     platform: telegram
@@ -186,13 +183,6 @@ notify:
 #   error_threshold: 3
 
 wake_on_lan:
-
-ios:
-  push:
-    categories:
-      !include_dir_merge_list /config/ios/push_actions/
-  # actions:
-  #   !include_dir_merge_list /config/ios/actions/
 
 # synology_dsm:
 #   - host: !secret synology_blaze_host

@@ -42,8 +42,9 @@
         title: "Kids Radiator"
         message: "On"
         data:
-          push:
-            category: "kids_radiator_off"
+          actions:
+            - action: "KIDS_RADIATOR_OFF"
+              title: "Off"
 
 
 ############################################################################
@@ -56,9 +57,9 @@
   initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.notification_action_fired
+      event_type: mobile_app_notification_action
       event_data:
-        actionName: "KIDS_RADIATOR_OFF"
+        action: "KIDS_RADIATOR_OFF"
   condition:
     condition: and
     conditions:
@@ -116,8 +117,9 @@
         title: "Kids Radiator"
         message: "Off"
         data:
-          push:
-            category: "kids_radiator_on"
+          actions:
+            - action: "KIDS_RADIATOR_ON"
+              title: "On"
 
 
 ############################################################################
@@ -130,9 +132,9 @@
   initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.notification_action_fired
+      event_type: mobile_app_notification_action
       event_data:
-        actionName: "KIDS_RADIATOR_ON"
+        action: "KIDS_RADIATOR_ON"
   condition:
     condition: and
     conditions:

@@ -36,8 +36,9 @@
         title: "Boiler"
         message: "On until {{ states('sensor.switcher_webapi_auto_off_time') }}"
         data:
-          push:
-            category: "category_switcher_off"
+          actions:
+            - action: "SWITCHER_OFF"
+              title: "Off"
 
 ############################################################################
 #                                                                          #
@@ -49,9 +50,9 @@
   initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.notification_action_fired
+      event_type: mobile_app_notification_action
       event_data:
-        actionName: "SWITCHER_OFF"
+        action: "SWITCHER_OFF"
   condition:
     condition: and
     conditions:
@@ -88,8 +89,11 @@
         title: "Boiler"
         message: "Off"
         data:
-          push:
-            category: "category_switcher_on"
+          actions:
+            - action: "SWITCHER_ON_30"
+              title: "On 30 min"
+            - action: "SWITCHER_ON_60"
+              title: "On 60 min"
 
 
 ############################################################################
@@ -102,9 +106,9 @@
   initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.notification_action_fired
+      event_type: mobile_app_notification_action
       event_data:
-        actionName: "SWITCHER_ON_15"
+        action: "SWITCHER_ON_15"
   condition:
     condition: and
     conditions:
@@ -112,8 +116,12 @@
         entity_id: switch.switcher_webapi
         state: "off"
   action:
-    - service: rest_command.switcher_turn_on
+    - service: rest_command.switcher_turn_on_timer
       data_template:
+        switcher_web_api_ip: !secret switcher_web_api_ip
+        switcher_web_api_port: !secret switcher_web_api_port
+        switcher_device_id: !secret switcher_device_id
+        switcher_ip: !secret switcher_local_ip_addr
         minutes: '15'
     - service: homeassistant.update_entity
       entity_id: sensor.switcher_webapi
@@ -129,9 +137,9 @@
   initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.notification_action_fired
+      event_type: mobile_app_notification_action
       event_data:
-        actionName: "SWITCHER_ON_30"
+        action: "SWITCHER_ON_30"
   condition:
     condition: and
     conditions:
@@ -139,8 +147,12 @@
         entity_id: switch.switcher_webapi
         state: "off"
   action:
-    - service: rest_command.switcher_turn_on
+    - service: rest_command.switcher_turn_on_timer
       data_template:
+        switcher_web_api_ip: !secret switcher_web_api_ip
+        switcher_web_api_port: !secret switcher_web_api_port
+        switcher_device_id: !secret switcher_device_id
+        switcher_ip: !secret switcher_local_ip_addr
         minutes: '30'
     - service: homeassistant.update_entity
       entity_id: sensor.switcher_webapi
@@ -156,9 +168,9 @@
   initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.notification_action_fired
+      event_type: mobile_app_notification_action
       event_data:
-        actionName: "SWITCHER_ON_45"
+        action: "SWITCHER_ON_45"
   condition:
     condition: and
     conditions:
@@ -166,8 +178,12 @@
         entity_id: switch.switcher_webapi
         state: "off"
   action:
-    - service: rest_command.switcher_turn_on
+    - service: rest_command.switcher_turn_on_timer
       data_template:
+        switcher_web_api_ip: !secret switcher_web_api_ip
+        switcher_web_api_port: !secret switcher_web_api_port
+        switcher_device_id: !secret switcher_device_id
+        switcher_ip: !secret switcher_local_ip_addr
         minutes: '45'
     - service: homeassistant.update_entity
       entity_id: sensor.switcher_webapi
@@ -183,9 +199,9 @@
   initial_state: 'true'
   trigger:
     - platform: event
-      event_type: ios.notification_action_fired
+      event_type: mobile_app_notification_action
       event_data:
-        actionName: "SWITCHER_ON_60"
+        action: "SWITCHER_ON_60"
   condition:
     condition: and
     conditions:
@@ -193,8 +209,12 @@
         entity_id: switch.switcher_webapi
         state: "off"
   action:
-    - service: rest_command.switcher_turn_on
+    - service: rest_command.switcher_turn_on_timer
       data_template:
+        switcher_web_api_ip: !secret switcher_web_api_ip
+        switcher_web_api_port: !secret switcher_web_api_port
+        switcher_device_id: !secret switcher_device_id
+        switcher_ip: !secret switcher_local_ip_addr
         minutes: '60'
     - service: homeassistant.update_entity
       entity_id: sensor.switcher_webapi
