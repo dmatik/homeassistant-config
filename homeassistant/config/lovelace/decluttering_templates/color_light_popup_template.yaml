@@ -35,16 +35,15 @@ color_light_popup:
     settingsPosition: bottom
     settingsCard:
       type: custom:light-entity-card
-      cardOptions:
-        entity: '[[entity]]'
-        persist_features: true
-        smooth_color_wheel: true
-        child_card: true
-        consolidate_entities: true
-        color_picker: true
-        color_temp: true
-        brightness: true
-        show_slider_percent: true
+      entity: '[[entity]]'
+      persist_features: true
+      smooth_color_wheel: true
+      child_card: true
+      consolidate_entities: true
+      color_picker: true
+      color_temp: true
+      brightness: true
+      show_slider_percent: true
     actionsInARow: 3
     actionSize: 30px
     sliderColoredByLight: '[[slider_colored_by_light]]'
