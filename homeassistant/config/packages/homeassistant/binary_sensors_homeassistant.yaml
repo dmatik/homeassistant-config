@@ -13,4 +13,12 @@ binary_sensor:
       ha_update_available:
         friendly_name: "HA Update Available"
         value_template: >-
-          {{ not is_state( "sensor.ha_available_version", states('sensor.ha_current_version')|replace('.0','') )  }}
+          {% if is_state("sensor.ha_available_version", "unknown") %}
+            false
+          {% else %}
+            {% set current_major = states('sensor.ha_current_version').split('.')[0] %}
+            {% set current_middle = states('sensor.ha_current_version').split('.')[1] %}
+            {% set available_major = states('sensor.ha_available_version').split('.')[0] %}
+            {% set available_middle = states('sensor.ha_available_version').split('.')[1] %}
+            {{ not ( current_major + "." + current_middle == available_major + "." + available_middle ) }}
+          {% endif %}

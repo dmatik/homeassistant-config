@@ -20,7 +20,7 @@ sensor:
 
   - platform: version
     name: HA Available Version
-    source: docker
+    source: container
     image: default
     beta: false
 
