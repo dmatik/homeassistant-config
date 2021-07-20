@@ -71,12 +71,11 @@ redalert_button:
                     }
                   entity_id: sensor.redalert
                   content: |
-                    {% if state_attr('sensor.redalert', 'alert') == "true" %}
+                    {% if state_attr('sensor.redalert', 'alert') == true %}
                       ### התרעות
-                      <ul>
                       {% for l in state_attr('sensor.redalert', 'current')['data'] %}
-                        <li>{{ l }}</li>
-                      {%- endfor %}
+                        {{- l }}
+                      {% endfor %}
                       </ul>
                     {% else %}
                      אין התרעות כרגע

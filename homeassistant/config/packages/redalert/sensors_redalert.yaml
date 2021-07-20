@@ -24,7 +24,6 @@ sensor:
 
   - platform: rest
     resource: http://10.0.0.30:49000/current
-    #resource: https://c4d33ccf-e342-47a4-9c3e-c9f514dab834.mock.pstmn.io/current
     name: redalert
     value_template: 'OK'
     json_attributes:
