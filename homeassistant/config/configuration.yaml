@@ -49,6 +49,8 @@ automation ui: !include automations.yaml
 #lovelace_gen:
 
 browser_mod:
+  disable:
+    - all
 
 lovelace:
   mode: yaml
