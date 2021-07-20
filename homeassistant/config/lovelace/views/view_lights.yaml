@@ -1,0 +1,44 @@
+title: Lights
+icon: mdi:lightbulb
+path: lights
+visible: false
+#panel: true
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+  
+cards:
+
+  - type: custom:decluttering-card
+    template: view_title
+    variables:
+      - title: Lights
+
+  - !include /config/lovelace/cards/lights/card_lights_living_room_lightsview.yaml
+
+  - !include /config/lovelace/cards/lights/card_lights_kitchen_lightsview.yaml
+
+  - !include /config/lovelace/cards/lights/card_lights_bedroom_lightsview.yaml
+
+  - !include /config/lovelace/cards/lights/card_lights_work_room_lightsview.yaml
+
+  - !include /config/lovelace/cards/lights/card_lights_kids_room_lightsview.yaml
+
+  - !include /config/lovelace/cards/lights/card_lights_hallway_lightsview.yaml
+
+  #- !include /config/lovelace/cards/lights/card_lights_other_rooms.yaml
+
+  #- !include /config/lovelace/cards/lights/card_lights_scripts.yaml
+
+  - type: custom:decluttering-card # Separator
+    template: separator
+    variables:
+      - height: 120
+
+
+
+

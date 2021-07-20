@@ -40,32 +40,35 @@ badge_motion_button:
       - state: "[[state]]"
       - hold_action:
           action: more-info
-      - tap_action:
-          #haptic: heavy
-          action: fire-dom-event
-          browser_mod:
-            command: popup
-            hide_header: false
-            title: '[[name]]'
-            large: true
+      - tap_action: 
+          action: navigate
+          navigation_path: /lovelace/motion/
+      # - tap_action:
+      #     #haptic: heavy
+      #     action: fire-dom-event
+      #     browser_mod:
+      #       command: popup
+      #       hide_header: false
+      #       title: '[[name]]'
+      #       large: true
             
-            card:
+      #       card:
                         
-              type: custom:layout-card
-              layout_type: grid
-              layout_options:
-                grid-template-columns: 1fr
-                grid-template-rows: auto
-                mediaquery:
-                  "(min-width: 800px)":
-                    grid-template-columns: 700px
-              cards:
+      #         type: custom:layout-card
+      #         layout_type: grid
+      #         layout_options:
+      #           grid-template-columns: 1fr
+      #           grid-template-rows: auto
+      #           mediaquery:
+      #             "(min-width: 800px)":
+      #               grid-template-columns: 700px
+      #         cards:
 
-                - type: custom:decluttering-card # Separator
-                  template: separator
+      #           - type: custom:decluttering-card # Separator
+      #             template: separator
 
-                - !include /config/lovelace/cards/xiaomi/card_motion_sensors.yaml
+      #           - !include /config/lovelace/cards/xiaomi/card_motion_sensors.yaml
 
-                - type: custom:decluttering-card # Separator
-                  template: separator
+      #           - type: custom:decluttering-card # Separator
+      #             template: separator
 

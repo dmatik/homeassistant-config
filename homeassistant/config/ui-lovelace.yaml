@@ -17,9 +17,17 @@ views:
 
     # Main
     - !include /config/lovelace/views/view_main.yaml
+    # Presense
+    - !include /config/lovelace/views/view_presense.yaml
+    # Climate
+    - !include /config/lovelace/views/view_climate.yaml
+    # Lights
+    - !include /config/lovelace/views/view_lights.yaml
+    # Motion
+    - !include /config/lovelace/views/view_motion.yaml
     # Rooms
     - !include /config/lovelace/views/view_rooms_menu.yaml
-    # Lights
+    # Living Room
     - !include /config/lovelace/views/view_living_room.yaml
     # Kitchen
     - !include /config/lovelace/views/view_kitchen.yaml
