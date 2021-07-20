@@ -572,12 +572,14 @@ services:
     oref-alerts:
         image: dmatik/oref-alerts:latest
         container_name: oref-alerts
+        hostname: oref-alerts
+        restart: unless-stopped
         network_mode: "bridge"
         ports:
-          - 49000:3000
+          - 49000:9001
         environment:
             TZ: "Asia/Jerusalem"
-        restart: unless-stopped
+            LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: "INFO"
 
 
     # mylar3:
