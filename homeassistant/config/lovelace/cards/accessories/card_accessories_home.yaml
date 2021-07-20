@@ -146,12 +146,11 @@ cards:
           - entity: switch.dimka
           - name: Dimka PC
     
-
-      # - type: custom:decluttering-card # Red Alert
-      #   template: redalert_button
-      #   variables:
-      #     - entity: binary_sensor.redalert_all
-      #     - name: Red Alert
+      - type: custom:decluttering-card # Red Alert
+        template: redalert_button
+        variables:
+          - entity: binary_sensor.redalert_all
+          - name: Red Alert
 
       # - type: custom:decluttering-card # Hovid
       #   template: menu_new_button

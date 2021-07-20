@@ -109,7 +109,7 @@ redalert_button:
                     }
                   entity: sensor.redalert_history
                   title: ''
-                  feed_attribute: lastDay
+                  feed_attribute: history
                   columns:
                     - title: תאריך
                       field: date
