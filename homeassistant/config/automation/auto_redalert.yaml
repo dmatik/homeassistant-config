@@ -1,0 +1,114 @@
+############################################################################
+#                                                                          #
+#   Red Alert Ashdod                                                       #
+#                                                                          #
+############################################################################
+
+- alias: 'Red Alert Ashdod'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_ashdod
+      to: "on"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        title: "צבע אדום"
+        message: "אשדוד"
+        data:
+          tag: "redalert-ahsdod"
+    - service: notify.mobile_app_sm_n960f
+      data:
+        title: "צבע אדום"
+        message: "אשדוד"
+        data:
+          timeout: 120
+    - service: scene.turn_on
+      data:
+        entity_id: scene.red_alert_lights
+
+
+- alias: 'Red Alert Ashdod Off'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_ashdod
+      to: "off"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        message: "clear_notification"
+        data:
+          tag: "redalert-ahsdod"
+
+
+
+############################################################################
+#                                                                          #
+#   Red Alert Qiryat Gat                                                   #
+#                                                                          #
+############################################################################
+
+- alias: 'Red Alert Qiryat Gat'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_qiryat_gat
+      to: "on"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        title: "צבע אדום"
+        message: "קריית גת"
+        data:
+          tag: "redalert-qiryat-gat"
+
+
+- alias: 'Red Alert Qiryat Gat Off'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_qiryat_gat
+      to: "off"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        message: "clear_notification"
+        data:
+          tag: "redalert-qiryat-gat"
+
+
+
+############################################################################
+#                                                                          #
+#   Red Alert All                                                          #
+#                                                                          #
+############################################################################
+
+- alias: 'Red Alert All'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_all
+      to: "on"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data_template:
+        title: "צבע אדום"
+        message: "{{ state_attr('sensor.redalert', 'data') }}"
+        data:
+          tag: "redalert-all"
+
+
+- alias: 'Red Alert All Off'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.redalert_all
+      to: "off"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data:
+        message: "clear_notification"
+        data:
+          tag: "redalert-all"
