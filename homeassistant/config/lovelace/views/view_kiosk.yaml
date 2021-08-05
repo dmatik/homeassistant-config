@@ -6,61 +6,47 @@ panel: true
   
 cards:
 
-  - type: vertical-stack
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1.15fr 1.15fr
+      grid-template-rows: auto
+      grid-gap: 0px 14px
+    
     cards:
 
       - type: custom:decluttering-card # Separator
         template: separator
+        variables:
+          - height: 0
+        view_layout:
+          grid-column: 1/4
 
-      - type: horizontal-stack
+      - type: vertical-stack
         cards:
 
-          - type: custom:button-card
-            template: shoulder_blank_card     
-  
-          - type: vertical-stack
-            cards:
+          - !include /config/lovelace/cards/card_clock_button.yaml
 
-              #- !include /config/lovelace/cards/card_clock.yaml
-              - !include /config/lovelace/cards/card_clock_button.yaml
-
-              - !include /config/lovelace/cards/card_weather.yaml
-              
-              - !include /config/lovelace/cards/presence/card_presence_kiosk.yaml
-
-              #- !include /config/lovelace/cards/remotes/card_harmony_living_room_kiosk.yaml
-
-              #- !include /config/lovelace/cards/lights/card_lights_scripts.yaml
-              #- !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
-              #- !include /config/lovelace/cards/remotes/card_spotify.yaml
+          - !include /config/lovelace/cards/card_weather.yaml
           
-          - type: custom:button-card
-            template: shoulder_blank_card
+          - !include /config/lovelace/cards/presence/card_presence_kiosk.yaml
 
-          - type: vertical-stack
-            cards:
-              
-              #- !include /config/lovelace/cards/ac/card_sensibo_living_room_kiosk.yaml
-              #- !include /config/lovelace/cards/ac/card_sensibo_bedroom_kiosk.yaml
-              #- !include /config/lovelace/cards/ac/card_sensibo_kids_room_kiosk.yaml
-              - !include /config/lovelace/cards/ac/card_climate_buttons_kiosk.yaml
+      - type: vertical-stack
+        cards:
 
-              - !include /config/lovelace/cards/devices/card_devices_buttons.yaml
+          - !include /config/lovelace/cards/ac/card_climate_buttons_kiosk.yaml
 
-              - !include /config/lovelace/cards/switcher/card_switcher.yaml
+          - !include /config/lovelace/cards/devices/card_devices_buttons.yaml
 
-          - type: custom:button-card
-            template: shoulder_blank_card
-                          
-          - type: vertical-stack
-            cards:
+          - !include /config/lovelace/cards/switcher/card_switcher.yaml
+                      
+      - type: vertical-stack
+        cards:
 
-              - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
+          - !include /config/lovelace/cards/lights/card_lights_kiosk.yaml
 
-              #- !include /config/lovelace/cards/card_calendar_home.yaml
-
-          - type: custom:button-card
-            template: shoulder_blank_card    
+  
 
       
 
