@@ -53,6 +53,12 @@ sensor:
               {{ states['climate.kids_room'].state }}
           {% endif %}
 
+      sensibo_kids_room_swing_mode:
+        friendly_name: "Kids Room Swing Mode (Sensibo)"
+        icon_template: mdi:stack-overflow
+        value_template: >-
+          {{ state_attr('climate.kids_room', 'swing_mode') }}
+
 
       ############################################################################
       #                                                                          #
@@ -100,6 +106,14 @@ sensor:
           {% else %}      
               {{ states['climate.bedroom'].state }}
           {% endif %}
+
+      sensibo_bedroom_swing_mode:
+        friendly_name: "Bedroom Swing Mode (Sensibo)"
+        icon_template: mdi:stack-overflow
+        value_template: >-
+          {{ state_attr('climate.bedroom', 'swing_mode') }}
+
+
 
       ############################################################################
       #                                                                          #
@@ -155,5 +169,10 @@ sensor:
               {{ states['climate.living_room'].state }}
           {% endif %}
 
+      sensibo_living_room_swing_mode:
+        friendly_name: "Living Room Swing Mode (Sensibo)"
+        icon_template: mdi:stack-overflow
+        value_template: >-
+          {{ state_attr('climate.living_room', 'swing_mode') }}
 
 

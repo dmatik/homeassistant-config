@@ -76,6 +76,8 @@ climate_button:
                       name: Operation mode
                     - entity: 'sensor.sensibo_[[name]]_fan'
                       name: Fan mode
+                    - entity: 'sensor.sensibo_[[name]]_swing_mode'
+                      name: Swing mode
                     #- entity: 'sensor.sensibo_[[name]]_target_temp'
                     #   name: Target temperature
 
@@ -122,14 +124,14 @@ climate_button:
 
                 ############################################################################
                 #                                                                          #
-                #   Operation Mode and Sate Sync                                           #
+                #   Operation Mode,Sate Sync and Swing Mode                                #
                 #                                                                          #
                 ############################################################################
 
                 - type: custom:layout-card
                   layout_type: grid
                   layout_options:
-                    grid-template-columns: 1fr 1fr
+                    grid-template-columns: 1fr 1fr 1fr
                     grid-template-rows: auto
                     grid-gap: 0px 4px
                   cards:
@@ -194,6 +196,20 @@ climate_button:
                       variables:
                         - entity: climate.[[name]]
 
+                    - type: conditional # Swing Mode
+                      conditions:
+                        - entity: climate.[[name]]
+                          state_not: "off"
+                      card:
+                        type: custom:decluttering-card 
+                        template: simple_button
+                        variables:
+                          - entity: switch.sensibo_[[name]]_swing_mode
+                          - name: Swing
+                          - show_name: true
+                          - height: 68px
+                          - icon: mdi:stack-overflow
+
 
                 ############################################################################
                 #                                                                          #
@@ -204,52 +220,66 @@ climate_button:
                 - type: custom:decluttering-card # Separator
                   template: separator
 
-                - type: horizontal-stack
-                  cards:
+                - type: conditional
+                  conditions:
+                    - entity: climate.[[name]]
+                      state_not: "off"
+                  card:
+                    type: horizontal-stack
+                    cards:
 
-                    - type: custom:decluttering-card
-                      template: title_button_card
-                      variables:
-                        - name: Fan 
+                      - type: custom:decluttering-card
+                        template: title_button_card
+                        variables:
+                          - name: Fan 
 
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 4px
-                  cards:
+                - type: conditional
+                  conditions:
+                    - entity: climate.[[name]]
+                      state_not: "off"
+                  card:
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 4px
+                    cards:
 
-                    - type: custom:decluttering-card # Low Fan
-                      template: sensibo_fan_select_button
-                      variables:
-                        - entity: sensor.sensibo_[[name]]_fan
-                        - name: Low
-                        - fan_mode: "low"
-                        - climate_entity: climate.[[name]]
+                      - type: custom:decluttering-card # Low Fan
+                        template: sensibo_fan_select_button
+                        variables:
+                          - entity: sensor.sensibo_[[name]]_fan
+                          - name: Low
+                          - icon: mdi:fan-speed-1
+                          - fan_mode: "low"
+                          - climate_entity: climate.[[name]]
 
-                    - type: custom:decluttering-card # Med Fan
-                      template: sensibo_fan_select_button
-                      variables:
-                        - entity: sensor.sensibo_[[name]]_fan
-                        - name: Med
-                        - fan_mode: "medium"
-                        - climate_entity: climate.[[name]]
-                              
-                    - type: custom:decluttering-card # High Fan
-                      template: sensibo_fan_select_button
-                      variables:
-                        - entity: sensor.sensibo_[[name]]_fan
-                        - name: High
-                        - fan_mode: "high"
-                        - climate_entity: climate.[[name]]
+                      - type: custom:decluttering-card # Med Fan
+                        template: sensibo_fan_select_button
+                        variables:
+                          - entity: sensor.sensibo_[[name]]_fan
+                          - name: Med
+                          - icon: mdi:fan-speed-2
+                          - fan_mode: "medium"
+                          - climate_entity: climate.[[name]]
+                                
+                      - type: custom:decluttering-card # High Fan
+                        template: sensibo_fan_select_button
+                        variables:
+                          - entity: sensor.sensibo_[[name]]_fan
+                          - name: High
+                          - icon: mdi:fan-speed-3
+                          - fan_mode: "high"
+                          - climate_entity: climate.[[name]]
 
-                    - type: custom:decluttering-card # Auto Fan
-                      template: sensibo_fan_select_button
-                      variables:
-                        - entity: sensor.sensibo_[[name]]_fan
-                        - name: Auto
-                        - fan_mode: "auto"
-                        - climate_entity: climate.[[name]]
+                      - type: custom:decluttering-card # Auto Fan
+                        template: sensibo_fan_select_button
+                        variables:
+                          - entity: sensor.sensibo_[[name]]_fan
+                          - name: Auto
+                          - icon: mdi:fan-auto
+                          - fan_mode: "auto"
+                          - climate_entity: climate.[[name]]
 

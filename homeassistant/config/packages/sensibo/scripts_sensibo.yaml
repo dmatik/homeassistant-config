@@ -19,7 +19,8 @@ script:
           - service: climate.set_temperature
             data_template:
               entity_id: climate.kids_room
-              temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"    
+              temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"
+              
 
 
 

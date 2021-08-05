@@ -71,6 +71,21 @@ switch:
                     entity_id: climate.kids_room
                     hvac_mode: "off"
 
+        sensibo_kids_room_swing_mode:
+            friendly_name: "Kids Room AC Swing Mode"
+            icon_template: mdi:stack-overflow
+            value_template: "{{ is_state_attr('climate.kids_room', 'swing_mode', 'rangeFull') }}"
+            turn_on:
+                service: climate.set_swing_mode
+                data:
+                    entity_id: climate.kids_room
+                    swing_mode: "rangeFull"
+            turn_off:
+                service: climate.set_swing_mode
+                data:
+                    entity_id: climate.kids_room
+                    swing_mode: "stopped"
+
 
 
 
@@ -140,6 +155,21 @@ switch:
                     entity_id: climate.bedroom
                     hvac_mode: "off"
 
+        sensibo_bedroom_swing_mode:
+            friendly_name: "Bedroom AC Swing Mode"
+            icon_template: mdi:stack-overflow
+            value_template: "{{ is_state_attr('climate.bedroom', 'swing_mode', 'rangeFull') }}"
+            turn_on:
+                service: climate.set_swing_mode
+                data:
+                    entity_id: climate.bedroom
+                    swing_mode: "rangeFull"
+            turn_off:
+                service: climate.set_swing_mode
+                data:
+                    entity_id: climate.bedroom
+                    swing_mode: "stopped"
+
 
 
 
@@ -208,3 +238,18 @@ switch:
                 data:
                     entity_id: climate.living_room
                     hvac_mode: "off"
+
+        sensibo_living_room_swing_mode:
+            friendly_name: "Living Room AC Swing Mode"
+            icon_template: mdi:stack-overflow
+            value_template: "{{ is_state_attr('climate.living_room', 'swing_mode', 'rangeFull') }}"
+            turn_on:
+                service: climate.set_swing_mode
+                data:
+                    entity_id: climate.living_room
+                    swing_mode: "rangeFull"
+            turn_off:
+                service: climate.set_swing_mode
+                data:
+                    entity_id: climate.living_room
+                    swing_mode: "stopped"        
