@@ -438,7 +438,7 @@ services:
     bitwarden_server:
         hostname: bitwarden_server
         container_name: bitwarden_server
-        image: bitwardenrs/server:latest
+        image: vaultwarden/server:latest
         network_mode: "bridge"
         restart: "always"
         privileged: true
