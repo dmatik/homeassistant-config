@@ -4,11 +4,6 @@
     - platform: homeassistant
       event: start
   action:
-  
-    # Set Theme on Startup
-    # - service: frontend.set_theme
-    #   data:
-    #     name: "dmatik-dark"
 
     # DIMKA status update on Startup
     - service: mqtt.publish 
@@ -33,72 +28,6 @@
         topic: "cmnd/tasmotas/power0"
         payload: ""
 
-    # # Tasmota Firmware Version Check
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/tasmotas/STATUS"
-    #     payload: "2"
-
-    # # Tasmota Uptime Check
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/tasmotas/STATUS"
-    #     payload: "11"
-
     # Fully Load URL
     - service: rest_command.fully_load_url   
-
-    # # Entrance Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/entrance/POWER"
-    #     payload: ""
-
-    # # Living Room Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/living_room/POWER"
-    #     payload: ""
-
-    # # Bedroom Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/bedroom/POWER"
-    #     payload: ""
-
-    # # Balcony Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/balcony/POWER"
-    #     payload: ""
-
-    # # Hallway Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/hallway/POWER"
-    #     payload: ""
-
-    # # Kids Room Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/kids_room/POWER"
-    #     payload: ""
-
-    # # Service Balcony Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/kitchen/POWER1"
-    #     payload: ""
-
-    # # Kitchen Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/kitchen/POWER2"
-    #     payload: ""
-
-    # # Dining Light Switch update status on startup
-    # - service: mqtt.publish
-    #   data:
-    #     topic: "cmnd/dining/POWER"
-    #     payload: ""
 

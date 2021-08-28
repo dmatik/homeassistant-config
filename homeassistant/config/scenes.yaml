@@ -1,0 +1,9 @@
+- id: '1630163238106'
+  name: Dima
+  entities:
+    light.work_room:
+      supported_color_modes:
+      - onoff
+      friendly_name: Work Room
+      supported_features: 0
+      state: 'off'

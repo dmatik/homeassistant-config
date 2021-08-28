@@ -1,0 +1,48 @@
+blueprint:
+  name: Battery Level Notification
+  description: Send a notification to a device when battery drops below a specified
+    value
+  domain: automation
+  input:
+    battery_entity:
+      name: Entity
+      selector:
+        entity:
+          domain: sensor
+          device_class: battery
+    battery_level:
+      name: Battery level
+      description: What level the device should be to trigger the notification.
+      default: 50
+      selector:
+        number:
+          min: 1.0
+          max: 100.0
+          unit_of_measurement: '%'
+          step: 1.0
+          mode: slider
+    notify_device:
+      name: Device to notify
+      description: Device needs to run the official Home Assistant app to receive
+        notifications.
+      selector:
+        device:
+          integration: mobile_app
+    message:
+      name: Message
+      description: 'Default: " {{ entity_name }} battery has dropped to {{ battery_level
+        }}% "'
+      default: ' {{ entity_name }} battery has dropped to {{ battery_level }}% '
+  source_url: https://community.home-assistant.io/t/send-notification-for-battery-level/255733
+trigger:
+- platform: numeric_state
+  entity_id: !input 'battery_entity'
+  below: !input 'battery_level'
+variables:
+  entity_name: '{{ states[trigger.entity_id].name }}'
+  battery_level: '{{ states(trigger.entity_id) }}'
+action:
+  domain: mobile_app
+  type: notify
+  device_id: !input 'notify_device'
+  message: !input 'message'

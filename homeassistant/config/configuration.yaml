@@ -41,10 +41,9 @@ tts:
   - platform: google_translate
 
 
-#automation: !include_dir_merge_list automation/
-
 automation manual: !include_dir_merge_list automation/
 automation ui: !include automations.yaml
+scene: !include scenes.yaml
 
 #lovelace_gen:
 

@@ -42,3 +42,452 @@
       trigger_at_homeassistant_startup: false
       on_scene: scene.night_lights_on
       off_scene: scene.night_lights_off
+- id: '1630037425619'
+  alias: Kitchen Strips Buttons
+  description: ''
+  trigger:
+  - device_id: 5b4dca77eeb0ec3bb31b20d67fb0a20f
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  - device_id: 99dc56bdd01bd5fab09f4ce3a7a90a22
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: light.toggle
+    target:
+      entity_id: light.kitchen_strips
+  mode: single
+- id: '1630038188912'
+  alias: Bedside Dima Button
+  description: ''
+  trigger:
+  - device_id: 40726172b40669abb4f399dfaff29a88
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: light.toggle
+    target:
+      entity_id: light.bedside_dima
+  mode: single
+- id: '1630038285228'
+  alias: Bedside Galit Button
+  description: ''
+  trigger:
+  - device_id: 7ecb79e63618ed263ac5a7cc1c8422a2
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: light.toggle
+    target:
+      entity_id: light.bedside_galit
+  mode: single
+- id: '1630038382524'
+  alias: Makeup Button
+  description: ''
+  trigger:
+  - device_id: 3d0db486a34ea27a42f28182a186740e
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: switch.toggle
+    target:
+      entity_id: switch.makeup
+  mode: single
+- id: '1630042564509'
+  alias: Havid
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:40:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sun
+  action:
+  - delay: 00:{{ (range(0, 30)|random|int) }}:00
+  - service: script.sign_and_download_havid_edu
+  mode: single
+- id: '1630043760830'
+  alias: Low battery level detection & notification for all battery sensors
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      threshold: 10
+      time: '5:00:00'
+      exclude:
+        entity_id:
+        - sensor.ipadminidima_battery_level
+        - sensor.iphonedima_battery_level
+        - sensor.kfir_tab_battery_level
+        - sensor.kfir_sm_t290_battery_state
+        - sensor.ronen_ronen_tab_battery_state
+        - sensor.kfir_tab_battery_level
+        - sensor.sm_n960f_battery_level
+        - sensor.sm_n960f_battery_state
+      actions:
+      - service: notify.persistent_notification
+        data:
+          title: Battery Low
+          message: 'Low battery warning for: {{sensors}}'
+- id: '1630044898982'
+  alias: Kitchen Strips ON (Motion)
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: c3e357f00512b85664dcbac17441b91f
+    entity_id: binary_sensor.motion_kitchen
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: light.kitchen_strips
+    state: 'off'
+  - type: is_illuminance
+    condition: device
+    device_id: c3e357f00512b85664dcbac17441b91f
+    entity_id: sensor.motion_kitchen_lightlevel
+    domain: sensor
+    below: 100
+  action:
+  - service: light.turn_on
+    target:
+      entity_id: light.kitchen_strips
+  mode: single
+- id: '1630045120285'
+  alias: Kitchen Strips OFF (Motion)
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: c3e357f00512b85664dcbac17441b91f
+    entity_id: binary_sensor.motion_kitchen
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  condition:
+  - type: is_no_motion
+    condition: device
+    device_id: c3e357f00512b85664dcbac17441b91f
+    entity_id: binary_sensor.motion_kitchen
+    domain: binary_sensor
+  action:
+  - service: light.turn_off
+    target:
+      entity_id: light.kitchen_strips
+  mode: single
+- id: '1630052525462'
+  alias: Red Alert Ashdod
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.redalert_ashdod
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: צבע אדום
+      message: אשדוד
+      data:
+        tag: redalert-ahsdod
+  - service: notify.mobile_app_sm_n960f
+    data:
+      message: אשדוד
+      title: צבע אדום
+      data:
+        timeout: 120
+  - service: scene.turn_on
+    target:
+      entity_id: scene.red_alert_lights
+  mode: single
+- id: '1630053062911'
+  alias: Red Alert Ashdod Clear
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.redalert_ashdod
+    to: 'off'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-ahsdod
+  mode: single
+- id: '1630053159448'
+  alias: Red Alert Qiryat Gat
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.redalert_qiryat_gat
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: צבע אדום
+      message: קריית גת
+      data:
+        tag: redalert-qiryat-gat
+  mode: single
+- id: '1630053201927'
+  alias: Red Alert Qiryat Gat Clear
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.redalert_qiryat_gat
+    to: 'off'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-qiryat-gat
+  mode: single
+- id: '1630053311360'
+  alias: Red Alert All
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.redalert_all
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: צבע אדום
+      message: '{{ state_attr(''sensor.redalert'', ''data'') }}'
+      data:
+        tag: redalert-all
+  mode: single
+- id: '1630053381000'
+  alias: Red Alert All Clear
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.redalert_all
+    to: 'off'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-all
+  mode: single
+- id: '1630053607872'
+  alias: Galit Home
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: person.galit
+    zone: zone.home
+    event: enter
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: Linka
+      message: Almost home
+  mode: single
+- id: '1630054621160'
+  alias: Nobody Home
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.home_residents
+    from: home
+    to: not_home
+    for: 'minutes: 20'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: Home
+      message: Nobody home
+  mode: single
+- id: '1630055051716'
+  alias: Kids Radiator ON Notification
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.kids_radiator
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: Kids Radiator
+      message: 'On'
+      data:
+        actions:
+        - action: KIDS_RADIATOR_OFF
+          title: 'Off'
+  mode: single
+- id: '1630055310744'
+  alias: Kids Radiator OFF Notification
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.kids_radiator
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: Kids Radiator
+      message: 'Off'
+      data:
+        actions:
+        - action: KIDS_RADIATOR_ON
+          title: 'On'
+  mode: single
+- id: '1630055491352'
+  alias: Kids Radiator OFF Action
+  description: ''
+  trigger:
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: KIDS_RADIATOR_OFF
+  condition:
+  - condition: state
+    entity_id: switch.kids_radiator
+    state: 'on'
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.kids_radiator
+  mode: single
+- id: '1630055553920'
+  alias: Kids Radiator ON Action
+  description: ''
+  trigger:
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: KIDS_RADIATOR_ON
+  condition:
+  - condition: state
+    entity_id: switch.kids_radiator
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.kids_radiator
+  mode: single
+- id: '1630056048064'
+  alias: Printer Black Ink Low
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.mfc_j650dw_black_ink_remaining
+    below: '11'
+  condition: []
+  action:
+  - service: notify.persistent_notification
+    data:
+      title: Printer
+      message: Black ink is {{ states('sensor.mfc_j650dw_black_ink_remaining') }}%.
+  mode: single
+- id: '1630056101296'
+  alias: Printer Cyan Ink Low
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.mfc_j650dw_cyan_ink_remaining
+    below: '11'
+  condition: []
+  action:
+  - service: notify.persistent_notification
+    data:
+      title: Printer
+      message: Black ink is {{ states('sensor.mfc_j650dw_cyan_ink_remaining') }}%.
+  mode: single
+- id: '1630056134351'
+  alias: Printer Magenta Ink Low
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.mfc_j650dw_magenta_ink_remaining
+    below: '11'
+  condition: []
+  action:
+  - service: notify.persistent_notification
+    data:
+      title: Printer
+      message: Black ink is {{ states('sensor.mfc_j650dw_magenta_ink_remaining') }}%.
+  mode: single
+- id: '1630056151569'
+  alias: Printer Yellow Ink Low
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.mfc_j650dw_yellow_ink_remaining
+    below: '11'
+  condition: []
+  action:
+  - service: notify.persistent_notification
+    data:
+      title: Printer
+      message: Black ink is {{ states('sensor.mfc_j650dw_yellow_ink_remaining') }}%.
+  mode: single
+- id: '1630059227890'
+  alias: Dima Arrived to Office
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: person.dmatik
+    zone: zone.amdocs
+    event: enter
+  condition: []
+  action:
+  - service: script.dima_arrived_to_office_event
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: Arrived to office
+      title: Dima
+  mode: single
+- id: '1630059304209'
+  alias: Dima Left Office
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: person.dmatik
+    zone: zone.amdocs
+    event: leave
+  condition: []
+  action:
+  - service: script.dima_left_office_event
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: Dima
+      message: Left office
+  mode: single
