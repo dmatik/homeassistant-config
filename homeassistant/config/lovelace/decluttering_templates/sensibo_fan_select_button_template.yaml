@@ -16,8 +16,8 @@ sensibo_fan_select_button:
     type: custom:decluttering-card
     template: simple_button
     variables:
-      - entity: '[[entity]]'
-      - name: '[[name]]'
+      - entity: 'sensor.sensibo_[[name]]_fan'
+      - name: '[[title]]'
       - icon: '[[icon]]'
       - size: '[[size]]'
       - color_type: '[[color_type]]'
@@ -27,10 +27,15 @@ sensibo_fan_select_button:
       - font_weight: '[[font_weight]]'
       - height: '[[height]]'
       - tap_action: 
-          action: call-service
+          action: "[[[ 
+              if ( states['climate.[[name]]'].state == 'off' )
+                return 'none';
+              else
+                return 'call-service';
+            ]]]"
           service: climate.set_fan_mode
           service_data:
-            entity_id: '[[climate_entity]]'
+            entity_id: 'climate.[[name]]'
             fan_mode: "[[fan_mode]]"
       - hold_action:
           action: none

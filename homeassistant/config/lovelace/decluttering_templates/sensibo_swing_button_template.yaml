@@ -1,0 +1,35 @@
+sensibo_swing_button:
+
+  default:
+    - color: var(--button-color-green)
+    - icon_color: var(--primary-text-color)
+    - color_type: card
+    - icon: mdi:stack-overflow
+    - show_name: true
+    - height: 68px
+
+  card:
+    type: custom:decluttering-card
+    template: simple_button
+    variables:
+      - entity: 'switch.sensibo_[[name]]_swing_mode'
+      - name: Swing
+      - show_name: '[[show_name]]'
+      - icon: '[[icon]]'
+      - size: '[[size]]'
+      - color: '[[color]]'
+      - color_type: '[[color_type]]'
+      - height: '[[height]]'
+      - layout: '[[layout]]'
+      - tap_action: 
+          action: "[[[ 
+              if ( states['climate.[[name]]'].state == 'off' )
+                return 'none';
+              else
+                return 'call-service';
+            ]]]"
+          service: switch.toggle
+          service_data:
+            entity_id: entity
+      - hold_action:
+          action: none

@@ -1,0 +1,52 @@
+popup_state_two_rows:
+
+  default:
+    - font_size: 16px
+    - sensor_icon_size: 16px
+    - text_color: var(--button-card-text-color)
+    - popup_state_text_color: var(--primary-text-color)
+    - sholder_padding: 24px
+
+  card:
+    type: custom:button-card
+    entity: '[[entity]]'
+    show_name: false
+    show_state: false
+    show_icon: false
+    styles:
+      card:
+        - padding-left: '[[sholder_padding]]'
+        - padding-right: '[[sholder_padding]]'
+        - padding-top: 18px
+        - padding-bottom: 28px
+        - font-size: '[[font_size]]'
+        - background: none
+        - box-shadow: none
+        - color: '[[text_color]]'
+        - font-weight: bold
+      grid:
+        - grid-template-areas: '"popup_state cust_1" "cust_2 cust_3"'
+        - grid-template-columns: 4fr 1fr
+        - grid-template-rows: 1fr
+      custom_fields:
+        popup_state:
+          - justify-self: start
+          - padding-bottom: 8px
+          - color: '[[popup_state_text_color]]'
+        cust_1:
+          - justify-self: end
+          - padding-bottom: 8px
+        cust_2:
+          - justify-self: start
+          #- text-transform: capitalize
+        cust_3:
+          - justify-self: end
+    custom_fields:
+      popup_state: '[[popup_state]]'
+      cust_1: '[[cust_1]]'
+      cust_2: '[[cust_2]]'
+      cust_3: '[[cust_3]]'
+    tap_action:
+      action: none
+    hold_action: 
+      action: none 

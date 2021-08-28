@@ -1,0 +1,38 @@
+climate_popup_state:
+
+  default:
+    - font_size: 16px
+    - sensor_icon_size: 16px
+    - text_color: var(--button-card-text-color)
+    - ac_state_text_color: var(--primary-text-color)
+    - sholder_padding: 24px
+
+  card:
+    type: custom:decluttering-card
+    template: popup_state_two_rows
+    variables:
+      - entity: 'climate.[[name]]'
+      - popup_state: "[[[ 
+            if (entity.state == 'cool')
+              return 'Cooling to ' + entity.attributes.temperature + '°';
+            else if (entity.state == 'heat')
+              return 'Heating to ' + entity.attributes.temperature + '°';
+            else if (entity.state == 'heat_cool')
+              return 'Auto to ' + entity.attributes.temperature + '°';
+            else if (entity.state == 'off')
+              return 'AC off';
+            else
+              return entity.state;
+          ]]]"
+      - cust_1: "[[[ 
+            return entity.attributes.current_temperature + '° ' + 
+            `<ha-icon icon='mdi:thermometer' style='width: [[sensor_icon_size]]; height: [[sensor_icon_size]];'></ha-icon>` 
+          ]]]"
+      - cust_2: "[[[ 
+            return `<ha-icon icon='mdi:fan' style='width: [[sensor_icon_size]]; height: [[sensor_icon_size]];'></ha-icon>` + ' ' + 
+            entity.attributes.fan_mode 
+          ]]]"
+      - cust_3: "[[[ 
+            return entity.attributes.current_humidity + '% ' + 
+            `<ha-icon icon='mdi:water' style='width: [[sensor_icon_size]]; height: [[sensor_icon_size]];'></ha-icon>` 
+          ]]]"

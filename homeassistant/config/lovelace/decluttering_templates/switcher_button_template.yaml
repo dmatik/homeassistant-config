@@ -67,34 +67,37 @@ switcher_button:
               layout_type: vertical
               cards:
 
-                - type: entities
-                  state_color: true
-                  show_header_toggle: false
-                  style: |
-                    ha-card.type-entities {
-                      background: none;
-                      box-shadow: none;
-                      padding: 0.3em 1.25em 0.4em 0.5em;
-                    }
-                  entities:
+                # - type: entities
+                #   state_color: true
+                #   show_header_toggle: false
+                #   style: |
+                #     ha-card.type-entities {
+                #       background: none;
+                #       box-shadow: none;
+                #       padding: 0.3em 1.25em 0.4em 0.5em;
+                #     }
+                #   entities:
 
-                    - entity: sensor.switcher_webapi_electric_current
-                      name: Current
-                    - entity: sensor.switcher_webapi_power_consumption
-                      name: Power
-                    - entity: sensor.switcher_webapi_time_left
-                      name: Time left
-                    - entity: sensor.switcher_webapi_auto_off_time
-                      name: Off time
+                #     - entity: sensor.switcher_webapi_electric_current
+                #       name: Current
+                #     - entity: sensor.switcher_webapi_power_consumption
+                #       name: Power
+                #     - entity: sensor.switcher_webapi_time_left
+                #       name: Time left
+                #     - entity: sensor.switcher_webapi_auto_off_time
+                #       name: Off time
 
-                    # - type: custom:hui-element
-                    #   card_type: horizontal-stack
-                    #   style: |
-                    #     #root {
-                    #       justify-content: space-evenly;
-                    #       margin: 1.4em -0.7em 0.7em 0;
-                    #     }
-                    #   cards:
+                #     # - type: custom:hui-element
+                #     #   card_type: horizontal-stack
+                #     #   style: |
+                #     #     #root {
+                #     #       justify-content: space-evenly;
+                #     #       margin: 1.4em -0.7em 0.7em 0;
+                #     #     }
+                #     #   cards:
+
+                - type: custom:decluttering-card # Switcher State
+                  template: switcher_popup_state
 
                 - type: custom:layout-card
                   layout_type: grid
