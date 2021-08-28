@@ -80,9 +80,9 @@ cards:
       - type: custom:decluttering-card # Living Room Motion Sensor
         template: motion_sensor_button
         variables:
-          - entity: binary_sensor.xiaomi_living_room_motion
+          - entity: binary_sensor.motion_living_room
           - name: Motion
-          - light_level_sensor: sensor.xiaomi_living_room_light_level
+          - light_level_sensor: sensor.motion_living_room_lightlevel
         
       # - type: "custom:button-card"
       #   color_type: blank-card  

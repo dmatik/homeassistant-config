@@ -37,7 +37,7 @@ motion_sensor_button:
       - cust_1_icon_color: "[[cust_1_icon_color]]"
       - cust_2_text_color: "[[cust_2_text_color]]"
       - cust_2_icon_color: "[[cust_2_icon_color]]"
-      - corner_field: "[[[ return states['[[light_level_sensor]]'].state + ' Lux'; ]]]"
+      - corner_field: "[[[ return Math.round(states['[[light_level_sensor]]'].state) + ' Lux'; ]]]"
       - corner_border_radius: "[[corner_border_radius]]"
       - corner_background_color: "[[corner_background_color]]"
       - cust_1_field: "[[cust_1_field]]"

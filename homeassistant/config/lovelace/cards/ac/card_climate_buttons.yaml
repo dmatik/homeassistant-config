@@ -158,8 +158,8 @@ cards:
         template: temp_sensor_button_alt
         variables:
           - name: Temperature
-          - entity: sensor.xiaomi_work_room_temperature
-          - humidity_sensor: sensor.xiaomi_work_room_humidity
+          - entity: sensor.work_room_temperature
+          - humidity_sensor: sensor.work_room_humidity
 
                 
       # - type: "custom:button-card"

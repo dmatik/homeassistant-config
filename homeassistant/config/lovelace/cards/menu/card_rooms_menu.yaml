@@ -21,7 +21,7 @@ cards:
           - svg_path_on: 'm 12.5,7 c 0,-1.11 0.89,-2 2,-2 H 18 c 1.1,0 2,0.9 2,2 v 2.16 c -1.16,0.41 -2,1.51 -2,2.81 V 14 H 12.5 V 7 M 6,11.96 V 14 h 5.5 V 7 c 0,-1.11 -0.89,-2 -2,-2 H 6 C 4.9,5 4,5.9 4,7 v 2.15 c 1.16,0.41 2,1.52 2,2.81 M 20.66,10.03 C 19.68,10.19 19,11.12 19,12.12 V 15 H 5 V 12 C 5,10.9 4.11,10 3,10 1.89,10 1,10.9 1,12 v 5 c 0,1.1 0.9,2 2,2 2.4756025,0.0054 0.8913858,-0.0072 2,0 h 14 c 2,0 0.771536,-0.0072 2,0 1.1,0 2,-0.9 2,-2 v -5 c 0,-1.21 -1.09,-2.18 -2.34,-1.97 z'
           - path: living_room
           - light_entity: light.living_room
-          - motion_entity: binary_sensor.xiaomi_living_room_motion
+          - motion_entity: binary_sensor.motion_living_room
           - temp_entity: sensor.sensibo_living_room_temp
 
       - type: custom:decluttering-card # Kitchen
@@ -32,7 +32,7 @@ cards:
           - svg_path_on: 'M 12.5,3 C 7.81,3 4,5.69 4,9 v 0 c 0,1.19 0.5,2.34 1.44,3.33 C 4.53,13.5 4,14.96 4,16.5 V 20 c 0,1.11 0.89,2 2,2 h 13 c 1.11,0 2,-0.89 2,-2 V 16.5 C 21,15.28 20.66,14.07 20,13 18.924567,11.550345 18.211621,10.785701 16.9,10.1 15.58,9.38 14.05,9 12.5,9 10.65,9 8.95,9.53 7.55,10.41 7.19,9.97 7,9.5 7,9 7,7.21 9.46,5.75 12.5,5.75 v 0 c 1.43,0 2.8,0.33 3.83,0.92 L 18.35,4.65 C 16.77,3.59 14.68,3 12.5,3 m 0,8 c 0.34,0 0.67,0.04 1,0.09 C 10.39,11.57 8,14.25 8,17.5 V 20 H 6 V 17.5 C 6,13.910149 8.9101491,11 12.5,11 Z'
           - path: kitchen
           - light_entity: light.kitchen
-          - motion_entity: binary_sensor.xiaomi_kitchen_motion
+          - motion_entity: binary_sensor.motion_kitchen
 
       - type: custom:decluttering-card # Bedroom
         template: rooms_menu
@@ -62,7 +62,7 @@ cards:
           - svg_path_on: 'M 6,2 C 4.89,2 4,2.89 4,4 v 8 c 0,1.11 0.89,2 2,2 h 12 c 1.11,0 2,-0.89 2,-2 V 4 C 20,2.89 19.11,2 18,2 H 6 m 0,2 h 12 v 8 H 6 V 4 M 4,15 c -1.11,0 -2,0.89 -2,2 v 3 c 0,1.11 0.89,2 2,2 h 16 c 1.11,0 2,-0.89 2,-2 v -3 c 0,-1.11 -0.89,-2 -2,-2 H 4 m 4,2 h 12 v 3 H 8 v -3'
           - path: work_room
           - light_entity: light.work_room
-          - temp_entity: sensor.xiaomi_work_room_temperature
+          - temp_entity: sensor.work_room_temperature
 
       - type: custom:decluttering-card # Hallway
         template: rooms_menu

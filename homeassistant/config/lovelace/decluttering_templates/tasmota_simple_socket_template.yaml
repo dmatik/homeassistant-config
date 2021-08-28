@@ -6,7 +6,7 @@ tasmota_simple_socket:
   card:
     type: custom:fold-entity-row
     head:
-      entity: switch.mqtt_[[socket]]
+      entity: switch.[[socket]]
       name : '[[name]]'
       icon: '[[icon]]'
     items:

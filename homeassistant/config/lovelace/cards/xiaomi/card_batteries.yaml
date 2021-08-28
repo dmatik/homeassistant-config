@@ -58,28 +58,28 @@ cards:
                 to: 100
             entity_row: true
             entities:
-              - entity: sensor.xiaomi_work_room_temp_battery2
+              - entity: sensor.work_room_sensor_battery_level
                 name: Work Room Temp. Sensor
                 icon: mdi:thermometer
-              - entity: sensor.xiaomi_living_room_motion_battery
+              - entity: sensor.motion_living_room_battery_level
                 name: Living Room Motion Sensor
                 icon: mdi:run
-              - entity: sensor.xiaomi_kitchen_motion_battery
+              - entity: sensor.motion_kitchen_battery_level
                 name: Kitchen Motion Sensor
                 icon: mdi:run
-              - entity: sensor.xiaomi_button_bedside_dima_battery
+              - entity: sensor.button_bedside_dima_battery_level
                 name: Dima's Bedside Button
                 icon: mdi:circle-outline
-              - entity: sensor.xiaomi_button_bedside_galit_battery
+              - entity: sensor.button_bedside_galit_battery_level
                 name: Galit's Bedside Button
                 icon: mdi:circle-outline
-              - entity: sensor.xiaomi_button_makeup_battery
+              - entity: sensor.button_makeup_battery_level
                 name: Makeup Button
                 icon: mdi:circle-outline
-              - entity: sensor.xiaomi_button_kitchen_strip_right_battery
+              - entity: sensor.button_kitchen_right_battery_level
                 name: Kitchen Strip Right Button
                 icon: mdi:circle-outline
-              - entity: sensor.xiaomi_button_kitchen_strip_left_battery
+              - entity: sensor.button_kitchen_left_battery_level
                 name: Kitchen Strip Left Button
                 icon: mdi:circle-outline
 

@@ -71,9 +71,9 @@ cards:
       - type: custom:decluttering-card # Kitchen Motion Sensor
         template: motion_sensor_button
         variables:
-          - entity: binary_sensor.xiaomi_kitchen_motion
+          - entity: binary_sensor.motion_kitchen
           - name: Motion
-          - light_level_sensor: sensor.xiaomi_kitchen_light_level
+          - light_level_sensor: sensor.motion_kitchen_lightlevel
 
   - type: custom:decluttering-card # Separator
     template: separator

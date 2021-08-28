@@ -41,7 +41,7 @@ group:
       - light.bedroom
       - light.bedside_dima
       - light.bedside_galit
-      - switch.mqtt_makeup
+      - switch.makeup
 
 
 ############################################################################

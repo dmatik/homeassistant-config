@@ -9,7 +9,7 @@ group:
   living_room_motion_sensors:
     name: Living Room Motion Sensors
     entities:
-      - binary_sensor.xiaomi_living_room_motion
+      - binary_sensor.motion_living_room
 
 
 ############################################################################
@@ -21,4 +21,4 @@ group:
   kitchen_motion_sensors:
     name: Kitchen Motion Sensors
     entities:
-      - binary_sensor.xiaomi_kitchen_motion
+      - binary_sensor.motion_kitchen

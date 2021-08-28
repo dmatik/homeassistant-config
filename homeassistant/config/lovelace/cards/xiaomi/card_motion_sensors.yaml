@@ -42,15 +42,15 @@ card:
 
               - type: conditional # Living Room Motion Sensor
                 conditions:
-                  - entity: binary_sensor.xiaomi_living_room_motion
+                  - entity: binary_sensor.motion_living_room
                     state: "on"
                 card: 
                   type: custom:decluttering-card
                   template: motion_sensor_button
                   variables:
-                    - entity: binary_sensor.xiaomi_living_room_motion
+                    - entity: binary_sensor.motion_living_room
                     - name: Motion
-                    - light_level_sensor: sensor.xiaomi_living_room_light_level
+                    - light_level_sensor: sensor.motion_living_room_lightlevel
 
           - type: custom:decluttering-card # Separator
             template: separator
@@ -92,15 +92,15 @@ card:
  
               - type: conditional # Kitchen Motion Sensor
                 conditions:
-                  - entity: binary_sensor.xiaomi_kitchen_motion
+                  - entity: binary_sensor.motion_kitchen
                     state: "on"
                 card: 
                   type: custom:decluttering-card # Kitchen Motion Sensor
                   template: motion_sensor_button
                   variables:
-                    - entity: binary_sensor.xiaomi_kitchen_motion
+                    - entity: binary_sensor.motion_kitchen
                     - name: Motion
-                    - light_level_sensor: sensor.xiaomi_kitchen_light_level
+                    - light_level_sensor: sensor.motion_kitchen_lightlevel
 
           - type: custom:decluttering-card # Separator
             template: separator       
