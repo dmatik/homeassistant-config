@@ -1,0 +1,23 @@
+script:
+
+  dima_arrived_to_office_event:
+    alias: Dima Arrived to Office Event
+    sequence:
+        - service: google.add_event
+          data_template:
+            calendar_id: !secret work_hours_calendar_id
+            summary: 'Arrived to office'
+            description: 'Arrived to office'
+            start_date_time: '{{ ( now().timestamp() ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
+            end_date_time: '{{ ( now().timestamp() + 300 ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
+
+  dima_left_office_event:
+    alias: Dima Left Office Event
+    sequence:
+        - service: google.add_event
+          data_template:
+            calendar_id: !secret work_hours_calendar_id
+            summary: 'Left office'
+            description: 'Left office'
+            start_date_time: '{{ ( now().timestamp() ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
+            end_date_time: '{{ ( now().timestamp() + 300 ) | timestamp_custom("%Y-%m-%d %H:%M:%S") }}'
