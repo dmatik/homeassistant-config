@@ -27,7 +27,7 @@ cards:
               - justify-self: start
             date:
               - justify-self: end
-              - font-size: 24px
+              - font-size: 26px
               - color: var(--secondary-text-color)
         custom_fields:
           time: >

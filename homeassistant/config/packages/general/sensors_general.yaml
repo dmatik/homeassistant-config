@@ -12,5 +12,5 @@ sensor:
         friendly_name: "Date"
         icon_template: mdi:calendar
         value_template: >-
-          {{ as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%a, %B %d") }}
+          {{ as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%a, %b %d") }}
 
