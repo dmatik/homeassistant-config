@@ -89,7 +89,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: group.kitchen_strips_motion
+    entity_id: group.kitchen_motion_sensors
     to: 'on'
   condition:
   - condition: state
@@ -111,7 +111,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: group.kitchen_strips_motion
+    entity_id: group.kitchen_motion_sensors
     to: 'off'
     for:
       hours: 0
@@ -120,7 +120,7 @@
       milliseconds: 0
   condition:
   - condition: state
-    entity_id: group.kitchen_strips_motion
+    entity_id: group.kitchen_motion_sensors
     state: 'off'
   action:
   - service: light.turn_off
