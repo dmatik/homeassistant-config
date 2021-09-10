@@ -1,0 +1,43 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: School
+
+
+############################################################################
+#                                                                          #
+#   Lights                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+
+    cards:
+   
+      - type: custom:decluttering-card # School Holidays
+        template: school_button
+        variables:
+          - name: School
+
+
+  - type: custom:decluttering-card # Separator
+    template: separator
