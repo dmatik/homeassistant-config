@@ -150,7 +150,9 @@ cards:
         template: redalert_button
         variables:
           - entity: binary_sensor.redalert_all
-          - name: Red Alert
+
+      - type: custom:decluttering-card # School Holidays
+        template: school_button
 
       # - type: custom:decluttering-card # Hovid
       #   template: menu_new_button

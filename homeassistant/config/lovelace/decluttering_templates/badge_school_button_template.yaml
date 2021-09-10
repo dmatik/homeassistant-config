@@ -1,0 +1,73 @@
+badge_school_button:
+
+  default:
+    - entity: binary_sensor.school_holiday
+    - name: "לימודים"
+    - icon: mdi:school
+    - background_color: var(--button-card-on-background)
+    - text_color: var(--button-card-on-text-color)
+    - svg_fill_on: '#bf4040'
+    - svg_path: 'M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z'
+    - svg_path_on: 'm 5,13.18 v 4 l 7,3.82 7,-3.82 v -4 L 12,17 Z'
+    - cust_1_text_color: var(--button-card-cust-1-on-text-color)
+    #- cust_1_field: "[[[ return states['sensor.school_summary'].state; ]]]"
+
+
+  card:
+    type: custom:decluttering-card
+    template: badge_button_svg
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - icon: '[[icon]]'
+      - svg_fill: '[[svg_fill]]'
+      - svg_path: '[[svg_path]]'
+      - svg_fill_on: '[[svg_fill_on]]'
+      - svg_path_on: '[[svg_path_on]]'
+      - color: '[[color]]'
+      - color_type: '[[color_type]]'
+      - background_color: '[[background_color]]'
+      - text_color: '[[text_color]]'
+      - text_transform: none
+      - cust_1_text_color: "[[cust_1_text_color]]"
+      - cust_1_icon_color: "[[cust_1_icon_color]]"
+      - cust_1_field: "[[[
+            if (entity.state == 'on')
+              return states['sensor.school_summary'].state;
+            else
+              return 'יום לימודים'; 
+          ]]]"
+      - state: "[[state]]"
+      - hold_action:
+          action: more-info
+      - tap_action:
+          #haptic: heavy
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            hide_header: false
+            title: '[[name]]'
+            
+            card:
+
+              type: custom:layout-card
+              layout_type: vertical
+              cards:
+
+                - type: entities
+                  state_color: true
+                  show_header_toggle: false
+                  style: |
+                    ha-card.type-entities {
+                      background: none;
+                      box-shadow: none;
+                      padding: 0.3em 1.25em 0.4em 0.5em;
+                    }
+                  entities:
+
+                    - entity: sensor.school_summary
+                      name: Summary
+                    - entity: sensor.school_is_elementary_vacation
+                      name: Vacation
+                    - entity: input_boolean.school_auto
+                      name: School Mode    

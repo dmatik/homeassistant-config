@@ -1,0 +1,11 @@
+binary_sensor:
+
+  - platform: template
+    sensors:
+
+      school_holiday:
+        friendly_name: "School Holiday"
+        value_template: >-
+          {{ states('sensor.school_is_elementary_vacation') == 'True' and states('input_boolean.school_auto') == 'on' }}
+
+

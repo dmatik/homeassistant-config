@@ -32,6 +32,8 @@ cards:
           
           - !include /config/lovelace/cards/presence/card_presence_kiosk.yaml
 
+          - !include /config/lovelace/cards/school/card_school.yaml
+
       - type: vertical-stack
         cards:
 
