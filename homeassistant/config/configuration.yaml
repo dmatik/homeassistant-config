@@ -221,4 +221,7 @@ homekit:
         - binary_sensor.motion_kitchen
         - sensor.motion_kitchen_lightlevel
         - sensor.motion_kitchen_battery_level
+        - binary_sensor.motion_kitchen_2
+        - sensor.motion_kitchen_2_lightlevel
+        - sensor.motion_kitchen_2_battery_level
 
