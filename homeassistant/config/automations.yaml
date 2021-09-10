@@ -42,71 +42,6 @@
       trigger_at_homeassistant_startup: false
       on_scene: scene.night_lights_on
       off_scene: scene.night_lights_off
-- id: '1630037425619'
-  alias: Kitchen Strips Buttons
-  description: ''
-  trigger:
-  - device_id: 5b4dca77eeb0ec3bb31b20d67fb0a20f
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  - device_id: 99dc56bdd01bd5fab09f4ce3a7a90a22
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: light.toggle
-    target:
-      entity_id: light.kitchen_strips
-  mode: single
-- id: '1630038188912'
-  alias: Bedside Dima Button
-  description: ''
-  trigger:
-  - device_id: 40726172b40669abb4f399dfaff29a88
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: light.toggle
-    target:
-      entity_id: light.bedside_dima
-  mode: single
-- id: '1630038285228'
-  alias: Bedside Galit Button
-  description: ''
-  trigger:
-  - device_id: 7ecb79e63618ed263ac5a7cc1c8422a2
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: light.toggle
-    target:
-      entity_id: light.bedside_galit
-  mode: single
-- id: '1630038382524'
-  alias: Makeup Button
-  description: ''
-  trigger:
-  - device_id: 3d0db486a34ea27a42f28182a186740e
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: switch.toggle
-    target:
-      entity_id: switch.makeup
-  mode: single
 - id: '1630042564509'
   alias: Havid
   description: ''
@@ -153,18 +88,16 @@
   alias: Kitchen Strips ON (Motion)
   description: ''
   trigger:
-  - type: motion
-    platform: device
-    device_id: c3e357f00512b85664dcbac17441b91f
-    entity_id: binary_sensor.motion_kitchen
-    domain: binary_sensor
+  - platform: state
+    entity_id: group.kitchen_strips_motion
+    to: 'on'
   condition:
   - condition: state
     entity_id: light.kitchen_strips
     state: 'off'
   - type: is_illuminance
     condition: device
-    device_id: c3e357f00512b85664dcbac17441b91f
+    device_id: 7380f040cb4edbf96908484f8095649b
     entity_id: sensor.motion_kitchen_lightlevel
     domain: sensor
     below: 100
@@ -177,22 +110,18 @@
   alias: Kitchen Strips OFF (Motion)
   description: ''
   trigger:
-  - type: no_motion
-    platform: device
-    device_id: c3e357f00512b85664dcbac17441b91f
-    entity_id: binary_sensor.motion_kitchen
-    domain: binary_sensor
+  - platform: state
+    entity_id: group.kitchen_strips_motion
+    to: 'off'
     for:
       hours: 0
       minutes: 5
       seconds: 0
       milliseconds: 0
   condition:
-  - type: is_no_motion
-    condition: device
-    device_id: c3e357f00512b85664dcbac17441b91f
-    entity_id: binary_sensor.motion_kitchen
-    domain: binary_sensor
+  - condition: state
+    entity_id: group.kitchen_strips_motion
+    state: 'off'
   action:
   - service: light.turn_off
     target:
@@ -490,4 +419,94 @@
     data:
       title: Dima
       message: Left office
+  mode: single
+- id: '1631013670699'
+  alias: Kitchen Strips Buttons
+  description: ''
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.button_kitchen_strip_left
+      click_type: single
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.button_kitchen_strip_right
+      click_type: single
+  - device_id: 5b4dca77eeb0ec3bb31b20d67fb0a20f
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: remote_button_short_press
+  - device_id: 99dc56bdd01bd5fab09f4ce3a7a90a22
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: remote_button_short_press
+  condition: []
+  action:
+  - service: light.toggle
+    target:
+      entity_id: light.kitchen_strips
+  mode: single
+- id: '1631014903135'
+  alias: Makeup Button
+  description: ''
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.button_makeup
+      click_type: single
+  - device_id: 3d0db486a34ea27a42f28182a186740e
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: remote_button_short_press
+  condition: []
+  action:
+  - service: switch.toggle
+    target:
+      entity_id: switch.makeup
+  mode: single
+- id: '1631015281400'
+  alias: Bedside Galit Button
+  description: ''
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.button_bedside_galit
+      click_type: single
+  - device_id: 7ecb79e63618ed263ac5a7cc1c8422a2
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: remote_button_short_press
+  condition: []
+  action:
+  - service: light.toggle
+    target:
+      entity_id: light.bedside_galit
+  mode: single
+- id: '1631015652736'
+  alias: Bedside Dima Button
+  description: ''
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.button_bedside_dima
+      click_type: single
+  - device_id: 40726172b40669abb4f399dfaff29a88
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: remote_button_short_press
+  condition: []
+  action:
+  - service: light.toggle
+    target:
+      entity_id: light.bedside_dima
   mode: single

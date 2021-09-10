@@ -75,6 +75,13 @@ cards:
           - name: Motion
           - light_level_sensor: sensor.motion_kitchen_lightlevel
 
+      - type: custom:decluttering-card # Kitchen Motion 2 Sensor
+        template: motion_sensor_button
+        variables:
+          - entity: binary_sensor.motion_kitchen_2
+          - name: Motion 2
+          - light_level_sensor: sensor.motion_kitchen_2_lightlevel
+
   - type: custom:decluttering-card # Separator
     template: separator
     variables:

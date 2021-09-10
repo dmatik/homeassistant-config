@@ -18,7 +18,14 @@ group:
 #                                                                          #
 ############################################################################
 
+  kitchen_strips_motion:
+    name: Kitchen
+    entities:
+      - binary_sensor.motion_kitchen
+      - binary_sensor.motion_kitchen_2
+
   kitchen_motion_sensors:
     name: Kitchen Motion Sensors
     entities:
       - binary_sensor.motion_kitchen
+      - binary_sensor.motion_kitchen_2

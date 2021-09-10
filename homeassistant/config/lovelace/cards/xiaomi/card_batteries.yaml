@@ -13,7 +13,7 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Xiaomi Sensors
+          - name: Zigbee Sensors
           - padding_left: 0px
 
 
@@ -59,28 +59,28 @@ cards:
             entity_row: true
             entities:
               - entity: sensor.work_room_sensor_battery_level
-                name: Work Room Temp. Sensor
+                name: Work Room
                 icon: mdi:thermometer
               - entity: sensor.motion_living_room_battery_level
-                name: Living Room Motion Sensor
+                name: Living Room
                 icon: mdi:run
               - entity: sensor.motion_kitchen_battery_level
-                name: Kitchen Motion Sensor
+                name: Kitchen
                 icon: mdi:run
               - entity: sensor.button_bedside_dima_battery_level
-                name: Dima's Bedside Button
+                name: Bedside Dima
                 icon: mdi:circle-outline
               - entity: sensor.button_bedside_galit_battery_level
-                name: Galit's Bedside Button
+                name: Bedside Galit
                 icon: mdi:circle-outline
               - entity: sensor.button_makeup_battery_level
-                name: Makeup Button
+                name: Makeup
                 icon: mdi:circle-outline
               - entity: sensor.button_kitchen_right_battery_level
-                name: Kitchen Strip Right Button
+                name: Kitchen Strip Right
                 icon: mdi:circle-outline
               - entity: sensor.button_kitchen_left_battery_level
-                name: Kitchen Strip Left Button
+                name: Kitchen Strip Left
                 icon: mdi:circle-outline
 
       # - type: custom:bar-card
