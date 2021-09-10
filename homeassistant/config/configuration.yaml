@@ -1,20 +1,20 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  #name: Home
+  name: Trosman
   # Location required to calculate the time the sun rises and sets
-  #latitude: !secret home_latitude
-  #longitude: !secret home_longitude
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  #elevation: 0
+  elevation: 0
   # metric for Metric, imperial for Imperial
-  #unit_system: metric
+  unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  #time_zone: !secret time_zone
+  time_zone: !secret time_zone
   # Customization file
   customize: !include customize.yaml
 
-  #internal_url: !secret internal_url
-  #external_url: !secret external_url
+  internal_url: !secret internal_url
+  external_url: !secret external_url
 
   allowlist_external_dirs:
     - /config/www
@@ -202,4 +202,23 @@ wake_on_lan:
 #   client_id: !secret spotify_client_id
 #   client_secret: !secret spotify_client_secret
 
+homekit:
+  - filter:
+      include_entities:
+
+        # Work Room Temperature Sensor
+        - sensor.work_room_humidity
+        - sensor.work_room_pressure
+        - sensor.work_room_temperature
+        - sensor.work_room_sensor_battery_level
+
+        # Living Room Motion Sensor
+        - binary_sensor.motion_living_room
+        - sensor.motion_living_room_lightlevel
+        - sensor.motion_living_room_battery_level
+
+        # Kitchen Motion Sensor
+        - binary_sensor.motion_kitchen
+        - sensor.motion_kitchen_lightlevel
+        - sensor.motion_kitchen_battery_level
 
