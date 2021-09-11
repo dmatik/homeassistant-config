@@ -67,6 +67,9 @@ cards:
               - entity: sensor.motion_kitchen_battery_level
                 name: Kitchen
                 icon: mdi:run
+              - entity: sensor.motion_kitchen_2_battery_level
+                name: Kitchen 2
+                icon: mdi:run
               - entity: sensor.button_bedside_dima_battery_level
                 name: Bedside Dima
                 icon: mdi:circle-outline
