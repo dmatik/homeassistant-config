@@ -27,7 +27,7 @@ cards:
               - justify-self: start
             date:
               - justify-self: end
-              - font-size: 26px
+              - font-size: 22px
               - color: var(--secondary-text-color)
             school:
               - justify-self: end
@@ -37,7 +37,7 @@ cards:
           time: >
             [[[ return states['sensor.time'].state ]]]
           date: >
-            [[[ return states['sensor.my_date'].state ]]]
+            [[[ return states['sensor.my_date_hebrew'].state ]]]
           school: >
             [[[ 
               if (states['binary_sensor.school_holiday'].state == 'on')

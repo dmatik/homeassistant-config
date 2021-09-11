@@ -14,3 +14,14 @@ sensor:
         value_template: >-
           {{ as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%a, %b %d") }}
 
+
+      my_date_hebrew:
+        friendly_name: "Date"
+        icon_template: mdi:calendar
+        value_template: >-
+          {% set weekdays = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"] %}
+          {% set months = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"] %}
+          {% set week_day = weekdays[as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%w") | int] %}
+          {% set month = months[as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%m") | int - 1] %}
+          {% set day = as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%d") | int %}
+          {{ week_day }}, {{ day }} ב{{ month }}
