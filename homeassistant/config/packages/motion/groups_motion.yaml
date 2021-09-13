@@ -23,3 +23,4 @@ group:
     entities:
       - binary_sensor.motion_kitchen
       - binary_sensor.motion_kitchen_2
+      - binary_sensor.motion_kitchen_3
