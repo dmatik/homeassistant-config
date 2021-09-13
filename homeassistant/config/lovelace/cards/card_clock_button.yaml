@@ -27,11 +27,11 @@ cards:
               - justify-self: start
             date:
               - justify-self: end
-              - font-size: 22px
+              - font-size: 20px
               - color: var(--secondary-text-color)
             school:
               - justify-self: end
-              - font-size: 22px
+              - font-size: 20px
               - color: var(--secondary-text-color)
         custom_fields:
           time: >
@@ -41,9 +41,9 @@ cards:
           school: >
             [[[ 
               if (states['binary_sensor.school_holiday'].state == 'on')
-                return states['sensor.school_summary'].state + ' ' + `<ha-icon icon='mdi:school' style='width: 24px; height: 24px; color: #bf4040;'></ha-icon>`;
+                return states['sensor.school_summary'].state + ' ' + `<ha-icon icon='mdi:school' style='width: 22px; height: 22px; color: #bf4040;'></ha-icon>`;
               else
-                return 'יום לימודים' + ' ' + `<ha-icon icon='mdi:school' style='width: 24px; height: 24px;'></ha-icon>`;   
+                return 'יום לימודים' + ' ' + `<ha-icon icon='mdi:school' style='width: 22px; height: 22px;'></ha-icon>`;   
             ]]]
         tap_action: none
         hold_action: none 
