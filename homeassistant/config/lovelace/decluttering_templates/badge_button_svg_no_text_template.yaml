@@ -1,0 +1,119 @@
+badge_button_svg_no_text:
+
+  default:
+    - color: auto
+    - color_type: icon
+    - box_shadow: var(--ha-card-box-shadow)
+    - lock:
+        enabled: false
+        duration: 5
+        unlock: tap
+    - state:
+        - value: "0"
+          styles:
+            card:
+              #- background-color: var(--button-card-background-color)
+              - color: var(--button-card-text-color) #'#040404'
+            custom_fields:
+              svg_icon:
+                #- --paper-item-icon-active-color: var(--paper-item-icon-color)
+                - background-color: var(--button-card-background-color)
+        - value: "off"
+          styles:
+            card:
+              #- background-color: var(--button-card-background-color)
+              - color: var(--button-card-text-color) #'#040404'
+            custom_fields:
+              svg_icon:
+                #- --paper-item-icon-active-color: var(--paper-item-icon-color)
+                - background-color: var(--button-card-background-color)
+        - value: "unavailable"
+          styles:
+            icon:
+              - color: var(--button-card-disabled-text-color)
+            name:
+              - color: var(--button-card-disabled-text-color)
+            custom_fields:
+              svg_icon:
+                - --paper-item-icon-active-color: var(--button-card-disabled-text-color)
+
+    # Styles
+    - border_radius: var(--button-card-border-radius)
+    - background_color: var(--button-card-background-color)
+    #- icon_color: var(--button-card-icon-color)
+    - text_color: var(--button-card-text-color)
+    - text_transform: capitalize
+    - lock_color: var(--button-card-lock-color)
+    - svg_fill: var(--button-card-svg-off-color)
+    - svg_fill_on: var(--button-card-text-color) #var(--paper-item-icon-active-color)
+    - svg_fill_off: var(--button-card-text-color) #var(--paper-item-icon-color)
+    - border_color: var(--button-card-on-background)
+
+
+  card:
+    type: custom:button-card
+    style: |
+      ha-card {
+        background: none;
+        box-shadow: none;
+      }
+    entity: '[[entity]]'
+    icon: '[[icon]]'
+    aspect_ratio: 1/1
+    #name: '[[name]]'
+    show_name: false
+    show_icon: false
+    color: '[[color]]'
+    color_type: '[[color_type]]'
+    show_last_changed: false
+    lock: '[[lock]]'
+    styles:
+      card:
+        - padding: 8%
+        - font-size: 12px
+        - font-weight: bold
+        - text-transform: '[[text_transform]]'
+        - border-radius: '[[border_radius]]'
+        #- background-color: rgba(0,0,0,0)
+        - color: '[[text_color]]'
+        - box-shadow: none;
+        #- backdrop-filter: blur(20px)
+      grid:
+        - grid-template-areas: '"svg_icon"'
+        - grid-template-rows: 1fr
+      custom_fields:
+        svg_icon:
+          #- display: flex
+          #- justify-content: center
+          #- align-items: center
+          - align-self: center
+          - justify-self: center
+          - margin: none
+          - height: 50%
+          - width: 50%
+          - padding-bottom: 20.8%
+          - padding-top: 24%
+          - padding-left: 24%
+          - padding-right: 24%
+          - background-color: '[[background_color]]'
+          #- color: '[[icon_color]]'
+          - border-radius: 50%
+          - box-shadow: '[[box_shadow]]'
+          - border-color: '[[border_color]]'
+          - border-style: solid
+          - border-width: 3px
+    custom_fields:  
+      svg_icon: "[[[
+        if ( '[[entity]]' == '' || entity.state == '0' || entity.state == 'off' )
+          return `<svg viewBox='0 0 24 24'>
+          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+          <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
+        else
+          return `<svg viewBox='0 0 24 24'>
+          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+          <path fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+        ]]]"
+    tap_action: '[[tap_action]]'
+    hold_action: '[[hold_action]]'
+    double_tap_action: '[[double_tap_action]]'
+    state: "[[state]]"

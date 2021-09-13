@@ -14,6 +14,11 @@ layout:
   
 cards:
 
+  - type: custom:decluttering-card # Back
+    template: back_button
+    variables:
+      - navigation_path: /lovelace/rooms/
+      
   - type: custom:decluttering-card
     template: view_title
     variables:
