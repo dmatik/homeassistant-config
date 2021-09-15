@@ -56,3 +56,5 @@
 #   type: module
 - url: /hacsfiles/lovelace-hui-element/hui-element.js
   type: module
+- url: /hacsfiles/scheduler-card/scheduler-card.js
+  type: module

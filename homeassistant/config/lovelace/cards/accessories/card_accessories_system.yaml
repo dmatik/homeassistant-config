@@ -41,8 +41,8 @@ cards:
       - type: custom:decluttering-card # Home Assistant
         template: homeassistant_view_button
 
-      # - type: custom:decluttering-card # Automation
-      #   template: automation_view_button
+      - type: custom:decluttering-card # Scheduler
+        template: scheduler_view_button
 
       - type: custom:decluttering-card # Tasmota
         template: tasmota_view_button
