@@ -1,11 +1,7 @@
 switcher_popup_state:
 
   default:
-    - font_size: 16px
     - sensor_icon_size: 16px
-    - text_color: var(--button-card-text-color)
-    - ac_state_text_color: var(--primary-text-color)
-    - sholder_padding: 24px
 
   card:
     type: custom:decluttering-card
