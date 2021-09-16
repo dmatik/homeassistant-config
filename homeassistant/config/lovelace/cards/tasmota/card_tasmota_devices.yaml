@@ -7,14 +7,14 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
-    cards: 
+  # - type: horizontal-stack
+  #   cards: 
     
-      - type: custom:decluttering-card
-        template: title_button_card
-        variables:
-          - name: Tasmota
-          - padding_left: 0px
+  #     - type: custom:decluttering-card
+  #       template: title_button_card
+  #       variables:
+  #         - name: Tasmota
+  #         #- padding_left: 0px
 
 
 ############################################################################
@@ -29,6 +29,9 @@ cards:
       - type: entities
         style: |
           ha-card.type-entities {
+            background: none;
+            box-shadow: none;
+            border-radius: 0px;           
             padding: 0em 1.3em 0em 0.5em;
           }
         show_header_toggle: false
@@ -124,7 +127,12 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
+  - type: custom:layout-card
+    layout_type: grid
+    layout_options:
+      grid-template-columns: 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
     cards:
 
       - type: custom:decluttering-card # States sync

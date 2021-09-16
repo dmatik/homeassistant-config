@@ -25,32 +25,12 @@ tasmota_view_button:
             command: popup
             hide_header: false
             title: '[[name]]'
-            large: true
+            large: false
             
             card:
 
-              type: vertical-stack
+              type: custom:layout-card
+              layout_type: vertical
               cards:
 
-                - type: custom:decluttering-card # Separator
-                  template: separator
-        
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: shoulder_blank_card
-
-                    - type: custom:layout-card
-                      layout_type: horizontal
-                      cards:
-
-                        - !include /config/lovelace/cards/tasmota/card_tasmota_devices.yaml
-
-                    - type: custom:button-card
-                      template: shoulder_blank_card
-
-                - type: custom:decluttering-card # Separator
-                  template: separator
-                  variables:
-                    - height: 80
+                - !include /config/lovelace/cards/tasmota/card_tasmota_devices.yaml

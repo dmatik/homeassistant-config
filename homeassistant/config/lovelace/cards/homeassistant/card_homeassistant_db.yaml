@@ -14,8 +14,8 @@ cards:
       - type: custom:decluttering-card
         template: title_button_card
         variables:
-          - name: Home Assistant DB
-          - padding_left: 0px  
+          - name: DB
+          #- padding_left: 16px  
 
 
 ############################################################################
@@ -24,9 +24,12 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: grid
-    columns: 3
-    square: true
+  - type: custom:layout-card
+    layout_type: grid
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
     cards: 
 
       - type: custom:decluttering-card

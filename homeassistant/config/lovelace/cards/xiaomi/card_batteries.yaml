@@ -7,14 +7,14 @@ cards:
 #                                                                          #
 ############################################################################
 
-  - type: horizontal-stack
-    cards: 
+  # - type: horizontal-stack
+  #   cards: 
     
-      - type: custom:decluttering-card
-        template: title_button_card
-        variables:
-          - name: Zigbee Sensors
-          - padding_left: 0px
+  #     - type: custom:decluttering-card
+  #       template: title_button_card
+  #       variables:
+  #         - name: Zigbee Sensors
+  #         - padding_left: 22px
 
 
 ############################################################################
@@ -31,7 +31,10 @@ cards:
         show_header_toggle: false
         style: |
           ha-card.type-entities {
-            padding: 0.3em 1.25em 0.4em 0.5em;
+            background: none;
+            box-shadow: none;
+            border-radius: 0px;           
+            padding: 0em 1.3em 0em 0.5em;
           }
         entities:
 
@@ -88,60 +91,6 @@ cards:
               - entity: sensor.button_kitchen_left_battery_level
                 name: Kitchen Strip Left
                 icon: mdi:circle-outline
-
-      # - type: custom:bar-card
-      #   style: |
-      #     #states {
-      #       padding: 8px;
-      #     }
-      #     bar-card-iconbar {
-      #       color: var(--bar-card-icon-color);
-      #     }
-      #   unit_of_measurement: "%"
-      #   color: 'rgba(117,189,111,1.0)'
-      #   #stack: vertical
-      #   positions:
-      #     icon: "inside"
-      #     name: "inside"
-      #     value: "inside"
-      #     indicator: "off"
-      #   severity:
-      #     - color: '#bf4040'
-      #       from: 0
-      #       to: 10
-      #     - color: '#bf9540'
-      #       from: 11
-      #       to: 35
-      #     - color: 'rgba(117,189,111,1.0)'
-      #       from: 36
-      #       to: 100
-      #   entities:
-      #     - entity: sensor.xiaomi_work_room_temp_battery2
-      #       name: Work Room Temperature Sensor
-      #       icon: mdi:thermometer
-      #     - entity: sensor.xiaomi_living_room_motion_battery
-      #       name: Living Room Motion Sensor
-      #       icon: mdi:run
-      #     - entity: sensor.xiaomi_kitchen_motion_battery
-      #       name: Kitchen Motion Sensor
-      #       icon: mdi:run
-      #     - entity: sensor.xiaomi_button_bedside_dima_battery
-      #       name: Dima's Bedside Button
-      #       icon: mdi:circle-outline
-      #     - entity: sensor.xiaomi_button_bedside_galit_battery
-      #       name: Galit's Bedside Button
-      #       icon: mdi:circle-outline
-      #     - entity: sensor.xiaomi_button_makeup_battery
-      #       name: Makeup Button
-      #       icon: mdi:circle-outline
-      #     - entity: sensor.xiaomi_button_kitchen_strip_right_battery
-      #       name: Kitchen Strip Right Button
-      #       icon: mdi:circle-outline
-      #     - entity: sensor.xiaomi_button_kitchen_strip_left_battery
-      #       name: Kitchen Strip Left Button
-      #       icon: mdi:circle-outline
-
-
           
   - type: custom:decluttering-card # Separator
     template: separator
