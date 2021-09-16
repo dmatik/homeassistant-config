@@ -36,14 +36,15 @@ scheduler_view_button:
                   box-shadow: none;
                   padding: 0.3em 1.25em 0.4em 0.5em;
                   border-radius: 0px;
+                  --secondary-text-color: var(--button-card-text-color);
                 }
               title: false
               display_options:
                 primary_info:
                   - "<b>{name}</b>"
-                  - action
-                  - additional-tasks
                 secondary_info:
+                  - "<b>{action}</b>"
+                  - additional-tasks
                   - days
                   - relative-time
                 icon: entity
