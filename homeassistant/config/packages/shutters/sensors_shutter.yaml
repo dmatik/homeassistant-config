@@ -1,0 +1,12 @@
+sensor:
+
+
+
+  - platform: template
+    sensors:
+      dummy_shutter_position:
+        friendly_name: "Dummy Shutter Position"
+        icon_template: mdi:window-shutter
+        value_template: >-
+          50
+

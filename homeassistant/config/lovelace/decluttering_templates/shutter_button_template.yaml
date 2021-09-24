@@ -1,0 +1,90 @@
+shutter_button:
+
+  default:
+    - icon: mdi:window-shutter
+    - cust_2_field: ""
+    - svg_path: 'M3 4H21V8H19V20H17V8H7V20H5V8H3V4M8 9H16V11H8V9M8 12H16V14H8V12M8 15H16V17H8V15M8 18H16V20H8V18Z'
+    - svg_path_on: 'M 3,4 H 21 V 8 H 19 V 20 H 17 V 8 H 7 V 20 H 5 V 8 H 3 V 4'
+
+  card:
+    type: custom:decluttering-card
+    template: button_two_rows_svg
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - icon: '[[icon]]'
+      - svg_fill: '[[svg_fill]]'
+      - svg_path: '[[svg_path]]'
+      - svg_fill_on: '[[svg_fill_on]]'
+      - svg_path_on: '[[svg_path_on]]'
+      - color: '[[color]]'
+      - color_type: '[[color_type]]'
+      - text_transform: none
+      - corner_text_color: '[[corner_text_color]]'
+      - corner_icon_color: ''
+      - cust_1_text_color: '[[cust_1_text_color]]'
+      - cust_1_icon_color: '[[cust_1_icon_color]]'
+      - cust_2_text_color: '[[cust_2_text_color]]'
+      - cust_2_icon_color: '[[cust_2_icon_color]]'
+      - corner_field: '[[corner_field]]'
+      - corner_border_radius: '[[corner_border_radius]]'
+      - corner_background_color: '[[corner_background_color]]'
+      - cust_1_field: "[[[
+            if (entity.state == 'off')
+              return 'Closed';
+            else
+              return 'Open ' + Math.round(states['[[shutter_position]]'].state) + '%'; 
+          ]]]"
+      - cust_2_field: '[[cust_2_field]]'
+      - state: '[[state]]'
+      - hold_action:
+          action: more-info
+      - tap_action:
+          #haptic: heavy
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            hide_header: false
+            title: '[[name]]'
+            
+            card:
+
+              type: custom:layout-card
+              layout_type: vertical
+              cards:
+
+
+                # - type: custom:decluttering-card # Switcher State
+                #   template: switcher_popup_state
+
+                # - type: custom:layout-card
+                #   layout_type: grid
+                #   layout_options:
+                #     grid-template-columns: 1fr 1fr 1fr
+                #     grid-template-rows: auto
+                #     grid-gap: 0px 4px
+                #   cards:
+
+                #     - type: custom:decluttering-card # Boiler Power
+                #       template: simple_button
+                #       variables:
+                #         - entity: '[[entity]]'
+                #         - name: Power
+                #         - show_name: true
+                #         - height: 68px
+                #         - icon: mdi:power-standby
+
+                #     - type: custom:decluttering-card # Turn ON with Timer
+                #       template: simple_script_button
+                #       variables:
+                #         - entity: script.switcher_turn_on_timer_script
+                #         - name: Timer
+                #         - show_name: true
+                #         - height: 68px
+                #         - icon: mdi:timer-outline
+
+                #     - type: custom:decluttering-card # Timer Minutes 15/30/45/60
+                #       template: next_select_simple_button
+                #       variables:
+                #         - entity: input_select.switcher_timer_minutes_input_select
+                #         - label: Minutes

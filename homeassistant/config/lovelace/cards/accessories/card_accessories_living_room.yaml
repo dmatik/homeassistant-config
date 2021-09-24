@@ -76,13 +76,26 @@ cards:
           - entity: light.entrance
           - name: Entrance
 
-
       - type: custom:decluttering-card # Living Room Motion Sensor
         template: motion_sensor_button
         variables:
           - entity: binary_sensor.motion_living_room
           - name: Motion
           - light_level_sensor: sensor.motion_living_room_lightlevel
+
+      - type: custom:decluttering-card # Dummy Shutter On
+        template: shutter_button
+        variables:
+          - entity: binary_sensor.dummy_shutter_on
+          - name: Shutter 1
+          - shutter_position: sensor.dummy_shutter_position
+
+      - type: custom:decluttering-card # Dummy Shutter Off
+        template: shutter_button
+        variables:
+          - entity: binary_sensor.dummy_shutter_off
+          - name: Shutter 2
+          - shutter_position: sensor.dummy_shutter_position
         
       # - type: "custom:button-card"
       #   color_type: blank-card  
