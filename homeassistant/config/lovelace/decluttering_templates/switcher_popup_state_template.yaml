@@ -24,5 +24,5 @@ switcher_popup_state:
           ]]]"
       - cust_3: "[[[ 
             return states['sensor.switcher_webapi_power_consumption'].state + ' kW ' +
-            `<ha-icon icon='mdi:flash' style='width: [[sensor_icon_size]]; height: [[sensor_icon_size]];'></ha-icon>` 
+            `<ha-icon icon='mdi:lightning-bolt' style='width: [[sensor_icon_size]]; height: [[sensor_icon_size]];'></ha-icon>` 
           ]]]"
