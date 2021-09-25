@@ -14,6 +14,7 @@ color_light_button:
     - svg_path_on: 'M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'
     - svg_fill_on: var(--button-card-light-color-no-temperature)
     - svg_path_colored: 'm 8,9 h 3 2 -2 2 3 l 4,8 H 4 L 8,9 m 6,9 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 z'
+    - svg_path_colored_on: 'm 8,9 h 3 2 -2 2 3 l 4,8 H 4 L 8,9 m 6,9 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 z'
 
   card:
     type: custom:decluttering-card
@@ -27,6 +28,7 @@ color_light_button:
       - svg_fill_on: '[[svg_fill_on]]'
       - svg_path_on: '[[svg_path_on]]'
       - svg_path_colored: '[[svg_path_colored]]'
+      - svg_path_colored_on: '[[svg_path_colored_on]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - corner_text_color: ""

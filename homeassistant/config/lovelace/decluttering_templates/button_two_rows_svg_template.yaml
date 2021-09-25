@@ -178,7 +178,7 @@ button_two_rows_svg:
         else if ( entity.state == 'on' || entity.state == 'Detected' || entity.state == 'ready' || entity.state == 'open' )
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[svg_fill]]' d='[[svg_path_on]]'/>
-          <path fill='[[svg_fill_on]]' d='[[svg_path_colored]]'/> </svg>`;
+          <path fill='[[svg_fill_on]]' d='[[svg_path_colored_on]]'/> </svg>`;
         else
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[svg_fill]]' d='[[svg_path]]'/>

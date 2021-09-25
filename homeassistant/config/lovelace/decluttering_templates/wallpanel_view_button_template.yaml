@@ -5,6 +5,7 @@ wallpanel_view_button:
     - svg_path: 'M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z'
     - svg_path_on: 'M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z'
     - svg_path_colored: 'm 13,21 h 8 V 11 H 13 M 3,13 h 8 V 3 H 3 Z'
+    - svg_path_colored_on: 'm 13,21 h 8 V 11 H 13 M 3,13 h 8 V 3 H 3 Z'
     - cust_1_field: Fully
     - corner_field_entity: ""
 
@@ -17,6 +18,7 @@ wallpanel_view_button:
       - svg_path: '[[svg_path]]'
       - svg_path_on: '[[svg_path_on]]'
       - svg_path_colored: '[[svg_path_colored]]'
+      - svg_path_colored_on: '[[svg_path_colored_on]]'
       - corner_field_entity: '[[corner_field_entity]]'
       - name: '[[name]]'
       - cust_1_field: '[[cust_1_field]]'

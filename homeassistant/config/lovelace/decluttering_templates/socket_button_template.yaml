@@ -15,6 +15,7 @@ socket_button:
       - svg_fill_on: '[[svg_fill_on]]'
       - svg_path_on: '[[svg_path_on]]'
       - svg_path_colored: '[[svg_path_colored]]'
+      - svg_path_colored_on: '[[svg_path_colored_on]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - corner_text_color: ""

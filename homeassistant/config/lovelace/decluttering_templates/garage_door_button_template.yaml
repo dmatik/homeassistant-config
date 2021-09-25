@@ -7,6 +7,7 @@ garage_door_button:
     - svg_path: 'M22 9V20H20V11H4V20H2V9L12 5L22 9M19 12H5V14H19V12M19 18H5V20H19V18M19 15H5V17H19V15Z'
     - svg_path_on: 'M22 9V20H20V11H4V20H2V9L12 5L22 9M19 12H5V14H19V12Z'
     - svg_path_colored: 'M 22,9 V 20 H 20 V 11 H 4 v 9 H 2 V 9 L 12,5 22,9'
+    - svg_path_colored_on: 'M 22,9 V 20 H 20 V 11 H 4 v 9 H 2 V 9 L 12,5 22,9'
     - lock:
         enabled: false
         duration: 5
@@ -39,6 +40,7 @@ garage_door_button:
       - svg_path: "[[svg_path]]"
       - svg_path_on: "[[svg_path_on]]"
       - svg_path_colored: "[[svg_path_colored]]"
+      - svg_path_colored_on: "[[svg_path_colored_on]]"
       - tap_action: 
           action: call-service
           service: script.turn_on

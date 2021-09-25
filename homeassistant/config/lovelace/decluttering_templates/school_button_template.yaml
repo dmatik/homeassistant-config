@@ -7,6 +7,7 @@ school_button:
     - svg_path: 'M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z'
     - svg_path_on: 'M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z'
     - svg_path_colored: 'm 5,13.18 v 4 l 7,3.82 7,-3.82 v -4 L 12,17 Z'
+    - svg_path_colored_on: 'm 5,13.18 v 4 l 7,3.82 7,-3.82 v -4 L 12,17 Z'
     #- cust_1_field: "[[[ return states['sensor.school_summary'].state; ]]]"
     - entity: binary_sensor.school_holiday
     - name: "לימודים"
@@ -25,6 +26,7 @@ school_button:
       - svg_fill_on: '[[svg_fill_on]]'
       - svg_path_on: '[[svg_path_on]]'
       - svg_path_colored: '[[svg_path_colored]]'
+      - svg_path_colored_on: '[[svg_path_colored_on]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - text_transform: none

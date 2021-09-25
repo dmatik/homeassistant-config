@@ -32,6 +32,7 @@ script_button:
       - svg_path: "[[svg_path]]"
       - svg_path_on: "[[svg_path_on]]"
       - svg_path_colored: "[[svg_path_colored]]"
+      - svg_path_colored_on: "[[svg_path_colored_on]]"
       - tap_action: 
           action: call-service
           service: script.turn_on
