@@ -41,6 +41,20 @@ button_two_rows_svg:
                 - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
               cust_2:
                 - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
+        - value: "open"
+          styles:
+            card:
+              - background-color: var(--button-card-on-background)
+              - color: var(--button-card-on-text-color) #'#040404'
+            custom_fields:
+              # corner:
+              #   - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              #corner_2:
+              #  - color: var(--button-card-corner-on-text-color) #'#6F7075'
+              cust_1:
+                - color: var(--button-card-cust-1-on-text-color) #'#6F7075'
+              cust_2:
+                - color: var(--button-card-cust-2-on-text-color) #'#6F7075'
         - value: "unavailable"
           styles:
             icon:
@@ -160,15 +174,15 @@ button_two_rows_svg:
         if ( '[[entity]]' == '' )
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-          <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
-        else if ( entity.state == 'on' || entity.state == 'Detected' || entity.state == 'ready' )
+          <path fill='[[svg_fill_off]]' d='[[svg_path_colored]]'/> </svg>`;
+        else if ( entity.state == 'on' || entity.state == 'Detected' || entity.state == 'ready' || entity.state == 'open' )
           return `<svg viewBox='0 0 24 24'>
-          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-          <path fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+          <path fill='[[svg_fill]]' d='[[svg_path_on]]'/>
+          <path fill='[[svg_fill_on]]' d='[[svg_path_colored]]'/> </svg>`;
         else
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-          <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
+          <path fill='[[svg_fill_off]]' d='[[svg_path_colored]]'/> </svg>`;
         ]]]"
 
       corner: "[[corner_field]]"

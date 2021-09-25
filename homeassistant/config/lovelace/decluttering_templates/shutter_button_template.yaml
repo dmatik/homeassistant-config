@@ -4,7 +4,8 @@ shutter_button:
     - icon: mdi:window-shutter
     - cust_2_field: ""
     - svg_path: 'M3 4H21V8H19V20H17V8H7V20H5V8H3V4M8 9H16V11H8V9M8 12H16V14H8V12M8 15H16V17H8V15M8 18H16V20H8V18Z'
-    - svg_path_on: 'M 3,4 H 21 V 8 H 19 V 20 H 17 V 8 H 7 V 20 H 5 V 8 H 3 V 4'
+    - svg_path_on: 'M3 4H21V8H19V20H17V8H7V20H5V8H3V4M8 9H16V11H8V9Z'
+    - svg_path_colored: 'M 3,4 H 21 V 8 H 19 V 20 H 17 V 8 H 7 V 20 H 5 V 8 H 3 V 4'
 
   card:
     type: custom:decluttering-card
@@ -17,6 +18,7 @@ shutter_button:
       - svg_path: '[[svg_path]]'
       - svg_fill_on: '[[svg_fill_on]]'
       - svg_path_on: '[[svg_path_on]]'
+      - svg_path_colored: '[[svg_path_colored]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - text_transform: none
@@ -30,7 +32,7 @@ shutter_button:
       - corner_border_radius: '[[corner_border_radius]]'
       - corner_background_color: '[[corner_background_color]]'
       - cust_1_field: "[[[
-            if (entity.state == 'off')
+            if (entity.state == 'closed')
               return 'Closed';
             else
               return 'Open ' + Math.round(states['[[shutter_position]]'].state) + '%'; 

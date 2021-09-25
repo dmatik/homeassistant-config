@@ -18,6 +18,7 @@ accessory_view_button:
       - svg_path: '[[svg_path]]'
       - svg_fill_on: '[[svg_fill_on]]'
       - svg_path_on: '[[svg_path_on]]'
+      - svg_path_colored: '[[svg_path_colored]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - background_color: '[[background_color]]'
