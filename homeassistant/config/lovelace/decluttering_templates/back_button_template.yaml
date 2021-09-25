@@ -3,7 +3,7 @@ back_button:
   default:
     - name: Back
     - icon: mdi:arrow-left
-    - background_color: var(--button-card-on-background)
+    #- background_color: var(--button-card-on-background)
     - text_color: var(--button-card-on-text-color)
     - svg_path: 'M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z'
     - svg_path_on: 'M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z'

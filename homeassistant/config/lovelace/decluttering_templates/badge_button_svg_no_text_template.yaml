@@ -4,6 +4,7 @@ badge_button_svg_no_text:
     - color: auto
     - color_type: icon
     - box_shadow: var(--ha-card-box-shadow)
+    - border_width: 0px
     - lock:
         enabled: false
         duration: 5
@@ -101,7 +102,7 @@ badge_button_svg_no_text:
           - box-shadow: '[[box_shadow]]'
           - border-color: '[[border_color]]'
           - border-style: solid
-          - border-width: 3px
+          - border-width: '[[border_width]]'
     custom_fields:  
       svg_icon: "[[[
         if ( '[[entity]]' == '' || entity.state == '0' || entity.state == 'off' )
