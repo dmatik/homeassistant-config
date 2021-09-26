@@ -18,6 +18,7 @@ cards:
     variables:
       - title: Home
       - bottom_padding: 0px
+      - top_padding: 16px
   
   - !include /config/lovelace/cards/badges/card_badges_home.yaml
 

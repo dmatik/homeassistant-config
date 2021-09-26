@@ -17,6 +17,7 @@ cards:
     template: view_title
     variables:
       - title: Rooms
+      - top_padding: 16px
 
   - !include /config/lovelace/cards/menu/card_rooms_menu.yaml
 

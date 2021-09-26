@@ -87,14 +87,14 @@ cards:
         template: shutter_button
         variables:
           - entity: sensor.dummy_shutter_open
-          - name: Shutter 1
+          - name: Dummy 1
           - shutter_position: sensor.dummy_shutter_position
 
       - type: custom:decluttering-card # Dummy Shutter Off
         template: shutter_button
         variables:
           - entity: sensor.dummy_shutter_closed
-          - name: Shutter 2
+          - name: Dummy 2
           - shutter_position: sensor.dummy_shutter_position
         
       # - type: "custom:button-card"

@@ -1,6 +1,7 @@
 view_title:
 
   default:
+    - top_padding: 2px
     - bottom_padding: 16px
     - left_padding: 8px
 
@@ -18,13 +19,13 @@ view_title:
         #font-size: 20px
       }
       ha-markdown {
-        padding-top: 8px;
+        padding-top: [[top_padding]] !important;
         padding-bottom: [[bottom_padding]];
         padding-left: [[left_padding]];
         padding-right: 16px;
       }
       ha-markdown.no-header {
-        padding-top: 8px;
+        padding-top: [[top_padding]] !important;
         padding-bottom: [[bottom_padding]];
         padding-left: [[left_padding]];
         padding-right: 16px;
