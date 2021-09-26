@@ -24,7 +24,7 @@ cards:
     variables:
       - title: Rooms
       - padding_left: 16px
-      - padding_top: 8px
+      - padding_top: 24px
 
   - !include /config/lovelace/cards/menu/card_rooms_menu.yaml
 
