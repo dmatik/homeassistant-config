@@ -64,13 +64,13 @@ cards:
           variables:
             - entity: binary_sensor.redalert_ashdod
 
-      - type: conditional # School Holidays
-        conditions:
-          - entity: binary_sensor.school_holiday
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: badge_school_button
+      # - type: conditional # School Holidays
+      #   conditions:
+      #     - entity: binary_sensor.school_holiday
+      #       state: "on"
+      #   card:
+      #     type: custom:decluttering-card
+      #     template: badge_school_button
       
 
   # - type: custom:decluttering-card # Separator

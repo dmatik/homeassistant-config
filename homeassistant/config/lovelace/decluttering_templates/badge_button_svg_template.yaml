@@ -146,11 +146,11 @@ badge_button_svg:
         if ( '[[entity]]' == '' || entity.state == '0' || entity.state == 'off' )
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-          <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
+          <path fill='[[svg_fill_off]]' d='[[svg_path_colored]]'/> </svg>`;
         else
           return `<svg viewBox='0 0 24 24'>
-          <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-          <path fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+          <path fill='[[svg_fill]]' d='[[svg_path_on]]'/>
+          <path fill='[[svg_fill_on]]' d='[[svg_path_colored_on]]'/> </svg>`;
         ]]]"
 
       cust_1: "[[cust_1_field]]"
