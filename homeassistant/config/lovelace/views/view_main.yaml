@@ -24,7 +24,9 @@ cards:
     template: view_title_button
     variables:
       - title: Home
-      - padding_left: 8px
+      - padding_left: 16px
+      - padding_top: 8px
+
   
   - !include /config/lovelace/cards/badges/card_badges_home.yaml
 

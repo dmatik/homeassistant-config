@@ -23,7 +23,8 @@ cards:
     template: view_title_button
     variables:
       - title: System
-      - padding_left: 8px
+      - padding_left: 16px
+      - padding_top: 8px
 
   - !include /config/lovelace/cards/accessories/card_accessories_system.yaml
 

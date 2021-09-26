@@ -1,12 +1,12 @@
 view_title_button:
 
   default:
-    - padding_top: 8px
+    - padding_top: 0px
     - padding_bottom: 8px
-    - padding_left: 4px
+    - padding_left: 0px
     - padding_right: 0px
-    - svg_path: 'M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z'
-    - svg_path_on: 'M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z'
+    - svg_path: 'M14,7L9,12L14,17V7Z'
+    - svg_path_on: 'M14,7L9,12L14,17V7Z'
     - navigation_path: /lovelace/main/
 
   card:
@@ -18,7 +18,7 @@ view_title_button:
         - padding-bottom: '[[padding_bottom]]'
         - padding-left: '[[padding_left]]'
         - padding-right: '[[padding_right]]'
-        - font-size: 20px
+        - font-size: 24px
         - background: none
         - box-shadow: none
         - border-radius: 0px
@@ -28,7 +28,7 @@ view_title_button:
         - grid-template-areas: '"back title"'
         - grid-template-columns: "[[[
               if ( '[[back_button]]' == 'true' )
-                return '40px 1fr';
+                return '60px 1fr';
               else
                 return '0px 1fr';
             ]]]"        
