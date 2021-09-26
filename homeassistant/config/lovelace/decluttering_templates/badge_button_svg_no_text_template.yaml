@@ -5,6 +5,12 @@ badge_button_svg_no_text:
     - color_type: icon
     - box_shadow: var(--ha-card-box-shadow)
     - border_width: 0px
+    - padding_bottom: 20.8%
+    - padding_top: 24%
+    - padding_left: 24%
+    - padding_right: 24%
+    - height: 50%
+    - width: 50%
     - lock:
         enabled: false
         duration: 5
@@ -90,12 +96,12 @@ badge_button_svg_no_text:
           - align-self: center
           - justify-self: center
           - margin: none
-          - height: 50%
-          - width: 50%
-          - padding-bottom: 20.8%
-          - padding-top: 24%
-          - padding-left: 24%
-          - padding-right: 24%
+          - height: '[[height]]'
+          - width: '[[width]]'
+          - padding-top: '[[padding_top]]'
+          - padding-bottom: '[[padding_bottom]]'
+          - padding-left: '[[padding_left]]'
+          - padding-right: '[[padding_right]]'
           - background-color: '[[background_color]]'
           #- color: '[[icon_color]]'
           - border-radius: 50%

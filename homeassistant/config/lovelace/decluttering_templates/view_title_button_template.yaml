@@ -1,0 +1,79 @@
+view_title_button:
+
+  default:
+    - padding_top: 8px
+    - padding_bottom: 8px
+    - padding_left: 4px
+    - padding_right: 0px
+    - svg_path: 'M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z'
+    - svg_path_on: 'M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z'
+    - navigation_path: /lovelace/main/
+
+  card:
+    type: custom:button-card
+    entity: ""
+    styles:
+      card:
+        - padding-top: '[[padding_top]]'
+        - padding-bottom: '[[padding_bottom]]'
+        - padding-left: '[[padding_left]]'
+        - padding-right: '[[padding_right]]'
+        - font-size: 20px
+        - background: none
+        - box-shadow: none
+        - border-radius: 0px
+        - font-weight: bold
+        - color: var(--primary-text-color)
+      grid:
+        - grid-template-areas: '"back title"'
+        - grid-template-columns: "[[[
+              if ( '[[back_button]]' == 'true' )
+                return '40px 1fr';
+              else
+                return '0px 1fr';
+            ]]]"        
+        - grid-template-rows: 1fr
+      custom_fields:
+        back:
+          - align-self: center
+          - height: 100%
+          - width: 100%
+        title:
+          - justify-self: start
+          - align-self: center
+          - padding-left: "[[[
+              if ( '[[back_button]]' == 'true' )
+                return '8px';
+              else
+                return '0px';
+            ]]]" 
+    custom_fields:
+      back:
+        card:
+        
+          type: custom:decluttering-card
+          template: badge_button_svg_no_text
+          variables:
+            - entity: ''
+            - svg_fill: '[[svg_fill]]'
+            - svg_path: '[[svg_path]]'
+            - svg_fill_on: '[[svg_fill_on]]'
+            - svg_path_on: '[[svg_path_on]]'
+            - box_shadow: none
+            - background_color: none
+            - padding_bottom: 0px
+            - padding_top: 0px
+            - padding_left: 0px
+            - padding_right: 0px
+            - height: 100%
+            - width: 100%
+            - text_transform: none
+            - hold_action:
+                action: none
+            - tap_action: 
+                action: navigate
+                navigation_path: '[[navigation_path]]'
+      title: >
+        [[title]]
+    tap_action: none
+    hold_action: none 

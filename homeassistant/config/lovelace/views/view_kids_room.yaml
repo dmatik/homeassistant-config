@@ -13,15 +13,22 @@ layout:
   
 cards:
 
-  - type: custom:decluttering-card # Back
-    template: back_button
-    variables:
-      - navigation_path: /lovelace/rooms/
+  # - type: custom:decluttering-card # Back
+  #   template: back_button
+  #   variables:
+  #     - navigation_path: /lovelace/rooms/
       
+  # - type: custom:decluttering-card
+  #   template: view_title
+  #   variables:
+  #     - title: Kids Room
+
   - type: custom:decluttering-card
-    template: view_title
+    template: view_title_button
     variables:
       - title: Kids Room
+      - back_button: true
+      - navigation_path: /lovelace/rooms/
 
   - !include /config/lovelace/cards/accessories/card_accessories_kids_room.yaml
 

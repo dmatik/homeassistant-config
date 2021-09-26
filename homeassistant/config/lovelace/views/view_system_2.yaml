@@ -13,11 +13,17 @@ layout:
   
 cards:
 
+  # - type: custom:decluttering-card
+  #   template: view_title
+  #   variables:
+  #     - title: System
+  #     - top_padding: 16px
+
   - type: custom:decluttering-card
-    template: view_title
+    template: view_title_button
     variables:
       - title: System
-      - top_padding: 16px
+      - padding_left: 8px
 
   - !include /config/lovelace/cards/accessories/card_accessories_system.yaml
 

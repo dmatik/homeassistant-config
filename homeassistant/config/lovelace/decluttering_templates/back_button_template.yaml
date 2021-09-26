@@ -17,12 +17,12 @@ back_button:
     layout_type: grid
 
     layout_options:
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-columns: 1fr 8fr
       grid-template-rows: auto
       grid-gap: 0px 4px
       mediaquery:
         "(max-width: 450px)":
-          grid-template-columns: 1fr 1fr 1fr 1fr
+          grid-template-columns: 1fr 4fr
 
     cards:
       - type: custom:decluttering-card
