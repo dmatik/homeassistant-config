@@ -13,13 +13,19 @@ layout:
   
 cards:
 
-  - type: custom:decluttering-card # Back
-    template: back_button
+  # - type: custom:decluttering-card # Back
+  #   template: back_button
+
+  # - type: custom:decluttering-card
+  #   template: view_title
+  #   variables:
+  #     - title: Lights
 
   - type: custom:decluttering-card
-    template: view_title
+    template: view_title_button
     variables:
       - title: Lights
+      - back_button: true
 
   - !include /config/lovelace/cards/lights/card_lights_living_room_lightsview.yaml
 
