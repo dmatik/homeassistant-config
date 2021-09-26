@@ -18,12 +18,16 @@ rooms_menu:
     - light_svg_fill_on: var(--paper-item-icon-active-color)
     - light_svg_fill_off: var(--paper-item-icon-color)
     - light_svg_path: 'M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z'
-    - light_svg_path_on: 'M 12,2 C 8.1340068,2 5,5.1340068 5,9 c 0,2.38 1.19,4.47 3,5.74 V 17 c 0,0.552285 0.4477153,1 1,1 h 6 c 0.552285,0 1,-0.447715 1,-1 V 14.74 C 17.81,13.47 19,11.38 19,9 19,5.1340068 15.865993,2 12,2'
+    - light_svg_path_colored: 'M 12,2 C 8.1340068,2 5,5.1340068 5,9 c 0,2.38 1.19,4.47 3,5.74 V 17 c 0,0.552285 0.4477153,1 1,1 h 6 c 0.552285,0 1,-0.447715 1,-1 V 14.74 C 17.81,13.47 19,11.38 19,9 19,5.1340068 15.865993,2 12,2'
+    - light_svg_path_on: 'M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z'    
+    - light_svg_path_colored_on: 'M 12,2 C 8.1340068,2 5,5.1340068 5,9 c 0,2.38 1.19,4.47 3,5.74 V 17 c 0,0.552285 0.4477153,1 1,1 h 6 c 0.552285,0 1,-0.447715 1,-1 V 14.74 C 17.81,13.47 19,11.38 19,9 19,5.1340068 15.865993,2 12,2'
     - motion_svg_fill: var(--button-card-svg-off-color)
     - motion_svg_fill_on: var(--paper-item-icon-active-color)
     - motion_svg_fill_off: var(--paper-item-icon-color)
-    - motion_svg_path: 'M16.5,5.5A2,2 0 0,0 18.5,3.5A2,2 0 0,0 16.5,1.5A2,2 0 0,0 14.5,3.5A2,2 0 0,0 16.5,5.5M12.9,19.4L13.9,15L16,17V23H18V15.5L15.9,13.5L16.5,10.5C17.89,12.09 19.89,13 22,13V11C20.24,11.03 18.6,10.11 17.7,8.6L16.7,7C16.34,6.4 15.7,6 15,6C14.7,6 14.5,6.1 14.2,6.1L9,8.3V13H11V9.6L12.8,8.9L11.2,17L6.3,16L5.9,18L12.9,19.4M4,9A1,1 0 0,1 3,8A1,1 0 0,1 4,7H7V9H4M5,5A1,1 0 0,1 4,4A1,1 0 0,1 5,3H10V5H5M3,13A1,1 0 0,1 2,12A1,1 0 0,1 3,11H7V13H3Z'
-    - motion_svg_path_on: 'm 16.5,5.5 c 1.104569,0 2,-0.8954305 2,-2 0,-1.1045695 -0.895431,-2 -2,-2 -1.104569,0 -2,0.8954305 -2,2 0,1.1045695 0.895431,2 2,2 m -3.6,13.9 1,-4.4 2.1,2 v 6 h 2 v -7.5 l -2.1,-2 0.6,-3 C 17.89,12.09 19.89,13 22,13 V 11 C 20.24,11.03 18.6,10.11 17.7,8.6 L 16.7,7 C 16.34,6.4 15.7,6 15,6 14.7,6 14.5,6.1 14.2,6.1 L 9,8.3 V 13 h 2 V 9.6 l 1.8,-0.7 -1.6,8.1 -4.9,-1 -0.4,2 7,1.4'
+    - motion_svg_path: 'M13.5,5.5C14.59,5.5 15.5,4.58 15.5,3.5C15.5,2.38 14.59,1.5 13.5,1.5C12.39,1.5 11.5,2.38 11.5,3.5C11.5,4.58 12.39,5.5 13.5,5.5M9.89,19.38L10.89,15L13,17V23H15V15.5L12.89,13.5L13.5,10.5C14.79,12 16.79,13 19,13V11C17.09,11 15.5,10 14.69,8.58L13.69,7C13.29,6.38 12.69,6 12,6C11.69,6 11.5,6.08 11.19,6.08L6,8.28V13H8V9.58L9.79,8.88L8.19,17L3.29,16L2.89,18L9.89,19.38Z'
+    - motion_svg_path_colored: 'M13.5,5.5C14.59,5.5 15.5,4.58 15.5,3.5C15.5,2.38 14.59,1.5 13.5,1.5C12.39,1.5 11.5,2.38 11.5,3.5C11.5,4.58 12.39,5.5 13.5,5.5M9.89,19.38L10.89,15L13,17V23H15V15.5L12.89,13.5L13.5,10.5C14.79,12 16.79,13 19,13V11C17.09,11 15.5,10 14.69,8.58L13.69,7C13.29,6.38 12.69,6 12,6C11.69,6 11.5,6.08 11.19,6.08L6,8.28V13H8V9.58L9.79,8.88L8.19,17L3.29,16L2.89,18L9.89,19.38Z'
+    - motion_svg_path_on: 'M16.5,5.5A2,2 0 0,0 18.5,3.5A2,2 0 0,0 16.5,1.5A2,2 0 0,0 14.5,3.5A2,2 0 0,0 16.5,5.5M12.9,19.4L13.9,15L16,17V23H18V15.5L15.9,13.5L16.5,10.5C17.89,12.09 19.89,13 22,13V11C20.24,11.03 18.6,10.11 17.7,8.6L16.7,7C16.34,6.4 15.7,6 15,6C14.7,6 14.5,6.1 14.2,6.1L9,8.3V13H11V9.6L12.8,8.9L11.2,17L6.3,16L5.9,18L12.9,19.4M4,9A1,1 0 0,1 3,8A1,1 0 0,1 4,7H7V9H4M5,5A1,1 0 0,1 4,4A1,1 0 0,1 5,3H10V5H5M3,13A1,1 0 0,1 2,12A1,1 0 0,1 3,11H7V13H3Z'
+    - motion_svg_path_colored_on: 'm 16.5,5.5 c 1.104569,0 2,-0.8954305 2,-2 0,-1.1045695 -0.895431,-2 -2,-2 -1.104569,0 -2,0.8954305 -2,2 0,1.1045695 0.895431,2 2,2 m -3.6,13.9 1,-4.4 2.1,2 v 6 h 2 v -7.5 l -2.1,-2 0.6,-3 C 17.89,12.09 19.89,13 22,13 V 11 C 20.24,11.03 18.6,10.11 17.7,8.6 L 16.7,7 C 16.34,6.4 15.7,6 15,6 14.7,6 14.5,6.1 14.2,6.1 L 9,8.3 V 13 h 2 V 9.6 l 1.8,-0.7 -1.6,8.1 -4.9,-1 -0.4,2 7,1.4'
     - temp_field_color: var(--button-card-cust-1-text-color)
 
 
@@ -49,7 +53,13 @@ rooms_menu:
         - padding: 10px
       grid:
         - grid-template-areas: '"svg_icon n temp motion light"'
-        - grid-template-columns: 2fr 4.5fr 1.5fr 1fr 1fr
+        #- grid-template-columns: 2fr 4.5fr 1.5fr 1fr 1fr
+        - grid-template-columns: "[[[
+            if ( '[[motion_entity]]' == '' )
+              return '2fr 5.5fr 1.5fr 0fr 1fr';
+            else
+              return '2fr 4.5fr 1.5fr 1fr 1fr';
+            ]]]"
         - grid-template-rows: 1fr
       name:
         - font-size: 1.50em
@@ -93,7 +103,7 @@ rooms_menu:
       svg_icon: "[[[ 
         return `<svg viewBox='0 0 24 24'>
         <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-        <path fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+        <path fill='[[svg_fill_on]]' d='[[svg_path_colored]]'/> </svg>`;
         ]]]"
       temp: "[[[ 
         if ( '[[temp_entity]]' == '' )
@@ -103,16 +113,15 @@ rooms_menu:
         ]]]"
       motion: "[[[ 
         if ( '[[motion_entity]]' == '' )
-          return `<svg viewBox='0 0 24 24'>
-          <path fill='[[svg_fill_disabled]]' d='[[motion_svg_path]]'/> </svg>`;
+          return '';
         else if ( states['[[motion_entity]]'].state === 'on' )
           return `<svg viewBox='0 0 24 24'>
-          <path fill='[[motion_svg_fill]]' d='[[motion_svg_path]]'/>
-          <path fill='[[motion_svg_fill_on]]' d='[[motion_svg_path_on]]'/> </svg>`;
+          <path fill='[[motion_svg_fill]]' d='[[motion_svg_path_on]]'/>
+          <path fill='[[motion_svg_fill_on]]' d='[[motion_svg_path_colored_on]]'/> </svg>`;
         else
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[motion_svg_fill]]' d='[[motion_svg_path]]'/>
-          <path fill='[[motion_svg_fill_off]]' d='[[motion_svg_path_on]]'/> </svg>`;
+          <path fill='[[motion_svg_fill_off]]' d='[[motion_svg_path_colored]]'/> </svg>`;
         ]]]"
       light: "[[[ 
         if ( '[[light_entity]]' == '' )
@@ -120,12 +129,12 @@ rooms_menu:
           <path fill='[[svg_fill_disabled]]' d='[[light_svg_path]]'/> </svg>`;
         else if ( states['[[light_entity]]'].state === 'on' )
           return `<svg viewBox='0 0 24 24'>
-          <path fill='[[light_svg_fill]]' d='[[light_svg_path]]'/>
-          <path fill='[[light_svg_fill_on]]' d='[[light_svg_path_on]]'/> </svg>`;
+          <path fill='[[light_svg_fill]]' d='[[light_svg_path_on]]'/>
+          <path fill='[[light_svg_fill_on]]' d='[[light_svg_path_colored_on]]'/> </svg>`;
         else
           return `<svg viewBox='0 0 24 24'>
           <path fill='[[light_svg_fill]]' d='[[light_svg_path]]'/>
-          <path fill='[[light_svg_fill_off]]' d='[[light_svg_path_on]]'/> </svg>`;
+          <path fill='[[light_svg_fill_off]]' d='[[light_svg_path_colored]]'/> </svg>`;
         ]]]"
     tap_action: 
       action: navigate
