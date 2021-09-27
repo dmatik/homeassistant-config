@@ -84,17 +84,17 @@ cards:
           - light_level_sensor: sensor.motion_living_room_lightlevel
 
       - type: custom:decluttering-card # Dummy Shutter On
-        template: shutter_button
+        template: cover_button
         variables:
           - entity: sensor.dummy_shutter_open
-          - name: Dummy 1
+          - name: Dummy_1
           - shutter_position: sensor.dummy_shutter_position
 
       - type: custom:decluttering-card # Dummy Shutter Off
-        template: shutter_button
+        template: cover_button
         variables:
           - entity: sensor.dummy_shutter_closed
-          - name: Dummy 2
+          - name: Dummy_2
           - shutter_position: sensor.dummy_shutter_position
         
       # - type: "custom:button-card"

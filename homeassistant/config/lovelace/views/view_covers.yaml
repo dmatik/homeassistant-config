@@ -1,0 +1,39 @@
+title: Covers
+icon: mdi:window-shutter
+path: covers
+visible: false
+#panel: true
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+  
+cards:
+
+  # - type: custom:decluttering-card # Back
+  #   template: back_button
+
+  # - type: custom:decluttering-card
+  #   template: view_title
+  #   variables:
+  #     - title: Lights
+
+  - type: custom:decluttering-card
+    template: view_title_button
+    variables:
+      - title: Covers
+      - back_button: true
+
+  - !include /config/lovelace/cards/covers/card_covers_living_room.yaml
+
+  - type: custom:decluttering-card # Separator
+    template: separator
+    variables:
+      - height: 120
+
+
+
+

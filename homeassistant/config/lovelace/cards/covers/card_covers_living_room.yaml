@@ -1,0 +1,70 @@
+type: conditional
+conditions:
+  - entity: group.living_room_covers
+    state: "open"
+card:
+  type: vertical-stack
+  cards:
+
+
+  ############################################################################
+  #                                                                          #
+  #   Title                                                                  #
+  #                                                                          #
+  ############################################################################
+
+    - type: horizontal-stack
+      cards: 
+        
+        - type: custom:decluttering-card
+          template: title_button_card
+          variables:
+            - name: Living Room
+
+
+  ############################################################################
+  #                                                                          #
+  #   Lights                                                                 #
+  #                                                                          #
+  ############################################################################
+
+    - type: custom:layout-card
+      layout_type: grid
+
+      layout_options:
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+        grid-template-rows: auto
+        grid-gap: 0px 4px
+        mediaquery:
+          "(max-width: 450px)":
+            grid-template-columns: 1fr 1fr 1fr
+
+      cards:
+
+        - type: conditional # Dummy_1
+          conditions:
+            - entity: sensor.dummy_shutter_open
+              state: open
+          card:
+            type: custom:decluttering-card
+            template: cover_button
+            variables:
+              - entity: sensor.dummy_shutter_open
+              - name: Dummy_1
+              - shutter_position: sensor.dummy_shutter_position
+
+        - type: conditional # Dummy_2
+          conditions:
+            - entity: sensor.dummy_shutter_closed
+              state: open
+          card:
+            type: custom:decluttering-card
+            template: cover_button
+            variables:
+              - entity: sensor.dummy_shutter_closed
+              - name: Dummy_2
+              - shutter_position: sensor.dummy_shutter_position
+              
+
+    - type: custom:decluttering-card # Separator
+      template: separator

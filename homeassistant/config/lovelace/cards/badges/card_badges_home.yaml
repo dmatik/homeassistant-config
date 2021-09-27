@@ -54,6 +54,16 @@ cards:
           variables:
             - name: Motion
 
+      - type: conditional # Covers
+        conditions:
+          - entity: sensor.number_of_covers_open
+            state_not: "0"
+        card:
+          type: custom:decluttering-card # Covers
+          template: badge_cover_button
+          variables:
+            - name: Covers
+
       - type: conditional # Red Alert
         conditions:
           - entity: binary_sensor.redalert_ashdod

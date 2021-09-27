@@ -12,13 +12,13 @@ sensor:
           50
 
       dummy_shutter_open:
-        friendly_name: "Dummy Shutter Open"
+        friendly_name: "Dummy_1"
         icon_template: mdi:window-shutter
         value_template: >-
           open
 
       dummy_shutter_closed:
-        friendly_name: "Dummy Shutter closed"
+        friendly_name: "Dummy_2"
         icon_template: mdi:window-shutter
         value_template: >-
           closed

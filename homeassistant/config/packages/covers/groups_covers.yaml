@@ -1,0 +1,15 @@
+group:
+
+############################################################################
+#                                                                          #
+#   Living Room                                                            #
+#                                                                          #
+############################################################################
+
+  living_room_covers:
+    name: Living Room Covers
+    entities:
+      - sensor.dummy_shutter_open
+      - sensor.dummy_shutter_closed
+
+

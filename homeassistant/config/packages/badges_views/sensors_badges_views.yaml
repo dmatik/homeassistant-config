@@ -42,6 +42,42 @@ sensor:
 
 ############################################################################
 #                                                                          #
+#   Number of Covers Open                                                  #
+#                                                                          #
+############################################################################
+
+      number_of_covers_open:
+        friendly_name: "Number of covers open"
+        icon_template: mdi:window-shutter
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_cover_entities','entity_id') %}
+            {% if (states(entity_id) == 'open') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Only Cover Open                                                        #
+#                                                                          #
+############################################################################
+
+      only_cover_open:
+        friendly_name: "Only Cover Open"
+        icon_template: mdi:window-shutter
+        value_template: >-
+          {% for entity_id in state_attr('group.all_cover_entities','entity_id') %}
+            {% if (states(entity_id) == 'open') %}
+              {{ states[entity_id].attributes.friendly_name }}
+            {% endif %}
+          {% endfor %}
+
+
+############################################################################
+#                                                                          #
 #   Number of Climates On                                                  #
 #                                                                          #
 ############################################################################
