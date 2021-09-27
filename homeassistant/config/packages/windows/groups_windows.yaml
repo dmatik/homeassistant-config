@@ -1,0 +1,15 @@
+group:
+
+############################################################################
+#                                                                          #
+#   Living Room                                                            #
+#                                                                          #
+############################################################################
+
+  living_room_windows:
+    name: Living Room Windows
+    entities:
+      - binary_sensor.dummy_window_open
+      - binary_sensor.dummy_window_closed
+
+

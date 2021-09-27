@@ -76,6 +76,44 @@ sensor:
           {% endfor %}
 
 
+
+############################################################################
+#                                                                          #
+#   Number of Windows Open                                                 #
+#                                                                          #
+############################################################################
+
+      number_of_windows_open:
+        friendly_name: "Number of windows open"
+        icon_template: mdi:window-closed
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_window_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Only Window Open                                                       #
+#                                                                          #
+############################################################################
+
+      only_window_open:
+        friendly_name: "Only Window Open"
+        icon_template: mdi:window-closed
+        value_template: >-
+          {% for entity_id in state_attr('group.all_window_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {{ states[entity_id].attributes.friendly_name }}
+            {% endif %}
+          {% endfor %}
+
+
+
 ############################################################################
 #                                                                          #
 #   Number of Climates On                                                  #

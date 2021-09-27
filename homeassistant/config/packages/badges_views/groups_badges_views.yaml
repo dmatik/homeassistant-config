@@ -55,7 +55,21 @@ group:
     entities:
       - sensor.dummy_shutter_open
       - sensor.dummy_shutter_closed
-      
+
+
+
+############################################################################
+#                                                                          #
+#   All Window Entities                                                    #
+#                                                                          #
+############################################################################
+
+  all_window_entities:
+    name: All Window Entities
+    entities:
+      - binary_sensor.dummy_window_open
+      - binary_sensor.dummy_window_closed
+
 
 
 ############################################################################

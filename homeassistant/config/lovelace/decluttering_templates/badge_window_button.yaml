@@ -1,0 +1,51 @@
+badge_window_button:
+
+  default:
+    - entity: sensor.number_of_windows_open
+    - name: Windows
+    - icon: mdi:window-closed
+    - background_color: var(--button-card-on-background)
+    - text_color: var(--button-card-on-text-color)
+    - cust_1_text_color: var(--button-card-cust-1-on-text-color)
+    - svg_path: 'M6,11H10V9H14V11H18V4H6V11M18,13H6V20H18V13M6,2H18A2,2 0 0,1 20,4V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2Z'
+    - svg_path_on: 'M6,8H10V6H14V8H18V4H6V8M18,10H6V15H18V10M6,20H18V17H6V20M6,2H18A2,2 0 0,1 20,4V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2Z'
+    - svg_path_colored: 'm 6,11 h 4 V 9 h 4 v 2 h 4 m 0,2 H 6 v 7 H 18 V 13 M 19.98361,10.952027 20,20 c 0.002,1.104567 -0.895431,2 -2,2 H 6 C 4.8954305,22 4,21.104569 4,20 l 0.012631,-9.064363 z'
+    - svg_path_colored_on: 'm 6,8 h 4 V 6 h 4 V 8.0282353 L 19.986335,8.0149554 6,8 m 12,2 H 6 v 5 h 12 v -5 m 0,7 H 6 M 19.986335,8.0149554 19.975418,17.025583 C 18,17 6,17 4.024582,17.025583 L 4,8.0188235 C 10,8 10.014569,7.9961319 19.986335,8.0149554 Z'
+    - svg_fill_on: var(--accent-color)
+
+
+  card:
+    type: custom:decluttering-card
+    template: badge_button_svg
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - icon: '[[icon]]'
+      - svg_fill: '[[svg_fill]]'
+      - svg_path: '[[svg_path]]'
+      - svg_path_colored: '[[svg_path_colored]]'
+      - svg_fill_on: '[[svg_fill_on]]'
+      - svg_path_on: '[[svg_path_on]]'
+      - svg_path_colored_on: '[[svg_path_colored_on]]'
+      - color: '[[color]]'
+      - color_type: '[[color_type]]'
+      - background_color: '[[background_color]]'
+      - text_color: '[[text_color]]'
+      - text_transform: none
+      - cust_1_text_color: '[[cust_1_text_color]]'
+      - cust_1_icon_color: '[[cust_1_icon_color]]'
+      - cust_1_field: "[[[
+            if ( entity.state == '0' )
+              return 'Closed';
+            else if ( entity.state == '1' )
+              return states['sensor.only_window_open'].state + ' Open';
+            else
+              return entity.state + ' Windows Open'; 
+          ]]]"
+      - state: '[[state]]'
+      - hold_action:
+          action: more-info
+      - tap_action: 
+          action: navigate
+          navigation_path: /lovelace/windows/
+

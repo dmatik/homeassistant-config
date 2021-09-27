@@ -1,0 +1,15 @@
+binary_sensor:
+
+  - platform: template
+    sensors:
+
+      dummy_window_open:
+        friendly_name: "Dummy_1"
+        value_template: >-
+          True
+
+      dummy_window_closed:
+        friendly_name: "Dummy_2"
+        value_template: >-
+          False
+

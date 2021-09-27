@@ -96,6 +96,18 @@ cards:
           - entity: sensor.dummy_shutter_closed
           - name: Dummy_2
           - shutter_position: sensor.dummy_shutter_position
+
+      - type: custom:decluttering-card # Dummy Window On
+        template: window_sensor_button
+        variables:
+          - entity: binary_sensor.dummy_window_open
+          - name: Dummy_1
+
+      - type: custom:decluttering-card # Dummy Window Off
+        template: window_sensor_button
+        variables:
+          - entity: binary_sensor.dummy_window_closed
+          - name: Dummy_2
         
       # - type: "custom:button-card"
       #   color_type: blank-card  
