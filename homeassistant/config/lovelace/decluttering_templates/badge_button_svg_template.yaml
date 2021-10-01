@@ -62,6 +62,10 @@ badge_button_svg:
     - svg_fill_on: var(--paper-item-icon-active-color)
     - svg_fill_off: var(--paper-item-icon-color)
     - border_color: var(--button-card-on-background)
+    - svg_icon_x: 0
+    - svg_icon_y: 0
+    - svg_icon_width: 24
+    - svg_icon_height: 24
 
 
   card:
@@ -144,11 +148,11 @@ badge_button_svg:
     custom_fields:  
       svg_icon: "[[[
         if ( '[[entity]]' == '' || entity.state == '0' || entity.state == 'off' )
-          return `<svg viewBox='0 0 24 24'>
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
           <path fill='[[svg_fill]]' d='[[svg_path]]'/>
           <path fill='[[svg_fill_off]]' d='[[svg_path_colored]]'/> </svg>`;
         else
-          return `<svg viewBox='0 0 24 24'>
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
           <path fill='[[svg_fill]]' d='[[svg_path_on]]'/>
           <path fill='[[svg_fill_on]]' d='[[svg_path_colored_on]]'/> </svg>`;
         ]]]"

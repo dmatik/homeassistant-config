@@ -87,6 +87,10 @@ button_two_rows_svg:
     - svg_fill: var(--button-card-svg-off-color)
     - svg_fill_on: var(--accent-color) #var(--button-card-light-color-no-temperature)
     - svg_fill_off: var(--paper-item-icon-color)
+    - svg_icon_x: 0
+    - svg_icon_y: 0
+    - svg_icon_width: 24
+    - svg_icon_height: 24
 
 
   card:
@@ -129,6 +133,7 @@ button_two_rows_svg:
           - align-items: start
           - margin: none
           - height: 100%
+          - width: 100%
           - padding-bottom: 0px
           #- color: '[[icon_color]]'
         corner:
@@ -172,15 +177,15 @@ button_two_rows_svg:
 
       svg_icon: "[[[
         if ( '[[entity]]' == '' )
-          return `<svg viewBox='0 0 24 24'>
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
           <path fill='[[svg_fill]]' d='[[svg_path]]'/>
           <path fill='[[svg_fill_off]]' d='[[svg_path_colored]]'/> </svg>`;
         else if ( entity.state == 'on' || entity.state == 'Detected' || entity.state == 'ready' || entity.state == 'open' )
-          return `<svg viewBox='0 0 24 24'>
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
           <path fill='[[svg_fill]]' d='[[svg_path_on]]'/>
           <path fill='[[svg_fill_on]]' d='[[svg_path_colored_on]]'/> </svg>`;
         else
-          return `<svg viewBox='0 0 24 24'>
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
           <path fill='[[svg_fill]]' d='[[svg_path]]'/>
           <path fill='[[svg_fill_off]]' d='[[svg_path_colored]]'/> </svg>`;
         ]]]"
