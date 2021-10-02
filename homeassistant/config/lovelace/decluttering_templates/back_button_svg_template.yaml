@@ -1,0 +1,58 @@
+back_button_svg:
+
+  default:
+    - padding_bottom: 0px
+    - padding_top: 0px
+    - padding_left: 0px
+    - padding_right: 0px
+    - height: 50%
+    - width: 50%
+    - background_color: var(--button-card-background-color)
+    - svg_fill: var(--primary-color)
+    - svg_icon_x: -96
+    - svg_icon_y: 0
+    - svg_icon_width: 512
+    - svg_icon_height: 512
+    - navigation_path: /lovelace/main/
+    - svg_path: 'M243.658 43.114C227.69 27.834 202.362 28.365 187.096 44.364L11.098 228.356C-3.699 243.824 -3.699 268.198 11.098 283.666L187.096 467.657C194.955 475.875 205.471 480 216.002 480C225.94 480 235.908 476.313 243.658 468.907C259.611 453.626 260.174 428.315 244.908 412.347L95.363 256.011L244.908 99.674C260.174 83.706 259.611 58.395 243.658 43.114Z'
+
+
+  card:
+    type: custom:button-card
+    entity: ''
+    show_name: false
+    show_icon: false
+    show_last_changed: false
+    styles:
+      card:
+        - padding_bottom: '[[padding_bottom]]'
+        - padding_top: '[[padding_top]]'
+        - padding_left: '[[padding_left]]'
+        - padding_right: '[[padding_right]]'
+        - background: none
+        - box-shadow: none
+      grid:
+        - grid-template-areas: '"svg_icon"'
+        - grid-template-rows: 1fr
+      custom_fields:
+        svg_icon:
+          - align-self: center
+          - justify-self: center
+          - margin: none
+          - height: '[[height]]'
+          - width: '[[width]]'
+          - padding-top: 0px
+          - padding-bottom: 0px
+          - padding-left: 0px
+          - padding-right: 0px
+          - background-color: none
+    custom_fields:  
+      svg_icon: "[[[
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
+          <path fill='[[svg_fill]]' d='[[svg_path]]'/> </svg>`;
+        ]]]"
+    tap_action: 
+      action: navigate
+      navigation_path: '[[navigation_path]]'
+    hold_action: none 
+    double_tap_action: none

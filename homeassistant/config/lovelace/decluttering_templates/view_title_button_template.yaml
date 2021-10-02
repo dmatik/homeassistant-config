@@ -2,19 +2,9 @@ view_title_button:
 
   default:
     - padding_top: 24px
-    - padding_bottom: 8px
+    - padding_bottom: 24px
     - padding_left: 8px
     - padding_right: 0px
-    - svg_path: 'M243.658 43.114C227.69 27.834 202.362 28.365 187.096 44.364L11.098 228.356C-3.699 243.824 -3.699 268.198 11.098 283.666L187.096 467.657C194.955 475.875 205.471 480 216.002 480C225.94 480 235.908 476.313 243.658 468.907C259.611 453.626 260.174 428.315 244.908 412.347L95.363 256.011L244.908 99.674C260.174 83.706 259.611 58.395 243.658 43.114Z'
-    - svg_path_on: 'M243.658 43.114C227.69 27.834 202.362 28.365 187.096 44.364L11.098 228.356C-3.699 243.824 -3.699 268.198 11.098 283.666L187.096 467.657C194.955 475.875 205.471 480 216.002 480C225.94 480 235.908 476.313 243.658 468.907C259.611 453.626 260.174 428.315 244.908 412.347L95.363 256.011L244.908 99.674C260.174 83.706 259.611 58.395 243.658 43.114Z'
-    - navigation_path: /lovelace/main/
-    - svg_fill: var(--primary-color)
-    - svg_fill_on: var(--primary-color)
-    - svg_fill_off: var(--primary-color)
-    - svg_icon_x: -96
-    - svg_icon_y: 0
-    - svg_icon_width: 512
-    - svg_icon_height: 512
 
   card:
     type: custom:button-card
@@ -43,18 +33,6 @@ view_title_button:
       custom_fields:
         back:
           - align-self: center
-          - height: "[[[
-              if ( '[[back_button]]' == 'true' )
-                return '24px';
-              else
-                return '0px';
-            ]]]"
-          - width: "[[[
-              if ( '[[back_button]]' == 'true' )
-                return '24px';
-              else
-                return '0px';
-            ]]]"
           - justify-self: center
           - margin: none
         title:
@@ -67,14 +45,25 @@ view_title_button:
                 return '0px';
             ]]]" 
     custom_fields:
-      back: "[[[
-            return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
-            <path fill='[[svg_fill]]' d='[[svg_path]]'/>
-            <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
-        ]]]"
-      title: >
-        [[title]]
-    tap_action: 
-      action: navigate
-      navigation_path: '[[navigation_path]]'
-    hold_action: none 
+      back:
+        card:
+          type: custom:decluttering-card
+          template: back_button_svg
+          variables:
+            - navigation_path: '[[navigation_path]]'
+            - height: "[[[
+                if ( '[[back_button]]' == 'true' )
+                  return '24px';
+                else
+                  return '0px';
+              ]]]"
+            - width: "[[[
+                if ( '[[back_button]]' == 'true' )
+                  return '24px';
+                else
+                  return '0px';
+              ]]]"
+      title: '[[title]]'
+    tap_action: none
+    hold_action: none
+    double_tap_action: none
