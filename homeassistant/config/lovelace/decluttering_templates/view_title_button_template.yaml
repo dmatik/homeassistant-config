@@ -1,8 +1,8 @@
 view_title_button:
 
   default:
-    - padding_top: 24px
-    - padding_bottom: 24px
+    - padding_top: 18px
+    - padding_bottom: 16px
     - padding_left: 8px
     - padding_right: 0px
 
@@ -40,7 +40,7 @@ view_title_button:
           - align-self: center
           - padding-left: "[[[
               if ( '[[back_button]]' == 'true' )
-                return '4px';
+                return '8px';
               else
                 return '0px';
             ]]]" 

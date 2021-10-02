@@ -41,10 +41,10 @@ back_button_svg:
           - margin: none
           - height: '[[height]]'
           - width: '[[width]]'
-          - padding-top: 0px
-          - padding-bottom: 0px
-          - padding-left: 0px
-          - padding-right: 0px
+          - padding-top: 8px
+          - padding-bottom: 8px
+          - padding-left: 8px
+          - padding-right: 8px
           - background-color: none
     custom_fields:  
       svg_icon: "[[[
