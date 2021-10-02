@@ -96,8 +96,8 @@ badge_button_text:
           - align-self: center
           - justify-self: center
           - margin: none
-          - height: 50%
-          - width: 50%
+          - height: 45%
+          - width: 45%
           - padding-bottom: 22.4%
           - padding-top: 22.4%
           - padding-left: 24%

@@ -13,9 +13,9 @@ next_select_simple_button:
     - size: 40px
     - width: ""
     - height: 68px
-    - font_size: 38px
+    - font_size: 36px
     - font_weight: normal
-    - line_height: 40px
+    - line_height: 32px
     - label_font_size: 14px
     - label_height: 16.73px
     - label_font_weight: bold
@@ -62,7 +62,7 @@ next_select_simple_button:
         - height: '[[height]]'
       grid:
         - grid-template-areas: '"n" "l"'
-        - grid-template-rows: 3fr 1fr
+        - grid-template-rows: 4fr 2fr
       name:
         #- text-transform: lowercase
         - color: '[[name_color]]'
@@ -71,7 +71,7 @@ next_select_simple_button:
         - display: flex
         - justify-content: center
         - align-items: center
-        - align-self: center
+        - align-self: end
         - justify-self: center
         - text-align: center
       label:
@@ -79,6 +79,10 @@ next_select_simple_button:
         - font-size: '[[label_font_size]]'
         - height: '[[label_height]]'
         - font-weight: '[[label_font_weight]]'
+        - justify-self: center
+        - align-self: end
+        - padding-top: 0px
+        - padding-bottom: 0px
       img_cell:
         - color: '[[icon_color]]'
       lock:

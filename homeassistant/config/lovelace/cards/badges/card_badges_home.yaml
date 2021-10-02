@@ -54,25 +54,25 @@ cards:
           variables:
             - name: Motion
 
-      - type: conditional # Covers
-        conditions:
-          - entity: sensor.number_of_covers_open
-            state_not: "0"
-        card:
-          type: custom:decluttering-card # Covers
-          template: badge_cover_button
-          variables:
-            - name: Covers
+      # - type: conditional # Covers
+      #   conditions:
+      #     - entity: sensor.number_of_covers_open
+      #       state_not: "0"
+      #   card:
+      #     type: custom:decluttering-card # Covers
+      #     template: badge_cover_button
+      #     variables:
+      #       - name: Covers
 
-      - type: conditional # Windows
-        conditions:
-          - entity: sensor.number_of_windows_open
-            state_not: "0"
-        card:
-          type: custom:decluttering-card # Windows
-          template: badge_window_button
-          variables:
-            - name: Windows
+      # - type: conditional # Windows
+      #   conditions:
+      #     - entity: sensor.number_of_windows_open
+      #       state_not: "0"
+      #   card:
+      #     type: custom:decluttering-card # Windows
+      #     template: badge_window_button
+      #     variables:
+      #       - name: Windows
 
       - type: conditional # Red Alert
         conditions:

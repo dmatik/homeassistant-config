@@ -1,0 +1,38 @@
+simple_script_button_svg:
+
+  default:
+    - color: var(--button-color-green)
+    - text_color: var(--button-card-on-text-color)
+    - color_type: card
+
+  card:
+    type: custom:decluttering-card
+    template: simple_button_svg
+    variables:
+      - entity: '[[entity]]'
+      - name: '[[name]]'
+      - show_name: '[[show_name]]'
+      - size: '[[size]]'
+      - color: '[[text_color]]'
+      - color_type: '[[color_type]]'
+      - height: '[[height]]'
+      - lock: '[[lock]]'
+      - svg_path_colored: '[[svg_path_colored]]'
+      - svg_path_colored_on: '[[svg_path_colored_on]]'
+      - svg_icon_x: '[[svg_icon_x]]'
+      - svg_icon_y: '[[svg_icon_y]]'
+      - svg_icon_width: '[[svg_icon_width]]'
+      - svg_icon_height: '[[svg_icon_height]]'
+      - tap_action: 
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: '[[entity]]'
+      - hold_action:
+          action: none
+      - state:
+          - value: "on"
+            styles:
+              card:
+                - background-color: '[[color]]'
+                - color: '[[text_color]]'

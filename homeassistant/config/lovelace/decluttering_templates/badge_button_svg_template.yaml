@@ -107,8 +107,8 @@ badge_button_svg:
           - align-self: center
           - justify-self: center
           - margin: none
-          - height: 50%
-          - width: 50%
+          - height: 45%
+          - width: 45%
           - padding-bottom: 20.8%
           - padding-top: 24%
           - padding-left: 24%

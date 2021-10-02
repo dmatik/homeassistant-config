@@ -2,10 +2,14 @@ batteries_view_button:
 
   default:
     - name: Batteries
-    - svg_path: 'M16 20H8V6H16M16.67 4H15V2H9V4H7.33C6.6 4 6 4.6 6 5.33V20.67C6 21.4 6.6 22 7.33 22H16.67C17.41 22 18 21.41 18 20.67V5.33C18 4.6 17.4 4 16.67 4M15 16H9V19H15V16M15 7H9V10H15V7M15 11.5H9V14.5H15V11.5Z'
-    - svg_path_on: 'M16 20H8V6H16M16.67 4H15V2H9V4H7.33C6.6 4 6 4.6 6 5.33V20.67C6 21.4 6.6 22 7.33 22H16.67C17.41 22 18 21.41 18 20.67V5.33C18 4.6 17.4 4 16.67 4M15 16H9V19H15V16M15 7H9V10H15V7M15 11.5H9V14.5H15V11.5Z'
-    - svg_path_colored: 'M 15,16 H 9 v 3 h 6 V 16 M 15,7 H 9 v 3 h 6 V 7 m 0,4.5 H 9 v 3 h 6 z'
-    - svg_path_colored_on: 'M 15,16 H 9 v 3 h 6 V 16 M 15,7 H 9 v 3 h 6 V 7 m 0,4.5 H 9 v 3 h 6 z'
+    # - svg_path: 'M16 20H8V6H16M16.67 4H15V2H9V4H7.33C6.6 4 6 4.6 6 5.33V20.67C6 21.4 6.6 22 7.33 22H16.67C17.41 22 18 21.41 18 20.67V5.33C18 4.6 17.4 4 16.67 4M15 16H9V19H15V16M15 7H9V10H15V7M15 11.5H9V14.5H15V11.5Z'
+    # - svg_path_on: 'M16 20H8V6H16M16.67 4H15V2H9V4H7.33C6.6 4 6 4.6 6 5.33V20.67C6 21.4 6.6 22 7.33 22H16.67C17.41 22 18 21.41 18 20.67V5.33C18 4.6 17.4 4 16.67 4M15 16H9V19H15V16M15 7H9V10H15V7M15 11.5H9V14.5H15V11.5Z'
+    # - svg_path_colored: 'M 15,16 H 9 v 3 h 6 V 16 M 15,7 H 9 v 3 h 6 V 7 m 0,4.5 H 9 v 3 h 6 z'
+    # - svg_path_colored_on: 'M 15,16 H 9 v 3 h 6 V 16 M 15,7 H 9 v 3 h 6 V 7 m 0,4.5 H 9 v 3 h 6 z'
+    - svg_path: 'M544 192V160C544 124.654 515.346 96 480 96H64C28.654 96 0 124.654 0 160V352C0 387.346 28.654 416 64 416H480C515.346 416 544 387.346 544 352V320C561.674 320 576 305.674 576 288V224C576 206.326 561.674 192 544 192ZM480 352H64V160H480V352Z'
+    - svg_path_on: 'M544 192V160C544 124.654 515.346 96 480 96H64C28.654 96 0 124.654 0 160V352C0 387.346 28.654 416 64 416H480C515.346 416 544 387.346 544 352V320C561.674 320 576 305.674 576 288V224C576 206.326 561.674 192 544 192ZM480 352H64V160H480V352Z'
+    - svg_path_colored: 'M352 192H96V320H352V192Z'
+    - svg_path_colored_on: 'M352 192H96V320H352V192Z'
     - cust_1_field: Devices
     - corner_field_entity: ""
 
@@ -19,6 +23,9 @@ batteries_view_button:
       - svg_path_on: '[[svg_path_on]]'
       - svg_path_colored: '[[svg_path_colored]]'
       - svg_path_colored_on: '[[svg_path_colored_on]]'
+      - svg_icon_y: -32
+      - svg_icon_width: 576
+      - svg_icon_height: 576
       - corner_field_entity: '[[corner_field_entity]]'
       - name: '[[name]]'
       - cust_1_field: '[[cust_1_field]]'

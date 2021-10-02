@@ -4,12 +4,17 @@ light_button:
     - icon: mdi:ceiling-light
     - cust_1_field: "[[[ return entity.state ]]]"
     - color: auto-no-temperature
-    - svg_path: 'M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'
-    - svg_path_on: 'M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'
+    # - svg_path: 'M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'
+    # - svg_path_on: 'M8,9H11V4H13V9H16L20,17H4L8,9M14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18H14Z'
+    # - svg_path_colored: 'm 8,9 h 3 2 -2 2 3 l 4,8 H 4 L 8,9 m 6,9 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 z'
+    # - svg_path_colored_on: 'm 8,9 h 3 2 -2 2 3 l 4,8 H 4 L 8,9 m 6,9 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 z'
+    - svg_path: 'M192 448C192 483.375 220.625 512 256 512S320 483.375 320 448H192ZM287.959 162.203V0H223.959V162.203C234.5 160.902 245.141 160 255.959 160S277.418 160.902 287.959 162.203Z'
+    - svg_path_on: 'M192 448C192 483.375 220.625 512 256 512S320 483.375 320 448H192ZM287.959 162.203V0H223.959V162.203C234.5 160.902 245.141 160 255.959 160S277.418 160.902 287.959 162.203Z'
+    - svg_path_colored: 'M512 380.797V384C512 403.199 499.133 416 479.83 416H32.17C12.867 416 0 403.199 0 384V380.797C16.01 253.398 128 160 256 160S495.99 253.398 512 380.797Z'
+    - svg_path_colored_on: 'M512 380.797V384C512 403.199 499.133 416 479.83 416H32.17C12.867 416 0 403.199 0 384V380.797C16.01 253.398 128 160 256 160S495.99 253.398 512 380.797Z'
     - svg_fill_on: var(--button-card-light-color-no-temperature)
-    - svg_path_colored: 'm 8,9 h 3 2 -2 2 3 l 4,8 H 4 L 8,9 m 6,9 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 z'
-    - svg_path_colored_on: 'm 8,9 h 3 2 -2 2 3 l 4,8 H 4 L 8,9 m 6,9 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 z'
-
+    - svg_icon_width: 512
+    - svg_icon_height: 512
 
   card:
     type: custom:decluttering-card
@@ -24,6 +29,10 @@ light_button:
       - svg_path_on: '[[svg_path_on]]'
       - svg_path_colored: '[[svg_path_colored]]'
       - svg_path_colored_on: '[[svg_path_colored_on]]'
+      - svg_icon_x: '[[svg_icon_x]]'
+      - svg_icon_y: '[[svg_icon_y]]'
+      - svg_icon_width: '[[svg_icon_width]]'
+      - svg_icon_height: '[[svg_icon_height]]'
       - color: '[[color]]'
       - color_type: '[[color_type]]'
       - corner_text_color: ""

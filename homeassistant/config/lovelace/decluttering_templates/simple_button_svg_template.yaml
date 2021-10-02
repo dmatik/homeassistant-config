@@ -1,0 +1,117 @@
+simple_button_svg:
+
+  default:
+    - entity: ""
+    - font_size: 14px
+    - padding_top: 6px
+    - padding_bottom: 6px
+    - height: 68px
+    - width: ''
+    - color_type: card
+    - show_name: false
+    - lock:
+        enabled: false
+        duration: 5
+        unlock: tap
+    - tap_action:
+        action: toggle
+    - hold_action:
+        action: none
+    - state:
+        - value: "on"
+          styles:
+            card:
+              - background-color: var(--button-color-green)
+              - color: var(--button-card-on-text-color)
+
+    # Styles
+    - border_radius: var(--button-card-border-radius)
+    - background_color: var(--button-card-background-color)
+    #- icon_color: var(--button-card-icon-color)
+    - text_color: var(--button-card-text-color)
+    - text_transform: capitalize
+    - lock_color: var(--button-card-text-color)
+    - svg_fill_on: var(--button-card-on-text-color)
+    - svg_fill_off: var(--button-card-icon-color)
+    - svg_icon_x: 0
+    - svg_icon_y: 0
+    - svg_icon_width: 512
+    - svg_icon_height: 512
+
+
+  card:
+    type: custom:button-card
+    entity: '[[entity]]'
+    name: '[[name]]'
+    show_name: '[[show_name]]'
+    color_type: '[[color_type]]'
+    show_last_changed: false
+    lock: '[[lock]]'
+    styles:
+      card:
+        - padding-top: '[[padding_top]]'
+        - padding-bottom: '[[padding_bottom]]'
+        - font-size: 12px
+        - font-weight: bold
+        - text-transform: '[[text_transform]]'
+        - border-radius: '[[border_radius]]'
+        - background-color: '[[background_color]]'
+        - color: '[[text_color]]'
+        - backdrop-filter: blur(20px)
+        - width: '[[width]]'
+        - height: '[[height]]'
+      grid:
+        - grid-template-areas: '"svg_icon" "n"'
+        - grid-template-columns: 1fr
+        #- grid-template-rows: 4fr 2fr
+        - grid-template-rows: "[[[
+              if ( '[[show_name]]' == 'false' )
+                return '1fr 0fr';
+              else
+                return '4fr 2fr';
+            ]]]"
+      name:
+        - font-size: '[[font_size]]'
+        - justify-self: center
+        - align-self: end
+        - padding-top: 0px
+        - padding-bottom: 0px
+        #- text-transform: lowercase
+      lock:
+        - color: '[[lock_color]]'
+        - justify-content: flex-end
+        - align-items: flex-start
+      custom_fields:
+        svg_icon:
+          #- justify-content: center
+          #- align-items: center
+          - justify-self: center
+          - align-self: center
+          - margin: none
+          - height: 32px
+          - width: 32px
+          - padding-bottom: 0px
+    custom_fields:  
+      # svg_icon: "[[[ 
+      #   const state = entity.state === 'on' ? 'animate' : null;
+      #   return `<svg viewBox='0 0 24 24'>
+      #   <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+      #   <path class='${state}' fill='[[svg_fill_on]]' d='[[svg_path_on]]'/> </svg>`;
+      #   ]]]"
+
+      svg_icon: "[[[
+        if ( '[[entity]]' == '' )
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
+          <path fill='[[svg_fill_off]]' d='[[svg_path_colored]]'/> </svg>`;
+        else if ( entity.state == 'on' || entity.state == 'Detected' || entity.state == 'ready' || entity.state == 'open' )
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
+          <path fill='[[svg_fill_on]]' d='[[svg_path_colored_on]]'/> </svg>`;
+        else
+          return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
+          <path fill='[[svg_fill_off]]' d='[[svg_path_colored]]'/> </svg>`;
+        ]]]"
+
+    tap_action: '[[tap_action]]'
+    hold_action: '[[hold_action]]'
+    double_tap_action: '[[double_tap_action]]'
+    state: "[[state]]"

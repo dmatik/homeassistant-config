@@ -119,7 +119,6 @@ button_two_rows_svg:
         - grid-template-rows: 1fr 2fr 4fr 1fr
       name:
         - font-size: 1.20em #15px
-        - align-self: middle
         - justify-self: start
         - align-self: end
         - padding-top: 8px
@@ -132,8 +131,8 @@ button_two_rows_svg:
           - justify-content: start
           - align-items: start
           - margin: none
-          - height: 100%
-          - width: 100%
+          - height: 85%
+          - width: 85%
           - padding-bottom: 0px
           #- color: '[[icon_color]]'
         corner:

@@ -1,16 +1,20 @@
 view_title_button:
 
   default:
-    - padding_top: 16px
+    - padding_top: 24px
     - padding_bottom: 8px
-    - padding_left: 0px
+    - padding_left: 8px
     - padding_right: 0px
-    - svg_path: 'M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z'
-    - svg_path_on: 'M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z'
+    - svg_path: 'M243.658 43.114C227.69 27.834 202.362 28.365 187.096 44.364L11.098 228.356C-3.699 243.824 -3.699 268.198 11.098 283.666L187.096 467.657C194.955 475.875 205.471 480 216.002 480C225.94 480 235.908 476.313 243.658 468.907C259.611 453.626 260.174 428.315 244.908 412.347L95.363 256.011L244.908 99.674C260.174 83.706 259.611 58.395 243.658 43.114Z'
+    - svg_path_on: 'M243.658 43.114C227.69 27.834 202.362 28.365 187.096 44.364L11.098 228.356C-3.699 243.824 -3.699 268.198 11.098 283.666L187.096 467.657C194.955 475.875 205.471 480 216.002 480C225.94 480 235.908 476.313 243.658 468.907C259.611 453.626 260.174 428.315 244.908 412.347L95.363 256.011L244.908 99.674C260.174 83.706 259.611 58.395 243.658 43.114Z'
     - navigation_path: /lovelace/main/
     - svg_fill: var(--primary-color)
     - svg_fill_on: var(--primary-color)
     - svg_fill_off: var(--primary-color)
+    - svg_icon_x: -96
+    - svg_icon_y: 0
+    - svg_icon_width: 512
+    - svg_icon_height: 512
 
   card:
     type: custom:button-card
@@ -31,7 +35,7 @@ view_title_button:
         - grid-template-areas: '"back title"'
         - grid-template-columns: "[[[
               if ( '[[back_button]]' == 'true' )
-                return '45px 1fr';
+                return '30px 1fr';
               else
                 return '0px 1fr';
             ]]]"        
@@ -39,45 +43,38 @@ view_title_button:
       custom_fields:
         back:
           - align-self: center
-          - height: 100%
-          - width: 100%
+          - height: "[[[
+              if ( '[[back_button]]' == 'true' )
+                return '24px';
+              else
+                return '0px';
+            ]]]"
+          - width: "[[[
+              if ( '[[back_button]]' == 'true' )
+                return '24px';
+              else
+                return '0px';
+            ]]]"
+          - justify-self: center
+          - margin: none
         title:
           - justify-self: start
           - align-self: center
           - padding-left: "[[[
               if ( '[[back_button]]' == 'true' )
-                return '8px';
+                return '4px';
               else
                 return '0px';
             ]]]" 
     custom_fields:
-      back:
-        card:
-        
-          type: custom:decluttering-card
-          template: badge_button_svg_no_text
-          variables:
-            - entity: ''
-            - svg_fill: '[[svg_fill]]'
-            - svg_path: '[[svg_path]]'
-            - svg_fill_on: '[[svg_fill_on]]'
-            - svg_path_on: '[[svg_path_on]]'
-            - svg_fill_off: '[[svg_fill_off]]'
-            - box_shadow: none
-            - background_color: none
-            - padding_bottom: 0px
-            - padding_top: 0px
-            - padding_left: 0px
-            - padding_right: 0px
-            - height: 100%
-            - width: 100%
-            - text_transform: none
-            - hold_action:
-                action: none
-            - tap_action: 
-                action: navigate
-                navigation_path: '[[navigation_path]]'
+      back: "[[[
+            return `<svg viewBox='[[svg_icon_x]] [[svg_icon_y]] [[svg_icon_width]] [[svg_icon_height]]'>
+            <path fill='[[svg_fill]]' d='[[svg_path]]'/>
+            <path fill='[[svg_fill_off]]' d='[[svg_path_on]]'/> </svg>`;
+        ]]]"
       title: >
         [[title]]
-    tap_action: none
+    tap_action: 
+      action: navigate
+      navigation_path: '[[navigation_path]]'
     hold_action: none 
