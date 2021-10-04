@@ -1,5 +1,5 @@
 title: Home
-icon: mdi:home-variant
+icon: fapro:home #mdi:home-variant
 path: main
 visible: true
 #panel: true

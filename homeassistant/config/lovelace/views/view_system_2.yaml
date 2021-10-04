@@ -1,5 +1,5 @@
 title: System
-icon: mdi:cog
+icon: fapro:gear #mdi:cog
 path: system_2
 visible: true
 #panel: true

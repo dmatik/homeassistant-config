@@ -363,7 +363,7 @@ dmatik:
               }
               ha-tabs {
                     --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
-                    --mdc-icon-size: 28px;
+                    --mdc-icon-size: 24px;
               }
               paper-tab[aria-selected=true] {
                     color: var(--header-active-tab-color) !important;
