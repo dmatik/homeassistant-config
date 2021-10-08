@@ -1,5 +1,5 @@
 title: Rooms
-icon: fapro:game-board-simple #mdi:view-grid
+icon: fapro:grid-new-2 #mdi:view-grid
 path: rooms
 visible: true
 #panel: true
