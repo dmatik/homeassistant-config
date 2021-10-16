@@ -97,7 +97,7 @@
     state: 'off'
   - type: is_illuminance
     condition: device
-    device_id: 7380f040cb4edbf96908484f8095649b
+    device_id: f0d870e14c46869421ee549c5d8e0117
     entity_id: sensor.motion_kitchen_lightlevel
     domain: sensor
     below: 100
@@ -434,16 +434,6 @@
     event_data:
       entity_id: binary_sensor.button_kitchen_strip_right
       click_type: single
-  - device_id: 5b4dca77eeb0ec3bb31b20d67fb0a20f
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: remote_button_short_press
-  - device_id: 99dc56bdd01bd5fab09f4ce3a7a90a22
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: remote_button_short_press
   condition: []
   action:
   - service: light.toggle
@@ -459,11 +449,6 @@
     event_data:
       entity_id: binary_sensor.button_makeup
       click_type: single
-  - device_id: 3d0db486a34ea27a42f28182a186740e
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: remote_button_short_press
   condition: []
   action:
   - service: switch.toggle
@@ -479,11 +464,6 @@
     event_data:
       entity_id: binary_sensor.button_bedside_galit
       click_type: single
-  - device_id: 7ecb79e63618ed263ac5a7cc1c8422a2
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: remote_button_short_press
   condition: []
   action:
   - service: light.toggle
@@ -499,14 +479,33 @@
     event_data:
       entity_id: binary_sensor.button_bedside_dima
       click_type: single
-  - device_id: 40726172b40669abb4f399dfaff29a88
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: remote_button_short_press
   condition: []
   action:
   - service: light.toggle
     target:
       entity_id: light.bedside_dima
+  mode: single
+- id: '1634030939721'
+  alias: Front Gate Action
+  description: ''
+  trigger:
+  - platform: event
+    event_type: shortcut_event
+    event_data:
+      actionName: front_gate
+  condition: []
+  action:
+  - service: script.open_parking_gate_74
+  mode: single
+- id: '1634031580769'
+  alias: Back Gate Action
+  description: ''
+  trigger:
+  - platform: event
+    event_type: shortcut_event
+    event_data:
+      actionName: back_gate
+  condition: []
+  action:
+  - service: script.open_parking_gate_72
   mode: single

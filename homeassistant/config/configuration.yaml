@@ -202,26 +202,26 @@ wake_on_lan:
 #   client_id: !secret spotify_client_id
 #   client_secret: !secret spotify_client_secret
 
-homekit:
-  - filter:
-      include_entities:
+# homekit:
+#   - filter:
+#       include_entities:
 
-        # Work Room Temperature Sensor
-        - sensor.work_room_humidity
-        - sensor.work_room_pressure
-        - sensor.work_room_temperature
-        - sensor.work_room_sensor_battery_level
+#         # Work Room Temperature Sensor
+#         - sensor.work_room_humidity
+#         - sensor.work_room_pressure
+#         - sensor.work_room_temperature
+#         - sensor.work_room_sensor_battery_level
 
-        # Living Room Motion Sensor
-        - binary_sensor.motion_living_room
-        - sensor.motion_living_room_lightlevel
-        - sensor.motion_living_room_battery_level
+#         # Living Room Motion Sensor
+#         - binary_sensor.motion_living_room
+#         - sensor.motion_living_room_lightlevel
+#         - sensor.motion_living_room_battery_level
 
-        # Kitchen Motion Sensor
-        - binary_sensor.motion_kitchen
-        - sensor.motion_kitchen_lightlevel
-        - sensor.motion_kitchen_battery_level
-        - binary_sensor.motion_kitchen_2
-        - sensor.motion_kitchen_2_lightlevel
-        - sensor.motion_kitchen_2_battery_level
+#         # Kitchen Motion Sensor
+#         - binary_sensor.motion_kitchen
+#         - sensor.motion_kitchen_lightlevel
+#         - sensor.motion_kitchen_battery_level
+#         - binary_sensor.motion_kitchen_2
+#         - sensor.motion_kitchen_2_lightlevel
+#         - sensor.motion_kitchen_2_battery_level
 
