@@ -79,13 +79,13 @@ cards:
               grid-template-columns: 1fr 1fr
         cards:
 
-          # New Year Tree Lights
-          - type: 'custom:button-card'
-            template: 
-              - card_ny_tree
-            entity: switch.new_year_tree
-            icon: mdi:pine-tree
-            name: NY Tree
+          # # New Year Tree Lights
+          # - type: 'custom:button-card'
+          #   template: 
+          #     - card_ny_tree
+          #   entity: switch.new_year_tree
+          #   icon: mdi:pine-tree
+          #   name: NY Tree
 
           # Living Room Light
           - type: 'custom:button-card'

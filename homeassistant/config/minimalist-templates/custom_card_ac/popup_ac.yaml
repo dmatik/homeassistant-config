@@ -171,21 +171,12 @@ popup_ac:
                 template: 
                   - "popup_button"
                   - "ulm_language_variables"
+                  - "popup_button_ac_sync_state_tap"
+                variables:
+                  ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                 entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                 icon: mdi:autorenew
                 name: Sync State
-                tap_action:
-                  action: call-service
-                  service: sensibo.assume_state
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    state: >
-                      [[[
-                        if (entity.state == 'off')
-                          return 'on';
-                        else
-                          return 'off';
-                      ]]]"
 
 
 
@@ -307,7 +298,7 @@ popup_ac:
           - type: custom:layout-card
             layout_type: grid
             layout_options:
-              grid-template-columns: 1fr 1fr 1fr 1fr
+              grid-template-columns: 1fr 1fr
               grid-template-rows: auto
               grid-gap: 0px 4px
             cards:
@@ -474,3 +465,18 @@ popup_button_ac_power_tap:
       ]]]
     service_data:
       entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'  
+
+
+popup_button_ac_sync_state_tap:
+  tap_action:
+    action: call-service
+    service: sensibo.assume_state
+    service_data:
+      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+      state: >
+        [[[
+          if (states[variables.ulm_card_ac_entity].state == 'off')
+            return 'on';
+          else
+            return 'off';
+        ]]]

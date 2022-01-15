@@ -24,10 +24,6 @@ popup_harmony:
               - "popup_header"
               - "popup_header_harmony_label"
               - "popup_button_blue"
-            # variables:
-            #   ulm_card_switcher_time_left: '[[[ return variables.ulm_card_switcher_time_left ]]]'
-            #   ulm_card_switcher_electric_current: '[[[ return variables.ulm_card_switcher_electric_current ]]]'
-            #   ulm_card_switcher_auto_off: '[[[ return variables.ulm_card_switcher_auto_off ]]]'
             triggers_update: 'all'
             entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
             icon: 'mdi:television'
@@ -36,7 +32,7 @@ popup_harmony:
 
           ############################################################################
           #                                                                          #
-          #   Buttons                                                                #
+          #   Activities                                                             #
           #                                                                          #
           ############################################################################
 
@@ -47,22 +43,6 @@ popup_harmony:
               grid-template-rows: auto
               grid-gap: 0px 4px
             cards:
-
-              # - type: 'custom:button-card'
-              #   triggers_update: 'all'
-              #   template: 
-              #     - 'popup_button'
-              #     - 'ulm_language_variables'
-              #     - 'popup_button_icon_harmony_power'
-              #   variables:
-              #     ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
-              #   name: 'Power'
-              #   tap_action:
-              #     action: 'call-service'
-              #     service: 'remote.turn_on'
-              #     service_data:
-              #       entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
-              #       activity: 'PowerOff'
 
               - type: 'custom:button-card'
                 triggers_update: 'all'
@@ -101,13 +81,84 @@ popup_harmony:
                     activity: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
                 icon: '[[[ return variables.ulm_card_harmony_activity_2_icon ]]]'
 
+          - type: "custom:button-card"
+            template: spacer
+
+
+          ############################################################################
+          #                                                                          #
+          #   Shield TV                                                              #
+          #                                                                          #
+          ############################################################################
+
+          - !include card_harmony_shield_tv.yaml
+
+          ############################################################################
+          #                                                                          #
+          #   Smart TV                                                               #
+          #                                                                          #
+          ############################################################################
+
+          - !include card_harmony_smart_tv.yaml
+
+          ############################################################################
+          #                                                                          #
+          #   Volume                                                                 #
+          #                                                                          #
+          ############################################################################
+
+          - type: conditional
+            conditions:
+              - entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                state: "on"
+            card:
+              type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 1fr 1fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
+
+                - type: 'custom:button-card'
+                  triggers_update: 'all'
+                  show_name: false
+                  icon: mdi:volume-mute
+                  template: 
+                    - 'popup_button'
+                    - 'ulm_language_variables'
+                  tap_action:
+                    action: 'call-service'
+                    service: 'script.reciever_volume_mute'
+
+                - type: 'custom:button-card'
+                  triggers_update: 'all'
+                  show_name: false
+                  icon: mdi:volume-plus
+                  template: 
+                    - 'popup_button'
+                    - 'ulm_language_variables'
+                  tap_action:
+                    action: 'call-service'
+                    service: 'script.reciever_volume_up'
+
+                - type: 'custom:button-card'
+                  triggers_update: 'all'
+                  show_name: false
+                  icon: mdi:volume-minus
+                  template: 
+                    - 'popup_button'
+                    - 'ulm_language_variables'
+                  tap_action:
+                    action: 'call-service'
+                    service: 'script.reciever_volume_down'
+
+
 
           - type: "custom:button-card"
             template: spacer
             variables:
               height: 40px
-
-
 
           ############################################################################
           #                                                                          #
@@ -129,9 +180,6 @@ popup_harmony:
               - type: "custom:button-card"
                 template: 
                  - 'popup_button_power'
-                #  - 'popup_button_icon_harmony_power'
-                # variables:
-                #   ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
                 name: '[[[ return variables.ulm_off ]]]'
                 tap_action:
                   action: 'call-service'
@@ -139,6 +187,67 @@ popup_harmony:
                   service_data:
                     entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
                     activity: 'PowerOff'
+
+
+  double_tap_action:
+    action: "fire-dom-event"
+    browser_mod:
+      command: "popup"
+      large: false
+      hide_header: true
+      card:
+
+        type: custom:layout-card
+        layout_type: vertical
+        cards:
+
+          ############################################################################
+          #                                                                          #
+          #   Header                                                                 #
+          #                                                                          #
+          ############################################################################
+
+          - type: "custom:button-card"
+            template: 
+              - "popup_header"
+              - "popup_header_harmony_label"
+              - "popup_button_blue"
+            triggers_update: 'all'
+            entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+            icon: 'mdi:television'
+
+          ############################################################################
+          #                                                                          #
+          #   Smart TV                                                               #
+          #                                                                          #
+          ############################################################################
+
+          - !include card_harmony_smart_tv.yaml
+
+
+
+          - type: "custom:button-card"
+            template: spacer
+            variables:
+              height: 40px
+
+          ############################################################################
+          #                                                                          #
+          #   Footer                                                                 #
+          #                                                                          #
+          ############################################################################
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+            cards:
+
+              - type: "custom:button-card"
+                template: "popup_button_back"
+
 
 
 
@@ -169,4 +278,26 @@ popup_button_harmony_activity_state:
         icon:
           - color: 'rgba(var(--color-green),1)'
         img_cell:
-          - background-color: 'rgba(var(--color-green), 0.2)'    
+          - background-color: 'rgba(var(--color-green), 0.2)'
+
+popup_button_harmony_remote_button_shield_tv:
+  show_name: false
+  tap_action: 
+    action: call-service
+    service: remote.send_command
+    service_data:
+      entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      command:
+          - '[[[ return variables.ulm_card_harmony_command ]]]'
+      device: '59394434'
+
+popup_button_harmony_remote_button_smart_tv:
+  show_name: false
+  tap_action: 
+    action: call-service
+    service: remote.send_command
+    service_data:
+      entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      command:
+          - '[[[ return variables.ulm_card_harmony_command ]]]'
+      device: '59394435'

@@ -151,7 +151,7 @@ popup_pc:
           - type: custom:layout-card
             layout_type: grid
             layout_options:
-              grid-template-columns: 1fr 1fr 1fr 1fr
+              grid-template-columns: 1fr
               grid-template-rows: auto
               grid-gap: 0px 4px
             cards:

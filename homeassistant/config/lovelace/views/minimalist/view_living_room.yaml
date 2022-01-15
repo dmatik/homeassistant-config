@@ -120,13 +120,13 @@ cards:
             variables:
               light_level: sensor.motion_living_room_lightlevel
 
-          # New Year Tree Lights
-          - type: 'custom:button-card'
-            template: 
-              - card_ny_tree
-            entity: switch.new_year_tree
-            icon: mdi:pine-tree
-            name: NY Tree
+          # # New Year Tree Lights
+          # - type: 'custom:button-card'
+          #   template: 
+          #     - card_ny_tree
+          #   entity: switch.new_year_tree
+          #   icon: mdi:pine-tree
+          #   name: NY Tree
 
           # Balcony Light
           - type: 'custom:button-card'
