@@ -1,0 +1,42 @@
+card_vertical_button:
+  variables:
+    # blue, red, green, yellow, purple, pink
+    color: "blue"
+  show_label: true
+  lock:
+    enabled: true
+  label: "[[[ return (entity.attributes.value )]]]"
+  styles:
+    icon:
+      - color: "[[[ return `rgba(var(--color-${variables.color}), 1)`; ]]]"
+      - width: "24px"
+      - height: "24px"
+    label:
+      - justify-self: "center"
+      - align-self: "start"
+      - font-weight: "bolder"
+      - font-size: "12px"
+      - filter: "opacity(40%)"
+    name:
+      - margin-top: "10px"
+      - justify-self: "center"
+      - font-weight: "bold"
+      - font-size: "14px"
+    img_cell:
+      - background-color: "[[[ return `rgba(var(--color-${variables.color}), 0.2)`; ]]]"
+      - border-radius: "50%"
+      - place-self: "center"
+      - width: "48px"
+      - height: "48px"
+    grid:
+      - grid-template-areas: "'i' 'n' 'l'"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "10px 0px 8px 0px"
+  size: "20px"
+  tap_action:
+    action: "call-service"
+    service: "scene.turn_on"
+    service_data:
+      entity_id: "[[[ return entity.entity_id ]]]"

@@ -50,7 +50,7 @@ view_title_button:
           type: custom:decluttering-card
           template: back_button_svg
           variables:
-            - navigation_path: '[[navigation_path]]'
+            - tap_action: '[[tap_action]]'
             - height: "[[[
                 if ( '[[back_button]]' == 'true' )
                   return '24px';

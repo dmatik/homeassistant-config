@@ -1,0 +1,187 @@
+popup_switcher:
+  triggers_update: "all"
+  tap_action:
+    action: "fire-dom-event"
+    browser_mod:
+      command: "popup"
+      large: false
+      hide_header: true
+      card:
+
+        type: custom:layout-card
+        layout_type: vertical
+        cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Header                                                                 #
+          #                                                                          #
+          ############################################################################
+
+          - type: "custom:button-card"
+            template: 
+              - "popup_header"
+              - "popup_header_switcher_label"
+              - "popup_button_red"
+            variables:
+              ulm_card_switcher_time_left: '[[[ return variables.ulm_card_switcher_time_left ]]]'
+              ulm_card_switcher_electric_current: '[[[ return variables.ulm_card_switcher_electric_current ]]]'
+              ulm_card_switcher_auto_off: '[[[ return variables.ulm_card_switcher_auto_off ]]]'
+            triggers_update: 'all'
+            entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
+            icon: 'mdi:waves'
+
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Buttons                                                                #
+          #                                                                          #
+          ############################################################################
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+            cards:
+
+              # - type: "custom:button-card"
+              #   triggers_update: "all"
+              #   template: 
+              #     - "popup_button"
+              #     - "ulm_language_variables"
+              #     - "popup_button_icon_switcher_power"
+              #   variables:
+              #     ulm_card_switcher_entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
+              #   name: 'Power'
+              #   tap_action:
+              #     action: 'call-service'
+              #     service: 'switch.toggle'
+              #     service_data:
+              #       entity_id: '[[[ return variables.ulm_card_switcher_entity ]]]'
+
+
+              - type: "custom:button-card"
+                triggers_update: "all"
+                template: 
+                  - "popup_button"
+                  - "ulm_language_variables"
+                name: 'Timer'
+                tap_action:
+                  action: "call-service"
+                  service: "script.turn_on"
+                  service_data:
+                    entity_id: "[[[ return variables.ulm_card_switcher_timer_script ]]]"
+                icon: "mdi:av-timer"
+              
+              - type: "custom:button-card"
+                triggers_update: "all"
+                group_expand: true
+                template: 
+                  - "popup_button_next_select"
+                  - "ulm_language_variables"
+                entity: "[[[ return variables.ulm_card_switcher_timer_minutes ]]]"
+                variables:
+                  ulm_card_switcher_timer_minutes: "[[[ return variables.ulm_card_switcher_timer_minutes ]]]"
+                name: 'Minutes'
+                tap_action:
+                  action: "call-service"
+                  service: "input_select.select_next"
+                  service_data:
+                    entity_id: "[[[ return variables.ulm_card_switcher_timer_minutes ]]]"
+
+          - type: "custom:button-card"
+            template: spacer
+            variables:
+              height: 40px
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Footer                                                                 #
+          #                                                                          #
+          ############################################################################
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+            cards:
+
+              - type: "custom:button-card"
+                template: "popup_button_back"
+
+              - type: "custom:button-card"
+                template: 
+                 - "popup_button_power"
+                #  - "popup_button_icon_switcher_power"
+                # variables:
+                #   ulm_card_switcher_entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
+                tap_action:
+                  action: 'call-service'
+                  service: 'switch.toggle'
+                  service_data:
+                    entity_id: '[[[ return variables.ulm_card_switcher_entity ]]]'
+
+
+
+
+popup_button_next_select:
+  triggers_update: "all"
+  show_icon: false
+  show_name: true
+  show_label: true
+  label: "[[[ return states[variables.ulm_card_switcher_timer_minutes].state ]]]"
+  styles:
+    grid:
+      - grid-template-areas: "'l' 'n'"
+      - grid-template-columns: "auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - background: 'none'
+      - box-shadow: 'none'
+    label:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - background-color: 'var(--card-background-color)'
+      - color: 'var(--primary-color)'
+      - border-radius: '50%'
+      - place-self: 'center'
+      - width: '58px'
+      - height: '58px'
+      - box-shadow: 'var(--ha-card-box-shadow)'
+      - font-size: '22px'
+      - font-weight: '500'
+    name:
+      - justify-self: 'center'
+      - font-weight: 'bold'
+      - font-size: '14px'
+      - margin-top: '12px'
+
+popup_header_switcher_label:
+  label: >
+    [[[
+        if ( entity.state == 'on' )
+          return states[variables.ulm_card_switcher_time_left].state  
+            + " • " + states[variables.ulm_card_switcher_electric_current].state + "A"
+            + " • " + "until " + states[variables.ulm_card_switcher_auto_off].state;
+        else 
+          return variables.ulm_off;
+    ]]]
+
+popup_button_icon_switcher_power:
+  icon: >
+    [[[
+      if ( states[variables.ulm_card_switcher_entity].state == "on" )
+        return "mdi:power-cycle";
+      else 
+        return "mdi:power-off";
+    ]]]

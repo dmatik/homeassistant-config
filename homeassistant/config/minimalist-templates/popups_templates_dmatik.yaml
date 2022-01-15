@@ -1,0 +1,36 @@
+popup_light_tap:
+  tap_action:
+    action: "fire-dom-event"
+    browser_mod:
+      command: "popup"
+      large: true
+      hide_header: true
+      card:
+        type: "custom:button-card"
+        template: "popup_light_brightness"
+        variables:
+          ulm_popup_light_entity: "[[[ return entity.entity_id ]]]"
+
+popup_button_red:
+  state:
+    - value: 'on'
+      styles:
+        icon:
+          - color: "rgba(var(--color-red),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-red), 0.2)"
+
+popup_button_blue:
+  state:
+    - value: 'on'
+      styles:
+        icon:
+          - color: "rgba(var(--color-blue),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-blue), 0.2)"
+    - value: 'ready'
+      styles:
+        icon:
+          - color: "rgba(var(--color-blue),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-blue), 0.2)"

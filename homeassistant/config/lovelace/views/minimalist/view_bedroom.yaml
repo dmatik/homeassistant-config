@@ -1,0 +1,122 @@
+title: Bedroom
+path: minimalist_bedroom
+visible: false
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Chips                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: edge
+
+          # Back Chip
+          - type: 'custom:button-card'
+            template: chip_back_new
+            variables:
+              ulm_chip_navigate_path: /lovelace-minimalist/minimalist_home
+
+          # Temperature Chip
+          - type: 'custom:button-card'
+            template: chip_icon_state
+            variables:
+              ulm_chip_icon_state_icon: '🌡️'
+              ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
+
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Bedroom
+
+
+
+############################################################################
+#                                                                          #
+#   Cards                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr 1fr
+        cards:
+
+          # Bedroom Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light
+            entity: light.bedroom
+
+          # Bedroom Climate
+          - type: 'custom:button-card'
+            template: card_ac_buttons
+            variables:
+              ulm_card_ac_entity: climate.bedroom
+              ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
+              ulm_card_ac_name: 'Bedroom'
+
+          # Bedside Dima Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light_color
+              - popup_light
+            entity: light.bedside_dima
+            variables:
+              ulm_card_light_icon: 'mdi:lamp'
+              ulm_card_light_name: Dima
+
+          # Bedside Galit Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light_color
+              - popup_light
+            entity: light.bedside_galit
+            variables:
+              ulm_card_light_icon: 'mdi:lamp'
+              ulm_card_light_name: Galit
+
+          # Makeup Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light
+            entity: switch.makeup
+            icon: mdi:string-lights              
+
+
+
+      - type: custom:button-card
+        template: spacer
+        variables:
+          height: 100px

@@ -1,0 +1,122 @@
+title: Scheduler
+path: minimalist_scheduler
+visible: false
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Chips                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: edge
+
+          # Back Chip
+          - type: 'custom:button-card'
+            template: chip_back_new
+            variables:
+              ulm_chip_navigate_path: /lovelace-minimalist/minimalist_home
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Scheduler
+
+
+
+############################################################################
+#                                                                          #
+#   Cards                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr
+        cards:
+
+          - type: custom:scheduler-card
+            style: |
+              ha-card {
+                #background: none;
+                #box-shadow: none;
+                padding: 0.3em 1.25em 0.4em 0.5em;
+                border-radius: 21px;
+                --secondary-text-color: var(--button-card-text-color);
+              }
+            title: false
+            display_options:
+              primary_info:
+                - "<b>{name}</b>"
+              secondary_info:
+                - "<b>{action}</b>"
+                - additional-tasks
+                - days
+                - relative-time
+              icon: entity
+            groups:
+              - name: "Lights"
+                icon: "hass:lightbulb"
+                include:
+                  - light.balcony
+                  - light.living_room
+                  - light.dining
+                  - light.kitchen
+                  - light.service_balcony
+                  - light.kitchen_strips
+                  - light.hallway
+                  - light.work_room
+                  - light.kids_room
+                  - light.bedroom
+                  - light.bedside_dima
+                  - light.bedside_galit
+              - name: "Climate"
+                icon: "hass:home-thermometer"
+                include:
+                  - climate.bedroom
+                  - climate.kids_room
+                  - climate.living_room
+                  - switch.kids_radiator
+              - name: "Scenes"
+                icon: "hass:palette"
+                include:
+                  - scene.night_lights_on
+                  - scene.night_lights_off
+                  - scene.nobody_home
+                  - scene.red_alert_lights            
+
+
+      # - type: custom:button-card
+      #   template: spacer
+      #   variables:
+      #     height: 100px

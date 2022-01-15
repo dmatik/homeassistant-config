@@ -1,0 +1,110 @@
+card_harmony:
+  template:
+    - "icon_info_bg"
+    - "blue"
+    - "ulm_language_variables"
+  name: "[[[ return entity.attributes.friendly_name != '' ? entity.attributes.friendly_name : entity.entity_id ]]]"
+  show_last_changed: false
+  label: " [[[ return entity.state; ]]]"
+  tap_action:
+    action: 'toggle'
+
+
+card_harmony_with_buttons:
+  variables:
+    ulm_card_harmony_entity: remote.living_room
+    ulm_card_harmony_name: 'Main TV'
+    ulm_card_harmony_activity_1_name: 'Smart TV'
+    ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
+    ulm_card_harmony_activity_2_name: 'Shield TV'
+    ulm_card_harmony_activity_2_icon: 'mdi:television-classic'
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:button-card"
+        template:
+          - 'icon_info'
+          - 'ulm_language_variables'
+          - 'harmony'
+          - 'popup_harmony'
+        variables:
+          ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+          ulm_card_harmony_activity_1_name: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
+          ulm_card_harmony_activity_1_icon: '[[[ return variables.ulm_card_harmony_activity_1_icon ]]]'
+          ulm_card_harmony_activity_2_name: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
+          ulm_card_harmony_activity_2_icon: '[[[ return variables.ulm_card_harmony_activity_2_icon ]]]'          
+        # tap_action:
+        #   action: "more-info"
+        entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+        name: '[[[ return variables.ulm_card_harmony_name ]]]'
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "list_3_items"
+        custom_fields:
+          item1:
+            card:
+              type: "custom:button-card"
+              template: "widget_icon"
+              tap_action:
+                action: 'call-service'
+                service: 'remote.turn_on'
+                service_data:
+                  entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                  activity: 'PowerOff'
+              icon: |
+                [[[
+                  if ( states[variables.ulm_card_harmony_entity].attributes.current_activity == "PowerOff" )
+                    return "mdi:power-off";
+                  else 
+                    return "mdi:power-cycle";
+                ]]]
+          item2:
+            card:
+              type: 'custom:button-card'
+              template: 'widget_icon'
+              tap_action:
+                action: 'call-service'
+                service: 'remote.turn_on'
+                service_data:
+                  entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                  activity: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
+              icon: '[[[ return variables.ulm_card_harmony_activity_1_icon ]]]'
+          item3:
+            card:
+              type: 'custom:button-card'
+              template: 'widget_icon'
+              tap_action:
+                action: 'call-service'
+                service: 'remote.turn_on'
+                service_data:
+                  entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                  activity: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
+              icon: '[[[ return variables.ulm_card_harmony_activity_2_icon ]]]'
+
+
+harmony:
+  template:
+    - 'blue'
+  triggers_update: "all"
+  tap_action:
+    action: "more-info"
+  icon: 'mdi:television'
+  label: >
+    [[[
+      if (entity.attributes.current_activity == 'PowerOff')
+        return variables.ulm_off;
+      else 
+        return entity.attributes.current_activity;
+    ]]]

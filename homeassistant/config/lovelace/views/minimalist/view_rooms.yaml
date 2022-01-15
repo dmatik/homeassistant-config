@@ -1,0 +1,123 @@
+title: Rooms
+path: minimalist_rooms
+icon: mdi:view-grid
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Chips                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: edge
+
+          # Back Chip
+          - type: 'custom:button-card'
+            template: chip_back_new
+            variables:
+              ulm_chip_navigate_path: /lovelace-minimalist/minimalist_home
+
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Rooms
+
+
+
+############################################################################
+#                                                                          #
+#   Cards                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr 1fr
+        cards:
+
+          # Living Room
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace-minimalist/minimalist_living_room
+              ulm_card_navigate_title: Living Room
+              ulm_card_navigate_icon: mdi:sofa 
+
+          # Kitchen
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace-minimalist/minimalist_kitchen
+              ulm_card_navigate_title: Kitchen
+              ulm_card_navigate_icon: mdi:silverware-fork-knife 
+
+          # Hallway
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace-minimalist/minimalist_hallway
+              ulm_card_navigate_title: Hallway
+              ulm_card_navigate_icon: mdi:door-open 
+
+          # Bedroom
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace-minimalist/minimalist_bedroom
+              ulm_card_navigate_title: Bedroom
+              ulm_card_navigate_icon: mdi:bed-empty 
+
+          # Kids Room
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace-minimalist/minimalist_kids_room
+              ulm_card_navigate_title: Kids Room
+              ulm_card_navigate_icon: mdi:teddy-bear 
+
+          # Work Room
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace-minimalist/minimalist_work_room
+              ulm_card_navigate_title: Work Room
+              ulm_card_navigate_icon: mdi:laptop 
+
+
+
+
+      - type: custom:button-card
+        template: spacer
+        variables:
+          height: 100px

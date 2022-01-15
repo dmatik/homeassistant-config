@@ -1,0 +1,57 @@
+card_nas_dima:
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    card:
+      - border-radius: "20px"
+      - box-shadow: "var(--box-shadow)"
+      - padding-top: "0px"
+      - padding-left: "0px"
+      - padding-right: "0px"
+      - padding-bottom: "12px"
+    grid:
+      - grid-template-areas: "'item1' 'item2' 'item3' 'item4'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+  custom_fields:
+    item1:
+      card:
+        type: 'custom:button-card'
+        entity: '[[[ return variables.ulm_card_nas_entity ]]]'
+        icon: mdi:nas
+        name: '[[[ return variables.ulm_card_nas_name ]]]'
+        label: '[[[ return variables.ulm_card_nas_label ]]]'
+        template:
+          - "icon_info"
+          - "blue_no_state"
+        styles:
+          card:
+            - padding: "12px"
+    item2:
+      card:
+        type: 'custom:button-card'
+        template: 'widget_mini_graph_bar'
+        variables:
+          mini_graph_name: 'HD'
+          mini_graph_color: 'rgba(var(--color-green),0.2)'
+          mini_graph_entity: '[[[ return variables.ulm_card_nas_hd_entity ]]]'
+        
+    item3:
+      card:
+        type: 'custom:button-card'
+        template: 'widget_mini_graph_bar'
+        variables:
+          mini_graph_name: 'CPU'
+          mini_graph_color: 'rgba(var(--color-blue),0.2)'
+          mini_graph_entity: '[[[ return variables.ulm_card_nas_cpu_entity ]]]'
+    item4:
+      card:
+        type: 'custom:button-card'
+        template: 'widget_mini_graph_bar'
+        variables:
+          mini_graph_name: 'RAM'
+          mini_graph_color: 'rgba(var(--color-purple),0.2)'
+          mini_graph_entity: '[[[ return variables.ulm_card_nas_ram_entity ]]]'
+
+

@@ -1,0 +1,41 @@
+green:
+  state:
+    - styles:
+        icon:
+          - color: "rgba(var(--color-green),1)"
+        # label:
+        #   - color: "rgba(var(--color-green-text),1)"
+        # name:
+        #   - color: "rgba(var(--color-green-text),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-green), 0.2)"
+        # card:
+        #   - background-color: "rgba(var(--color-background-green),var(--opacity-bg))"
+      value: "on"
+
+card_ny_tree:
+  template:
+    - "icon_info_bg"
+    - "green"
+    - "ulm_language_variables"
+  tap_action:
+    action: "toggle"
+  hold_action:
+    action: "more-info"
+  label: >-
+    [[[
+      if (entity.state !="unavailable"){
+        if (entity.state =="off"){
+          return variables.ulm_off;
+        } else if (entity.state == "on"){
+          if (entity.attributes.brightness != null){
+            var bri = Math.round(entity.attributes.brightness / 2.55);
+            return (bri ? bri : "0") + "%";
+          } else {
+            return variables.ulm_on
+          }
+        }
+      } else {
+        return variables.ulm_unavailable;
+      }
+    ]]]

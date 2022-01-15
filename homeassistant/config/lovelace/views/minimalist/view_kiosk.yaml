@@ -1,0 +1,353 @@
+title: Kiosk
+path: kiosk
+icon: mdi:view-dashboard
+panel: true
+    
+cards:
+
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1.15fr 1.15fr
+      grid-template-rows: auto
+      grid-gap: 0px 14px
+    
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Left Column                                                            #
+#                                                                          #
+############################################################################
+
+      - type: vertical-stack
+        cards:
+
+          - type: custom:button-card
+            template: spacer
+            
+          # Clock And Weather
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+              mediaquery:
+                "(max-width: 450px)":
+                  grid-template-columns: 1fr
+            cards:
+
+              - type: custom:button-card
+                template: 'card_kiosk_clock'
+
+              - type: weather-forecast
+                entity: weather.met_home_hourly
+                name: " "
+                style: |
+                  ha-card.type-weather-forecast {
+                    border-radius: 21px;
+                  }            
+
+
+          # Presense
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+              mediaquery:
+                "(max-width: 450px)":
+                  grid-template-columns: 1fr 1fr
+            cards:
+
+              # Dima
+              - type: 'custom:button-card'
+                template: card_person
+                variables:
+                  ulm_card_person_entity: person.dmatik
+                  ulm_card_person_use_entity_picture: true
+                  ulm_card_person_zone1: zone.work
+                  #ulm_card_person_zone2: school
+
+              # Galit
+              - type: 'custom:button-card'
+                template: card_person
+                variables:
+                  ulm_card_person_entity: person.galit
+                  ulm_card_person_use_entity_picture: true
+                  ulm_card_person_zone1: zone.work_2
+                  #ulm_card_person_zone2: school
+
+
+############################################################################
+#                                                                          #
+#   Middle Column                                                          #
+#                                                                          #
+############################################################################
+
+      - type: vertical-stack
+        cards:
+
+        # Climate
+          - type: horizontal-stack
+            cards:
+
+              - type: custom:button-card
+                template: title
+                name: Climate
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+              mediaquery:
+                "(max-width: 450px)":
+                  grid-template-columns: 1fr 1fr
+            cards:
+
+              # Living Room Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons
+                variables:
+                  ulm_card_ac_entity: climate.living_room
+                  ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
+                  ulm_card_ac_name: 'Living Room'
+
+              # Bedroom Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons
+                variables:
+                  ulm_card_ac_entity: climate.bedroom
+                  ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
+                  ulm_card_ac_name: 'Bedroom'
+
+              # Kids Room Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons
+                variables:
+                  ulm_card_ac_entity: climate.kids_room
+                  ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
+                  ulm_card_ac_name: 'Kids Room'
+
+              # Work Room Temperature
+              - type: 'custom:button-card'
+                template: card_graph
+                variables:
+                  ulm_card_graph_color: "var(--google-blue)"
+                  ulm_card_graph_name: Work Room
+                  ulm_card_graph_entity: sensor.work_room_temperature
+                  
+              # Kids Room Radiator
+              - type: 'custom:button-card'
+                template: card_power_outlet
+                variables:
+                  ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
+                entity: switch.kids_radiator
+                name: Kids Radiator        
+
+
+          # Devices
+          - type: horizontal-stack
+            cards:
+
+              - type: custom:button-card
+                template: title
+                name: Devices
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+              mediaquery:
+                "(max-width: 450px)":
+                  grid-template-columns: 1fr 1fr
+            cards:
+
+              # Living Room TV
+              - type: 'custom:button-card'
+                template: 'card_harmony_with_buttons'
+                variables:
+                  ulm_card_harmony_entity: remote.living_room
+                  ulm_card_harmony_name: 'Main TV'
+                  ulm_card_harmony_activity_1_name: 'Smart TV'
+                  ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
+                  ulm_card_harmony_activity_2_name: 'Shield TV'
+                  ulm_card_harmony_activity_2_icon: 'mdi:movie' 
+
+              # Switcher
+              - type: 'custom:button-card'
+                template: 
+                  - card_switcher
+                variables:
+                  ulm_card_switcher_entity: switch.switcher_webapi
+                  ulm_card_switcher_timer_script: script.switcher_turn_on_timer_script
+                  ulm_card_switcher_time_left: sensor.switcher_webapi_time_left
+                  ulm_card_switcher_timer_minutes: input_select.switcher_timer_minutes_input_select
+                  ulm_card_switcher_electric_current: sensor.switcher_webapi_electric_current
+                  ulm_card_switcher_auto_off: sensor.switcher_webapi_auto_off_time
+
+              # Dimka PC
+              - type: 'custom:button-card'
+                template: card_pc
+                entity: switch.dimka
+                name: Dimka PC
+                icon: 'mdi:desktop-classic' 
+
+
+
+############################################################################
+#                                                                          #
+#   Right Column                                                           #
+#                                                                          #
+############################################################################
+
+      - type: vertical-stack
+        cards:
+
+          # Main Lights
+          - type: horizontal-stack
+            cards:
+
+              - type: custom:button-card
+                template: title
+                name: Main Lights
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+              mediaquery:
+                "(max-width: 450px)":
+                  grid-template-columns: 1fr 1fr
+            cards:
+
+              # Living Room Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.living_room
+
+              # Dining Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.dining
+
+              # Balcony Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.balcony
+
+              # Entrance Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.entrance
+
+              # Kitchen Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.kitchen
+
+              # Kitchen Strips Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light_color
+                  - popup_light
+                entity: light.kitchen_strips
+                variables:
+                  ulm_card_light_icon: 'mdi:led-strip-variant'
+                  ulm_card_light_name: Strips      
+
+              # Service Balcony Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.service_balcony
+                name: S. Balcony
+
+              # Hallway Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.hallway
+                name: Hallway
+
+
+          # Rooms Lights
+          - type: horizontal-stack
+            cards:
+
+              - type: custom:button-card
+                template: title
+                name: Rooms Lights
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+              mediaquery:
+                "(max-width: 450px)":
+                  grid-template-columns: 1fr 1fr
+            cards:
+
+              # Bedroom Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.bedroom
+
+              # Makeup Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: switch.makeup
+                icon: mdi:string-lights  
+
+              # Bedside Dima Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light_color
+                  - popup_light
+                entity: light.bedside_dima
+                variables:
+                  ulm_card_light_icon: 'mdi:lamp'
+                  ulm_card_light_name: Dima
+
+              # Bedside Galit Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light_color
+                  - popup_light
+                entity: light.bedside_galit
+                variables:
+                  ulm_card_light_icon: 'mdi:lamp'
+                  ulm_card_light_name: Galit
+
+              # Kids Room Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.kids_room
+                name: Kids Room
+
+              # Work Room Light
+              - type: 'custom:button-card'
+                template: 
+                  - card_light
+                entity: light.work_room
+                name: Work Room

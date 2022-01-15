@@ -7,11 +7,14 @@ kiosk_mode:
 decluttering_templates:
   !include_dir_merge_named /config/lovelace/decluttering_templates/
 
-button_card_templates:
-  !include_dir_merge_named /config/lovelace/button_card_templates/
+# button_card_templates:
+#   !include_dir_merge_named /config/lovelace/button_card_templates/
+
+button_card_templates: !include_dir_merge_named minimalist-templates/
    
 background: var(--background-image)   
 views:
 
     # Kiosk        
-    - !include /config/lovelace/views/view_kiosk.yaml
+    #- !include /config/lovelace/views/view_kiosk.yaml
+    - !include /config/lovelace/views/minimalist/view_kiosk.yaml

@@ -1,0 +1,136 @@
+title: Batteries
+path: minimalist_batteries
+visible: false
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Chips                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: edge
+
+          # Back Chip
+          - type: 'custom:button-card'
+            template: chip_back_new
+            variables:
+              ulm_chip_navigate_path: /lovelace-minimalist/minimalist_home
+
+
+############################################################################
+#                                                                          #
+#   Batteries                                                              #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Batteries
+
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr
+        cards:
+
+          # Work Room Temperature Sensor
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.work_room_sensor_battery_level
+            entity: sensor.work_room_sensor_battery_level
+            name: Work Room Temperature Sensor
+
+          # Living Room Motion Sensor
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.motion_living_room_battery_level
+            entity: sensor.motion_living_room_battery_level
+            name: Living Room Motion Sensor
+
+          # Kitchen Motion Sensor
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.motion_kitchen_battery_level
+            entity: sensor.motion_kitchen_battery_level
+            name: Kitchen Motion Sensor
+
+          # Kitchen Motion Sensor 2
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.motion_kitchen_2_battery_level
+            entity: sensor.motion_kitchen_2_battery_level
+            name: Kitchen Motion Sensor 2
+
+          # Bedside Dima Button
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.button_bedside_dima_battery_level
+            entity: sensor.button_bedside_dima_battery_level
+            name: Bedside Dima Button
+
+          # Bedside Galit Button
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.button_bedside_galit_battery_level
+            entity: sensor.button_bedside_galit_battery_level
+            name: Bedside Galit Button
+
+          # Makeup Button
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.button_makeup_battery_level
+            entity: sensor.button_makeup_battery_level
+            name: Makeup Button
+
+          # Kitchen Right Button
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.button_kitchen_right_battery_level
+            entity: sensor.button_kitchen_right_battery_level
+            name: Kitchen Right Button
+
+          # Kitchen Left Button
+          - type: 'custom:button-card'
+            template: card_battery
+            variables:
+              ulm_card_battery_battery_state_entity_id: sensor.button_kitchen_left_battery_level
+            entity: sensor.button_kitchen_left_battery_level
+            name: Kitchen Left Button
+
+
+      - type: custom:button-card
+        template: spacer
+        variables:
+          height: 100px

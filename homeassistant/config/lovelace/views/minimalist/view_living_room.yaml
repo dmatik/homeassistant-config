@@ -1,0 +1,149 @@
+title: Living Room
+path: minimalist_living_room
+visible: false
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Chips                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: edge
+
+          # Back Chip
+          - type: 'custom:button-card'
+            template: 'chip_back_new'
+            variables:
+              ulm_chip_navigate_path: '/lovelace-minimalist/minimalist_home'
+
+          # Temperature Chip
+          - type: 'custom:button-card'
+            template: chip_icon_state
+            variables:
+              ulm_chip_icon_state_icon: '🌡️'
+              ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
+
+          # # Temperature Chip
+          # - type: 'custom:button-card'
+          #   template:
+          #     - 'chip_icon_label_state'
+          #   icon: 'mdi:thermometer'
+          #   variables:
+          #     ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Living Room
+
+
+
+############################################################################
+#                                                                          #
+#   Cards                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr 1fr
+        cards:
+
+          # Living Room Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light
+            entity: light.living_room
+
+          # Dining Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light
+            entity: light.dining
+
+          # Living Room AC
+          - type: 'custom:button-card'
+            template: card_ac_buttons
+            variables:
+              ulm_card_ac_entity: climate.living_room
+              ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
+              ulm_card_ac_name: 'Living Room'
+
+          # Living Room TV
+          - type: 'custom:button-card'
+            template: 'card_harmony_with_buttons'
+            variables:
+              ulm_card_harmony_entity: remote.living_room
+              ulm_card_harmony_name: 'Main TV'
+              ulm_card_harmony_activity_1_name: 'Smart TV'
+              ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
+              ulm_card_harmony_activity_2_name: 'Shield TV'
+              ulm_card_harmony_activity_2_icon: 'mdi:movie'
+
+          # Living Room Motion Sensor
+          - type: 'custom:button-card'
+            template: 'card_motion_sensor'
+            entity: binary_sensor.motion_living_room
+            name: Motion
+            show_last_changed: false
+            variables:
+              light_level: sensor.motion_living_room_lightlevel
+
+          # New Year Tree Lights
+          - type: 'custom:button-card'
+            template: 
+              - card_ny_tree
+            entity: switch.new_year_tree
+            icon: mdi:pine-tree
+            name: NY Tree
+
+          # Balcony Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light
+            entity: light.balcony
+
+          # Entrance Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light
+            entity: light.entrance
+
+
+
+
+      - type: custom:button-card
+        template: spacer
+        variables:
+          height: 100px

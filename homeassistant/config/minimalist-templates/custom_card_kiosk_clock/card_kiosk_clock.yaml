@@ -1,0 +1,39 @@
+card_kiosk_clock:
+
+    entity: ""
+    styles:
+      card:
+        - padding: 4%
+        - font-size: 52px
+        - border-radius: 21px
+        #- background-color: var(--button-card-background-color)
+        - color: var(--primary-text-color)
+      grid:
+        - grid-template-areas: '"time date" "time school"'
+        - grid-template-columns: 2fr 3fr
+        - grid-template-rows: 1fr
+      custom_fields:
+        time:
+          - justify-self: start
+        date:
+          - justify-self: end
+          - font-size: 20px
+          - color: var(--secondary-text-color)
+        school:
+          - justify-self: end
+          - font-size: 20px
+          - color: var(--secondary-text-color)
+    custom_fields:
+      time: >
+        [[[ return states['sensor.time'].state ]]]
+      date: >
+        [[[ return states['sensor.my_date_hebrew'].state ]]]
+      school: >
+        [[[ 
+          if (states['binary_sensor.school_holiday'].state == 'on')
+            return states['sensor.school_summary'].state + ' ' + `<ha-icon icon='mdi:school' style='width: 22px; height: 22px; color: #bf4040;'></ha-icon>`;
+          else
+            return 'יום לימודים' + ' ' + `<ha-icon icon='mdi:school' style='width: 22px; height: 22px;'></ha-icon>`;   
+        ]]]
+    tap_action: none
+    hold_action: none 

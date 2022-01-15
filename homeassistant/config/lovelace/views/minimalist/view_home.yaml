@@ -1,0 +1,365 @@
+title: Minimalist
+path: minimalist_home
+icon: mdi:home-variant
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+cards:
+
+  - type: vertical-stack
+    cards:
+
+############################################################################
+#                                                                          #
+#   Chips                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: edge
+
+          # Temperature Chip
+          - type: custom:button-card
+            template: 
+              - 'chip_temperature'
+              - 'chip_navigate_only'
+            variables:
+              ulm_chip_temperature_outside: 'sensor.sensibo_living_room_temp'
+              ulm_chip_temperature_inside: 'sensor.outside_temperature'
+              ulm_chip_temperature_weather: 'weather.met_home'
+              ulm_chip_navigate_path: /lovelace/minimalist_temperature
+
+          # Presense Chip
+          - type: 'custom:button-card'
+            template:
+              - 'chip_icon_label_state'
+              - 'chip_navigate_only'
+              - 'chip_blue'
+            icon: 'mdi:home-variant'
+            variables:
+              ulm_chip_icon_state_entity: sensor.number_of_persons_home
+              ulm_chip_navigate_path: /lovelace/minimalist_presense
+
+          # Lights Chip
+          - type: 'custom:button-card'
+            template:
+              - 'chip_icon_label_state'
+              - 'chip_navigate_only'
+              - 'chip_yellow'
+            icon: 'mdi:lightbulb'
+            variables:
+              ulm_chip_icon_state_entity: sensor.number_of_lights_on
+              ulm_chip_navigate_path: /lovelace/minimalist_lights
+
+          # Motion Chip
+          - type: 'custom:button-card'
+            template:
+              - 'chip_icon_label_state'
+              - 'chip_navigate_only'
+              - 'chip_blue'
+            icon: 'mdi:run'
+            variables:
+              ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+              ulm_chip_navigate_path: /lovelace/minimalist_motion
+
+
+
+############################################################################
+#                                                                          #
+#   Scenes                                                                 #
+#                                                                          #
+############################################################################
+
+      # Title
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Scenes
+
+
+      #Cards
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr 1fr 1fr 1fr
+        cards:
+
+          # Night Lights
+          - type: 'custom:button-card'
+            template: 'card_vertical_button'
+            entity: scene.night_lights_on
+            name: 'Night'
+            label: 'Lights'
+            icon: 'mdi:weather-night'
+            variables:
+              color: 'blue'
+
+          # Lights Off
+          - type: 'custom:button-card'
+            template: 'card_vertical_button'
+            entity: scene.lights_off
+            name: 'Lights'
+            label: 'Off'
+            icon: 'mdi:lightbulb-group-off'
+            variables:
+              color: 'yellow'
+
+
+
+############################################################################
+#                                                                          #
+#   Favorites                                                              #
+#                                                                          #
+############################################################################
+
+      # Title
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Favorites
+
+
+      #Cards
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr 1fr
+        cards:
+
+          # Dining Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light
+            entity: light.dining
+
+          # Kids Room Radiator
+          - type: 'custom:button-card'
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
+            entity: switch.kids_radiator
+            name: Kids Radiator
+            
+          # Living Room TV
+          - type: 'custom:button-card'
+            template: 'card_harmony_with_buttons'
+            variables:
+              ulm_card_harmony_entity: remote.living_room
+              ulm_card_harmony_name: 'Main TV'
+              ulm_card_harmony_activity_1_name: 'Smart TV'
+              ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
+              ulm_card_harmony_activity_2_name: 'Shield TV'
+              ulm_card_harmony_activity_2_icon: 'mdi:movie'
+
+          # Switcher
+          - type: 'custom:button-card'
+            template: 
+              - card_switcher
+            variables:
+              ulm_card_switcher_entity: switch.switcher_webapi
+              ulm_card_switcher_timer_script: script.switcher_turn_on_timer_script
+              ulm_card_switcher_time_left: sensor.switcher_webapi_time_left
+              ulm_card_switcher_timer_minutes: input_select.switcher_timer_minutes_input_select
+              ulm_card_switcher_electric_current: sensor.switcher_webapi_electric_current
+              ulm_card_switcher_auto_off: sensor.switcher_webapi_auto_off_time
+
+          # Dimka PC
+          - type: 'custom:button-card'
+            template: card_pc
+            entity: switch.dimka
+            name: Dimka PC
+            icon: 'mdi:desktop-classic'
+
+          # Red Alert
+          - type: 'custom:button-card'
+            template: card_red_alert
+
+          # Front Gate
+          - type: 'custom:button-card'
+            template: card_script
+            variables: 
+              ulm_card_script_title: Front Gate
+              ulm_card_script_icon: 'mdi:garage-variant'
+            tap_action:
+              action: call-service
+              service: script.open_parking_gate_74
+
+          # Back Gate
+          - type: 'custom:button-card'
+            template: card_script
+            variables: 
+              ulm_card_script_title: Back Gate
+              ulm_card_script_icon: 'mdi:garage-variant'
+            tap_action:
+              action: call-service
+              service: script.open_parking_gate_72
+
+
+
+
+############################################################################
+#                                                                          #
+#   Rooms                                                                  #
+#                                                                          #
+############################################################################
+
+      # Title
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Rooms
+
+      # Cards
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr 1fr
+        cards:
+
+          # Living Room
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_living_room
+              ulm_card_navigate_title: Living Room
+              ulm_card_navigate_icon: mdi:sofa 
+
+          # Kitchen
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_kitchen
+              ulm_card_navigate_title: Kitchen
+              ulm_card_navigate_icon: mdi:silverware-fork-knife 
+
+          # Hallway
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_hallway
+              ulm_card_navigate_title: Hallway
+              ulm_card_navigate_icon: mdi:door-open 
+
+          # Bedroom
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_bedroom
+              ulm_card_navigate_title: Bedroom
+              ulm_card_navigate_icon: mdi:bed-empty 
+
+          # Kids Room
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_kids_room
+              ulm_card_navigate_title: Kids Room
+              ulm_card_navigate_icon: mdi:teddy-bear 
+
+          # Work Room
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_work_room
+              ulm_card_navigate_title: Work Room
+              ulm_card_navigate_icon: mdi:laptop 
+
+
+############################################################################
+#                                                                          #
+#   System                                                                 #
+#                                                                          #
+############################################################################
+
+      # Title
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: System
+
+      # Cards
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr 1fr
+        cards:
+
+          # Home Assistant
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_homeassistant
+              ulm_card_navigate_title: Hass
+              ulm_card_navigate_icon: mdi:home-assistant 
+
+          # Scheduler
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_scheduler
+              ulm_card_navigate_title: Scheduler
+              ulm_card_navigate_icon: mdi:calendar-today 
+
+          # Wall Panel
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_wallpanel
+              ulm_card_navigate_title: Wall Panel
+              ulm_card_navigate_icon: mdi:view-dashboard 
+
+          # NAS
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_nas
+              ulm_card_navigate_title: NAS
+              ulm_card_navigate_icon: mdi:nas
+
+          # NAS
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_batteries
+              ulm_card_navigate_title: Batteries
+              ulm_card_navigate_icon: mdi:battery
+
+      - type: custom:button-card
+        template: spacer
+        variables:
+          height: 100px
