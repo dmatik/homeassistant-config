@@ -13,3 +13,9 @@ scene:
       climate.living_room:
         state: off
 
+  - name: Everyone home
+    entities:
+      person.dima:
+        state: home
+      person.galit: 
+        state: home

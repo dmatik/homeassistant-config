@@ -25,3 +25,11 @@ sensor:
           {% set month = months[as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%m") | int - 1] %}
           {% set day = as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%d") | int %}
           {{ week_day }}, {{ day }} ב{{ month }}
+
+
+      outside_temperature:
+        friendly_name: "Outside Temperature"
+        unit_of_measurement: "°C"
+        icon_template: mdi:thermometer
+        value_template: >-
+          {{ state_attr('weather.met_home', 'temperature') }}

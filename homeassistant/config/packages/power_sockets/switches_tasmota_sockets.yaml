@@ -43,6 +43,26 @@ switch:
     retain: false
 
 
+############################################################################
+#                                                                          #
+#   New Year Tree                                                          #
+#                                                                          #
+############################################################################
+
+  - platform: mqtt
+    name: "New Year Tree"
+    icon: mdi:track-light
+    state_topic: "stat/power_socket_01/POWER"
+    #value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/power_socket_01/POWER"
+    availability_topic: "tele/power_socket_01/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: false
+
 
 ############################################################################
 #                                                                          #
@@ -108,24 +128,3 @@ switch:
   #   payload_not_available: "Offline"
   #   retain: false
 
-
-
-############################################################################
-#                                                                          #
-#   New Year Tree                                                          #
-#                                                                          #
-############################################################################
-
-  # - platform: mqtt
-  #   name: "New Year Tree"
-  #   icon: mdi:pine-tree
-  #   state_topic: "stat/power_socket_01/RESULT"
-  #   value_template: "{{ value_json.POWER }}"
-  #   command_topic: "cmnd/power_socket_01/POWER"
-  #   availability_topic: "tele/power_socket_01/LWT"
-  #   qos: 1
-  #   payload_on: "ON"
-  #   payload_off: "OFF"
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   retain: false  

@@ -54,7 +54,7 @@ printer_button:
           action: fire-dom-event
           browser_mod:
             command: popup
-            hide_header: false
+            hide_header: true
             title: '[[name]]'
             
             card:
@@ -62,6 +62,17 @@ printer_button:
               type: custom:layout-card
               layout_type: vertical
               cards:
+
+                - type: custom:decluttering-card
+                  template: view_title_button
+                  variables:
+                    - padding_top: '2px'
+                    - title: '[[name]]'
+                    - back_button: true
+                    - tap_action:
+                        action: 'fire-dom-event'
+                        browser_mod:
+                          command: 'close_popup'
 
                 - type: entities
                   state_color: true

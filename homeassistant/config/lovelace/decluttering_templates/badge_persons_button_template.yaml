@@ -1,11 +1,7 @@
 badge_persons_button:
 
   default:
-    - entity: sensor.number_of_persons_home
-    - name: Presence
-    - icon: mdi:account-circle
-    - background_color: var(--button-card-on-background)
-    - text_color: var(--button-card-on-text-color)
+    - entity: 'sensor.number_of_persons_home'
     # - svg_path: 'M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z'
     # - svg_path_colored: 'M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z'
     # - svg_path_on: 'M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z'
@@ -15,15 +11,20 @@ badge_persons_button:
     - svg_path_on: 'M256 16C123.451 16 16 123.451 16 256S123.451 496 256 496S496 388.549 496 256S388.549 16 256 16ZM256 128C295.766 128 328 160.236 328 200S295.766 272 256 272C216.238 272 184 239.764 184 200S216.238 128 256 128ZM256 432C202.807 432 155.154 408.184 122.855 370.766C141.658 340.402 174.998 320 213.334 320H298.666C337.006 320 370.344 340.4 389.145 370.764C356.844 408.184 309.193 432 256 432Z'
     - svg_path_colored_on: 'M256.145 272C295.91 272 328.145 239.764 328.145 200S295.91 128 256.145 128C216.383 128 184.145 160.236 184.145 200S216.383 272 256.145 272ZM298.811 320H213.479C175.143 320 141.803 340.402 123 370.766C155.299 408.184 202.951 432 256.145 432S356.988 408.184 389.289 370.764C370.488 340.4 337.15 320 298.811 320Z'
 
-    - cust_1_text_color: var(--button-card-cust-1-on-text-color)
-
 
   card:
-    type: custom:decluttering-card
-    template: badge_button_svg
+    type: 'custom:decluttering-card'
+    template: 'badge_button_svg'
     variables:
       - entity: '[[entity]]'
-      - name: '[[name]]'
+      - name: "[[[
+            if ( entity.state == '0' )
+              return 'Nobody Home';
+            else if ( entity.state == '1' )
+              return states['sensor.only_person_home'].state + ' Home';
+            else
+              return entity.state + ' Persons Home'; 
+          ]]]"
       - icon: '[[icon]]'
       - svg_fill: '[[svg_fill]]'
       - svg_path: '[[svg_path]]'
@@ -37,50 +38,10 @@ badge_persons_button:
       - color_type: '[[color_type]]'
       - background_color: '[[background_color]]'
       - text_color: '[[text_color]]'
-      - text_transform: none
-      - cust_1_text_color: "[[cust_1_text_color]]"
-      - cust_1_icon_color: "[[cust_1_icon_color]]"
-      - cust_1_field: "[[[
-            if ( entity.state == '0' )
-              return 'Nobody Home';
-            else if ( entity.state == '1' )
-              return states['sensor.only_person_home'].state + ' Home';
-            else
-              return entity.state + ' Persons Home'; 
-          ]]]"
-      - state: "[[state]]"
+      - text_transform: 'none'
+      - state: '[[state]]'
       - hold_action:
-          action: more-info
+          action: 'more-info'
       - tap_action: 
-          action: navigate
-          navigation_path: /lovelace/presense/
-      # - tap_action:
-      #     #haptic: heavy
-      #     action: fire-dom-event
-      #     browser_mod:
-      #       command: popup
-      #       hide_header: false
-      #       title: '[[name]]'
-      #       large: true
-            
-      #       card:
-
-      #         type: custom:layout-card
-      #         layout_type: grid
-      #         layout_options:
-      #           grid-template-columns: 1fr
-      #           grid-template-rows: auto
-      #           mediaquery:
-      #             "(min-width: 800px)":
-      #               grid-template-columns: 700px
-      #         cards:
-
-      #           - type: custom:decluttering-card # Separator
-      #             template: separator
-
-      #           #- !include /config/lovelace/cards/presence/card_presence.yaml
-
-      #           - !include /config/lovelace/cards/presence/card_presence_button.yaml
-
-      #           - type: custom:decluttering-card # Separator
-      #             template: separator
+          action: 'navigate'
+          navigation_path: '/lovelace/presense/'

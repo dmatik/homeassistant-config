@@ -8,90 +8,81 @@ cards:
 #   Badges                                                                 #
 #                                                                          #
 ############################################################################
+  
   - type: custom:layout-card
     layout_type: grid
 
     layout_options:
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
       grid-template-rows: auto
-      grid-gap: 0px 4px
+      grid-gap: 0px 0px
+      justify-items: start
       mediaquery:
         "(max-width: 450px)":
           grid-template-columns: 1fr 1fr 1fr 1fr
 
-  # - type: grid
-  #   columns: 4
-  #   square: false
     cards:
 
-      - type: custom:decluttering-card # Presence
-        template: badge_persons_button
-        variables:
-          - name: Presence
+      # - type: custom:swipe-card
+      #   card_width: 82px
+      #   parameters:
+      #     slidesPerView: auto
+      #     spaceBetween: 5
+      #     freeMode: true
+      #   cards:
+
+
+      - type: 'custom:decluttering-card' # Presense
+        template: 'badge_persons_button'  
 
       - type: custom:decluttering-card # Climate
-        template: badge_climate_button
-        variables:
-          - name: Climate
+        template: 'badge_climate_button'
 
-      - type: conditional # Lights
+      - type: 'custom:decluttering-card' # Lights
+        template: 'badge_lights_button'
+
+      - type: 'conditional' # Motion
         conditions:
-          - entity: sensor.number_of_lights_on
-            state_not: "0"
+          - entity: 'sensor.number_of_motion_sensors_on'
+            state_not: '0'
         card:
-          type: custom:decluttering-card # Lights
-          template: badge_lights_button
-          variables:
-            - name: Lights
+            type: 'custom:decluttering-card' # Motion
+            template: 'badge_motion_button'
 
-      - type: conditional # Motion
+      # - type: 'conditional' # Covers
+      #   conditions:
+      #     - entity: 'sensor.number_of_covers_open'
+      #       state_not: '0'
+      #   card:
+      #     type: 'custom:decluttering-card' # Covers
+      #     template: 'badge_cover_button'
+
+      # - type: 'conditional' # Windows
+      #   conditions:
+      #     - entity: 'sensor.number_of_windows_open'
+      #       state_not: '0'
+      #   card:
+      #     type: 'custom:decluttering-card' # Windows
+      #     template: 'badge_window_button'
+
+      - type: 'conditional' # Red Alert
         conditions:
-          - entity: sensor.number_of_motion_sensors_on
-            state_not: "0"
+          - entity: 'binary_sensor.redalert_ashdod'
+            state: 'on'
         card:
-          type: custom:decluttering-card # Motion
-          template: badge_motion_button
+          type: 'custom:decluttering-card'
+          template: 'badge_redalert_button'
           variables:
-            - name: Motion
+            - entity: 'binary_sensor.redalert_ashdod'
 
-      # - type: conditional # Covers
+      # - type: 'conditional' # School Holidays
       #   conditions:
-      #     - entity: sensor.number_of_covers_open
-      #       state_not: "0"
+      #     - entity: 'binary_sensor.school_holiday'
+      #       state: 'on'
       #   card:
-      #     type: custom:decluttering-card # Covers
-      #     template: badge_cover_button
-      #     variables:
-      #       - name: Covers
+      #     type: 'custom:decluttering-card'
+      #     template: 'badge_school_button'
 
-      # - type: conditional # Windows
-      #   conditions:
-      #     - entity: sensor.number_of_windows_open
-      #       state_not: "0"
-      #   card:
-      #     type: custom:decluttering-card # Windows
-      #     template: badge_window_button
-      #     variables:
-      #       - name: Windows
-
-      - type: conditional # Red Alert
-        conditions:
-          - entity: binary_sensor.redalert_ashdod
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: badge_redalert_button
-          variables:
-            - entity: binary_sensor.redalert_ashdod
-
-      # - type: conditional # School Holidays
-      #   conditions:
-      #     - entity: binary_sensor.school_holiday
-      #       state: "on"
-      #   card:
-      #     type: custom:decluttering-card
-      #     template: badge_school_button
       
-
-  # - type: custom:decluttering-card # Separator
-  #   template: separator
+  - type: custom:decluttering-card # Separator
+    template: separator

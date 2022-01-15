@@ -25,7 +25,7 @@ cards:
       - title: System
       - padding_left: 16px
       - padding_top: 24px
-
+  
   - !include /config/lovelace/cards/accessories/card_accessories_system.yaml
 
   - type: custom:decluttering-card # Separator

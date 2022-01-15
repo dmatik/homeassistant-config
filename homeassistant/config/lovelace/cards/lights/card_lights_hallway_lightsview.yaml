@@ -1,77 +1,60 @@
-type: conditional
-conditions:
-  - entity: group.hallway_lights
-    state: "on"
-card:
-  type: vertical-stack
-  cards:
+type: vertical-stack
+cards:
 
 
-  ############################################################################
-  #                                                                          #
-  #   Title                                                                  #
-  #                                                                          #
-  ############################################################################
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
 
-    - type: horizontal-stack
-      cards: 
-        
-        - type: custom:decluttering-card
-          template: title_button_card
-          variables:
-            - name: Hallway
-
-
-  ############################################################################
-  #                                                                          #
-  #   Lights                                                                 #
-  #                                                                          #
-  ############################################################################
-
-    - type: custom:layout-card
-      layout_type: grid
-
-      layout_options:
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr
-        grid-template-rows: auto
-        grid-gap: 0px 4px
-        mediaquery:
-          "(max-width: 450px)":
-            grid-template-columns: 1fr 1fr 1fr
-    # - type: grid
-    #   columns: 3
-    #   square: false
-      cards:
-
-        - type: conditional # Hallway
-          conditions:
-            - entity: light.hallway
-              state: "on"
-          card:            
-            type: custom:decluttering-card
-            template: light_button
-            variables:
-              - entity: light.hallway
-              - name: Ceiling
-
-        - type: conditional # Gateway
-          conditions:
-            - entity: light.xiaomi_gateway_servers
-              state: "on"
-          card:            
-            type: custom:decluttering-card # Gateway Light
-            template: color_light_button
-            variables:
-              - entity: light.xiaomi_gateway_servers
-              - switch_entity: switch.xiaomi_gateway_light
-              - name: Gateway
-              - svg_path: 'M496 256C496 388.549 388.549 496 256 496V432C353.047 432 432 353.047 432 256S353.047 80 256 80V16C388.549 16 496 123.451 496 256Z'
-              - svg_path_on: 'M496 256C496 388.549 388.549 496 256 496V432C353.047 432 432 353.047 432 256S353.047 80 256 80V16C388.549 16 496 123.451 496 256Z'
-              - svg_path_colored: 'M256 496C123.453 496 16 388.549 16 256S123.453 16 256 16V496Z'
-              - svg_path_colored_on: 'M256 496C123.453 496 16 388.549 16 256S123.453 16 256 16V496Z'
-              - svg_icon_width: 512
-              - svg_icon_height: 512        
+  - type: horizontal-stack
+    cards: 
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Hallway
 
 
-    - type: custom:decluttering-card # Separator
-      template: separator
+############################################################################
+#                                                                          #
+#   Lights                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+      mediaquery:
+        "(max-width: 450px)":
+          grid-template-columns: 1fr 1fr 1fr
+
+    cards:
+
+      - type: custom:decluttering-card # Hallway
+        template: light_button
+        variables:
+          - entity: light.hallway
+          - name: Ceiling
+
+      - type: custom:decluttering-card # Gateway Light
+        template: color_light_button
+        variables:
+          - entity: light.xiaomi_gateway_servers
+          - switch_entity: switch.xiaomi_gateway_light
+          - name: Gateway
+          - svg_path: 'M496 256C496 388.549 388.549 496 256 496V432C353.047 432 432 353.047 432 256S353.047 80 256 80V16C388.549 16 496 123.451 496 256Z'
+          - svg_path_on: 'M496 256C496 388.549 388.549 496 256 496V432C353.047 432 432 353.047 432 256S353.047 80 256 80V16C388.549 16 496 123.451 496 256Z'
+          - svg_path_colored: 'M256 496C123.453 496 16 388.549 16 256S123.453 16 256 16V496Z'
+          - svg_path_colored_on: 'M256 496C123.453 496 16 388.549 16 256S123.453 16 256 16V496Z'
+          - svg_icon_width: 512
+          - svg_icon_height: 512        
+
+
+  - type: custom:decluttering-card # Separator
+    template: separator

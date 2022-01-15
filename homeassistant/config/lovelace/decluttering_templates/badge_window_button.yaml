@@ -1,12 +1,7 @@
 badge_window_button:
 
   default:
-    - entity: sensor.number_of_windows_open
-    - name: Windows
-    - icon: mdi:window-closed
-    - background_color: var(--button-card-on-background)
-    - text_color: var(--button-card-on-text-color)
-    - cust_1_text_color: var(--button-card-cust-1-on-text-color)
+    - entity: 'sensor.number_of_windows_open'
     # - svg_path: 'M21 20V2H3V20H1V23H23V20M19 4V11H13V4M5 4H11V11H5M5 20V13H11V20M13 20V13H19V20Z'
     # - svg_path_on: 'M21 20V2H3V20H1V23H23V20M19 4V11H17V4M5 4H7V11H5M5 20V13H7V20M9 20V4H15V20M17 20V13H19V20Z'
     # - svg_path_colored: 'M 21,20 V 2 H 3 V 20 M 19,4 v 7 H 13 V 4 M 5,4 h 6 v 7 H 5 m 0,9 v -7 h 6 v 7 m 2,0 v -7 h 6 v 7 z'
@@ -19,11 +14,18 @@ badge_window_button:
 
 
   card:
-    type: custom:decluttering-card
-    template: badge_button_svg
+    type: 'custom:decluttering-card'
+    template: 'badge_button_svg'
     variables:
       - entity: '[[entity]]'
-      - name: '[[name]]'
+      - name: "[[[
+            if ( entity.state == '0' )
+              return 'Closed';
+            else if ( entity.state == '1' )
+              return states['sensor.only_window_open'].state + ' Open';
+            else
+              return entity.state + ' Windows Open'; 
+          ]]]"
       - icon: '[[icon]]'
       - svg_fill: '[[svg_fill]]'
       - svg_path: '[[svg_path]]'
@@ -37,21 +39,11 @@ badge_window_button:
       - color_type: '[[color_type]]'
       - background_color: '[[background_color]]'
       - text_color: '[[text_color]]'
-      - text_transform: none
-      - cust_1_text_color: '[[cust_1_text_color]]'
-      - cust_1_icon_color: '[[cust_1_icon_color]]'
-      - cust_1_field: "[[[
-            if ( entity.state == '0' )
-              return 'Closed';
-            else if ( entity.state == '1' )
-              return states['sensor.only_window_open'].state + ' Open';
-            else
-              return entity.state + ' Windows Open'; 
-          ]]]"
+      - text_transform: 'none'
       - state: '[[state]]'
       - hold_action:
-          action: more-info
+          action: 'more-info'
       - tap_action: 
-          action: navigate
-          navigation_path: /lovelace/windows/
+          action: 'navigate'
+          navigation_path: '/lovelace/windows/'
 

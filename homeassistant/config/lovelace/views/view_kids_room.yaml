@@ -1,5 +1,5 @@
 title: Kids Room
-icon: mdi:face
+icon: mdi:face-man
 path: kids_room
 visible: false
 #panel: true
@@ -28,7 +28,9 @@ cards:
     variables:
       - title: Kids Room
       - back_button: true
-      - navigation_path: /lovelace/rooms/
+      - tap_action: 
+          action: navigate
+          navigation_path: '/lovelace/rooms/'
 
   - !include /config/lovelace/cards/accessories/card_accessories_kids_room.yaml
 

@@ -28,7 +28,9 @@ cards:
     variables:
       - title: Work Room
       - back_button: true
-      - navigation_path: /lovelace/rooms/
+      - tap_action: 
+          action: navigate
+          navigation_path: '/lovelace/rooms/'
 
   - !include /config/lovelace/cards/accessories/card_accessories_work_room.yaml
 

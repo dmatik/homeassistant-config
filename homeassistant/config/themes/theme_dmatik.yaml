@@ -240,7 +240,8 @@ dmatik:
       label-badge-border-color: 'green'                                               # Label badge border, just a reference value   
 
       # Background colors                                                            
-      primary-background-color: '#202225' #'#050505' #'rgba(5, 5, 5, 1)'              # Settings background
+      primary-background-color: '#202225'                                             # Settings background
+      background-color: '#202225'
       secondary-background-color: '#292B2F' #'#171717' #'rgba(23, 23, 23, 1)'         # Main card UI background  
       divider-color: 'var(--secondary-background-color)' #'rgba(61, 61, 63, 1)'       # Divider 
       card-background-color: 'var(--primary-background-color)'
@@ -264,7 +265,9 @@ dmatik:
       paper-card-background-color: 'var(--ha-card-background)' #'rgba(28, 28, 30, 1)' # Card background colour
       paper-dialog-background-color: 'var(--paper-card-background-color)'             # Card dialog background colour
       paper-item-icon-color: '#757479' #'rgba(129, 129, 129, 1)'                      # Icon color
+      state-icon-color: '#757479'
       paper-item-icon-active-color: '#E2BF3D' #'#C2A120' #'#C49B13' #'#ffc107'        # Icon color active
+      state-icon-active-color: '#E2BF3D'
       paper-item-icon_-_color: 'green'           
       paper-item-selected_-_background-color: 'var(--paper-card-background-color)'    # Popup item select                      
       paper-tabs-selection-bar-color: 'green'

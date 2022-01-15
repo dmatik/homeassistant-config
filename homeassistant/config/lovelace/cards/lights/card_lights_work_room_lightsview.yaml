@@ -1,59 +1,47 @@
-type: conditional
-conditions:
-  - entity: group.work_room_lights
-    state: "on"
-card:
-  type: vertical-stack
-  cards:
+type: vertical-stack
+cards:
 
 
-  ############################################################################
-  #                                                                          #
-  #   Title                                                                  #
-  #                                                                          #
-  ############################################################################
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
 
-    - type: horizontal-stack
-      cards: 
-        
-        - type: custom:decluttering-card
-          template: title_button_card
-          variables:
-            - name: Work Room
-
-
-  ############################################################################
-  #                                                                          #
-  #   Lights                                                                 #
-  #                                                                          #
-  ############################################################################
-
-    - type: custom:layout-card
-      layout_type: grid
-
-      layout_options:
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr
-        grid-template-rows: auto
-        grid-gap: 0px 4px
-        mediaquery:
-          "(max-width: 450px)":
-            grid-template-columns: 1fr 1fr 1fr
-    # - type: grid
-    #   columns: 3
-    #   square: false
-      cards:
-
-        - type: conditional # Work Room
-          conditions:
-            - entity: light.work_room
-              state: "on"
-          card:            
-            type: custom:decluttering-card
-            template: light_button
-            variables:
-              - entity: light.work_room
-              - name: Ceiling
+  - type: horizontal-stack
+    cards: 
+      
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Work Room
 
 
-    - type: custom:decluttering-card # Separator
-      template: separator
+############################################################################
+#                                                                          #
+#   Lights                                                                 #
+#                                                                          #
+############################################################################
+
+  - type: custom:layout-card
+    layout_type: grid
+
+    layout_options:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 0px 4px
+      mediaquery:
+        "(max-width: 450px)":
+          grid-template-columns: 1fr 1fr 1fr
+
+    cards:
+
+      - type: custom:decluttering-card # Work Room
+        template: light_button
+        variables:
+          - entity: light.work_room
+          - name: Ceiling
+
+
+  - type: custom:decluttering-card # Separator
+    template: separator

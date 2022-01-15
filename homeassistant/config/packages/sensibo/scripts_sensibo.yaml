@@ -2,6 +2,29 @@ script:
 
 ############################################################################
 #                                                                          #
+#   Generic                                                                #
+#                                                                          #
+############################################################################
+
+  increment_climate_temperature:
+      alias: Increment
+      sequence:
+          - service: climate.set_temperature
+            data_template:
+              entity_id: "{{ entity_id }}"
+              temperature: "{{ (state_attr(entity_id, 'temperature')|round(0)) + 1 }}"
+              
+  decrease_climate_temperature:
+      alias: Decrease
+      sequence:
+          - service: climate.set_temperature
+            data_template:
+              entity_id: "{{ entity_id }}"
+              temperature: "{{ (state_attr(entity_id, 'temperature')|round(0)) - 1 }}"
+
+
+############################################################################
+#                                                                          #
 #   Sensibo Kids Room                                                      #
 #                                                                          #
 ############################################################################

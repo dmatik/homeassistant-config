@@ -13,6 +13,7 @@ group:
       - light.dining
       - light.balcony
       - light.entrance
+      - switch.new_year_tree
 
 
 ############################################################################

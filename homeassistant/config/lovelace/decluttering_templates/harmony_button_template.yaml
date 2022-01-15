@@ -47,7 +47,7 @@ harmony_button:
           action: fire-dom-event
           browser_mod:
             command: popup
-            hide_header: false
+            hide_header: true
             title: '[[title]]'
             
             card:
@@ -55,6 +55,17 @@ harmony_button:
               type: custom:layout-card
               layout_type: vertical
               cards:
+
+                - type: custom:decluttering-card
+                  template: view_title_button
+                  variables:
+                    - padding_top: '2px'
+                    - title: '[[title]]'
+                    - back_button: true
+                    - tap_action:
+                        action: 'fire-dom-event'
+                        browser_mod:
+                          command: 'close_popup'
 
                 ############################################################################
                 #                                                                          #
@@ -83,7 +94,7 @@ harmony_button:
           action: fire-dom-event
           browser_mod:
             command: popup
-            hide_header: false
+            hide_header: true
             title: '[[title]]'
             
             card:
@@ -92,19 +103,16 @@ harmony_button:
               layout_type: vertical
               cards:
 
-                # - type: entities
-                #   state_color: true
-                #   show_header_toggle: false
-                #   style: |
-                #     ha-card.type-entities {
-                #       background: none;
-                #       box-shadow: none;
-                #       padding: 0.3em 1.25em 0.4em 0.5em;
-                #     }
-                #   entities:
-
-                #     - entity: sensor.[[name]]_tv
-                #       name: Activity
+                - type: custom:decluttering-card
+                  template: view_title_button
+                  variables:
+                    - padding_top: '2px'
+                    - title: '[[title]]'
+                    - back_button: true
+                    - tap_action:
+                        action: 'fire-dom-event'
+                        browser_mod:
+                          command: 'close_popup'
 
                 - type: custom:decluttering-card # Separator
                   template: separator

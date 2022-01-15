@@ -72,7 +72,7 @@ switcher_button:
           action: fire-dom-event
           browser_mod:
             command: popup
-            hide_header: false
+            hide_header: true
             title: '[[name]]'
             
             card:
@@ -109,6 +109,17 @@ switcher_button:
                 #     #       margin: 1.4em -0.7em 0.7em 0;
                 #     #     }
                 #     #   cards:
+
+                - type: custom:decluttering-card
+                  template: view_title_button
+                  variables:
+                    - padding_top: '2px'
+                    - title: '[[name]]'
+                    - back_button: true
+                    - tap_action:
+                        action: 'fire-dom-event'
+                        browser_mod:
+                          command: 'close_popup'
 
                 - type: custom:decluttering-card # Switcher State
                   template: switcher_popup_state

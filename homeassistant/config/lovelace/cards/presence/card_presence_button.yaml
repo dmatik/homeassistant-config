@@ -44,8 +44,8 @@ cards:
         variables:
           - entity: person.dmatik
           - name: Dima
-          - image_away: '/local/images/dima_off.png'
-          - image_home: '/local/images/dima.png'
+          - image_away: '/local/images/dima_3_off.png'
+          - image_home: '/local/images/dima_3_on.png'
           - battery: sensor.iphonedima_battery_level
           - phone_icon: mdi:cellphone-iphone
           - tap_action:
