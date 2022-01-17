@@ -173,7 +173,7 @@ ac_curr_temp:
       [[[
           var curr_temp = entity.attributes.current_temperature;
           if (curr_temp == null) {
-            var curr_temp = '-';
+            var curr_temp = '--';
           }
           return curr_temp + '°';
       ]]]
@@ -254,7 +254,7 @@ ac_widget_target_temp:
     [[[
         var temperature = entity.attributes.temperature;
         if (temperature == null) {
-          var temperature = '-';
+          var temperature = '--';
         }
         return temperature + '°C';
     ]]]

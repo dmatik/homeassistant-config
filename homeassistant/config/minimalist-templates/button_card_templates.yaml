@@ -42,8 +42,18 @@ chip_temperature:
         return temp;
       }
       var outside_temp = states[variables.ulm_chip_temperature_outside].state;
+      if (outside_temp == null || outside_temp == "unknown" || outside_temp == "unavailable") {
+        var outside_temp = '--';
+      } else {
+        outside_temp = convertTemperature(outside_temp);
+      }
       var inside_temp = states[variables.ulm_chip_temperature_inside].state;
-      return icon + " " + convertTemperature(outside_temp) + "° / " + convertTemperature(inside_temp) + "°" ;
+      if (inside_temp == null || inside_temp == "unknown" || inside_temp == "unavailable") {
+        var inside_temp = '--';
+      } else {
+        inside_temp = convertTemperature(inside_temp);
+      }
+      return icon + " " + outside_temp + "° / " + inside_temp + "°" ;
     ]]]
 chip_icon_only:
   template: "chips"

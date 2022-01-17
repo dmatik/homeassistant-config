@@ -65,7 +65,9 @@ cards:
             style: |
               ha-card.type-weather-forecast {
                 border-radius: 21px;
-                #padding-right: 26px;
+              }
+              ha-card.type-weather-forecast .temp {
+                margin-right: 26px;
               }
 
           - type: custom:button-card

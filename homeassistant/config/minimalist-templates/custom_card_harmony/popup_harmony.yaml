@@ -91,7 +91,12 @@ popup_harmony:
           #                                                                          #
           ############################################################################
 
-          - !include card_harmony_shield_tv.yaml
+          - type: conditional
+            conditions:
+              - entity: switch.shield_tv
+                state: "on"
+            card:
+              !include card_harmony_shield_tv.yaml
 
           ############################################################################
           #                                                                          #
@@ -99,7 +104,12 @@ popup_harmony:
           #                                                                          #
           ############################################################################
 
-          - !include card_harmony_smart_tv.yaml
+          - type: conditional
+            conditions:
+              - entity: switch.smart_tv
+                state: "on"
+            card:
+              !include card_harmony_smart_tv.yaml
 
           ############################################################################
           #                                                                          #
