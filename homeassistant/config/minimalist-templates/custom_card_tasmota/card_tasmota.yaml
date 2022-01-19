@@ -84,6 +84,7 @@ card_tasmota:
           - "icon_info"
           - "card_tasmota_outdated"
           - "ulm_language_variables"
+          - "blue"
         variables:
           ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
           ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
@@ -158,6 +159,7 @@ card_tasmota_with_power:
           - "icon_info"
           - "card_tasmota_outdated"
           - "ulm_language_variables"
+          - "blue"
         variables:
           ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
           ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
