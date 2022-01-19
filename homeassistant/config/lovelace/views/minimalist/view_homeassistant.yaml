@@ -49,47 +49,67 @@ cards:
       - type: custom:layout-card
         layout_type: grid
         layout_options:
-          grid-template-columns: 1fr 1fr
+          grid-template-columns: 1fr
           grid-template-rows: auto
           grid-gap: 0px 4px
           mediaquery:
             "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
+              grid-template-columns: 1fr
         cards:
 
-          # Current Version
+          # HA Vesrsions
           - type: 'custom:button-card'
-            template: card_generic
-            entity: sensor.ha_current_version
-            name: Current Version
-            icon: mdi:home-assistant
+            template: card_homeassistant
+            variables:
+              ulm_card_homeassistant_entity: 'binary_sensor.ha_update_available'
+              ulm_card_homeassistant_curr_version: 'sensor.ha_current_version'
+              ulm_card_homeassistant_latest_version: 'sensor.ha_available_version'
+              ulm_card_homeassistant_update_script: 'script.update_homeassistant_container'
 
-          # Latest Version
-          - type: 'custom:button-card'
-            template: card_generic
-            entity: sensor.ha_available_version
-            name: Latest Version
-            icon: mdi:package-down
+      # - type: custom:layout-card
+      #   layout_type: grid
+      #   layout_options:
+      #     grid-template-columns: 1fr 1fr
+      #     grid-template-rows: auto
+      #     grid-gap: 0px 4px
+      #     mediaquery:
+      #       "(max-width: 450px)":
+      #         grid-template-columns: 1fr 1fr
+      #   cards:
 
-          # Release Notes
-          - type: 'custom:button-card'
-            template: card_script
-            variables: 
-              ulm_card_script_title: Release Notes
-              ulm_card_script_icon: 'mdi:note-text'
-            tap_action: 
-              action: url
-              url_path: https://www.home-assistant.io/latest-release-notes/
+      #     # Current Version
+      #     - type: 'custom:button-card'
+      #       template: card_generic
+      #       entity: sensor.ha_current_version
+      #       name: Current Version
+      #       icon: mdi:home-assistant
 
-          # Update
-          - type: 'custom:button-card'
-            template: card_script
-            variables: 
-              ulm_card_script_title: Update
-              ulm_card_script_icon: 'mdi:update'
-            tap_action:
-              action: call-service
-              service: script.update_homeassistant_container
+      #     # Latest Version
+      #     - type: 'custom:button-card'
+      #       template: card_generic
+      #       entity: sensor.ha_available_version
+      #       name: Latest Version
+      #       icon: mdi:package-down
+
+      #     # Release Notes
+      #     - type: 'custom:button-card'
+      #       template: card_script
+      #       variables: 
+      #         ulm_card_script_title: Release Notes
+      #         ulm_card_script_icon: 'mdi:note-text'
+      #       tap_action: 
+      #         action: url
+      #         url_path: https://www.home-assistant.io/latest-release-notes/
+
+      #     # Update
+      #     - type: 'custom:button-card'
+      #       template: card_script
+      #       variables: 
+      #         ulm_card_script_title: Update
+      #         ulm_card_script_icon: 'mdi:update'
+      #       tap_action:
+      #         action: call-service
+      #         service: script.update_homeassistant_container
 
 
 ############################################################################

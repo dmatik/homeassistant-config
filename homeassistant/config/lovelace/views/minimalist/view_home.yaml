@@ -359,6 +359,14 @@ cards:
               ulm_card_navigate_title: Batteries
               ulm_card_navigate_icon: mdi:battery
 
+          # Tasmota
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: /lovelace/minimalist_tasmota
+              ulm_card_navigate_title: Tasmota
+              ulm_card_navigate_icon: mdi:chip
+
       - type: custom:button-card
         template: spacer
         variables:

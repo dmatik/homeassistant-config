@@ -1,0 +1,85 @@
+card_homeassistant:
+  variables:
+    ulm_card_homeassistant_entity: 'binary_sensor.ha_update_available'
+    ulm_card_homeassistant_curr_version: 'sensor.ha_current_version'
+    ulm_card_homeassistant_latest_version: 'sensor.ha_available_version'
+    ulm_card_homeassistant_update_script: 'script.update_homeassistant_container'
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        triggers_update: "all"
+        type: "custom:button-card"
+        template:
+          - "icon_info"
+          - "new_version_available"
+          - "ulm_language_variables"
+        icon: 'mdi:home-assistant'
+        tap_action:
+          action: "none"
+        entity: "[[[ return variables.ulm_card_homeassistant_entity ]]]"
+        name: "[[[ return states[variables.ulm_card_homeassistant_curr_version].state ]]]"
+        label: "[[[ return 'Latest: ' + states[variables.ulm_card_homeassistant_latest_version].state ]]]"
+        styles:
+          icon:
+            - color: "rgba(var(--color-theme),0.9)"
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "list_2_items"
+        custom_fields:
+          item1:
+            card:
+              type: "custom:button-card"
+              template: "widget_text"
+              name: 'Release Notes'
+              tap_action: 
+                action: url
+                url_path: https://www.home-assistant.io/latest-release-notes/
+          item2:
+            card:
+              type: "custom:button-card"
+              template: "widget_text"
+              name: 'Update'
+              tap_action:
+                action: call-service
+                service: "[[[ return variables.ulm_card_homeassistant_update_script ]]]"
+
+
+
+new_version_available:
+  state:
+    - value: "on"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - left: "24px"
+            - top: "-2px"
+            - height: "16px"
+            - width: "16px"
+            - border: "2px solid var(--card-background-color)"
+            - font-size: "12px"
+            - line-height: "14px"
+            - background-color: >
+                [[[
+                  return "rgba(var(--color-blue),1)";
+                ]]]
+  custom_fields:
+    notification: >
+      [[[
+        if ( entity.state =="unavailable" || entity.state =="on" ){
+          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+        }
+      ]]]

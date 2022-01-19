@@ -93,3 +93,97 @@ widget_mini_graph_bar:
           #states{
             padding: 0 16px;
           }
+
+
+widget_text:
+  tap_action:
+    action: "toggle"
+  show_icon: false
+  show_name: true
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'n'"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "14px"
+      - place-self: "center"
+      - height: "42px"
+    name:
+      - color: "rgba(var(--color-theme),0.9)"
+  size: "20px"
+  color: "var(--google-grey)"
+
+
+list_info_items_3_lines:
+  tap_action:
+    action: "none"
+  show_icon: false
+  show_name: false
+  show_label: false  
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2' 'item3'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content min-content min-content"
+      #- column-gap: "0px"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+
+list_info_items_7_lines:
+  tap_action:
+    action: "none"
+  show_icon: false
+  show_name: false
+  show_label: false  
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2' 'item3' 'item4' 'item5' 'item6' 'item7'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content min-content min-content min-content min-content min-content"
+      #- column-gap: "0px"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+
+widget_text_info:
+  tap_action:
+    action: "none"
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'item1 item2'"
+      - grid-template-columns: "1fr 1fr"
+      - grid-template-rows: "max-content"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+      - background-color: "none"
+      - place-self: "center"
+      #- height: "22px"
+    custom_fields:
+      item1:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - height: "20px"
+        - justify-self: "start"
+        - font-weight: "bolder"
+        - font-size: "12px"
+        - filter: "opacity(60%)"
+        - margin-left: "2px"
+      item2:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - height: "20px"
+        - justify-self: "end"
+        - font-weight: "bolder"
+        - font-size: "12px"
+        - filter: "opacity(80%)"
+        - margin-right: "2px"

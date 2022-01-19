@@ -237,7 +237,7 @@ sensor:
         value_template: >-
             {% set count = namespace(value=0) %}
             {% for entity_id in states.group.all_batteries_sensor_entities.attributes.entity_id %}
-              {% if (states(entity_id) | int) < 10 %}
+              {% if ( states(entity_id) | int(0) ) < 10 %}
                 {% set count.value = count.value + 1 %}
               {% endif %}
             {% endfor %}
@@ -257,7 +257,7 @@ sensor:
         value_template: >-
             {% set count = namespace(value=0) %}
             {% for entity_id in states.group.all_ink_sensor_entities.attributes.entity_id %}
-              {% if (states(entity_id) | int) < 10 %}
+              {% if ( states(entity_id) | int(0) ) < 10 %}
                 {% set count.value = count.value + 1 %}
               {% endif %}
             {% endfor %}

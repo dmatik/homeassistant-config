@@ -1,0 +1,246 @@
+title: Tasmota
+path: minimalist_tasmota
+visible: false
+type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr
+  grid-template-rows: auto
+  mediaquery:
+    "(min-width: 800px)":
+      grid-template-columns: 700px
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Chips                                                                  #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: edge
+
+          # Back Chip
+          - type: 'custom:button-card'
+            template: chip_back_new
+            variables:
+              ulm_chip_navigate_path: /lovelace-minimalist/minimalist_home
+
+
+############################################################################
+#                                                                          #
+#   Tasmota                                                                #
+#                                                                          #
+############################################################################
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card
+            template: title
+            name: Tasmota
+
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr
+        cards:
+
+          # Tasmota Version
+          - type: 'custom:button-card'
+            template: card_tasmota_version
+            variables:
+              ulm_card_tasmota_entity: 'sensor.number_of_tasmota_versions_old'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+              ulm_card_tasmota_sync_script: 'script.tasmotas_state_sync'
+
+
+
+
+      - type: custom:layout-card
+        layout_type: grid
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr
+        cards:
+
+          # Kids Radiator Socket
+          - type: 'custom:button-card'
+            template: card_tasmota_with_power
+            variables:
+              ulm_card_tasmota_entity: 'switch.kids_radiator'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_kids_radiator_power_socket_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_kids_radiator_power_socket_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_kids_radiator_power_socket_version'
+              ulm_card_tasmota_icon: 'mdi:power-socket-eu'
+              ulm_card_tasmota_name: 'Kids Radiator'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+              ulm_card_tasmota_current: 'sensor.mqtt_kids_radiator_current'
+              ulm_card_tasmota_energy_today: 'sensor.mqtt_kids_radiator_energy_today'
+              ulm_card_tasmota_power: 'sensor.mqtt_kids_radiator_power'
+              ulm_card_tasmota_latest_voltage: 'sensor.mqtt_kids_radiator_voltage'
+
+          # Makeup Socket
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.makeup'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_makeup_power_socket_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_makeup_power_socket_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_makeup_power_socket_version'
+              ulm_card_tasmota_icon: 'mdi:power-socket-eu'
+              ulm_card_tasmota_name: 'Makeup Socket'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Bedside Dima Bulb
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'light.bedside_dima'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_bedside_dima_bulb_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_bedside_dima_bulb_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_bedside_dima_bulb_version'
+              ulm_card_tasmota_icon: 'mdi:lightbulb'
+              ulm_card_tasmota_name: 'Bedside Dima Bulb'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Bedside Galit Bulb
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'light.bedside_galit'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_bedside_galit_bulb_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_bedside_galit_bulb_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_bedside_galit_bulb_version'
+              ulm_card_tasmota_icon: 'mdi:lightbulb'
+              ulm_card_tasmota_name: 'Bedside Galit Bulb'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Entrance Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_entrance_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_entrance_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_entrance_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_entrance_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Entrance Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Living Room Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_living_room_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_living_room_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_living_room_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_living_room_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Living Room Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Bedroom Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_bedroom_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_bedroom_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_bedroom_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_bedroom_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Bedroom Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Balcony Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_balcony_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_balcony_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_balcony_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_balcony_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Balcony Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Hallway Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_hallway_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_hallway_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_hallway_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_hallway_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Hallway Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Kids Room Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_kids_room_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_kids_room_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_kids_room_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_kids_room_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Kids Room Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Kitchen Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_kitchen_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_kitchen_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_kitchen_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_kitchen_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Kitchen Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Dining Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_dining_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_dining_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_dining_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_dining_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Dining Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+          # Work Room Light Switch
+          - type: 'custom:button-card'
+            template: card_tasmota
+            variables:
+              ulm_card_tasmota_entity: 'switch.mqtt_work_room_light'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_work_room_light_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_work_room_light_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_work_room_light_version'
+              ulm_card_tasmota_icon: 'mdi:light-switch'
+              ulm_card_tasmota_name: 'Work Room Light'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+
+
+      - type: custom:button-card
+        template: spacer
+        variables:
+          height: 100px
