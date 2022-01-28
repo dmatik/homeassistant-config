@@ -77,46 +77,46 @@ cards:
 #                                                                          #
 ############################################################################
 
-      # Title
-      - type: horizontal-stack
-        cards:
+      # # Title
+      # - type: horizontal-stack
+      #   cards:
 
-          - type: custom:button-card
-            template: title
-            name: Scenes
+      #     - type: custom:button-card
+      #       template: title
+      #       name: Scenes
 
 
-      #Cards
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 4px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr 1fr 1fr
-        cards:
+      # #Cards
+      # - type: custom:layout-card
+      #   layout_type: grid
+      #   layout_options:
+      #     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+      #     grid-template-rows: auto
+      #     grid-gap: 0px 4px
+      #     mediaquery:
+      #       "(max-width: 450px)":
+      #         grid-template-columns: 1fr 1fr 1fr 1fr
+      #   cards:
 
-          # Night Lights
-          - type: 'custom:button-card'
-            template: 'card_vertical_button'
-            entity: scene.night_lights_on
-            name: 'Night'
-            label: 'Lights'
-            icon: 'mdi:weather-night'
-            variables:
-              color: 'blue'
+      #     # Night Lights
+      #     - type: 'custom:button-card'
+      #       template: 'card_vertical_button'
+      #       entity: scene.night_lights_on
+      #       name: 'Night'
+      #       label: 'Lights'
+      #       icon: 'mdi:weather-night'
+      #       variables:
+      #         color: 'blue'
 
-          # Lights Off
-          - type: 'custom:button-card'
-            template: 'card_vertical_button'
-            entity: scene.lights_off
-            name: 'Lights'
-            label: 'Off'
-            icon: 'mdi:lightbulb-group-off'
-            variables:
-              color: 'yellow'
+      #     # Lights Off
+      #     - type: 'custom:button-card'
+      #       template: 'card_vertical_button'
+      #       entity: scene.lights_off
+      #       name: 'Lights'
+      #       label: 'Off'
+      #       icon: 'mdi:lightbulb-group-off'
+      #       variables:
+      #         color: 'yellow'
 
 
 

@@ -23,11 +23,13 @@ card_tasmota_version:
           - "icon_info"
           - "card_tasmota_devices_outdated"
           - "ulm_language_variables"
+        variables:
+          ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
         icon: 'mdi:chip'
         tap_action:
           action: "none"
         entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
-        name: "[[[ return 'Latest: ' + states[variables.ulm_card_tasmota_latest_version].state ]]]"
+        #name: "[[[ return 'Latest: ' + states[variables.ulm_card_tasmota_latest_version].state ]]]"
         styles:
           icon:
             - color: "rgba(var(--color-theme),0.9)"
@@ -252,6 +254,13 @@ card_tasmota_devices_outdated:
                 [[[
                   return "rgba(var(--color-blue),1)";
                 ]]]
+  name: >
+    [[[
+      if ( states[variables.ulm_card_tasmota_latest_version].state == "" )
+        return "Latest: --";
+      else
+        return "Latest: " + states[variables.ulm_card_tasmota_latest_version].state;
+    ]]]
   label: >
     [[[
       if (entity.state > 0)

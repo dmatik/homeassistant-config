@@ -1227,7 +1227,7 @@ card_graph:
       card:
         type: "custom:button-card"
         template:
-          - "icon_info"
+          - "icon_info_bg"
           - "card_generic"
         styles:
           card:

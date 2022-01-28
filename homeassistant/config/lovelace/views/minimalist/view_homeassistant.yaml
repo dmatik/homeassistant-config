@@ -114,7 +114,7 @@ cards:
 
 ############################################################################
 #                                                                          #
-#   DB                                                                     #
+#   Database                                                               #
 #                                                                          #
 ############################################################################
 
@@ -123,14 +123,17 @@ cards:
 
           - type: custom:button-card
             template: title
-            name: DB
+            name: Database
 
       - type: custom:layout-card
         layout_type: grid
         layout_options:
-          grid-template-columns: 1fr 1fr
+          grid-template-columns: 1fr 1fr 1fr
           grid-template-rows: auto
           grid-gap: 0px 4px
+          mediaquery:
+            "(max-width: 450px)":
+              grid-template-columns: 1fr 1fr
         cards:
 
           # Events
