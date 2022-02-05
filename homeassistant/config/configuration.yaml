@@ -160,9 +160,9 @@ mqtt:
   password: !secret syn_mqtt_password
   
 # Sensibo
-climate:
-  - platform: sensibo
-    api_key: !secret sensibo_api_key
+# climate:
+#   - platform: sensibo
+#     api_key: !secret sensibo_api_key
     
 #Telegram      
 telegram_bot:

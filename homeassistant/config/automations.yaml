@@ -394,11 +394,12 @@
   trigger:
   - platform: zone
     entity_id: person.dmatik
-    zone: zone.amdocs
+    zone: zone.work
     event: enter
   condition: []
   action:
   - service: script.dima_arrived_to_office_event
+    data: {}
   - service: notify.mobile_app_iphonedima
     data:
       message: Arrived to office
@@ -410,11 +411,12 @@
   trigger:
   - platform: zone
     entity_id: person.dmatik
-    zone: zone.amdocs
+    zone: zone.work
     event: leave
   condition: []
   action:
   - service: script.dima_left_office_event
+    data: {}
   - service: notify.mobile_app_iphonedima
     data:
       title: Dima

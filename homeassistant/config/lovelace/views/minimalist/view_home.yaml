@@ -139,13 +139,19 @@ cards:
       - type: custom:layout-card
         layout_type: grid
         layout_options:
-          grid-template-columns: 1fr 1fr
+          grid-template-columns: 1fr 1fr 1fr
           grid-template-rows: auto
           grid-gap: 0px 4px
           mediaquery:
             "(max-width: 450px)":
               grid-template-columns: 1fr 1fr
         cards:
+
+          # Living Room Light
+          - type: 'custom:button-card'
+            template: 
+              - card_light
+            entity: light.living_room
 
           # Dining Light
           - type: 'custom:button-card'
@@ -160,6 +166,14 @@ cards:
               ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
             entity: switch.kids_radiator
             name: Kids Radiator
+
+          # Bedroom Radiator
+          - type: 'custom:button-card'
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
+            entity: switch.bedroom_radiator
+            name: Bed Radiator
             
           # Living Room TV
           - type: 'custom:button-card'
@@ -224,73 +238,73 @@ cards:
 #                                                                          #
 ############################################################################
 
-      # Title
-      - type: horizontal-stack
-        cards:
+      # # Title
+      # - type: horizontal-stack
+      #   cards:
 
-          - type: custom:button-card
-            template: title
-            name: Rooms
+      #     - type: custom:button-card
+      #       template: title
+      #       name: Rooms
 
-      # Cards
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 4px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
+      # # Cards
+      # - type: custom:layout-card
+      #   layout_type: grid
+      #   layout_options:
+      #     grid-template-columns: 1fr 1fr 1fr
+      #     grid-template-rows: auto
+      #     grid-gap: 0px 4px
+      #     mediaquery:
+      #       "(max-width: 450px)":
+      #         grid-template-columns: 1fr 1fr
+      #   cards:
 
-          # Living Room
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_living_room
-              ulm_card_navigate_title: Living Room
-              ulm_card_navigate_icon: mdi:sofa 
+      #     # Living Room
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_living_room
+      #         ulm_card_navigate_title: Living Room
+      #         ulm_card_navigate_icon: mdi:sofa 
 
-          # Kitchen
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_kitchen
-              ulm_card_navigate_title: Kitchen
-              ulm_card_navigate_icon: mdi:silverware-fork-knife 
+      #     # Kitchen
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_kitchen
+      #         ulm_card_navigate_title: Kitchen
+      #         ulm_card_navigate_icon: mdi:silverware-fork-knife 
 
-          # Hallway
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_hallway
-              ulm_card_navigate_title: Hallway
-              ulm_card_navigate_icon: mdi:door-open 
+      #     # Hallway
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_hallway
+      #         ulm_card_navigate_title: Hallway
+      #         ulm_card_navigate_icon: mdi:door-open 
 
-          # Bedroom
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_bedroom
-              ulm_card_navigate_title: Bedroom
-              ulm_card_navigate_icon: mdi:bed-empty 
+      #     # Bedroom
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_bedroom
+      #         ulm_card_navigate_title: Bedroom
+      #         ulm_card_navigate_icon: mdi:bed-empty 
 
-          # Kids Room
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_kids_room
-              ulm_card_navigate_title: Kids Room
-              ulm_card_navigate_icon: mdi:teddy-bear 
+      #     # Kids Room
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_kids_room
+      #         ulm_card_navigate_title: Kids Room
+      #         ulm_card_navigate_icon: mdi:teddy-bear 
 
-          # Work Room
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_work_room
-              ulm_card_navigate_title: Work Room
-              ulm_card_navigate_icon: mdi:laptop 
+      #     # Work Room
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_work_room
+      #         ulm_card_navigate_title: Work Room
+      #         ulm_card_navigate_icon: mdi:laptop 
 
 
 ############################################################################
@@ -299,73 +313,73 @@ cards:
 #                                                                          #
 ############################################################################
 
-      # Title
-      - type: horizontal-stack
-        cards:
+      # # Title
+      # - type: horizontal-stack
+      #   cards:
 
-          - type: custom:button-card
-            template: title
-            name: System
+      #     - type: custom:button-card
+      #       template: title
+      #       name: System
 
-      # Cards
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 4px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
+      # # Cards
+      # - type: custom:layout-card
+      #   layout_type: grid
+      #   layout_options:
+      #     grid-template-columns: 1fr 1fr 1fr
+      #     grid-template-rows: auto
+      #     grid-gap: 0px 4px
+      #     mediaquery:
+      #       "(max-width: 450px)":
+      #         grid-template-columns: 1fr 1fr
+      #   cards:
 
-          # Home Assistant
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_homeassistant
-              ulm_card_navigate_title: Hass
-              ulm_card_navigate_icon: mdi:home-assistant 
+      #     # Home Assistant
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_homeassistant
+      #         ulm_card_navigate_title: Hass
+      #         ulm_card_navigate_icon: mdi:home-assistant 
 
-          # Scheduler
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_scheduler
-              ulm_card_navigate_title: Scheduler
-              ulm_card_navigate_icon: mdi:calendar-today 
+      #     # Scheduler
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_scheduler
+      #         ulm_card_navigate_title: Scheduler
+      #         ulm_card_navigate_icon: mdi:calendar-today 
 
-          # Wall Panel
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_wallpanel
-              ulm_card_navigate_title: Wall Panel
-              ulm_card_navigate_icon: mdi:view-dashboard 
+      #     # Wall Panel
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_wallpanel
+      #         ulm_card_navigate_title: Wall Panel
+      #         ulm_card_navigate_icon: mdi:view-dashboard 
 
-          # NAS
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_nas
-              ulm_card_navigate_title: NAS
-              ulm_card_navigate_icon: mdi:nas
+      #     # NAS
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_nas
+      #         ulm_card_navigate_title: NAS
+      #         ulm_card_navigate_icon: mdi:nas
 
-          # NAS
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_batteries
-              ulm_card_navigate_title: Batteries
-              ulm_card_navigate_icon: mdi:battery
+      #     # NAS
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_batteries
+      #         ulm_card_navigate_title: Batteries
+      #         ulm_card_navigate_icon: mdi:battery
 
-          # Tasmota
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_tasmota
-              ulm_card_navigate_title: Tasmota
-              ulm_card_navigate_icon: mdi:chip
+      #     # Tasmota
+      #     - type: custom:button-card
+      #       template: card_navigate
+      #       variables:
+      #         ulm_card_navigate_path: /lovelace/minimalist_tasmota
+      #         ulm_card_navigate_title: Tasmota
+      #         ulm_card_navigate_icon: mdi:chip
 
       - type: custom:button-card
         template: spacer

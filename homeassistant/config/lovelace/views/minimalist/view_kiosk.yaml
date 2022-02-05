@@ -1,5 +1,6 @@
 title: Kiosk
 path: kiosk
+visible: false
 icon: mdi:view-dashboard
 panel: true
     
@@ -71,7 +72,6 @@ cards:
                   ulm_card_person_entity: person.dmatik
                   ulm_card_person_use_entity_picture: true
                   ulm_card_person_zone1: zone.work
-                  #ulm_card_person_zone2: school
 
               # Galit
               - type: 'custom:button-card'
@@ -80,7 +80,20 @@ cards:
                   ulm_card_person_entity: person.galit
                   ulm_card_person_use_entity_picture: true
                   ulm_card_person_zone1: zone.work_2
-                  #ulm_card_person_zone2: school
+
+              # Ronen
+              - type: 'custom:button-card'
+                template: card_person
+                variables:
+                  ulm_card_person_entity: person.ronen
+                  ulm_card_person_use_entity_picture: true
+
+              # Kfir
+              - type: 'custom:button-card'
+                template: card_person
+                variables:
+                  ulm_card_person_entity: person.kfir
+                  ulm_card_person_use_entity_picture: true
 
 
 ############################################################################
@@ -150,6 +163,14 @@ cards:
                   ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
                 entity: switch.kids_radiator
                 name: Kids Radiator        
+
+              # Bedroom Radiator
+              - type: 'custom:button-card'
+                template: card_power_outlet
+                variables:
+                  ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
+                entity: switch.bedroom_radiator
+                name: Bed Radiator
 
 
           # Devices

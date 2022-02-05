@@ -30,22 +30,22 @@ cards:
           - type: 'custom:button-card'
             template: 'chip_back_new'
             variables:
-              ulm_chip_navigate_path: '/lovelace-minimalist/minimalist_home'
-
-          # Temperature Chip
-          - type: 'custom:button-card'
-            template: chip_icon_state
-            variables:
-              ulm_chip_icon_state_icon: '🌡️'
-              ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
+              ulm_chip_navigate_path: '/lovelace/minimalist_rooms'
 
           # # Temperature Chip
           # - type: 'custom:button-card'
-          #   template:
-          #     - 'chip_icon_label_state'
-          #   icon: 'mdi:thermometer'
+          #   template: chip_icon_state
           #   variables:
+          #     ulm_chip_icon_state_icon: '🌡️'
           #     ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
+
+          # Temperature Chip
+          - type: 'custom:button-card'
+            template:
+              - 'chip_icon_label_state'
+            icon: 'mdi:thermometer'
+            variables:
+              ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
 
 
 ############################################################################

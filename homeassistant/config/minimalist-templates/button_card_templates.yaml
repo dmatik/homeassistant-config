@@ -672,6 +672,7 @@ card_light_slider_horizontal:
             box-shadow: none;
           }
 card_power_outlet:
+  triggers_update: 'all'
   template:
     - "icon_info_bg"
     - "yellow"

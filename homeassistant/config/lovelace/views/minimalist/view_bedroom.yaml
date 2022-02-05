@@ -30,13 +30,21 @@ cards:
           - type: 'custom:button-card'
             template: chip_back_new
             variables:
-              ulm_chip_navigate_path: /lovelace-minimalist/minimalist_home
+              ulm_chip_navigate_path: /lovelace/minimalist_rooms
+
+          # # Temperature Chip
+          # - type: 'custom:button-card'
+          #   template: chip_icon_state
+          #   variables:
+          #     ulm_chip_icon_state_icon: '🌡️'
+          #     ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
 
           # Temperature Chip
           - type: 'custom:button-card'
-            template: chip_icon_state
+            template:
+              - 'chip_icon_label_state'
+            icon: 'mdi:thermometer'
             variables:
-              ulm_chip_icon_state_icon: '🌡️'
               ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
 
 
@@ -112,7 +120,15 @@ cards:
             template: 
               - card_light
             entity: switch.makeup
-            icon: mdi:string-lights              
+            icon: mdi:string-lights
+
+          # Bedroom Radiator
+          - type: 'custom:button-card'
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
+            entity: switch.bedroom_radiator
+            name: Bed Radiator
 
 
 

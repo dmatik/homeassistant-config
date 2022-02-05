@@ -6,9 +6,9 @@ sensor:
 #                                                                          #
 ############################################################################
 
-  - platform: version
-    name: HA Current Version
-    source: local
+  # - platform: version
+  #   name: HA Current Version
+  #   source: local
 
 
 
@@ -18,11 +18,11 @@ sensor:
 #                                                                          #
 ############################################################################
 
-  - platform: version
-    name: HA Available Version
-    source: container
-    image: default
-    beta: false
+  # - platform: version
+  #   name: HA Available Version
+  #   source: container
+  #   image: default
+  #   beta: false
 
 
 ############################################################################

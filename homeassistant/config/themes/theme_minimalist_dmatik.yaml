@@ -14,6 +14,10 @@ minimalist-dmatik:
 
   card-mod-more-info-yaml: |
         $: |
+              .mdc-dialog__scrim {
+                    backdrop-filter: blur(20px) brightness(70%);
+                    -webkit-backdrop-filter: blur(20px) brightness(70%);
+              }        
               .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
 
                     border-radius: 0px;
@@ -22,9 +26,10 @@ minimalist-dmatik:
 
   card-mod-root-yaml: |
         ha-tabs$: |
-              #tabsContent {
-                    width: 97%;
-              }
+            #tabsContent {
+                  width: 97%;
+                  height: 42px;
+            }
         .: |
               @media (orientation: portrait) {
                     a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
@@ -39,20 +44,22 @@ minimalist-dmatik:
                     top: auto !important;
                     bottom: 0 !important;
                     transform: unset !important;
-                    box-shadow: var(--footer-shadow);
-                    height: 80px;
+                    box-shadow: var(--footer-shadow) !important;
+                    height: var(--header-height) !important;
+                    background-color: var(--header-background-color) !important;
               }
               app-toolbar {
-                    transform: none;
-                    height: 48px;
-                    padding-bottom: 32px;
+                    transform: none !important;
+                    height: 42px !important;
+                    background-color: var(--header-background-color) !important;
               }
               #view {
-                    margin-top: -81px !important;
+                  min-height: 100% !important;
+                  margin-top: -76px !important;
               }
               ha-tabs {
-                    --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
-                    --mdc-icon-size: 26px;
+                  --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
+                  --mdc-icon-size: 28px;
               }
               paper-tab[aria-selected=true] {
                     color: var(--header-active-tab-color) !important;
@@ -74,10 +81,12 @@ minimalist-dmatik:
     light:
 
       # Header / Footer
-      header-active-tab-color: 'var(--primary-color)'
+      header-active-tab-color: '#3D5AFE'
       header-all-tabs-color: 'var(--paper-item-icon-color)'
       header-tab-indicator-color: 'rgba(0, 0, 0, 0)'
+      header-background-color: var( --ha-card-background, var(--card-background-color, white) )
       footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)
+      header-height: 78px
 
       # text
       primary-text-color: "#212121"
@@ -135,10 +144,12 @@ minimalist-dmatik:
     dark:
 
       # Header / Footer
-      header-active-tab-color: 'var(--paper-item-icon-color)'
+      header-active-tab-color: '#89B3F8'
       header-all-tabs-color: 'var(--paper-item-icon-color)'
       header-tab-indicator-color: 'rgba(0, 0, 0, 0)'
+      header-background-color: var( --ha-card-background, var(--card-background-color, white) )
       footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.2)
+      header-height: 80px
 
       # text
       primary-text-color: "#DDDDDD"

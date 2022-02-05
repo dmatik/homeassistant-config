@@ -205,6 +205,8 @@ group:
     entities:
       - person.dmatik
       - person.galit
+      - person.ronen
+      - person.kfir
 
 
 

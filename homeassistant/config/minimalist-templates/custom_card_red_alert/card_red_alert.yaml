@@ -1,11 +1,9 @@
 card_red_alert:
-  variables:
-    ulm_card_pc_entity: '[[[ return entity.entity_id ]]]'
   template:
     - 'icon_info_bg'
     - 'red'
     - 'ulm_language_variables'
-  entity: 'sensor.redalert'
+  entity: 'binary_sensor.redalert_all'
   icon: 'mdi:radio-tower'
   name: 'צבע אדום'
   label: |-

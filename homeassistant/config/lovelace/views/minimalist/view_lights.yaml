@@ -30,7 +30,7 @@ cards:
           - type: 'custom:button-card'
             template: chip_back_new
             variables:
-              ulm_chip_navigate_path: /lovelace-minimalist/minimalist_home
+              ulm_chip_navigate_path: /lovelace/minimalist_home
 
           # # Lights Chip
           # - type: 'custom:button-card'

@@ -21,6 +21,26 @@ switch:
     payload_not_available: "Offline"
     retain: false
 
+############################################################################
+#                                                                          #
+#   Bedroom Radiator                                                       #
+#                                                                          #
+############################################################################
+
+  - platform: mqtt 
+    unique_id: mqtt_bedroom_radiator 
+    name: "Bedroom Radiator"
+    icon: mdi:radiator
+    state_topic: "stat/bed_radiator/POWER"
+    #value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/bed_radiator/POWER"
+    availability_topic: "tele/bed_radiator/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: false
 
 ############################################################################
 #                                                                          #

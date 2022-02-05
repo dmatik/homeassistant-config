@@ -371,6 +371,48 @@ sensor:
 
 ############################################################################
 #                                                                          #
+#   Bedroom Radiator Power Socket                                          #
+#                                                                          #
+############################################################################
+
+  # Bedroom Radiator Power Socket Version
+  - platform: mqtt
+    name: "Tasmota Bedroom Radiator Power Socket Version"
+    state_topic: "stat/bed_radiator/STATUS2"
+    value_template: "{{value_json['StatusFWR'].Version }}"
+    availability_topic: "tele/bed_radiator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
+  # Bedroom Radiator Power Socket Uptime
+  - platform: mqtt
+    name: "Tasmota Bedroom Radiator Power Socket Uptime"
+    state_topic: "tele/bed_radiator/STATE"
+    value_template: >-
+      {% set uptime = value_json["Uptime"]  %}
+      {% set days  = uptime.split('T')[0] %}
+      {% set time  = uptime.split('T')[1] %}
+      {% set hours  = time.split(':')[0] %}
+      {% set mins  = time.split(':')[1] %}
+      {% set secs  = time.split(':')[2] %}
+      {{ days | int }}d {{ hours | int }}h {{ mins | int }}m {{ secs | int }}s
+
+  # Bedroom Radiator Power Socket Wi-Fi signal
+  - platform: mqtt
+    name: "Tasmota Bedroom Radiator Power Socket Wi-Fi Quality"
+    state_topic: "tele/bed_radiator/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json['Wifi'].RSSI }}"
+    availability_topic: "tele/bed_radiator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    device_class: signal_strength
+
+
+
+############################################################################
+#                                                                          #
 #   Makeup Power Socket                                                    #
 #                                                                          #
 ############################################################################

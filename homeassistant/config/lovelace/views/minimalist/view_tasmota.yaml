@@ -30,7 +30,7 @@ cards:
           - type: 'custom:button-card'
             template: chip_back_new
             variables:
-              ulm_chip_navigate_path: /lovelace-minimalist/minimalist_home
+              ulm_chip_navigate_path: /lovelace/minimalist_system
 
 
 ############################################################################
@@ -94,6 +94,22 @@ cards:
               ulm_card_tasmota_energy_today: 'sensor.mqtt_kids_radiator_energy_today'
               ulm_card_tasmota_power: 'sensor.mqtt_kids_radiator_power'
               ulm_card_tasmota_latest_voltage: 'sensor.mqtt_kids_radiator_voltage'
+
+          # Bedroom Radiator Socket
+          - type: 'custom:button-card'
+            template: card_tasmota_with_power
+            variables:
+              ulm_card_tasmota_entity: 'switch.bedroom_radiator'
+              ulm_card_tasmota_uptime: 'sensor.tasmota_bedroom_radiator_power_socket_uptime'
+              ulm_card_tasmota_wi_fi_quality: 'sensor.tasmota_bedroom_radiator_power_socket_wi_fi_quality'
+              ulm_card_tasmota_version: 'sensor.tasmota_bedroom_radiator_power_socket_version'
+              ulm_card_tasmota_icon: 'mdi:power-socket-eu'
+              ulm_card_tasmota_name: 'Bedroom Radiator'
+              ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+              ulm_card_tasmota_current: 'sensor.mqtt_bedroom_radiator_current'
+              ulm_card_tasmota_energy_today: 'sensor.mqtt_bedroom_radiator_energy_today'
+              ulm_card_tasmota_power: 'sensor.mqtt_bedroom_radiator_power'
+              ulm_card_tasmota_latest_voltage: 'sensor.mqtt_bedroom_radiator_voltage'
 
           # Makeup Socket
           - type: 'custom:button-card'
