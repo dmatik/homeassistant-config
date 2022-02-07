@@ -107,6 +107,7 @@ cards:
                   - climate.kids_room
                   - climate.living_room
                   - switch.kids_radiator
+                  - switch.bedroom_radiator
               - name: "Scenes"
                 icon: "hass:palette"
                 include:
