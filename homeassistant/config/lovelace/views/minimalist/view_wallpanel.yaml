@@ -57,129 +57,16 @@ cards:
               grid-template-columns: 1fr
         cards:
 
-          # Page
+          # Kitchen Fully
           - type: 'custom:button-card'
-            template: card_generic_swap
-            entity: sensor.fully_device_info
-            label: '[[[ return entity.attributes.currentPage ]]]'
-            name: Page
-            icon: mdi:application
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 4px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # App Version
-          - type: 'custom:button-card'
-            template: card_generic_swap
-            entity: sensor.fully_device_info
-            label: '[[[ return entity.attributes.appVersionName ]]]'
-            name: App Version
-            icon: mdi:clipboard-list
-
-          # WiFi Signal Level
-          - type: 'custom:button-card'
-            template: card_generic_swap
-            entity: sensor.fully_device_info
-            label: '[[[ return entity.attributes.wifiSignalLevel ]]]'
-            name: WiFi Signal
-            icon: mdi:signal-variant
-
-          # Battery level
-          - type: 'custom:button-card'
-            template: card_generic_swap
-            entity: sensor.fully_device_info
-            label: '[[[ return entity.attributes.batteryLevel ]]]'
-            name: Battery Level
-            icon: mdi:battery
-
-          # Plugged
-          - type: 'custom:button-card'
-            template: card_generic_swap
-            entity: sensor.fully_device_info
-            label: '[[[ return entity.attributes.plugged ]]]'
-            name: Plugged
-            icon: mdi:battery-charging-100
-
-          # IP
-          - type: 'custom:button-card'
-            template: card_generic_swap
-            entity: sensor.fully_device_info
-            label: '[[[ return entity.attributes.ip4 ]]]'
-            name: IP
-            icon: mdi:network
-
-
-############################################################################
-#                                                                          #
-#   Commands                                                               #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Commands
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 4px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Reload URL
-          - type: 'custom:button-card'
-            template: card_script
-            variables: 
-              ulm_card_script_title: Reload URL
-              ulm_card_script_icon: 'mdi:reload'
-            tap_action: 
-              action: call-service
-              service: rest_command.fully_load_url
-
-          # Disable Kiosk
-          - type: 'custom:button-card'
-            template: card_script
-            variables: 
-              ulm_card_script_title: Disable Kiosk
-              ulm_card_script_icon: 'mdi:view-dashboard-outline'
-            tap_action: 
-              action: call-service
-              service: rest_command.fully_disable_kiosk_mode
-
-          # Restart App
-          - type: 'custom:button-card'
-            template: card_script
-            variables: 
-              ulm_card_script_title: Restart App
-              ulm_card_script_icon: 'mdi:restart'
-            tap_action: 
-              action: call-service
-              service: rest_command.fully_restart_app
-
-          # Clear Cache
-          - type: 'custom:button-card'
-            template: card_script
-            variables: 
-              ulm_card_script_title: Clear Cache
-              ulm_card_script_icon: 'mdi:broom'
-            tap_action: 
-              action: call-service
-              service: rest_command.fully_clear_cache
+            template: card_fully
+            variables:
+              ulm_card_fully_entity: 'sensor.fully_device_info'
+              ulm_card_fully_name: 'Kitchen Fully'
+              ulm_card_fully_reload_url_command: 'rest_command.fully_load_url'
+              ulm_card_fully_disable_kiosk_command: 'rest_command.fully_disable_kiosk_mode'
+              ulm_card_fully_restart_app_command: 'rest_command.fully_restart_app'
+              ulm_card_fully_clear_cache_command: 'rest_command.fully_clear_cache'
 
 
 

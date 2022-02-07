@@ -118,8 +118,8 @@ widget_text:
 
 
 list_info_items_3_lines:
-  tap_action:
-    action: "none"
+  # tap_action:
+  #   action: "none"
   show_icon: false
   show_name: false
   show_label: false  
@@ -134,8 +134,8 @@ list_info_items_3_lines:
       - padding: "0px"
 
 list_info_items_7_lines:
-  tap_action:
-    action: "none"
+  # tap_action:
+  #   action: "none"
   show_icon: false
   show_name: false
   show_label: false  
@@ -143,7 +143,7 @@ list_info_items_7_lines:
     grid:
       - grid-template-areas: "'item1' 'item2' 'item3' 'item4' 'item5' 'item6' 'item7'"
       - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content min-content min-content min-content min-content min-content"
+      - grid-template-rows: "min-content min-content min-content min-content min-content min-content min-content"
       #- column-gap: "0px"
     card:
       - box-shadow: "none"
