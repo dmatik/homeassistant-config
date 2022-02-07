@@ -243,7 +243,7 @@ card_tasmota_devices_outdated:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "24px"
+            - left: "30px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
@@ -252,8 +252,12 @@ card_tasmota_devices_outdated:
             - line-height: "14px"
             - background-color: >
                 [[[
-                  return "rgba(var(--color-blue),1)";
+                  return "rgba(var(--color-green),1)";
                 ]]]
+        icon:
+          - color: 'rgba(var(--color-green),1)'
+        img_cell:
+          - background-color: 'rgba(var(--color-green), 0.2)'
   name: >
     [[[
       if ( states[variables.ulm_card_tasmota_latest_version].state == "" )
@@ -272,7 +276,7 @@ card_tasmota_devices_outdated:
     notification: >
       [[[
         if ( entity.state =="unavailable" || entity.state > 0 ){
-          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+          return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
         }
       ]]]
 
@@ -289,7 +293,7 @@ card_tasmota_outdated:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "24px"
+            - left: "30px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
@@ -298,13 +302,17 @@ card_tasmota_outdated:
             - line-height: "14px"
             - background-color: >
                 [[[
-                  return "rgba(var(--color-blue),1)";
+                  return "rgba(var(--color-green),1)";
                 ]]]
+        icon:
+          - color: 'rgba(var(--color-green),1)'
+        img_cell:
+          - background-color: 'rgba(var(--color-green), 0.2)'
   custom_fields:
     notification: >
       [[[
         if ( entity.state =="unavailable" || 
               states[variables.ulm_card_tasmota_latest_version].state.split('v')[1] != states[variables.ulm_card_tasmota_version].state.split('(')[0] ) {
-          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+          return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
         }
       ]]]

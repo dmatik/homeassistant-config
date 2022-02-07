@@ -84,7 +84,7 @@ ac_text_info:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "24px"
+            - left: "30px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"

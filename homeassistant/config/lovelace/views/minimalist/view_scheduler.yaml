@@ -116,7 +116,7 @@ cards:
                   - scene.red_alert_lights            
 
 
-      # - type: custom:button-card
-      #   template: spacer
-      #   variables:
-      #     height: 100px
+      - type: custom:button-card
+        template: spacer
+        variables:
+          height: 100px

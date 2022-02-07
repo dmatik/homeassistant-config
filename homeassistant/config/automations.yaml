@@ -252,7 +252,10 @@
     entity_id: group.home_residents
     from: home
     to: not_home
-    for: 'minutes: 20'
+    for:
+      hours: 0
+      minutes: 20
+      seconds: 0
   condition: []
   action:
   - service: notify.mobile_app_iphonedima

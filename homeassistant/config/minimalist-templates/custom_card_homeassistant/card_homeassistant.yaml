@@ -29,7 +29,15 @@ card_homeassistant:
           action: "none"
         entity: "[[[ return variables.ulm_card_homeassistant_entity ]]]"
         name: "[[[ return states[variables.ulm_card_homeassistant_curr_version].state ]]]"
-        label: "[[[ return 'Latest: ' + states[variables.ulm_card_homeassistant_latest_version].state ]]]"
+        #label: "[[[ return 'Latest: ' + states[variables.ulm_card_homeassistant_latest_version].state ]]]"
+        label: |-
+          [[[
+              var latest_version = states[variables.ulm_card_homeassistant_latest_version].state;
+              if (latest_version == 'unavailable') {
+                var latest_version = '--';
+              }
+              return 'Latest: ' + latest_version;
+          ]]]
         styles:
           icon:
             - color: "rgba(var(--color-theme),0.9)"
@@ -65,7 +73,7 @@ new_version_available:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "24px"
+            - left: "30px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
@@ -74,12 +82,16 @@ new_version_available:
             - line-height: "14px"
             - background-color: >
                 [[[
-                  return "rgba(var(--color-blue),1)";
+                  return "rgba(var(--color-green),1)";
                 ]]]
+        icon:
+          - color: 'rgba(var(--color-green),1)'
+        img_cell:
+          - background-color: 'rgba(var(--color-green), 0.2)'
   custom_fields:
     notification: >
       [[[
         if ( entity.state =="unavailable" || entity.state =="on" ){
-          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+          return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
         }
       ]]]

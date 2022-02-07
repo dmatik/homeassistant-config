@@ -1041,8 +1041,8 @@ card_person:
       notification:
         - border-radius: "50%"
         - position: "absolute"
-        - left: "38px"
-        - top: "8px"
+        - left: "43px"
+        - top: "10px"
         - height: "16px"
         - width: "16px"
         - border: "2px solid var(--card-background-color)"
@@ -1442,7 +1442,7 @@ icon:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "24px"
+            - left: "30px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
@@ -1524,7 +1524,7 @@ icon_info:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "24px"
+            - left: "30px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
