@@ -28,7 +28,7 @@ minimalist-dmatik:
         ha-tabs$: |
             #tabsContent {
                   width: 97%;
-                  height: 42px;
+                  height: 44px;
             }
         .: |
               @media (orientation: portrait) {
@@ -50,12 +50,12 @@ minimalist-dmatik:
               }
               app-toolbar {
                     transform: none !important;
-                    height: 42px !important;
+                    height: 44px !important;
                     background-color: var(--header-background-color) !important;
               }
               #view {
                   min-height: 100% !important;
-                  margin-top: -76px !important;
+                  margin-top: -70px !important;
               }
               ha-tabs {
                   --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
@@ -125,7 +125,7 @@ minimalist-dmatik:
       secondary-background-color: "#EFEFEF"
       # header
       app-header-text-color: "var(--primary-text-color)"
-      app-header-background-color: "var(--primary-background-color)"
+      app-header-background-color: var(--header-background-color) #"var(--primary-background-color)"
       # paper-tabs-selection-bar-color: "var(--primary-text-color)"
       # slider
       slider-color: "rgb(var(--color-blue))"
@@ -190,7 +190,7 @@ minimalist-dmatik:
       secondary-background-color: "#121212"
       # header
       app-header-text-color: "var(--primary-text-color)"
-      app-header-background-color: "var(--primary-background-color)"
+      app-header-background-color: var(--header-background-color) #"var(--primary-background-color)"
       paper-tabs-selection-bar-color: "var(--primary-text-color)"
       # Sidebar
       sidebar-selected-text-color: "rgb(var(--color-blue))"
