@@ -55,7 +55,7 @@ browser_mod:
 
 lovelace:
   mode: yaml
-  resources: !include /config/lovelace/resources.yaml
+  resources: !include /config/resources.yaml
   dashboards:
     # lovelace-system:
     #   mode: yaml

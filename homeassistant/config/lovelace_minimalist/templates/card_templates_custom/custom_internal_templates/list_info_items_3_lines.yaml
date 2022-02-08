@@ -1,0 +1,15 @@
+list_info_items_3_lines:
+  # tap_action:
+  #   action: "none"
+  show_icon: false
+  show_name: false
+  show_label: false  
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2' 'item3'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content min-content min-content"
+      #- column-gap: "0px"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"

@@ -1,0 +1,8 @@
+popup_button_red:
+  state:
+    - value: 'on'
+      styles:
+        icon:
+          - color: "rgba(var(--color-red),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-red), 0.2)"

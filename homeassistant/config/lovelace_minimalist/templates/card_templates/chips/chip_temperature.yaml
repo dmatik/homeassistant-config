@@ -1,0 +1,60 @@
+---
+### CHANGED ###
+
+### Chip Temperature ###
+chip_temperature:
+  template: "chips"
+  triggers_update: "all"
+  label: |
+    [[[
+      var icon = "🌡️";
+      var weather_state = states[variables.ulm_chip_temperature_weather].state;
+      if (weather_state == "clear-night"){
+        var icon = "🌙";
+      } else if(weather_state == "cloudy"){
+        var icon = "☁️";
+      } else if(weather_state == "exceptional"){
+        var icon = "🌞";
+      } else if(weather_state == "fog"){
+        var icon = "🌫️";
+      } else if(weather_state == "hail"){
+        var icon = "⛈️";
+      } else if(weather_state == "lightning"){
+        var icon = "⚡";
+      } else if(weather_state == "lightning-rainy"){
+        var icon = "⛈️";
+      } else if(weather_state == "partlycloudy"){
+        var icon = "⛅";
+      } else if(weather_state == "pouring"){
+        var icon = "🌧️";
+      } else if(weather_state == "rainy"){
+        var icon = "💧";
+      } else if(weather_state == "snowy"){
+        var icon = "❄️";
+      } else if(weather_state == "snowy-rainy"){
+        var icon = "🌨️";
+      } else if(weather_state == "sunny"){
+        var icon = "☀️";
+      } else if(weather_state == "windy"){
+        var icon = "🌪️";
+      }
+      function convertTemperature(temp) {
+        if (parseFloat(temp) == temp && Math.floor(temp) != temp) {
+            return parseFloat(temp).toFixed(1);
+        }
+        return temp;
+      }
+      var outside_temp = states[variables.ulm_chip_temperature_outside].state;
+      if (outside_temp == null || outside_temp == "unknown" || outside_temp == "unavailable") {
+        var outside_temp = '--';
+      } else {
+        outside_temp = convertTemperature(outside_temp);
+      }
+      var inside_temp = states[variables.ulm_chip_temperature_inside].state;
+      if (inside_temp == null || inside_temp == "unknown" || inside_temp == "unavailable") {
+        var inside_temp = '--';
+      } else {
+        inside_temp = convertTemperature(inside_temp);
+      }
+      return icon + " " + outside_temp + "° / " + inside_temp + "°" ;
+    ]]]

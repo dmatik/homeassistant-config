@@ -1,0 +1,20 @@
+widget_text:
+  tap_action:
+    action: "toggle"
+  show_icon: false
+  show_name: true
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'n'"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "14px"
+      - place-self: "center"
+      - height: "42px"
+    name:
+      - color: "rgba(var(--color-theme),0.9)"
+  size: "20px"
+  color: "var(--google-grey)"

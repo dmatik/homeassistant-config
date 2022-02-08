@@ -1,0 +1,38 @@
+widget_text_info:
+  tap_action:
+    action: "none"
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'item1 item2'"
+      - grid-template-columns: "1fr 1fr"
+      - grid-template-rows: "max-content"
+    card:
+      - box-shadow: "none"
+      - padding: "0px 8px"
+      - background-color: "none"
+      - place-self: "center"
+      #- height: "22px"
+    custom_fields:
+      item1:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - height: "20px"
+        - justify-self: "start"
+        - font-weight: "bolder"
+        - font-size: "12px"
+        - filter: "opacity(60%)"
+        - margin-left: "2px"
+      item2:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - height: "20px"
+        - justify-self: "end"
+        - font-weight: "bolder"
+        - font-size: "12px"
+        - filter: "opacity(80%)"
+        - margin-right: "2px"
