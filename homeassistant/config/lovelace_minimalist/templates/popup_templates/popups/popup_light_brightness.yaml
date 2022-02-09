@@ -1,4 +1,6 @@
 ---
+### CHANGED ###
+
 popup_light_brightness:
   styles:
     grid:
@@ -102,7 +104,11 @@ popup_light_brightness:
     header:
       card:
         type: "custom:button-card"
-        template: "popup_header"
+        template: 
+          - "popup_header"
+          - "popup_header_light_colors"
+        variables:
+          ulm_popup_light_entity: "[[[ return variables.ulm_popup_light_entity ]]]"
         entity: "[[[ return variables.ulm_popup_light_entity ]]]"
     content1:
       card:

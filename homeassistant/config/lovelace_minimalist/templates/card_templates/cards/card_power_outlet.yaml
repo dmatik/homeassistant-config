@@ -1,9 +1,6 @@
 ---
-### CHANGED ###
-
 ### Card Power Outlet ###
 card_power_outlet:
-  triggers_update: 'all'
   template:
     - "icon_info_bg"
     - "yellow"

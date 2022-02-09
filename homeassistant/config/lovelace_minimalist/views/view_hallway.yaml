@@ -68,19 +68,18 @@ cards:
 
           # Hallway Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.hallway
             name: Hallway
 
           # Gateway Light
           - type: 'custom:button-card'
-            template: 
-              - card_light_color
-              - popup_light
+            template: 'card_light_simple'
             entity: light.xiaomi_gateway_servers
+            name: Gateway
             variables:
-              ulm_card_light_name: Gateway
+              ulm_card_light_enable_color: true
+              ulm_card_light_enable_popup: true
 
 
 

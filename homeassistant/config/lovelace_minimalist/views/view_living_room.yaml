@@ -82,14 +82,12 @@ cards:
 
           # Living Room Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.living_room
 
           # Dining Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.dining
 
           # Living Room AC
@@ -130,14 +128,12 @@ cards:
 
           # Balcony Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.balcony
 
           # Entrance Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.entrance
 
 

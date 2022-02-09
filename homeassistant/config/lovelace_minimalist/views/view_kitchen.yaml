@@ -68,19 +68,18 @@ cards:
 
           # Kitchen Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.kitchen
 
           # Kitchen Strips Light
           - type: 'custom:button-card'
-            template: 
-              - card_light_color
-              - popup_light
+            template: 'card_light_simple'
             entity: light.kitchen_strips
+            name: Strips
+            icon: 'mdi:led-strip-variant'
             variables:
-              ulm_card_light_icon: 'mdi:led-strip-variant'
-              ulm_card_light_name: Strips
+              ulm_card_light_enable_color: true
+              ulm_card_light_enable_popup: true
 
           # Switcher
           - type: 'custom:button-card'
@@ -96,8 +95,7 @@ cards:
 
           # Service Balcony Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.service_balcony
             name: S. Balcony
 

@@ -1,0 +1,30 @@
+popup_header_light_colors:
+  styles:
+    icon:
+      - color: >
+          [[[
+              var color = states[variables.ulm_popup_light_entity].attributes.rgb_color;
+              if (states[variables.ulm_popup_light_entity].state != "on"){
+                return 'rgba(var(--color-theme),0.2)';
+              }
+              else if (color){
+                return 'rgba(' + color + ',1)'
+              }
+              else{
+                return 'rgba(var(--color-yellow),1)'
+              }
+          ]]]
+    img_cell:
+      - background-color: >
+          [[[
+              var color = states[variables.ulm_popup_light_entity].attributes.rgb_color;
+              if (states[variables.ulm_popup_light_entity].state != "on"){
+                return 'rgba(var(--color-theme),0.05)';
+              }
+              else if (color){
+                return 'rgba(' + color + ',0.2)';
+              }
+              else{
+                return 'rgba(var(--color-yellow),0.2)';
+              }
+          ]]]

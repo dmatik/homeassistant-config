@@ -83,8 +83,7 @@ cards:
 
           # Kids Room Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.kids_room
             name: Kids Room
 

@@ -1,4 +1,6 @@
 ---
+### CHANGED ###
+
 ### Card Light ###
 card_light:
   template:
@@ -35,24 +37,24 @@ card_light:
         template: "popup_light_brightness"
         variables:
           ulm_popup_light_entity: "[[[ return entity.entity_id ]]]"
-  state:
-    - value: "on"
-      styles:
-        card:
-          - background-color: >-
-              [[[
-                  var color = entity.attributes.rgb_color;
-                  if (variables.ulm_card_light_enable_color == true){
-                    if(variables.ulm_card_light_force_background_color == true || hass.themes.darkMode){
-                      if (color){
-                        return 'rgba(' + color + ',0.1)'
-                      } else {
-                        return 'rgba(var(--color-yellow-text),0.1)'
-                      }
-                    }
-                  }
-                  return 'rgba(var(--color-background-yellow),var(--opacity-bg))';
-              ]]]
+  # state:
+  #   - value: "on"
+  #     styles:
+  #       card:
+  #         - background-color: >-
+  #             [[[
+  #                 var color = entity.attributes.rgb_color;
+  #                 if (variables.ulm_card_light_enable_color == true){
+  #                   if(variables.ulm_card_light_force_background_color == true || hass.themes.darkMode){
+  #                     if (color){
+  #                       return 'rgba(' + color + ',0.1)'
+  #                     } else {
+  #                       return 'rgba(var(--color-yellow-text),0.1)'
+  #                     }
+  #                   }
+  #                 }
+  #                 return 'rgba(var(--color-background-yellow),var(--opacity-bg))';
+  #             ]]]
   styles:
     grid:
       - grid-template-areas: >
@@ -209,39 +211,39 @@ card_light:
                     return variables.ulm_unavailable;
                   }
                 ]]]
-              state:
-                - value: "on"
-                  styles:
-                    name:
-                      - color: >-
-                          [[[
-                              var color = entity.attributes.rgb_color;
-                              if (variables.ulm_card_light_enable_color == true){
-                                if(variables.ulm_card_light_force_background_color == true || hass.themes.darkMode){
-                                  if (color){
-                                    return 'rgba(' + color + ',1)'
-                                  } else {
-                                    return 'rgba(var(--color-yellow-text),1)'
-                                  }
-                                }
-                              }
-                              return 'rgba(var(--color-yellow-text),1)'
-                          ]]]
-                    label:
-                      - color: >-
-                          [[[
-                              var color = entity.attributes.rgb_color;
-                              if (variables.ulm_card_light_enable_color == true){
-                                if(variables.ulm_card_light_force_background_color == true || hass.themes.darkMode){
-                                  if (color){
-                                    return 'rgba(' + color + ',1)'
-                                  } else {
-                                    return 'rgba(var(--color-yellow-text),1)'
-                                  }
-                                }
-                              }
-                              return 'rgba(var(--color-yellow-text),1)'
-                          ]]]
+              # state:
+              #   - value: "on"
+              #     styles:
+              #       name:
+              #         - color: >-
+              #             [[[
+              #                 var color = entity.attributes.rgb_color;
+              #                 if (variables.ulm_card_light_enable_color == true){
+              #                   if(variables.ulm_card_light_force_background_color == true || hass.themes.darkMode){
+              #                     if (color){
+              #                       return 'rgba(' + color + ',1)'
+              #                     } else {
+              #                       return 'rgba(var(--color-yellow-text),1)'
+              #                     }
+              #                   }
+              #                 }
+              #                 return 'rgba(var(--color-yellow-text),1)'
+              #             ]]]
+              #       label:
+              #         - color: >-
+              #             [[[
+              #                 var color = entity.attributes.rgb_color;
+              #                 if (variables.ulm_card_light_enable_color == true){
+              #                   if(variables.ulm_card_light_force_background_color == true || hass.themes.darkMode){
+              #                     if (color){
+              #                       return 'rgba(' + color + ',1)'
+              #                     } else {
+              #                       return 'rgba(var(--color-yellow-text),1)'
+              #                     }
+              #                   }
+              #                 }
+              #                 return 'rgba(var(--color-yellow-text),1)'
+              #             ]]]
     item2:
       card:
         type: "custom:my-slider"

@@ -254,55 +254,48 @@ cards:
 
               # Living Room Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.living_room
 
               # Dining Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.dining
 
               # Balcony Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.balcony
 
               # Entrance Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.entrance
 
               # Kitchen Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.kitchen
 
               # Kitchen Strips Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light_color
-                  - popup_light
+                template: 'card_light_simple'
                 entity: light.kitchen_strips
+                name: Strips
+                icon: 'mdi:led-strip-variant'
                 variables:
-                  ulm_card_light_icon: 'mdi:led-strip-variant'
-                  ulm_card_light_name: Strips      
+                  ulm_card_light_enable_color: true
+                  ulm_card_light_enable_popup: true
 
               # Service Balcony Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.service_balcony
                 name: S. Balcony
 
               # Hallway Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.hallway
                 name: Hallway
 
@@ -328,47 +321,43 @@ cards:
 
               # Bedroom Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.bedroom
 
               # Makeup Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: switch.makeup
                 icon: mdi:string-lights  
 
               # Bedside Dima Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light_color
-                  - popup_light
+                template: 'card_light_simple'
                 entity: light.bedside_dima
+                name: Dima
+                icon: 'mdi:lamp'
                 variables:
-                  ulm_card_light_icon: 'mdi:lamp'
-                  ulm_card_light_name: Dima
+                  ulm_card_light_enable_color: true
+                  ulm_card_light_enable_popup: true
 
               # Bedside Galit Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light_color
-                  - popup_light
+                template: 'card_light_simple'
                 entity: light.bedside_galit
+                name: Galit
+                icon: 'mdi:lamp'
                 variables:
-                  ulm_card_light_icon: 'mdi:lamp'
-                  ulm_card_light_name: Galit
+                  ulm_card_light_enable_color: true
+                  ulm_card_light_enable_popup: true
 
               # Kids Room Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.kids_room
                 name: Kids Room
 
               # Work Room Light
               - type: 'custom:button-card'
-                template: 
-                  - card_light
+                template: 'card_light_simple'
                 entity: light.work_room
                 name: Work Room

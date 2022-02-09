@@ -19,6 +19,7 @@ card_light_color:
       - background-color:
   tap_action:
     action: "toggle"
+
 ### horizontal slider
 card_light_horizontal_color:
   template:
@@ -94,6 +95,7 @@ card_light_horizontal_color:
             border-radius: 14px;
             box-shadow: none;
           }
+
 ### slider card
 card_light_slider_color:
   template:
@@ -167,6 +169,7 @@ card_light_slider_color:
             border-radius: 14px;
             box-shadow: none;
           }
+
 ### slider collapse card
 card_light_slider_collapse_color:
   template:
@@ -245,6 +248,7 @@ card_light_slider_collapse_color:
               box-shadow: none;
               margin-top: 12px;
             }
+
 ### internal templates
 auto_color:
   state:
@@ -272,6 +276,7 @@ auto_color:
                     return 'rgba(var(--color-yellow),0.2)';
                   }
               ]]]
+
 icon_info_light:
   template:
     - "list_items_light_color"
@@ -413,6 +418,7 @@ icon_info_light:
               return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
             }
           ]]]
+
 list_items_light_color:
   styles:
     card:

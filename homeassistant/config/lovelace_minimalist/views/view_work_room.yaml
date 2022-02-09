@@ -83,8 +83,7 @@ cards:
 
           # Work Room Light
           - type: 'custom:button-card'
-            template: 
-              - card_light
+            template: 'card_light_simple'
             entity: light.work_room
             name: Work Room
 
