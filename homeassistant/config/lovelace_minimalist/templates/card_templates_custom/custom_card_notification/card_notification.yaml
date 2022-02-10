@@ -1,0 +1,56 @@
+card_notification_update:
+  variables:
+    card_notification_sensor: ""
+    card_notification_app: ""
+    card_notification_version_sensor: ""
+    card_notification_navigate_path: ""
+  show_icon: true
+  show_label: false
+  show_name: true
+  styles:     
+    grid:
+      - grid-template-areas: "'i n'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content"  
+    card:
+      - background-color: "rgba(0,0,0,0)"
+      - box-shadow: "none"
+      - height: "auto"
+      - width: "auto"
+      - margin-top: "8px"
+      - margin-left: "11px"
+      - margin-bottom: "0px"
+      - color: "rgba(var(--color-blue),1)"
+      - padding: 0
+      - display: |
+          [[[
+            if ( states[variables.card_notification_sensor].state == "on" ) {
+              return "block";
+            } else {
+              return "none";
+            }
+          ]]]
+    img_cell:
+      - background-color: "rgba(var(--color-blue),1)"
+      - border-radius: "50%"
+      - place-self: "center"
+      - width: "18px"
+      - height: "18px"
+    icon:
+      - color: "var(--primary-background-color)"
+      - width: "14px"
+      - height: "14px"
+      - display: flex
+      - justify-content: center
+      - align-items: center
+    name:
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "14px"
+      - margin-left: "8px"
+  icon: "mdi:party-popper"
+  name: |
+    [[[ return "New " + variables.card_notification_app + " version " + states[variables.card_notification_version_sensor].state + " available" ]]]
+  tap_action:
+    action: 'navigate'
+    navigation_path: '[[[ return variables.card_notification_navigate_path; ]]]'
