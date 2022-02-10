@@ -28,6 +28,11 @@
         topic: "cmnd/tasmotas/power0"
         payload: ""
 
+    # Wake up Xiaomy Gateway light
+    - service: light.turn_off 
+      data:
+        entity_id: "light.xiaomi_gateway_servers"
+
     # Fully Load URL
     - service: rest_command.fully_load_url   
 
