@@ -1,0 +1,27 @@
+card_image:
+  variables:
+    card_image_image: ""
+  show_icon: true
+  show_label: false
+  show_name: false
+  show_entity_picture: true
+  aspect_ratio: 1/1
+  entity_picture: "[[[ return variables.card_image_image ]]]"
+  styles:
+    icon:
+      - width: "100%"
+      - height: "100%"      
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "auto"
+      - grid-template-rows: "auto"  
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "10%"
+    img_cell:
+      - border-radius: 8px
+      - width: "100%"
+      - height: "100%"
+  tap_action:
+    action: none

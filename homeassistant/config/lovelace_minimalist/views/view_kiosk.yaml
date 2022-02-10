@@ -95,6 +95,12 @@ cards:
                   ulm_card_person_entity: person.kfir
                   ulm_card_person_use_entity_picture: true
 
+              # # WiFi
+              # - type: 'custom:button-card'
+              #   template: card_image
+              #   variables: 
+              #     card_image_image: '/local/images/wifi_guest.png'
+
 
 ############################################################################
 #                                                                          #
