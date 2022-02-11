@@ -77,17 +77,50 @@ cards:
 #                                                                          #
 ############################################################################
 
-      - type: horizontal-stack
-        cards:
+      # HA Updates
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.ha_update_available
+            state: "on"
+        card:
+          type: 'custom:button-card'
+          template: 'card_notification_version'
+          variables:
+            card_notification_sensor: "binary_sensor.ha_update_available"
+            card_notification_app: "HA"
+            card_notification_version_sensor: "sensor.ha_available_version"
+            card_notification_navigate_path: "/lovelace/minimalist_homeassistant"
+            card_notification_icon: "mdi:party-popper"
 
-          # HA Updates
-          - type: 'custom:button-card'
-            template: 'card_notification_update'
-            variables:
-              card_notification_sensor: "binary_sensor.ha_update_available"
-              card_notification_app: "HA"
-              card_notification_version_sensor: "sensor.ha_available_version"
-              card_notification_navigate_path: "/lovelace/minimalist_homeassistant"
+
+      # Tasmota Versions
+      - type: conditional
+        conditions:
+          - entity: sensor.number_of_tasmota_versions_old
+            state_not: "0"
+        card:
+          type: 'custom:button-card'
+          template: 'card_notification_tasmota'
+          variables:
+            card_notification_sensor: "sensor.number_of_tasmota_versions_old"
+            card_notification_navigate_path: "/lovelace/minimalist_tasmota"
+            card_notification_icon: "mdi:chip"
+
+      # HACS Updates
+      - type: conditional
+        conditions:
+          - entity: sensor.hacs
+            state_not: "0"
+        card:
+          type: 'custom:button-card'
+          template: 'card_notification_count'
+          variables:
+            card_notification_sensor: "sensor.hacs"
+            card_notification_app: "HACS"
+            card_notification_navigate_path: "/hacs"
+            card_notification_icon: "hacs:hacs"
+
+
 
 ############################################################################
 #                                                                          #

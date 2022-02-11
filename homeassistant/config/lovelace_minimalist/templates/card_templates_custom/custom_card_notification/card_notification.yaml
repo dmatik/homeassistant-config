@@ -1,9 +1,10 @@
-card_notification_update:
+card_notification:
   variables:
     card_notification_sensor: ""
     card_notification_app: ""
     card_notification_version_sensor: ""
     card_notification_navigate_path: ""
+    card_notification_icon: ""
   show_icon: true
   show_label: false
   show_name: true
@@ -22,14 +23,6 @@ card_notification_update:
       - margin-bottom: "0px"
       - color: "rgba(var(--color-blue),1)"
       - padding: 0
-      - display: |
-          [[[
-            if ( states[variables.card_notification_sensor].state == "on" ) {
-              return "block";
-            } else {
-              return "none";
-            }
-          ]]]
     img_cell:
       - background-color: "rgba(var(--color-blue),1)"
       - border-radius: "50%"
@@ -48,9 +41,60 @@ card_notification_update:
       - font-weight: "bold"
       - font-size: "14px"
       - margin-left: "8px"
-  icon: "mdi:party-popper"
-  name: |
-    [[[ return "New " + variables.card_notification_app + " version " + states[variables.card_notification_version_sensor].state + " available" ]]]
+  icon: '[[[ return variables.card_notification_icon; ]]]'
   tap_action:
     action: 'navigate'
     navigation_path: '[[[ return variables.card_notification_navigate_path; ]]]'
+
+
+card_notification_version:
+  template:
+    - "card_notification"
+  # styles:     
+  #   card:
+  #     - display: |
+  #         [[[
+  #           if ( states[variables.card_notification_sensor].state == "on" ) {
+  #             return "block";
+  #           } else {
+  #             return "none";
+  #           }
+  #         ]]]
+  name: |
+    [[[ return "New " + variables.card_notification_app + " version " + states[variables.card_notification_version_sensor].state + " available" ]]]
+
+
+card_notification_tasmota:
+  template:
+    - "card_notification"
+  # styles:     
+  #   card:
+  #     - display: |
+  #         [[[
+  #           if ( states[variables.card_notification_sensor].state > 0 ) {
+  #             return "block";
+  #           } else {
+  #             return "none";
+  #           }
+  #         ]]]
+  name: |
+    [[[ return states[variables.card_notification_sensor].state + " Tasmota device(s) outdated" ]]]
+
+
+card_notification_count:
+  template:
+    - "card_notification"
+  # styles:     
+  #   card:
+  #     - display: |
+  #         [[[
+  #           if ( states[variables.card_notification_sensor].state > 0 ) {
+  #             return "block";
+  #           } else {
+  #             return "none";
+  #           }
+  #         ]]]
+  name: |
+    [[[ 
+      return variables.card_notification_app + " has " + states[variables.card_notification_sensor].state + " pending update(s)" 
+    ]]]
