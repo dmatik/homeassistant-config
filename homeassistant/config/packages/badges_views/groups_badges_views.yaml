@@ -232,3 +232,18 @@ group:
       - sensor.tasmota_makeup_power_socket_version
       - sensor.tasmota_bedside_dima_bulb_version
       - sensor.tasmota_bedside_galit_bulb_version
+
+############################################################################
+#                                                                          #
+#   All Notification Entities                                              #
+#                                                                          #
+############################################################################
+
+  all_notification_entities:
+    name: All Notification Versions
+    entities:
+      - binary_sensor.ha_update_available
+      - sensor.number_of_tasmota_versions_old
+      - sensor.hacs
+      - binary_sensor.zeg_update_available
+      - binary_sensor.blaze_update_available

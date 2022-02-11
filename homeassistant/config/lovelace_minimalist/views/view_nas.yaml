@@ -62,7 +62,7 @@ cards:
             template: card_nas_dima
             entity: sensor.fully_device_info
             variables:
-              ulm_card_nas_name: 'blaze'
+              ulm_card_nas_name: 'BLAZE'
               ulm_card_nas_entity: 'binary_sensor.blaze_update_available'
               ulm_card_nas_label: 'DS216j'
               ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1'
@@ -74,7 +74,7 @@ cards:
             template: card_nas_dima
             entity: sensor.fully_device_info
             variables:
-              ulm_card_nas_name: 'zeg'
+              ulm_card_nas_name: 'ZEG'
               ulm_card_nas_entity: 'binary_sensor.zeg_update_available'
               ulm_card_nas_label: 'DS218+'
               ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1_2'
@@ -85,3 +85,4 @@ cards:
         template: spacer
         variables:
           height: 100px
+          

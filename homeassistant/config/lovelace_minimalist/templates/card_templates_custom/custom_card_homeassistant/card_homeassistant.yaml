@@ -22,7 +22,7 @@ card_homeassistant:
         type: "custom:button-card"
         template:
           - "icon_info"
-          - "new_version_available"
+          - "ha_new_version_available"
           - "ulm_language_variables"
         icon: 'mdi:home-assistant'
         tap_action:
@@ -65,7 +65,7 @@ card_homeassistant:
 
 
 
-new_version_available:
+ha_new_version_available:
   state:
     - value: "on"
       styles:

@@ -20,11 +20,19 @@ card_nas_dima:
         type: 'custom:button-card'
         entity: '[[[ return variables.ulm_card_nas_entity ]]]'
         icon: mdi:nas
-        name: '[[[ return variables.ulm_card_nas_name ]]]'
-        label: '[[[ return variables.ulm_card_nas_label ]]]'
+        name: | 
+          [[[
+            var name = variables.ulm_card_nas_name;
+            if ( states[variables.ulm_card_nas_entity].attributes.latest_available_version != null ) {
+              name = name + " • New: states[variables.ulm_card_nas_entity].attributes.latest_available_version";
+            } 
+            return name;
+          ]]]
+        label: '[[[ return states[variables.ulm_card_nas_entity].attributes.installed_version ]]]'
         template:
           - "icon_info"
-          - "blue_no_state"
+          - "nas_new_version_available"
+          #- "blue_no_state"
         styles:
           card:
             - padding: "12px"
@@ -55,3 +63,35 @@ card_nas_dima:
           mini_graph_entity: '[[[ return variables.ulm_card_nas_ram_entity ]]]'
 
 
+nas_new_version_available:
+  state:
+    - value: "on"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - left: "42px"
+            - top: "10px"
+            - height: "16px"
+            - width: "16px"
+            - border: "2px solid var(--card-background-color)"
+            - font-size: "12px"
+            - line-height: "14px"
+            - background-color: >
+                [[[
+                  return "rgba(var(--color-blue),1)";
+                ]]]
+        icon:
+          - color: 'rgba(var(--color-blue),1)'
+        img_cell:
+          - background-color: 'rgba(var(--color-blue), 0.2)'
+  custom_fields:
+    notification: >
+      [[[
+        if ( entity.state =="unavailable" ) {
+          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+        } else if ( entity.state =="on" ) {
+          return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+        }
+      ]]]

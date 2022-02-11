@@ -67,16 +67,6 @@ card_notification_version:
 card_notification_tasmota:
   template:
     - "card_notification"
-  # styles:     
-  #   card:
-  #     - display: |
-  #         [[[
-  #           if ( states[variables.card_notification_sensor].state > 0 ) {
-  #             return "block";
-  #           } else {
-  #             return "none";
-  #           }
-  #         ]]]
   name: |
     [[[ return states[variables.card_notification_sensor].state + " Tasmota device(s) outdated" ]]]
 
@@ -84,17 +74,20 @@ card_notification_tasmota:
 card_notification_count:
   template:
     - "card_notification"
-  # styles:     
-  #   card:
-  #     - display: |
-  #         [[[
-  #           if ( states[variables.card_notification_sensor].state > 0 ) {
-  #             return "block";
-  #           } else {
-  #             return "none";
-  #           }
-  #         ]]]
   name: |
     [[[ 
       return variables.card_notification_app + " has " + states[variables.card_notification_sensor].state + " pending update(s)" 
+    ]]]
+
+card_notification_synology:
+  template:
+    - "card_notification"
+  name: |
+    [[[
+      if (states[variables.card_notification_sensor].attributes.latest_available_version != null) {
+        var version = states[variables.card_notification_sensor].attributes.latest_available_version;
+      } else {
+        version = "--"
+      }
+      return "New " + variables.card_notification_app + " version " + version + " available";
     ]]]

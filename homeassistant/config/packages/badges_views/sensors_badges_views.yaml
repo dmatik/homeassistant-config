@@ -357,3 +357,22 @@ sensor:
             {% endif %}
           {% endfor %}
           {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Notifications On                                             #
+#                                                                          #
+############################################################################
+
+      number_of_notifications_on:
+        friendly_name: "Number of Notifications On"
+        icon_template: mdi:bell
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_notification_entities','entity_id') %}
+            {% if ( states(entity_id) != 'off' and states(entity_id) != '0' ) %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
