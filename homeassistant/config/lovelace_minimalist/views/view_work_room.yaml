@@ -84,7 +84,7 @@ cards:
           # Work Room Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.work_room
+            entity: switch.mqtt_work_room_light
             name: Work Room
 
           # Dimka PC

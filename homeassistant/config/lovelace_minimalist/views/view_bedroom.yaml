@@ -84,7 +84,8 @@ cards:
           # Bedroom Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.bedroom
+            entity: switch.mqtt_bedroom_light
+            name: Bedroom
 
           # Bedroom Climate
           - type: 'custom:button-card'

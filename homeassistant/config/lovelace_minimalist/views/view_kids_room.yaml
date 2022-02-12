@@ -84,7 +84,7 @@ cards:
           # Kids Room Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.kids_room
+            entity: switch.mqtt_kids_room_light
             name: Kids Room
 
           # Kids Room Radiator

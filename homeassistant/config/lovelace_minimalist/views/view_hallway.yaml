@@ -69,7 +69,7 @@ cards:
           # Hallway Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.hallway
+            entity: switch.mqtt_hallway_light
             name: Hallway
 
           # Gateway Light

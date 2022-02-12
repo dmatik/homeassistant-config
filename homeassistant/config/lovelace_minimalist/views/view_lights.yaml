@@ -90,22 +90,26 @@ cards:
           # Living Room Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.living_room
+            entity: switch.mqtt_living_room_light
+            name: Living Room
 
           # Dining Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.dining
+            entity: switch.mqtt_dining_light
+            name: Dining
 
           # Balcony Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.balcony
+            entity: switch.mqtt_balcony_light
+            name: Balcony
 
           # Entrance Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.entrance
+            entity: switch.mqtt_entrance_light
+            name: Entrance
 
 
 
@@ -139,7 +143,8 @@ cards:
           # Kitchen Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.kitchen
+            entity: switch.mqtt_kitchen_light
+            name: Kitchen
 
           # Kitchen Strips Light
           - type: 'custom:button-card'
@@ -154,7 +159,7 @@ cards:
           # Service Balcony Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.service_balcony
+            entity: switch.mqtt_service_balcony_light
             name: S. Balcony
 
 
@@ -189,7 +194,8 @@ cards:
           # Hallway Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.hallway
+            entity: switch.mqtt_hallway_light
+            name: Hallway
 
           # Gateway Light
           - type: 'custom:button-card'
@@ -232,7 +238,8 @@ cards:
           # Bedroom Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.bedroom
+            entity: switch.mqtt_bedroom_light
+            name: Bedroom
 
           # Makeup Light
           - type: 'custom:button-card'
@@ -292,7 +299,8 @@ cards:
           # Kids Room Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.kids_room
+            entity: switch.mqtt_kids_room_light
+            name: Kids Room
 
 
 
@@ -326,7 +334,8 @@ cards:
           # Work Room Light
           - type: 'custom:button-card'
             template: 'card_light_simple'
-            entity: light.work_room
+            entity: switch.mqtt_work_room_light
+            name: Work Room
 
 
       - type: custom:button-card
