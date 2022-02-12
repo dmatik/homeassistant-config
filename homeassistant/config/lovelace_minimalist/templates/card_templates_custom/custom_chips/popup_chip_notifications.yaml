@@ -1,0 +1,135 @@
+popup_chip_notifications:
+  tap_action:
+    action: "fire-dom-event"
+    browser_mod:
+      command: "popup"
+      large: false
+      hide_header: true
+      card:
+
+        type: custom:layout-card
+        layout_type: vertical
+        cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+          - type: horizontal-stack
+            cards:
+
+              - type: custom:button-card
+                template: title
+                name: Notifications
+
+
+          - type: "custom:button-card"
+            template: spacer
+            variables:
+              height: 40px
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Notifications                                                          #
+          #                                                                          #
+          ############################################################################
+
+          # HA Updates
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.ha_update_available
+                state: "on"
+            card:
+              type: 'custom:button-card'
+              template: 'card_notification_version'
+              variables:
+                card_notification_sensor: "binary_sensor.ha_update_available"
+                card_notification_app: "HA"
+                card_notification_version_sensor: "sensor.ha_available_version"
+                card_notification_navigate_path: "/lovelace/minimalist_homeassistant"
+                card_notification_icon: "mdi:party-popper"
+
+          # Tasmota Versions
+          - type: conditional
+            conditions:
+              - entity: sensor.number_of_tasmota_versions_old
+                state_not: "0"
+            card:
+              type: 'custom:button-card'
+              template: 'card_notification_tasmota'
+              variables:
+                card_notification_sensor: "sensor.number_of_tasmota_versions_old"
+                card_notification_navigate_path: "/lovelace/minimalist_tasmota"
+                card_notification_icon: "mdi:chip"
+
+          # HACS Updates
+          - type: conditional
+            conditions:
+              - entity: sensor.hacs
+                state_not: "0"
+            card:
+              type: 'custom:button-card'
+              template: 'card_notification_count'
+              variables:
+                card_notification_sensor: "sensor.hacs"
+                card_notification_app: "HACS"
+                card_notification_navigate_path: "/hacs"
+                card_notification_icon: "hacs:hacs"
+
+          # ZEG Updates
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.zeg_update_available
+                state: "on"
+            card:
+              type: 'custom:button-card'
+              template: 'card_notification_synology'
+              variables:
+                card_notification_app: "ZEG"
+                card_notification_sensor: "binary_sensor.zeg_update_available"
+                card_notification_navigate_path: "/lovelace/minimalist_nas"
+                card_notification_icon: "mdi:nas"
+
+          # BLAZE Updates
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.blaze_update_available
+                state: "on"
+            card:
+              type: 'custom:button-card'
+              template: 'card_notification_synology'
+              variables:
+                card_notification_app: "BLAZE"
+                card_notification_sensor: "binary_sensor.blaze_update_available"
+                card_notification_navigate_path: "/lovelace/minimalist_nas"
+                card_notification_icon: "mdi:nas"
+
+
+          - type: "custom:button-card"
+            template: spacer
+            variables:
+              height: 40px
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Footer                                                                 #
+          #                                                                          #
+          ############################################################################
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+            cards:
+
+              - type: "custom:button-card"
+                template: "popup_button_back"

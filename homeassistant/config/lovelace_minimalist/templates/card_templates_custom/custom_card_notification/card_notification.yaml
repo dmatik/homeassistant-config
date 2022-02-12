@@ -45,6 +45,7 @@ card_notification:
   tap_action:
     action: 'navigate'
     navigation_path: '[[[ return variables.card_notification_navigate_path; ]]]'
+    
 
 
 card_notification_version:

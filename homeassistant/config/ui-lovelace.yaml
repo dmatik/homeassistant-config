@@ -3,7 +3,6 @@ views:
   - !include /config/lovelace_minimalist/views/view_home.yaml
   - !include /config/lovelace_minimalist/views/view_rooms.yaml
   - !include /config/lovelace_minimalist/views/view_system.yaml
-  - !include /config/lovelace_minimalist/views/view_notifications.yaml
 
   # Chips
   - !include /config/lovelace_minimalist/views/view_temperature.yaml
