@@ -75,7 +75,7 @@ cards:
         layout_options:
           grid-template-columns: 1fr 1fr 1fr
           grid-template-rows: auto
-          grid-gap: 0px 4px
+          grid-gap: 0px 2px
           mediaquery:
             "(max-width: 450px)":
               grid-template-columns: 1fr 1fr
@@ -127,7 +127,7 @@ cards:
             variables:
               ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
             entity: switch.bedroom_radiator
-            name: Bed Radiator
+            name: Radiator
 
 
 

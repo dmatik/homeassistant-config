@@ -231,10 +231,10 @@ cards:
         layout_options:
           grid-template-columns: 1fr 1fr 1fr
           grid-template-rows: auto
-          grid-gap: 0px 4px
+          grid-gap: 0px 2px
           mediaquery:
             "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
+              grid-template-columns: 1fr 1fr            
         cards:
 
           # Living Room Light
@@ -255,7 +255,7 @@ cards:
             variables:
               ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
             entity: switch.kids_radiator
-            name: Kids Radiator
+            name: Kids Room
 
           # Bedroom Radiator
           - type: 'custom:button-card'
@@ -263,7 +263,7 @@ cards:
             variables:
               ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
             entity: switch.bedroom_radiator
-            name: Bed Radiator
+            name: Bedroom
             
           # Living Room TV
           - type: 'custom:button-card'

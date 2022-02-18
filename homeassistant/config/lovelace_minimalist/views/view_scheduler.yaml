@@ -59,7 +59,7 @@ cards:
         layout_options:
           grid-template-columns: 1fr
           grid-template-rows: auto
-          grid-gap: 0px 4px
+          grid-gap: 0px 2px
           mediaquery:
             "(max-width: 450px)":
               grid-template-columns: 1fr
