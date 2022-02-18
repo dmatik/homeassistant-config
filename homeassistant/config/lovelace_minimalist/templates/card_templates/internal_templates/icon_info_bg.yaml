@@ -14,8 +14,8 @@ icon_info_bg:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "38px"
-            - top: "8px"
+            - left: "42px"
+            - top: "10px"
             - height: "16px"
             - width: "16px"
             - border: "2px solid var(--card-background-color)"
