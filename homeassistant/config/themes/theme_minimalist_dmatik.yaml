@@ -24,7 +24,7 @@ minimalist-dmatik:
                     background: var(--primary-background-color);
               }
 
-  card-mod-root-yaml: |
+  card-mod-root-yaml: | 
         ha-tabs$: |
             #tabsContent {
                   width: 97%;
@@ -71,12 +71,17 @@ minimalist-dmatik:
                     color: var(--header-all-tabs-color) !important;
               }
   card-mod-view-yaml: |
-    "*:first-child$": |
-      #columns .column > * {
-        padding-left: 5px;
-        padding-right: 5px;
-        padding-bottom: 5px;
-      }
+      "*:first-child$": |
+            #columns .column > * {
+                  padding-left: 5px;
+                  padding-right: 5px;
+                  padding-bottom: 5px;
+            }
+      grid-layout$: |
+            #root {
+                  margin-left: 0 !important;
+                  margin-right: 0 !important;
+            }       
   modes:
     light:
 
