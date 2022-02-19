@@ -1,4 +1,3 @@
----
 minimalist-dmatik:
 
   # Journal
@@ -10,79 +9,84 @@ minimalist-dmatik:
   info-color: "var(--google-blue)"
   divider-color: "rgba(var(--color-theme),.12)"
   accent-color: "var(--google-yellow)"
+
+  # Card-Mod
   card-mod-theme: "minimalist-dmatik"
 
   card-mod-more-info-yaml: |
-        $: |
-              .mdc-dialog__scrim {
-                    backdrop-filter: blur(20px) brightness(70%);
-                    -webkit-backdrop-filter: blur(20px) brightness(70%);
-              }        
-              .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-
-                    border-radius: 0px;
-                    background: var(--primary-background-color);
-              }
+    $: |
+      .mdc-dialog__scrim {
+        backdrop-filter: blur(20px) brightness(70%);
+        -webkit-backdrop-filter: blur(20px) brightness(70%);
+      }        
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        border-radius: 0px;
+        background: var(--primary-background-color);
+      }
 
   card-mod-root-yaml: | 
-        ha-tabs$: |
-            #tabsContent {
-                  width: 97%;
-                  height: 44px;
-            }
-        .: |
-              @media (orientation: portrait) {
-                    a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
-                          display: none !important;
-                    }
-                    app-toolbar {
-                          padding-right: 0px;
-                          padding-left: 0px;
-                    }
-              }
-              app-header {
-                    top: auto !important;
-                    bottom: 0 !important;
-                    transform: unset !important;
-                    box-shadow: var(--footer-shadow) !important;
-                    height: var(--header-height) !important;
-                    background-color: var(--header-background-color) !important;
-              }
-              app-toolbar {
-                    transform: none !important;
-                    height: 44px !important;
-                    background-color: var(--header-background-color) !important;
-              }
-              #view {
-                  min-height: 100% !important;
-                  margin-top: -70px !important;
-              }
-              ha-tabs {
-                  --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
-                  --mdc-icon-size: 28px;
-              }
-              paper-tab[aria-selected=true] {
-                    color: var(--header-active-tab-color) !important;
-              }
-              paper-tab {
-                    padding-left: 0px;
-                    padding-right: 0px;
-                    width: calc(100% / 3);
-                    color: var(--header-all-tabs-color) !important;
-              }
+    ha-tabs$: |
+      #tabsContent {
+        width: 97%;
+        height: 44px;
+      }
+    .: |
+      @media (orientation: portrait) {
+        a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
+          display: none !important;
+        }
+        app-toolbar {
+          padding-right: 0px;
+          padding-left: 0px;
+        }
+      }
+      app-header {
+        top: auto !important;
+        bottom: 0 !important;
+        transform: unset !important;
+        box-shadow: var(--footer-shadow) !important;
+        height: var(--header-height) !important;
+        background-color: var(--header-background-color) !important;
+      }
+      app-toolbar {
+        transform: none !important;
+        height: 44px !important;
+        background-color: var(--header-background-color) !important;
+      }
+      #view {
+        min-height: 100% !important;
+        margin-top: -70px !important;
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
+        --mdc-icon-size: 28px;
+      }
+      paper-tab[aria-selected=true] {
+        color: var(--header-active-tab-color) !important;
+      }
+      paper-tab {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: calc(100% / 3);
+        color: var(--header-all-tabs-color) !important;
+      }
+
   card-mod-view-yaml: |
-      "*:first-child$": |
-            #columns .column > * {
-                  padding-left: 5px;
-                  padding-right: 5px;
-                  padding-bottom: 5px;
-            }
-      grid-layout$: |
-            #root {
-                  margin-left: 0 !important;
-                  margin-right: 0 !important;
-            }       
+    "*:first-child$": |
+      #columns .column > * {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+      }
+    grid-layout$: |
+      #root {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+
+  # Modes
   modes:
+  
     light:
 
       # Header / Footer
@@ -146,6 +150,7 @@ minimalist-dmatik:
       switch-checked-color: "var(--google-blue)"
       # media player
       mini-media-player-accent-color: "var(--google-red)"
+
     dark:
 
       # Header / Footer
