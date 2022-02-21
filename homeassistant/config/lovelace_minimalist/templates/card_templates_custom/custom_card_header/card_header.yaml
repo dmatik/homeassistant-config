@@ -1,0 +1,104 @@
+card_header:
+  variables:
+    card_header_title: ""
+    card_header_navigate_path: ""
+    card_header_back_button: true
+  card_mod:
+    style: |
+        :host {
+          position: -webkit-sticky !important;
+          position: sticky !important;
+          top: 0;
+          z-index: 1;
+          margin: 0 !important;
+        }
+  show_icon: false
+  show_label: false
+  show_name: false
+  styles:
+    card:
+      - padding-top: '0px'
+      - padding-bottom: '0px'
+      - padding-left: '8px'
+      - padding-right: '0px'
+      - font-size: '1.5rem'
+      - background: 'var(--header-background-color)'
+      - box-shadow: 'var(--header-shadow)'
+      - border-radius: 0px
+      - font-weight: bold
+      - color: var(--primary-text-color)
+      - margin-bottom: '10px'
+      - height: '46px'
+    grid:
+        - grid-template-areas: '"back title"'
+        - grid-template-columns: "[[[
+              if ( variables.card_header_back_button == true )
+                return '34px 1fr';
+              else
+                return '0px 1fr';
+            ]]]"     
+        - grid-template-rows: 1fr
+    custom_fields:
+      back:
+        - align-self: center
+        - justify-self: center
+        - margin: none
+      title:
+        - display: flex
+        - justify-content: start
+        - align-items: center
+        - padding-left: '8px'
+  custom_fields:
+    back:
+      card:
+        type: custom:button-card
+        template: card_header_back_button
+        variables:
+          card_header_navigate_path: '[[[ return variables.card_header_navigate_path; ]]]'
+          card_header_back_button: '[[[ return variables.card_header_back_button; ]]]'
+    title: "[[[ return variables.card_header_title; ]]]"
+
+
+card_header_back_button:
+  show_name: false
+  show_icon: true
+  show_last_changed: false
+  icon: 'mdi:chevron-left'
+  styles:
+    card:
+      - padding_bottom: '0px'
+      - padding_top: '0px'
+      - padding_left: '0px'
+      - padding_right: '0px'
+      - background: none
+      - box-shadow: none
+      - display: "[[[
+              if ( variables.card_header_back_button == true )
+                return 'block';
+              else
+                return 'none';
+            ]]]"
+    grid:
+      - grid-template-areas: '"i"'
+      - grid-template-rows: 1fr
+    img_cell:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - width: '42px'
+      - height: '42px'
+      - padding-right: '0px'
+      - padding-left: '0px'
+    icon:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - margin: '0px'
+      - width: '100%'
+      - height: '100%'
+      - color: "rgba(var(--color-blue),1)"
+  tap_action:
+    action: 'navigate'
+    navigation_path: '[[[ return variables.card_header_navigate_path; ]]]'
+  hold_action: none 
+  double_tap_action: none
