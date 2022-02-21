@@ -1,76 +1,119 @@
 title: Wall Panel
 path: minimalist_wallpanel
 visible: false
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: chip_back_new
-            variables:
-              ulm_chip_navigate_path: /lovelace/minimalist_system
-
-
-############################################################################
-#                                                                          #
-#   Sensors                                                                #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Wall Panel
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr
-        cards:
-
-          # Kitchen Fully
-          - type: 'custom:button-card'
-            template: card_fully
-            variables:
-              ulm_card_fully_entity: 'sensor.fully_device_info'
-              ulm_card_fully_name: 'Kitchen Fully'
-              ulm_card_fully_reload_url_command: 'rest_command.fully_load_url'
-              ulm_card_fully_disable_kiosk_command: 'rest_command.fully_disable_kiosk_mode'
-              ulm_card_fully_restart_app_command: 'rest_command.fully_restart_app'
-              ulm_card_fully_clear_cache_command: 'rest_command.fully_clear_cache'
-
-
 
       - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
+          card_header_title: Wall Panel
+          card_header_navigate_path: /lovelace/minimalist_system
+          card_header_back_button: true
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                # - type: horizontal-stack
+                #   cards:
+
+                #     - type: custom:button-card
+                #       template: edge
+
+                #     # Back Chip
+                #     - type: 'custom:button-card'
+                #       template: chip_back_new
+                #       variables:
+                #         ulm_chip_navigate_path: /lovelace/minimalist_system
+
+
+          ############################################################################
+          #                                                                          #
+          #   Sensors                                                                #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Fully
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr
+                  cards:
+
+                    # Kitchen Fully
+                    - type: 'custom:button-card'
+                      template: card_fully
+                      variables:
+                        ulm_card_fully_entity: 'sensor.fully_device_info'
+                        ulm_card_fully_name: 'Kitchen Fully'
+                        ulm_card_fully_reload_url_command: 'rest_command.fully_load_url'
+                        ulm_card_fully_disable_kiosk_command: 'rest_command.fully_disable_kiosk_mode'
+                        ulm_card_fully_restart_app_command: 'rest_command.fully_restart_app'
+                        ulm_card_fully_clear_cache_command: 'rest_command.fully_clear_cache'
+
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

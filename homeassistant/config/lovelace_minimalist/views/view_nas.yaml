@@ -1,88 +1,131 @@
 title: NAS
 path: minimalist_nas
 visible: false
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: chip_back_new
-            variables:
-              ulm_chip_navigate_path: /lovelace/minimalist_system
-
-
-############################################################################
-#                                                                          #
-#   NAS                                                                    #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: NAS
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr
-        cards:
-
-          # blaze
-          - type: 'custom:button-card'
-            template: card_nas_dima
-            entity: sensor.fully_device_info
-            variables:
-              ulm_card_nas_name: 'BLAZE'
-              ulm_card_nas_entity: 'binary_sensor.blaze_update_available'
-              ulm_card_nas_label: 'DS216j'
-              ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1'
-              ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system'
-              ulm_card_nas_ram_entity: 'sensor.synology_memory_usage_real'
-
-          # zeg
-          - type: 'custom:button-card'
-            template: card_nas_dima
-            entity: sensor.fully_device_info
-            variables:
-              ulm_card_nas_name: 'ZEG'
-              ulm_card_nas_entity: 'binary_sensor.zeg_update_available'
-              ulm_card_nas_label: 'DS218+'
-              ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1_2'
-              ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system_2'
-              ulm_card_nas_ram_entity: 'sensor.synology_memory_usage_real_2'
 
       - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
-          
+          card_header_title: NAS
+          card_header_navigate_path: /lovelace/minimalist_system
+          card_header_back_button: true
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                # - type: horizontal-stack
+                #   cards:
+
+                #     - type: custom:button-card
+                #       template: edge
+
+                #     # Back Chip
+                #     - type: 'custom:button-card'
+                #       template: chip_back_new
+                #       variables:
+                #         ulm_chip_navigate_path: /lovelace/minimalist_system
+
+
+          ############################################################################
+          #                                                                          #
+          #   NAS                                                                    #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Servers
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr
+                  cards:
+
+                    # blaze
+                    - type: 'custom:button-card'
+                      template: card_nas_dima
+                      entity: sensor.fully_device_info
+                      variables:
+                        ulm_card_nas_name: 'BLAZE'
+                        ulm_card_nas_entity: 'binary_sensor.blaze_update_available'
+                        ulm_card_nas_label: 'DS216j'
+                        ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1'
+                        ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system'
+                        ulm_card_nas_ram_entity: 'sensor.synology_memory_usage_real'
+
+                    # zeg
+                    - type: 'custom:button-card'
+                      template: card_nas_dima
+                      entity: sensor.fully_device_info
+                      variables:
+                        ulm_card_nas_name: 'ZEG'
+                        ulm_card_nas_entity: 'binary_sensor.zeg_update_available'
+                        ulm_card_nas_label: 'DS218+'
+                        ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1_2'
+                        ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system_2'
+                        ulm_card_nas_ram_entity: 'sensor.synology_memory_usage_real_2'
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px
+                    

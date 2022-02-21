@@ -1,344 +1,385 @@
 title: Lights
 path: minimalist_lights
 visible: false
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: chip_back_new
-            variables:
-              ulm_chip_navigate_path: /lovelace/minimalist_home
-
-          # # Lights Chip
-          # - type: 'custom:button-card'
-          #   template: chip_icon_state
-          #   variables:
-          #     ulm_chip_icon_state_icon: '💡'
-          #     ulm_chip_icon_state_entity: sensor.number_of_lights_on
-
-          # Lights Chip
-          - type: 'custom:button-card'
-            template:
-              - 'chip_icon_label_state'
-              #- 'chip_navigate_only'
-              - 'chip_yellow'
-            icon: 'mdi:lightbulb'
-            variables:
-              ulm_chip_icon_state_entity: sensor.number_of_lights_on
-              #ulm_chip_navigate_path: /lovelace/minimalist_lights
-
-
-
-############################################################################
-#                                                                          #
-#   Living Room                                                            #
-#                                                                          #
-############################################################################
-
-      # Title
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Living Room
-
-
-      # Lights
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # # New Year Tree Lights
-          # - type: 'custom:button-card'
-          #   template: 
-          #     - card_ny_tree
-          #   entity: switch.new_year_tree
-          #   icon: mdi:pine-tree
-          #   name: NY Tree
-
-          # Living Room Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_living_room_light
-            name: Living Room
-
-          # Dining Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_dining_light
-            name: Dining
-
-          # Balcony Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_balcony_light
-            name: Balcony
-
-          # Entrance Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_entrance_light
-            name: Entrance
-
-
-
-############################################################################
-#                                                                          #
-#   Kitchen                                                                #
-#                                                                          #
-############################################################################
-
-      # Title
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Kitchen
-
-
-      # Lights
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Kitchen Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_kitchen_light
-            name: Kitchen
-
-          # Kitchen Strips Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: light.kitchen_strips
-            name: Strips
-            icon: 'mdi:led-strip-variant'
-            variables:
-              ulm_card_light_enable_color: true
-              ulm_card_light_enable_popup: true
-
-          # Service Balcony Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_service_balcony_light
-            name: S. Balcony
-
-
-
-############################################################################
-#                                                                          #
-#   Hallway                                                                #
-#                                                                          #
-############################################################################
-
-      # Title
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Hallway
-
-
-      # Lights
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Hallway Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_hallway_light
-            name: Hallway
-
-          # Gateway Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: light.xiaomi_gateway_servers
-            name: Gateway
-            variables:
-              ulm_card_light_enable_color: true
-              ulm_card_light_enable_popup: true
-
-
-
-############################################################################
-#                                                                          #
-#   Bedroom                                                                #
-#                                                                          #
-############################################################################
-
-      # Title
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Bedroom
-
-
-      # Lights
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Bedroom Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_bedroom_light
-            name: Bedroom
-
-          # Makeup Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.makeup
-            icon: mdi:string-lights
-
-          # Bedside Dima Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: light.bedside_dima
-            name: Dima
-            icon: 'mdi:lamp'
-            variables:
-              ulm_card_light_enable_color: true
-              ulm_card_light_enable_popup: true
-
-          # Bedside Galit Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: light.bedside_galit
-            name: Galit
-            icon: 'mdi:lamp'
-            variables:
-              ulm_card_light_enable_color: true
-              ulm_card_light_enable_popup: true
-
-
-
-############################################################################
-#                                                                          #
-#   Kids Room                                                              #
-#                                                                          #
-############################################################################
-
-      # Title
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Kids Room
-
-
-      # Lights
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Kids Room Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_kids_room_light
-            name: Kids Room
-
-
-
-############################################################################
-#                                                                          #
-#   Work Room                                                              #
-#                                                                          #
-############################################################################
-
-      # Title
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Work Room
-
-
-      # Lights
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Work Room Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_work_room_light
-            name: Work Room
-
 
       - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
+          card_header_title: Lights
+          card_header_navigate_path: /lovelace/minimalist_home
+          card_header_back_button: true
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: edge
+
+                    # Back Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_back_new
+                    #   variables:
+                    #     ulm_chip_navigate_path: /lovelace/minimalist_home
+
+                    # # Lights Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_icon_state
+                    #   variables:
+                    #     ulm_chip_icon_state_icon: '💡'
+                    #     ulm_chip_icon_state_entity: sensor.number_of_lights_on
+
+                    # Lights Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                        #- 'chip_navigate_only'
+                        - 'chip_yellow'
+                      icon: 'mdi:lightbulb'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.number_of_lights_on
+                        #ulm_chip_navigate_path: /lovelace/minimalist_lights
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Living Room                                                            #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Living Room
+
+
+                # Lights
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # # New Year Tree Lights
+                    # - type: 'custom:button-card'
+                    #   template: 
+                    #     - card_ny_tree
+                    #   entity: switch.new_year_tree
+                    #   icon: mdi:pine-tree
+                    #   name: NY Tree
+
+                    # Living Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_living_room_light
+                      name: Living Room
+
+                    # Dining Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_dining_light
+                      name: Dining
+
+                    # Balcony Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_balcony_light
+                      name: Balcony
+
+                    # Entrance Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_entrance_light
+                      name: Entrance
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Kitchen                                                                #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Kitchen
+
+
+                # Lights
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Kitchen Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_kitchen_light
+                      name: Kitchen
+
+                    # Kitchen Strips Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.kitchen_strips
+                      name: Strips
+                      icon: 'mdi:led-strip-variant'
+                      variables:
+                        ulm_card_light_enable_color: true
+                        ulm_card_light_enable_popup: true
+
+                    # Service Balcony Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_service_balcony_light
+                      name: S. Balcony
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Hallway                                                                #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Hallway
+
+
+                # Lights
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Hallway Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_hallway_light
+                      name: Hallway
+
+                    # Gateway Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.xiaomi_gateway_servers
+                      name: Gateway
+                      variables:
+                        ulm_card_light_enable_color: true
+                        ulm_card_light_enable_popup: true
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Bedroom                                                                #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Bedroom
+
+
+                # Lights
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Bedroom Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_bedroom_light
+                      name: Bedroom
+
+                    # Makeup Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.makeup
+                      icon: mdi:string-lights
+
+                    # Bedside Dima Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.bedside_dima
+                      name: Dima
+                      icon: 'mdi:lamp'
+                      variables:
+                        ulm_card_light_enable_color: true
+                        ulm_card_light_enable_popup: true
+
+                    # Bedside Galit Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.bedside_galit
+                      name: Galit
+                      icon: 'mdi:lamp'
+                      variables:
+                        ulm_card_light_enable_color: true
+                        ulm_card_light_enable_popup: true
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Kids Room                                                              #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Kids Room
+
+
+                # Lights
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Kids Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_kids_room_light
+                      name: Kids Room
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Work Room                                                              #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Work Room
+
+
+                # Lights
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Work Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_work_room_light
+                      name: Work Room
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

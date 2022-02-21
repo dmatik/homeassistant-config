@@ -1,122 +1,169 @@
 title: System
 path: minimalist_system
 icon: mdi:cog
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: chip_back_new
-            variables:
-              ulm_chip_navigate_path: /lovelace/minimalist_home
-
-
-
-############################################################################
-#                                                                          #
-#   Title                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: System
-
-
-
-############################################################################
-#                                                                          #
-#   Cards                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Home Assistant
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_homeassistant
-              ulm_card_navigate_title: Hass
-              ulm_card_navigate_icon: mdi:home-assistant 
-
-          # Scheduler
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_scheduler
-              ulm_card_navigate_title: Scheduler
-              ulm_card_navigate_icon: mdi:calendar-today 
-
-          # Wall Panel
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_wallpanel
-              ulm_card_navigate_title: Wall Panel
-              ulm_card_navigate_icon: mdi:view-dashboard 
-
-          # NAS
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_nas
-              ulm_card_navigate_title: NAS
-              ulm_card_navigate_icon: mdi:nas
-
-          # NAS
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_batteries
-              ulm_card_navigate_title: Batteries
-              ulm_card_navigate_icon: mdi:battery
-
-          # Tasmota
-          - type: custom:button-card
-            template: card_navigate
-            variables:
-              ulm_card_navigate_path: /lovelace/minimalist_tasmota
-              ulm_card_navigate_title: Tasmota
-              ulm_card_navigate_icon: mdi:chip
-
-
 
       - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
+          card_header_title: System
+          card_header_navigate_path: /lovelace/minimalist_home
+          card_header_back_button: true
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                # - type: horizontal-stack
+                #   cards:
+
+                #     - type: custom:button-card
+                #       template: edge
+
+                #     # Back Chip
+                #     - type: 'custom:button-card'
+                #       template: chip_back_new
+                #       variables:
+                #         ulm_chip_navigate_path: /lovelace/minimalist_home
+
+
+                - type: custom:button-card
+                  template: spacer
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                # - type: horizontal-stack
+                #   cards:
+
+                #     - type: custom:button-card
+                #       template: title
+                #       name: System
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Home Assistant
+                    - type: custom:button-card
+                      template: card_navigate
+                      variables:
+                        ulm_card_navigate_path: /lovelace/minimalist_homeassistant
+                        ulm_card_navigate_title: Hass
+                        ulm_card_navigate_icon: mdi:home-assistant 
+
+                    # Scheduler
+                    - type: custom:button-card
+                      template: card_navigate
+                      variables:
+                        ulm_card_navigate_path: /lovelace/minimalist_scheduler
+                        ulm_card_navigate_title: Scheduler
+                        ulm_card_navigate_icon: mdi:calendar-today 
+
+                    # Wall Panel
+                    - type: custom:button-card
+                      template: card_navigate
+                      variables:
+                        ulm_card_navigate_path: /lovelace/minimalist_wallpanel
+                        ulm_card_navigate_title: Wall Panel
+                        ulm_card_navigate_icon: mdi:view-dashboard 
+
+                    # NAS
+                    - type: custom:button-card
+                      template: card_navigate
+                      variables:
+                        ulm_card_navigate_path: /lovelace/minimalist_nas
+                        ulm_card_navigate_title: NAS
+                        ulm_card_navigate_icon: mdi:nas
+
+                    # NAS
+                    - type: custom:button-card
+                      template: card_navigate
+                      variables:
+                        ulm_card_navigate_path: /lovelace/minimalist_batteries
+                        ulm_card_navigate_title: Batteries
+                        ulm_card_navigate_icon: mdi:battery
+
+                    # Tasmota
+                    - type: custom:button-card
+                      template: card_navigate
+                      variables:
+                        ulm_card_navigate_path: /lovelace/minimalist_tasmota
+                        ulm_card_navigate_title: Tasmota
+                        ulm_card_navigate_icon: mdi:chip
+
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

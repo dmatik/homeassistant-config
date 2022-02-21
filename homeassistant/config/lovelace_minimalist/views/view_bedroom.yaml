@@ -1,137 +1,180 @@
 title: Bedroom
 path: minimalist_bedroom
 visible: false
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: chip_back_new
-            variables:
-              ulm_chip_navigate_path: /lovelace/minimalist_rooms
-
-          # # Temperature Chip
-          # - type: 'custom:button-card'
-          #   template: chip_icon_state
-          #   variables:
-          #     ulm_chip_icon_state_icon: '🌡️'
-          #     ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
-
-          # Temperature Chip
-          - type: 'custom:button-card'
-            template:
-              - 'chip_icon_label_state'
-            icon: 'mdi:thermometer'
-            variables:
-              ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
-
-
-
-############################################################################
-#                                                                          #
-#   Title                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Bedroom
-
-
-
-############################################################################
-#                                                                          #
-#   Cards                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Bedroom Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_bedroom_light
-            name: Bedroom
-
-          # Bedroom Climate
-          - type: 'custom:button-card'
-            template: card_ac_buttons
-            variables:
-              ulm_card_ac_entity: climate.bedroom
-              ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
-              ulm_card_ac_name: 'Bedroom'
-
-          # Bedside Dima Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: light.bedside_dima
-            name: Dima
-            icon: 'mdi:lamp'
-            variables:
-              ulm_card_light_enable_color: true
-              ulm_card_light_enable_popup: true
-
-          # Bedside Galit Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: light.bedside_galit
-            name: Galit
-            icon: 'mdi:lamp'
-            variables:
-              ulm_card_light_enable_color: true
-              ulm_card_light_enable_popup: true
-
-          # Makeup Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.makeup
-            icon: mdi:string-lights
-
-          # Bedroom Radiator
-          - type: 'custom:button-card'
-            template: card_power_outlet
-            variables:
-              ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
-            entity: switch.bedroom_radiator
-            name: Radiator
-
-
 
       - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
+          card_header_title: Bedroom
+          card_header_navigate_path: /lovelace/minimalist_rooms
+          card_header_back_button: true
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: edge
+
+                    # Back Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_back_new
+                    #   variables:
+                    #     ulm_chip_navigate_path: /lovelace/minimalist_rooms
+
+                    # # Temperature Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_icon_state
+                    #   variables:
+                    #     ulm_chip_icon_state_icon: '🌡️'
+                    #     ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
+
+                    # Temperature Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                      icon: 'mdi:thermometer'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Accessories
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Bedroom Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_bedroom_light
+                      name: Bedroom
+
+                    # Bedroom Climate
+                    - type: 'custom:button-card'
+                      template: card_ac_buttons
+                      variables:
+                        ulm_card_ac_entity: climate.bedroom
+                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
+                        ulm_card_ac_name: 'Bedroom'
+
+                    # Bedside Dima Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.bedside_dima
+                      name: Dima
+                      icon: 'mdi:lamp'
+                      variables:
+                        ulm_card_light_enable_color: true
+                        ulm_card_light_enable_popup: true
+
+                    # Bedside Galit Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.bedside_galit
+                      name: Galit
+                      icon: 'mdi:lamp'
+                      variables:
+                        ulm_card_light_enable_color: true
+                        ulm_card_light_enable_popup: true
+
+                    # Makeup Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.makeup
+                      icon: mdi:string-lights
+
+                    # Bedroom Radiator
+                    - type: 'custom:button-card'
+                      template: card_power_outlet
+                      variables:
+                        ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
+                      entity: switch.bedroom_radiator
+                      name: Radiator
+
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

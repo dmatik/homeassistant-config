@@ -1,145 +1,188 @@
 title: Motion
 path: minimalist_motion
 visible: false
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: chip_back_new
-            variables:
-              ulm_chip_navigate_path: /lovelace/minimalist_home
-
-          # # Motion Chip
-          # - type: 'custom:button-card'
-          #   template: chip_icon_state
-          #   variables:
-          #     ulm_chip_icon_state_icon: '🏃'
-          #     ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
-
-          # Motion Chip
-          - type: 'custom:button-card'
-            template:
-              - 'chip_icon_label_state'
-              #- 'chip_navigate_only'
-              - 'chip_blue'
-            icon: 'mdi:run'
-            variables:
-              ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
-              #ulm_chip_navigate_path: /lovelace/minimalist_motion
-
-
-
-############################################################################
-#                                                                          #
-#   Living Room                                                            #
-#                                                                          #
-############################################################################
-
-      # Title
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Living Room
-
-
-      # Sensors
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Living Room Sensor
-          - type: 'custom:button-card'
-            template: 
-              - card_motion_sensor
-            entity: binary_sensor.motion_living_room
-            name: Living Room
-            show_last_changed: false
-            variables:
-              light_level: sensor.motion_living_room_lightlevel
-
-
-
-############################################################################
-#                                                                          #
-#   Kitchen                                                                #
-#                                                                          #
-############################################################################
-
-      # Title
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Kitchen
-
-
-      # Sensors
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Kitchen Sensor
-          - type: 'custom:button-card'
-            template: 
-              - card_motion_sensor
-            entity: binary_sensor.motion_kitchen
-            name: Kitchen
-            show_last_changed: false
-            variables:
-              light_level: sensor.motion_kitchen_lightlevel
-
-          # Kitchen 2 Sensor
-          - type: 'custom:button-card'
-            template: 
-              - card_motion_sensor
-            entity: binary_sensor.motion_kitchen_2
-            name: Kitchen 2
-            show_last_changed: false
-            variables:
-              light_level: sensor.motion_kitchen_2_lightlevel
-
 
       - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
+          card_header_title: Motion
+          card_header_navigate_path: /lovelace/minimalist_home
+          card_header_back_button: true
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: edge
+
+                    # Back Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_back_new
+                    #   variables:
+                    #     ulm_chip_navigate_path: /lovelace/minimalist_home
+
+                    # # Motion Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_icon_state
+                    #   variables:
+                    #     ulm_chip_icon_state_icon: '🏃'
+                    #     ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+
+                    # Motion Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                        #- 'chip_navigate_only'
+                        - 'chip_blue'
+                      icon: 'mdi:run'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+                        #ulm_chip_navigate_path: /lovelace/minimalist_motion
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Living Room                                                            #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Living Room
+
+
+                # Sensors
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Living Room Sensor
+                    - type: 'custom:button-card'
+                      template: 
+                        - card_motion_sensor
+                      entity: binary_sensor.motion_living_room
+                      name: Living Room
+                      show_last_changed: false
+                      variables:
+                        light_level: sensor.motion_living_room_lightlevel
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Kitchen                                                                #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Kitchen
+
+
+                # Sensors
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Kitchen Sensor
+                    - type: 'custom:button-card'
+                      template: 
+                        - card_motion_sensor
+                      entity: binary_sensor.motion_kitchen
+                      name: Kitchen
+                      show_last_changed: false
+                      variables:
+                        light_level: sensor.motion_kitchen_lightlevel
+
+                    # Kitchen 2 Sensor
+                    - type: 'custom:button-card'
+                      template: 
+                        - card_motion_sensor
+                      entity: binary_sensor.motion_kitchen_2
+                      name: Kitchen 2
+                      show_last_changed: false
+                      variables:
+                        light_level: sensor.motion_kitchen_2_lightlevel
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

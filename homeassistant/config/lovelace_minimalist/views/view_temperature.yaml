@@ -1,163 +1,206 @@
 title: Temperature
 path: minimalist_temperature
 visible: false
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: chip_back_new
-            variables:
-              ulm_chip_navigate_path: /lovelace/minimalist_home
-
-          # Temperature Chip
-          - type: custom:button-card
-            template: chip_temperature
-            variables:
-              ulm_chip_temperature_outside: 'sensor.sensibo_living_room_temp'
-              ulm_chip_temperature_inside: 'sensor.outside_temperature'
-              ulm_chip_temperature_weather: 'weather.met_home'
-
-
-
-############################################################################
-#                                                                          #
-#   Weather                                                                #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
 
       - type: custom:button-card
-        template: spacer
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          - type: weather-forecast
-            entity: weather.met_home
-            #name: " "
-            show_forecast: false
-            card_mod:
-            style: |
-              ha-card.type-weather-forecast {
-                border-radius: 21px;
-              }
-              ha-card.type-weather-forecast .temp {
-                margin-right: 26px;
-              }
-
-          - type: custom:button-card
-            template: edge
-
-
-
-############################################################################
-#                                                                          #
-#   Title                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Climate
-
-
-
-############################################################################
-#                                                                          #
-#   Cards                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Living Room Climate
-          - type: 'custom:button-card'
-            template: card_ac_buttons
-            variables:
-              ulm_card_ac_entity: climate.living_room
-              ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
-              ulm_card_ac_name: 'Living Room'
-
-          # Bedroom Climate
-          - type: 'custom:button-card'
-            template: card_ac_buttons
-            variables:
-              ulm_card_ac_entity: climate.bedroom
-              ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
-              ulm_card_ac_name: 'Bedroom'
-
-          # Kids Room Climate
-          - type: 'custom:button-card'
-            template: card_ac_buttons
-            variables:
-              ulm_card_ac_entity: climate.kids_room
-              ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
-              ulm_card_ac_name: 'Kids Room'
-
-          # Work Room Temperature
-          - type: 'custom:button-card'
-            template: card_graph
-            variables:
-              ulm_card_graph_color: "var(--google-blue)"
-              ulm_card_graph_name: Work Room
-              ulm_card_graph_entity: sensor.work_room_temperature
-              
-          # Kids Room Radiator
-          - type: 'custom:button-card'
-            template: card_power_outlet
-            variables:
-              ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
-            entity: switch.kids_radiator
-            name: Kids Room
-
-          # Bedroom Radiator
-          - type: 'custom:button-card'
-            template: card_power_outlet
-            variables:
-              ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
-            entity: switch.bedroom_radiator
-            name: Bedroom
-            
-
-
-      - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
+          card_header_title: Climate
+          card_header_navigate_path: /lovelace/minimalist_home
+          card_header_back_button: true
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: edge
+
+                    # Back Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_back_new
+                    #   variables:
+                    #     ulm_chip_navigate_path: /lovelace/minimalist_home
+
+                    # Temperature Chip
+                    - type: custom:button-card
+                      template: chip_temperature
+                      variables:
+                        ulm_chip_temperature_outside: 'sensor.sensibo_living_room_temp'
+                        ulm_chip_temperature_inside: 'sensor.outside_temperature'
+                        ulm_chip_temperature_weather: 'weather.met_home'
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Weather                                                                #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:button-card
+                  template: spacer
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: edge
+
+                    - type: weather-forecast
+                      entity: weather.met_home
+                      #name: " "
+                      show_forecast: false
+                      card_mod:
+                        style: |
+                          ha-card.type-weather-forecast {
+                            border-radius: 21px;
+                          }
+                          ha-card.type-weather-forecast .temp {
+                            margin-right: 26px;
+                          }
+
+                    - type: custom:button-card
+                      template: edge
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Devices
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Living Room Climate
+                    - type: 'custom:button-card'
+                      template: card_ac_buttons
+                      variables:
+                        ulm_card_ac_entity: climate.living_room
+                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
+                        ulm_card_ac_name: 'Living Room'
+
+                    # Bedroom Climate
+                    - type: 'custom:button-card'
+                      template: card_ac_buttons
+                      variables:
+                        ulm_card_ac_entity: climate.bedroom
+                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
+                        ulm_card_ac_name: 'Bedroom'
+
+                    # Kids Room Climate
+                    - type: 'custom:button-card'
+                      template: card_ac_buttons
+                      variables:
+                        ulm_card_ac_entity: climate.kids_room
+                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
+                        ulm_card_ac_name: 'Kids Room'
+
+                    # Work Room Temperature
+                    - type: 'custom:button-card'
+                      template: card_graph
+                      variables:
+                        ulm_card_graph_color: "var(--google-blue)"
+                        ulm_card_graph_name: Work Room
+                        ulm_card_graph_entity: sensor.work_room_temperature
+                        
+                    # Kids Room Radiator
+                    - type: 'custom:button-card'
+                      template: card_power_outlet
+                      variables:
+                        ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
+                      entity: switch.kids_radiator
+                      name: Kids Room
+
+                    # Bedroom Radiator
+                    - type: 'custom:button-card'
+                      template: card_power_outlet
+                      variables:
+                        ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
+                      entity: switch.bedroom_radiator
+                      name: Bedroom
+                      
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

@@ -1,116 +1,159 @@
 title: Work Room
 path: minimalist_work_room
 visible: false
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: chip_back_new
-            variables:
-              ulm_chip_navigate_path: /lovelace/minimalist_rooms
-
-          # # Temperature Chip
-          # - type: 'custom:button-card'
-          #   template: chip_icon_state
-          #   variables:
-          #     ulm_chip_icon_state_icon: '🌡️'
-          #     ulm_chip_icon_state_entity: sensor.work_room_temperature
-
-          # Temperature Chip
-          - type: 'custom:button-card'
-            template:
-              - 'chip_icon_label_state'
-            icon: 'mdi:thermometer'
-            variables:
-              ulm_chip_icon_state_entity: sensor.work_room_temperature
-
-
-
-############################################################################
-#                                                                          #
-#   Title                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Work Room
-
-
-
-############################################################################
-#                                                                          #
-#   Cards                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Work Room Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_work_room_light
-            name: Work Room
-
-          # Dimka PC
-          - type: 'custom:button-card'
-            template: card_pc
-            entity: switch.dimka
-            name: Dimka PC
-            icon: 'mdi:desktop-classic'
-
-          # Work Room Temperature
-          - type: 'custom:button-card'
-            template: card_graph
-            variables:
-              ulm_card_graph_color: "var(--google-blue)"
-              ulm_card_graph_name: Work Room
-              ulm_card_graph_entity: sensor.work_room_temperature
-
-          # Printer
-          - type: 'custom:button-card'
-            template: card_printer
-            entity: sensor.mfc_j650dw_status
-            name: Printer
-            
-
 
       - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
+          card_header_title: Work Room
+          card_header_navigate_path: /lovelace/minimalist_rooms
+          card_header_back_button: true
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: edge
+
+                    # Back Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_back_new
+                    #   variables:
+                    #     ulm_chip_navigate_path: /lovelace/minimalist_rooms
+
+                    # # Temperature Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_icon_state
+                    #   variables:
+                    #     ulm_chip_icon_state_icon: '🌡️'
+                    #     ulm_chip_icon_state_entity: sensor.work_room_temperature
+
+                    # Temperature Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                      icon: 'mdi:thermometer'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.work_room_temperature
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Accessories
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Work Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_work_room_light
+                      name: Work Room
+
+                    # Dimka PC
+                    - type: 'custom:button-card'
+                      template: card_pc
+                      entity: switch.dimka
+                      name: Dimka PC
+                      icon: 'mdi:desktop-classic'
+
+                    # Work Room Temperature
+                    - type: 'custom:button-card'
+                      template: card_graph
+                      variables:
+                        ulm_card_graph_color: "var(--google-blue)"
+                        ulm_card_graph_name: Work Room
+                        ulm_card_graph_entity: sensor.work_room_temperature
+
+                    # Printer
+                    - type: 'custom:button-card'
+                      template: card_printer
+                      entity: sensor.mfc_j650dw_status
+                      name: Printer
+                      
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

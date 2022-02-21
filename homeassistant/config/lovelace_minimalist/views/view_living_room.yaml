@@ -1,149 +1,192 @@
 title: Living Room
 path: minimalist_living_room
 visible: false
-type: custom:grid-layout
-layout:
-  grid-template-columns: 1fr
-  grid-template-rows: auto
-  mediaquery:
-    "(min-width: 800px)":
-      grid-template-columns: 700px
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
 cards:
 
   - type: vertical-stack
     cards:
 
-
 ############################################################################
 #                                                                          #
-#   Chips                                                                  #
+#   Header                                                                 #
 #                                                                          #
 ############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: edge
-
-          # Back Chip
-          - type: 'custom:button-card'
-            template: 'chip_back_new'
-            variables:
-              ulm_chip_navigate_path: '/lovelace/minimalist_rooms'
-
-          # # Temperature Chip
-          # - type: 'custom:button-card'
-          #   template: chip_icon_state
-          #   variables:
-          #     ulm_chip_icon_state_icon: '🌡️'
-          #     ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
-
-          # Temperature Chip
-          - type: 'custom:button-card'
-            template:
-              - 'chip_icon_label_state'
-            icon: 'mdi:thermometer'
-            variables:
-              ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
-
-
-############################################################################
-#                                                                          #
-#   Title                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: horizontal-stack
-        cards:
-
-          - type: custom:button-card
-            template: title
-            name: Living Room
-
-
-
-############################################################################
-#                                                                          #
-#   Cards                                                                  #
-#                                                                          #
-############################################################################
-
-      - type: custom:layout-card
-        layout_type: grid
-        layout_options:
-          grid-template-columns: 1fr 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 2px
-          mediaquery:
-            "(max-width: 450px)":
-              grid-template-columns: 1fr 1fr
-        cards:
-
-          # Living Room Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_living_room_light
-            name: Living Room
-
-          # Dining Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_dining_light
-            name: Dining
-
-          # Living Room AC
-          - type: 'custom:button-card'
-            template: card_ac_buttons
-            variables:
-              ulm_card_ac_entity: climate.living_room
-              ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
-              ulm_card_ac_name: 'Living Room'
-
-          # Living Room TV
-          - type: 'custom:button-card'
-            template: 'card_harmony_with_buttons'
-            variables:
-              ulm_card_harmony_entity: remote.living_room
-              ulm_card_harmony_name: 'Main TV'
-              ulm_card_harmony_activity_1_name: 'Smart TV'
-              ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
-              ulm_card_harmony_activity_2_name: 'Shield TV'
-              ulm_card_harmony_activity_2_icon: 'mdi:movie'
-
-          # Living Room Motion Sensor
-          - type: 'custom:button-card'
-            template: 'card_motion_sensor'
-            entity: binary_sensor.motion_living_room
-            name: Motion
-            show_last_changed: false
-            variables:
-              light_level: sensor.motion_living_room_lightlevel
-
-          # # New Year Tree Lights
-          # - type: 'custom:button-card'
-          #   template: 
-          #     - card_ny_tree
-          #   entity: switch.new_year_tree
-          #   icon: mdi:pine-tree
-          #   name: NY Tree
-
-          # Balcony Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_balcony_light
-            name: Balcony
-
-          # Entrance Light
-          - type: 'custom:button-card'
-            template: 'card_light_simple'
-            entity: switch.mqtt_entrance_light
-            name: Entrance
-
-
-
 
       - type: custom:button-card
-        template: spacer
+        template: card_header
         variables:
-          height: 100px
+          card_header_title: Living Room
+          card_header_navigate_path: /lovelace/minimalist_rooms
+          card_header_back_button: true
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 700px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: edge
+
+                    # Back Chip
+                    # - type: 'custom:button-card'
+                    #   template: 'chip_back_new'
+                    #   variables:
+                    #     ulm_chip_navigate_path: '/lovelace/minimalist_rooms'
+
+                    # # Temperature Chip
+                    # - type: 'custom:button-card'
+                    #   template: chip_icon_state
+                    #   variables:
+                    #     ulm_chip_icon_state_icon: '🌡️'
+                    #     ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
+
+                    # Temperature Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                      icon: 'mdi:thermometer'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Accessories
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
+                    # Living Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_living_room_light
+                      name: Living Room
+
+                    # Dining Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_dining_light
+                      name: Dining
+
+                    # Living Room AC
+                    - type: 'custom:button-card'
+                      template: card_ac_buttons
+                      variables:
+                        ulm_card_ac_entity: climate.living_room
+                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
+                        ulm_card_ac_name: 'Living Room'
+
+                    # Living Room TV
+                    - type: 'custom:button-card'
+                      template: 'card_harmony_with_buttons'
+                      variables:
+                        ulm_card_harmony_entity: remote.living_room
+                        ulm_card_harmony_name: 'Main TV'
+                        ulm_card_harmony_activity_1_name: 'Smart TV'
+                        ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
+                        ulm_card_harmony_activity_2_name: 'Shield TV'
+                        ulm_card_harmony_activity_2_icon: 'mdi:movie'
+
+                    # Living Room Motion Sensor
+                    - type: 'custom:button-card'
+                      template: 'card_motion_sensor'
+                      entity: binary_sensor.motion_living_room
+                      name: Motion
+                      show_last_changed: false
+                      variables:
+                        light_level: sensor.motion_living_room_lightlevel
+
+                    # # New Year Tree Lights
+                    # - type: 'custom:button-card'
+                    #   template: 
+                    #     - card_ny_tree
+                    #   entity: switch.new_year_tree
+                    #   icon: mdi:pine-tree
+                    #   name: NY Tree
+
+                    # Balcony Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_balcony_light
+                      name: Balcony
+
+                    # Entrance Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: switch.mqtt_entrance_light
+                      name: Entrance
+
+
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px
