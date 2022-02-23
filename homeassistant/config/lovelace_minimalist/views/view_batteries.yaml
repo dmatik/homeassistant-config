@@ -40,6 +40,7 @@ cards:
               #root {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
+                justify-content: center !important;
               }
         card:
           type: custom:layout-card
