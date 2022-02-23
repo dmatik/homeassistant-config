@@ -18,19 +18,40 @@ services:
     #         DASH_URL: http://${ZEG_IP}:5050
     #         TZ: "Asia/Jerusalem"
         
+    # homeassistant:
+    #     restart: always
+    #     hostname: homeassistant
+    #     container_name: homeassistant
+    #     image: homeassistant/home-assistant:latest
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #         - /volume1/docker/homeassistant/config:/config
+    #         - /var/run/docker.sock:/var/run/docker.sock
+    #     network_mode: "host"
+    #     labels:
+    #         - com.centurylinklabs.watchtower.enable=false
+    #     privileged: true
+    #     devices:
+    #         - /dev/ttyACM0:/dev/ttyACM0
+
     homeassistant:
         restart: always
         hostname: homeassistant
         container_name: homeassistant
-        image: homeassistant/home-assistant:latest
+        image: ghcr.io/home-assistant/home-assistant:stable
         environment:
             TZ: "Asia/Jerusalem"
         volumes:
             - /volume1/docker/homeassistant/config:/config
             - /var/run/docker.sock:/var/run/docker.sock
+            - /etc/localtime:/etc/localtime:ro
         network_mode: "host"
         labels:
             - com.centurylinklabs.watchtower.enable=false
+        privileged: true
+        devices:
+            - /dev/ttyACM0:/dev/ttyACM0
 
     # hass_hki:
     #     restart: "unless-stopped"
@@ -170,6 +191,7 @@ services:
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - /usr/syno/etc/certificate/system/default:/certs
+            - /volume1/docker/portainer/data:/data
             
     # plex:
     #     restart: always
@@ -335,40 +357,40 @@ services:
             - /volume1/docker:/docker
 
 
-    postgres:
-        restart: always
-        hostname: postgres
-        container_name: postgres
-        image: postgres:latest
-        network_mode: bridge
-        ports:
-          - 35432:5432
-        environment:
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-            TZ: "Asia/Jerusalem"
-            POSTGRES_USER: ${POSTGRES_USER}
-            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-            #PGDATA: /var/lib/postgresql/data/pgdata
-        volumes:
-            - /volume1/docker/postgres/data:/var/lib/postgresql/data
-        labels:
-            - com.centurylinklabs.watchtower.enable=false
+    # postgres:
+    #     restart: always
+    #     hostname: postgres
+    #     container_name: postgres
+    #     image: postgres:latest
+    #     network_mode: bridge
+    #     ports:
+    #       - 35432:5432
+    #     environment:
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #         TZ: "Asia/Jerusalem"
+    #         POSTGRES_USER: ${POSTGRES_USER}
+    #         POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    #         #PGDATA: /var/lib/postgresql/data/pgdata
+    #     volumes:
+    #         - /volume1/docker/postgres/data:/var/lib/postgresql/data
+    #     labels:
+    #         - com.centurylinklabs.watchtower.enable=false
 
-    pgadmin:
-        restart: always
-        hostname: pgadmin
-        container_name: pgadmin
-        image: dpage/pgadmin4:latest
-        network_mode: bridge
-        ports:
-          - 35050:80
-        environment:
-            TZ: "Asia/Jerusalem"
-            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-        labels:
-            - com.centurylinklabs.watchtower.enable=false
+    # pgadmin:
+    #     restart: always
+    #     hostname: pgadmin
+    #     container_name: pgadmin
+    #     image: dpage/pgadmin4:latest
+    #     network_mode: bridge
+    #     ports:
+    #       - 35050:80
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+    #         PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    #     labels:
+    #         - com.centurylinklabs.watchtower.enable=false
 
     tasmobackup:
         restart: always
@@ -598,20 +620,20 @@ services:
     #     restart: unless-stopped
 
 
-    komga:
-        image: gotson/komga
-        container_name: komga
-        volumes:
-            - /volume1/docker/komga/config:/config
-            - /volume1/eBooks:/data
-        ports:
-            - 38080:8080
-        user: "${ZEG_PUID}:${ZEG_PUID}"
-        environment:
-            TZ: "Asia/Jerusalem"
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-        restart: unless-stopped
+    # komga:
+    #     image: gotson/komga
+    #     container_name: komga
+    #     volumes:
+    #         - /volume1/docker/komga/config:/config
+    #         - /volume1/eBooks:/data
+    #     ports:
+    #         - 38080:8080
+    #     user: "${ZEG_PUID}:${ZEG_PUID}"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #     restart: unless-stopped
 
 
     # conreq:
