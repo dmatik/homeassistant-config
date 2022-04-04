@@ -5,6 +5,7 @@ card_printer:
     - 'icon_info_bg'
     - 'ulm_language_variables'
     - 'popup_printer'
+    - 'printer_ink_low'
   icon: 'mdi:printer-wireless'
   label: |-
     [[[
@@ -31,3 +32,37 @@ card_printer:
         # card:
         #   - background-color: "rgba(var(--color-background-blue), var(--opacity-bg))"
       value: "ready"
+
+
+printer_ink_low:
+  state:
+    - value: "ink low"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - left: "42px"
+            - top: "10px"
+            - height: "16px"
+            - width: "16px"
+            - border: "2px solid var(--card-background-color)"
+            - font-size: "12px"
+            - line-height: "14px"
+            - background-color: >
+                [[[
+                  return "rgba(var(--color-blue),1)";
+                ]]]
+        icon:
+          - color: 'rgba(var(--color-blue),1)'
+        img_cell:
+          - background-color: 'rgba(var(--color-blue), 0.2)'
+  custom_fields:
+    notification: >
+      [[[
+        if ( entity.state =="unavailable" ) {
+          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+        } else if ( entity.state =="ink low" ) {
+          return `<ha-icon icon="mdi:water" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+        }
+      ]]]

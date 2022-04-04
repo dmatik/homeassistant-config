@@ -34,7 +34,7 @@ popup_ac:
           - type: custom:layout-card
             layout_type: grid
             layout_options:
-              grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+              grid-template-columns: 1fr 2fr 2fr 2fr 1fr
               grid-template-rows: auto
               grid-gap: 0px 4px
             cards:
@@ -44,7 +44,7 @@ popup_ac:
 
               - type: "custom:button-card"
                 template: 
-                  - "popup_button"
+                  - "popup_button_no_name"
                   - "ulm_language_variables"
                 icon: mdi:minus
                 tap_action:
@@ -63,7 +63,7 @@ popup_ac:
               
               - type: "custom:button-card"
                 template: 
-                  - "popup_button"
+                  - "popup_button_no_name"
                   - "ulm_language_variables"
                 icon: mdi:plus
                 tap_action:
@@ -492,7 +492,7 @@ popup_ac_target_temp:
     grid:
       - grid-template-areas: "'target_temp'"
       - grid-template-columns: "auto"
-      - grid-template-rows: "min-content"
+      - grid-template-rows: "1fr"
     custom_fields:
       target_temp:
         - display: flex
@@ -500,9 +500,9 @@ popup_ac_target_temp:
         - align-items: center
         - background-color: "none"
         - color: "var(--primary-color)"
-        - width: "58px"
+        - width: "100px"
         - height: "58px"
-        - font-size: '26px'
+        - font-size: '48px'
         - font-weight: 'normal'
         - place-self: 'center'      
   custom_fields:
@@ -512,5 +512,5 @@ popup_ac_target_temp:
           if (targer_temp == null) {
             var targer_temp = '--';
           }
-          return targer_temp + '°C';
+          return targer_temp;
       ]]]

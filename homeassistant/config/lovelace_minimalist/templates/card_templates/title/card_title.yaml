@@ -6,7 +6,8 @@ card_title:
   tap_action:
     action: "none"
   show_icon: false
-  show_label: true
+  #show_label: true
+  show_label: false
   show_name: true
   styles:
     card:
@@ -17,10 +18,14 @@ card_title:
       - margin-top: "12px"
       - margin-left: "24px"
       - margin-bottom: "0px"
+      - padding-bottom: "0px"
     grid:
-      - grid-template-areas: "'n' 'l'"
+      # - grid-template-areas: "'n' 'l'"
+      # - grid-template-columns: "1fr"
+      # - grid-template-rows: "min-content min-content"
+      - grid-template-areas: "'n'"
       - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content min-content"
+      - grid-template-rows: "min-content"
     name:
       - justify-self: "start"
       - font-weight: "bold"

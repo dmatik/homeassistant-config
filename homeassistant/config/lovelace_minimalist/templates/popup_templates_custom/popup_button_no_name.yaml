@@ -1,0 +1,25 @@
+popup_button_no_name:
+  triggers_update: 'all'
+  color: "var(--primary-color)"
+  show_icon: true
+  show_name: false
+  styles:
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "auto"
+      - grid-template-rows: "min-content"
+    card:
+      - background: "none"
+      - box-shadow: "none"
+      - height: "68px"
+    icon:
+      - color: "var(--primary-color)"
+      - width: "26px"
+      - height: "26px"
+    img_cell:
+      - background-color: "var(--card-background-color)"
+      - border-radius: "50%"
+      - place-self: "center"
+      - width: "58px"
+      - height: "58px"
+      - box-shadow: "var(--ha-card-box-shadow)"
