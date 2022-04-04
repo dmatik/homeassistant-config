@@ -185,17 +185,22 @@ rooms_widget_temp:
             if (entity == null)
               return "0px";
             else
-              return "42px";
+              return "22px";
           ]]]
       - width: >-
           [[[
             if (entity == null)
               return "0px";
+            else
+              return "42px";
           ]]]
     grid:
       - grid-template-areas: '"l"'
     label:
       - color: 'rgba(var(--color-theme),0.9)'
+      - display: flex
+      - justify-content: center
+      - align-items: center
 
 
 rooms_widget_sensor:
