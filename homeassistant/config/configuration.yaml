@@ -153,11 +153,11 @@ google:
   client_secret: !secret google_calendar_client_secret
 
 # MQTT
-mqtt:
-  discovery: false
-  broker: !secret syn_mqtt_broker
-  username: !secret syn_mqtt_username
-  password: !secret syn_mqtt_password
+# mqtt:
+#   discovery: false
+#   broker: !secret syn_mqtt_broker
+#   username: !secret syn_mqtt_username
+#   password: !secret syn_mqtt_password
   
 # Sensibo
 # climate:
