@@ -30,7 +30,6 @@ card_room_two_rows:
           ulm_card_room_two_rows_lights_on: "[[[ return variables.ulm_card_room_two_rows_lights_on; ]]]"
         name: "[[[ return variables.ulm_card_room_two_rows_name; ]]]"
         icon: "[[[ return variables.ulm_card_room_two_rows_icon; ]]]"
-        #label: "dima"
         tap_action:
           action: "navigate"
           navigation_path: "[[[ return variables.ulm_card_room_two_rows_navigate_path; ]]]"
@@ -51,6 +50,16 @@ card_room_two_rows:
                - "rooms_widget_light"
               entity: "[[[ return variables.ulm_card_room_two_rows_light; ]]]"
               icon: "mdi:lightbulb"
+          item2:
+            card:
+              type: "custom:button-card"
+              triggers_update: "all"
+              template: 
+               - "widget_icon"
+               - "rooms_widget_sensor"
+              entity: "[[[ return variables.ulm_card_room_two_rows_sensor; ]]]"
+              tap_action:
+                action: none
           item3:
             card:
               type: 'custom:button-card'
@@ -59,17 +68,6 @@ card_room_two_rows:
                 ulm_card_room_two_rows_temp: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
               entity: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
               icon: 'mdi:temperature-celsius'
-              tap_action:
-                action: none
-          item2:
-            card:
-              type: "custom:button-card"
-              triggers_update: "all"
-              template: 
-               - "widget_icon"
-               #- "blue_on"
-               - "rooms_widget_sensor"
-              entity: "[[[ return variables.ulm_card_room_two_rows_sensor; ]]]"
               tap_action:
                 action: none
 
@@ -151,6 +149,7 @@ rooms_widget_light:
   styles:
     card:
       - width: 48px
+      - border-radius: 14px
 
 
 rooms_widget_temp:
@@ -176,9 +175,7 @@ rooms_widget_temp:
       - box-shadow: none
       - padding: 0px
       - background-color: 'rgba(var(--color-theme),0)'
-      - border-radius: 14px
       - place-self: center
-      #- height: 42px
       - font-size: '18px'
       - height: >-
           [[[
