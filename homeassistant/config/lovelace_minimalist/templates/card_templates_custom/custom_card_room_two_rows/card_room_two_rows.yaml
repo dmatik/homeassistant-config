@@ -1,0 +1,240 @@
+card_room_two_rows:
+  variables:
+    ulm_card_room_two_rows_navigate_path: null
+    ulm_card_room_two_rows_name: null
+    ulm_card_room_two_rows_icon: null
+    ulm_card_room_two_rows_light: null
+    ulm_card_room_two_rows_temp: null
+    ulm_card_room_two_rows_sensor: null
+    ulm_card_room_two_rows_lights_on: null
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:button-card"
+        triggers_update: "all"
+        template:
+          - "room_info"
+          - "blue_no_state"
+        variables:
+          ulm_card_room_two_rows_lights_on: "[[[ return variables.ulm_card_room_two_rows_lights_on; ]]]"
+        name: "[[[ return variables.ulm_card_room_two_rows_name; ]]]"
+        icon: "[[[ return variables.ulm_card_room_two_rows_icon; ]]]"
+        #label: "dima"
+        tap_action:
+          action: "navigate"
+          navigation_path: "[[[ return variables.ulm_card_room_two_rows_navigate_path; ]]]"
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "rooms_list_3_items"
+        variables:
+          ulm_card_room_two_rows_temp: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
+          ulm_card_room_two_rows_sensor: '[[[ return variables.ulm_card_room_two_rows_sensor; ]]]'
+        custom_fields:
+          item1:
+            card:
+              type: "custom:button-card"
+              template: 
+               - "widget_icon"
+               - "yellow_on"
+               - "rooms_widget_light"
+              entity: "[[[ return variables.ulm_card_room_two_rows_light; ]]]"
+              icon: "mdi:lightbulb"
+          item3:
+            card:
+              type: 'custom:button-card'
+              template: rooms_widget_temp
+              variables:
+                ulm_card_room_two_rows_temp: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
+              entity: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
+              icon: 'mdi:temperature-celsius'
+              tap_action:
+                action: none
+          item2:
+            card:
+              type: "custom:button-card"
+              triggers_update: "all"
+              template: 
+               - "widget_icon"
+               #- "blue_on"
+               - "rooms_widget_sensor"
+              entity: "[[[ return variables.ulm_card_room_two_rows_sensor; ]]]"
+              tap_action:
+                action: none
+
+
+rooms_list_3_items:
+  styles:
+    grid:
+      - grid-template-areas: "'item1 item2 item3'"
+      - grid-template-columns: "1fr auto auto"
+      - grid-template-rows: "1fr"
+      - column-gap: "4px"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+
+
+room_info:
+  template:
+    - "ulm_language_variables"
+  show_icon: true
+  show_label: true
+  show_name: true
+  label: >-
+    [[[
+      var lights_on = states[variables.ulm_card_room_two_rows_lights_on].state;
+      if (lights_on == 0) {
+        lights_on = variables.ulm_off;
+      } else if (lights_on == 1) {
+        lights_on = "1 light";
+      } else {
+        lights_on = lights_on + " lights";
+      }
+
+      return lights_on;
+    ]]]
+  styles:
+    icon:
+      - color: "rgba(var(--color-theme),0.2)"
+      - width: "24px"
+      - height: "24px"
+    label:
+      - justify-self: "start"
+      - align-self: "start"
+      - font-weight: "bolder"
+      - font-size: "12px"
+      - filter: "opacity(40%)"
+      - margin-left: "12px"
+    name:
+      - align-self: "end"
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "14px"
+      - margin-left: "12px"
+    state:
+      - justify-self: "start"
+      - align-self: "start"
+      - font-weight: "bolder"
+      - font-size: "12px"
+      - filter: "opacity(40%)"
+      - margin-left: "12px"
+    img_cell:
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
+      - place-self: "center"
+      - width: "48px"
+      - height: "48px"
+    grid:
+      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "21px 8px 8px 21px"
+      - box-shadow: "none"
+      - padding: "0px"
+  size: "20px"
+
+
+rooms_widget_light:
+  styles:
+    card:
+      - width: 48px
+
+
+rooms_widget_temp:
+  show_icon: false
+  show_name: false
+  show_label: true
+  size: 20px
+  label: |-
+    [[[
+        if (entity == null)
+          return "";
+
+        var temperature = null;
+        if (entity.state == null) {
+          temperature = '--';
+        } else {
+          temperature = entity.state + '°';
+        }
+        return temperature;
+    ]]]
+  styles:
+    card:
+      - box-shadow: none
+      - padding: 0px
+      - background-color: 'rgba(var(--color-theme),0)'
+      - border-radius: 14px
+      - place-self: center
+      #- height: 42px
+      - font-size: '18px'
+      - height: >-
+          [[[
+            if (entity == null)
+              return "0px";
+            else
+              return "42px";
+          ]]]
+      - width: >-
+          [[[
+            if (entity == null)
+              return "0px";
+          ]]]
+    grid:
+      - grid-template-areas: '"l"'
+    label:
+      - color: 'rgba(var(--color-theme),0.9)'
+
+
+rooms_widget_sensor:
+  triggers_update: "all"
+  icon: >-
+    [[[
+      if (entity == null)
+        return null;
+
+      if (entity.state == "on")
+        return "mdi:run";
+      else
+        return "mdi:walk";
+    ]]]
+  styles:
+    card:
+      - background: "none"
+      - height: >-
+          [[[
+            if (entity == null)
+              return "0px";
+          ]]]
+      - width: >-
+          [[[
+            if (entity == null)
+              return "0px";
+          ]]]
+  state:
+    - id: "on"
+      value: "on"
+      styles:
+        icon:
+          - color: "rgba(var(--color-blue),1)"
+        card:
+          - height: 22px
+          - width: 20px
+    - id: "off"
+      value: "off"
+      styles:
+        card:
+          - height: 0px
+          - width: 0px

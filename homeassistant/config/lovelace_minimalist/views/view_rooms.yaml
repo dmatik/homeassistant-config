@@ -114,52 +114,69 @@ cards:
 
                     # Living Room
                     - type: custom:button-card
-                      template: card_navigate
+                      template: card_room_two_rows
                       variables:
-                        ulm_card_navigate_path: /lovelace/minimalist_living_room
-                        ulm_card_navigate_title: Living Room
-                        ulm_card_navigate_icon: mdi:sofa 
+                        ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_living_room
+                        ulm_card_room_two_rows_name: Living Room
+                        ulm_card_room_two_rows_icon: mdi:sofa
+                        ulm_card_room_two_rows_light: light.living_room
+                        ulm_card_room_two_rows_temp: sensor.sensibo_living_room_temp
+                        ulm_card_room_two_rows_sensor: binary_sensor.motion_living_room
+                        ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_living_room
 
                     # Kitchen
                     - type: custom:button-card
-                      template: card_navigate
+                      template: card_room_two_rows
                       variables:
-                        ulm_card_navigate_path: /lovelace/minimalist_kitchen
-                        ulm_card_navigate_title: Kitchen
-                        ulm_card_navigate_icon: mdi:silverware-fork-knife 
+                        ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_kitchen
+                        ulm_card_room_two_rows_name: Kitchen
+                        ulm_card_room_two_rows_icon: mdi:silverware-fork-knife
+                        ulm_card_room_two_rows_light: light.kitchen
+                        ulm_card_room_two_rows_sensor: group.kitchen_motion_sensors
+                        ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_kitchen
 
                     # Hallway
                     - type: custom:button-card
-                      template: card_navigate
+                      template: card_room_two_rows
                       variables:
-                        ulm_card_navigate_path: /lovelace/minimalist_hallway
-                        ulm_card_navigate_title: Hallway
-                        ulm_card_navigate_icon: mdi:door-open 
+                        ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_hallway
+                        ulm_card_room_two_rows_name: Hallway
+                        ulm_card_room_two_rows_icon: mdi:door-open
+                        ulm_card_room_two_rows_light: light.hallway
+                        ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_hallway
 
                     # Bedroom
                     - type: custom:button-card
-                      template: card_navigate
+                      template: card_room_two_rows
                       variables:
-                        ulm_card_navigate_path: /lovelace/minimalist_bedroom
-                        ulm_card_navigate_title: Bedroom
-                        ulm_card_navigate_icon: mdi:bed-empty 
+                        ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_bedroom
+                        ulm_card_room_two_rows_name: Bedroom
+                        ulm_card_room_two_rows_icon: mdi:bed-empty
+                        ulm_card_room_two_rows_light: light.bedroom
+                        ulm_card_room_two_rows_temp: sensor.sensibo_bedroom_temp
+                        ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_bedroom
 
                     # Kids Room
                     - type: custom:button-card
-                      template: card_navigate
+                      template: card_room_two_rows
                       variables:
-                        ulm_card_navigate_path: /lovelace/minimalist_kids_room
-                        ulm_card_navigate_title: Kids Room
-                        ulm_card_navigate_icon: mdi:teddy-bear 
+                        ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_kids_room
+                        ulm_card_room_two_rows_name: Kids Room
+                        ulm_card_room_two_rows_icon: mdi:teddy-bear
+                        ulm_card_room_two_rows_light: light.kids_room
+                        ulm_card_room_two_rows_temp: sensor.sensibo_kids_room_temp
+                        ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_kids_room
 
                     # Work Room
                     - type: custom:button-card
-                      template: card_navigate
+                      template: card_room_two_rows
                       variables:
-                        ulm_card_navigate_path: /lovelace/minimalist_work_room
-                        ulm_card_navigate_title: Work Room
-                        ulm_card_navigate_icon: mdi:laptop 
-
+                        ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_work_room
+                        ulm_card_room_two_rows_name: Work Room
+                        ulm_card_room_two_rows_icon: mdi:laptop
+                        ulm_card_room_two_rows_light: light.work_room
+                        ulm_card_room_two_rows_temp: sensor.work_room_temperature
+                        ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_work_room
 
 
 
