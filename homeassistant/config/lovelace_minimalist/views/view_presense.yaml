@@ -134,6 +134,17 @@ cards:
                         ulm_card_person_use_entity_picture: true
                         ulm_card_person_zone1: zone.work
 
+                    # - type: "custom:button-card"
+                    #   template: custom_card_imswel_person
+                    #   variables:
+                    #     ulm_card_imswel_person_entity: person.dmatik
+                    #     ulm_card_imswel_person_wifi_tracker: device_tracker.iphonedima
+                    #     ulm_card_imswel_person_gps_tracker: device_tracker.iphonedima
+                    #     ulm_card_imswel_person_findmy_script: script.find_my_oneplus_6t
+                    #     ulm_card_imswel_person_use_entity_picture: true
+                    #     ulm_card_imswel_person_zones:
+                    #       - zone.work
+
                     # Galit
                     - type: 'custom:button-card'
                       template: card_person

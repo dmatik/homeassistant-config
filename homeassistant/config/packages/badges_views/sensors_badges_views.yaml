@@ -24,6 +24,120 @@ sensor:
 
 ############################################################################
 #                                                                          #
+#   Number of Lights On - Living Room                                      #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on_living_room:
+        friendly_name: "Number of lights on Living Room"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.living_room_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Lights On - Kitchen                                          #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on_kitchen:
+        friendly_name: "Number of lights on Kitchen"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.kitchen_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Lights On - Bedroom                                          #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on_bedroom:
+        friendly_name: "Number of lights on Bedroom"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.bedroom_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Lights On - Work Room                                        #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on_work_room:
+        friendly_name: "Number of lights on Work Room"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.work_room_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Lights On - Kids Room                                        #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on_kids_room:
+        friendly_name: "Number of lights on Kids Room"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.kids_room_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Lights On - Hallway                                          #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on_hallway:
+        friendly_name: "Number of lights on Hallway"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.hallway_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
 #   Only Light On                                                          #
 #                                                                          #
 ############################################################################
@@ -201,6 +315,44 @@ sensor:
         value_template: >-
           {% set count = namespace(value=0) %}
           {% for entity_id in state_attr('group.all_motion_sensor_entities','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Motion Sensors On - Living Room                              #
+#                                                                          #
+############################################################################
+
+      number_of_motion_sensors_on_living_room:
+        friendly_name: "Number of Motion Sensors On - Living Room"
+        icon_template: mdi:run
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.living_room_motion_sensors','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+############################################################################
+#                                                                          #
+#   Number of Motion Sensors On - Kitchen                                  #
+#                                                                          #
+############################################################################
+
+      number_of_motion_sensors_on_kitchen:
+        friendly_name: "Number of Motion Sensors On - Kitchen"
+        icon_template: mdi:run
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.kitchen_motion_sensors','entity_id') %}
             {% if (states(entity_id) == 'on') %}
               {% set count.value = count.value + 1 %}
             {% endif %}

@@ -70,19 +70,6 @@ cards:
                     - type: custom:button-card
                       template: edge
 
-                    # Back Chip
-                    # - type: 'custom:button-card'
-                    #   template: chip_back_new
-                    #   variables:
-                    #     ulm_chip_navigate_path: /lovelace/minimalist_rooms
-
-                    # # Temperature Chip
-                    # - type: 'custom:button-card'
-                    #   template: chip_icon_state
-                    #   variables:
-                    #     ulm_chip_icon_state_icon: '🌡️'
-                    #     ulm_chip_icon_state_entity: sensor.sensibo_kids_room_temp
-
                     # Temperature Chip
                     - type: 'custom:button-card'
                       template:
@@ -90,6 +77,15 @@ cards:
                       icon: 'mdi:thermometer'
                       variables:
                         ulm_chip_icon_state_entity: sensor.sensibo_kids_room_temp
+
+                    # Lights Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                        - 'chip_yellow'
+                      icon: 'mdi:lightbulb'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.number_of_lights_on_kids_room
 
 
 

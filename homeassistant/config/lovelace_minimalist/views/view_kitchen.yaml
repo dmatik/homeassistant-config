@@ -64,17 +64,29 @@ cards:
           #                                                                          #
           ############################################################################
 
-                # - type: horizontal-stack
-                #   cards:
+                - type: horizontal-stack
+                  cards:
 
-                #     - type: custom:button-card
-                #       template: edge
+                    - type: custom:button-card
+                      template: edge
 
-                #     # Back Chip
-                #     - type: 'custom:button-card'
-                #       template: chip_back_new
-                #       variables:
-                #         ulm_chip_navigate_path: /lovelace/minimalist_rooms
+                    # Lights Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                        - 'chip_yellow'
+                      icon: 'mdi:lightbulb'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.number_of_lights_on_kitchen
+
+                    # Motion Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                        - 'chip_blue'
+                      icon: 'mdi:run'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_kitchen
 
 
 

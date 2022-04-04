@@ -226,7 +226,13 @@ cards:
                 template: card_pc
                 entity: switch.dimka
                 name: Dimka PC
-                icon: 'mdi:desktop-classic' 
+                icon: 'mdi:desktop-classic'
+
+              # Printer
+              - type: 'custom:button-card'
+                template: card_printer
+                entity: sensor.mfc_j650dw_status
+                name: Printer
 
 
 
