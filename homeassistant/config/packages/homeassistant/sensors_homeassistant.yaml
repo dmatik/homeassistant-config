@@ -66,3 +66,15 @@ sensor:
         query: 'SELECT table_schema "homeassistant", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" and table_name="states" GROUP BY table_schema;'
         column: 'value'
         unit_of_measurement: MB
+      - name: State Attributes size
+        query: 'SELECT table_schema "homeassistant", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" and table_name="state_attributes" GROUP BY table_schema;'
+        column: 'value'
+        unit_of_measurement: MB
+      - name: Statistics size
+        query: 'SELECT table_schema "homeassistant", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" and table_name="statistics" GROUP BY table_schema;'
+        column: 'value'
+        unit_of_measurement: MB
+      - name: Statistics Short Term size
+        query: 'SELECT table_schema "homeassistant", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" and table_name="statistics_short_term" GROUP BY table_schema;'
+        column: 'value'
+        unit_of_measurement: MB

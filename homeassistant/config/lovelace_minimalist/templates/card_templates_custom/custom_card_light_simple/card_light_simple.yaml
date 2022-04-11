@@ -49,10 +49,23 @@ card_light_simple:
       large: true
       hide_header: true
       card:
-        type: "custom:button-card"
-        template: "popup_light_brightness"
-        variables:
-          ulm_popup_light_entity: "[[[ return entity.entity_id ]]]"
+
+        type: vertical-stack
+        cards:
+
+          - type: custom:button-card
+            template: card_header_popup
+            variables:
+              card_header_title: "[[[ return variables.ulm_card_light_name; ]]]"
+              card_header_back_button: true   
+
+          - type: "custom:button-card"
+            template: "popup_light_brightness"
+            variables:
+              ulm_popup_light_entity: "[[[ return entity.entity_id ]]]"
+              ulm_card_light_name: "[[[ return variables.ulm_card_light_name ]]]"
+
+  name: "[[[ return variables.ulm_card_light_name ]]]"
   label: >-
     [[[
       if (entity.state !="unavailable"){

@@ -37,6 +37,7 @@ card_ac_buttons:
                 - popup_ac
               variables:
                 ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
                 ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
               type: 'custom:button-card'
     item2:

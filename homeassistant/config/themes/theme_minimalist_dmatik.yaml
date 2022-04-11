@@ -23,6 +23,9 @@ minimalist-dmatik:
         border-radius: 0px;
         background: var(--primary-background-color);
       }
+      .mdc-dialog .mdc-dialog__content {
+          padding-top: 0px !important;
+      }
 
   card-mod-root-yaml: | 
     ha-tabs$: |

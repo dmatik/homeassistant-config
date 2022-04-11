@@ -25,6 +25,7 @@ card_switcher:
           ulm_card_switcher_timer_minutes: '[[[ return variables.ulm_card_switcher_timer_minutes ]]]'
           ulm_card_switcher_timer_script: '[[[ return variables.ulm_card_switcher_timer_script ]]]'
           ulm_card_switcher_auto_off: '[[[ return variables.ulm_card_switcher_auto_off ]]]'
+          ulm_card_switcher_name: '[[[ return variables.ulm_card_switcher_name ]]]'
         type: "custom:button-card"
         template:
           - "icon_info"

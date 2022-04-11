@@ -8,8 +8,11 @@ popup_switcher:
       hide_header: true
       card:
 
-        type: custom:layout-card
-        layout_type: vertical
+        # type: custom:layout-card
+        # layout_type: vertical
+        # cards:
+
+        type: vertical-stack
         cards:
 
 
@@ -18,6 +21,13 @@ popup_switcher:
           #   Header                                                                 #
           #                                                                          #
           ############################################################################
+
+          - type: custom:button-card
+            template: card_header_popup
+            variables:
+              card_header_title: '[[[ return variables.ulm_card_switcher_name ]]]'
+              card_header_back_button: true   
+
 
           - type: "custom:button-card"
             template: 
@@ -31,6 +41,7 @@ popup_switcher:
             triggers_update: 'all'
             entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
             icon: 'mdi:waves'
+            show_label: false
 
 
 
@@ -167,7 +178,7 @@ popup_button_next_select:
       - margin-top: '12px'
 
 popup_header_switcher_label:
-  label: >
+  name: >
     [[[
         if ( entity.state == 'on' )
           return states[variables.ulm_card_switcher_time_left].state  

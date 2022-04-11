@@ -23,8 +23,8 @@ card_nas_dima:
         name: | 
           [[[
             var name = variables.ulm_card_nas_name;
-            if ( states[variables.ulm_card_nas_entity].attributes.latest_available_version != null ) {
-              name = name + " • New: " + states[variables.ulm_card_nas_entity].attributes.latest_available_version;
+            if ( states[variables.ulm_card_nas_entity].attributes.latest_version != null && states[variables.ulm_card_nas_entity].state == "on" ) {
+              name = name + " • New: " + states[variables.ulm_card_nas_entity].attributes.latest_version;
             } 
             return name;
           ]]]

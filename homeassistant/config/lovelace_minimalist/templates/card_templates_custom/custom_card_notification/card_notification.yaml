@@ -85,8 +85,8 @@ card_notification_synology:
     - "card_notification"
   name: |
     [[[
-      if (states[variables.card_notification_sensor].attributes.latest_available_version != null) {
-        var version = states[variables.card_notification_sensor].attributes.latest_available_version;
+      if (states[variables.card_notification_sensor].attributes.latest_version != null) {
+        var version = states[variables.card_notification_sensor].attributes.latest_version;
       } else {
         version = "--"
       }

@@ -131,8 +131,9 @@ cards:
                     - type: 'custom:button-card'
                       template: card_pc
                       entity: switch.dimka
-                      name: Dimka PC
                       icon: 'mdi:desktop-classic'
+                      variables:
+                        ulm_card_pc_name: Dimka PC
 
                     # Work Room Temperature
                     - type: 'custom:button-card'
@@ -146,7 +147,8 @@ cards:
                     - type: 'custom:button-card'
                       template: card_printer
                       entity: sensor.mfc_j650dw_status
-                      name: Printer
+                      variables:
+                        ulm_card_printer_name: Printer
                       
 
 

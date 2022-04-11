@@ -132,11 +132,11 @@ cards:
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
                       entity: light.kitchen_strips
-                      name: Strips
                       icon: 'mdi:led-strip-variant'
                       variables:
                         ulm_card_light_enable_color: true
-                        ulm_card_light_enable_popup: true
+                        ulm_card_light_enable_popup: false
+                        ulm_card_light_name: Strips
 
                     # Switcher
                     - type: 'custom:button-card'

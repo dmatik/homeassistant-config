@@ -21,7 +21,7 @@ popup_light_brightness:
                 }
                 return "\"" + "header ".repeat(contents.length) + "\" " + "\"" + contents.join(" ") + "\" " + "\"" + "footer ".repeat(contents.length) + "\"";
           ]]]
-      - grid-template-rows: "16vh 56vh 14vh"
+      - grid-template-rows: "16vh 46vh 14vh"
       - grid-template-columns: >
           [[[
                 var columns = [];
@@ -43,7 +43,7 @@ popup_light_brightness:
     card:
       - background: "var(--primary-background-color)"
       - box-shadow: "none"
-      - padding: "4%"
+      - padding: "0%"
     custom_fields:
       header:
         - align-self: "start"
@@ -86,7 +86,7 @@ popup_light_brightness:
     @media (max-width: 800px) {
       #container {
         grid-template-areas: "header" "content1" "buttons" "footer" !important;
-        grid-template-rows: 16vh 52vh 14vh 14vh !important;
+        grid-template-rows: 16vh 32vh 14vh 14vh !important;
         grid-template-columns: 1fr !important;
       }
       #buttons {
@@ -260,10 +260,20 @@ popup_light_brightness:
                   command: "popup"
                   hide_header: true
                   card:
-                    type: "custom:button-card"
-                    template: "popup_light_color_temp"
-                    variables:
-                      ulm_popup_light_entity: "[[[ return variables.ulm_popup_light_entity ]]]"
+
+                    type: vertical-stack
+                    cards:
+
+                      - type: custom:button-card
+                        template: card_header_popup
+                        variables:
+                          card_header_title: "[[[ return variables.ulm_card_light_name; ]]]"
+                          card_header_back_button: true
+
+                      - type: "custom:button-card"
+                        template: "popup_light_color_temp"
+                        variables:
+                          ulm_popup_light_entity: "[[[ return variables.ulm_popup_light_entity ]]]"
           item3:
             card:
               icon: "mdi:palette"
@@ -287,10 +297,20 @@ popup_light_brightness:
                   command: "popup"
                   hide_header: true
                   card:
-                    type: "custom:button-card"
-                    template: "popup_light_color"
-                    variables:
-                      ulm_popup_light_entity: "[[[ return variables.ulm_popup_light_entity ]]]"
+
+                    type: vertical-stack
+                    cards:
+
+                      - type: custom:button-card
+                        template: card_header_popup
+                        variables:
+                          card_header_title: "[[[ return variables.ulm_card_light_name; ]]]"
+                          card_header_back_button: true
+
+                      - type: "custom:button-card"
+                        template: "popup_light_color"
+                        variables:
+                          ulm_popup_light_entity: "[[[ return variables.ulm_popup_light_entity ]]]"
     footer:
       card:
         type: "custom:button-card"
@@ -323,5 +343,5 @@ popup_light_brightness:
             ha-card {
               background: none !important;
               box-shadow: none !important;
-              padding: 10px 0 10px 0 !important;
+              padding: 0px 0 10px 0 !important;
             }

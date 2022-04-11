@@ -132,3 +132,122 @@ card_header_back_button:
   tap_action:
     action: 'navigate'
     navigation_path: '[[[ return variables.card_header_navigate_path; ]]]'
+
+
+card_header_popup:
+  triggers_update: "all"
+  variables:
+    card_header_title: ""
+    card_header_navigate_path: ""
+    card_header_back_button: true
+  card_mod:
+    style: |
+        :host {
+          position: -webkit-sticky !important;
+          position: sticky !important;
+          top: 0;
+          z-index: 1;
+          margin: 0 !important;
+        }
+  show_icon: false
+  show_label: false
+  show_name: false
+  styles:
+    card:
+      - padding-top: '0px'
+      - padding-bottom: '0px'
+      - padding-left: '0px'
+      - padding-right: '0px'
+      - font-size: '1.4rem'
+      - background: 'var(--header-background-color)'
+      - box-shadow: 'var(--header-shadow)'
+      - border-radius: 0px
+      - font-weight: bold
+      - color: var(--primary-text-color)
+      - margin-bottom: '10px'
+      - height: '46px'
+    grid:
+        - grid-template-areas: |
+            [[[
+              if ( variables.card_header_back_button == true )
+                return '"back title"';
+              else
+                return '"title"';
+            ]]]
+        - grid-template-columns: |
+            [[[
+              if ( variables.card_header_back_button == true )
+                return '62px auto';
+              else
+                return '1fr';
+            ]]]
+        - grid-template-rows: 1fr
+    custom_fields:
+      back:
+        - align-self: center
+        - justify-self: center
+        - margin: none
+      title:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - padding-left: '0px'
+        - padding-right: |
+            [[[
+              if ( variables.card_header_back_button == true )
+                return '62px';
+              else
+                return '0px';
+            ]]]
+  custom_fields:
+    back:
+      card:
+        type: custom:button-card
+        template: card_header_back_button_popup
+        variables:
+          card_header_back_button: '[[[ return variables.card_header_back_button; ]]]'
+    title: "[[[ return variables.card_header_title; ]]]"
+
+
+card_header_back_button_popup:
+  show_name: false
+  show_icon: true
+  show_last_changed: false
+  icon: 'mdi:chevron-left'
+  styles:
+    card:
+      - padding_bottom: '0px'
+      - padding_top: '0px'
+      - padding_left: '0px'
+      - padding_right: '0px'
+      - background: none
+      - box-shadow: none
+      - display: "[[[
+              if ( variables.card_header_back_button == true )
+                return 'block';
+              else
+                return 'none';
+            ]]]"
+    grid:
+      - grid-template-areas: '"i"'
+      - grid-template-rows: 1fr
+    img_cell:
+      - display: flex
+      - justify-content: start
+      - align-items: center
+      - width: '62px'
+      - height: '42px'
+      - padding-right: '0px'
+      - padding-left: '0px'
+    icon:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - margin: '0px'
+      - width: '42px'
+      - height: '94%'
+      - color: "rgba(var(--color-blue),1)"
+  tap_action:
+    action: "fire-dom-event"
+    browser_mod:
+      command: "close_popup"

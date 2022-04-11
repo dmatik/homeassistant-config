@@ -107,7 +107,7 @@ cards:
                       entity: sensor.fully_device_info
                       variables:
                         ulm_card_nas_name: 'BLAZE'
-                        ulm_card_nas_entity: 'binary_sensor.blaze_update_available'
+                        ulm_card_nas_entity: 'update.blaze_dsm_update'
                         ulm_card_nas_label: 'DS216j'
                         ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1'
                         ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system'
@@ -119,7 +119,7 @@ cards:
                       entity: sensor.fully_device_info
                       variables:
                         ulm_card_nas_name: 'ZEG'
-                        ulm_card_nas_entity: 'binary_sensor.zeg_update_available'
+                        ulm_card_nas_entity: 'update.zeg_dsm_update'
                         ulm_card_nas_label: 'DS218+'
                         ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1_2'
                         ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system_2'

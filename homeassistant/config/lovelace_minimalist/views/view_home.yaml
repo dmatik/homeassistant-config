@@ -164,28 +164,28 @@ cards:
                 # ZEG Updates
                 - type: conditional
                   conditions:
-                    - entity: binary_sensor.zeg_update_available
+                    - entity: update.zeg_dsm_update
                       state: "on"
                   card:
                     type: 'custom:button-card'
                     template: 'card_notification_synology'
                     variables:
                       card_notification_app: "ZEG"
-                      card_notification_sensor: "binary_sensor.zeg_update_available"
+                      card_notification_sensor: "update.zeg_dsm_update"
                       card_notification_navigate_path: "/lovelace/minimalist_nas"
                       card_notification_icon: "mdi:nas"
 
                 # BLAZE Updates
                 - type: conditional
                   conditions:
-                    - entity: binary_sensor.blaze_update_available
+                    - entity: update.blaze_dsm_update
                       state: "on"
                   card:
                     type: 'custom:button-card'
                     template: 'card_notification_synology'
                     variables:
                       card_notification_app: "BLAZE"
-                      card_notification_sensor: "binary_sensor.blaze_update_available"
+                      card_notification_sensor: "update.blaze_dsm_update"
                       card_notification_navigate_path: "/lovelace/minimalist_nas"
                       card_notification_icon: "mdi:nas"
 
@@ -322,8 +322,10 @@ cards:
                     - type: 'custom:button-card'
                       template: card_pc
                       entity: switch.dimka
-                      name: Dimka PC
                       icon: 'mdi:desktop-classic'
+                      variables:
+                        ulm_card_pc_name: Dimka PC
+
 
                     # Red Alert
                     - type: 'custom:button-card'

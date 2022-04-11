@@ -40,6 +40,7 @@ card_harmony_with_buttons:
           - 'popup_harmony'
         variables:
           ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+          ulm_card_harmony_name: '[[[ return variables.ulm_card_harmony_name ]]]'
           ulm_card_harmony_activity_1_name: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
           ulm_card_harmony_activity_1_icon: '[[[ return variables.ulm_card_harmony_activity_1_icon ]]]'
           ulm_card_harmony_activity_2_name: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'

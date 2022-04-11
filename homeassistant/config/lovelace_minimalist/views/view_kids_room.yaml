@@ -141,7 +141,7 @@ cards:
                       variables:
                         ulm_card_ac_entity: climate.kids_room
                         ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
-                        ulm_card_ac_name: 'AC'
+                        ulm_card_ac_name: 'Kids Room'
 
 
 

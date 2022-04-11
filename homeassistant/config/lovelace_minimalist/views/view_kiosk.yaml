@@ -225,14 +225,16 @@ cards:
               - type: 'custom:button-card'
                 template: card_pc
                 entity: switch.dimka
-                name: Dimka PC
                 icon: 'mdi:desktop-classic'
+                variables:
+                  ulm_card_pc_name: Dimka PC
 
               # Printer
               - type: 'custom:button-card'
                 template: card_printer
                 entity: sensor.mfc_j650dw_status
-                name: Printer
+                variables:
+                  ulm_card_printer_name: Printer
 
 
 
@@ -298,11 +300,11 @@ cards:
               - type: 'custom:button-card'
                 template: 'card_light_simple'
                 entity: light.kitchen_strips
-                name: Strips
                 icon: 'mdi:led-strip-variant'
                 variables:
                   ulm_card_light_enable_color: true
-                  ulm_card_light_enable_popup: true
+                  ulm_card_light_enable_popup: false
+                  ulm_card_light_name: Strips
 
               # Service Balcony Light
               - type: 'custom:button-card'
@@ -353,21 +355,21 @@ cards:
               - type: 'custom:button-card'
                 template: 'card_light_simple'
                 entity: light.bedside_dima
-                name: Dima
                 icon: 'mdi:lamp'
                 variables:
                   ulm_card_light_enable_color: true
-                  ulm_card_light_enable_popup: true
+                  ulm_card_light_enable_popup: false
+                  ulm_card_light_name: Dima
 
               # Bedside Galit Light
               - type: 'custom:button-card'
                 template: 'card_light_simple'
                 entity: light.bedside_galit
-                name: Galit
                 icon: 'mdi:lamp'
                 variables:
                   ulm_card_light_enable_color: true
-                  ulm_card_light_enable_popup: true
+                  ulm_card_light_enable_popup: false
+                  ulm_card_light_name: Galit
 
               # Kids Room Light
               - type: 'custom:button-card'

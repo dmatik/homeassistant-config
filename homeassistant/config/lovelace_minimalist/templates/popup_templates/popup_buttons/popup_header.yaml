@@ -6,7 +6,7 @@ popup_header:
     - "popup_button"
     - "ulm_language_variables"
   show_name: true
-  show_label: true
+  show_label: false
   tap_action:
     action: "more-info"
   styles:
@@ -21,7 +21,7 @@ popup_header:
       - filter: "opacity(40%)"
     icon:
       - color: "var(--color-theme)"
-  label: |-
+  name: |-
     [[[
       if (entity.state == 'on')
         return variables.ulm_on;
