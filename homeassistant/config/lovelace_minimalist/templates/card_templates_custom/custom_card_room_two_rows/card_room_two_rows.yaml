@@ -104,7 +104,7 @@ room_info:
     ]]]
   styles:
     icon:
-      - color: "rgba(var(--color-blue),1)"
+      - color: "rgba(var(--color-blue),0.7)"
       - width: "24px"
       - height: "24px"
     label:
