@@ -6,9 +6,14 @@ sensor:
 #                                                                          #
 ############################################################################
 
+  # - platform: command_line
+  #   name: "Tasmota Latest"
+  #   command: "curl -s https://github.com/arendst/Tasmota/releases/latest | cut -d'\"' -f2 | rev | cut -d'/' -f1 | rev"
+  #   scan_interval: 600
+
   - platform: command_line
     name: "Tasmota Latest"
-    command: "curl -s https://github.com/arendst/Tasmota/releases/latest | cut -d'\"' -f2 | rev | cut -d'/' -f1 | rev"
+    command: /config/tasmota_version.sh
     scan_interval: 600
 
 
