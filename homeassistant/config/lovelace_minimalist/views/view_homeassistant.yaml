@@ -234,6 +234,11 @@ cards:
                         ulm_card_graph_entity: sensor.db_size
                         ulm_card_graph_icon: mdi:database
 
+                    # Full DB Calculated
+                    - type: 'custom:button-card'
+                      template: card_generic
+                      entity: sensor.db_size_calculated
+                      name: Calculated
 
                 - type: custom:button-card
                   template: spacer
