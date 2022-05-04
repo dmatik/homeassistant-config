@@ -116,9 +116,6 @@ recorder:
     entities:
       - sun.sun
       - sensor.date
-      - sensor.dark_sky_daily_summary
-      - sensor.dark
-      - sensor.docker
     event_types:
       - service_removed
       - service_executed
