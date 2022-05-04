@@ -71,7 +71,6 @@ card_red_alert:
                 {% for l in state_attr('sensor.redalert', 'current')['data'] %}
                   {{- l }}
                 {% endfor %}
-                </ul>
               {% else %}
                 אין התרעות כרגע
               {% endif %}
