@@ -4,7 +4,19 @@ card_air_quality:
   template:
     - "icon_info_bg"
     - "ulm_language_variables"
-  icon: mdi:leaf
+  #icon: mdi:leaf
+  icon: >
+    [[[
+      if (entity.state <= 100) {
+        return 'mdi:emoticon-happy-outline';
+      }
+      if (entity.state > 100 && entity.state <= 150) {
+        return 'mdi:emoticon-neutral-outline';
+      }
+      if (entity.state > 150) {
+        return 'mdi:emoticon-sad-outline';
+      }      
+    ]]]
   label: >
     [[[
       var unit = entity.attributes.unit_of_measurement != null ? " " + entity.attributes.unit_of_measurement : ""
