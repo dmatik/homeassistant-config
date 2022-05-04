@@ -60,3 +60,72 @@ card_air_quality:
   tap_action: 
     action: url
     url_path: '[[[ return "https://aqicn.org/city/" + variables.ulm_card_air_quality_city ]]]'
+
+
+card_air_quality_graph:
+  variables:    
+    ulm_card_air_quality_entity: ''
+    ulm_card_air_quality_city: ''
+    ulm_card_air_quality_hours: 24
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "0px"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:button-card"
+        template:
+          - "card_air_quality"
+        variables:
+          ulm_card_air_quality_city: "[[[ return variables.ulm_card_air_quality_city ]]]"
+        styles:
+          card:
+            - box-shadow: "none"
+            - border-radius: "var(--border-radius) var(--border-radius) 0px 0px"
+            - padding: "12px"
+        entity: "[[[ return variables.ulm_card_air_quality_entity ]]]"
+        name: "[[[ return variables.ulm_card_air_quality_name ]]]"
+    item2:
+      card:
+        type: "custom:mini-graph-card"
+        entities: >
+          [[[
+            var ent = [];
+            ent.push(variables.ulm_card_air_quality_entity);
+            return ent;
+          ]]]
+        show:
+          name: false
+          icon: false
+          legend: false
+          state: false
+          graph: 'bar'
+          fill: true
+        hours_to_show: "[[[ return variables.ulm_card_air_quality_hours; ]]]"
+        points_per_hour: 1
+        color_thresholds:
+          - value: 100
+            color: 'rgba(var(--color-green), 1)'
+          - value: 150
+            color: 'rgba(var(--color-yellow),1)'
+          - value: 200
+            color: 'rgba(var(--color-yellow),1)'
+        style: |
+          ha-card {
+            box-shadow: none;
+            border-radius: var(--border-radius);
+            padding-top: 0px !important;
+            padding-bottom: 12px !important;
+            padding-right: 12px !important;
+            padding-left: 12px !important;
+          }
+          .graph {
+            padding: 0px !important;
+          }          

@@ -233,6 +233,17 @@ cards:
                       name: Air Quality
                       variables:
                         ulm_card_air_quality_city: 'ashdod'
+
+                    # Air Quality
+                    - type: 'custom:button-card'
+                      template: card_air_quality_graph
+                      variables:
+                        ulm_card_graph_color: "var(--google-blue)"
+                        ulm_card_air_quality_name: Air Quality
+                        ulm_card_air_quality_entity: sensor.waqi_ashdod_yshrl_dod
+                        ulm_card_air_quality_city: 'ashdod'
+                        ulm_card_air_quality_type: bar
+
                       
 
                 - type: custom:button-card
