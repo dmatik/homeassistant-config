@@ -1,6 +1,6 @@
 card_air_quality:
   variables:
-    ulm_card_air_quality_city: ''
+    ulm_card_air_quality_url: ''
   template:
     - "icon_info_bg"
     - "ulm_language_variables"
@@ -59,13 +59,13 @@ card_air_quality:
           - background-color: "rgba(var(--color-red), 0.2)"
   tap_action: 
     action: url
-    url_path: '[[[ return "https://aqicn.org/city/" + variables.ulm_card_air_quality_city ]]]'
+    url_path: '[[[ return variables.ulm_card_air_quality_url; ]]]'
 
 
 card_air_quality_graph:
   variables:    
     ulm_card_air_quality_entity: ''
-    ulm_card_air_quality_city: ''
+    ulm_card_air_quality_url: ''
     ulm_card_air_quality_hours: 24
   triggers_update: "all"
   styles:
@@ -84,7 +84,7 @@ card_air_quality_graph:
         template:
           - "card_air_quality"
         variables:
-          ulm_card_air_quality_city: "[[[ return variables.ulm_card_air_quality_city ]]]"
+          ulm_card_air_quality_url: "[[[ return variables.ulm_card_air_quality_url ]]]"
         styles:
           card:
             - box-shadow: "none"
