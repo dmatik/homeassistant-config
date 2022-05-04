@@ -89,7 +89,8 @@ cards:
                       template:
                         - 'chip_icon_label_state'
                         - 'chip_air_polution_colors'
-                      icon: 'mdi:leaf'
+                        - 'chip_air_polution_icons'
+                      #icon: 'mdi:leaf'
                       variables:
                         ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
 
