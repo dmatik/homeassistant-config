@@ -1,0 +1,7 @@
+sensor:
+  - platform: waqi
+    token: !secret waqi_token
+    locations:
+      - ashdod
+    stations:
+      - Ashdod (ישראל,dod)

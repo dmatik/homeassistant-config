@@ -80,9 +80,18 @@ cards:
                     - type: custom:button-card
                       template: chip_temperature
                       variables:
-                        ulm_chip_temperature_outside: 'sensor.sensibo_living_room_temp'
-                        ulm_chip_temperature_inside: 'sensor.outside_temperature'
+                        ulm_chip_temperature_outside: 'sensor.outside_temperature'
+                        ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
                         ulm_chip_temperature_weather: 'weather.met_home'
+
+                    # Air Quality Ashdod
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_icon_label_state'
+                        - 'chip_air_polution_colors'
+                      icon: 'mdi:leaf'
+                      variables:
+                        ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
 
 
 
@@ -95,11 +104,13 @@ cards:
                 - type: custom:button-card
                   template: spacer
 
-                - type: horizontal-stack
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
                   cards:
-
-                    - type: custom:button-card
-                      template: edge
 
                     - type: weather-forecast
                       entity: weather.met_home
@@ -114,8 +125,24 @@ cards:
                             margin-right: 26px;
                           }
 
-                    - type: custom:button-card
-                      template: edge
+                # - type: custom:layout-card
+                #   layout_type: grid
+                #   layout_options:
+                #     grid-template-columns: 1fr 1fr 1fr
+                #     grid-template-rows: auto
+                #     grid-gap: 0px 2px
+                #     mediaquery:
+                #       "(max-width: 450px)":
+                #         grid-template-columns: 1fr 1fr
+                #   cards:
+
+                #     # Air Quality Ashdod
+                #     - type: 'custom:button-card'
+                #       template: card_graph
+                #       variables:
+                #         ulm_card_graph_color: "var(--google-blue)"
+                #         ulm_card_graph_name: Air Quality
+                #         ulm_card_graph_entity: sensor.waqi_ashdod_yshrl_dod
 
 
 
@@ -198,8 +225,15 @@ cards:
                         ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
                       entity: switch.bedroom_radiator
                       name: Bedroom
-                      
 
+                    # Air Quality
+                    - type: 'custom:button-card'
+                      template: card_air_quality
+                      entity: sensor.waqi_ashdod_yshrl_dod
+                      name: Air Quality
+                      variables:
+                        ulm_card_air_quality_city: 'ashdod'
+                      
 
                 - type: custom:button-card
                   template: spacer

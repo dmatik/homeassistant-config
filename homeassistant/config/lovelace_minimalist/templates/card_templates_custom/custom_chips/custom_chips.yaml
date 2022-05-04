@@ -58,7 +58,7 @@ chip_icon_label_state:
         if (variables.ulm_chip_icon_state_entity != null && states[variables.ulm_chip_icon_state_entity].state){
           var state = states[variables.ulm_chip_icon_state_entity].state;
           if (states[variables.ulm_chip_icon_state_entity].attributes.unit_of_measurement){
-            state += states[variables.ulm_chip_icon_state_entity].attributes.unit_of_measurement;
+            state += " " + states[variables.ulm_chip_icon_state_entity].attributes.unit_of_measurement;
           }
         }
         return state;
@@ -90,3 +90,22 @@ chip_blue:
       styles:
         icon:
           - color: 'rgba(var(--color-blue),1)'
+
+chip_air_polution_colors:
+  state:
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state <= 100 ]]]'
+      styles:
+        icon:
+          - color: 'rgba(var(--color-green),1)'
+    - operator: "template"
+      value: '[[[ return ( states[variables.ulm_chip_icon_state_entity].state > 100 && 
+                            states[variables.ulm_chip_icon_state_entity].state <= 150 ) ]]]'
+      styles:
+        icon:
+          - color: 'rgba(var(--color-yellow),1)'
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 150 ]]]'
+      styles:
+        icon:
+          - color: 'rgba(var(--color-red),1)'

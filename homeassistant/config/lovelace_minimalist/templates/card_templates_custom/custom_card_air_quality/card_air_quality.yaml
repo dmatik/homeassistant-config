@@ -1,0 +1,62 @@
+card_air_quality:
+  variables:
+    ulm_card_air_quality_city: ''
+  template:
+    - "icon_info_bg"
+    - "ulm_language_variables"
+  icon: mdi:leaf
+  label: >
+    [[[
+      var unit = entity.attributes.unit_of_measurement != null ? " " + entity.attributes.unit_of_measurement : ""
+      if (entity.state == "unavailable") {
+        return variables.ulm_unavailable;
+      } else {
+        return entity.state + unit;
+      }
+    ]]]
+  styles:
+    icon:
+      - color: "rgba(var(--color-theme),0.9)"
+    label:
+      - align-self: "end"
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "14px"
+      - margin-left: "12px"
+      - filter: "opacity(100%)"
+    name:
+      - justify-self: "start"
+      - align-self: "start"
+      - font-weight: "bolder"
+      - font-size: "12px"
+      - filter: "opacity(40%)"
+      - margin-left: "12px"
+    grid:
+      - grid-template-areas: "'i l' 'i n'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+  state:
+    - operator: "template"
+      value: '[[[ return entity.state <= 100 ]]]'
+      styles:
+        icon:
+          - color: 'rgba(var(--color-green),1)'
+        img_cell:
+          - background-color: "rgba(var(--color-green), 0.2)"
+    - operator: "template"
+      value: '[[[ return ( entity.state > 100 && entity.state <= 150 ) ]]]'
+      styles:
+        icon:
+          - color: 'rgba(var(--color-yellow),1)'
+        img_cell:
+          - background-color: "rgba(var(--color-yellow), 0.2)"
+    - operator: "template"
+      value: '[[[ return entity.state > 150 ]]]'
+      styles:
+        icon:
+          - color: 'rgba(var(--color-red),1)'
+        img_cell:
+          - background-color: "rgba(var(--color-red), 0.2)"
+  tap_action: 
+    action: url
+    url_path: '[[[ return "https://aqicn.org/city/" + variables.ulm_card_air_quality_city ]]]'
