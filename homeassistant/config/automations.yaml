@@ -210,7 +210,7 @@
   - service: notify.mobile_app_iphonedima
     data:
       title: צבע אדום
-      message: '{{ state_attr(''sensor.redalert'', ''data'') }}'
+      message: '{{ state_attr("sensor.redalert", "current")["title"] }}'
       data:
         tag: redalert-all
   mode: single
