@@ -27,9 +27,9 @@ sensor:
           {% if is_state("sensor.switcher_webapi_state", "off") %}
               off
           {% else %}
-              {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
-              {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
-              {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
+              {% set hour = state_attr("sensor.switcher_webapi","time_left").split(':')[0] %}
+              {% set min = state_attr("sensor.switcher_webapi","time_left").split(':')[1] %}
+              {% set sec = state_attr("sensor.switcher_webapi","time_left").split(':')[2] %}
               {% set min_int = min|int %}
               {% set hour_int = hour|int %}
               {% if hour_int == 0 and min_int == 0 %}
@@ -48,9 +48,9 @@ sensor:
           {% if is_state("sensor.switcher_webapi_state", "off") %}
               off
           {% else %}
-              {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
-              {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
-              {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
+              {% set hour = state_attr("sensor.switcher_webapi","time_left").split(':')[0] %}
+              {% set min = state_attr("sensor.switcher_webapi","time_left").split(':')[1] %}
+              {% set sec = state_attr("sensor.switcher_webapi","time_left").split(':')[2] %}
               {% set min_int = min|int %}
               {% set hour_int = hour|int %}
               {{hour + ':' + min}}
@@ -63,9 +63,9 @@ sensor:
           {% if is_state("sensor.switcher_webapi_state", "off") %}
               off
           {% else %}
-              {% set hour = states.sensor.switcher_webapi.attributes.time_left.split(':')[0] %}
-              {% set min = states.sensor.switcher_webapi.attributes.time_left.split(':')[1] %}
-              {% set sec = states.sensor.switcher_webapi.attributes.time_left.split(':')[2] %}
+              {% set hour = state_attr("sensor.switcher_webapi","time_left").split(':')[0] %}
+              {% set min = state_attr("sensor.switcher_webapi","time_left").split(':')[1] %}
+              {% set sec = state_attr("sensor.switcher_webapi","time_left").split(':')[2] %}
               {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
               {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
           {% endif %}
