@@ -115,6 +115,7 @@ card_air_quality_graph:
     item2:
       card:
         type: "custom:mini-graph-card"
+        group: true
         entities: >
           [[[
             var ent = [];
@@ -132,6 +133,8 @@ card_air_quality_graph:
           average: "[[[ return variables.ulm_card_air_quality_show_average; ]]]"
         hours_to_show: "[[[ return variables.ulm_card_air_quality_hours; ]]]"
         points_per_hour: 1
+        group_by: 'hour'
+        bar_spacing: 2
         color_thresholds:
           - value: 0
             color: 'rgba(var(--color-green), 1)'
@@ -143,8 +146,6 @@ card_air_quality_graph:
           action: more-info
         style: |
           ha-card {
-            box-shadow: none;
-            border-radius: var(--border-radius);
             padding-top: 0px !important;
             padding-bottom: 12px !important;
             padding-right: 12px !important;
