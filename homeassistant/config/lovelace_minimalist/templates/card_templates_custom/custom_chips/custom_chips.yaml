@@ -92,35 +92,41 @@ chip_blue:
           - color: 'rgba(var(--color-blue),1)'
 
 chip_air_polution_colors:
+  variables:
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100
   state:
     - operator: "template"
-      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state <= 100 ]]]'
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_green ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-green),1)'
     - operator: "template"
-      value: '[[[ return ( states[variables.ulm_chip_icon_state_entity].state > 100 && 
-                            states[variables.ulm_chip_icon_state_entity].state <= 150 ) ]]]'
+      value: '[[[ return ( states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_green && 
+                            states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_yellow ) ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-yellow),1)'
     - operator: "template"
-      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 150 ]]]'
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_yellow ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-red),1)'
 
 
 chip_air_polution_icons:
+  variables:
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100
   icon: >
     [[[
-      if (states[variables.ulm_chip_icon_state_entity].state <= 100) {
+      if (states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_green) {
         return 'mdi:emoticon-happy';
       }
-      if (states[variables.ulm_chip_icon_state_entity].state > 100 && states[variables.ulm_chip_icon_state_entity].state <= 150) {
+      if (states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_green && states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_yellow) {
         return 'mdi:emoticon-neutral';
       }
-      if (states[variables.ulm_chip_icon_state_entity].state > 150) {
+      if (states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_yellow) {
         return 'mdi:emoticon-sad';
       }      
     ]]]

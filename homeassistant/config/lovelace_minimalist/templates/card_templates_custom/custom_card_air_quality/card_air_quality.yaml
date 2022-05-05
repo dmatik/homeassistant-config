@@ -1,19 +1,21 @@
 card_air_quality:
   variables:
     ulm_card_air_quality_url: ''
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100  
   template:
     - "icon_info_bg"
     - "ulm_language_variables"
   #icon: mdi:leaf
   icon: >
     [[[
-      if (entity.state <= 100) {
+      if (entity.state <= variables.ulm_card_air_quality_green) {
         return 'mdi:emoticon-happy-outline';
       }
-      if (entity.state > 100 && entity.state <= 150) {
+      if (entity.state > variables.ulm_card_air_quality_green && entity.state <= variables.ulm_card_air_quality_yellow) {
         return 'mdi:emoticon-neutral-outline';
       }
-      if (entity.state > 150) {
+      if (entity.state > variables.ulm_card_air_quality_yellow) {
         return 'mdi:emoticon-sad-outline';
       }      
     ]]]
@@ -49,21 +51,21 @@ card_air_quality:
       - grid-template-rows: "min-content min-content"
   state:
     - operator: "template"
-      value: '[[[ return entity.state <= 100 ]]]'
+      value: '[[[ return entity.state <= variables.ulm_card_air_quality_green ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-green),1)'
         img_cell:
           - background-color: "rgba(var(--color-green), 0.2)"
     - operator: "template"
-      value: '[[[ return ( entity.state > 100 && entity.state <= 150 ) ]]]'
+      value: '[[[ return ( entity.state > variables.ulm_card_air_quality_green && entity.state <= variables.ulm_card_air_quality_yellow ) ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-yellow),1)'
         img_cell:
           - background-color: "rgba(var(--color-yellow), 0.2)"
     - operator: "template"
-      value: '[[[ return entity.state > 150 ]]]'
+      value: '[[[ return entity.state > variables.ulm_card_air_quality_yellow ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-red),1)'
@@ -79,6 +81,10 @@ card_air_quality_graph:
     ulm_card_air_quality_entity: ''
     ulm_card_air_quality_url: ''
     ulm_card_air_quality_hours: 24
+    ulm_card_air_quality_show_extrema: false
+    ulm_card_air_quality_show_average: false
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100
   triggers_update: "all"
   styles:
     grid:
@@ -97,6 +103,8 @@ card_air_quality_graph:
           - "card_air_quality"
         variables:
           ulm_card_air_quality_url: "[[[ return variables.ulm_card_air_quality_url ]]]"
+          ulm_card_air_quality_green: "[[[ return variables.ulm_card_air_quality_green; ]]]"
+          ulm_card_air_quality_yellow: "[[[ return variables.ulm_card_air_quality_yellow; ]]]"
         styles:
           card:
             - box-shadow: "none"
@@ -120,15 +128,19 @@ card_air_quality_graph:
           state: false
           graph: 'bar'
           fill: true
+          extrema: "[[[ return variables.ulm_card_air_quality_show_extrema; ]]]"
+          average: "[[[ return variables.ulm_card_air_quality_show_average; ]]]"
         hours_to_show: "[[[ return variables.ulm_card_air_quality_hours; ]]]"
         points_per_hour: 1
         color_thresholds:
-          - value: 100
+          - value: 0
             color: 'rgba(var(--color-green), 1)'
-          - value: 150
-            color: 'rgba(var(--color-yellow),1)'
-          - value: 200
-            color: 'rgba(var(--color-yellow),1)'
+          - value: "[[[ return variables.ulm_card_air_quality_green; ]]]"
+            color: 'rgba(var(--color-yellow), 1)'
+          - value: "[[[ return variables.ulm_card_air_quality_yellow; ]]]"
+            color: 'rgba(var(--color-red), 1)'
+        tap_action:
+          action: more-info
         style: |
           ha-card {
             box-shadow: none;
@@ -140,4 +152,10 @@ card_air_quality_graph:
           }
           .graph {
             padding: 0px !important;
-          }          
+          }
+          .info {
+            padding-bottom: 4px !important;
+            padding-right: 4px !important;
+            padding-left: 4px !important;
+            font-size: 10px;
+          }

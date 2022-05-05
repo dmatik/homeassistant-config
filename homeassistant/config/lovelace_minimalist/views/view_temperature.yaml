@@ -84,7 +84,7 @@ cards:
                         ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
                         ulm_chip_temperature_weather: 'weather.met_home'
 
-                    # Air Quality Ashdod
+                    # Air Quality Chip
                     - type: 'custom:button-card'
                       template:
                         - 'chip_icon_label_state'
@@ -93,6 +93,8 @@ cards:
                       #icon: 'mdi:leaf'
                       variables:
                         ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
+                        ulm_card_air_quality_green: 50
+                        ulm_card_air_quality_yellow: 100
 
 
 
@@ -154,6 +156,10 @@ cards:
                         ulm_card_air_quality_entity: sensor.waqi_ashdod_yshrl_dod
                         ulm_card_air_quality_url: 'https://aqicn.org/city/ashdod/'
                         ulm_card_air_quality_type: bar
+                        ulm_card_air_quality_show_extrema: true
+                        ulm_card_air_quality_show_average: true
+                        ulm_card_air_quality_green: 50
+                        ulm_card_air_quality_yellow: 100
 
 
 
