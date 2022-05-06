@@ -105,9 +105,9 @@ cards:
                     - type: 'custom:button-card'
                       template: card_homeassistant
                       variables:
-                        ulm_card_homeassistant_entity: 'binary_sensor.ha_update_available'
+                        ulm_card_homeassistant_entity: 'binary_sensor.docker_hub_update_available'
                         ulm_card_homeassistant_curr_version: 'sensor.ha_current_version'
-                        ulm_card_homeassistant_latest_version: 'sensor.ha_available_version'
+                        ulm_card_homeassistant_latest_version: 'sensor.docker_hub'
                         ulm_card_homeassistant_update_script: 'script.update_homeassistant_container'
 
                 # - type: custom:layout-card

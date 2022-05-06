@@ -122,15 +122,15 @@ cards:
                 # HA Updates
                 - type: conditional
                   conditions:
-                    - entity: binary_sensor.ha_update_available
+                    - entity: binary_sensor.docker_hub_update_available
                       state: "on"
                   card:
                     type: 'custom:button-card'
                     template: 'card_notification_version'
                     variables:
-                      card_notification_sensor: "binary_sensor.ha_update_available"
+                      card_notification_sensor: "binary_sensor.docker_hub_update_available"
                       card_notification_app: "HA"
-                      card_notification_version_sensor: "sensor.ha_available_version"
+                      card_notification_version_sensor: "sensor.docker_hub"
                       card_notification_navigate_path: "/lovelace/minimalist_homeassistant"
                       card_notification_icon: "mdi:party-popper"
 
