@@ -10,10 +10,10 @@
     - platform: state
       entity_id: binary_sensor.docker_hub_update_available
       to: 'on'
-    - platform: time
-      at:
-        - "00:00:00"
-        - "12:00:00"
+    - platform: time_pattern
+      hours: '/2'
+      minutes: 0
+      seconds: 0
   condition:
     - condition: state
       entity_id: binary_sensor.docker_hub_update_available
@@ -66,10 +66,10 @@
   trigger:
     - platform: state
       entity_id: sensor.hacs
-    - platform: time
-      at:
-        - "00:00:00"
-        - "12:00:00"
+    - platform: time_pattern
+      hours: '/2'
+      minutes: 0
+      seconds: 0
   condition:
     - condition: template
       value_template: "{{ states('sensor.hacs') != 'unknown'}}"
@@ -120,10 +120,10 @@
   trigger:
     - platform: state
       entity_id: sensor.number_of_tasmota_versions_old
-    - platform: time
-      at:
-        - "00:00:00"
-        - "12:00:00"
+    - platform: time_pattern
+      hours: '/2'
+      minutes: 0
+      seconds: 0
   condition:
     - condition: template
       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown'}}"
@@ -171,10 +171,10 @@
     - platform: state
       entity_id: update.zeg_dsm_update
       to: 'on'
-    - platform: time
-      at:
-        - "00:00:00"
-        - "12:00:00"
+    - platform: time_pattern
+      hours: '/2'
+      minutes: 0
+      seconds: 0
   condition:
     - condition: state
       entity_id: update.zeg_dsm_update
@@ -223,10 +223,10 @@
     - platform: state
       entity_id: update.blaze_dsm_update
       to: 'on'
-    - platform: time
-      at:
-        - "00:00:00"
-        - "12:00:00"
+    - platform: time_pattern
+      hours: '/2'
+      minutes: 0
+      seconds: 0
   condition:
     - condition: state
       entity_id: update.blaze_dsm_update

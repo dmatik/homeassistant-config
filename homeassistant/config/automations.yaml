@@ -514,3 +514,19 @@
   action:
   - service: script.open_parking_gate_72
   mode: single
+- id: '1651849804441'
+  alias: Update Notifications
+  description: ''
+  use_blueprint:
+    path: mdegat01/update_notifications.yaml
+    input:
+      reminder_hours: '3'
+      update_entities:
+      - update.blaze_dsm_update
+      - update.zeg_dsm_update
+      - update.bedroom_update_available
+      - update.kids_room_update_available
+      - update.living_room_update_available
+      mobile_app_device: b8bfbfe5b468a685dd2cc07f662069ee
+      send_to_ha: true
+      take_backup: true
