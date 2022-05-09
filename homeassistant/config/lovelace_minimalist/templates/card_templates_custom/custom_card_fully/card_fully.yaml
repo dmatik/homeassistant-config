@@ -93,39 +93,39 @@ card_fully:
                       return "Off";
                     }
                   ]]]
+          # item7:
+          #   card:
+          #     type: "custom:button-card"
+          #     template: "list_2_items"
+          #     styles:
+          #       card:
+          #         - padding-top: 10px
+          #     custom_fields:
+          #       item1:
+          #         card:
+          #           type: custom:refreshable-picture-card
+          #           title: null
+          #           update_interval: 5
+          #           static_picture: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
+          #           navigate: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
+          #           style: |
+          #             ha-card {
+          #               box-shadow: none;
+          #               border-radius: var(--border-radius);
+          #             }
+          #       item2:
+          #         card:
+          #           type: custom:refreshable-picture-card
+          #           title: null
+          #           update_interval: 5
+          #           static_picture: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
+          #           navigate: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
+          #           style: |
+          #             ha-card {
+          #               box-shadow: none;
+          #               border-radius: var(--border-radius);
+          #             }
           item7:
-            card:
-              type: "custom:button-card"
-              template: "list_2_items"
-              styles:
-                card:
-                  - padding-top: 10px
-              custom_fields:
-                item1:
-                  card:
-                    type: custom:refreshable-picture-card
-                    title: null
-                    update_interval: 5
-                    static_picture: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
-                    navigate: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
-                    style: |
-                      ha-card {
-                        box-shadow: none;
-                        border-radius: var(--border-radius);
-                      }
-                item2:
-                  card:
-                    type: custom:refreshable-picture-card
-                    title: null
-                    update_interval: 5
-                    static_picture: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
-                    navigate: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
-                    style: |
-                      ha-card {
-                        box-shadow: none;
-                        border-radius: var(--border-radius);
-                      }
-          item8:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -149,7 +149,7 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_disable_kiosk_command ]]]"
-          item9:
+          item8:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -173,7 +173,7 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_clear_cache_command ]]]"
-          item10:
+          item9:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -184,19 +184,49 @@ card_fully:
                 item1:
                   card:
                     type: "custom:button-card"
-                    template: "widget_text"
+                    template: 
+                      - "widget_text"
+                      - "popup_fully_image"
+                    variables:
+                      ulm_card_fully_title: 'Screenshot'
+                      ulm_card_fully_image: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
+                      ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_screenshot_command ]]]"
                     name: 'Screenshot'
-                    tap_action:
-                      action: "call-service"
-                      service: "[[[ return variables.ulm_card_fully_screenshot_command ]]]"
                 item2:
                   card:
                     type: "custom:button-card"
-                    template: "widget_text"
+                    template: 
+                      - "widget_text"
+                      - "popup_fully_image"
+                    variables:
+                      ulm_card_fully_title: 'Camshot'
+                      ulm_card_fully_image: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
+                      ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
                     name: 'Camshot'
-                    tap_action:
-                      action: "call-service"
-                      service: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
+          # item10:
+          #   card:
+          #     type: "custom:button-card"
+          #     template: "list_2_items"
+          #     styles:
+          #       card:
+          #         - padding-top: 10px
+          #     custom_fields:
+          #       item1:
+          #         card:
+          #           type: "custom:button-card"
+          #           template: "widget_text"
+          #           name: 'Screenshot'
+          #           tap_action:
+          #             action: "call-service"
+          #             service: "[[[ return variables.ulm_card_fully_screenshot_command ]]]"
+          #       item2:
+          #         card:
+          #           type: "custom:button-card"
+          #           template: "widget_text"
+          #           name: 'Camshot'
+          #           tap_action:
+          #             action: "call-service"
+          #             service: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
 
 
 
