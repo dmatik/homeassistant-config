@@ -17,12 +17,14 @@ sensor:
       - ip4
       - androidVersion
       - deviceModel
-      - currentPage
+      - currentPageUrl
       - deviceName
       - mac
       - screenBrightness
       - plugged
       - lastAppStart
       - startUrl
-      - isScreenOn
+      - screenOn
     value_template: 'OK'
+    scan_interval: 10
+    timeout: 30

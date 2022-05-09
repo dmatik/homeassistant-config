@@ -6,6 +6,10 @@ card_fully:
     ulm_card_fully_disable_kiosk_command: ''
     ulm_card_fully_restart_app_command: ''
     ulm_card_fully_clear_cache_command: ''
+    ulm_card_fully_screenshot_image: ''
+    ulm_card_fully_screenshot_command: ''
+    ulm_card_fully_camshot_image: ''
+    ulm_card_fully_camshot_command: ''
   triggers_update: "all"
   styles:
     grid:
@@ -30,14 +34,14 @@ card_fully:
           action: "none"
         entity: "[[[ return variables.ulm_card_fully_entity ]]]"
         name: "[[[ return variables.ulm_card_fully_name ]]]"
-        label: '[[[ return states[variables.ulm_card_fully_entity].attributes.currentPage ]]]'
+        label: '[[[ return states[variables.ulm_card_fully_entity].attributes.currentPageUrl ]]]'
         styles:
           icon:
             - color: "rgba(var(--color-theme),0.9)"
     item2:
       card:
         type: "custom:button-card"
-        template: "list_info_items_7_lines"
+        template: "list_info_items_10_lines"
         custom_fields:
           item1:
             card:
@@ -73,8 +77,55 @@ card_fully:
               template: "widget_text_info"
               custom_fields:
                 item1: 'IP:'
-                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.ip4 ]]]" 
+                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.ip4 ]]]"
           item6:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'Screen:'
+                #item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.screenOn ]]]"
+                item2: >-
+                  [[[
+                    if (states[variables.ulm_card_fully_entity].attributes.screenOn == true) {
+                      return "On";
+                    } else {
+                      return "Off";
+                    }
+                  ]]]
+          item7:
+            card:
+              type: "custom:button-card"
+              template: "list_2_items"
+              styles:
+                card:
+                  - padding-top: 10px
+              custom_fields:
+                item1:
+                  card:
+                    type: custom:refreshable-picture-card
+                    title: null
+                    update_interval: 5
+                    static_picture: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
+                    navigate: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
+                    style: |
+                      ha-card {
+                        box-shadow: none;
+                        border-radius: var(--border-radius);
+                      }
+                item2:
+                  card:
+                    type: custom:refreshable-picture-card
+                    title: null
+                    update_interval: 5
+                    static_picture: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
+                    navigate: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
+                    style: |
+                      ha-card {
+                        box-shadow: none;
+                        border-radius: var(--border-radius);
+                      }
+          item8:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -98,7 +149,7 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_disable_kiosk_command ]]]"
-          item7:
+          item9:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -122,3 +173,66 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_clear_cache_command ]]]"
+          item10:
+            card:
+              type: "custom:button-card"
+              template: "list_2_items"
+              styles:
+                card:
+                  - padding-top: 10px
+              custom_fields:
+                item1:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Screenshot'
+                    tap_action:
+                      action: "call-service"
+                      service: "[[[ return variables.ulm_card_fully_screenshot_command ]]]"
+                item2:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Camshot'
+                    tap_action:
+                      action: "call-service"
+                      service: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
+
+
+
+card_fully_image:
+  variables:
+    ulm_card_fully_image: ''
+    ulm_card_fully_refresh_command: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: custom:refreshable-picture-card
+        title: null
+        update_interval: 10
+        static_picture: "[[[ return variables.ulm_card_fully_image ]]]"
+        navigate: "[[[ return variables.ulm_card_fully_image ]]]"
+        style: |
+          ha-card {
+            box-shadow: none;
+            border-radius: var(--border-radius);
+          }
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "widget_text"
+        name: 'Refresh'
+        tap_action:
+          action: "call-service"
+          service: "[[[ return variables.ulm_card_fully_refresh_command ]]]"

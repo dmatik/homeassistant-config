@@ -14,3 +14,17 @@ script:
         alias: Clear Cache
         sequence:
             - service: rest_command.fully_clear_cache
+
+    fully_get_camshot:
+        alias: Get Camshot
+        sequence:
+            - service: shell_command.fully_get_camshot
+              data:
+                api: !secret fully_get_camshot
+
+    fully_get_screenshot:
+        alias: Get Screenshot
+        sequence:
+            - service: shell_command.fully_get_screenshot
+              data:
+                api: !secret fully_get_screenshot
