@@ -1,0 +1,4 @@
+camera:
+  - platform: generic
+    name: fully_kitchen
+    still_image_url: !secret fully_get_camshot

@@ -197,11 +197,11 @@ card_fully:
                     type: "custom:button-card"
                     template: 
                       - "widget_text"
-                      - "popup_fully_image"
+                      - "popup_fully_image_auto"
                     variables:
                       ulm_card_fully_title: 'Camshot'
                       ulm_card_fully_image: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
-                      ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
+                      #ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
                     name: 'Camshot'
 
 
@@ -226,7 +226,7 @@ card_fully_image:
       card:
         type: custom:refreshable-picture-card
         title: null
-        update_interval: 10
+        update_interval: 5
         static_picture: "[[[ return variables.ulm_card_fully_image ]]]"
         navigate: "[[[ return variables.ulm_card_fully_image ]]]"
         style: |
@@ -242,3 +242,37 @@ card_fully_image:
         tap_action:
           action: "call-service"
           service: "[[[ return variables.ulm_card_fully_refresh_command ]]]"
+
+
+card_fully_image_auto:
+  variables:
+    ulm_card_fully_image: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: picture-entity
+        entity: "[[[ return variables.ulm_card_fully_image ]]]"
+        name: 'Kitchen'
+        show_name: false
+        show_state: false
+        # type: custom:refreshable-picture-card
+        # title: null
+        # update_interval: 5
+        # static_picture: "[[[ return variables.ulm_card_fully_image ]]]"
+        # attribute: 'entity_picture'
+        # style: |
+        #   ha-card {
+        #     box-shadow: none;
+        #     border-radius: var(--border-radius);
+        #   }
