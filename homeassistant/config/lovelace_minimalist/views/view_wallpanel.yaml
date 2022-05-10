@@ -114,14 +114,9 @@ cards:
                         ulm_card_fully_screenshot_image: '/local/fully_screenshot.jpg'
                         ulm_card_fully_screenshot_command: 'script.fully_get_screenshot'
                         ulm_card_fully_camshot_image: '/local/fully_camshot.jpg'
-                        ulm_card_fully_camshot_command: 'script.fully_get_camshot'                        
-
-                    # # Kitchen Fully Screenshot
-                    # - type: 'custom:button-card'
-                    #   template: card_fully_image
-                    #   variables:
-                    #     ulm_card_fully_image: '/local/fully_screenshot.jpg'
-                    #     ulm_card_fully_refresh_command: 'script.fully_get_screenshot'
+                        ulm_card_fully_camshot_command: 'script.fully_get_camshot'
+                        ulm_card_fully_screen_on_command: 'rest_command.fully_screen_on'
+                        ulm_card_fully_screen_off_command: 'rest_command.fully_screen_off'
 
 
 

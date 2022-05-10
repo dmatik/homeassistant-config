@@ -15,3 +15,11 @@ rest_command:
   fully_disable_kiosk_mode:
     url: !secret fully_disable_kiosk_mode
     method: "GET"
+
+  fully_screen_on:
+    url: !secret fully_screen_on
+    method: "GET"
+
+  fully_screen_off:
+    url: !secret fully_screen_off
+    method: "GET"

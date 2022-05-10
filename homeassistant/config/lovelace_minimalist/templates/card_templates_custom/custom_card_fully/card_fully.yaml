@@ -10,6 +10,8 @@ card_fully:
     ulm_card_fully_screenshot_command: ''
     ulm_card_fully_camshot_image: ''
     ulm_card_fully_camshot_command: ''
+    ulm_card_fully_screen_on_command: ''
+    ulm_card_fully_screen_off_command: ''
   triggers_update: "all"
   styles:
     grid:
@@ -70,7 +72,14 @@ card_fully:
               template: "widget_text_info"
               custom_fields:
                 item1: 'Plugged:'
-                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.plugged ]]]"
+                item2: >-
+                  [[[
+                    if (states[variables.ulm_card_fully_entity].attributes.plugged == true) {
+                      return "Yes";
+                    } else {
+                      return "No";
+                    }
+                  ]]]                
           item5:
             card:
               type: "custom:button-card"
@@ -84,7 +93,6 @@ card_fully:
               template: "widget_text_info"
               custom_fields:
                 item1: 'Screen:'
-                #item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.screenOn ]]]"
                 item2: >-
                   [[[
                     if (states[variables.ulm_card_fully_entity].attributes.screenOn == true) {
@@ -93,38 +101,6 @@ card_fully:
                       return "Off";
                     }
                   ]]]
-          # item7:
-          #   card:
-          #     type: "custom:button-card"
-          #     template: "list_2_items"
-          #     styles:
-          #       card:
-          #         - padding-top: 10px
-          #     custom_fields:
-          #       item1:
-          #         card:
-          #           type: custom:refreshable-picture-card
-          #           title: null
-          #           update_interval: 5
-          #           static_picture: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
-          #           navigate: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
-          #           style: |
-          #             ha-card {
-          #               box-shadow: none;
-          #               border-radius: var(--border-radius);
-          #             }
-          #       item2:
-          #         card:
-          #           type: custom:refreshable-picture-card
-          #           title: null
-          #           update_interval: 5
-          #           static_picture: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
-          #           navigate: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
-          #           style: |
-          #             ha-card {
-          #               box-shadow: none;
-          #               border-radius: var(--border-radius);
-          #             }
           item7:
             card:
               type: "custom:button-card"
@@ -184,6 +160,30 @@ card_fully:
                 item1:
                   card:
                     type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Screen On'
+                    tap_action:
+                      action: call-service
+                      service: "[[[ return variables.ulm_card_fully_screen_on_command ]]]"
+                item2:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Screen Off'
+                    tap_action:
+                      action: call-service
+                      service: "[[[ return variables.ulm_card_fully_screen_off_command ]]]"
+          item10:
+            card:
+              type: "custom:button-card"
+              template: "list_2_items"
+              styles:
+                card:
+                  - padding-top: 10px
+              custom_fields:
+                item1:
+                  card:
+                    type: "custom:button-card"
                     template: 
                       - "widget_text"
                       - "popup_fully_image"
@@ -203,30 +203,6 @@ card_fully:
                       ulm_card_fully_image: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
                       ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
                     name: 'Camshot'
-          # item10:
-          #   card:
-          #     type: "custom:button-card"
-          #     template: "list_2_items"
-          #     styles:
-          #       card:
-          #         - padding-top: 10px
-          #     custom_fields:
-          #       item1:
-          #         card:
-          #           type: "custom:button-card"
-          #           template: "widget_text"
-          #           name: 'Screenshot'
-          #           tap_action:
-          #             action: "call-service"
-          #             service: "[[[ return variables.ulm_card_fully_screenshot_command ]]]"
-          #       item2:
-          #         card:
-          #           type: "custom:button-card"
-          #           template: "widget_text"
-          #           name: 'Camshot'
-          #           tap_action:
-          #             action: "call-service"
-          #             service: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
 
 
 
