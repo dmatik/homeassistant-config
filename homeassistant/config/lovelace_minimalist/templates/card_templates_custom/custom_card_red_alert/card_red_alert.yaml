@@ -67,7 +67,7 @@ card_red_alert:
             entity_id: sensor.redalert
             content: |
               {% if state_attr('sensor.redalert', 'alert') == true %}
-                ### התרעות
+                ### {{ state_attr("sensor.redalert", "current")["title"] }}
                 {% for l in state_attr('sensor.redalert', 'current')['data'] %}
                   {{- l }}
                 {% endfor %}

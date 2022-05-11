@@ -136,21 +136,22 @@
     to: 'on'
   condition: []
   action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.red_alert_lights
+    data: {}
   - service: notify.mobile_app_iphonedima
     data:
-      title: צבע אדום
-      message: אשדוד
+      title: צבע אדום אשדוד
+      message: '{{ state_attr("sensor.redalert", "current")["title"] }}'
       data:
         tag: redalert-ahsdod
   - service: notify.mobile_app_sm_n960f
     data:
-      message: אשדוד
-      title: צבע אדום
+      title: צבע אדום אשדוד
+      message: '{{ state_attr("sensor.redalert", "current")["title"] }}'
       data:
-        timeout: 120
-  - service: scene.turn_on
-    target:
-      entity_id: scene.red_alert_lights
+        tag: redalert-ahsdod
   mode: single
 - id: '1630053062911'
   alias: Red Alert Ashdod Clear
@@ -178,8 +179,8 @@
   action:
   - service: notify.mobile_app_iphonedima
     data:
-      title: צבע אדום
-      message: קריית גת
+      title: צבע אדום קריית גת
+      message: '{{ state_attr("sensor.redalert", "current")["title"] }}'
       data:
         tag: redalert-qiryat-gat
   mode: single
