@@ -68,6 +68,7 @@ card_red_alert:
             content: |
               {% if state_attr('sensor.redalert', 'alert') == true %}
                 ### {{ state_attr("sensor.redalert", "current")["title"] }}
+                #### {{ state_attr("sensor.redalert", "current")["desc"] }}
                 {% for l in state_attr('sensor.redalert', 'current')['data'] %}
                   {{- l }}
                 {% endfor %}
