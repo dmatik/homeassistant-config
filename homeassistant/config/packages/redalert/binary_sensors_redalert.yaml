@@ -41,3 +41,17 @@ binary_sensor:
         value_template: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'קריית גת, כרמי גת' in state_attr('sensor.redalert', 'current')['data'] }}
+
+
+
+############################################################################
+#                                                                          #
+#   Redalert Gan Yavne                                                     #
+#                                                                          #
+############################################################################
+
+      redalert_gan_yavne:
+        friendly_name: "Redalert Gan Yavne"
+        value_template: >-
+          {{ state_attr('sensor.redalert', 'alert') == true and 
+                    'גן יבנה' in state_attr('sensor.redalert', 'current')['data'] }}

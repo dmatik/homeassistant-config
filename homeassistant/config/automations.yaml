@@ -142,14 +142,14 @@
     data: {}
   - service: notify.mobile_app_iphonedima
     data:
-      title: צבע אדום אשדוד
-      message: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: אשדוד
       data:
         tag: redalert-ahsdod
   - service: notify.mobile_app_sm_n960f
     data:
-      title: צבע אדום אשדוד
-      message: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: אשדוד
       data:
         tag: redalert-ahsdod
   mode: single
@@ -179,8 +179,8 @@
   action:
   - service: notify.mobile_app_iphonedima
     data:
-      title: צבע אדום קריית גת
-      message: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: קריית גת
       data:
         tag: redalert-qiryat-gat
   mode: single
@@ -210,10 +210,18 @@
   action:
   - service: notify.mobile_app_iphonedima
     data:
-      title: צבע אדום
-      message: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: "{% if (state_attr('sensor.redalert', 'alert') == true) -%}\n  {% for\
+        \ l in state_attr('sensor.redalert', 'current')['data'] -%}\n    {{l + \"\\\
+        n\"}}\n  {%- endfor %}\n{%- endif %}\n"
       data:
         tag: redalert-all
+  - service: notify.dimatelegram
+    data:
+      title: '*{{ state_attr("sensor.redalert", "current")["title"] }}*'
+      message: "{% if (state_attr('sensor.redalert', 'alert') == true) -%}\n  {% for\
+        \ l in state_attr('sensor.redalert', 'current')['data'] -%}\n    {{l + \"\\\
+        n\"}}\n  {%- endfor %}\n{%- endif %}\n"
   mode: single
 - id: '1630053381000'
   alias: Red Alert All Clear
@@ -531,3 +539,20 @@
       mobile_app_device: b8bfbfe5b468a685dd2cc07f662069ee
       send_to_ha: true
       take_backup: true
+- id: '1652336327236'
+  alias: Red Alert Gan Yavne
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_gan_yavne
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: גן יבנה
+      data:
+        tag: redalert-gan-yavne
+  mode: single
