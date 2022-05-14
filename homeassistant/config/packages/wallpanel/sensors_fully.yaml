@@ -10,7 +10,7 @@ sensor:
     resource: !secret fully_device_info
     name: Fully Device Info
     json_attributes:
-      - appVersionName
+      - version
       - ssid
       - batteryLevel
       - wifiSignalLevel

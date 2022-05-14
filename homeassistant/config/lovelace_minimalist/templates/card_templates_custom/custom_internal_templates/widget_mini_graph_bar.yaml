@@ -1,4 +1,11 @@
 widget_mini_graph_bar:
+  variables:
+    mini_graph_name: ''
+    mini_graph_color: ''
+    mini_graph_entity: ''
+    mini_graph_attribute : ''
+    mini_graph_max: 100
+    mini_graph_min: 0
   show_icon: false
   show_name: false
   show_label: false
@@ -23,10 +30,12 @@ widget_mini_graph_bar:
           icon: off
           indicator: off
           minmax: off
+        max: '[[[ return variables.mini_graph_max ]]]'
+        min: '[[[ return variables.mini_graph_min ]]]'
         name: '[[[ return variables.mini_graph_name ]]]'
         color: '[[[ return variables.mini_graph_color ]]]'
-        entities:
-          - entity: "[[[ return variables.mini_graph_entity ]]]"
+        entity: "[[[ return variables.mini_graph_entity ]]]"
+        attribute: "[[[ return variables.mini_graph_attribute ]]]"
         style: |
           bar-card-currentbar{
             border: 0.01rem solid rgba(var(--color-theme),.4);

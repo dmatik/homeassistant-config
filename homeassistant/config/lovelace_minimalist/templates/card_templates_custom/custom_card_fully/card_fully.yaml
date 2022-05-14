@@ -51,7 +51,7 @@ card_fully:
               template: "widget_text_info"
               custom_fields:
                 item1: 'App Version:'
-                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.appVersionName ]]]"
+                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.version ]]]"
           item2:
             card:
               type: "custom:button-card"
@@ -59,6 +59,15 @@ card_fully:
               custom_fields:
                 item1: 'WiFi Signal:'
                 item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.wifiSignalLevel ]]]"
+              # type: 'custom:button-card'
+              # template: 'widget_mini_graph_bar'
+              # variables:
+              #   mini_graph_name: 'WiFi'
+              #   mini_graph_color: 'rgba(var(--color-purple),0.2)'
+              #   mini_graph_entity: "[[[ return variables.ulm_card_fully_entity ]]]"
+              #   mini_graph_attribute: wifiSignalLevel
+              #   mini_graph_max: 10
+              #   mini_graph_min: 0
           item3:
             card:
               type: "custom:button-card"
