@@ -120,15 +120,16 @@
   trigger:
     - platform: state
       entity_id: sensor.number_of_tasmota_versions_old
+      not_to: '0'
     - platform: time_pattern
       hours: '/2'
       minutes: 0
       seconds: 0
   condition:
     - condition: template
-      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown'}}"
+      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"
     - condition: template
-      value_template: "{{ (states('sensor.number_of_tasmota_versions_old') | float) != 0}}"
+      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != '0' }}"
   action:
     #- service: notify.dimatelegram
     - service: notify.mobile_app_iphonedima
