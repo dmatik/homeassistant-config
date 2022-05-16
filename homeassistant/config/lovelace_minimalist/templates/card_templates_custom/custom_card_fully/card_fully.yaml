@@ -74,29 +74,26 @@ card_fully:
               template: "widget_text_info"
               custom_fields:
                 item1: 'Battery:'
-                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.batteryLevel + '%/' + states[variables.ulm_card_fully_entity].attributes.batteryTemperature + '°C' ]]]"
-          item4:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Plugged:'
-                item2: >-
-                  [[[
+                item2: |
+                  [[[ 
+                    var plugged;
                     if (states[variables.ulm_card_fully_entity].attributes.plugged == true) {
-                      return "Yes";
+                      plugged = "Plugged";
                     } else {
-                      return "No";
+                      plugged = "Unplugged";
                     }
-                  ]]]                
-          item5:
+                    return states[variables.ulm_card_fully_entity].attributes.batteryLevel + '% / ' + 
+                    states[variables.ulm_card_fully_entity].attributes.batteryTemperature + '°C / ' +
+                    plugged;
+                  ]]]
+          item4:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
                 item1: 'IP:'
                 item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.ip4 ]]]"
-          item6:
+          item5:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
@@ -110,7 +107,7 @@ card_fully:
                       return "Off";
                     }
                   ]]]
-          item7:
+          item6:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -134,7 +131,7 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_disable_kiosk_command ]]]"
-          item8:
+          item7:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -158,7 +155,7 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_clear_cache_command ]]]"
-          item9:
+          item8:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -182,7 +179,7 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_screen_off_command ]]]"
-          item10:
+          item9:
             card:
               type: "custom:button-card"
               template: "list_2_items"
