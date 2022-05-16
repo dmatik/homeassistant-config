@@ -13,6 +13,7 @@ sensor:
       - version
       - ssid
       - batteryLevel
+      - batteryTemperature
       - wifiSignalLevel
       - ip4
       - androidVersion
@@ -22,6 +23,7 @@ sensor:
       - mac
       - screenBrightness
       - plugged
+      - isPlugged
       - lastAppStart
       - startUrl
       - screenOn

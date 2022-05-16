@@ -73,8 +73,8 @@ card_fully:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
-                item1: 'Battery Level:'
-                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.batteryLevel + '%' ]]]"
+                item1: 'Battery:'
+                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.batteryLevel + '%/' + states[variables.ulm_card_fully_entity].attributes.batteryTemperature + '°C' ]]]"
           item4:
             card:
               type: "custom:button-card"
