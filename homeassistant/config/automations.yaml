@@ -143,7 +143,11 @@
   - service: notify.mobile_app_iphonedima
     data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{{state_attr("sensor.redalert", "current")["desc"]+"\n"}}
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
 
         אשדוד
 
@@ -153,7 +157,11 @@
   - service: notify.mobile_app_sm_n960f
     data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{{state_attr("sensor.redalert", "current")["desc"]+"\n"}}
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
 
         אשדוד
 
@@ -188,7 +196,11 @@
   - service: notify.mobile_app_iphonedima
     data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{{state_attr("sensor.redalert", "current")["desc"]+"\n"}}
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
 
         קריית גת
 
@@ -223,10 +235,11 @@
   - service: notify.mobile_app_iphonedima
     data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: "{% if (state_attr('sensor.redalert', 'alert') == true) -%}\n  {{state_attr(\"\
-        sensor.redalert\", \"current\")[\"desc\"]+\"\\n\"}}\n  {% for l in state_attr('sensor.redalert',\
-        \ 'current')['data'] -%}\n  {{l + \"\\n\"}}\n  {%- endfor %}\n{%- else %}\n\
-        \  אין התרעות כרגע\n{%- endif %}\n"
+      message: "{% if (state_attr('sensor.redalert', 'alert') == true) -%}\n  {% if\
+        \ state_attr(\"sensor.redalert\", \"current\")[\"desc\"] != \"\" -%}\n  {{state_attr(\"\
+        sensor.redalert\", \"current\")[\"desc\"]}}\n  {%- endif %}\n  {% for l in\
+        \ state_attr('sensor.redalert', 'current')['data'] -%}\n  {{l + \"\\n\"}}\n\
+        \  {%- endfor %}\n{%- else %}\n  אין התרעות כרגע\n{%- endif %}\n"
       data:
         tag: redalert-all
   - service: notify.dimatelegram
@@ -234,7 +247,11 @@
       title: '*{{ state_attr("sensor.redalert", "current")["title"] }}*'
       message: '{% if (state_attr(''sensor.redalert'', ''alert'') == true) -%}
 
-        *{{state_attr("sensor.redalert", "current")["desc"]+"\n"}}*
+        {% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        *{{state_attr("sensor.redalert", "current")["desc"]}}*
+
+        {%- endif %}
 
         {% for l in state_attr(''sensor.redalert'', ''current'')[''data''] -%}
 
@@ -579,11 +596,33 @@
   - service: notify.mobile_app_iphonedima
     data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{{state_attr("sensor.redalert", "current")["desc"]+"\n"}}
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
 
         גן יבנה
 
         '
       data:
         tag: redalert-gan-yavne
+  mode: single
+- id: '1652706660044'
+  alias: Kitchen Wall Panel Battery Low
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.fully_device_info
+    attribute: batteryLevel
+    below: '20'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: Wall Panel
+      message: 'Battery low: {{ state_attr("sensor.fully_device_info", "batteryLevel")
+        }}%
+
+        '
   mode: single
