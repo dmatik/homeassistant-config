@@ -82,8 +82,8 @@ card_fully:
                     } else {
                       plugged = "Unplugged";
                     }
-                    return states[variables.ulm_card_fully_entity].attributes.batteryLevel + '% / ' + 
-                    states[variables.ulm_card_fully_entity].attributes.batteryTemperature + '°C / ' +
+                    return states[variables.ulm_card_fully_entity].attributes.batteryLevel + '% • ' + 
+                    states[variables.ulm_card_fully_entity].attributes.batteryTemperature + '°C • ' +
                     plugged;
                   ]]]
           item4:
