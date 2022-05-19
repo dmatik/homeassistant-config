@@ -34,6 +34,16 @@ sensor:
     payload_not_available: "Offline"
     qos: 0
 
+  # Entrance Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Entrance Light IP"
+    state_topic: "stat/entrance/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
+    availability_topic: "tele/entrance/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
   # Entrance Light Switch Uptime
   - platform: mqtt
     name: "Tasmota Entrance Light Uptime"
@@ -63,6 +73,16 @@ sensor:
     name: "Tasmota Living Room Light Version"
     state_topic: "stat/living_room/STATUS2"
     value_template: "{{value_json['StatusFWR'].Version }}"
+    availability_topic: "tele/living_room/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
+  # Living Room Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Living Room Light IP"
+    state_topic: "stat/living_room/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
     availability_topic: "tele/living_room/LWT"
     payload_available: "Online"
     payload_not_available: "Offline"
@@ -102,6 +122,16 @@ sensor:
     payload_not_available: "Offline"
     qos: 0
 
+  # Bedroom Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Bedroom Light IP"
+    state_topic: "stat/bedroom/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
+    availability_topic: "tele/bedroom/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
   # Bedroom Light Switch Uptime
   - platform: mqtt
     name: "Tasmota Bedroom Light Uptime"
@@ -131,6 +161,16 @@ sensor:
     name: "Tasmota Balcony Light Version"
     state_topic: "stat/balcony/STATUS2"
     value_template: "{{value_json['StatusFWR'].Version }}"
+    availability_topic: "tele/balcony/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
+  # Balcony Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Balcony Light IP"
+    state_topic: "stat/balcony/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
     availability_topic: "tele/balcony/LWT"
     payload_available: "Online"
     payload_not_available: "Offline"
@@ -170,6 +210,16 @@ sensor:
     payload_not_available: "Offline"
     qos: 0
 
+  # Hallway Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Hallway Light IP"
+    state_topic: "stat/hallway/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
+    availability_topic: "tele/hallway/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
   # Hallway Light Switch Uptime
   - platform: mqtt
     name: "Tasmota Hallway Light Uptime"
@@ -199,6 +249,16 @@ sensor:
     name: "Tasmota Kids Room Light Version"
     state_topic: "stat/kids_room/STATUS2"
     value_template: "{{value_json['StatusFWR'].Version }}"
+    availability_topic: "tele/kids_room/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
+  # Kids Room Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Kids Room Light IP"
+    state_topic: "stat/kids_room/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
     availability_topic: "tele/kids_room/LWT"
     payload_available: "Online"
     payload_not_available: "Offline"
@@ -238,6 +298,16 @@ sensor:
     payload_not_available: "Offline"
     qos: 0
 
+  # Kitchen Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Kitchen Light IP"
+    state_topic: "stat/kitchen/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
+    availability_topic: "tele/kitchen/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
   # Kitchen Light Switch Uptime
   - platform: mqtt
     name: "Tasmota Kitchen Light Uptime"
@@ -272,6 +342,16 @@ sensor:
     payload_not_available: "Offline"
     qos: 0
 
+  # Dining Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Dining Light IP"
+    state_topic: "stat/dining/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
+    availability_topic: "tele/dining/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
   # Dining Light Switch Uptime
   - platform: mqtt
     name: "Tasmota Dining Light Uptime"
@@ -301,6 +381,16 @@ sensor:
     name: "Tasmota Work Room Light Version"
     state_topic: "stat/work_room/STATUS2"
     value_template: "{{value_json['StatusFWR'].Version }}"
+    availability_topic: "tele/work_room/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
+  # Work Room Light Switch IP
+  - platform: mqtt
+    name: "Tasmota Work Room Light IP"
+    state_topic: "stat/work_room/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
     availability_topic: "tele/work_room/LWT"
     payload_available: "Online"
     payload_not_available: "Offline"
@@ -348,6 +438,16 @@ sensor:
     payload_not_available: "Offline"
     qos: 0
 
+  # Kids Radiator Power Socket IP
+  - platform: mqtt
+    name: "Tasmota Kids Radiator Power Socket IP"
+    state_topic: "stat/kids_radiator/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
+    availability_topic: "tele/kids_radiator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
   # Kids Radiator Power Socket Uptime
   - platform: mqtt
     name: "Tasmota Kids Radiator Power Socket Uptime"
@@ -390,6 +490,16 @@ sensor:
     payload_not_available: "Offline"
     qos: 0
 
+  # Bedroom Radiator Power Socket IP
+  - platform: mqtt
+    name: "Tasmota Bedroom Radiator Power Socket IP"
+    state_topic: "stat/bed_radiator/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
+    availability_topic: "tele/bed_radiator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
   # Bedroom Radiator Power Socket Uptime
   - platform: mqtt
     name: "Tasmota Bedroom Radiator Power Socket Uptime"
@@ -427,6 +537,16 @@ sensor:
     name: "Tasmota Makeup Power Socket Version"
     state_topic: "stat/makeup/STATUS2"
     value_template: "{{value_json['StatusFWR'].Version }}"
+    availability_topic: "tele/makeup/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
+  # Makeup Power Socket IP
+  - platform: mqtt
+    name: "Tasmota Makeup Power Socket IP"
+    state_topic: "stat/makeup/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
     availability_topic: "tele/makeup/LWT"
     payload_available: "Online"
     payload_not_available: "Offline"
@@ -600,6 +720,16 @@ sensor:
     payload_not_available: "Offline"
     qos: 0
 
+  # Bedside Dima Bulb IP
+  - platform: mqtt
+    name: "Tasmota Bedside Dima Bulb IP"
+    state_topic: "stat/bedside_dima_bulb/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
+    availability_topic: "tele/bedside_dima_bulb/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
   # Bedside Dima Bulb Uptime
   - platform: mqtt
     name: "Tasmota Bedside Dima Bulb Uptime"
@@ -631,6 +761,16 @@ sensor:
     name: "Tasmota Bedside Galit Bulb Version"
     state_topic: "stat/bedside_galit_bulb/STATUS2"
     value_template: "{{value_json['StatusFWR'].Version }}"
+    availability_topic: "tele/bedside_galit_bulb/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+
+  # Bedside Galit Bulb IP
+  - platform: mqtt
+    name: "Tasmota Bedside Galit Bulb IP"
+    state_topic: "stat/bedside_galit_bulb/STATUS5"
+    value_template: "{{value_json['StatusNET'].IPAddress }}"
     availability_topic: "tele/bedside_galit_bulb/LWT"
     payload_available: "Online"
     payload_not_available: "Offline"

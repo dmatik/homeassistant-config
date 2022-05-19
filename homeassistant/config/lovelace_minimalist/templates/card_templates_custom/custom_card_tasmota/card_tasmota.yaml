@@ -66,6 +66,7 @@ card_tasmota:
     ulm_card_tasmota_icon: ''
     ulm_card_tasmota_name: ''
     ulm_card_tasmota_latest_version: ''
+    ulm_card_tasmota_ip: ''
   triggers_update: "all"
   styles:
     grid:
@@ -91,8 +92,11 @@ card_tasmota:
           ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
           ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
         icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
-        tap_action:
-          action: "none"
+        # tap_action:
+        #   action: "none"
+        tap_action: 
+          action: url
+          url_path: "[[[ return 'http://' + states[variables.ulm_card_tasmota_ip].state + '/' ]]]"
         entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
         name: "[[[ return variables.ulm_card_tasmota_name ]]]"
         label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
@@ -102,82 +106,7 @@ card_tasmota:
     item2:
       card:
         type: "custom:button-card"
-        template: "list_info_items_3_lines"
-        custom_fields:
-          item1:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Version:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_version].state.split('(')[0] ]]]"
-          item2:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Up Time:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_uptime].state ]]]"
-          item3:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'WiFi:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_wi_fi_quality].state + '%' ]]]"
-
-
-
-card_tasmota_with_power:
-  variables:
-    ulm_card_tasmota_entity: ''
-    ulm_card_tasmota_uptime: ''
-    ulm_card_tasmota_wi_fi_quality: ''
-    ulm_card_tasmota_version: ''
-    ulm_card_tasmota_icon: ''
-    ulm_card_tasmota_name: ''
-    ulm_card_tasmota_latest_version: ''
-    ulm_card_tasmota_current: ''
-    ulm_card_tasmota_energy_today: ''
-    ulm_card_tasmota_power: ''
-    ulm_card_tasmota_latest_voltage: ''
-  triggers_update: "all"
-  styles:
-    grid:
-      - grid-template-areas: "'item1' 'item2'"
-      - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content  min-content"
-      - row-gap: "12px"
-    card:
-      - border-radius: "var(--border-radius)"
-      - box-shadow: "var(--box-shadow)"
-      - padding: "12px"
-  custom_fields:
-    item1:
-      card:
-        triggers_update: "all"
-        type: "custom:button-card"
-        template:
-          - "icon_info"
-          - "card_tasmota_outdated"
-          - "ulm_language_variables"
-          - "blue"
-        variables:
-          ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
-          ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
-        icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
-        tap_action:
-          action: "none"
-        entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
-        name: "[[[ return variables.ulm_card_tasmota_name ]]]"
-        label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
-        styles:
-          icon:
-            - color: "rgba(var(--color-theme),0.9)"
-    item2:
-      card:
-        type: "custom:button-card"
-        template: "list_info_items_7_lines"
+        template: "list_info_items_4_lines"
         custom_fields:
           item1:
             card:
@@ -205,23 +134,116 @@ card_tasmota_with_power:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
+                item1: 'IP:'
+                item2: "[[[ return states[variables.ulm_card_tasmota_ip].state ]]]"
+
+
+
+card_tasmota_with_power:
+  variables:
+    ulm_card_tasmota_entity: ''
+    ulm_card_tasmota_uptime: ''
+    ulm_card_tasmota_wi_fi_quality: ''
+    ulm_card_tasmota_version: ''
+    ulm_card_tasmota_icon: ''
+    ulm_card_tasmota_name: ''
+    ulm_card_tasmota_latest_version: ''
+    ulm_card_tasmota_current: ''
+    ulm_card_tasmota_energy_today: ''
+    ulm_card_tasmota_power: ''
+    ulm_card_tasmota_latest_voltage: ''
+    ulm_card_tasmota_ip: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        triggers_update: "all"
+        type: "custom:button-card"
+        template:
+          - "icon_info"
+          - "card_tasmota_outdated"
+          - "ulm_language_variables"
+          - "blue"
+        variables:
+          ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
+          ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
+        icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+        # tap_action:
+        #   action: "none"
+        tap_action: 
+          action: url
+          url_path: "[[[ return 'http://' + states[variables.ulm_card_tasmota_ip].state + '/' ]]]"
+        entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
+        name: "[[[ return variables.ulm_card_tasmota_name ]]]"
+        label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
+        styles:
+          icon:
+            - color: "rgba(var(--color-theme),0.9)"
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "list_info_items_10_lines"
+        custom_fields:
+          item1:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'Version:'
+                item2: "[[[ return states[variables.ulm_card_tasmota_version].state.split('(')[0] ]]]"
+          item2:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'Up Time:'
+                item2: "[[[ return states[variables.ulm_card_tasmota_uptime].state ]]]"
+          item3:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'WiFi:'
+                item2: "[[[ return states[variables.ulm_card_tasmota_wi_fi_quality].state + '%' ]]]"
+          item4:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'IP:'
+                item2: "[[[ return states[variables.ulm_card_tasmota_ip].state ]]]"
+          item5:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
                 item1: 'Current:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_current].state + ' A' ]]]"
-          item5:
+          item6:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
                 item1: 'Energy Today:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_energy_today].state + ' kWh' ]]]"
-          item6:
+          item7:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
                 item1: 'Power:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_power].state + ' W' ]]]"
-          item7:
+          item8:
             card:
               type: "custom:button-card"
               template: "widget_text_info"

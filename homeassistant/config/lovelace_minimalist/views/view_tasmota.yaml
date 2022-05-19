@@ -149,6 +149,7 @@ cards:
                         ulm_card_tasmota_energy_today: 'sensor.mqtt_kids_radiator_energy_today'
                         ulm_card_tasmota_power: 'sensor.mqtt_kids_radiator_power'
                         ulm_card_tasmota_latest_voltage: 'sensor.mqtt_kids_radiator_voltage'
+                        ulm_card_tasmota_ip: sensor.tasmota_kids_radiator_power_socket_ip
 
                     # Bedroom Radiator Socket
                     - type: 'custom:button-card'
@@ -165,6 +166,7 @@ cards:
                         ulm_card_tasmota_energy_today: 'sensor.mqtt_bedroom_radiator_energy_today'
                         ulm_card_tasmota_power: 'sensor.mqtt_bedroom_radiator_power'
                         ulm_card_tasmota_latest_voltage: 'sensor.mqtt_bedroom_radiator_voltage'
+                        ulm_card_tasmota_ip: sensor.tasmota_bedroom_radiator_power_socket_ip
 
                     # Makeup Socket
                     - type: 'custom:button-card'
@@ -177,6 +179,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:power-socket-eu'
                         ulm_card_tasmota_name: 'Makeup Socket'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_makeup_power_socket_ip
 
 
           ############################################################################
@@ -214,6 +217,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:lightbulb'
                         ulm_card_tasmota_name: 'Bedside Dima Bulb'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_bedside_dima_bulb_ip
 
                     # Bedside Galit Bulb
                     - type: 'custom:button-card'
@@ -226,6 +230,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:lightbulb'
                         ulm_card_tasmota_name: 'Bedside Galit Bulb'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_bedside_galit_bulb_ip
 
 
 
@@ -264,6 +269,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Entrance Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_entrance_light_ip
 
                     # Living Room Light Switch
                     - type: 'custom:button-card'
@@ -276,6 +282,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Living Room Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_living_room_light_ip
 
                     # Bedroom Light Switch
                     - type: 'custom:button-card'
@@ -288,6 +295,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Bedroom Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_bedroom_light_ip
 
                     # Balcony Light Switch
                     - type: 'custom:button-card'
@@ -300,6 +308,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Balcony Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_balcony_light_ip
 
                     # Hallway Light Switch
                     - type: 'custom:button-card'
@@ -312,6 +321,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Hallway Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_hallway_light_ip
 
                     # Kids Room Light Switch
                     - type: 'custom:button-card'
@@ -324,6 +334,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Kids Room Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_kids_room_light_ip
 
                     # Kitchen Light Switch
                     - type: 'custom:button-card'
@@ -336,6 +347,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Kitchen Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_kitchen_light_ip
 
                     # Dining Light Switch
                     - type: 'custom:button-card'
@@ -348,6 +360,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Dining Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_dining_light_ip
 
                     # Work Room Light Switch
                     - type: 'custom:button-card'
@@ -360,6 +373,7 @@ cards:
                         ulm_card_tasmota_icon: 'mdi:light-switch'
                         ulm_card_tasmota_name: 'Work Room Light'
                         ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                        ulm_card_tasmota_ip: sensor.tasmota_work_room_light_ip
 
 
                 - type: custom:button-card
