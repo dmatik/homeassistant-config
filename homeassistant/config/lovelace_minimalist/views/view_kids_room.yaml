@@ -124,14 +124,14 @@ cards:
                     # Kids Room Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.mqtt_kids_room_light
+                      entity: light.kids_room
                       name: Kids Room
 
                     # Kids Room Radiator
                     - type: 'custom:button-card'
                       template: card_power_outlet
                       variables:
-                        ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
+                        ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
                       entity: switch.kids_radiator
                       name: Radiator
 

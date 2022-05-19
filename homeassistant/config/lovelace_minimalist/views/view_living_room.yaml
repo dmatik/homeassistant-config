@@ -132,13 +132,13 @@ cards:
                     # Living Room Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.mqtt_living_room_light
+                      entity: light.living_room
                       name: Living Room
 
                     # Dining Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.mqtt_dining_light
+                      entity: light.dining
                       name: Dining
 
                     # Living Room AC
@@ -173,20 +173,20 @@ cards:
                     # - type: 'custom:button-card'
                     #   template: 
                     #     - card_ny_tree
-                    #   entity: switch.new_year_tree
+                    #   entity: light.new_year_tree
                     #   icon: mdi:pine-tree
                     #   name: NY Tree
 
                     # Balcony Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.mqtt_balcony_light
+                      entity: light.balcony
                       name: Balcony
 
                     # Entrance Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.mqtt_entrance_light
+                      entity: light.entrance
                       name: Entrance
 
 

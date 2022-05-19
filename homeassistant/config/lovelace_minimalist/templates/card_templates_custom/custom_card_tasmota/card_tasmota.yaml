@@ -6,9 +6,9 @@ card_tasmota_version:
   triggers_update: "all"
   styles:
     grid:
-      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-areas: "'item1'"
       - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content  min-content"
+      - grid-template-rows: "min-content"
       - row-gap: "12px"
     card:
       - border-radius: "var(--border-radius)"
@@ -33,34 +33,34 @@ card_tasmota_version:
         styles:
           icon:
             - color: "rgba(var(--color-theme),0.9)"
-    item2:
-      card:
-        type: "custom:button-card"
-        template: "list_2_items"
-        styles:
-          grid:
-            - grid-template-areas: "'item1'"
-            - grid-template-columns: "1fr"
-            - grid-template-rows: "min-content"
-          card:
-            - box-shadow: "none"
-            - padding: "0px"
-        custom_fields:
-          item1:
-            card:
-              type: "custom:button-card"
-              template: "widget_text"
-              name: 'Sync States'
-              tap_action:
-                action: call-service
-                service: "[[[ return variables.ulm_card_tasmota_sync_script ]]]"
+    # item2:
+    #   card:
+    #     type: "custom:button-card"
+    #     template: "list_2_items"
+    #     styles:
+    #       grid:
+    #         - grid-template-areas: "'item1'"
+    #         - grid-template-columns: "1fr"
+    #         - grid-template-rows: "min-content"
+    #       card:
+    #         - box-shadow: "none"
+    #         - padding: "0px"
+    #     custom_fields:
+    #       item1:
+    #         card:
+    #           type: "custom:button-card"
+    #           template: "widget_text"
+    #           name: 'Sync States'
+    #           tap_action:
+    #             action: call-service
+    #             service: "[[[ return variables.ulm_card_tasmota_sync_script ]]]"
 
 
 
 card_tasmota:
   variables:
     ulm_card_tasmota_entity: ''
-    ulm_card_tasmota_uptime: ''
+    ulm_card_tasmota_last_restart: ''
     ulm_card_tasmota_wi_fi_quality: ''
     ulm_card_tasmota_version: ''
     ulm_card_tasmota_icon: ''
@@ -120,8 +120,18 @@ card_tasmota:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
-                item1: 'Up Time:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_uptime].state ]]]"
+                item1: 'Last Restart:'
+                item2: |
+                  [[[
+                    var date = states[variables.ulm_card_tasmota_last_restart].state.split('T')[0];
+                    var year = date.split('-')[0];
+                    var month = date.split('-')[1];
+                    var day = date.split('-')[2];
+                    var time = states[variables.ulm_card_tasmota_last_restart].state.split('T')[1].split('+')[0];
+                    var hours = time.split(':')[0];
+                    var minutes = time.split(':')[1];
+                    return day + '/' + month + '/' + year + ' • ' + hours + ':' + minutes;
+                  ]]]
           item3:
             card:
               type: "custom:button-card"
@@ -142,7 +152,7 @@ card_tasmota:
 card_tasmota_with_power:
   variables:
     ulm_card_tasmota_entity: ''
-    ulm_card_tasmota_uptime: ''
+    ulm_card_tasmota_last_restart: ''
     ulm_card_tasmota_wi_fi_quality: ''
     ulm_card_tasmota_version: ''
     ulm_card_tasmota_icon: ''
@@ -206,8 +216,18 @@ card_tasmota_with_power:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
-                item1: 'Up Time:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_uptime].state ]]]"
+                item1: 'Last Restart:'
+                item2: |
+                  [[[
+                    var date = states[variables.ulm_card_tasmota_last_restart].state.split('T')[0];
+                    var year = date.split('-')[0];
+                    var month = date.split('-')[1];
+                    var day = date.split('-')[2];
+                    var time = states[variables.ulm_card_tasmota_last_restart].state.split('T')[1].split('+')[0];
+                    var hours = time.split(':')[0];
+                    var minutes = time.split(':')[1];
+                    return day + '/' + month + '/' + year + ' • ' + hours + ':' + minutes;
+                  ]]]
           item3:
             card:
               type: "custom:button-card"

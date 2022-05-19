@@ -125,7 +125,7 @@ cards:
                     # Kitchen Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.mqtt_kitchen_light
+                      entity: light.kitchen
                       name: Kitchen
 
                     # Kitchen Strips Light
@@ -153,7 +153,7 @@ cards:
                     # Service Balcony Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.mqtt_service_balcony_light
+                      entity: light.service_balcony
                       name: S. Balcony
 
                     # Kitchen Motion Sensor

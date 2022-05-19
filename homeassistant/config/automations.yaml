@@ -509,9 +509,10 @@
       click_type: single
   condition: []
   action:
-  - service: switch.toggle
+  - service: light.toggle
+    data: {}
     target:
-      entity_id: switch.makeup
+      entity_id: light.makeup
   mode: single
 - id: '1631015281400'
   alias: Bedside Galit Button
@@ -526,7 +527,9 @@
   action:
   - service: light.toggle
     target:
-      entity_id: light.bedside_galit
+      entity_id:
+      - light.bedside_galit_bulb
+    data: {}
   mode: single
 - id: '1631015652736'
   alias: Bedside Dima Button
@@ -541,7 +544,9 @@
   action:
   - service: light.toggle
     target:
-      entity_id: light.bedside_dima
+      entity_id:
+      - light.bedside_dima_bulb
+    data: {}
   mode: single
 - id: '1634030939721'
   alias: Front Gate Action

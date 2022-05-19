@@ -35,12 +35,12 @@ group:
       - light.bedroom
       - light.kids_room
       - light.work_room
-      - light.bedside_dima
-      - light.bedside_galit
+      - light.bedside_dima_bulb
+      - light.bedside_galit_bulb
       - light.kitchen_strips
       - light.xiaomi_gateway_servers
-      - switch.makeup
-      - switch.new_year_tree
+      - light.makeup
+      - light.new_year_tree
 
 
 
@@ -219,19 +219,20 @@ group:
   all_tasmota_versions:
     name: All Tasmota Versions
     entities:
-      - sensor.tasmota_entrance_light_version
-      - sensor.tasmota_living_room_light_version
-      - sensor.tasmota_bedroom_light_version
-      - sensor.tasmota_balcony_light_version
-      - sensor.tasmota_hallway_light_version
-      - sensor.tasmota_kids_room_light_version
-      - sensor.tasmota_kitchen_light_version
-      - sensor.tasmota_dining_light_version
-      - sensor.tasmota_work_room_light_version
-      - sensor.tasmota_kids_radiator_power_socket_version
-      - sensor.tasmota_makeup_power_socket_version
-      - sensor.tasmota_bedside_dima_bulb_version
-      - sensor.tasmota_bedside_galit_bulb_version
+      - sensor.kids_radiator_firmware_version
+      - sensor.bedroom_radiator_firmware_version
+      - sensor.makeup_firmware_version
+      - sensor.bedside_dima_bulb_firmware_version
+      - sensor.bedside_galit_bulb_firmware_version
+      - sensor.entrance_firmware_version
+      - sensor.living_room_firmware_version
+      - sensor.bedroom_firmware_version
+      - sensor.balcony_firmware_version
+      - sensor.hallway_firmware_version
+      - sensor.kids_room_firmware_version
+      - sensor.kitchen_firmware_version
+      - sensor.dining_firmware_version
+      - sensor.work_room_firmware_version
 
 ############################################################################
 #                                                                          #

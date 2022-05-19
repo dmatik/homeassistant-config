@@ -232,7 +232,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_power_outlet
                       variables:
-                        ulm_card_power_outlet_consumption_sensor: sensor.mqtt_kids_radiator_power 
+                        ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
                       entity: switch.kids_radiator
                       name: Kids Room
 
@@ -240,7 +240,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_power_outlet
                       variables:
-                        ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
+                        ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
                       entity: switch.bedroom_radiator
                       name: Bedroom
                       

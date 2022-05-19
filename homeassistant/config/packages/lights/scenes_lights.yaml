@@ -65,9 +65,9 @@ scene:
         state: off
       light.work_room:
         state: off
-      light.bedside_yeelight_dima:
+      light.bedside_dima_bulb:
         state: off
-      light.bedside_yeelight_galit:
+      light.bedside_galit_bulb:
         state: off
       light.kitchen_strip_left:
         state: off
@@ -88,9 +88,9 @@ scene:
         state: on
       light.hallway:
         state: on
-      light.bedside_dima:
+      light.bedside_dima_bulb:
         state: on
-      light.bedside_galit:
+      light.bedside_galit_bulb:
         state: on
 
   - name: Night Lights Off
@@ -99,7 +99,7 @@ scene:
         state: off
       light.hallway:
         state: off
-      light.bedside_dima:
+      light.bedside_dima_bulb:
         state: off
-      light.bedside_galit:
+      light.bedside_galit_bulb:
         state: off

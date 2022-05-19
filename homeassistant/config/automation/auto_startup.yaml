@@ -19,14 +19,14 @@
         message: 'Up and Running'
 
     # Sync Tasmota states on start-up
-    - service: mqtt.publish
-      data:
-        topic: "cmnd/tasmotas/state"
-        payload: ""
-    - service: mqtt.publish
-      data:
-        topic: "cmnd/tasmotas/power0"
-        payload: ""
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/tasmotas/state"
+    #     payload: ""
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "cmnd/tasmotas/power0"
+    #     payload: ""
 
     # Wake up Xiaomy Gateway light
     - service: light.turn_off 

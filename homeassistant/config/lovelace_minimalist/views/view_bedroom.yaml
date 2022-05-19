@@ -124,7 +124,7 @@ cards:
                     # Bedroom Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.mqtt_bedroom_light
+                      entity: light.bedroom
                       name: Bedroom
 
                     # Bedroom Climate
@@ -138,7 +138,7 @@ cards:
                     # Bedside Dima Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: light.bedside_dima
+                      entity: light.bedside_dima_bulb
                       icon: 'mdi:lamp'
                       variables:
                         ulm_card_light_enable_color: true
@@ -148,7 +148,7 @@ cards:
                     # Bedside Galit Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: light.bedside_galit
+                      entity: light.bedside_galit_bulb
                       icon: 'mdi:lamp'
                       variables:
                         ulm_card_light_enable_color: true
@@ -158,7 +158,7 @@ cards:
                     # Makeup Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: switch.makeup
+                      entity: light.makeup
                       icon: mdi:string-lights
                       name: Makeup
 
@@ -166,7 +166,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_power_outlet
                       variables:
-                        ulm_card_power_outlet_consumption_sensor: sensor.mqtt_bedroom_radiator_power 
+                        ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
                       entity: switch.bedroom_radiator
                       name: Radiator
 
