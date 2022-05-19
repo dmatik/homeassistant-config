@@ -123,13 +123,12 @@ card_tasmota:
                 item1: 'Last Restart:'
                 item2: |
                   [[[
-                    var date = states[variables.ulm_card_tasmota_last_restart].state.split('T')[0];
-                    var year = date.split('-')[0];
-                    var month = date.split('-')[1];
-                    var day = date.split('-')[2];
-                    var time = states[variables.ulm_card_tasmota_last_restart].state.split('T')[1].split('+')[0];
-                    var hours = time.split(':')[0];
-                    var minutes = time.split(':')[1];
+                    var local_date = new Date(states[variables.ulm_card_tasmota_last_restart].state);
+                    var year = local_date.getFullYear();
+                    var month = local_date.getMonth() + 1;
+                    var day = local_date.getDate();
+                    var hours = local_date.getHours();
+                    var minutes = local_date.getMinutes();
                     return day + '/' + month + '/' + year + ' • ' + hours + ':' + minutes;
                   ]]]
           item3:
@@ -219,13 +218,12 @@ card_tasmota_with_power:
                 item1: 'Last Restart:'
                 item2: |
                   [[[
-                    var date = states[variables.ulm_card_tasmota_last_restart].state.split('T')[0];
-                    var year = date.split('-')[0];
-                    var month = date.split('-')[1];
-                    var day = date.split('-')[2];
-                    var time = states[variables.ulm_card_tasmota_last_restart].state.split('T')[1].split('+')[0];
-                    var hours = time.split(':')[0];
-                    var minutes = time.split(':')[1];
+                    var local_date = new Date(states[variables.ulm_card_tasmota_last_restart].state);
+                    var year = local_date.getFullYear();
+                    var month = local_date.getMonth() + 1;
+                    var day = local_date.getDate();
+                    var hours = local_date.getHours();
+                    var minutes = local_date.getMinutes();
                     return day + '/' + month + '/' + year + ' • ' + hours + ':' + minutes;
                   ]]]
           item3:
