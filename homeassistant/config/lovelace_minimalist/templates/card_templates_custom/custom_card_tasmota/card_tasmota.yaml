@@ -106,7 +106,7 @@ card_tasmota:
     item2:
       card:
         type: "custom:button-card"
-        template: "list_info_items_4_lines"
+        template: "list_info_items_5_lines"
         custom_fields:
           item1:
             card:
@@ -125,20 +125,45 @@ card_tasmota:
                   [[[
                     var local_date = new Date(states[variables.ulm_card_tasmota_last_restart].state);
                     var year = local_date.getFullYear();
-                    var month = local_date.getMonth() + 1;
+                    var month = local_date.getMonth();
                     var day = local_date.getDate();
                     var hours = local_date.getHours();
                     var minutes = local_date.getMinutes();
-                    return day + '/' + month + '/' + year + ' • ' + hours + ':' + minutes;
+                    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                    return day + ' ' + months[month] + ', ' + year + ' • ' + hours + ':' + minutes;
                   ]]]
           item3:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
+                item1: 'Up Time:'
+                item2: |
+                  [[[
+                    var restartTime = new Date(states[variables.ulm_card_tasmota_last_restart].state);
+                    var nowTime = new Date();
+                    const diffTime = Math.abs(nowTime - restartTime);
+                    const seconds = Math.floor(diffTime / 1000);
+
+                    var d = Math.floor(seconds / (3600*24));
+                    var h = Math.floor(seconds % (3600*24) / 3600);
+                    var m = Math.floor(seconds % 3600 / 60);
+                    var s = Math.floor(seconds % 60);
+
+                    var dDisplay = d > 0 ? d + "d " : "";
+                    var hDisplay = h > 0 ? h + "h " : "";
+                    var mDisplay = m > 0 ? m + "m " : "";
+                    var sDisplay = s > 0 ? s + "s" : "";
+                    return dDisplay + hDisplay + mDisplay + sDisplay;
+                  ]]]
+          item4:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
                 item1: 'WiFi:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_wi_fi_quality].state + '%' ]]]"
-          item4:
+          item5:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
@@ -220,48 +245,73 @@ card_tasmota_with_power:
                   [[[
                     var local_date = new Date(states[variables.ulm_card_tasmota_last_restart].state);
                     var year = local_date.getFullYear();
-                    var month = local_date.getMonth() + 1;
+                    var month = local_date.getMonth();
                     var day = local_date.getDate();
                     var hours = local_date.getHours();
                     var minutes = local_date.getMinutes();
-                    return day + '/' + month + '/' + year + ' • ' + hours + ':' + minutes;
+                    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                    return day + ' ' + months[month] + ', ' + year + ' • ' + hours + ':' + minutes;
                   ]]]
           item3:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
+                item1: 'Up Time:'
+                item2: |
+                  [[[
+                    var restartTime = new Date(states[variables.ulm_card_tasmota_last_restart].state);
+                    var nowTime = new Date();
+                    const diffTime = Math.abs(nowTime - restartTime);
+                    const seconds = Math.floor(diffTime / 1000);
+                    
+                    var d = Math.floor(seconds / (3600*24));
+                    var h = Math.floor(seconds % (3600*24) / 3600);
+                    var m = Math.floor(seconds % 3600 / 60);
+                    var s = Math.floor(seconds % 60);
+
+                    var dDisplay = d > 0 ? d + "d " : "";
+                    var hDisplay = h > 0 ? h + "h " : "";
+                    var mDisplay = m > 0 ? m + "m " : "";
+                    var sDisplay = s > 0 ? s + "s" : "";
+                    return dDisplay + hDisplay + mDisplay + sDisplay;
+                  ]]]
+          item4:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
                 item1: 'WiFi:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_wi_fi_quality].state + '%' ]]]"
-          item4:
+          item5:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
                 item1: 'IP:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_ip].state ]]]"
-          item5:
+          item6:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
                 item1: 'Current:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_current].state + ' A' ]]]"
-          item6:
+          item7:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
                 item1: 'Energy Today:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_energy_today].state + ' kWh' ]]]"
-          item7:
+          item8:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
                 item1: 'Power:'
                 item2: "[[[ return states[variables.ulm_card_tasmota_power].state + ' W' ]]]"
-          item8:
+          item9:
             card:
               type: "custom:button-card"
               template: "widget_text_info"

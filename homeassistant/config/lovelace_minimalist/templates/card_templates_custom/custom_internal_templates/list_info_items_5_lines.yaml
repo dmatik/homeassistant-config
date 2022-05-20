@@ -1,4 +1,4 @@
-list_info_items_4_lines:
+list_info_items_5_lines:
   # tap_action:
   #   action: "none"
   show_icon: false
@@ -6,9 +6,9 @@ list_info_items_4_lines:
   show_label: false  
   styles:
     grid:
-      - grid-template-areas: "'item1' 'item2' 'item3' 'item4'"
+      - grid-template-areas: "'item1' 'item2' 'item3' 'item4' 'item5'"
       - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content min-content min-content min-content"
+      - grid-template-rows: "min-content min-content min-content min-content min-content"
       #- column-gap: "0px"
     card:
       - box-shadow: "none"
