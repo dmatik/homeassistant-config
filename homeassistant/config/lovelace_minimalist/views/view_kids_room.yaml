@@ -134,6 +134,7 @@ cards:
                         ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
                       entity: switch.kids_radiator
                       name: Radiator
+                      icon: mdi:radiator
 
                     # Kids Room Climate
                     - type: 'custom:button-card'

@@ -235,6 +235,7 @@ cards:
                         ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
                       entity: switch.kids_radiator
                       name: Kids Room
+                      icon: mdi:radiator
 
                     # Bedroom Radiator
                     - type: 'custom:button-card'
@@ -243,6 +244,7 @@ cards:
                         ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
                       entity: switch.bedroom_radiator
                       name: Bedroom
+                      icon: mdi:radiator
                       
 
                 - type: custom:button-card
