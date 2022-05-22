@@ -173,8 +173,8 @@ card_tasmota_outdated:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "30px"
-            - top: "-2px"
+            - left: "42px"
+            - top: "10px"
             - height: "16px"
             - width: "16px"
             - border: "2px solid var(--card-background-color)"
