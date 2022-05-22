@@ -30,3 +30,14 @@ sensor:
     value_template: 'OK'
     scan_interval: 10
     timeout: 30
+
+
+  - platform: template
+    sensors:
+
+      fully_kitchen_battery:
+        friendly_name: "Battery"
+        icon_template: mdi:battery
+        unit_of_measurement: "%"
+        value_template: >-
+          {{ state_attr('sensor.fully_device_info', 'batteryLevel') }}

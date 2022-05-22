@@ -121,6 +121,40 @@ cards:
 
 
 
+          ############################################################################
+          #                                                                          #
+          #   Database                                                               #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Battery
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                  cards:
+
+                    # Events
+                    - type: 'custom:button-card'
+                      template: card_graph
+                      variables:
+                        ulm_card_graph_color: "var(--google-blue)"
+                        ulm_card_graph_name: Battery
+                        ulm_card_graph_entity: sensor.fully_kitchen_battery
+                        ulm_card_graph_icon: mdi:battery
+                        ulm_card_graph_hours: 48
+                        ulm_card_graph_points_per_hour: 1
+                        ulm_card_graph_show_extrema: true
+                        ulm_card_graph_show_average: true
+
                 - type: custom:button-card
                   template: spacer
                   variables:

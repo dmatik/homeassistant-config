@@ -10,8 +10,11 @@ card_graph:
     ulm_card_graph_name2: "n/a"
     ulm_card_graph_entity2: ""
     ulm_card_graph_hours: 24
+    ulm_card_graph_points_per_hour: 0.5
     ulm_card_graph_type: "fill"
     ulm_card_graph_icon: ""
+    ulm_card_graph_show_extrema: false
+    ulm_card_graph_show_average: false
   triggers_update: "all"
   styles:
     grid:
@@ -63,7 +66,10 @@ card_graph:
           state: false
           graph: "[[[ return variables.ulm_card_graph_type=='fill'?'line':variables.ulm_card_graph_type; ]]]"
           fill: "[[[ return variables.ulm_card_graph_type=='fill'?true:false; ]]]"
+          extrema: "[[[ return variables.ulm_card_graph_show_extrema; ]]]"
+          average: "[[[ return variables.ulm_card_graph_show_average; ]]]"
         hours_to_show: "[[[ return variables.ulm_card_graph_hours; ]]]"
+        points_per_hour: "[[[ return variables.ulm_card_graph_points_per_hour; ]]]"
         style: |
           ha-card {
             box-shadow: none;
