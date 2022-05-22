@@ -56,268 +56,56 @@ card_tasmota_version:
     #             service: "[[[ return variables.ulm_card_tasmota_sync_script ]]]"
 
 
-
 card_tasmota:
+  template:
+    - "icon_info_bg"
+    - "card_tasmota_outdated"
+    - "ulm_language_variables"
+    - "blue"
+    - "popup_tasmota"
   variables:
-    ulm_card_tasmota_entity: ''
-    ulm_card_tasmota_last_restart: ''
-    ulm_card_tasmota_wi_fi_quality: ''
-    ulm_card_tasmota_version: ''
-    ulm_card_tasmota_icon: ''
-    ulm_card_tasmota_name: ''
-    ulm_card_tasmota_latest_version: ''
-    ulm_card_tasmota_ip: ''
-  triggers_update: "all"
+    ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
+    ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
+    ulm_card_tasmota_name: "[[[ return variables.ulm_card_tasmota_name ]]]"
+    ulm_card_tasmota_entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
+    ulm_card_tasmota_icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+    ulm_card_tasmota_last_restart: "[[[ return variables.ulm_card_tasmota_last_restart ]]]"
+    ulm_card_tasmota_wi_fi_quality: "[[[ return variables.ulm_card_tasmota_wi_fi_quality ]]]"
+    ulm_card_tasmota_ip: "[[[ return variables.ulm_card_tasmota_ip ]]]"
+  icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+  name: "[[[ return variables.ulm_card_tasmota_name ]]]"
+  label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
   styles:
-    grid:
-      - grid-template-areas: "'item1' 'item2'"
-      - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content  min-content"
-      - row-gap: "12px"
-    card:
-      - border-radius: "var(--border-radius)"
-      - box-shadow: "var(--box-shadow)"
-      - padding: "12px"
-  custom_fields:
-    item1:
-      card:
-        triggers_update: "all"
-        type: "custom:button-card"
-        template:
-          - "icon_info"
-          - "card_tasmota_outdated"
-          - "ulm_language_variables"
-          - "blue"
-        variables:
-          ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
-          ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
-        icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
-        # tap_action:
-        #   action: "none"
-        tap_action: 
-          action: url
-          url_path: "[[[ return 'http://' + states[variables.ulm_card_tasmota_ip].state + '/' ]]]"
-        entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
-        name: "[[[ return variables.ulm_card_tasmota_name ]]]"
-        label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
-        styles:
-          icon:
-            - color: "rgba(var(--color-theme),0.9)"
-    item2:
-      card:
-        type: "custom:button-card"
-        template: "list_info_items_5_lines"
-        custom_fields:
-          item1:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Version:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_version].state.split('(')[0] ]]]"
-          item2:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Last Restart:'
-                item2: |
-                  [[[
-                    var local_date = new Date(states[variables.ulm_card_tasmota_last_restart].state);
-                    var year = local_date.getFullYear();
-                    var month = local_date.getMonth();
-                    var day = local_date.getDate();
-                    var hours = local_date.getHours();
-                    var minutes = local_date.getMinutes();
-                    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-                    return day + ' ' + months[month] + ', ' + year + ' • ' + hours + ':' + minutes;
-                  ]]]
-          item3:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Up Time:'
-                item2: |
-                  [[[
-                    var restartTime = new Date(states[variables.ulm_card_tasmota_last_restart].state);
-                    var nowTime = new Date();
-                    const diffTime = Math.abs(nowTime - restartTime);
-                    const seconds = Math.floor(diffTime / 1000);
-
-                    var d = Math.floor(seconds / (3600*24));
-                    var h = Math.floor(seconds % (3600*24) / 3600);
-                    var m = Math.floor(seconds % 3600 / 60);
-                    var s = Math.floor(seconds % 60);
-
-                    var dDisplay = d > 0 ? d + "d " : "";
-                    var hDisplay = h > 0 ? h + "h " : "";
-                    var mDisplay = m > 0 ? m + "m " : "";
-                    var sDisplay = s > 0 ? s + "s" : "";
-                    return dDisplay + hDisplay + mDisplay + sDisplay;
-                  ]]]
-          item4:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'WiFi:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_wi_fi_quality].state + '%' ]]]"
-          item5:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'IP:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_ip].state ]]]"
-
+    icon:
+      - color: "rgba(var(--color-theme),0.9)"
 
 
 card_tasmota_with_power:
+  template:
+    - "icon_info_bg"
+    - "card_tasmota_outdated"
+    - "ulm_language_variables"
+    - "blue"
+    - "popup_tasmota_with_power"
   variables:
-    ulm_card_tasmota_entity: ''
-    ulm_card_tasmota_last_restart: ''
-    ulm_card_tasmota_wi_fi_quality: ''
-    ulm_card_tasmota_version: ''
-    ulm_card_tasmota_icon: ''
-    ulm_card_tasmota_name: ''
-    ulm_card_tasmota_latest_version: ''
-    ulm_card_tasmota_current: ''
-    ulm_card_tasmota_energy_today: ''
-    ulm_card_tasmota_power: ''
-    ulm_card_tasmota_latest_voltage: ''
-    ulm_card_tasmota_ip: ''
-  triggers_update: "all"
+    ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
+    ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
+    ulm_card_tasmota_name: "[[[ return variables.ulm_card_tasmota_name ]]]"
+    ulm_card_tasmota_entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
+    ulm_card_tasmota_icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+    ulm_card_tasmota_last_restart: "[[[ return variables.ulm_card_tasmota_last_restart ]]]"
+    ulm_card_tasmota_wi_fi_quality: "[[[ return variables.ulm_card_tasmota_wi_fi_quality ]]]"
+    ulm_card_tasmota_ip: "[[[ return variables.ulm_card_tasmota_ip ]]]"
+    ulm_card_tasmota_current: "[[[ return variables.ulm_card_tasmota_current ]]]"
+    ulm_card_tasmota_energy_today: "[[[ return variables.ulm_card_tasmota_energy_today ]]]"
+    ulm_card_tasmota_power: "[[[ return variables.ulm_card_tasmota_power ]]]"
+    ulm_card_tasmota_latest_voltage: "[[[ return variables.ulm_card_tasmota_latest_voltage ]]]"
+  icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+  name: "[[[ return variables.ulm_card_tasmota_name ]]]"
+  label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
   styles:
-    grid:
-      - grid-template-areas: "'item1' 'item2'"
-      - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content  min-content"
-      - row-gap: "12px"
-    card:
-      - border-radius: "var(--border-radius)"
-      - box-shadow: "var(--box-shadow)"
-      - padding: "12px"
-  custom_fields:
-    item1:
-      card:
-        triggers_update: "all"
-        type: "custom:button-card"
-        template:
-          - "icon_info"
-          - "card_tasmota_outdated"
-          - "ulm_language_variables"
-          - "blue"
-        variables:
-          ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
-          ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
-        icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
-        # tap_action:
-        #   action: "none"
-        tap_action: 
-          action: url
-          url_path: "[[[ return 'http://' + states[variables.ulm_card_tasmota_ip].state + '/' ]]]"
-        entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
-        name: "[[[ return variables.ulm_card_tasmota_name ]]]"
-        label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
-        styles:
-          icon:
-            - color: "rgba(var(--color-theme),0.9)"
-    item2:
-      card:
-        type: "custom:button-card"
-        template: "list_info_items_10_lines"
-        custom_fields:
-          item1:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Version:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_version].state.split('(')[0] ]]]"
-          item2:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Last Restart:'
-                item2: |
-                  [[[
-                    var local_date = new Date(states[variables.ulm_card_tasmota_last_restart].state);
-                    var year = local_date.getFullYear();
-                    var month = local_date.getMonth();
-                    var day = local_date.getDate();
-                    var hours = local_date.getHours();
-                    var minutes = local_date.getMinutes();
-                    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-                    return day + ' ' + months[month] + ', ' + year + ' • ' + hours + ':' + minutes;
-                  ]]]
-          item3:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Up Time:'
-                item2: |
-                  [[[
-                    var restartTime = new Date(states[variables.ulm_card_tasmota_last_restart].state);
-                    var nowTime = new Date();
-                    const diffTime = Math.abs(nowTime - restartTime);
-                    const seconds = Math.floor(diffTime / 1000);
-                    
-                    var d = Math.floor(seconds / (3600*24));
-                    var h = Math.floor(seconds % (3600*24) / 3600);
-                    var m = Math.floor(seconds % 3600 / 60);
-                    var s = Math.floor(seconds % 60);
-
-                    var dDisplay = d > 0 ? d + "d " : "";
-                    var hDisplay = h > 0 ? h + "h " : "";
-                    var mDisplay = m > 0 ? m + "m " : "";
-                    var sDisplay = s > 0 ? s + "s" : "";
-                    return dDisplay + hDisplay + mDisplay + sDisplay;
-                  ]]]
-          item4:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'WiFi:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_wi_fi_quality].state + '%' ]]]"
-          item5:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'IP:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_ip].state ]]]"
-          item6:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Current:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_current].state + ' A' ]]]"
-          item7:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Energy Today:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_energy_today].state + ' kWh' ]]]"
-          item8:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Power:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_power].state + ' W' ]]]"
-          item9:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'Voltage:'
-                item2: "[[[ return states[variables.ulm_card_tasmota_latest_voltage].state + ' V' ]]]"
+    icon:
+      - color: "rgba(var(--color-theme),0.9)"
 
 
 
