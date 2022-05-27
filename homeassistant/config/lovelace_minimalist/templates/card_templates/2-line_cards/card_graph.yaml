@@ -75,3 +75,7 @@ card_graph:
             box-shadow: none;
             border-radius: var(--border-radius);
           }
+          .info {
+            padding-bottom: 0px !important;
+            font-size: 10px;
+          }
