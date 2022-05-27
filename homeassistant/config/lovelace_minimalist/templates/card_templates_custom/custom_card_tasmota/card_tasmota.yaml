@@ -73,8 +73,13 @@ card_tasmota:
     ulm_card_tasmota_wi_fi_quality: "[[[ return variables.ulm_card_tasmota_wi_fi_quality ]]]"
     ulm_card_tasmota_ip: "[[[ return variables.ulm_card_tasmota_ip ]]]"
   icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
-  name: "[[[ return variables.ulm_card_tasmota_name ]]]"
-  label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
+  label: "[[[ return variables.ulm_card_tasmota_name ]]]"
+  name: |
+    [[[ 
+      var version = states[variables.ulm_card_tasmota_version].state;
+      version = version.split("(")[0];
+      return "v" + version; 
+    ]]]
   styles:
     icon:
       - color: "rgba(var(--color-theme),0.9)"
@@ -101,8 +106,13 @@ card_tasmota_with_power:
     ulm_card_tasmota_power: "[[[ return variables.ulm_card_tasmota_power ]]]"
     ulm_card_tasmota_latest_voltage: "[[[ return variables.ulm_card_tasmota_latest_voltage ]]]"
   icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
-  name: "[[[ return variables.ulm_card_tasmota_name ]]]"
-  label: "[[[ return states[variables.ulm_card_tasmota_entity].state ]]]"
+  label: "[[[ return variables.ulm_card_tasmota_name ]]]"
+  name: |
+    [[[ 
+      var version = states[variables.ulm_card_tasmota_version].state;
+      version = version.split("(")[0];
+      return "v" + version; 
+    ]]]
   styles:
     icon:
       - color: "rgba(var(--color-theme),0.9)"
