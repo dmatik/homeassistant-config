@@ -123,7 +123,7 @@ cards:
 
           ############################################################################
           #                                                                          #
-          #   Database                                                               #
+          #   Battery                                                                #
           #                                                                          #
           ############################################################################
 
@@ -142,7 +142,7 @@ cards:
                     grid-gap: 0px 2px
                   cards:
 
-                    # Events
+                    # Battery
                     - type: 'custom:button-card'
                       template: card_graph
                       variables:
@@ -154,6 +154,7 @@ cards:
                         ulm_card_graph_points_per_hour: 1
                         ulm_card_graph_show_extrema: true
                         ulm_card_graph_show_average: true
+
 
                 - type: custom:button-card
                   template: spacer
