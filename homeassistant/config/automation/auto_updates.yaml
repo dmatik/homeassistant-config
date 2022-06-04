@@ -115,48 +115,48 @@
 #                                                                          #
 ############################################################################
 
-- id: Tasmota_updates_notification
-  alias: Tasmota Updates Notification
-  trigger:
-    - platform: state
-      entity_id: sensor.number_of_tasmota_versions_old
-      not_to: '0'
-    - platform: time_pattern
-      hours: '/2'
-      minutes: 0
-      seconds: 0
-  condition:
-    - condition: template
-      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"
-    - condition: template
-      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != '0' }}"
-  action:
-    #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonedima
-      data_template:
-        title: "Tasmota device(s) outdated"
-        message: |
-          {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
-    - service: persistent_notification.create
-      data:
-        message: |
-          {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
+# - id: Tasmota_updates_notification
+#   alias: Tasmota Updates Notification
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.number_of_tasmota_versions_old
+#       not_to: '0'
+#     - platform: time_pattern
+#       hours: '/2'
+#       minutes: 0
+#       seconds: 0
+#   condition:
+#     - condition: template
+#       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"
+#     - condition: template
+#       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != '0' }}"
+#   action:
+#     #- service: notify.dimatelegram
+#     - service: notify.mobile_app_iphonedima
+#       data_template:
+#         title: "Tasmota device(s) outdated"
+#         message: |
+#           {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
+#     - service: persistent_notification.create
+#       data:
+#         message: |
+#           {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
 
-          [More](/lovelace/minimalist_tasmota)
-        title: "Tasmota device(s) outdated"
-        notification_id: "10003"
+#           [More](/lovelace/minimalist_tasmota)
+#         title: "Tasmota device(s) outdated"
+#         notification_id: "10003"
 
 
-- id: tasmota_updates_notification_dismiss
-  alias: Tasmota Updates Notification Dismiss
-  trigger:
-    - platform: state
-      entity_id: sensor.number_of_tasmota_versions_old
-      to: '0'
-  action:
-    service: persistent_notification.dismiss
-    data:
-      notification_id: "10003"
+# - id: tasmota_updates_notification_dismiss
+#   alias: Tasmota Updates Notification Dismiss
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.number_of_tasmota_versions_old
+#       to: '0'
+#   action:
+#     service: persistent_notification.dismiss
+#     data:
+#       notification_id: "10003"
 
 
 
@@ -166,49 +166,49 @@
 #                                                                          #
 ############################################################################
 
-- id: zeg_update_notification
-  alias: ZEG Update Available Notification
-  trigger:
-    - platform: state
-      entity_id: update.zeg_dsm_update
-      to: 'on'
-    - platform: time_pattern
-      hours: '/2'
-      minutes: 0
-      seconds: 0
-  condition:
-    - condition: state
-      entity_id: update.zeg_dsm_update
-      state: 'on'
-  action:
-    #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonedima
-      data_template:
-        title: "ZEG update available"
-        message: |
-          New version: {{ state_attr('update.zeg_dsm_update', 'latest_version') }}.
-          Current: {{ state_attr('update.zeg_dsm_update', 'installed_version') }}.
-    - service: persistent_notification.create
-      data:
-        message: |
-          New version: {{ state_attr('update.zeg_dsm_update', 'latest_version') }}.
-          Current: {{ state_attr('update.zeg_dsm_update', 'installed_version') }}.
+# - id: zeg_update_notification
+#   alias: ZEG Update Available Notification
+#   trigger:
+#     - platform: state
+#       entity_id: update.zeg_dsm_update
+#       to: 'on'
+#     - platform: time_pattern
+#       hours: '/2'
+#       minutes: 0
+#       seconds: 0
+#   condition:
+#     - condition: state
+#       entity_id: update.zeg_dsm_update
+#       state: 'on'
+#   action:
+#     #- service: notify.dimatelegram
+#     - service: notify.mobile_app_iphonedima
+#       data_template:
+#         title: "ZEG update available"
+#         message: |
+#           New version: {{ state_attr('update.zeg_dsm_update', 'latest_version') }}.
+#           Current: {{ state_attr('update.zeg_dsm_update', 'installed_version') }}.
+#     - service: persistent_notification.create
+#       data:
+#         message: |
+#           New version: {{ state_attr('update.zeg_dsm_update', 'latest_version') }}.
+#           Current: {{ state_attr('update.zeg_dsm_update', 'installed_version') }}.
 
-          [More](/lovelace/minimalist_nas)
-        title: "ZEG update available"
-        notification_id: "10004"
+#           [More](/lovelace/minimalist_nas)
+#         title: "ZEG update available"
+#         notification_id: "10004"
 
 
-- id: zeg_update_notification_dismiss
-  alias: ZEG Update Available Notification Dismiss
-  trigger:
-    - platform: state
-      entity_id: update.zeg_dsm_update
-      to: 'off'
-  action:
-    service: persistent_notification.dismiss
-    data:
-      notification_id: "10004"
+# - id: zeg_update_notification_dismiss
+#   alias: ZEG Update Available Notification Dismiss
+#   trigger:
+#     - platform: state
+#       entity_id: update.zeg_dsm_update
+#       to: 'off'
+#   action:
+#     service: persistent_notification.dismiss
+#     data:
+#       notification_id: "10004"
 
 
 
@@ -218,46 +218,46 @@
 #                                                                          #
 ############################################################################
 
-- id: blaze_update_notification
-  alias: BLAZE Update Available Notification
-  trigger:
-    - platform: state
-      entity_id: update.blaze_dsm_update
-      to: 'on'
-    - platform: time_pattern
-      hours: '/2'
-      minutes: 0
-      seconds: 0
-  condition:
-    - condition: state
-      entity_id: update.blaze_dsm_update
-      state: 'on'
-  action:
-    #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonedima
-      data_template:
-        title: "BLAZE update available"
-        message: |
-          New version: {{ state_attr('update.blaze_dsm_update', 'latest_version') }}.
-          Current: {{ state_attr('update.blaze_dsm_update', 'installed_version') }}.
-    - service: persistent_notification.create
-      data:
-        message: |
-          New version: {{ state_attr('update.blaze_dsm_update', 'latest_version') }}.
-          Current: {{ state_attr('update.blaze_dsm_update', 'installed_version') }}.
+# - id: blaze_update_notification
+#   alias: BLAZE Update Available Notification
+#   trigger:
+#     - platform: state
+#       entity_id: update.blaze_dsm_update
+#       to: 'on'
+#     - platform: time_pattern
+#       hours: '/2'
+#       minutes: 0
+#       seconds: 0
+#   condition:
+#     - condition: state
+#       entity_id: update.blaze_dsm_update
+#       state: 'on'
+#   action:
+#     #- service: notify.dimatelegram
+#     - service: notify.mobile_app_iphonedima
+#       data_template:
+#         title: "BLAZE update available"
+#         message: |
+#           New version: {{ state_attr('update.blaze_dsm_update', 'latest_version') }}.
+#           Current: {{ state_attr('update.blaze_dsm_update', 'installed_version') }}.
+#     - service: persistent_notification.create
+#       data:
+#         message: |
+#           New version: {{ state_attr('update.blaze_dsm_update', 'latest_version') }}.
+#           Current: {{ state_attr('update.blaze_dsm_update', 'installed_version') }}.
 
-          [More](/lovelace/minimalist_nas)
-        title: "BLAZE update available"
-        notification_id: "10005"
+#           [More](/lovelace/minimalist_nas)
+#         title: "BLAZE update available"
+#         notification_id: "10005"
 
 
-- id: blaze_update_notification_dismiss
-  alias: BLAZE Update Available Notification Dismiss
-  trigger:
-    - platform: state
-      entity_id: update.blaze_dsm_update
-      to: 'off'
-  action:
-    service: persistent_notification.dismiss
-    data:
-      notification_id: "10005"
+# - id: blaze_update_notification_dismiss
+#   alias: BLAZE Update Available Notification Dismiss
+#   trigger:
+#     - platform: state
+#       entity_id: update.blaze_dsm_update
+#       to: 'off'
+#   action:
+#     service: persistent_notification.dismiss
+#     data:
+#       notification_id: "10005"
