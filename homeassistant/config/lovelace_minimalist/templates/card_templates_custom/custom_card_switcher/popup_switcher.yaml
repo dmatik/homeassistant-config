@@ -36,7 +36,7 @@ popup_switcher:
               ulm_card_switcher_auto_off: '[[[ return variables.ulm_card_switcher_auto_off ]]]'
             triggers_update: 'all'
             entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
-            icon: 'mdi:waves'
+            icon: '[[[ return variables.ulm_card_switcher_icon ]]]'
             show_label: false
 
 
@@ -118,7 +118,11 @@ popup_switcher:
                   service_data:
                     entity_id: '[[[ return variables.ulm_card_switcher_entity ]]]'
 
-
+          - type: "custom:button-card"
+            template: spacer
+            variables:
+              height: 20px
+              
 
 
 popup_button_next_select:

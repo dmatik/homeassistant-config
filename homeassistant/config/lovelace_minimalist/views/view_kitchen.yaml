@@ -143,12 +143,14 @@ cards:
                       template: 
                         - card_switcher
                       variables:
-                        ulm_card_switcher_entity: switch.switcher_webapi
-                        ulm_card_switcher_timer_script: script.switcher_turn_on_timer_script
-                        ulm_card_switcher_time_left: sensor.switcher_webapi_time_left
-                        ulm_card_switcher_timer_minutes: input_select.switcher_timer_minutes_input_select
-                        ulm_card_switcher_electric_current: sensor.switcher_webapi_electric_current
-                        ulm_card_switcher_auto_off: sensor.switcher_webapi_auto_off_time
+                        ulm_card_switcher_name: "Boiler"
+                        ulm_card_switcher_icon: "mdi:waves"
+                        ulm_card_switcher_entity: switch.switcher_boiler
+                        ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
+                        ulm_card_switcher_time_left: sensor.switcher_boiler_time_left
+                        ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+                        ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
+                        ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
 
                     # Service Balcony Light
                     - type: 'custom:button-card'

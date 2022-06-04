@@ -18,26 +18,26 @@
 #                                                                          #
 ############################################################################
 
-- alias: 'Switcher ON Notification'
+- alias: 'Switcher Boiler ON Notification'
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: switch.switcher_webapi
+      entity_id: switch.switcher_boiler
       to: "on"
   action:
-    - wait_template: "{{ not is_state('sensor.switcher_webapi_auto_off_time', 'off') }}"
+    - wait_template: "{{ not is_state('sensor.switcher_boiler_auto_off_time', 'off') }}"
     # - service: notify.dimatelegram
     #   data_template:
     #     title: 'Boiler'
-    #     message: "ON\nAuto off {{ states('sensor.switcher_webapi_auto_off_time') }}."
+    #     message: "ON\nAuto off {{ states('sensor.switcher_boiler_auto_off_time') }}."
 
     - service: notify.mobile_app_iphonedima
       data:
         title: "Boiler"
-        message: "On until {{ states('sensor.switcher_webapi_auto_off_time') }}"
+        message: "On until {{ states('sensor.switcher_boiler_auto_off_time') }}"
         data:
           actions:
-            - action: "SWITCHER_OFF"
+            - action: "SWITCHER_BOILER_OFF"
               title: "Off"
 
 ############################################################################
@@ -46,23 +46,23 @@
 #                                                                          #
 ############################################################################
 
-- alias: Action Switcher Off
+- alias: Action Switcher Boiler Off
   initial_state: 'true'
   trigger:
     - platform: event
       event_type: mobile_app_notification_action
       event_data:
-        action: "SWITCHER_OFF"
+        action: "SWITCHER_BOILER_OFF"
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.switcher_webapi
+        entity_id: switch.switcher_boiler
         state: "on"
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.switcher_webapi
+        entity_id: switch.switcher_boiler
 
 
 
@@ -72,14 +72,14 @@
 #                                                                          #
 ############################################################################
 
-- alias: 'Switcher OFF Notification'
+- alias: 'Switcher Boiler OFF Notification'
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: switch.switcher_webapi
+      entity_id: switch.switcher_boiler
       to: "off"
   action:
-    - wait_template: "{{ is_state('sensor.switcher_webapi_auto_off_time', 'off') }}"
+    - wait_template: "{{ is_state('sensor.switcher_boiler_auto_off_time', 'off') }}"
     # - service: notify.dimatelegram
     #   data_template:
     #     title: 'Boiler'
@@ -90,9 +90,9 @@
         message: "Off"
         data:
           actions:
-            - action: "SWITCHER_ON_30"
+            - action: "SWITCHER_BOILER_ON_30"
               title: "On 30 min"
-            - action: "SWITCHER_ON_60"
+            - action: "SWITCHER_BOILER_ON_60"
               title: "On 60 min"
 
 
@@ -102,29 +102,29 @@
 #                                                                          #
 ############################################################################
 
-- alias: Action Switcher On 15 Min
+- alias: Action Switcher Boiler On 15 Min
   initial_state: 'true'
   trigger:
     - platform: event
       event_type: mobile_app_notification_action
       event_data:
-        action: "SWITCHER_ON_15"
+        action: "SWITCHER_BOILER_ON_15"
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.switcher_webapi
+        entity_id: switch.switcher_boiler
         state: "off"
   action:
     - service: rest_command.switcher_turn_on_timer
       data_template:
         switcher_web_api_ip: !secret switcher_web_api_ip
         switcher_web_api_port: !secret switcher_web_api_port
-        switcher_device_id: !secret switcher_device_id
-        switcher_ip: !secret switcher_local_ip_addr
+        switcher_device_id: !secret switcher_boiler_device_id
+        switcher_ip: !secret switcher_boiler_local_ip_addr
         minutes: '15'
     - service: homeassistant.update_entity
-      entity_id: sensor.switcher_webapi
+      entity_id: sensor.switcher_boiler
 
 
 ############################################################################
@@ -133,29 +133,29 @@
 #                                                                          #
 ############################################################################
 
-- alias: Action Switcher On 30 Min
+- alias: Action Switcher Boiler On 30 Min
   initial_state: 'true'
   trigger:
     - platform: event
       event_type: mobile_app_notification_action
       event_data:
-        action: "SWITCHER_ON_30"
+        action: "SWITCHER_BOILER_ON_30"
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.switcher_webapi
+        entity_id: switch.switcher_boiler
         state: "off"
   action:
     - service: rest_command.switcher_turn_on_timer
       data_template:
         switcher_web_api_ip: !secret switcher_web_api_ip
         switcher_web_api_port: !secret switcher_web_api_port
-        switcher_device_id: !secret switcher_device_id
-        switcher_ip: !secret switcher_local_ip_addr
+        switcher_device_id: !secret switcher_boiler_device_id
+        switcher_ip: !secret switcher_boiler_local_ip_addr
         minutes: '30'
     - service: homeassistant.update_entity
-      entity_id: sensor.switcher_webapi
+      entity_id: sensor.switcher_boiler
 
 
 ############################################################################
@@ -164,29 +164,29 @@
 #                                                                          #
 ############################################################################
 
-- alias: Action Switcher On 45 Min
+- alias: Action Switcher Boiler On 45 Min
   initial_state: 'true'
   trigger:
     - platform: event
       event_type: mobile_app_notification_action
       event_data:
-        action: "SWITCHER_ON_45"
+        action: "SWITCHER_BOILER_ON_45"
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.switcher_webapi
+        entity_id: switch.switcher_boiler
         state: "off"
   action:
     - service: rest_command.switcher_turn_on_timer
       data_template:
         switcher_web_api_ip: !secret switcher_web_api_ip
         switcher_web_api_port: !secret switcher_web_api_port
-        switcher_device_id: !secret switcher_device_id
-        switcher_ip: !secret switcher_local_ip_addr
+        switcher_device_id: !secret switcher_boiler_device_id
+        switcher_ip: !secret switcher_boiler_local_ip_addr
         minutes: '45'
     - service: homeassistant.update_entity
-      entity_id: sensor.switcher_webapi
+      entity_id: sensor.switcher_boiler
 
 
 ############################################################################
@@ -195,26 +195,26 @@
 #                                                                          #
 ############################################################################
 
-- alias: Action Switcher On 60 Min
+- alias: Action Switcher Boiler On 60 Min
   initial_state: 'true'
   trigger:
     - platform: event
       event_type: mobile_app_notification_action
       event_data:
-        action: "SWITCHER_ON_60"
+        action: "SWITCHER_BOILER_ON_60"
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.switcher_webapi
+        entity_id: switch.switcher_boiler
         state: "off"
   action:
     - service: rest_command.switcher_turn_on_timer
       data_template:
         switcher_web_api_ip: !secret switcher_web_api_ip
         switcher_web_api_port: !secret switcher_web_api_port
-        switcher_device_id: !secret switcher_device_id
-        switcher_ip: !secret switcher_local_ip_addr
+        switcher_device_id: !secret switcher_boiler_device_id
+        switcher_ip: !secret switcher_boiler_local_ip_addr
         minutes: '60'
     - service: homeassistant.update_entity
-      entity_id: sensor.switcher_webapi
+      entity_id: sensor.switcher_boiler

@@ -1,8 +1,13 @@
 card_switcher:
   variables:
-    ulm_card_switcher_name: "Boiler"
+    ulm_card_switcher_name: ""
+    ulm_card_switcher_icon: ""
+    ulm_card_switcher_entity: ""
+    ulm_card_switcher_timer_script: ""
     ulm_card_switcher_time_left: ""
     ulm_card_switcher_timer_minutes: ""
+    ulm_card_switcher_electric_current: ""
+    ulm_card_switcher_auto_off: ""
   triggers_update: "all"
   styles:
     grid:
@@ -26,14 +31,13 @@ card_switcher:
           ulm_card_switcher_timer_script: '[[[ return variables.ulm_card_switcher_timer_script ]]]'
           ulm_card_switcher_auto_off: '[[[ return variables.ulm_card_switcher_auto_off ]]]'
           ulm_card_switcher_name: '[[[ return variables.ulm_card_switcher_name ]]]'
+          ulm_card_switcher_icon: '[[[ return variables.ulm_card_switcher_icon ]]]'
         type: "custom:button-card"
         template:
           - "icon_info"
           - "ulm_language_variables"
           - "switcher"
           - "popup_switcher"
-        # tap_action:
-        #   action: "more-info"
         entity: "[[[ return variables.ulm_card_switcher_entity ]]]"
         name: "[[[ return variables.ulm_card_switcher_name ]]]"
     item2:
@@ -83,7 +87,7 @@ switcher:
   triggers_update: "all"
   tap_action:
     action: "more-info"
-  icon: 'mdi:waves'
+  icon: "[[[ return variables.ulm_card_switcher_icon ]]]"
   label: >-
     [[[
         if ( entity.state == 'on' )

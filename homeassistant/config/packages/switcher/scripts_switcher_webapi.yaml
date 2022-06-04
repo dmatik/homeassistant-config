@@ -6,7 +6,7 @@ script:
 #                                                                          #
 ############################################################################
 
-  switcher_turn_on_timer_script:
+  switcher_boiler_turn_on_timer_script:
       alias: On with Timer
       sequence:
           - delay:
@@ -15,11 +15,11 @@ script:
             data_template:
               switcher_web_api_ip: !secret switcher_web_api_ip
               switcher_web_api_port: !secret switcher_web_api_port
-              switcher_device_id: !secret switcher_device_id
-              switcher_ip: !secret switcher_local_ip_addr
-              minutes: '{{ states("input_select.switcher_timer_minutes_input_select") }}'
+              switcher_device_id: !secret switcher_boiler_device_id
+              switcher_ip: !secret switcher_boiler_local_ip_addr
+              minutes: '{{ states("input_select.switcher_boiler_timer_minutes_input_select") }}'
           - service: homeassistant.update_entity
-            entity_id: sensor.switcher_webapi
+            entity_id: sensor.switcher_boiler
 
 
 ############################################################################
@@ -28,26 +28,26 @@ script:
 #                                                                          #
 ############################################################################
 
-  switcher_turn_on:
+  switcher_boiler_turn_on:
       alias: Turn On
       sequence:
           - service: rest_command.switcher_turn_on
             data_template:
               switcher_web_api_ip: !secret switcher_web_api_ip
               switcher_web_api_port: !secret switcher_web_api_port
-              switcher_device_id: !secret switcher_device_id
-              switcher_ip: !secret switcher_local_ip_addr
+              switcher_device_id: !secret switcher_boiler_device_id
+              switcher_ip: !secret switcher_boiler_local_ip_addr
           - service: homeassistant.update_entity
-            entity_id: sensor.switcher_webapi
+            entity_id: sensor.switcher_boiler
 
-  switcher_turn_off:
+  switcher_boiler_turn_off:
       alias: Turn Off
       sequence:
           - service: rest_command.switcher_turn_off
             data_template:
               switcher_web_api_ip: !secret switcher_web_api_ip
               switcher_web_api_port: !secret switcher_web_api_port
-              switcher_device_id: !secret switcher_device_id
-              switcher_ip: !secret switcher_local_ip_addr
+              switcher_device_id: !secret switcher_boiler_device_id
+              switcher_ip: !secret switcher_boiler_local_ip_addr
           - service: homeassistant.update_entity
-            entity_id: sensor.switcher_webapi
+            entity_id: sensor.switcher_boiler

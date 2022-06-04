@@ -3,17 +3,15 @@ switch:
   - platform: template
     switches:
 
-      switcher_webapi:
+      switcher_boiler:
           friendly_name: Boiler
           icon_template: mdi:shower
-          #entity_id: sensor.switcher_webapi
-          #value_template: "{{ is_state_attr('sensor.switcher_webapi', 'state', 'ON') }}"
-          value_template: "{{ is_state('sensor.switcher_webapi_state', 'on') }}"
+          value_template: "{{ is_state('sensor.switcher_boiler_state', 'on') }}"
           turn_on:
               service: script.turn_on
               data:
-                entity_id: script.switcher_turn_on
+                entity_id: script.switcher_boiler_turn_on
           turn_off:
               service: script.turn_on
               data:
-                entity_id: script.switcher_turn_off
+                entity_id: script.switcher_boiler_turn_off

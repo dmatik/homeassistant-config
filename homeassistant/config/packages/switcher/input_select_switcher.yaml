@@ -1,6 +1,6 @@
 input_select:
 
-  switcher_timer_minutes_input_select:
+  switcher_boiler_timer_minutes_input_select:
     name: Timer minutes
     #initial: 15
     options:

@@ -84,11 +84,6 @@ lovelace:
     #   show_in_sidebar: true
     #   filename: ui-homekit.yaml
 
-# switcher_kis:
-#   phone_id: !secret switcher_phone_id
-#   device_id: !secret switcher_device_id
-#   device_password: !secret switcher_device_password
-
 #Recorder
 recorder:
   auto_purge: true
