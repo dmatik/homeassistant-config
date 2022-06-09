@@ -114,8 +114,6 @@ cards:
                         ulm_card_fully_screenshot_image: '/local/fully_screenshot.jpg'
                         ulm_card_fully_screenshot_command: 'script.fully_get_screenshot'
                         ulm_card_fully_camshot_image: 'camera.fully_kitchen'
-                        #ulm_card_fully_camshot_image: '/local/fully_camshot.jpg'
-                        #ulm_card_fully_camshot_command: 'script.fully_get_camshot'
                         ulm_card_fully_screen_on_command: 'rest_command.fully_screen_on'
                         ulm_card_fully_screen_off_command: 'rest_command.fully_screen_off'
 
@@ -127,33 +125,44 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+                # - type: horizontal-stack
+                #   cards:
 
-                    - type: custom:button-card
-                      template: title
-                      name: Battery
+                #     - type: custom:button-card
+                #       template: title
+                #       name: Battery
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                  cards:
+                # - type: custom:layout-card
+                #   layout_type: grid
+                #   layout_options:
+                #     grid-template-columns: 1fr
+                #     grid-template-rows: auto
+                #     grid-gap: 0px 2px
+                #   cards:
 
                     # Battery
-                    - type: 'custom:button-card'
-                      template: card_graph
-                      variables:
-                        ulm_card_graph_color: "var(--google-blue)"
-                        ulm_card_graph_name: Battery
-                        ulm_card_graph_entity: sensor.fully_kitchen_battery
-                        ulm_card_graph_icon: mdi:battery
-                        ulm_card_graph_hours: 48
-                        ulm_card_graph_points_per_hour: 1
-                        ulm_card_graph_show_extrema: true
-                        ulm_card_graph_show_average: true
+                    # - type: 'custom:button-card'
+                    #   template: card_graph
+                    #   variables:
+                    #     ulm_card_graph_color: "var(--google-blue)"
+                    #     ulm_card_graph_name: Battery
+                    #     ulm_card_graph_entity: sensor.fully_kitchen_battery
+                    #     #ulm_card_graph_icon: mdi:battery
+                    #     ulm_card_graph_hours: 48
+                    #     ulm_card_graph_points_per_hour: 1
+                    #     ulm_card_graph_show_extrema: true
+                    #     ulm_card_graph_show_average: true
+
+                    # - type: history-graph
+                    #   entities:
+                    #     - entity: sensor.fully_kitchen_battery
+                    #       name: Battery
+                    #   hours_to_show: 48
+                    #   card_mod:
+                    #     style: |
+                    #       ha-card {
+                    #         border-radius: 21px;
+                    #       }
 
 
                 - type: custom:button-card

@@ -55,3 +55,16 @@ binary_sensor:
         value_template: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'גן יבנה' in state_attr('sensor.redalert', 'current')['data'] }}
+
+
+############################################################################
+#                                                                          #
+#   Redalert Test                                                          #
+#                                                                          #
+############################################################################
+
+      redalert_test:
+        friendly_name: "Redalert Test"
+        value_template: >-
+          {{ state_attr('sensor.redalert', 'alert') == true and 
+                    'בדיקה' in state_attr('sensor.redalert', 'current')['data'] }}
