@@ -76,6 +76,9 @@ card_tasmota:
   label: "[[[ return variables.ulm_card_tasmota_name ]]]"
   name: |
     [[[ 
+      if (states[variables.ulm_card_tasmota_version].state == "unavailable")
+        return variables.ulm_unavailable;
+        
       var version = states[variables.ulm_card_tasmota_version].state;
       version = version.split("(")[0];
       return "v" + version; 
@@ -109,6 +112,9 @@ card_tasmota_with_power:
   label: "[[[ return variables.ulm_card_tasmota_name ]]]"
   name: |
     [[[ 
+      if (states[variables.ulm_card_tasmota_version].state == "unavailable")
+        return variables.ulm_unavailable;
+        
       var version = states[variables.ulm_card_tasmota_version].state;
       version = version.split("(")[0];
       return "v" + version; 
