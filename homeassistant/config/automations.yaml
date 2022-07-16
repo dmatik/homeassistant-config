@@ -228,12 +228,16 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.redalert_all
-    to: 'on'
+    entity_id:
+    - sensor.redalert
+    attribute: current
   condition:
   - condition: state
     entity_id: binary_sensor.redalert_test
     state: 'off'
+  - condition: state
+    entity_id: binary_sensor.redalert_all
+    state: 'on'
   action:
   - service: notify.mobile_app_iphonedima
     data:
@@ -629,4 +633,8 @@
   - service: notify.mobile_app_iphonedima
     data:
       title: Wall Panel
-      message: 'Battery low: {{ state_attr("sen                                                                              
+      message: 'Battery low: {{ state_attr("sensor.fully_device_info", "batteryLevel")
+        }}%
+
+        '
+  mode: single
