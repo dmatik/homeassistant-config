@@ -18,21 +18,19 @@ card_printer:
       } else if (entity.state === "unavailable") {
         return variables.ulm_unavailable;
       } else {
-        return entity.state;
+        const words = entity.state.split(" ");
+        for (let i = 0; i < words.length; i++) {
+            words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+        return words.join(" ");
       }
     ]]]
   state:
     - styles:
         icon:
           - color: "rgba(var(--color-blue),1)"
-        # label:
-        #   - color: "rgba(var(--color-blue-text),1)"
-        # name:
-        #   - color: "rgba(var(--color-blue-text),1)"
         img_cell:
           - background-color: "rgba(var(--color-blue), 0.2)"
-        # card:
-        #   - background-color: "rgba(var(--color-background-blue), var(--opacity-bg))"
       value: "ready"
 
 
