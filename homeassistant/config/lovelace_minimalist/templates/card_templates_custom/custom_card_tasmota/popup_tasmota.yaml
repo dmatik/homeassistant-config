@@ -74,7 +74,7 @@ popup_tasmota:
                       if (local_date.getMinutes() < 10)
                         minutes = "0" + local_date.getMinutes();
                       else
-                        hours = local_date.getHours();
+                        minutes = local_date.getMinutes();
                       const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
                       return day + ' ' + months[month] + ', ' + year + ' • ' + hours + ':' + minutes;
                     ]]]
@@ -211,8 +211,16 @@ popup_tasmota_with_power:
                       var year = local_date.getFullYear();
                       var month = local_date.getMonth();
                       var day = local_date.getDate();
-                      var hours = local_date.getHours();
-                      var minutes = local_date.getMinutes();
+                      var hours = "";
+                      if (local_date.getHours() < 10)
+                        hours = "0" + local_date.getHours();
+                      else
+                        hours = local_date.getHours();
+                      var minutes = "";
+                      if (local_date.getMinutes() < 10)
+                        minutes = "0" + local_date.getMinutes();
+                      else
+                        minutes = local_date.getMinutes();
                       const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
                       return day + ' ' + months[month] + ', ' + year + ' • ' + hours + ':' + minutes;
                     ]]]
