@@ -95,12 +95,12 @@ group:
 #                                                                          #
 ############################################################################
 
-  all_tablets_is_charging_entities:
-    name: All Tablets Is Charging Entities
-    entities:
-      - binary_sensor.ronen_tab_is_charging
-      - binary_sensor.kfir_tab_is_charging
-      - binary_sensor.ipadminidima_is_charging
+  # all_tablets_is_charging_entities:
+  #   name: All Tablets Is Charging Entities
+  #   entities:
+  #     - binary_sensor.ronen_tab_is_charging
+  #     - binary_sensor.kfir_tab_is_charging
+  #     - binary_sensor.ipadminidima_is_charging
 
 
 ############################################################################
@@ -109,12 +109,12 @@ group:
 #                                                                          #
 ############################################################################
 
-  all_tablets_battery_entities:
-    name: All Tablets Battery Entities
-    entities:
-      - sensor.ronen_tab_battery_level
-      - sensor.kfir_tab_battery_level
-      - sensor.ipadminidima_battery_level
+  # all_tablets_battery_entities:
+  #   name: All Tablets Battery Entities
+  #   entities:
+  #     - sensor.ronen_tab_battery_level
+  #     - sensor.kfir_tab_battery_level
+  #     - sensor.ipadminidima_battery_level
 
 
 
