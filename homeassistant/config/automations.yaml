@@ -242,13 +242,14 @@
   - service: notify.mobile_app_iphonedima
     data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: "{% if (state_attr('sensor.redalert', 'alert') == true) -%}\n  {% if\
-        \ state_attr(\"sensor.redalert\", \"current\")[\"desc\"] != \"\" -%}\n  {{state_attr(\"\
-        sensor.redalert\", \"current\")[\"desc\"]}}\n  {%- endif %}\n  {% for l in\
-        \ state_attr('sensor.redalert', 'current')['data'] -%}\n  {{l + \"\\n\"}}\n\
-        \  {%- endfor %}\n{%- else %}\n  אין התרעות כרגע\n{%- endif %}\n"
+      message: "{% if (state_attr('sensor.redalert', 'alert') == true) -%}\n  {% if
+        state_attr(\"sensor.redalert\", \"current\")[\"desc\"] != \"\" -%}\n  {{state_attr(\"sensor.redalert\",
+        \"current\")[\"desc\"]}}\n  {%- endif %}\n  {% for l in state_attr('sensor.redalert',
+        'current')['data'] -%}\n  {{l + \"\\n\"}}\n  {%- endfor %}\n{%- else %}\n
+        \ אין התרעות כרגע\n{%- endif %}\n"
       data:
         tag: redalert-all
+    enabled: false
   - service: notify.dimatelegram
     data:
       title: '*{{ state_attr("sensor.redalert", "current")["title"] }}*'
