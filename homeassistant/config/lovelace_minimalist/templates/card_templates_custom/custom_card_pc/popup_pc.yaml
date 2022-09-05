@@ -1,170 +1,173 @@
 popup_pc:
   tap_action:
-    action: "fire-dom-event"
+    # action: "fire-dom-event"
+    # browser_mod:
+    #   command: "popup"
+    #   large: false
+    #   hide_header: true
+    #   card:
+
+    action: fire-dom-event
     browser_mod:
-      command: "popup"
-      large: false
-      hide_header: true
-      card:
+      service: browser_mod.popup
+      data:
+        #title: '[[[ return variables.ulm_card_pc_name; ]]]'
+        content:
 
-        # type: custom:layout-card
-        # layout_type: vertical
-        # cards:
+          type: vertical-stack
+          cards:
 
-        type: vertical-stack
-        cards:
+            ############################################################################
+            #                                                                          #
+            #   Header                                                                 #
+            #                                                                          #
+            ############################################################################
 
-          ############################################################################
-          #                                                                          #
-          #   Header                                                                 #
-          #                                                                          #
-          ############################################################################
+            - type: custom:button-card
+              template: card_header_popup
+              variables:
+                card_header_title: '[[[ return variables.ulm_card_pc_name; ]]]'
+                card_header_back_button: true 
 
-          - type: custom:button-card
-            template: card_header_popup
-            variables:
-              card_header_title: '[[[ return variables.ulm_card_pc_name; ]]]'
-              card_header_back_button: true 
-
-          - type: "custom:button-card"
-            template: 
-              - 'popup_header'
-              - 'popup_button_blue'
-            triggers_update: all
-            entity: '[[[ return variables.ulm_card_pc_entity ]]]'
-            #name: '[[[ return variables.ulm_card_pc_name ]]]'
-            icon: 'mdi:desktop-classic'
+            - type: "custom:button-card"
+              template: 
+                - 'popup_header'
+                - 'popup_button_blue'
+              triggers_update: all
+              entity: '[[[ return variables.ulm_card_pc_entity ]]]'
+              #name: '[[[ return variables.ulm_card_pc_name ]]]'
+              icon: 'mdi:desktop-classic'
 
 
-          ############################################################################
-          #                                                                          #
-          #   Sensors                                                                #
-          #                                                                          #
-          ############################################################################
+            ############################################################################
+            #                                                                          #
+            #   Sensors                                                                #
+            #                                                                          #
+            ############################################################################
 
 
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
 
 
-              - type: "custom:button-card"
-                template: "widget_mini_graph_bar"
-                variables:
-                  mini_graph_color: 'rgba(var(--color-purple),0.2)'
-                  mini_graph_entity: 'sensor.dimka_ram_usage'
-                  mini_graph_name: 'RAM'
+                - type: "custom:button-card"
+                  template: "widget_mini_graph_bar"
+                  variables:
+                    mini_graph_color: 'rgba(var(--color-purple),0.2)'
+                    mini_graph_entity: 'sensor.dimka_ram_usage'
+                    mini_graph_name: 'RAM'
 
-              - type: "custom:button-card"
-                template: "widget_mini_graph_bar"
-                variables:
-                  mini_graph_color: 'rgba(var(--color-blue),0.2)'
-                  mini_graph_entity: 'sensor.dimka_cpu_usage'
-                  mini_graph_name: 'CPU'
+                - type: "custom:button-card"
+                  template: "widget_mini_graph_bar"
+                  variables:
+                    mini_graph_color: 'rgba(var(--color-blue),0.2)'
+                    mini_graph_entity: 'sensor.dimka_cpu_usage'
+                    mini_graph_name: 'CPU'
 
-              - type: "custom:button-card"
-                template: "widget_mini_graph_bar"
-                variables:
-                  mini_graph_color: 'rgba(var(--color-green),0.2)'
-                  mini_graph_entity: 'sensor.dimka_hdd_usage_c'
-                  mini_graph_name: 'Disk C'
+                - type: "custom:button-card"
+                  template: "widget_mini_graph_bar"
+                  variables:
+                    mini_graph_color: 'rgba(var(--color-green),0.2)'
+                    mini_graph_entity: 'sensor.dimka_hdd_usage_c'
+                    mini_graph_name: 'Disk C'
 
-              - type: "custom:button-card"
-                template: "widget_mini_graph_bar"
-                variables:
-                  mini_graph_color: 'rgba(var(--color-green),0.2)'
-                  mini_graph_entity: 'sensor.dimka_hdd_usage_d'
-                  mini_graph_name: 'Disk D'
+                - type: "custom:button-card"
+                  template: "widget_mini_graph_bar"
+                  variables:
+                    mini_graph_color: 'rgba(var(--color-green),0.2)'
+                    mini_graph_entity: 'sensor.dimka_hdd_usage_d'
+                    mini_graph_name: 'Disk D'
 
 
 
-          - type: "custom:button-card"
-            template: spacer
-            # variables:
-            #   height: 40px
+            - type: "custom:button-card"
+              template: spacer
+              # variables:
+              #   height: 40px
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Buttons                                                                #
-          #                                                                          #
-          ############################################################################
+            ############################################################################
+            #                                                                          #
+            #   Buttons                                                                #
+            #                                                                          #
+            ############################################################################
 
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr 1fr 1fr 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 1fr 1fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
 
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                icon: mdi:lan-connect
-                name: 'Wake'
-                tap_action:
-                  action: call-service
-                  service: script.dimka_wake
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  icon: mdi:lan-connect
+                  name: 'Wake'
+                  tap_action:
+                    action: call-service
+                    service: script.dimka_wake
 
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                icon: mdi:sleep
-                name: 'Sleep'
-                tap_action:
-                  action: call-service
-                  service: script.dimka_suspend
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  icon: mdi:sleep
+                  name: 'Sleep'
+                  tap_action:
+                    action: call-service
+                    service: script.dimka_suspend
 
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                icon: mdi:restart
-                name: 'Restart'
-                tap_action:
-                  action: call-service
-                  service: script.dimka_reboot
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  icon: mdi:restart
+                  name: 'Restart'
+                  tap_action:
+                    action: call-service
+                    service: script.dimka_reboot
 
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                icon: mdi:power
-                name: 'Shutdown'
-                tap_action:
-                  action: call-service
-                  service: script.dimka_shutdown
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  icon: mdi:power
+                  name: 'Shutdown'
+                  tap_action:
+                    action: call-service
+                    service: script.dimka_shutdown
 
-          - type: "custom:button-card"
-            template: spacer
-            variables:
-              height: 40px
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 40px
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Footer                                                                 #
-          #                                                                          #
-          ############################################################################
+            ############################################################################
+            #                                                                          #
+            #   Footer                                                                 #
+            #                                                                          #
+            ############################################################################
 
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
 
-              - type: "custom:button-card"
-                template: "popup_button_back"
+                - type: "custom:button-card"
+                  template: "popup_button_back"
 
 

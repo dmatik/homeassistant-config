@@ -1,356 +1,359 @@
 popup_ac:
   tap_action:
-    action: "fire-dom-event"
+    # action: "fire-dom-event"
+    # browser_mod:
+    #   command: "popup"
+    #   large: false
+    #   hide_header: true
+    #   card:
+
+    action: fire-dom-event
     browser_mod:
-      command: "popup"
-      large: false
-      hide_header: true
-      card:
+      service: browser_mod.popup
+      data:
+        #title: "[[[ return variables.ulm_card_ac_name + ' AC'; ]]]"
+        content:
 
-        # type: custom:layout-card
-        # layout_type: vertical
-        # cards:
-
-        type: vertical-stack
-        cards:
+          type: vertical-stack
+          cards:
 
 
-          ############################################################################
-          #                                                                          #
-          #   Header                                                                 #
-          #                                                                          #
-          ############################################################################
+            ############################################################################
+            #                                                                          #
+            #   Header                                                                 #
+            #                                                                          #
+            ############################################################################
 
-          - type: custom:button-card
-            template: card_header_popup
-            variables:
-              card_header_title: "[[[ return variables.ulm_card_ac_name + ' AC'; ]]]"
-              card_header_back_button: true   
+            - type: custom:button-card
+              template: card_header_popup
+              variables:
+                card_header_title: "[[[ return variables.ulm_card_ac_name + ' AC'; ]]]"
+                card_header_back_button: true   
 
-          - type: "custom:button-card"
-            template: "popup_header_ac"
-            triggers_update: all
-            entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-            show_label: false
+            - type: "custom:button-card"
+              template: "popup_header_ac"
+              triggers_update: all
+              entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+              show_label: false
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Target Temperature Set                                                 #
-          #                                                                          #
-          ############################################################################
+            ############################################################################
+            #                                                                          #
+            #   Target Temperature Set                                                 #
+            #                                                                          #
+            ############################################################################
 
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr 2fr 2fr 2fr 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 2fr 2fr 2fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
 
-              - type: 'custom:button-card'
-                color_type: blank-card
+                - type: 'custom:button-card'
+                  color_type: blank-card
 
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button_no_name"
-                  - "ulm_language_variables"
-                icon: mdi:minus
-                tap_action:
-                  action: call-service
-                  service: script.decrease_climate_temperature
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button_no_name"
+                    - "ulm_language_variables"
+                  icon: mdi:minus
+                  tap_action:
+                    action: call-service
+                    service: script.decrease_climate_temperature
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
 
-              - type: 'custom:button-card'
-                template: 
-                  - 'popup_button'
-                  - 'ulm_language_variables'
-                  - 'popup_ac_target_temp'
-                variables:
-                  ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-              
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button_no_name"
-                  - "ulm_language_variables"
-                icon: mdi:plus
-                tap_action:
-                  action: call-service
-                  service: script.increment_climate_temperature
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                - type: 'custom:button-card'
+                  template: 
+                    - 'popup_button'
+                    - 'ulm_language_variables'
+                    - 'popup_ac_target_temp'
+                  variables:
+                    ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button_no_name"
+                    - "ulm_language_variables"
+                  icon: mdi:plus
+                  tap_action:
+                    action: call-service
+                    service: script.increment_climate_temperature
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
 
-              - type: 'custom:button-card'
-                color_type: blank-card
+                - type: 'custom:button-card'
+                  color_type: blank-card
 
-          - type: "custom:button-card"
-            template: spacer
-            variables:
-              height: 20px
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Operation Mode and State Sync                                          #
-          #                                                                          #
-          ############################################################################
-
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr 1fr 1fr 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:          
-
-              # Cool
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                icon: mdi:snowflake
-                name: Cool
-                tap_action:
-                  action: call-service
-                  service: climate.set_hvac_mode
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    hvac_mode: cool
-                state:
-                  - value: "cool"
-                    styles:
-                      icon:
-                        - color: "rgba(var(--color-blue),1)"
-                      img_cell:
-                        - background-color: "rgba(var(--color-blue), 0.2)"
-                                    
-
-              # Heat
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                icon: mdi:weather-sunny
-                name: Heat
-                tap_action:
-                  action: call-service
-                  service: climate.set_hvac_mode
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    hvac_mode: heat
-                state:
-                  - value: "heat"
-                    styles:
-                      icon:
-                        - color: "rgba(var(--color-yellow),1)"
-                      img_cell:
-                        - background-color: "rgba(var(--color-yellow), 0.2)"
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px
 
 
 
-              # Auto
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                icon: mdi:refresh-auto
-                name: Auto
-                tap_action:
-                  action: call-service
-                  service: climate.set_hvac_mode
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    hvac_mode: heat_cool
-                state:
-                  - value: "heat_cool"
-                    styles:
-                      icon:
-                        - color: "rgba(var(--color-green),1)"
-                      img_cell:
-                        - background-color: "rgba(var(--color-green), 0.2)"
+            ############################################################################
+            #                                                                          #
+            #   Operation Mode and State Sync                                          #
+            #                                                                          #
+            ############################################################################
 
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 1fr 1fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:          
 
-              # Sync state
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                  - "popup_button_ac_sync_state_tap"
-                variables:
-                  ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                icon: mdi:autorenew
-                name: Sync State
+                # Cool
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                  icon: mdi:snowflake
+                  name: Cool
+                  tap_action:
+                    action: call-service
+                    service: climate.set_hvac_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      hvac_mode: cool
+                  state:
+                    - value: "cool"
+                      styles:
+                        icon:
+                          - color: "rgba(var(--color-blue),1)"
+                        img_cell:
+                          - background-color: "rgba(var(--color-blue), 0.2)"
+                                      
 
-
-
-          - type: "custom:button-card"
-            template: spacer
-            variables:
-              height: 20px
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Fan speed set                                                          #
-          #                                                                          #
-          ############################################################################
-
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr 1fr 1fr 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:    
-
-              # Low
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
-                icon: mdi:fan-speed-1
-                name: Low
-                tap_action:
-                  action: call-service
-                  service: climate.set_fan_mode
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    fan_mode: 'low'
-                state:
-                  - value: 'low'
-                    styles:
-                      img_cell:
-                        - background-color: 'rgba(var(--color-theme), 0.2)'
-
-              # Med
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
-                icon: mdi:fan-speed-2
-                name: Med
-                tap_action:
-                  action: call-service
-                  service: climate.set_fan_mode
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    fan_mode: 'medium'
-                state:
-                  - value: 'medium'
-                    styles:
-                      img_cell:
-                        - background-color: 'rgba(var(--color-theme), 0.2)'
-
-              # High
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
-                icon: mdi:fan-speed-3
-                name: High
-                tap_action:
-                  action: call-service
-                  service: climate.set_fan_mode
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    fan_mode: high
-                state:
-                  - value: 'high'
-                    styles:
-                      img_cell:
-                        - background-color: 'rgba(var(--color-theme), 0.2)'
-
-              # Auto
-              - type: "custom:button-card"
-                template: 
-                  - "popup_button"
-                  - "ulm_language_variables"
-                entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
-                icon: mdi:fan-auto
-                name: Auto
-                tap_action:
-                  action: call-service
-                  service: climate.set_fan_mode
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    fan_mode: 'auto'
-                state:
-                  - value: 'auto'
-                    styles:
-                      img_cell:
-                        - background-color: 'rgba(var(--color-theme), 0.2)'
-
-
-          - type: "custom:button-card"
-            template: spacer
-            variables:
-              height: 40px
+                # Heat
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                  icon: mdi:weather-sunny
+                  name: Heat
+                  tap_action:
+                    action: call-service
+                    service: climate.set_hvac_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      hvac_mode: heat
+                  state:
+                    - value: "heat"
+                      styles:
+                        icon:
+                          - color: "rgba(var(--color-yellow),1)"
+                        img_cell:
+                          - background-color: "rgba(var(--color-yellow), 0.2)"
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Footer                                                                 #
-          #                                                                          #
-          ############################################################################
+                # Auto
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                  icon: mdi:refresh-auto
+                  name: Auto
+                  tap_action:
+                    action: call-service
+                    service: climate.set_hvac_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      hvac_mode: heat_cool
+                  state:
+                    - value: "heat_cool"
+                      styles:
+                        icon:
+                          - color: "rgba(var(--color-green),1)"
+                        img_cell:
+                          - background-color: "rgba(var(--color-green), 0.2)"
 
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:
 
-              - type: "custom:button-card"
-                template: "popup_button_back"
+                # Sync state
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                    - "popup_button_ac_sync_state_tap"
+                  variables:
+                    ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                  entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                  icon: mdi:autorenew
+                  name: Sync State
 
-              - type: "custom:button-card"
-                template: 
-                  - 'popup_button_power'
-                  - 'popup_button_ac_power_tap'
-                variables:
-                  ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                entity: '[[[ return variables.ulm_card_ac_entity ]]]'
 
-              # - type: conditional
-              #   conditions:
-              #     - entity: '[[[ return entity.entity_id ]]]'
-              #       state_not: "off"
-              #   card: 
-              #     type: "custom:button-card"
-              #     template: "popup_button_power"
-              #     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-              #     tap_action:
-              #       action: call-service
-              #       service: 'climate.turn_off' 
-              #       service_data:
-              #         entity_id: '[[[ return entity.entity_id ]]]'       
 
-              # - type: conditional
-              #   conditions:
-              #     - entity: '[[[ return entity.entity_id ]]]'
-              #       state: "off"
-              #   card: 
-              #     type: "custom:button-card"
-              #     template: "popup_button_power"
-              #     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-              #     tap_action:
-              #       action: call-service
-              #       service: 'climate.turn_on' 
-              #       service_data:
-              #         entity_id: '[[[ return entity.entity_id ]]]'           
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px
+
+
+
+            ############################################################################
+            #                                                                          #
+            #   Fan speed set                                                          #
+            #                                                                          #
+            ############################################################################
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 1fr 1fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:    
+
+                # Low
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+                  icon: mdi:fan-speed-1
+                  name: Low
+                  tap_action:
+                    action: call-service
+                    service: climate.set_fan_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      fan_mode: 'low'
+                  state:
+                    - value: 'low'
+                      styles:
+                        img_cell:
+                          - background-color: 'rgba(var(--color-theme), 0.2)'
+
+                # Med
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+                  icon: mdi:fan-speed-2
+                  name: Med
+                  tap_action:
+                    action: call-service
+                    service: climate.set_fan_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      fan_mode: 'medium'
+                  state:
+                    - value: 'medium'
+                      styles:
+                        img_cell:
+                          - background-color: 'rgba(var(--color-theme), 0.2)'
+
+                # High
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+                  icon: mdi:fan-speed-3
+                  name: High
+                  tap_action:
+                    action: call-service
+                    service: climate.set_fan_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      fan_mode: high
+                  state:
+                    - value: 'high'
+                      styles:
+                        img_cell:
+                          - background-color: 'rgba(var(--color-theme), 0.2)'
+
+                # Auto
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+                  icon: mdi:fan-auto
+                  name: Auto
+                  tap_action:
+                    action: call-service
+                    service: climate.set_fan_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      fan_mode: 'auto'
+                  state:
+                    - value: 'auto'
+                      styles:
+                        img_cell:
+                          - background-color: 'rgba(var(--color-theme), 0.2)'
+
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 40px
+
+
+
+            ############################################################################
+            #                                                                          #
+            #   Footer                                                                 #
+            #                                                                          #
+            ############################################################################
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
+
+                - type: "custom:button-card"
+                  template: "popup_button_back"
+
+                - type: "custom:button-card"
+                  template: 
+                    - 'popup_button_power'
+                    - 'popup_button_ac_power_tap'
+                  variables:
+                    ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                  entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+
+                # - type: conditional
+                #   conditions:
+                #     - entity: '[[[ return entity.entity_id ]]]'
+                #       state_not: "off"
+                #   card: 
+                #     type: "custom:button-card"
+                #     template: "popup_button_power"
+                #     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                #     tap_action:
+                #       action: call-service
+                #       service: 'climate.turn_off' 
+                #       service_data:
+                #         entity_id: '[[[ return entity.entity_id ]]]'       
+
+                # - type: conditional
+                #   conditions:
+                #     - entity: '[[[ return entity.entity_id ]]]'
+                #       state: "off"
+                #   card: 
+                #     type: "custom:button-card"
+                #     template: "popup_button_power"
+                #     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                #     tap_action:
+                #       action: call-service
+                #       service: 'climate.turn_on' 
+                #       service_data:
+                #         entity_id: '[[[ return entity.entity_id ]]]'           
 
 
 popup_header_ac:

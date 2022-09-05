@@ -47,6 +47,11 @@ minimalist-mobile:
       header-shadow: 0px 0.3px 0.3px 0px rgba(0,0,0,0.2)
       header-height: 78px
 
+      # popup
+      popup-background-color: var(--primary-background-color)
+      popup-header-background-color: var(--card-background-color)
+      popup-border-radius: var(--border-radius)
+
       # text
       primary-text-color: "#212121"
       # main interface colors
@@ -110,6 +115,11 @@ minimalist-mobile:
       footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.2)
       header-shadow: 0px 0.3px 0.3px 0px rgba(200,200,200,0.2)
       header-height: 80px
+
+      # popup
+      popup-background-color: var(--primary-background-color)
+      popup-header-background-color: var(--card-background-color)
+      popup-border-radius: var(--border-radius)
 
       # text
       primary-text-color: "#DDDDDD"

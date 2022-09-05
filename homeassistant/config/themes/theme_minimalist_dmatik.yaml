@@ -26,7 +26,10 @@ minimalist-dmatik:
       .mdc-dialog .mdc-dialog__content {
           padding-top: 0px !important;
       }
-
+    ha-dialog$: |
+      .mdc-dialog .mdc-dialog__content {
+          padding-top: 0px !important;
+      }    
   card-mod-root-yaml: | 
     ha-tabs$: |
       #tabsContent {
@@ -101,6 +104,15 @@ minimalist-dmatik:
       header-shadow: 0px 0.3px 0.3px 0px rgba(0,0,0,0.2)
       header-height: 78px
 
+      # popup
+      popup-background-color: var(--primary-background-color)
+      popup-header-background-color: var(--google-red)
+      popup-border-radius: 0px
+      popup-border-width: 1px
+      popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
+      popup-padding-x: 0px
+      popup-padding-y: 0px
+
       # text
       primary-text-color: "#212121"
       # main interface colors
@@ -165,6 +177,15 @@ minimalist-dmatik:
       footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.2)
       header-shadow: 0px 0.3px 0.3px 0px rgba(200,200,200,0.2)
       header-height: 80px
+
+      # popup
+      popup-background-color: var(--primary-background-color)
+      popup-header-background-color: var(--google-red)
+      popup-border-radius: 0px
+      popup-border-width: 1px
+      popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
+      popup-padding-x: 0px
+      popup-padding-y: 0px
 
       # text
       primary-text-color: "#DDDDDD"

@@ -1,213 +1,216 @@
 popup_harmony:
   triggers_update: "all"
   tap_action:
-    action: "fire-dom-event"
+    # action: "fire-dom-event"
+    # browser_mod:
+    #   command: "popup"
+    #   large: false
+    #   hide_header: true
+    #   card:
+
+    action: fire-dom-event
     browser_mod:
-      command: "popup"
-      large: false
-      hide_header: true
-      card:
+      service: browser_mod.popup
+      data:
+        #title: '[[[ return variables.ulm_card_harmony_name; ]]]'
+        content:
 
-        # type: custom:layout-card
-        # layout_type: vertical
-        # cards:
-
-        type: vertical-stack
-        cards:
+          type: vertical-stack
+          cards:
 
 
-          ############################################################################
-          #                                                                          #
-          #   Header                                                                 #
-          #                                                                          #
-          ############################################################################
+            ############################################################################
+            #                                                                          #
+            #   Header                                                                 #
+            #                                                                          #
+            ############################################################################
 
-          - type: custom:button-card
-            template: card_header_popup
-            variables:
-              card_header_title: '[[[ return variables.ulm_card_harmony_name; ]]]'
-              card_header_back_button: true  
+            - type: custom:button-card
+              template: card_header_popup
+              variables:
+                card_header_title: '[[[ return variables.ulm_card_harmony_name; ]]]'
+                card_header_back_button: true  
 
 
-          - type: "custom:button-card"
-            template: 
-              - "popup_header"
-              - "popup_header_harmony_label"
-              - "popup_button_blue"
-            triggers_update: 'all'
-            entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
-            icon: 'mdi:television'
-            show_label: false
+            - type: "custom:button-card"
+              template: 
+                - "popup_header"
+                - "popup_header_harmony_label"
+                - "popup_button_blue"
+              triggers_update: 'all'
+              entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+              icon: 'mdi:television'
+              show_label: false
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Activities                                                             #
-          #                                                                          #
-          ############################################################################
+            ############################################################################
+            #                                                                          #
+            #   Activities                                                             #
+            #                                                                          #
+            ############################################################################
 
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:
-
-              - type: 'custom:button-card'
-                triggers_update: 'all'
-                template: 
-                  - 'popup_button'
-                  - 'ulm_language_variables'
-                  - 'popup_button_harmony_activity_state'
-                variables:
-                  ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
-                  ulm_card_harmony_activity_name: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
-                name: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
-                tap_action:
-                  action: 'call-service'
-                  service: 'remote.turn_on'
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
-                    activity: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
-                icon: '[[[ return variables.ulm_card_harmony_activity_1_icon ]]]'
-
-
-              - type: 'custom:button-card'
-                triggers_update: 'all'
-                template: 
-                  - 'popup_button'
-                  - 'ulm_language_variables'
-                  - 'popup_button_harmony_activity_state'
-                variables:
-                  ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
-                  ulm_card_harmony_activity_name: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
-                name: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
-                tap_action:
-                  action: 'call-service'
-                  service: 'remote.turn_on'
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
-                    activity: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
-                icon: '[[[ return variables.ulm_card_harmony_activity_2_icon ]]]'
-
-          - type: "custom:button-card"
-            template: spacer
-
-
-          ############################################################################
-          #                                                                          #
-          #   Shield TV                                                              #
-          #                                                                          #
-          ############################################################################
-
-          - type: conditional
-            conditions:
-              - entity: switch.shield_tv
-                state: "on"
-            card:
-              !include card_harmony_shield_tv.yaml
-
-          ############################################################################
-          #                                                                          #
-          #   Smart TV                                                               #
-          #                                                                          #
-          ############################################################################
-
-          - type: conditional
-            conditions:
-              - entity: switch.smart_tv
-                state: "on"
-            card:
-              !include card_harmony_smart_tv.yaml
-
-          ############################################################################
-          #                                                                          #
-          #   Volume                                                                 #
-          #                                                                          #
-          ############################################################################
-
-          - type: conditional
-            conditions:
-              - entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
-                state: "on"
-            card:
-              type: custom:layout-card
+            - type: custom:layout-card
               layout_type: grid
               layout_options:
-                grid-template-columns: 1fr 1fr 1fr 1fr
+                grid-template-columns: 1fr 1fr
                 grid-template-rows: auto
                 grid-gap: 0px 4px
               cards:
 
                 - type: 'custom:button-card'
                   triggers_update: 'all'
-                  show_name: false
-                  icon: mdi:volume-mute
                   template: 
                     - 'popup_button'
                     - 'ulm_language_variables'
+                    - 'popup_button_harmony_activity_state'
+                  variables:
+                    ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                    ulm_card_harmony_activity_name: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
+                  name: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
                   tap_action:
                     action: 'call-service'
-                    service: 'script.reciever_volume_mute'
+                    service: 'remote.turn_on'
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                      activity: '[[[ return variables.ulm_card_harmony_activity_1_name ]]]'
+                  icon: '[[[ return variables.ulm_card_harmony_activity_1_icon ]]]'
+
 
                 - type: 'custom:button-card'
                   triggers_update: 'all'
-                  show_name: false
-                  icon: mdi:volume-plus
                   template: 
                     - 'popup_button'
                     - 'ulm_language_variables'
+                    - 'popup_button_harmony_activity_state'
+                  variables:
+                    ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                    ulm_card_harmony_activity_name: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
+                  name: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
                   tap_action:
                     action: 'call-service'
-                    service: 'script.reciever_volume_up'
+                    service: 'remote.turn_on'
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                      activity: '[[[ return variables.ulm_card_harmony_activity_2_name ]]]'
+                  icon: '[[[ return variables.ulm_card_harmony_activity_2_icon ]]]'
 
-                - type: 'custom:button-card'
-                  triggers_update: 'all'
-                  show_name: false
-                  icon: mdi:volume-minus
+            - type: "custom:button-card"
+              template: spacer
+
+
+            ############################################################################
+            #                                                                          #
+            #   Shield TV                                                              #
+            #                                                                          #
+            ############################################################################
+
+            - type: conditional
+              conditions:
+                - entity: switch.shield_tv
+                  state: "on"
+              card:
+                !include card_harmony_shield_tv.yaml
+
+            ############################################################################
+            #                                                                          #
+            #   Smart TV                                                               #
+            #                                                                          #
+            ############################################################################
+
+            - type: conditional
+              conditions:
+                - entity: switch.smart_tv
+                  state: "on"
+              card:
+                !include card_harmony_smart_tv.yaml
+
+            ############################################################################
+            #                                                                          #
+            #   Volume                                                                 #
+            #                                                                          #
+            ############################################################################
+
+            - type: conditional
+              conditions:
+                - entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                  state: "on"
+              card:
+                type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                cards:
+
+                  - type: 'custom:button-card'
+                    triggers_update: 'all'
+                    show_name: false
+                    icon: mdi:volume-mute
+                    template: 
+                      - 'popup_button'
+                      - 'ulm_language_variables'
+                    tap_action:
+                      action: 'call-service'
+                      service: 'script.reciever_volume_mute'
+
+                  - type: 'custom:button-card'
+                    triggers_update: 'all'
+                    show_name: false
+                    icon: mdi:volume-plus
+                    template: 
+                      - 'popup_button'
+                      - 'ulm_language_variables'
+                    tap_action:
+                      action: 'call-service'
+                      service: 'script.reciever_volume_up'
+
+                  - type: 'custom:button-card'
+                    triggers_update: 'all'
+                    show_name: false
+                    icon: mdi:volume-minus
+                    template: 
+                      - 'popup_button'
+                      - 'ulm_language_variables'
+                    tap_action:
+                      action: 'call-service'
+                      service: 'script.reciever_volume_down'
+
+
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 40px
+
+            ############################################################################
+            #                                                                          #
+            #   Footer                                                                 #
+            #                                                                          #
+            ############################################################################
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
+
+                - type: "custom:button-card"
+                  template: "popup_button_back"
+
+                - type: "custom:button-card"
                   template: 
-                    - 'popup_button'
-                    - 'ulm_language_variables'
+                  - 'popup_button_power'
+                  name: '[[[ return variables.ulm_off ]]]'
                   tap_action:
                     action: 'call-service'
-                    service: 'script.reciever_volume_down'
-
-
-
-          - type: "custom:button-card"
-            template: spacer
-            variables:
-              height: 40px
-
-          ############################################################################
-          #                                                                          #
-          #   Footer                                                                 #
-          #                                                                          #
-          ############################################################################
-
-          - type: custom:layout-card
-            layout_type: grid
-            layout_options:
-              grid-template-columns: 1fr 1fr
-              grid-template-rows: auto
-              grid-gap: 0px 4px
-            cards:
-
-              - type: "custom:button-card"
-                template: "popup_button_back"
-
-              - type: "custom:button-card"
-                template: 
-                 - 'popup_button_power'
-                name: '[[[ return variables.ulm_off ]]]'
-                tap_action:
-                  action: 'call-service'
-                  service: 'remote.turn_on'
-                  service_data:
-                    entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
-                    activity: 'PowerOff'
+                    service: 'remote.turn_on'
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_harmony_entity ]]]'
+                      activity: 'PowerOff'
 
 
   double_tap_action:
