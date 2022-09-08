@@ -3,9 +3,8 @@ title: Wall Panel
 kiosk_mode:
   kiosk: true
 
-# Button card templates  
-decluttering_templates:
-  !include_dir_merge_named /config/lovelace/decluttering_templates/
+# decluttering_templates:
+#   !include_dir_merge_named /config/lovelace/decluttering_templates/
 
 # button_card_templates:
 #   !include_dir_merge_named /config/lovelace/button_card_templates/
