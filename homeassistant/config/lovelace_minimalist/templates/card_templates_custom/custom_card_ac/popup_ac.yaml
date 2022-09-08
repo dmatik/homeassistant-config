@@ -11,7 +11,18 @@ popup_ac:
     browser_mod:
       service: browser_mod.popup
       data:
-        #title: "[[[ return variables.ulm_card_ac_name + ' AC'; ]]]"
+        card_mod:
+          style:
+            ha-dialog$: |
+              .mdc-dialog__scrim {
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+              }
+            ha-header-bar$: |
+              .mdc-top-app-bar {
+                background: var(--header-background-color) !important;
+              }
+        title: "[[[ return variables.ulm_card_ac_name + ' AC'; ]]]"
         content:
 
           type: vertical-stack
@@ -24,11 +35,11 @@ popup_ac:
             #                                                                          #
             ############################################################################
 
-            - type: custom:button-card
-              template: card_header_popup
-              variables:
-                card_header_title: "[[[ return variables.ulm_card_ac_name + ' AC'; ]]]"
-                card_header_back_button: true   
+            # - type: custom:button-card
+            #   template: card_header_popup
+            #   variables:
+            #     card_header_title: "[[[ return variables.ulm_card_ac_name + ' AC'; ]]]"
+            #     card_header_back_button: true   
 
             - type: "custom:button-card"
               template: "popup_header_ac"
@@ -385,7 +396,7 @@ popup_header_ac:
         - border-radius: "50%"
         - width: "58px"
         - height: "58px"
-        - box-shadow: "var(--ha-card-box-shadow)"    
+        - box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"    
         - font-size: '20px'
         - font-weight: '500'
         - place-self: 'center'      

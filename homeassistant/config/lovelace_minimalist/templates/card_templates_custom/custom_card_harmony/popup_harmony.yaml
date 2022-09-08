@@ -12,7 +12,18 @@ popup_harmony:
     browser_mod:
       service: browser_mod.popup
       data:
-        #title: '[[[ return variables.ulm_card_harmony_name; ]]]'
+        card_mod:
+          style:
+            ha-dialog$: |
+              .mdc-dialog__scrim {
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+              }
+            ha-header-bar$: |
+              .mdc-top-app-bar {
+                background: var(--header-background-color) !important;
+              }
+        title: '[[[ return variables.ulm_card_harmony_name; ]]]'
         content:
 
           type: vertical-stack
@@ -25,11 +36,11 @@ popup_harmony:
             #                                                                          #
             ############################################################################
 
-            - type: custom:button-card
-              template: card_header_popup
-              variables:
-                card_header_title: '[[[ return variables.ulm_card_harmony_name; ]]]'
-                card_header_back_button: true  
+            # - type: custom:button-card
+            #   template: card_header_popup
+            #   variables:
+            #     card_header_title: '[[[ return variables.ulm_card_harmony_name; ]]]'
+            #     card_header_back_button: true  
 
 
             - type: "custom:button-card"

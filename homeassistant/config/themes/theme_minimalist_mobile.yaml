@@ -11,19 +11,28 @@ minimalist-mobile:
   accent-color: "var(--google-yellow)"
   card-mod-theme: "minimalist-mobile"
   card-mod-more-info-yaml: |
-        $: |
-              .mdc-dialog__scrim {
-                    backdrop-filter: blur(20px) brightness(70%);
-                    -webkit-backdrop-filter: blur(20px) brightness(70%);
-              }        
-              .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+    $: |
+      .mdc-dialog__scrim {
+        backdrop-filter: blur(20px) brightness(70%);
+        -webkit-backdrop-filter: blur(20px) brightness(70%);
+      }        
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
 
-                    border-radius: 0px;
-                    background: var(--primary-background-color);
-              }
-              .mdc-dialog .mdc-dialog__content {
-                    padding-top: 0px !important;
-              }
+        border-radius: 0px;
+        background: var(--primary-background-color);
+      }
+      .mdc-dialog .mdc-dialog__content {
+        padding-top: 0px !important;
+      }
+    ha-dialog$: |
+      .mdc-dialog__scrim {
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+      }
+    ha-header-bar$: |
+      .mdc-top-app-bar {
+        background: var(--header-background-color) !important;
+      }
   card-mod-root: |
     app-toolbar {
       display: none;
@@ -49,8 +58,12 @@ minimalist-mobile:
 
       # popup
       popup-background-color: var(--primary-background-color)
-      popup-header-background-color: var(--card-background-color)
+      popup-header-background-color: var(--google-red)
       popup-border-radius: var(--border-radius)
+      popup-border-width: 1px
+      popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
+      popup-padding-x: 0px
+      popup-padding-y: 0px
 
       # text
       primary-text-color: "#212121"
@@ -118,8 +131,12 @@ minimalist-mobile:
 
       # popup
       popup-background-color: var(--primary-background-color)
-      popup-header-background-color: var(--card-background-color)
+      popup-header-background-color: var(--google-red)
       popup-border-radius: var(--border-radius)
+      popup-border-width: 1px
+      popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
+      popup-padding-x: 0px
+      popup-padding-y: 0px
 
       # text
       primary-text-color: "#DDDDDD"

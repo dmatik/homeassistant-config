@@ -11,7 +11,18 @@ popup_chip_air_quality:
     browser_mod:
       service: browser_mod.popup
       data:
-        #title: "Air Quality"
+        card_mod:
+          style:
+            ha-dialog$: |
+              .mdc-dialog__scrim {
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+              }
+            ha-header-bar$: |
+              .mdc-top-app-bar {
+                background: var(--header-background-color) !important;
+              }
+        title: "Air Quality"
         content:
         
           type: vertical-stack
@@ -24,11 +35,11 @@ popup_chip_air_quality:
             #                                                                          #
             ############################################################################
 
-            - type: custom:button-card
-              template: card_header_popup
-              variables:
-                card_header_title: "Air Quality"
-                card_header_back_button: true   
+            # - type: custom:button-card
+            #   template: card_header_popup
+            #   variables:
+            #     card_header_title: "Air Quality"
+            #     card_header_back_button: true   
 
 
             - type: "custom:button-card"

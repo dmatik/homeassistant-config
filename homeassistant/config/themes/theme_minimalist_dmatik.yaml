@@ -27,9 +27,14 @@ minimalist-dmatik:
           padding-top: 0px !important;
       }
     ha-dialog$: |
-      .mdc-dialog .mdc-dialog__content {
-          padding-top: 0px !important;
-      }    
+      .mdc-dialog__scrim {
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+      }
+    ha-header-bar$: |
+      .mdc-top-app-bar {
+        background: var(--header-background-color) !important;
+      }
   card-mod-root-yaml: | 
     ha-tabs$: |
       #tabsContent {
@@ -107,7 +112,7 @@ minimalist-dmatik:
       # popup
       popup-background-color: var(--primary-background-color)
       popup-header-background-color: var(--google-red)
-      popup-border-radius: 0px
+      popup-border-radius: var(--border-radius)
       popup-border-width: 1px
       popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
       popup-padding-x: 0px
@@ -181,7 +186,7 @@ minimalist-dmatik:
       # popup
       popup-background-color: var(--primary-background-color)
       popup-header-background-color: var(--google-red)
-      popup-border-radius: 0px
+      popup-border-radius: var(--border-radius)
       popup-border-width: 1px
       popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
       popup-padding-x: 0px

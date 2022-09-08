@@ -22,4 +22,4 @@ popup_button_no_name:
       - place-self: "center"
       - width: "58px"
       - height: "58px"
-      - box-shadow: "var(--ha-card-box-shadow)"
+      - box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"

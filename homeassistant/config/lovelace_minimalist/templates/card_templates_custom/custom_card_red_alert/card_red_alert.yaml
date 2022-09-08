@@ -33,7 +33,18 @@ card_red_alert:
     browser_mod:
       service: browser_mod.popup
       data:
-        #title: צבע אדום
+        card_mod:
+          style:
+            ha-dialog$: |
+              .mdc-dialog__scrim {
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+              }
+            ha-header-bar$: |
+              .mdc-top-app-bar {
+                background: var(--header-background-color) !important;
+              }
+        title: צבע אדום
         content:
 
 
@@ -46,11 +57,11 @@ card_red_alert:
             #                                                                          #
             ############################################################################
 
-            - type: custom:button-card
-              template: card_header_popup
-              variables:
-                card_header_title: צבע אדום
-                card_header_back_button: true        
+            # - type: custom:button-card
+            #   template: card_header_popup
+            #   variables:
+            #     card_header_title: צבע אדום
+            #     card_header_back_button: true        
 
 
             ############################################################################
