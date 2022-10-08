@@ -104,7 +104,6 @@ cards:
                     # blaze
                     - type: 'custom:button-card'
                       template: card_nas_dima
-                      entity: sensor.fully_device_info
                       variables:
                         ulm_card_nas_name: 'BLAZE'
                         ulm_card_nas_entity: 'update.blaze_dsm_update'
@@ -116,7 +115,6 @@ cards:
                     # zeg
                     - type: 'custom:button-card'
                       template: card_nas_dima
-                      entity: sensor.fully_device_info
                       variables:
                         ulm_card_nas_name: 'ZEG'
                         ulm_card_nas_entity: 'update.zeg_dsm_update'
