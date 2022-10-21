@@ -181,11 +181,12 @@ services:
     portainer:
         hostname: portainer
         container_name: portainer
-        image: portainer/portainer-ce:latest
+        image: portainer/portainer-ee:latest
         restart: always
         network_mode: "bridge"
         ports:
             - 9000:9000
+            - 8000:8000
         environment:
             TZ: "Asia/Jerusalem"
         volumes:
@@ -578,6 +579,26 @@ services:
         volumes:
             - /volume1/docker/mc/data:/data
 
+    minecraft-survival:
+        image: itzg/minecraft-bedrock-server:latest
+        container_name: minecraft-survival
+        restart: "unless-stopped"
+        network_mode: "bridge"
+        ports:
+            - 19232:19132/udp
+        environment:
+            TZ: "Asia/Jerusalem"
+            EULA: "TRUE"
+            GAMEMODE: "survival"
+            DIFFICULTY: "peaceful"
+            MAX_PLAYERS: "30"
+            SERVER_NAME: "Trosmans Survival"
+            OPS: ${MC_DMATIK_ID}
+            ALLOW_CHEATS: "true"
+            SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
+        volumes:
+            - /volume1/docker/minecraft_survival/data:/data
+
 
     # redalert:
     #     image: techblog/redalert:latest
@@ -601,7 +622,39 @@ services:
           - 49000:9001
         environment:
             TZ: "Asia/Jerusalem"
-            LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: "INFO"
+            LOGGING_LEVEL_COM_DMATIK_OREFALERTS_SERVICE: "INFO"
+
+    oref-alerts-dev:
+        image: dmatik/oref-alerts:v1.0.9-dev
+        container_name: oref-alerts-dev
+        hostname: oref-alerts-dev
+        restart: unless-stopped
+        network_mode: "bridge"
+        ports:
+          - 49100:9001
+        environment:
+            TZ: "Asia/Jerusalem"
+            LOGGING_LEVEL_COM_DMATIK_OREFALERTS_SERVICE: "INFO"
+            CURRENT_ALERT_MOCK: ""
+            HISTORY_MOCK: ""
+            CURRENT_ALERT_TEST_MODE: ""
+            CURRENT_ALERT_TEST_MODE_LOC: "אשדוד"
+            HISTORY_TEST_MODE: ""
+
+    duckrails:
+        image: iridakos/duckrails:latest
+        container_name: duckrails
+        hostname: duckrails
+        network_mode: "bridge"
+        ports:
+            - 48080:80
+        environment:
+            DATABASE_ADAPTER: sqlite3
+            DATABASE_NAME: db/sqlite/production.sqlite3
+            SECRET_KEY_BASE: "61867f2ea52bfcd0956063c8947abd745968b9830387aba3034c3bfd2c63d2e22519d0b14df362f85bacd3d36029139a2e5ccb0a08bd2bd88f7ef353556dd7fa"
+        restart: unless-stopped
+        volumes:
+            - /volume1/docker/duckrails/db:/opt/duckrails/db/sqlite/
 
 
     # mylar3:
