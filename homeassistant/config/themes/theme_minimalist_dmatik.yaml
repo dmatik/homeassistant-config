@@ -38,7 +38,7 @@ minimalist-dmatik:
   card-mod-root-yaml: | 
     ha-tabs$: |
       #tabsContent {
-        width: 97%;
+        width: 97% !important;
         height: 44px;
       }
     .: |
