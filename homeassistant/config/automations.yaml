@@ -97,14 +97,15 @@
     state: 'off'
   - type: is_illuminance
     condition: device
-    device_id: f0d870e14c46869421ee549c5d8e0117
-    entity_id: sensor.motion_kitchen_lightlevel
+    device_id: aa52ca9d0fd42efba6d2e9fa0cc8cdc4
+    entity_id: sensor.kitchen_motion_sensor_illuminance_lux
     domain: sensor
     below: 100
   action:
   - service: light.turn_on
     target:
       entity_id: light.kitchen_strips
+    data: {}
   mode: single
 - id: '1630045120285'
   alias: Kitchen Strips OFF (Motion)
@@ -490,31 +491,35 @@
   alias: Kitchen Strips Buttons
   description: ''
   trigger:
-  - platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.button_kitchen_strip_left
-      click_type: single
-  - platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.button_kitchen_strip_right
-      click_type: single
+  - platform: device
+    domain: mqtt
+    device_id: 2472c9bcff44819f5670844e09369c54
+    type: click
+    subtype: single
+    discovery_id: 0x00158d0003598968 click_single
+  - platform: device
+    domain: mqtt
+    device_id: b5515f1fd360d60262cc17bbfaed2ca0
+    type: click
+    subtype: single
+    discovery_id: 0x00158d000359884e click_single
   condition: []
   action:
   - service: light.toggle
     target:
       entity_id: light.kitchen_strips
+    data: {}
   mode: single
 - id: '1631014903135'
   alias: Makeup Button
   description: ''
   trigger:
-  - platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.button_makeup
-      click_type: single
+  - platform: device
+    domain: mqtt
+    device_id: 54d1b65fe20d2edd2204252283c1f0b9
+    type: click
+    subtype: single
+    discovery_id: 0x00158d00035a99fc click_single
   condition: []
   action:
   - service: light.toggle
@@ -526,11 +531,12 @@
   alias: Bedside Galit Button
   description: ''
   trigger:
-  - platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.button_bedside_galit
-      click_type: single
+  - platform: device
+    domain: mqtt
+    device_id: b85e0819c36f51c4458c7f7878097507
+    type: click
+    subtype: single
+    discovery_id: 0x00158d00035f3679 click_single
   condition: []
   action:
   - service: light.toggle
@@ -543,11 +549,12 @@
   alias: Bedside Dima Button
   description: ''
   trigger:
-  - platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.button_bedside_dima
-      click_type: single
+  - platform: device
+    domain: mqtt
+    device_id: 53a0eb7493d10a17079db274f688b201
+    type: click
+    subtype: single
+    discovery_id: 0x00158d0003243f56 click_single
   condition: []
   action:
   - service: light.toggle

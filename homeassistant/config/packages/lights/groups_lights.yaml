@@ -79,4 +79,4 @@ group:
     name: Hallway Lights
     entities:
       - light.hallway
-      - light.xiaomi_gateway_servers
+      #- light.xiaomi_gateway_servers

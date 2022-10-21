@@ -226,7 +226,7 @@ cards:
                       variables:
                         ulm_card_graph_color: "var(--google-blue)"
                         ulm_card_graph_name: Work Room
-                        ulm_card_graph_entity: sensor.work_room_temperature
+                        ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
                         
                     # Kids Room Radiator
                     - type: 'custom:button-card'

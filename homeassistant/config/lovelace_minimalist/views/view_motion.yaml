@@ -127,11 +127,11 @@ cards:
                     - type: 'custom:button-card'
                       template: 
                         - card_motion_sensor
-                      entity: binary_sensor.motion_living_room
+                      entity: binary_sensor.living_room_motion_sensor_occupancy
                       name: Living Room
                       show_last_changed: false
                       variables:
-                        light_level: sensor.motion_living_room_lightlevel
+                        light_level: sensor.living_room_motion_sensor_illuminance_lux
 
 
 
@@ -166,21 +166,21 @@ cards:
                     - type: 'custom:button-card'
                       template: 
                         - card_motion_sensor
-                      entity: binary_sensor.motion_kitchen
+                      entity: binary_sensor.kitchen_motion_sensor_occupancy
                       name: Kitchen
                       show_last_changed: false
                       variables:
-                        light_level: sensor.motion_kitchen_lightlevel
+                        light_level: sensor.kitchen_motion_sensor_illuminance_lux
 
                     # Kitchen 2 Sensor
                     - type: 'custom:button-card'
                       template: 
                         - card_motion_sensor
-                      entity: binary_sensor.motion_kitchen_2
+                      entity: binary_sensor.kitchen_motion_sensor_2_occupancy
                       name: Kitchen 2
                       show_last_changed: false
                       variables:
-                        light_level: sensor.motion_kitchen_2_lightlevel
+                        light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
 
 
                 - type: custom:button-card

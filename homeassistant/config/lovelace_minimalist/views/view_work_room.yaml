@@ -76,7 +76,7 @@ cards:
                         - 'chip_icon_label_state'
                       icon: 'mdi:thermometer'
                       variables:
-                        ulm_chip_icon_state_entity: sensor.work_room_temperature
+                        ulm_chip_icon_state_entity: sensor.work_room_temperature_sensor_temperature
 
                     # Lights Chip
                     - type: 'custom:button-card'
@@ -141,7 +141,7 @@ cards:
                       variables:
                         ulm_card_graph_color: "var(--google-blue)"
                         ulm_card_graph_name: Work Room
-                        ulm_card_graph_entity: sensor.work_room_temperature
+                        ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
 
                     # Printer
                     - type: 'custom:button-card'

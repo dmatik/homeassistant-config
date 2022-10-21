@@ -163,11 +163,11 @@ cards:
                     # Living Room Motion Sensor
                     - type: 'custom:button-card'
                       template: 'card_motion_sensor'
-                      entity: binary_sensor.motion_living_room
+                      entity: binary_sensor.living_room_motion_sensor_occupancy
                       name: Motion
                       show_last_changed: false
                       variables:
-                        light_level: sensor.motion_living_room_lightlevel
+                        light_level: sensor.living_room_motion_sensor_illuminance_lux
 
                     # # New Year Tree Lights
                     # - type: 'custom:button-card'
