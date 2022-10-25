@@ -8,7 +8,7 @@
 
 I’m using Lovelace mostly for my mobile devices and for Wallpanel tablet which some times used with HaDashboard instead.
 
-The UI is partially isnspired by [Homekit Infused](https://github.com/jimz011/homekit-infused), implemented by me using mostly Custom Button Card and Delluttering Card for the templates.
+The UI is partially inspired by [Homekit Infused](https://github.com/jimz011/homekit-infused), implemented by me using mostly Custom Button Card and Delluttering Card for the templates.
 
 Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg), welcome to visit and ask questions.
 
