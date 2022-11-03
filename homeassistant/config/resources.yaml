@@ -20,12 +20,12 @@
 #   type: module
 # - url: /local/custom-lovelace/hebrew-calendar-card/hebrew-calendar-card.js
 #   type: module
-- url: /hacsfiles/decluttering-card/decluttering-card.js
-  type: module
+# - url: /hacsfiles/decluttering-card/decluttering-card.js
+#   type: module
 #- url: /hacsfiles/lovelace-card-mod/card-mod.js
 #  type: js
-- url: /hacsfiles/swipe-card/swipe-card.js
-  type: module
+# - url: /hacsfiles/swipe-card/swipe-card.js
+#   type: module
 - url: /hacsfiles/list-card/list-card.js
   type: js
 - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
@@ -36,22 +36,22 @@
 #   type: module
 - url: /hacsfiles/refreshable-picture-card/refreshable-picture-card.js
   type: module
-- url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
-  type: module
+# - url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
+#   type: module
 - url: /hacsfiles/lovelace-layout-card/layout-card.js
   type: module
 # - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
 #   type: module
 # - url: /hacsfiles/thermostat-popup-card/thermostat-popup-card.js
 #   type: module
-- url: /hacsfiles/light-popup-card/light-popup-card.js
-  type: module
-- url: /hacsfiles/light-entity-card/light-entity-card.js
-  type: module
+# - url: /hacsfiles/light-popup-card/light-popup-card.js
+#   type: module
+# - url: /hacsfiles/light-entity-card/light-entity-card.js
+#   type: module
 # - url: /local/custom-lovelace/custom-header/custom-header.js
 #   type: module
-- url: /hacsfiles/kiosk-mode/kiosk-mode.js
-  type: module
+# - url: /hacsfiles/kiosk-mode/kiosk-mode.js
+#   type: module
 # - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
 #   type: module
 - url: /hacsfiles/lovelace-hui-element/hui-element.js
@@ -59,4 +59,8 @@
 - url: /hacsfiles/scheduler-card/scheduler-card.js
   type: module
 - url: /hacsfiles/my-cards/my-cards.js
+  type: module
+- url: /local/browser_mod_icon.js
+  type: module
+- url: /hacsfiles/clock-weather-card/clock-weather-card.js
   type: module
