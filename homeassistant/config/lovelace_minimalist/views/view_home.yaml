@@ -267,36 +267,6 @@ cards:
                         grid-template-columns: 1fr 1fr            
                   cards:
 
-                    # Living Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.living_room
-                      name: Living Room
-
-                    # Dining Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.dining
-                      name: Dining
-
-                    # Kids Room Radiator
-                    - type: 'custom:button-card'
-                      template: card_power_outlet
-                      variables:
-                        ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
-                      entity: switch.kids_radiator
-                      name: Kids Room
-                      icon: mdi:radiator
-
-                    # Bedroom Radiator
-                    - type: 'custom:button-card'
-                      template: card_power_outlet
-                      variables:
-                        ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                      entity: switch.bedroom_radiator
-                      name: Bedroom
-                      icon: mdi:radiator
-                      
                     # Living Room TV
                     - type: 'custom:button-card'
                       template: 'card_harmony_with_buttons'
@@ -307,7 +277,7 @@ cards:
                         ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
                         ulm_card_harmony_activity_2_name: 'Shield TV'
                         ulm_card_harmony_activity_2_icon: 'mdi:movie'
-
+                        
                     # Switcher
                     - type: 'custom:button-card'
                       template: 
@@ -322,6 +292,36 @@ cards:
                         ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
                         ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
 
+                    # Living Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.living_room
+                      name: Living Room
+
+                    # Dining Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.dining
+                      name: Dining
+
+                    # Bedroom Radiator
+                    # - type: 'custom:button-card'
+                    #   template: card_power_outlet
+                    #   variables:
+                    #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                    #   entity: switch.bedroom_radiator
+                    #   name: Bedroom
+                    #   icon: mdi:radiator
+
+                    # Kids Room Radiator
+                    - type: 'custom:button-card'
+                      template: card_power_outlet
+                      variables:
+                        ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
+                      entity: switch.kids_radiator
+                      name: Kids Room
+                      icon: mdi:radiator
+
                     # Dimka PC
                     - type: 'custom:button-card'
                       template: card_pc
@@ -330,10 +330,6 @@ cards:
                       variables:
                         ulm_card_pc_name: Dimka PC
 
-
-                    # Red Alert
-                    - type: 'custom:button-card'
-                      template: card_red_alert
 
                     # Front Gate
                     - type: 'custom:button-card'
@@ -354,6 +350,10 @@ cards:
                       tap_action:
                         action: call-service
                         service: script.open_parking_gate_72
+
+                    # Red Alert
+                    - type: 'custom:button-card'
+                      template: card_red_alert
 
 
 

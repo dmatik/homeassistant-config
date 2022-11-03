@@ -37,17 +37,51 @@ cards:
               grid-template-rows: auto
               grid-gap: 0px 4px
             cards:
-
-              - type: custom:button-card
-                template: 'card_kiosk_clock'
-
-              - type: weather-forecast
-                entity: weather.met_home_hourly
-                name: " "
+              
+              - type: custom:clock-weather-card
+                entity: weather.met_home
+                #title: Home
+                sun_entity: sun.sun
+                weather_icon_type: fill
+                animated_icon: true
+                forecast_days: 5
+                locale: en
+                time_format: 24
+                date_pattern: P
+                hide_today_section: false
+                hide_forecast_section: false
                 style: |
-                  ha-card.type-weather-forecast {
+                  ha-card.type-custom-clock-weather-card {
                     border-radius: 21px;
-                  }            
+                  }
+                  clock-weather-card-today-right-wrap-center {
+                    font-size: 5.0rem !important;
+                    padding-top: 8px !important;
+                    padding-bottom: 8px !important;
+                  }
+                  clock-weather-card-today-right {
+                    justify-content: end !important;
+                    width: 70% !important;
+                  }
+                  clock-weather-card-today-left {
+                    width: 30% !important;
+                  }
+                  clock-weather-card-today {
+                    height: 130px !important;
+                    align-items: flex-start !important;
+                  }
+                  
+              
+              # - type: custom:button-card
+              #   template: 'card_kiosk_clock'
+
+              # - type: weather-forecast
+              #   entity: weather.met_home_hourly
+              #   name: " "
+              #   style: |
+              #     ha-card.type-weather-forecast {
+              #       border-radius: 21px;
+              #     }            
 
               # Air Quality
               - type: 'custom:button-card'
