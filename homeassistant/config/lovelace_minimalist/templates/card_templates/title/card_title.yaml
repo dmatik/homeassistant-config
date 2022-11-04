@@ -19,6 +19,7 @@ card_title:
       - margin-left: "24px"
       - margin-bottom: "0px"
       - padding-bottom: "0px"
+      - border-radius: "0px"
     grid:
       # - grid-template-areas: "'n' 'l'"
       # - grid-template-columns: "1fr"

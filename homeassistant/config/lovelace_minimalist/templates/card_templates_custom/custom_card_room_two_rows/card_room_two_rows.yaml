@@ -188,7 +188,7 @@ rooms_widget_temp:
             if (entity == null)
               return "0px";
             else
-              return "50px";
+              return "54px";
           ]]]
     grid:
       - grid-template-areas: '"l"'
