@@ -102,7 +102,7 @@ minimalist-mobile:
       secondary-background-color: "#EFEFEF"
       # header
       app-header-text-color: "var(--primary-text-color)"
-      app-header-background-color: var(--header-background-color) #"var(--primary-background-color)"
+      app-header-background-color: "var(--primary-background-color)" #var(--header-background-color)
       # paper-tabs-selection-bar-color: "var(--primary-text-color)"
       # slider
       slider-color: "rgb(var(--color-blue))"
@@ -178,7 +178,7 @@ minimalist-mobile:
       secondary-background-color: "#121212"
       # header
       app-header-text-color: "var(--primary-text-color)"
-      app-header-background-color: var(--header-background-color) #"var(--primary-background-color)"
+      app-header-background-color: "var(--primary-background-color)" #var(--header-background-color)
       paper-tabs-selection-bar-color: "var(--primary-text-color)"
       # Sidebar
       sidebar-selected-text-color: "rgb(var(--color-blue))"

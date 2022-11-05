@@ -20,12 +20,12 @@ cards:
 #                                                                          #
 ############################################################################
 
-      - type: custom:button-card
-        template: card_header
-        variables:
-          card_header_title: Presense
-          card_header_navigate_path: /lovelace/minimalist_home
-          card_header_back_button: true
+      # - type: custom:button-card
+      #   template: card_header
+      #   variables:
+      #     card_header_title: Presense
+      #     card_header_navigate_path: /lovelace/minimalist_home
+      #     card_header_back_button: true
 
 
 ############################################################################
@@ -51,7 +51,7 @@ cards:
             grid-template-rows: auto
             mediaquery:
               "(min-width: 800px)":
-                grid-template-columns: 700px
+                grid-template-columns: 780px
           cards:
 
             - type: vertical-stack
@@ -71,10 +71,10 @@ cards:
                       template: edge
 
                     # Back Chip
-                    # - type: 'custom:button-card'
-                    #   template: chip_back_new
-                    #   variables:
-                    #     ulm_chip_navigate_path: /lovelace/minimalist_home
+                    - type: 'custom:button-card'
+                      template: chip_back_new
+                      variables:
+                        ulm_chip_navigate_path: /lovelace/minimalist_home
 
                     # # Presense Chip
                     # - type: 'custom:button-card'
@@ -105,7 +105,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Home
+                      name: Presense
 
 
 
@@ -118,7 +118,7 @@ cards:
                 - type: custom:layout-card
                   layout_type: grid
                   layout_options:
-                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-columns: 1fr 1fr 1fr 1fr
                     grid-template-rows: auto
                     grid-gap: 0px 2px
                     mediaquery:

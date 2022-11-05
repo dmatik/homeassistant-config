@@ -20,12 +20,12 @@ cards:
 #                                                                          #
 ############################################################################
 
-      - type: custom:button-card
-        template: card_header
-        variables:
-          card_header_title: Bedroom
-          card_header_navigate_path: /lovelace/minimalist_rooms
-          card_header_back_button: true
+      # - type: custom:button-card
+      #   template: card_header
+      #   variables:
+      #     card_header_title: Bedroom
+      #     card_header_navigate_path: /lovelace/minimalist_rooms
+      #     card_header_back_button: true
 
 
 ############################################################################
@@ -51,7 +51,7 @@ cards:
             grid-template-rows: auto
             mediaquery:
               "(min-width: 800px)":
-                grid-template-columns: 700px
+                grid-template-columns: 780px
           cards:
 
             - type: vertical-stack
@@ -69,6 +69,12 @@ cards:
 
                     - type: custom:button-card
                       template: edge
+
+                    # Back Chip
+                    - type: 'custom:button-card'
+                      template: chip_back_new
+                      variables:
+                        ulm_chip_navigate_path: /lovelace/minimalist_rooms
 
                     # Temperature Chip
                     - type: 'custom:button-card'
@@ -100,7 +106,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Accessories
+                      name: Bedroom
 
 
 
@@ -113,7 +119,7 @@ cards:
                 - type: custom:layout-card
                   layout_type: grid
                   layout_options:
-                    grid-template-columns: 1fr 1fr 1fr
+                    grid-template-columns: 1fr 1fr 1fr 1fr
                     grid-template-rows: auto
                     grid-gap: 0px 2px
                     mediaquery:
@@ -134,7 +140,9 @@ cards:
                         ulm_card_ac_entity: climate.bedroom
                         ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
                         ulm_card_ac_name: 'Bedroom'
-
+                      view_layout:
+                        grid-row-start: span 2
+                        
                     # Bedside Dima Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
