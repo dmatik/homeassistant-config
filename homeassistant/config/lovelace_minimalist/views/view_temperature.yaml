@@ -77,12 +77,21 @@ cards:
                         ulm_chip_navigate_path: /lovelace/minimalist_home
 
                     # Temperature Chip
-                    - type: custom:button-card
-                      template: chip_temperature
+                    # - type: custom:button-card
+                    #   template: chip_temperature
+                    #   variables:
+                    #     ulm_chip_temperature_outside: 'sensor.outside_temperature'
+                    #     ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
+                    #     ulm_chip_temperature_weather: 'weather.met_home'
+
+                    # Climate Chip
+                    - type: 'custom:button-card'
+                      template:
+                        - 'chip_climate_dima'
+                        - 'chip_blue_no_state'
                       variables:
-                        ulm_chip_temperature_outside: 'sensor.outside_temperature'
-                        ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
-                        ulm_chip_temperature_weather: 'weather.met_home'
+                        ulm_chip_temperature_low: sensor.lowest_temperature_home
+                        ulm_chip_temperature_high: sensor.highest_temperature_home                        
 
                     # Air Quality Chip
                     - type: 'custom:button-card'
@@ -105,32 +114,32 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: custom:button-card
-                  template: spacer
+                # - type: custom:button-card
+                #   template: spacer
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr
-                  cards:
+                # - type: custom:layout-card
+                #   layout_type: grid
+                #   layout_options:
+                #     grid-template-columns: 1fr 1fr
+                #     grid-template-rows: auto
+                #     grid-gap: 0px 2px
+                #     mediaquery:
+                #       "(max-width: 450px)":
+                #         grid-template-columns: 1fr
+                #   cards:
 
-                    - type: weather-forecast
-                      entity: weather.met_home
-                      #name: " "
-                      show_forecast: false
-                      card_mod:
-                        style: |
-                          ha-card.type-weather-forecast {
-                            border-radius: 21px;
-                          }
-                          ha-card.type-weather-forecast .temp {
-                            margin-right: 26px;
-                          }
+                #     - type: weather-forecast
+                #       entity: weather.met_home
+                #       #name: " "
+                #       show_forecast: false
+                #       card_mod:
+                #         style: |
+                #           ha-card.type-weather-forecast {
+                #             border-radius: 21px;
+                #           }
+                #           ha-card.type-weather-forecast .temp {
+                #             margin-right: 26px;
+                #           }
 
                 # - type: custom:layout-card
                 #   layout_type: grid
@@ -169,7 +178,7 @@ cards:
 
           ############################################################################
           #                                                                          #
-          #   Title                                                                  #
+          #   Living Room                                                            #
           #                                                                          #
           ############################################################################
 
@@ -178,9 +187,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Devices
-
-
+                      name: Living Room
 
           ############################################################################
           #                                                                          #
@@ -209,6 +216,37 @@ cards:
                       view_layout:
                         grid-row-start: span 2                        
 
+
+          ############################################################################
+          #                                                                          #
+          #   Bedroom Room                                                           #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Bedroom
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
                     # Bedroom Climate
                     - type: 'custom:button-card'
                       template: card_ac_buttons
@@ -218,6 +256,46 @@ cards:
                         ulm_card_ac_name: 'Bedroom'
                       view_layout:
                         grid-row-start: span 2
+
+                    # Bedroom Radiator
+                    # - type: 'custom:button-card'
+                    #   template: card_power_outlet
+                    #   variables:
+                    #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                    #   entity: switch.bedroom_radiator
+                    #   name: Radiator
+                    #   icon: mdi:radiator
+                    
+
+          ############################################################################
+          #                                                                          #
+          #   Kids Room                                                              #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Kids Room
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
 
                     # Kids Room Climate
                     - type: 'custom:button-card'
@@ -229,6 +307,47 @@ cards:
                       view_layout:
                         grid-row-start: span 2
 
+                    # Kids Room Radiator
+                    - type: 'custom:button-card'
+                      template: card_power_outlet
+                      variables:
+                        ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
+                      entity: switch.kids_radiator
+                      name: Radiator
+                      icon: mdi:radiator
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Work Room                                                              #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Work Room
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr 1fr 1fr 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 2px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr 1fr
+                  cards:
+
                     # Work Room Temperature
                     - type: 'custom:button-card'
                       template: card_graph
@@ -239,23 +358,6 @@ cards:
                       view_layout:
                         grid-row-start: span 2
                                                 
-                    # Kids Room Radiator
-                    - type: 'custom:button-card'
-                      template: card_power_outlet
-                      variables:
-                        ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
-                      entity: switch.kids_radiator
-                      name: Kids Room
-                      icon: mdi:radiator
-
-                    # Bedroom Radiator
-                    # - type: 'custom:button-card'
-                    #   template: card_power_outlet
-                    #   variables:
-                    #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                    #   entity: switch.bedroom_radiator
-                    #   name: Bedroom
-                    #   icon: mdi:radiator
                       
 
                 - type: custom:button-card

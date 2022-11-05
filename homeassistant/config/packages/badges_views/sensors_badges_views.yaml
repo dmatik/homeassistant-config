@@ -528,3 +528,39 @@ sensor:
             {% endif %}
           {% endfor %}
           {{ count.value }}
+
+
+
+
+############################################################################
+#                                                                          #
+#   Lowest Temperature Home                                                #
+#                                                                          #
+############################################################################
+
+  - platform: min_max
+    unique_id : lowest_temperature_home
+    name: Lowest Temperature Home
+    type: min
+    entity_ids:
+      - sensor.sensibo_kids_room_temp
+      - sensor.sensibo_bedroom_temp
+      - sensor.sensibo_living_room_temp
+      - sensor.work_room_temperature_sensor_temperature
+
+
+############################################################################
+#                                                                          #
+#   Highest Temperature Home                                               #
+#                                                                          #
+############################################################################
+
+  - platform: min_max
+    unique_id : highest_temperature_home
+    name: Highest Temperature Home
+    type: max
+    entity_ids:
+      - sensor.sensibo_kids_room_temp
+      - sensor.sensibo_bedroom_temp
+      - sensor.sensibo_living_room_temp
+      - sensor.work_room_temperature_sensor_temperature

@@ -91,6 +91,11 @@ chip_blue:
         icon:
           - color: 'rgba(var(--color-blue),1)'
 
+chip_blue_no_state:
+  styles:
+    icon:
+      - color: "rgba(var(--color-blue),1)"
+
 chip_air_polution_colors:
   variables:
     ulm_card_air_quality_green: 50
@@ -130,3 +135,58 @@ chip_air_polution_icons:
         return 'mdi:emoticon-sad';
       }      
     ]]]
+
+chip_climate_dima:
+  triggers_update: 'all'
+  show_icon: 'true'
+  show_name: 'false'
+  show_label: 'true'
+  size: '100%'
+  styles:
+    card:
+      - box-shadow: 'var(--box-shadow)'
+      - border-radius: '18px'
+      - height: '36px'
+      - width: 'auto'
+      - padding-left: '8px'
+      - padding-right: '8px'
+      - padding-top: '0px'
+      - padding-bottom: '0px'
+    grid:
+      - grid-template-areas: "'i l'"
+      - grid-template-columns: 'max_content auto'
+      - grid-template-rows: 'min-content'
+    img_cell:
+      - display: flex
+      - justify-content: center
+      - align-items: center    
+      #- place-self: 'center'
+      - width: '20px'
+      - height: '36px'
+      - padding-right: '0px'
+      - padding-left: '0px'
+    icon:
+      - display: flex
+      - justify-content: center
+      - align-items: center      
+    label:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - justify-self: 'center'
+      - font-weight: 500
+      - font-size: '16px'
+      - margin-left: '0px'
+      - width: 'auto'
+      - padding-left: '2px'
+      - padding-right: '2px'
+      - height: '36px'
+      - width: 'auto'      
+  label: |
+      [[[
+        if (states[variables.ulm_chip_temperature_high].state - states[variables.ulm_chip_temperature_low].state < 0.5) {
+          return states[variables.ulm_chip_temperature_high].state + "°";
+        }
+        return states[variables.ulm_chip_temperature_low].state + "-" + states[variables.ulm_chip_temperature_high].state + "°";
+      ]]]
+  icon: "mdi:fan"   
