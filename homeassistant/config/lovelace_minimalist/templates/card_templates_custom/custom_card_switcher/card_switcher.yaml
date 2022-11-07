@@ -43,7 +43,7 @@ card_switcher:
     item2:
       card:
         type: "custom:button-card"
-        template: "list_3_items"
+        template: "list_two_third_items"
         custom_fields:
           item1:
             card:
@@ -63,24 +63,35 @@ card_switcher:
                 ]]]
           item2:
             card:
-              type: "custom:button-card"
-              template: "widget_icon"
-              tap_action:
-                action: "call-service"
-                service: "script.turn_on"
-                service_data:
-                  entity_id: "[[[ return variables.ulm_card_switcher_timer_script ]]]"
-              icon: "mdi:av-timer"
-          item3:
-            card:
-              type: "custom:button-card"
-              template: "switcher_next_select"
-              name: "[[[ return states[variables.ulm_card_switcher_timer_minutes].state ]]]"
-              tap_action:
-                action: "call-service"
-                service: "input_select.select_next"
-                service_data:
-                  entity_id: "[[[ return variables.ulm_card_switcher_timer_minutes ]]]"
+              template: 'list_2_items'
+              type: 'custom:button-card'
+              styles:
+                card:
+                  - box-shadow: "none"
+                  - padding: "0px"
+                  - background-color: "rgba(var(--color-theme),0.05)"
+                  - border-radius: "14px"
+              custom_fields:
+                item1:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_icon_transparent"
+                    tap_action:
+                      action: "call-service"
+                      service: "script.turn_on"
+                      service_data:
+                        entity_id: "[[[ return variables.ulm_card_switcher_timer_script ]]]"
+                    icon: "mdi:av-timer"
+                item2:
+                  card:
+                    type: "custom:button-card"
+                    template: "switcher_next_select"
+                    name: "[[[ return states[variables.ulm_card_switcher_timer_minutes].state ]]]"
+                    tap_action:
+                      action: "call-service"
+                      service: "input_select.select_next"
+                      service_data:
+                        entity_id: "[[[ return variables.ulm_card_switcher_timer_minutes ]]]"
 
 
 switcher:
@@ -115,7 +126,7 @@ switcher_next_select:
     card:
       - box-shadow: "none"
       - padding: "0px"
-      - background-color: "rgba(var(--color-theme),0.05)"
+      - background-color: "rgba(var(--color-theme),0.00)"
       - border-radius: "14px"
       - place-self: "center"
       - height: "42px"

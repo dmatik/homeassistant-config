@@ -42,37 +42,48 @@ card_ac_buttons:
               type: 'custom:button-card'
     item2:
       card:
-        template: 'list_3_items'
+        template: 'list_1_item'
         type: 'custom:button-card'
         custom_fields:
           item1:
             card:
-              icon: 'mdi:minus'
-              tap_action:
-                action: call-service
-                service: script.decrease_climate_temperature
-                service_data:
-                  entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+              template: 'list_3_items'
               type: 'custom:button-card'
-              template: widget_icon
-          item2:
-            card:
-              icon: 'mdi:temperature-celsius'
-              tap_action:
-                action: none
-              type: 'custom:button-card'
-              template: ac_widget_target_temp
-              entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-          item3:
-            card:
-              icon: 'mdi:plus'
-              tap_action:
-                action: call-service
-                service: script.increment_climate_temperature
-                service_data:
-                  entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-              type: 'custom:button-card'
-              template: widget_icon
+              styles:
+                card:
+                  - box-shadow: "none"
+                  - padding: "0px"
+                  - background-color: "rgba(var(--color-theme),0.05)"
+                  - border-radius: "14px"
+              custom_fields:
+                item1:
+                  card:
+                    icon: 'mdi:minus'
+                    tap_action:
+                      action: call-service
+                      service: script.decrease_climate_temperature
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+                item2:
+                  card:
+                    icon: 'mdi:temperature-celsius'
+                    tap_action:
+                      action: none
+                    type: 'custom:button-card'
+                    template: ac_widget_target_temp
+                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                item3:
+                  card:
+                    icon: 'mdi:plus'
+                    tap_action:
+                      action: call-service
+                      service: script.increment_climate_temperature
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
 
 ac_text_info:
   color: "var(--google-grey)"
@@ -267,7 +278,7 @@ ac_widget_target_temp:
       - border-radius: 14px
       - place-self: center
       - height: 42px
-      - font-size: '28px'
+      - font-size: '22px'
     grid:
       - grid-template-areas: '"l"'
     label:

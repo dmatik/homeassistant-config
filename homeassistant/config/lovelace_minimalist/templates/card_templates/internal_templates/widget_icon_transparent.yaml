@@ -1,6 +1,6 @@
 ---
-### Widget Icon ###
-widget_icon:
+### Widget Icon Transparent ###
+widget_icon_transparent:
   tap_action:
     action: "toggle"
   show_icon: true
@@ -11,7 +11,7 @@ widget_icon:
     card:
       - box-shadow: "none"
       - padding: "0px"
-      - background-color: "rgba(var(--color-theme),0.05)"
+      - background-color: "rgba(var(--color-theme),0.00)"
       - border-radius: "14px"
       - place-self: "center"
       - height: "42px"
