@@ -5,7 +5,7 @@ views:
   - !include /config/lovelace_minimalist/views/view_system.yaml
 
   # Chips
-  - !include /config/lovelace_minimalist/views/view_temperature.yaml
+  - !include /config/lovelace_minimalist/views/view_climate.yaml
   - !include /config/lovelace_minimalist/views/view_presense.yaml
   - !include /config/lovelace_minimalist/views/view_lights.yaml
   - !include /config/lovelace_minimalist/views/view_motion.yaml

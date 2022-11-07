@@ -76,7 +76,7 @@ cards:
                     #     ulm_chip_temperature_outside: 'sensor.outside_temperature'
                     #     ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
                     #     ulm_chip_temperature_weather: 'weather.met_home'
-                    #     ulm_chip_navigate_path: /lovelace/minimalist_temperature
+                    #     ulm_chip_navigate_path: /lovelace/minimalist_climate
 
                     # Climate Chip
                     - type: 'custom:button-card'
@@ -87,7 +87,7 @@ cards:
                       variables:
                         ulm_chip_temperature_low: sensor.lowest_temperature_home
                         ulm_chip_temperature_high: sensor.highest_temperature_home                        
-                        ulm_chip_navigate_path: /lovelace/minimalist_temperature
+                        ulm_chip_navigate_path: /lovelace/minimalist_climate
 
                     # Presense Chip
                     - type: 'custom:button-card'
