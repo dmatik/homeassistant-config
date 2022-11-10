@@ -64,6 +64,7 @@ icon_info_bg:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
       - padding: "12px"
+      #- border-style: "none"
   custom_fields:
     notification: >
       [[[

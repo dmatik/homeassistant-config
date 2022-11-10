@@ -200,12 +200,16 @@ cards:
                   ulm_card_ac_name: 'Kids Room'
 
               # Work Room Temperature
+              # - type: 'custom:button-card'
+              #   template: card_graph
+              #   variables:
+              #     ulm_card_graph_color: "var(--google-blue)"
+              #     ulm_card_graph_name: Work Room
+              #     ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
               - type: 'custom:button-card'
-                template: card_graph
-                variables:
-                  ulm_card_graph_color: "var(--google-blue)"
-                  ulm_card_graph_name: Work Room
-                  ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
+                template: card_generic
+                entity: sensor.work_room_temperature_sensor_temperature
+                name: Work Room
                   
               # Kids Room Radiator
               - type: 'custom:button-card'

@@ -10,3 +10,4 @@ list_1_item:
     card:
       - box-shadow: "none"
       - padding: "0px"
+      - border-style: "none"

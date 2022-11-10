@@ -6,3 +6,4 @@ spacer:
     card:
       - height: '[[[ return variables.height ]]]'
       - width: '[[[ return variables.width ]]]'
+      - border-style: "none"

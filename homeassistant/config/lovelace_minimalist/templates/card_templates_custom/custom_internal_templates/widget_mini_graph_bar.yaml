@@ -15,6 +15,7 @@ widget_mini_graph_bar:
       - background: "none"
       - box-shadow: "none"
       - padding: "0px"
+      - border-style: "none"
     grid:
       - grid-template-areas: "'item1'"
       - grid-template-columns: "1fr"
@@ -68,6 +69,7 @@ widget_mini_graph_bar:
             border-radius: 0px;
             box-shadow: none;
             background: none;
+            border-style: none;
           }
           #states{
             padding: 0 16px;

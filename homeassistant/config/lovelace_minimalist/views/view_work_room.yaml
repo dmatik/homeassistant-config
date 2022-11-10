@@ -142,14 +142,18 @@ cards:
                         ulm_card_pc_name: Dimka PC
 
                     # Work Room Temperature
+                    # - type: 'custom:button-card'
+                    #   template: card_graph
+                    #   variables:
+                    #     ulm_card_graph_color: "var(--google-blue)"
+                    #     ulm_card_graph_name: Work Room
+                    #     ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
+                    #   view_layout:
+                    #     grid-row-start: span 2
                     - type: 'custom:button-card'
-                      template: card_graph
-                      variables:
-                        ulm_card_graph_color: "var(--google-blue)"
-                        ulm_card_graph_name: Work Room
-                        ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
-                      view_layout:
-                        grid-row-start: span 2
+                      template: card_generic
+                      entity: sensor.work_room_temperature_sensor_temperature
+                      name: Work Room
                         
                     # Printer
                     - type: 'custom:button-card'

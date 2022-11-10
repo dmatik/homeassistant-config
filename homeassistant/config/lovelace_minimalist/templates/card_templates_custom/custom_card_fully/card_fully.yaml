@@ -239,6 +239,7 @@ card_fully_image:
           ha-card {
             box-shadow: none;
             border-radius: 10px;
+            border-style: none;
           }
 
 
@@ -268,6 +269,7 @@ card_fully_image_auto:
           ha-card {
             box-shadow: none;
             border-radius: 10px;
+            border-style: none;
           }
         # type: custom:refreshable-picture-card
         # title: null

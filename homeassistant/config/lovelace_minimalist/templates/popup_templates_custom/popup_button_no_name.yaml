@@ -12,6 +12,7 @@ popup_button_no_name:
       - background: "none"
       - box-shadow: "none"
       - height: "68px"
+      - border-style: "none"
     icon:
       - color: "var(--primary-color)"
       - width: "26px"

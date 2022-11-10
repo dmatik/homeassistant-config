@@ -15,6 +15,7 @@ widget_text_info:
       - background-color: "none"
       - place-self: "center"
       #- height: "22px"
+      - border-style: "none"
     custom_fields:
       item1:
         - display: flex

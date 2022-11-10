@@ -81,6 +81,7 @@ rooms_list_3_items:
     card:
       - box-shadow: "none"
       - padding: "0px"
+      - border-style: "none"
 
 
 room_info:
@@ -141,6 +142,7 @@ room_info:
       - border-radius: "21px 8px 8px 21px"
       - box-shadow: "none"
       - padding: "0px"
+      - border-style: "none"
   size: "20px"
 
 
@@ -176,6 +178,8 @@ rooms_widget_temp:
       - background-color: 'rgba(var(--color-theme),0)'
       - place-self: center
       - font-size: '18px'
+      - border-radius: "0px"
+      - border-style: "none"
       - height: >-
           [[[
             if (entity == null)

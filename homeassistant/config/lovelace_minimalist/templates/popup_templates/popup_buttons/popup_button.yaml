@@ -14,6 +14,7 @@ popup_button:
     card:
       - background: "none"
       - box-shadow: "none"
+      - border-style: "none"
     icon:
       - color: "var(--primary-color)"
       - width: "26px"
@@ -25,6 +26,7 @@ popup_button:
       - width: "58px"
       - height: "58px"
       - box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
+      #- border: "1px solid rgba(var(--color-theme),0.2)"
     name:
       - justify-self: "center"
       - font-weight: "bold"

@@ -14,6 +14,7 @@ widget_text:
       - border-radius: "14px"
       - place-self: "center"
       - height: "42px"
+      - border-style: "none"
     name:
       - color: "rgba(var(--color-theme),0.9)"
   size: "20px"

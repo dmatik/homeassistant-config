@@ -67,13 +67,14 @@ minimalist-desktop:
       secondary-background-color: "#EFEFEF"
       # header
       app-header-text-color: "var(--primary-text-color)"
-      app-header-background-color: "var(--primary-background-color)"
+      app-header-background-color: "var(--primary-background-color)" #var(--header-background-color)
       # paper-tabs-selection-bar-color: "var(--primary-text-color)"
       # slider
       slider-color: "rgb(var(--color-blue))"
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # cards
       box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
+      #box-shadow: "none"
       ha-card-box-shadow: "var(--box-shadow)"
       ha-card-border-width: "0px"
       # sidebar
@@ -99,7 +100,7 @@ minimalist-desktop:
       color-green: "128, 201, 148"
       color-yellow: "252, 214, 99"
       color-blue: "137, 179, 248"
-      color-theme: "221,221,221"
+      color-theme: "241,245,251" #"221,221,221"
       color-purple: "102, 31, 255"
       color-grey: "187, 187, 187"
       color-pink: "233, 30, 99"
@@ -119,12 +120,12 @@ minimalist-desktop:
       # floating button text color
       mdc-theme-on-secondary: "var(--card-background-color)"
       # background and sidebar
-      card-background-color: "#1D1D1D"
-      primary-background-color: "#121212"
-      secondary-background-color: "#121212"
+      card-background-color: "#1C1E22" #"#2B2D31" #"#1D1D1D"
+      primary-background-color: "#000000" #"#1B1D1F" #"#121212"
+      secondary-background-color: "#000000" #"#121212"
       # header
       app-header-text-color: "var(--primary-text-color)"
-      app-header-background-color: "var(--primary-background-color)"
+      app-header-background-color: "var(--primary-background-color)" #var(--header-background-color)
       paper-tabs-selection-bar-color: "var(--primary-text-color)"
       # Sidebar
       sidebar-selected-text-color: "rgb(var(--color-blue))"

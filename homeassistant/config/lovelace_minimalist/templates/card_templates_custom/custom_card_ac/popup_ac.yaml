@@ -65,6 +65,9 @@ popup_ac:
 
                 - type: 'custom:button-card'
                   color_type: blank-card
+                  styles:
+                    card:
+                      - border-style: "none"                  
 
                 - type: "custom:button-card"
                   template: 
@@ -98,6 +101,9 @@ popup_ac:
 
                 - type: 'custom:button-card'
                   color_type: blank-card
+                  styles:
+                    card:
+                      - border-style: "none"  
 
             - type: "custom:button-card"
               template: spacer

@@ -20,6 +20,7 @@ card_title:
       - margin-bottom: "0px"
       - padding-bottom: "0px"
       - border-radius: "0px"
+      - border-style: "none"
     grid:
       # - grid-template-areas: "'n' 'l'"
       # - grid-template-columns: "1fr"

@@ -13,3 +13,4 @@ list_info_items_10_lines:
     card:
       - box-shadow: "none"
       - padding: "0px"
+      - border-style: "none"

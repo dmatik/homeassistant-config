@@ -37,6 +37,7 @@ card_graph:
             - box-shadow: "none"
             - border-radius: "var(--border-radius) var(--border-radius) 0px 0px"
             - padding: "12px"
+            - border-style: "none"
         entity: "[[[ return variables.ulm_card_graph_entity ]]]"
         name: "[[[ return variables.ulm_card_graph_name ]]]"
         icon: "[[[ return variables.ulm_card_graph_icon ]]]"
@@ -74,6 +75,7 @@ card_graph:
           ha-card {
             box-shadow: none;
             border-radius: var(--border-radius);
+            border-style: none;
           }
           .info {
             padding-bottom: 0px !important;

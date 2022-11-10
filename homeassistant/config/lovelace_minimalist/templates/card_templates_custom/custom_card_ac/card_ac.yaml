@@ -138,6 +138,7 @@ ac_text_info:
       - box-shadow: "none"
       - padding: "0px"
       # - background-color: "rgba(var(--color-theme),0)"
+      - border-style: "none"
     custom_fields:
       curr_temp:
         - color: 'rgba(var(--color-theme),1)'
@@ -247,6 +248,7 @@ ac_list_items_favorite:
     card:
       - box-shadow: none
       - padding: 0px
+      - border-style: "none"
     grid:
       - grid-template-areas: '"item1 item1"'
       - grid-template-columns: 1fr 1fr
@@ -278,8 +280,12 @@ ac_widget_target_temp:
       - border-radius: 14px
       - place-self: center
       - height: 42px
-      - font-size: '22px'
+      #- font-size: '22px'
+      - border-style: "none"
     grid:
       - grid-template-areas: '"l"'
     label:
-      - color: 'rgba(var(--color-theme),0.9)'  
+      - color: 'rgba(var(--color-theme),0.9)'
+      - font-weight: '500'
+      - font-size: '20px'
+      - padding-top: '0px'

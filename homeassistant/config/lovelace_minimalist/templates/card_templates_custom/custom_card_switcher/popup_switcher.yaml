@@ -88,7 +88,7 @@ popup_switcher:
                     service: "script.turn_on"
                     service_data:
                       entity_id: "[[[ return variables.ulm_card_switcher_timer_script ]]]"
-                  icon: "mdi:av-timer"
+                  icon: "mdi:timer-outline"
                 
                 - type: "custom:button-card"
                   triggers_update: "all"
@@ -160,6 +160,7 @@ popup_button_next_select:
     card:
       - background: 'none'
       - box-shadow: 'none'
+      - border-style: "none"
     label:
       - display: flex
       - justify-content: center
@@ -171,6 +172,7 @@ popup_button_next_select:
       - width: '58px'
       - height: '58px'
       - box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
+      #- border: "1px solid rgba(var(--color-theme),0.2)"
       - font-size: '22px'
       - font-weight: '500'
     name:

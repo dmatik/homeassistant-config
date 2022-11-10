@@ -16,6 +16,7 @@ popup_text_info:
       - place-self: "center"
       - background: "none"
       #- height: "22px"
+      - border-style: "none"
     custom_fields:
       item1:
         - display: flex

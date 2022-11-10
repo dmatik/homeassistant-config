@@ -65,6 +65,7 @@ icon_info:
       - box-shadow: "none"
       - padding: "0px"
       # - background-color: "rgba(var(--color-theme),0)"
+      - border-style: "none"
   custom_fields:
     notification: >
       [[[

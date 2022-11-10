@@ -68,7 +68,10 @@ card_switcher:
               styles:
                 card:
                   - box-shadow: "none"
-                  - padding: "0px"
+                  - padding-top: "0px"
+                  - padding-bottom: "0px"
+                  - padding-right: "10px"
+                  - padding-left: "6px"
                   - background-color: "rgba(var(--color-theme),0.05)"
                   - border-radius: "14px"
               custom_fields:
@@ -81,7 +84,7 @@ card_switcher:
                       service: "script.turn_on"
                       service_data:
                         entity_id: "[[[ return variables.ulm_card_switcher_timer_script ]]]"
-                    icon: "mdi:av-timer"
+                    icon: "mdi:timer-outline"
                 item2:
                   card:
                     type: "custom:button-card"
@@ -130,8 +133,11 @@ switcher_next_select:
       - border-radius: "14px"
       - place-self: "center"
       - height: "42px"
+      - border-style: "none"
     name:
       - color: "rgba(var(--color-theme),0.9)"
       - font-weight: '500'
+      - font-size: '20px'
+      - padding-top: '1px'
   size: "20px"
   color: "var(--google-grey)"          

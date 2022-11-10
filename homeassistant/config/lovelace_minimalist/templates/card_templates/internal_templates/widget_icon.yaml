@@ -15,6 +15,7 @@ widget_icon:
       - border-radius: "14px"
       - place-self: "center"
       - height: "42px"
+      - border-style: "none"
     icon:
       - color: "rgba(var(--color-theme),0.9)"
   size: "20px"
