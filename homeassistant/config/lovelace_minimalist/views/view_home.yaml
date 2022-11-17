@@ -307,17 +307,26 @@ cards:
                       view_layout:
                         grid-row-start: span 2
                         
-                    # # Living Room Light
-                    # - type: 'custom:button-card'
-                    #   template: 'card_light_simple'
-                    #   entity: light.living_room
-                    #   name: Living Room
+                    # Living Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.living_room
+                      name: Living Room
 
                     # Dining Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
                       entity: light.dining
                       name: Dining
+
+                    # NY Tree
+                    - type: 'custom:button-card'
+                      template: 
+                        - 'card_light_simple'
+                        - 'green_on'
+                      entity: switch.power_socket_01
+                      name: NY Tree
+                      icon: mdi:pine-tree
 
                     # Bedroom Radiator
                     # - type: 'custom:button-card'
@@ -349,6 +358,27 @@ cards:
                     - type: 'custom:button-card'
                       template: card_red_alert
 
+
+                    # Living Room AC
+                    - type: 'custom:button-card'
+                      template: card_ac_buttons
+                      variables:
+                        ulm_card_ac_entity: climate.living_room
+                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
+                        ulm_card_ac_name: 'Living Room'
+                      view_layout:
+                        grid-row-start: span 2 
+
+                    # Kids Room AC
+                    - type: 'custom:button-card'
+                      template: card_ac_buttons
+                      variables:
+                        ulm_card_ac_entity: climate.kids_room
+                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
+                        ulm_card_ac_name: 'Kids Room'
+                      view_layout:
+                        grid-row-start: span 2
+
                     # Front Gate
                     - type: 'custom:button-card'
                       template: card_script
@@ -368,6 +398,8 @@ cards:
                       tap_action:
                         action: call-service
                         service: script.open_parking_gate_72
+
+
 
 
 

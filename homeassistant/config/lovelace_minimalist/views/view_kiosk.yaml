@@ -221,13 +221,22 @@ cards:
                 icon: mdi:radiator
 
               # Bedroom Radiator
+              # - type: 'custom:button-card'
+              #   template: card_power_outlet
+              #   variables:
+              #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+              #   entity: switch.bedroom_radiator
+              #   name: Bedroom
+              #   icon: mdi:radiator
+
+              # NY Tree
               - type: 'custom:button-card'
-                template: card_power_outlet
-                variables:
-                  ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                entity: switch.bedroom_radiator
-                name: Bedroom
-                icon: mdi:radiator
+                template: 
+                  - 'card_light_simple'
+                  - 'green_on'
+                entity: switch.power_socket_01
+                name: NY Tree
+                icon: mdi:pine-tree
 
 
           # Devices
