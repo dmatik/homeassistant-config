@@ -58,6 +58,7 @@ minimalist-dmatik:
         box-shadow: var(--footer-shadow) !important;
         height: var(--header-height) !important;
         background-color: var(--header-background-color) !important;
+        border-top: var(--footer-border) !important;
       }
       app-toolbar {
         transform: none !important;
@@ -105,9 +106,11 @@ minimalist-dmatik:
       header-all-tabs-color: 'var(--paper-item-icon-color)'
       header-tab-indicator-color: 'rgba(0, 0, 0, 0)'
       header-background-color: var( --ha-card-background, var(--card-background-color, white) )
-      footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)
+      #footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)
+      footer-shadow: none
+      footer-border: 1px solid rgb(220,220,220)
       header-shadow: 0px 0.3px 0.3px 0px rgba(0,0,0,0.2)
-      header-height: 78px
+      header-height: 80px
 
       # popup
       popup-background-color: var(--primary-background-color)
@@ -181,7 +184,9 @@ minimalist-dmatik:
       header-all-tabs-color: 'var(--paper-item-icon-color)'
       header-tab-indicator-color: 'rgba(0, 0, 0, 0)'
       header-background-color: var( --ha-card-background, var(--card-background-color, white) )
-      footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.4)
+      #footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.4)
+      footer-shadow: none
+      footer-border: 1px solid rgb(45,45,45)
       header-shadow: 0px 0.3px 0.3px 0px rgba(200,200,200,0.4)
       header-height: 80px
 
