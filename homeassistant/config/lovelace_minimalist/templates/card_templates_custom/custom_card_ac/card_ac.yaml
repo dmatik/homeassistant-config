@@ -4,6 +4,7 @@ card_ac_buttons:
     ulm_card_ac_entity: climate.example
     ulm_card_ac_fan_mode_sensor: sensor.example
     ulm_card_ac_name: 'AC'
+    ulm_card_ac_display_name: ''
   styles:
     card:
       - border-radius: 20px
@@ -26,8 +27,11 @@ card_ac_buttons:
               entity: '[[[ return variables.ulm_card_ac_entity ]]]'
               name: >
                 [[[
-                    if (variables.ulm_card_ac_name == null) {
+                    if (variables.ulm_card_ac_name == null && variables.ulm_card_ac_display_name == null) {
                       return variables.ulm_card_ac_entity;
+                    }
+                    if (variables.ulm_card_ac_display_name != null && variables.ulm_card_ac_display_name != "") {
+                      return variables.ulm_card_ac_display_name
                     }
                     return variables.ulm_card_ac_name;
                 ]]]

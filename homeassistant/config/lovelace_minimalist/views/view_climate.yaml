@@ -213,6 +213,7 @@ cards:
                         ulm_card_ac_entity: climate.living_room
                         ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
                         ulm_card_ac_name: 'Living Room'
+                        ulm_card_ac_display_name: 'AC'
                       view_layout:
                         grid-row-start: span 2                        
 
@@ -254,6 +255,7 @@ cards:
                         ulm_card_ac_entity: climate.bedroom
                         ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
                         ulm_card_ac_name: 'Bedroom'
+                        ulm_card_ac_display_name: 'AC'
                       view_layout:
                         grid-row-start: span 2
 
@@ -304,6 +306,7 @@ cards:
                         ulm_card_ac_entity: climate.kids_room
                         ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
                         ulm_card_ac_name: 'Kids Room'
+                        ulm_card_ac_display_name: 'AC'
                       view_layout:
                         grid-row-start: span 2
 
@@ -360,7 +363,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_generic
                       entity: sensor.work_room_temperature_sensor_temperature
-                      name: Work Room
+                      name: Temperature
                                                 
                       
 
