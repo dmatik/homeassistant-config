@@ -17,14 +17,11 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 ![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/banner.png "Banner")
 
 ## Features
-- HomeKit style design using [Button Card](https://github.com/custom-cards/button-card)
-- HomeKit style dynamic badges for People, Lights, Motion sensors and Climate devices.
-- Templating with [Decluttering Card](https://github.com/custom-cards/decluttering-card)
+- Design based on [Minimalist](https://ui-lovelace-minimalist.netlify.app/) using [Button Card](https://github.com/custom-cards/button-card), added new cards and adjusted by me.
 - Responsive design using CSS Grid with [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
-- Dark and Light themes created specially for this design, automatically changing.
+- Dark and Light themes from [Minimalist](https://ui-lovelace-minimalist.netlify.app/) and updated by me specially for this design, automatically changing.
 - Setting the header to the buttom and customizing it, all as part of the themes using [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
 - Popups with [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
-- Two colored SVG icons made by me from Material Design Icons, took the idea from [This Guy](https://community.home-assistant.io/t/a-different-take-on-designing-a-lovelace-ui/162594) 
 
 ### Screens
 
