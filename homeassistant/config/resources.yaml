@@ -66,3 +66,5 @@
   type: module
 - url: /hacsfiles/lovelace-mushroom/mushroom.js
   type: module
+- url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
+  type: module

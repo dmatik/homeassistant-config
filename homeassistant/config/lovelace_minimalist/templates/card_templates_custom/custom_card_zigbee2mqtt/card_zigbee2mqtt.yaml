@@ -1,0 +1,68 @@
+card_zigbee2mqtt:
+  variables:
+    ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_bridge_state'
+    ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_version'
+    ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_restart'
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        triggers_update: "all"
+        type: "custom:button-card"
+        template:
+          - "icon_info"
+          - "zigbee2mqtt_blue_on"
+          - "ulm_language_variables"
+        icon: 'mdi:zigbee'
+        tap_action:
+          action: "none"
+        entity: "[[[ return variables.ulm_card_zigbee2mqtt_bridge_state ]]]"
+        label: "[[[ return states[variables.ulm_card_zigbee2mqtt_bridge_state].state ]]]"
+        name: "[[[ return states[variables.ulm_card_zigbee2mqtt_version].state ]]]"
+        styles:
+          icon:
+            - color: "rgba(var(--color-theme),0.9)"
+          label:
+            - text-transform: "capitalize"
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "list_2_items"
+        custom_fields:
+          item1:
+            card:
+              type: "custom:button-card"
+              template: "widget_text"
+              name: 'Restart'
+              tap_action:
+                action: call-service
+                service: "[[[ return variables.ulm_card_zigbee2mqtt_restart_script ]]]"
+          item2:
+            card:
+              type: "custom:button-card"
+              template: 
+                - "widget_text"
+                - "popup_zigbee2mqtt_network_map"
+              variables:
+                ulm_card_zigbee2mqtt_title: 'Network Map'
+              name: 'Network Map'
+
+zigbee2mqtt_blue_on:
+  state:
+    - styles:
+        icon:
+          - color: "rgba(var(--color-blue),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-blue), 0.2)"
+      id: "online"
+      value: "online"

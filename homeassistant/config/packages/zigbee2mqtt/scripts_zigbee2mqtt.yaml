@@ -1,0 +1,9 @@
+script:
+
+  # Zigbee2mqtt Restart
+  zigbee2mqtt_restart:
+    alias: 'Zigbee2mqtt Restart'
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: zigbee2mqtt/bridge/request/restart

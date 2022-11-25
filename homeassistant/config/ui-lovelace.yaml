@@ -25,6 +25,7 @@ views:
   - !include /config/lovelace_minimalist/views/view_nas.yaml
   - !include /config/lovelace_minimalist/views/view_batteries.yaml
   - !include /config/lovelace_minimalist/views/view_tasmota.yaml
+  - !include /config/lovelace_minimalist/views/view_zigbee2mqtt.yaml
 
   # Kiosk
   - !include /config/lovelace_minimalist/views/view_kiosk.yaml

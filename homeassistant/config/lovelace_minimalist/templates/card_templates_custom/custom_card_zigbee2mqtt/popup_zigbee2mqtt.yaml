@@ -1,0 +1,89 @@
+popup_zigbee2mqtt_network_map:
+  variables:
+    ulm_card_zigbee2mqtt_title: ''
+  tap_action:
+
+    action: fire-dom-event
+    browser_mod:
+      service: browser_mod.popup
+      data:
+        card_mod:
+          style:
+            ha-dialog$: |
+              .mdc-dialog__scrim {
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+              }
+            ha-header-bar$: |
+              .mdc-top-app-bar {
+                background: var(--header-background-color) !important;
+              }
+        title: "[[[ return variables.ulm_card_zigbee2mqtt_title ]]]"
+        size: fullscreen
+        content:
+
+          type: vertical-stack
+          cards:
+
+
+            ############################################################################
+            #                                                                          #
+            #   Header                                                                 #
+            #                                                                          #
+            ############################################################################
+
+            # - type: custom:button-card
+            #   template: card_header_popup
+            #   variables:
+            #     card_header_title: "[[[ return variables.ulm_card_zigbee2mqtt_title ]]]"
+            #     card_header_back_button: true   
+
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 10px
+
+
+                
+            ############################################################################
+            #                                                                          #
+            #   Network Map                                                            #
+            #                                                                          #
+            ############################################################################
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
+
+
+                - type: custom:zigbee2mqtt-networkmap
+                  entity: sensor.zigbee2mqtt_networkmap
+
+
+            ############################################################################
+            #                                                                          #
+            #   Footer                                                                 #
+            #                                                                          #
+            ############################################################################
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
+
+                - type: "custom:button-card"
+                  template: "popup_button_back"
+
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px
