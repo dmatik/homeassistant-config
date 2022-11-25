@@ -66,6 +66,7 @@ icon_info:
       - padding: "0px"
       # - background-color: "rgba(var(--color-theme),0)"
       - border-style: "none"
+      #- text-transform: "capitalize"
   custom_fields:
     notification: >
       [[[

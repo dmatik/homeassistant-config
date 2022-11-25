@@ -160,7 +160,7 @@ rooms_widget_temp:
   size: 20px
   label: |-
     [[[
-        if (entity == null)
+        if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
           return "";
 
         var temperature = null;
@@ -182,14 +182,14 @@ rooms_widget_temp:
       - border-style: "none"
       - height: >-
           [[[
-            if (entity == null)
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
               return "0px";
             else
               return "22px";
           ]]]
       - width: >-
           [[[
-            if (entity == null)
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
               return "0px";
             else
               return "54px";
