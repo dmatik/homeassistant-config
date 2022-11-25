@@ -56,7 +56,7 @@ chip_icon_label_state:
       [[[
         var state = "";
         if (variables.ulm_chip_icon_state_entity != null && states[variables.ulm_chip_icon_state_entity].state){
-          var state = states[variables.ulm_chip_icon_state_entity].state;
+          state = states[variables.ulm_chip_icon_state_entity].state;
           if (states[variables.ulm_chip_icon_state_entity].attributes.unit_of_measurement){
             state += " " + states[variables.ulm_chip_icon_state_entity].attributes.unit_of_measurement;
           }
@@ -136,7 +136,7 @@ chip_air_polution_icons:
       }      
     ]]]
 
-chip_climate_dima:
+chip_climate:
   triggers_update: 'all'
   show_icon: 'true'
   show_name: 'false'
@@ -168,7 +168,14 @@ chip_climate_dima:
     icon:
       - display: flex
       - justify-content: center
-      - align-items: center      
+      - align-items: center
+      - color: |
+          [[[
+            if (states[variables.ulm_chip_devices_on].state > 0) {
+              return "rgba(var(--color-blue),1)";
+            }
+            return "rgb(var(--primary-text-color))";
+          ]]]      
     label:
       - display: flex
       - justify-content: center
@@ -184,9 +191,15 @@ chip_climate_dima:
       - width: 'auto'      
   label: |
       [[[
+        var state = "";
         if (states[variables.ulm_chip_temperature_high].state - states[variables.ulm_chip_temperature_low].state < 0.5) {
-          return states[variables.ulm_chip_temperature_high].state + "°";
+          state = states[variables.ulm_chip_temperature_high].state + "°";
+        } else {
+          state = states[variables.ulm_chip_temperature_low].state + "-" + states[variables.ulm_chip_temperature_high].state + "°";
         }
-        return states[variables.ulm_chip_temperature_low].state + "-" + states[variables.ulm_chip_temperature_high].state + "°";
+        if (states[variables.ulm_chip_devices_on].state > 0) {
+          state += " • " + states[variables.ulm_chip_devices_on].state;
+        }
+        return state;
       ]]]
   icon: "mdi:fan"   

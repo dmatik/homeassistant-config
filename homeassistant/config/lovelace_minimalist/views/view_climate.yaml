@@ -87,11 +87,12 @@ cards:
                     # Climate Chip
                     - type: 'custom:button-card'
                       template:
-                        - 'chip_climate_dima'
-                        - 'chip_blue_no_state'
+                        - 'chip_climate'
+                        #- 'chip_blue_no_state'
                       variables:
                         ulm_chip_temperature_low: sensor.lowest_temperature_home
-                        ulm_chip_temperature_high: sensor.highest_temperature_home                        
+                        ulm_chip_temperature_high: sensor.highest_temperature_home
+                        ulm_chip_devices_on: sensor.number_of_climate_entities_on
 
                     # Air Quality Chip
                     - type: 'custom:button-card'
