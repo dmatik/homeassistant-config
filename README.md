@@ -14,8 +14,6 @@ Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg)
 
 <a href="https://www.buymeacoffee.com/bg7MaEJHc" target="_blank"><img height="41px" width="167px" src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee"></a>
 
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/banner.png "Banner")
-
 ## Features
 - Design based on [Minimalist](https://ui-lovelace-minimalist.netlify.app/) using [Button Card](https://github.com/custom-cards/button-card), added new cards and adjusted by me.
 - Responsive design using CSS Grid with [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
