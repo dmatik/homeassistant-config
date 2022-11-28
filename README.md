@@ -1,4 +1,3 @@
-![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/commits/master)
 [![Commits Year](https://img.shields.io/github/commit-activity/y/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/commits/master)
 [![GitHub stars](https://img.shields.io/github/stars/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/stargazers)
