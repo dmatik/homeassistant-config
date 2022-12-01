@@ -3,15 +3,11 @@ switch:
   - platform: template
     switches:
 
-      dimka:
+      dimka_hass_agent:
           friendly_name: "DIMKA"
-          value_template: "{{ is_state('binary_sensor.dimka_connected', 'on') }}"
+          value_template: "{{ states('sensor.dimka_dummy') != 'unavailable' }}"
           icon_template: mdi:laptop
           turn_on:
               service: script.dimka_wake
           turn_off:
               service: script.dimka_suspend
-
-
-            
-

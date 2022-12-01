@@ -136,10 +136,18 @@ cards:
                     # Dimka PC
                     - type: 'custom:button-card'
                       template: card_pc
-                      entity: switch.dimka
+                      entity: switch.dimka_hass_agent
                       icon: 'mdi:desktop-classic'
                       variables:
                         ulm_card_pc_name: Dimka PC
+                        ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
+                        ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
+                        ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
+                        ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
+                        ulm_card_pc_wake: 'script.dimka_wake'
+                        ulm_card_pc_sleep: 'script.dimka_sleep'
+                        ulm_card_pc_restart: 'script.dimka_restart'
+                        ulm_card_pc_shutdown: 'script.dimka_shutdown'
 
                     # Work Room Temperature
                     # - type: 'custom:button-card'

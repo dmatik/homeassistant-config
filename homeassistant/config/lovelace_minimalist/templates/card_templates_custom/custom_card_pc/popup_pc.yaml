@@ -56,43 +56,76 @@ popup_pc:
             #                                                                          #
             ############################################################################
 
+            - type: conditional
+              conditions:
+                - entity: '[[[ return variables.ulm_card_pc_entity ]]]'
+                  state: "on"
+              card:
 
-            - type: custom:layout-card
-              layout_type: grid
-              layout_options:
-                grid-template-columns: 1fr
-                grid-template-rows: auto
-                grid-gap: 0px 4px
-              cards:
+                type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                cards:
+
+                  - type: "custom:button-card"
+                    template: "widget_mini_graph_bar"
+                    variables:
+                      mini_graph_color: 'rgba(var(--color-purple),0.2)'
+                      mini_graph_entity: '[[[ return variables.ulm_card_pc_memoryusage; ]]]'
+                      mini_graph_name: 'RAM'
+
+                  - type: "custom:button-card"
+                    template: "widget_mini_graph_bar"
+                    variables:
+                      mini_graph_color: 'rgba(var(--color-blue),0.2)'
+                      mini_graph_entity: '[[[ return variables.ulm_card_pc_cpuload; ]]]'
+                      mini_graph_name: 'CPU'
+
+                  - type: "custom:button-card"
+                    template: "widget_mini_graph_bar"
+                    variables:
+                      mini_graph_color: 'rgba(var(--color-green),0.2)'
+                      mini_graph_entity: '[[[ return variables.ulm_card_pc_storage_1; ]]]'
+                      mini_graph_name: 'Disk C'
+
+                  - type: "custom:button-card"
+                    template: "widget_mini_graph_bar"
+                    variables:
+                      mini_graph_color: 'rgba(var(--color-green),0.2)'
+                      mini_graph_entity: '[[[ return variables.ulm_card_pc_storage_2; ]]]'
+                      mini_graph_name: 'Disk D'
 
 
-                - type: "custom:button-card"
-                  template: "widget_mini_graph_bar"
-                  variables:
-                    mini_graph_color: 'rgba(var(--color-purple),0.2)'
-                    mini_graph_entity: 'sensor.dimka_ram_usage'
-                    mini_graph_name: 'RAM'
+                # - type: "custom:button-card"
+                #   template: "widget_mini_graph_bar"
+                #   variables:
+                #     mini_graph_color: 'rgba(var(--color-purple),0.2)'
+                #     mini_graph_entity: 'sensor.dimka_ram_usage'
+                #     mini_graph_name: 'RAM'
 
-                - type: "custom:button-card"
-                  template: "widget_mini_graph_bar"
-                  variables:
-                    mini_graph_color: 'rgba(var(--color-blue),0.2)'
-                    mini_graph_entity: 'sensor.dimka_cpu_usage'
-                    mini_graph_name: 'CPU'
+                # - type: "custom:button-card"
+                #   template: "widget_mini_graph_bar"
+                #   variables:
+                #     mini_graph_color: 'rgba(var(--color-blue),0.2)'
+                #     mini_graph_entity: 'sensor.dimka_cpu_usage'
+                #     mini_graph_name: 'CPU'
 
-                - type: "custom:button-card"
-                  template: "widget_mini_graph_bar"
-                  variables:
-                    mini_graph_color: 'rgba(var(--color-green),0.2)'
-                    mini_graph_entity: 'sensor.dimka_hdd_usage_c'
-                    mini_graph_name: 'Disk C'
+                # - type: "custom:button-card"
+                #   template: "widget_mini_graph_bar"
+                #   variables:
+                #     mini_graph_color: 'rgba(var(--color-green),0.2)'
+                #     mini_graph_entity: 'sensor.dimka_hdd_usage_c'
+                #     mini_graph_name: 'Disk C'
 
-                - type: "custom:button-card"
-                  template: "widget_mini_graph_bar"
-                  variables:
-                    mini_graph_color: 'rgba(var(--color-green),0.2)'
-                    mini_graph_entity: 'sensor.dimka_hdd_usage_d'
-                    mini_graph_name: 'Disk D'
+                # - type: "custom:button-card"
+                #   template: "widget_mini_graph_bar"
+                #   variables:
+                #     mini_graph_color: 'rgba(var(--color-green),0.2)'
+                #     mini_graph_entity: 'sensor.dimka_hdd_usage_d'
+                #     mini_graph_name: 'Disk D'
 
 
 
@@ -125,7 +158,7 @@ popup_pc:
                   name: 'Wake'
                   tap_action:
                     action: call-service
-                    service: script.dimka_wake
+                    service: '[[[ return variables.ulm_card_pc_wake; ]]]'
 
                 - type: "custom:button-card"
                   template: 
@@ -135,7 +168,7 @@ popup_pc:
                   name: 'Sleep'
                   tap_action:
                     action: call-service
-                    service: script.dimka_suspend
+                    service: '[[[ return variables.ulm_card_pc_sleep; ]]]'
 
                 - type: "custom:button-card"
                   template: 
@@ -145,7 +178,7 @@ popup_pc:
                   name: 'Restart'
                   tap_action:
                     action: call-service
-                    service: script.dimka_reboot
+                    service: '[[[ return variables.ulm_card_pc_restart; ]]]'
 
                 - type: "custom:button-card"
                   template: 
@@ -155,7 +188,7 @@ popup_pc:
                   name: 'Shutdown'
                   tap_action:
                     action: call-service
-                    service: script.dimka_shutdown
+                    service: '[[[ return variables.ulm_card_pc_shutdown; ]]]'
 
             - type: "custom:button-card"
               template: spacer

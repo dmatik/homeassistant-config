@@ -1,0 +1,29 @@
+script:
+
+  dimka_wake:
+    alias: "DIMKA - Wake"
+    sequence:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret dimka_mac
+
+  dimka_sleep:
+    alias: "DIMKA - Sleep"
+    sequence:
+      - service: button.press
+        target:
+          entity_id: button.dimka_sleep
+
+  dimka_restart:
+    alias: "DIMKA - Restart"
+    sequence:
+      - service: button.press
+        target:
+          entity_id: button.dimka_restart
+
+  dimka_shutdown:
+    alias: "DIMKA - Shutdown"
+    sequence:
+      - service: button.press
+        target:
+          entity_id: button.dimka_shutdown     

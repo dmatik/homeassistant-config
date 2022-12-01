@@ -1,0 +1,18 @@
+sensor:
+
+  - platform: template
+    sensors:
+
+      dimka_disk_c_used_space:
+        friendly_name: "Dimka Disk C Usage"
+        icon_template: mdi:harddisk
+        unit_of_measurement: "%"
+        value_template: >-
+          {{ state_attr('sensor.dimka_storage_c', 'UsedSpacePercentage') }}
+
+      dimka_disk_d_used_space:
+        friendly_name: "Dimka Disk d Usage"
+        icon_template: mdi:harddisk
+        unit_of_measurement: "%"
+        value_template: >-
+          {{ state_attr('sensor.dimka_storage_d', 'UsedSpacePercentage') }}
