@@ -1,4 +1,3 @@
-![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/commits/master)
 [![Commits Year](https://img.shields.io/github/commit-activity/y/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/commits/master)
 [![GitHub stars](https://img.shields.io/github/stars/dmatik/homeassistant-config.svg?style=plasticr)](https://github.com/dmatik/homeassistant-config/stargazers)
@@ -6,15 +5,13 @@
 
 # dmatik’s Home Assistant configuration
 
-I’m using Lovelace mostly for my mobile devices and for Wallpanel tablet which some times used with HaDashboard instead.
+I’m using Lovelace mostly for my mobile devices and for Wallpanel tablet.
 
-The UI is partially isnspired by [Homekit Infused](https://github.com/jimz011/homekit-infused), implemented by me using mostly Custom Button Card and Delluttering Card for the templates.
+The UI based on [Minimalist](https://ui-lovelace-minimalist.netlify.app/), adjusted by me using mostly Custom Button Card templates.
 
 Please join me in discord under the following [link](https://discord.gg/ayZ3Kkg), welcome to visit and ask questions.
 
 <a href="https://www.buymeacoffee.com/bg7MaEJHc" target="_blank"><img height="41px" width="167px" src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee"></a>
-
-![alt text](https://github.com/dmatik/homeassistant-config/blob/master/images/screens/banner.png "Banner")
 
 ## Features
 - Design based on [Minimalist](https://ui-lovelace-minimalist.netlify.app/) using [Button Card](https://github.com/custom-cards/button-card), added new cards and adjusted by me.
