@@ -78,6 +78,7 @@ card_red_alert:
                   padding: 0.3em 1.25em 0.4em 0.5em;
                   text-align: right;
                   direction: rtl;
+                  border-style: none;
                 }
               entity_id: sensor.redalert
               content: |
@@ -107,6 +108,7 @@ card_red_alert:
                   padding: 0.3em 1.25em 0em 0.5em;
                   text-align: right;
                   direction: rtl;
+                  border-style: none;
                 }
                 ha-markdown.no-header {
                   padding-bottom: 0px;

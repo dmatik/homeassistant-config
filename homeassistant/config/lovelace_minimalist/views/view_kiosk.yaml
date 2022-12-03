@@ -52,7 +52,7 @@ cards:
                 hide_forecast_section: false
                 style: |
                   ha-card.type-custom-clock-weather-card {
-                    border-radius: "var(--border-radius)";
+                    border-radius: var(--border-radius);
                   }
                   clock-weather-card-today-right-wrap-center {
                     font-size: 5.0rem !important;
