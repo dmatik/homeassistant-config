@@ -13,7 +13,7 @@ card_tasmota_version:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "12px"
+      - padding: "var(--card-padding)"
   custom_fields:
     item1:
       card:

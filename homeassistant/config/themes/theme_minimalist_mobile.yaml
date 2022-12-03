@@ -9,6 +9,9 @@ minimalist-mobile:
   info-color: "var(--google-blue)"
   divider-color: "rgba(var(--color-theme),.12)"
   accent-color: "var(--google-yellow)"
+  widget-border-radius: "10px"
+  card-padding: "10px"
+
   card-mod-theme: "minimalist-mobile"
   card-mod-more-info-yaml: |
     $: |

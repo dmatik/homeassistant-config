@@ -8,8 +8,8 @@ card_ac_buttons:
   styles:
     card:
       - border-radius: "var(--border-radius)"
-      - box-shadow: var(--box-shadow)
-      - padding: 10px
+      - box-shadow: "var(--box-shadow)"
+      - padding: "var(--card-padding)"
     grid:
       - grid-template-areas: '"item1" "item2"'
       - grid-template-columns: 1fr
@@ -58,7 +58,7 @@ card_ac_buttons:
                   - box-shadow: "none"
                   - padding: "0px"
                   - background-color: "rgba(var(--color-theme),0.05)"
-                  - border-radius: "10px"
+                  - border-radius: "var(--widget-border-radius)"
               custom_fields:
                 item1:
                   card:

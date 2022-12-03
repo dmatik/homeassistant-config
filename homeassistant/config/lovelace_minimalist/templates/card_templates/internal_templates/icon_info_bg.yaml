@@ -67,7 +67,7 @@ icon_info_bg:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "10px"
+      - padding: "var(--card-padding)"
       #- border-style: "none"
   custom_fields:
     notification: >

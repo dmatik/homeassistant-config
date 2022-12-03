@@ -9,7 +9,7 @@ card_nas_dima:
       - padding-top: "0px"
       - padding-left: "0px"
       - padding-right: "0px"
-      - padding-bottom: "12px"
+      - padding-bottom: "var(--card-padding)"
     grid:
       - grid-template-areas: "'item1' 'item2' 'item3' 'item4'"
       - grid-template-columns: "1fr"
@@ -35,7 +35,7 @@ card_nas_dima:
           #- "blue_no_state"
         styles:
           card:
-            - padding: "12px"
+            - padding: "var(--card-padding)"
     item2:
       card:
         type: 'custom:button-card'

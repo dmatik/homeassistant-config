@@ -11,7 +11,7 @@ widget_mini_graph_bar:
   show_label: false
   styles:
     card:
-      - border-radius: "20px"
+      - border-radius: "0px"
       - background: "none"
       - box-shadow: "none"
       - padding: "0px"
@@ -72,5 +72,8 @@ widget_mini_graph_bar:
             border-style: none;
           }
           #states{
-            padding: 0 16px;
+            padding-top: 0px;
+            padding-left: var(--card-padding);
+            padding-right: var(--card-padding);
+            padding-bottom: 0px;
           }

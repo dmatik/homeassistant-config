@@ -9,6 +9,8 @@ minimalist-dmatik:
   info-color: "var(--google-blue)"
   divider-color: "rgba(var(--color-theme),.12)"
   accent-color: "var(--google-yellow)"
+  widget-border-radius: "10px"
+  card-padding: "10px"
 
   # Card-Mod
   card-mod-theme: "minimalist-dmatik"

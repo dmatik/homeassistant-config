@@ -32,5 +32,5 @@ icon_only:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "10px"
+      - padding: "var(--card-padding)"
   size: "20px"
