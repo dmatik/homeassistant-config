@@ -11,3 +11,4 @@ list_3_items:
       - box-shadow: "none"
       - padding: "0px"
       - border-style: "none"
+      - border-radius: "0px"

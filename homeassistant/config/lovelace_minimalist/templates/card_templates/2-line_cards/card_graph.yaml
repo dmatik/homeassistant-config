@@ -36,7 +36,7 @@ card_graph:
           card:
             - box-shadow: "none"
             - border-radius: "var(--border-radius) var(--border-radius) 0px 0px"
-            - padding: "12px"
+            - padding: "10px"
             - border-style: "none"
         entity: "[[[ return variables.ulm_card_graph_entity ]]]"
         name: "[[[ return variables.ulm_card_graph_name ]]]"

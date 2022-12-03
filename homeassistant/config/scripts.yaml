@@ -1,0 +1,18 @@
+dimka_sleep:
+  alias: DIMKA - Sleep
+  sequence:
+  - device_id: c879ed0ae18310412668aaf26aab8819
+    domain: button
+    entity_id: button.dimka_sleep
+    type: press
+  mode: single
+  icon: mdi:sleep
+dimka_sleep_2:
+  alias: DIMKA - Sleep
+  sequence:
+  - device_id: c879ed0ae18310412668aaf26aab8819
+    domain: button
+    entity_id: button.dimka_sleep
+    type: press
+  mode: single
+  icon: mdi:sleep

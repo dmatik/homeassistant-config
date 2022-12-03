@@ -114,10 +114,8 @@ cards:
                     - type: custom:scheduler-card
                       style: |
                         ha-card {
-                          #background: none;
-                          #box-shadow: none;
                           padding: 0.3em 1.25em 0.4em 0.5em;
-                          border-radius: 21px;
+                          border-radius: var(--border-radius);
                           --secondary-text-color: var(--button-card-text-color);
                         }
                       title: false

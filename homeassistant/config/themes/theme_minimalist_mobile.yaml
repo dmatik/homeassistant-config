@@ -108,10 +108,10 @@ minimalist-mobile:
       slider-color: "rgb(var(--color-blue))"
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # cards
-      box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
-      #box-shadow: "none"
+      #box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
+      box-shadow: "none"
       ha-card-box-shadow: "var(--box-shadow)"
-      ha-card-border-width: "0px"
+      ha-card-border-width: "1px"
       # sidebar
       sidebar-selected-text-color: "var(--google-red)"
       sidebar-selected-icon-color: "var(--google-red)"
@@ -190,7 +190,7 @@ minimalist-mobile:
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # card
       box-shadow: "none"
-      ha-card-border-width: "0px"
+      ha-card-border-width: "1px"
       # media player
       mini-media-player-accent-color: "var(--google-blue)"
       # Journal

@@ -12,7 +12,7 @@ widget_icon_transparent:
       - box-shadow: "none"
       - padding: "0px"
       - background-color: "rgba(var(--color-theme),0.00)"
-      - border-radius: "14px"
+      - border-radius: "10px"
       - place-self: "center"
       - height: "42px"
       - border-style: "none"

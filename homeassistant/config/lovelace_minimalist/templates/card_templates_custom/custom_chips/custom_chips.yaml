@@ -18,8 +18,8 @@ chip_icon_label_state:
       - border-radius: '18px'
       - height: '38px'
       - width: 'auto'
-      - padding-left: '9px'
-      - padding-right: '9px'
+      - padding-left: '8px'
+      - padding-right: '8px'
       - padding-top: '0px'
       - padding-bottom: '0px'
     grid:
@@ -32,7 +32,7 @@ chip_icon_label_state:
       - align-items: center    
       #- place-self: 'center'
       - width: '20px'
-      - height: '38px'
+      - height: '36px'
       - padding-right: '0px'
       - padding-left: '0px'
     icon:
@@ -50,7 +50,7 @@ chip_icon_label_state:
       - width: 'auto'
       - padding-left: '2px'
       - padding-right: '2px'
-      - height: '38px'
+      - height: '36px'
       - width: 'auto'      
   label: |
       [[[
@@ -148,8 +148,8 @@ chip_climate:
       - border-radius: '18px'
       - height: '38px'
       - width: 'auto'
-      - padding-left: '9px'
-      - padding-right: '9px'
+      - padding-left: '8px'
+      - padding-right: '8px'
       - padding-top: '0px'
       - padding-bottom: '0px'
     grid:
@@ -162,7 +162,7 @@ chip_climate:
       - align-items: center    
       #- place-self: 'center'
       - width: '20px'
-      - height: '38px'
+      - height: '36px'
       - padding-right: '0px'
       - padding-left: '0px'
     icon:
@@ -187,7 +187,7 @@ chip_climate:
       - width: 'auto'
       - padding-left: '2px'
       - padding-right: '2px'
-      - height: '38px'
+      - height: '36px'
       - width: 'auto'      
   label: |
       [[[

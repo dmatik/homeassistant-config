@@ -7,9 +7,9 @@ card_ac_buttons:
     ulm_card_ac_display_name: ''
   styles:
     card:
-      - border-radius: 20px
+      - border-radius: "var(--border-radius)"
       - box-shadow: var(--box-shadow)
-      - padding: 12px
+      - padding: 10px
     grid:
       - grid-template-areas: '"item1" "item2"'
       - grid-template-columns: 1fr
@@ -58,7 +58,7 @@ card_ac_buttons:
                   - box-shadow: "none"
                   - padding: "0px"
                   - background-color: "rgba(var(--color-theme),0.05)"
-                  - border-radius: "14px"
+                  - border-radius: "10px"
               custom_fields:
                 item1:
                   card:
@@ -116,16 +116,20 @@ ac_text_info:
     label:
       - justify-self: "start"
       - align-self: "start"
-      - font-weight: "bolder"
+      - font-weight: "400"
       - font-size: "12px"
-      - filter: "opacity(40%)"
+      #- filter: "opacity(40%)"
       - margin-left: "12px"
+      - letter-spacing: "0.4px"
+      - color: "var(--secondary-text-color)"
     name:
       - align-self: "end"
       - justify-self: "start"
-      - font-weight: "bold"
+      - font-weight: "500"
       - font-size: "14px"
       - margin-left: "12px"
+      - height: "20px"
+      - letter-spacing: "0.1px"
     state:
       - justify-self: "start"
       - align-self: "start"

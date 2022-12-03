@@ -11,7 +11,7 @@ widget_text:
       - box-shadow: "none"
       - padding: "0px"
       - background-color: "rgba(var(--color-theme),0.05)"
-      - border-radius: "14px"
+      - border-radius: "10px"
       - place-self: "center"
       - height: "42px"
       - border-style: "none"

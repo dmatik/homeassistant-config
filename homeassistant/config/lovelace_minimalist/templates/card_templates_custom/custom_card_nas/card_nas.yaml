@@ -4,7 +4,7 @@ card_nas_dima:
   show_label: false
   styles:
     card:
-      - border-radius: "20px"
+      - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
       - padding-top: "0px"
       - padding-left: "0px"

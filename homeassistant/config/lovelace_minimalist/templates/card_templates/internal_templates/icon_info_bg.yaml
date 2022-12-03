@@ -33,16 +33,20 @@ icon_info_bg:
     label:
       - justify-self: "start"
       - align-self: "start"
-      - font-weight: "bold"
+      - font-weight: "400"
       - font-size: "12px"
-      - filter: "opacity(40%)"
+      # filter: "opacity(40%)"
       - margin-left: "12px"
+      - letter-spacing: "0.4px"
+      - color: "var(--secondary-text-color)"
     name:
       - align-self: "end"
       - justify-self: "start"
-      - font-weight: "bold"
+      - font-weight: "500"
       - font-size: "14px"
       - margin-left: "12px"
+      - height: 20px
+      - letter-spacing: "0.1px"
     state:
       - justify-self: "start"
       - align-self: "start"
@@ -63,7 +67,7 @@ icon_info_bg:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "12px"
+      - padding: "10px"
       #- border-style: "none"
   custom_fields:
     notification: >
