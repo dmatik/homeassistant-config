@@ -67,6 +67,7 @@ minimalist-mobile:
       popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
       popup-padding-x: 0px
       popup-padding-y: 0px
+      popup-button-border: "1px solid rgba(var(--color-theme),0.15)"
 
       # text
       primary-text-color: "#212121"
@@ -143,6 +144,7 @@ minimalist-mobile:
       popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
       popup-padding-x: 0px
       popup-padding-y: 0px
+      popup-button-border: "1px solid rgba(var(--color-theme),0.15)"
 
       # text
       primary-text-color: "#DDDDDD"

@@ -25,8 +25,9 @@ popup_button:
       - place-self: "center"
       - width: "58px"
       - height: "58px"
-      - box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
-      #- border: "1px solid rgba(var(--color-theme),0.2)"
+      #- box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - border: "var(--popup-button-border)"
     name:
       - justify-self: "center"
       - font-weight: "bold"

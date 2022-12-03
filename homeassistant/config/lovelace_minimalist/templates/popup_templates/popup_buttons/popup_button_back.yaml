@@ -14,9 +14,9 @@ popup_button_back:
     img_cell:
       - background: "none"
       - box-shadow: "none"
-      - width: "56px"
-      - height: "56px"
-      - border: "1px solid rgba(var(--color-theme),0.25)"
+      - width: "58px"
+      - height: "58px"
+      - border: "1px solid rgba(var(--color-theme),0.2)"
   tap_action:
     action: fire-dom-event
     browser_mod:

@@ -15,6 +15,7 @@ popup_button_power:
       - color: "var(--card-background-color)"
     img_cell:
       - background-color: "var(--primary-color)"
-      - box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - border: "var(--popup-button-border)"
   tap_action:
     action: "toggle"
