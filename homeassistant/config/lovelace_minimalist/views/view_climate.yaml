@@ -64,48 +64,55 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+                - type: "custom:mod-card"
+                  style: |
+                    ha-card {
+                        margin-left: var(--chips-left-margin) !important;
+                    }
+                  card:
 
-                    - type: custom:button-card
-                      template: edge
+                    type: horizontal-stack
+                    cards:
 
-                    # Back Chip
-                    - type: 'custom:button-card'
-                      template: chip_back_new
-                      variables:
-                        ulm_chip_navigate_path: /lovelace/minimalist_home
+                      # - type: custom:button-card
+                      #   template: edge
 
-                    # Temperature Chip
-                    # - type: custom:button-card
-                    #   template: chip_temperature
-                    #   variables:
-                    #     ulm_chip_temperature_outside: 'sensor.outside_temperature'
-                    #     ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
-                    #     ulm_chip_temperature_weather: 'weather.met_home'
+                      # Back Chip
+                      - type: 'custom:button-card'
+                        template: chip_back_new
+                        variables:
+                          ulm_chip_navigate_path: /lovelace/minimalist_home
 
-                    # Climate Chip
-                    - type: 'custom:button-card'
-                      template:
-                        - 'chip_climate'
-                        #- 'chip_blue_no_state'
-                      variables:
-                        ulm_chip_temperature_low: sensor.lowest_temperature_home
-                        ulm_chip_temperature_high: sensor.highest_temperature_home
-                        ulm_chip_devices_on: sensor.number_of_climate_entities_on
+                      # Temperature Chip
+                      # - type: custom:button-card
+                      #   template: chip_temperature
+                      #   variables:
+                      #     ulm_chip_temperature_outside: 'sensor.outside_temperature'
+                      #     ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
+                      #     ulm_chip_temperature_weather: 'weather.met_home'
 
-                    # Air Quality Chip
-                    - type: 'custom:button-card'
-                      template:
-                        - 'chip_icon_label_state'
-                        - 'chip_air_polution_colors'
-                        - 'chip_air_polution_icons'
-                        - 'popup_chip_air_quality'
-                      #icon: 'mdi:leaf'
-                      variables:
-                        ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
-                        ulm_card_air_quality_green: 50
-                        ulm_card_air_quality_yellow: 100
+                      # Climate Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_climate'
+                          #- 'chip_blue_no_state'
+                        variables:
+                          ulm_chip_temperature_low: sensor.lowest_temperature_home
+                          ulm_chip_temperature_high: sensor.highest_temperature_home
+                          ulm_chip_devices_on: sensor.number_of_climate_entities_on
+
+                      # Air Quality Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_air_polution_colors'
+                          - 'chip_air_polution_icons'
+                          - 'popup_chip_air_quality'
+                        #icon: 'mdi:leaf'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
+                          ulm_card_air_quality_green: 50
+                          ulm_card_air_quality_yellow: 100
 
 
 

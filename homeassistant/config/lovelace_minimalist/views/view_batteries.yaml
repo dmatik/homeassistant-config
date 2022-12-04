@@ -63,17 +63,24 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+                - type: "custom:mod-card"
+                  style: |
+                    ha-card {
+                        margin-left: var(--chips-left-margin) !important;
+                    }
+                  card:
 
-                    - type: custom:button-card
-                      template: edge
+                    type: horizontal-stack
+                    cards:
 
-                    # Back Chip
-                    - type: 'custom:button-card'
-                      template: chip_back_new
-                      variables:
-                        ulm_chip_navigate_path: /lovelace/minimalist_system
+                      # - type: custom:button-card
+                      #   template: edge
+
+                      # Back Chip
+                      - type: 'custom:button-card'
+                        template: chip_back_new
+                        variables:
+                          ulm_chip_navigate_path: /lovelace/minimalist_system
 
 
           ############################################################################

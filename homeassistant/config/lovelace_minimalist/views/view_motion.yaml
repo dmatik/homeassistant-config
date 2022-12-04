@@ -64,35 +64,42 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+                - type: "custom:mod-card"
+                  style: |
+                    ha-card {
+                        margin-left: var(--chips-left-margin) !important;
+                    }
+                  card:
 
-                    - type: custom:button-card
-                      template: edge
+                    type: horizontal-stack
+                    cards:
 
-                    # Back Chip
-                    - type: 'custom:button-card'
-                      template: chip_back_new
-                      variables:
-                        ulm_chip_navigate_path: /lovelace/minimalist_home
+                      # - type: custom:button-card
+                      #   template: edge
 
-                    # # Motion Chip
-                    # - type: 'custom:button-card'
-                    #   template: chip_icon_state
-                    #   variables:
-                    #     ulm_chip_icon_state_icon: '🏃'
-                    #     ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+                      # Back Chip
+                      - type: 'custom:button-card'
+                        template: chip_back_new
+                        variables:
+                          ulm_chip_navigate_path: /lovelace/minimalist_home
 
-                    # Motion Chip
-                    - type: 'custom:button-card'
-                      template:
-                        - 'chip_icon_label_state'
-                        #- 'chip_navigate_only'
-                        - 'chip_blue'
-                      icon: 'mdi:run'
-                      variables:
-                        ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
-                        #ulm_chip_navigate_path: /lovelace/minimalist_motion
+                      # # Motion Chip
+                      # - type: 'custom:button-card'
+                      #   template: chip_icon_state
+                      #   variables:
+                      #     ulm_chip_icon_state_icon: '🏃'
+                      #     ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          #- 'chip_navigate_only'
+                          - 'chip_blue'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+                          #ulm_chip_navigate_path: /lovelace/minimalist_motion
 
 
 

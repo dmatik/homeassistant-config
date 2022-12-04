@@ -61,67 +61,75 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: horizontal-stack
-                  cards:
 
-                    - type: custom:button-card
-                      template: edge
+                - type: "custom:mod-card"
+                  style: |
+                    ha-card {
+                        margin-left: var(--chips-left-margin) !important;
+                    }
+                  card:
 
-                    # Temperature Chip
-                    # - type: custom:button-card
-                    #   template: 
-                    #     - 'chip_temperature'
-                    #     - 'chip_navigate_only'
-                    #   variables:
-                    #     ulm_chip_temperature_outside: 'sensor.outside_temperature'
-                    #     ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
-                    #     ulm_chip_temperature_weather: 'weather.met_home'
-                    #     ulm_chip_navigate_path: /lovelace/minimalist_climate
+                    type: horizontal-stack
+                    cards:
 
-                    # Climate Chip
-                    - type: 'custom:button-card'
-                      template:
-                        - 'chip_climate'
-                        - 'chip_navigate_only'
-                        #- 'chip_blue_no_state'
-                      variables:
-                        ulm_chip_temperature_low: sensor.lowest_temperature_home
-                        ulm_chip_temperature_high: sensor.highest_temperature_home                     
-                        ulm_chip_devices_on: sensor.number_of_climate_entities_on
-                        ulm_chip_navigate_path: /lovelace/minimalist_climate
+                      # - type: custom:button-card
+                      #   template: edge
 
-                    # Presense Chip
-                    - type: 'custom:button-card'
-                      template:
-                        - 'chip_icon_label_state'
-                        - 'chip_navigate_only'
-                        - 'chip_blue'
-                      icon: 'mdi:home-variant'
-                      variables:
-                        ulm_chip_icon_state_entity: sensor.number_of_persons_home
-                        ulm_chip_navigate_path: /lovelace/minimalist_presense
+                      # Temperature Chip
+                      # - type: custom:button-card
+                      #   template: 
+                      #     - 'chip_temperature'
+                      #     - 'chip_navigate_only'
+                      #   variables:
+                      #     ulm_chip_temperature_outside: 'sensor.outside_temperature'
+                      #     ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
+                      #     ulm_chip_temperature_weather: 'weather.met_home'
+                      #     ulm_chip_navigate_path: /lovelace/minimalist_climate
 
-                    # Lights Chip
-                    - type: 'custom:button-card'
-                      template:
-                        - 'chip_icon_label_state'
-                        - 'chip_navigate_only'
-                        - 'chip_yellow'
-                      icon: 'mdi:lightbulb'
-                      variables:
-                        ulm_chip_icon_state_entity: sensor.number_of_lights_on
-                        ulm_chip_navigate_path: /lovelace/minimalist_lights
+                      # Climate Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_climate'
+                          - 'chip_navigate_only'
+                          #- 'chip_blue_no_state'
+                        variables:
+                          ulm_chip_temperature_low: sensor.lowest_temperature_home
+                          ulm_chip_temperature_high: sensor.highest_temperature_home                     
+                          ulm_chip_devices_on: sensor.number_of_climate_entities_on
+                          ulm_chip_navigate_path: /lovelace/minimalist_climate
 
-                    # Motion Chip
-                    - type: 'custom:button-card'
-                      template:
-                        - 'chip_icon_label_state'
-                        - 'chip_navigate_only'
-                        - 'chip_blue'
-                      icon: 'mdi:run'
-                      variables:
-                        ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
-                        ulm_chip_navigate_path: /lovelace/minimalist_motion
+                      # Presense Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_navigate_only'
+                          - 'chip_blue'
+                        icon: 'mdi:home-variant'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_persons_home
+                          ulm_chip_navigate_path: /lovelace/minimalist_presense
+
+                      # Lights Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_navigate_only'
+                          - 'chip_yellow'
+                        icon: 'mdi:lightbulb'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_lights_on
+                          ulm_chip_navigate_path: /lovelace/minimalist_lights
+
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_navigate_only'
+                          - 'chip_blue'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+                          ulm_chip_navigate_path: /lovelace/minimalist_motion
 
 
 

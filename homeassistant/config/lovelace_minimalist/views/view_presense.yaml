@@ -64,33 +64,40 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+                - type: "custom:mod-card"
+                  style: |
+                    ha-card {
+                        margin-left: var(--chips-left-margin) !important;
+                    }
+                  card:
 
-                    - type: custom:button-card
-                      template: edge
+                    type: horizontal-stack
+                    cards:
 
-                    # Back Chip
-                    - type: 'custom:button-card'
-                      template: chip_back_new
-                      variables:
-                        ulm_chip_navigate_path: /lovelace/minimalist_home
+                      # - type: custom:button-card
+                      #   template: edge
 
-                    # # Presense Chip
-                    # - type: 'custom:button-card'
-                    #   template: chip_presence_detection
-                    #   variables:
-                    #     ulm_chip_presence_counter_residents: sensor.number_of_persons_home
-                    #     #ulm_chip_presence_counter_guests: sensor.my_guests_counter
+                      # Back Chip
+                      - type: 'custom:button-card'
+                        template: chip_back_new
+                        variables:
+                          ulm_chip_navigate_path: /lovelace/minimalist_home
 
-                    # Presense Chip
-                    - type: 'custom:button-card'
-                      template:
-                        - 'chip_icon_label_state'
-                        - 'chip_blue'
-                      icon: 'mdi:home-variant'
-                      variables:
-                        ulm_chip_icon_state_entity: sensor.number_of_persons_home
+                      # # Presense Chip
+                      # - type: 'custom:button-card'
+                      #   template: chip_presence_detection
+                      #   variables:
+                      #     ulm_chip_presence_counter_residents: sensor.number_of_persons_home
+                      #     #ulm_chip_presence_counter_guests: sensor.my_guests_counter
+
+                      # Presense Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_blue'
+                        icon: 'mdi:home-variant'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_persons_home
 
 
 
