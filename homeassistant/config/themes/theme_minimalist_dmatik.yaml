@@ -13,6 +13,7 @@ minimalist-dmatik:
   card-padding: "10px"
   masonry-view-card-margin: "4px 3px 8px"
   chips-left-margin: "6px"
+  chips-right-margin: "2px"
 
   # Card-Mod
   card-mod-theme: "minimalist-dmatik"

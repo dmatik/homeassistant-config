@@ -65,10 +65,15 @@ cards:
           ############################################################################
 
                 - type: "custom:mod-card"
-                  style: |
-                    ha-card {
-                        margin-left: var(--chips-left-margin) !important;
-                    }
+                  style: 
+                    .: |
+                      ha-card {
+                          margin-left: var(--chips-left-margin) !important;
+                      }
+                    hui-horizontal-stack-card$: |
+                      button-card {
+                        margin-right: var(--chips-right-margin) !important;
+                      }
                   card:
 
                     type: horizontal-stack
