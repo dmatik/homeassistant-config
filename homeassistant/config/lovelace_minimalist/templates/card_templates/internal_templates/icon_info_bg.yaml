@@ -14,7 +14,7 @@ icon_info_bg:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "42px"
+            - left: "38px"
             - top: "10px"
             - height: "16px"
             - width: "16px"
@@ -58,8 +58,8 @@ icon_info_bg:
       - background-color: "rgba(var(--color-theme),0.05)"
       - border-radius: "50%"
       - place-self: "center"
-      - width: "48px"
-      - height: "48px"
+      - width: "40px"
+      - height: "40px"
     grid:
       - grid-template-areas: "'i n' 'i l'"
       - grid-template-columns: "min-content auto"

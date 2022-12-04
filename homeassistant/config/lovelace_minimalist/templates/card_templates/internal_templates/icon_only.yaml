@@ -23,8 +23,8 @@ icon_only:
       - background-color: "rgba(var(--color-theme),0.05)"
       - border-radius: "50%"
       - place-self: "center"
-      - width: "48px"
-      - height: "48px"
+      - width: "40px"
+      - height: "40px"
     grid:
       - grid-template-areas: "'i l'"
       - grid-template-columns: "min-content auto"

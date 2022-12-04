@@ -73,7 +73,7 @@ ha_new_version_available:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "30px"
+            - left: "26px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"

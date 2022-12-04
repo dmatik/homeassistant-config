@@ -42,8 +42,8 @@ printer_ink_low:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "41px"
-            - top: "11px"
+            - left: "38px"
+            - top: "10px"
             - height: "16px"
             - width: "16px"
             - border: "2px solid var(--card-background-color)"

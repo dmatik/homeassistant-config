@@ -40,7 +40,7 @@ card_person:
             if (variables.ulm_card_person_use_entity_picture !== true){
               return "20px";
             } else {
-              return "48px";
+              return "40px";
             }
           ]]]
       - height: >
@@ -48,7 +48,7 @@ card_person:
             if (variables.ulm_card_person_use_entity_picture !== true){
               return "20px";
             } else {
-              return "48px";
+              return "40px";
             }
           ]]]
       - place-self: >
@@ -63,7 +63,7 @@ card_person:
       notification:
         - border-radius: "50%"
         - position: "absolute"
-        - left: "43px"
+        - left: "38px"
         - top: "10px"
         - height: "16px"
         - width: "16px"

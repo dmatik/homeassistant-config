@@ -137,7 +137,7 @@ card_tasmota_devices_outdated:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "30px"
+            - left: "26px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
@@ -189,7 +189,7 @@ card_tasmota_outdated:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "42px"
+            - left: "38px"
             - top: "10px"
             - height: "16px"
             - width: "16px"

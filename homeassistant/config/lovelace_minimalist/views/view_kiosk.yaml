@@ -182,6 +182,8 @@ cards:
                   ulm_card_ac_entity: climate.living_room
                   ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
                   ulm_card_ac_name: 'Living Room'
+                view_layout:
+                  grid-row-start: span 2
 
               # Bedroom Climate
               - type: 'custom:button-card'
@@ -190,6 +192,8 @@ cards:
                   ulm_card_ac_entity: climate.bedroom
                   ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
                   ulm_card_ac_name: 'Bedroom'
+                view_layout:
+                  grid-row-start: span 2
 
               # Kids Room Climate
               - type: 'custom:button-card'
@@ -198,6 +202,17 @@ cards:
                   ulm_card_ac_entity: climate.kids_room
                   ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
                   ulm_card_ac_name: 'Kids Room'
+                view_layout:
+                  grid-row-start: span 2
+
+              # Kids Room Radiator
+              - type: 'custom:button-card'
+                template: card_power_outlet
+                variables:
+                  ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
+                entity: switch.kids_radiator
+                name: Kids Room
+                icon: mdi:radiator
 
               # Work Room Temperature
               # - type: 'custom:button-card'
@@ -210,15 +225,6 @@ cards:
                 template: card_generic
                 entity: sensor.work_room_temperature_sensor_temperature
                 name: Work Room
-                  
-              # Kids Room Radiator
-              - type: 'custom:button-card'
-                template: card_power_outlet
-                variables:
-                  ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
-                entity: switch.kids_radiator
-                name: Kids Room
-                icon: mdi:radiator
 
               # Bedroom Radiator
               # - type: 'custom:button-card'
@@ -228,15 +234,6 @@ cards:
               #   entity: switch.bedroom_radiator
               #   name: Bedroom
               #   icon: mdi:radiator
-
-              # NY Tree
-              - type: 'custom:button-card'
-                template: 
-                  - 'card_light_simple'
-                  - 'green_on'
-                entity: switch.power_socket_01
-                name: NY Tree
-                icon: mdi:pine-tree
 
 
           # Devices
@@ -268,6 +265,8 @@ cards:
                   ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
                   ulm_card_harmony_activity_2_name: 'Shield TV'
                   ulm_card_harmony_activity_2_icon: 'mdi:movie' 
+                view_layout:
+                  grid-row-start: span 2
 
               # Switcher
               - type: 'custom:button-card'
@@ -282,6 +281,8 @@ cards:
                   ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
                   ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
                   ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+                view_layout:
+                  grid-row-start: span 2
 
               # Dimka PC
               - type: 'custom:button-card'
@@ -388,6 +389,14 @@ cards:
                 entity: light.hallway
                 name: Hallway
 
+              # NY Tree
+              - type: 'custom:button-card'
+                template: 
+                  - 'card_light_simple'
+                  - 'green_on'
+                entity: switch.power_socket_01
+                name: NY Tree
+                icon: mdi:pine-tree
 
           # Rooms Lights
           - type: horizontal-stack
