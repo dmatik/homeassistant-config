@@ -11,9 +11,10 @@ minimalist-dmatik:
   accent-color: "var(--google-yellow)"
   widget-border-radius: "10px"
   card-padding: "12px"
-  masonry-view-card-margin: "3px 3px 4px"
-  chips-left-margin: "6px"
+  masonry-view-card-margin: "6px 4px 4px"
+  chips-left-margin: "8px"
   chips-right-margin: "2px"
+  view-margins: "-4px"
 
   # Card-Mod
   card-mod-theme: "minimalist-dmatik"

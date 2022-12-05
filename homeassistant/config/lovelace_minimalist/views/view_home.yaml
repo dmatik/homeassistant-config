@@ -37,8 +37,8 @@ cards:
           layout-card$:
             grid-layout$: |
               #root {
-                margin-left: 0 !important;
-                margin-right: 0 !important;
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
                 justify-content: center !important;
               }
         card:
