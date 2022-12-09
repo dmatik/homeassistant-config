@@ -1,6 +1,0 @@
-utility_meter:
-  kids_radiator_monthly_energy_meter:
-    source: sensor.kids_radiator_energy_total
-    name: kids_radiator_monthly_energy_meter
-    unique_id: kids_radiator_monthly_energy_meter
-    cycle: monthly

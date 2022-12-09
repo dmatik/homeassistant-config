@@ -20,32 +20,6 @@ sensor:
 
 ############################################################################
 #                                                                          #
-#   Kids Radiator Cost                                                     #
-#                                                                          #
-############################################################################
-
-  - platform: template
-    sensors:
-
-      kids_radiator_cost_today:
-        friendly_name: "Kids Radiator Daily Cost"
-        value_template: "{{(states('sensor.kids_radiator_energy_today') | float(0) * 0.574) | round(2)}}"
-        unit_of_measurement: "₪"
-
-      kids_radiator_cost_curr_month:
-        friendly_name: "Kids Radiator Current Month Cost"
-        value_template: "{{(states('sensor.kids_radiator_monthly_energy_meter') | float(0) * 0.574) | round(2)}}"
-        unit_of_measurement: "₪"
-
-      kids_radiator_cost_prev_month:
-        friendly_name: "Kids Radiator Previous Month Cost"
-        value_template: "{{(state_attr('sensor.kids_radiator_monthly_energy_meter', 'last_period') | float(0) * 0.574) | round(2)}}"
-        unit_of_measurement: "₪"
-
-
-
-############################################################################
-#                                                                          #
 #   Kids Radiator Statistics                                               #
 #                                                                          #
 ############################################################################
@@ -86,6 +60,66 @@ sensor:
     type: time
     start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
     end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+
+
+
+template:
+
+############################################################################
+#                                                                          #
+#   Kids Radiator Cost                                                     #
+#                                                                          #
+############################################################################
+
+  # Kids Radiator Today Cost
+  - unique_id: kids_radiator_cost_today
+    sensor:
+      - name: "kids_radiator_cost_today"
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        state: "{{(states('sensor.kids_radiator_energy_today') | float(0) * 0.574) | round(2)}}"
+
+  # Kids Radiator Current Month Cost
+  - unique_id: kids_radiator_cost_curr_month
+    sensor:
+      - name: "kids_radiator_cost_curr_month"
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        state: "{{(states('sensor.kids_radiator_monthly_energy_meter') | float(0) * 0.574) | round(2)}}"
+
+  # Kids Radiator Previous Month Cost
+  - unique_id: kids_radiator_cost_prev_month
+    sensor:
+      - name: "kids_radiator_cost_prev_month"
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        state: "{{(state_attr('sensor.kids_radiator_monthly_energy_meter', 'last_period') | float(0) * 0.574) | round(2)}}"
+
+
+
+utility_meter:
+
+############################################################################
+#                                                                          #
+#   Kids Radiator Energy Meters                                            #
+#                                                                          #
+############################################################################
+
+  # Monthly Energy
+  kids_radiator_monthly_energy_meter:
+    source: sensor.kids_radiator_energy_total
+    name: kids_radiator_monthly_energy_meter
+    unique_id: kids_radiator_monthly_energy_meter
+    cycle: monthly
+
+
+
+
+
+
+
+
+
 
 
 ############################################################################
