@@ -165,10 +165,10 @@ template:
 #                                                                          #
 ############################################################################
 
-  # Time Left
-  - unique_id: switcher_boiler_time_left
     sensor:
+      # Time Left
       - name: "switcher_boiler_time_left"
+        unique_id: switcher_boiler_time_left
         icon: mdi:timelapse
         state: >-
           {% if is_state("sensor.switcher_boiler_state", "off") %}
@@ -188,10 +188,9 @@ template:
               {% endif %}
           {% endif %}
 
-  # Time Left Short
-  - unique_id: switcher_boiler_time_left_short
-    sensor:
+      # Time Left Short
       - name: "switcher_boiler_time_left_short"
+        unique_id: switcher_boiler_time_left_short
         icon: mdi:timelapse
         state: >-
           {% if is_state("sensor.switcher_boiler_state", "off") %}
@@ -205,10 +204,9 @@ template:
               {{hour + ':' + min}}
           {% endif %}
 
-  # Auto Off
-  - unique_id: switcher_boiler_auto_off_time
-    sensor:
+      # Auto Off
       - name: "switcher_boiler_auto_off_time"
+        unique_id: switcher_boiler_auto_off_time
         icon: mdi:av-timer
         state: >-
           {% if is_state("sensor.switcher_boiler_state", "off") %}
@@ -221,29 +219,26 @@ template:
               {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
           {% endif %}
 
-  # Electric Current
-  - unique_id: switcher_boiler_electric_current
-    sensor:
+      # Electric Current
       - name: "switcher_boiler_electric_current"
+        unique_id: switcher_boiler_electric_current
         icon: mdi:flash-circle
         unit_of_measurement: A
         state: >-
           {{ state_attr('sensor.switcher_boiler', 'electric_current') }}
 
-  # Power Consumption
-  - unique_id: switcher_boiler_power_consumption
-    sensor:
+      # Power Consumption
       - name: "switcher_boiler_power_consumption"
+        unique_id: switcher_boiler_power_consumption
         icon: mdi:flash-circle
         unit_of_measurement: W
         device_class: "power"
         state: >-
           {{ state_attr('sensor.switcher_boiler', 'power_consumption') }}
 
-  # State
-  - unique_id: switcher_boiler_state
-    sensor:
+      # State
       - name: "switcher_boiler_state"
+        unique_id: switcher_boiler_state
         icon: mdi:shower
         state: >-
           {% if state_attr('sensor.switcher_boiler', 'state') == 'ON' %}
@@ -260,34 +255,30 @@ template:
 #                                                                          #
 ############################################################################
 
-  # Boiler Today Cost
-  - unique_id: switcher_boiler_cost_today
-    sensor:
+      # Boiler Today Cost
       - name: "switcher_boiler_cost_today"
+        unique_id: switcher_boiler_cost_today
         unit_of_measurement: "₪"
         state_class: total_increasing
         state: "{{(states('sensor.switcher_boiler_daily_energy') | float(0) * 0.574) | round(2)}}"
 
-  # Boiler Yesterday Cost
-  - unique_id: switcher_boiler_cost_yesterday
-    sensor:
+      # Boiler Yesterday Cost
       - name: "switcher_boiler_cost_yesterday"
+        unique_id: switcher_boiler_cost_yesterday
         unit_of_measurement: "₪"
         state_class: total_increasing
         state: "{{(state_attr('sensor.switcher_boiler_daily_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
 
-  # Boiler Curr Month Cost
-  - unique_id: switcher_boiler_cost_curr_month
-    sensor:
+      # Boiler Curr Month Cost
       - name: "switcher_boiler_cost_curr_month"
+        unique_id: switcher_boiler_cost_curr_month
         unit_of_measurement: "₪"
         state_class: total_increasing
         state: "{{(states('sensor.switcher_boiler_monthly_energy') | float(0) * 0.574) | round(2)}}"
 
-  # Boiler Previous Month Cost
-  - unique_id: switcher_boiler_cost_prev_month
-    sensor:
+      # Boiler Previous Month Cost
       - name: "switcher_boiler_cost_prev_month"
+        unique_id: switcher_boiler_cost_prev_month
         unit_of_measurement: "₪"
         state_class: total_increasing
         state: "{{(state_attr('sensor.switcher_boiler_monthly_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
