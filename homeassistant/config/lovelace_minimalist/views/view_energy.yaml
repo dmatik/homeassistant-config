@@ -143,7 +143,20 @@ cards:
                         icon: mdi:lightning-bolt
                         label: |
                           [[[
-                            return parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.kids_radiator_cost_curr_month'].state;
+                            var sec_num = states['sensor.kids_radiator_running_time_curr_month'].state * 3600;
+                            var hours   = Math.floor(sec_num / 3600);
+                            var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                            var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+                            var response = '';
+                            if (hours > 0) { response += hours + 'h'; }
+                            if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
+                            if (seconds > 0) { response += ' ' + seconds + 's'; }
+                            if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+
+                            response += ' • ' + parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.kids_radiator_cost_curr_month'].state;
+                            
+                            return response;
                           ]]]
 
                       # Previous Month
@@ -154,7 +167,20 @@ cards:
                         icon: mdi:lightning-bolt
                         label: |
                           [[[
-                            return parseFloat(entity.attributes.last_period).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.kids_radiator_cost_prev_month'].state;
+                            var sec_num = states['sensor.kids_radiator_running_time_prev_month'].state * 3600;
+                            var hours   = Math.floor(sec_num / 3600);
+                            var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                            var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+                            var response = '';
+                            if (hours > 0) { response += hours + 'h'; }
+                            if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
+                            if (seconds > 0) { response += ' ' + seconds + 's'; }
+                            if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+
+                            response += ' • ' + parseFloat(entity.attributes.last_period).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.kids_radiator_cost_prev_month'].state;
+
+                            return response;
                           ]]]
 
 
@@ -212,7 +238,20 @@ cards:
                         icon: mdi:lightning-bolt
                         label: |
                           [[[
-                            return parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.switcher_boiler_cost_curr_month'].state;
+                            var sec_num = states['sensor.boiler_running_time_curr_month'].state * 3600;
+                            var hours   = Math.floor(sec_num / 3600);
+                            var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                            var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+                            var response = '';
+                            if (hours > 0) { response += hours + 'h'; }
+                            if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
+                            if (seconds > 0) { response += ' ' + seconds + 's'; }
+                            if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+
+                            response += ' • ' + parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.switcher_boiler_cost_curr_month'].state;
+
+                            return response;
                           ]]]
 
                       # Previous Month
@@ -223,7 +262,20 @@ cards:
                         icon: mdi:lightning-bolt
                         label: |
                           [[[
-                            return parseFloat(entity.attributes.last_period).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.switcher_boiler_cost_prev_month'].state;
+                            var sec_num = states['sensor.boiler_running_time_prev_month'].state * 3600;
+                            var hours   = Math.floor(sec_num / 3600);
+                            var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                            var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+                            var response = '';
+                            if (hours > 0) { response += hours + 'h'; }
+                            if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
+                            if (seconds > 0) { response += ' ' + seconds + 's'; }
+                            if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+
+                            response += ' • ' + parseFloat(entity.attributes.last_period).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.switcher_boiler_cost_prev_month'].state;
+
+                            return response;
                           ]]]
 
                 - type: custom:button-card

@@ -17,6 +17,13 @@ sensor:
     scan_interval: 600
 
 
+
+############################################################################
+#                                                                          #
+#   Kids Radiator Cost                                                     #
+#                                                                          #
+############################################################################
+
   - platform: template
     sensors:
 
@@ -35,6 +42,50 @@ sensor:
         value_template: "{{(state_attr('sensor.kids_radiator_monthly_energy_meter', 'last_period') | float(0) * 0.574) | round(2)}}"
         unit_of_measurement: "₪"
 
+
+
+############################################################################
+#                                                                          #
+#   Kids Radiator Statistics                                               #
+#                                                                          #
+############################################################################
+
+  # Running Time Today
+  - platform: history_stats
+    name: kids_radiator_running_time_today 
+    entity_id: switch.kids_radiator
+    state: "on"
+    type: time
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now() }}"
+
+  # Running Time Yesterday
+  - platform: history_stats
+    name: kids_radiator_running_time_yesterday 
+    entity_id: switch.kids_radiator
+    state: "on"
+    type: time
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    duration:
+      hours: 24
+
+  # Running Time Current Month
+  - platform: history_stats
+    name: kids_radiator_running_time_curr_month
+    entity_id: switch.kids_radiator
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    end: "{{ now() }}"
+
+  # Running Time Previous Month
+  - platform: history_stats
+    name: kids_radiator_running_time_prev_month
+    entity_id: switch.kids_radiator
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
 
 
 ############################################################################
