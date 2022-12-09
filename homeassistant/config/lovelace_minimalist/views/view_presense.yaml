@@ -127,57 +127,54 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Dima
-                    - type: 'custom:button-card'
-                      template: card_person
-                      variables:
-                        ulm_card_person_entity: person.dmatik
-                        ulm_card_person_use_entity_picture: true
-                        ulm_card_person_zone1: zone.work
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # - type: "custom:button-card"
-                    #   template: custom_card_imswel_person
-                    #   variables:
-                    #     ulm_card_imswel_person_entity: person.dmatik
-                    #     ulm_card_imswel_person_wifi_tracker: device_tracker.iphonedima
-                    #     ulm_card_imswel_person_gps_tracker: device_tracker.iphonedima
-                    #     ulm_card_imswel_person_findmy_script: script.find_my_oneplus_6t
-                    #     ulm_card_imswel_person_use_entity_picture: true
-                    #     ulm_card_imswel_person_zones:
-                    #       - zone.work
+                      # Dima
+                      - type: 'custom:button-card'
+                        template: card_person
+                        variables:
+                          ulm_card_person_entity: person.dmatik
+                          ulm_card_person_use_entity_picture: true
+                          ulm_card_person_zone1: zone.work
 
-                    # Galit
-                    - type: 'custom:button-card'
-                      template: card_person
-                      variables:
-                        ulm_card_person_entity: person.galit
-                        ulm_card_person_use_entity_picture: true
-                        ulm_card_person_zone1: zone.work_2
+                      # Galit
+                      - type: 'custom:button-card'
+                        template: card_person
+                        variables:
+                          ulm_card_person_entity: person.galit
+                          ulm_card_person_use_entity_picture: true
+                          ulm_card_person_zone1: zone.work_2
 
-                    # Ronen
-                    - type: 'custom:button-card'
-                      template: card_person
-                      variables:
-                        ulm_card_person_entity: person.ronen
-                        ulm_card_person_use_entity_picture: true
+                      # Ronen
+                      - type: 'custom:button-card'
+                        template: card_person
+                        variables:
+                          ulm_card_person_entity: person.ronen
+                          ulm_card_person_use_entity_picture: true
 
-                    # Kfir
-                    - type: 'custom:button-card'
-                      template: card_person
-                      variables:
-                        ulm_card_person_entity: person.kfir
-                        ulm_card_person_use_entity_picture: true
+                      # Kfir
+                      - type: 'custom:button-card'
+                        template: card_person
+                        variables:
+                          ulm_card_person_entity: person.kfir
+                          ulm_card_person_use_entity_picture: true
 
 
                 - type: custom:button-card

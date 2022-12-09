@@ -80,7 +80,8 @@ sensor:
       switcher_boiler_power_consumption:
         friendly_name: "Power Consumption"
         icon_template: mdi:flash-circle
-        unit_of_measurement: kW
+        unit_of_measurement: W
+        device_class: "power"
         value_template: >-
           {{ state_attr('sensor.switcher_boiler', 'power_consumption') }}
 
@@ -93,3 +94,115 @@ sensor:
           {% else %}
               off
           {% endif %}
+
+
+############################################################################
+#                                                                          #
+#   Boiler Cost Count                                                      #
+#                                                                          #
+############################################################################
+
+      # Boiler Today Cost
+      switcher_boiler_cost_today:
+        friendly_name: "Boiler Today Cost"
+        value_template: "{{(states('sensor.switcher_boiler_daily_energy') | float(0) * 0.574) | round(2)}}"
+        unit_of_measurement: "₪"
+
+      # Boiler Yesterday Cost
+      switcher_boiler_cost_yesterday:
+        friendly_name: "Boiler Yesterday Cost"
+        value_template: "{{(state_attr('sensor.switcher_boiler_daily_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
+        unit_of_measurement: "₪"
+
+      # switcher_boiler_cost_today:
+      #   friendly_name: "Boiler Daily Cost"
+      #   value_template: "{{(states('sensor.boiler_running_time_today') | float(0) * 2.6 * 0.574) | round(2)}}"
+      #   unit_of_measurement: "₪"
+
+      # switcher_boiler_cost_yesterday:
+      #   friendly_name: "Boiler Yesterday Cost"
+      #   value_template: "{{(states('sensor.boiler_running_time_yesterday') | float(0) * 2.6 * 0.574) | round(2)}}"
+      #   unit_of_measurement: "₪"
+
+      # Boiler Curr Month Cost
+      switcher_boiler_cost_curr_month:
+        friendly_name: "Boiler Curr Month Cost"
+        value_template: "{{(states('sensor.switcher_boiler_monthly_energy') | float(0) * 0.574) | round(2)}}"
+        unit_of_measurement: "₪"
+
+      # Boiler Previous Month Cost
+      switcher_boiler_cost_prev_month:
+        friendly_name: "Boiler Previous Month Cost"
+        value_template: "{{(state_attr('sensor.switcher_boiler_monthly_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
+        unit_of_measurement: "₪"
+
+      # switcher_boiler_cost_curr_month:
+      #   friendly_name: "Boiler Curr Month Cost"
+      #   value_template: "{{(states('sensor.boiler_running_time_curr_month') | float(0) * 2.6 * 0.574) | round(2)}}"
+      #   unit_of_measurement: "₪"
+
+      # switcher_boiler_cost_prev_month:
+      #   friendly_name: "Boiler Previous Month Cost"
+      #   value_template: "{{(states('sensor.boiler_running_time_prev_month') | float(0) * 2.6 * 0.574) | round(2)}}"
+      #   unit_of_measurement: "₪"        
+
+
+
+############################################################################
+#                                                                          #
+#   Boiler Statistics                                                      #
+#                                                                          #
+############################################################################
+
+  # Running Time Today
+  - platform: history_stats
+    name: boiler_running_time_today 
+    entity_id: switch.switcher_boiler
+    state: "on"
+    type: time
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now() }}"
+
+  # Running Time Yesterday
+  - platform: history_stats
+    name: boiler_running_time_yesterday 
+    entity_id: switch.switcher_boiler
+    state: "on"
+    type: time
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    duration:
+      hours: 24
+
+  # Running Time Current Month
+  - platform: history_stats
+    name: boiler_running_time_curr_month
+    entity_id: switch.switcher_boiler
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    end: "{{ now() }}"
+
+  # Running Time Previous Month
+  - platform: history_stats
+    name: boiler_running_time_prev_month
+    entity_id: switch.switcher_boiler
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+
+
+
+############################################################################
+#                                                                          #
+#   Boiler Energy Integration                                              #
+#                                                                          #
+############################################################################
+
+  - platform: integration
+    unique_id: switcher_boiler_energy
+    source: sensor.switcher_boiler_power_consumption
+    name: switcher_boiler_energy
+    unit_prefix: k
+    round: 2
+    method: left

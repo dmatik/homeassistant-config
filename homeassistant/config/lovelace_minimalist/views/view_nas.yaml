@@ -102,38 +102,46 @@ cards:
                       template: title
                       name: NAS
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # blaze
-                    - type: 'custom:button-card'
-                      template: card_nas_dima
-                      variables:
-                        ulm_card_nas_name: 'BLAZE'
-                        ulm_card_nas_entity: 'update.blaze_dsm_update'
-                        ulm_card_nas_label: 'DS216j'
-                        ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1'
-                        ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system'
-                        ulm_card_nas_ram_entity: 'sensor.synology_memory_usage_real'
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr
+                    cards:
 
-                    # zeg
-                    - type: 'custom:button-card'
-                      template: card_nas_dima
-                      variables:
-                        ulm_card_nas_name: 'ZEG'
-                        ulm_card_nas_entity: 'update.zeg_dsm_update'
-                        ulm_card_nas_label: 'DS218+'
-                        ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1_2'
-                        ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system_2'
-                        ulm_card_nas_ram_entity: 'sensor.synology_memory_usage_real_2'
+                      # blaze
+                      - type: 'custom:button-card'
+                        template: card_nas_dima
+                        variables:
+                          ulm_card_nas_name: 'BLAZE'
+                          ulm_card_nas_entity: 'update.blaze_dsm_update'
+                          ulm_card_nas_label: 'DS216j'
+                          ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1'
+                          ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system'
+                          ulm_card_nas_ram_entity: 'sensor.synology_memory_usage_real'
+
+                      # zeg
+                      - type: 'custom:button-card'
+                        template: card_nas_dima
+                        variables:
+                          ulm_card_nas_name: 'ZEG'
+                          ulm_card_nas_entity: 'update.zeg_dsm_update'
+                          ulm_card_nas_label: 'DS218+'
+                          ulm_card_nas_hd_entity: 'sensor.synology_volume_used_volume_1_2'
+                          ulm_card_nas_cpu_entity: 'sensor.synology_cpu_load_system_2'
+                          ulm_card_nas_ram_entity: 'sensor.synology_memory_usage_real_2'
 
                 - type: custom:button-card
                   template: spacer

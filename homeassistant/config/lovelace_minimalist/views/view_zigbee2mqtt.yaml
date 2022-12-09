@@ -102,24 +102,32 @@ cards:
                       template: title
                       name: Zigbee2mqtt
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Zigbee2mqtt
-                    - type: 'custom:button-card'
-                      template: card_zigbee2mqtt
-                      variables:
-                        ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_bridge_state'
-                        ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_version'
-                        ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_restart'
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr
+                    cards:
+
+                      # Zigbee2mqtt
+                      - type: 'custom:button-card'
+                        template: card_zigbee2mqtt
+                        variables:
+                          ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_bridge_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_restart'
 
                 - type: custom:button-card
                   template: spacer

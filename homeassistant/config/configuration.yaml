@@ -10,6 +10,9 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret time_zone
+
+  country: IL
+
   # Customization file
   customize: !include customize.yaml
 
@@ -87,7 +90,7 @@ lovelace:
 #Recorder
 recorder:
   auto_purge: true
-  purge_keep_days: 5
+  purge_keep_days: 64
   db_url: !secret synology_db_connection
   # include:
   #   domains:

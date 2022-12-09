@@ -128,41 +128,49 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Kids Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.kids_room
-                      name: Kids Room
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # Kids Room Radiator
-                    - type: 'custom:button-card'
-                      template: card_power_outlet
-                      variables:
-                        ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
-                      entity: switch.kids_radiator
-                      name: Radiator
-                      icon: mdi:radiator
+                      # Kids Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kids_room
+                        name: Kids Room
 
-                    # Kids Room Climate
-                    - type: 'custom:button-card'
-                      template: card_ac_buttons
-                      variables:
-                        ulm_card_ac_entity: climate.kids_room
-                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
-                        ulm_card_ac_name: 'Kids Room'
-                      view_layout:
-                        grid-row-start: span 2
+                      # Kids Room Radiator
+                      - type: 'custom:button-card'
+                        template: card_power_outlet
+                        variables:
+                          ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
+                        entity: switch.kids_radiator
+                        name: Radiator
+                        icon: mdi:radiator
+
+                      # Kids Room Climate
+                      - type: 'custom:button-card'
+                        template: card_ac_buttons
+                        variables:
+                          ulm_card_ac_entity: climate.kids_room
+                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
+                          ulm_card_ac_name: 'Kids Room'
+                        view_layout:
+                          grid-row-start: span 2
                         
 
 

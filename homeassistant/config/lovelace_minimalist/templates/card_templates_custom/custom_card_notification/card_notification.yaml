@@ -23,6 +23,7 @@ card_notification:
       - margin-bottom: "0px"
       - color: "rgba(var(--color-blue),1)"
       - padding: 0
+      - border-style: "none"
     img_cell:
       - background-color: "rgba(var(--color-blue),1)"
       - border-radius: "50%"

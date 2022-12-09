@@ -101,56 +101,64 @@ cards:
                       template: title
                       name: Sensors Batteries
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr
+                    cards:
 
                     # Work Room Temperature Sensor
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.work_room_temperature_sensor_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.work_room_temperature_sensor_battery
-                      name: Work Room Temperature Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.work_room_temperature_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.work_room_temperature_sensor_battery
+                        name: Work Room Temperature Sensor
 
-                    # Living Room Motion Sensor
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.living_room_motion_sensor_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.living_room_motion_sensor_battery
-                      name: Living Room Motion Sensor
+                      # Living Room Motion Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.living_room_motion_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.living_room_motion_sensor_battery
+                        name: Living Room Motion Sensor
 
-                    # Kitchen Motion Sensor
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.kitchen_motion_sensor_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.kitchen_motion_sensor_battery
-                      name: Kitchen Motion Sensor
+                      # Kitchen Motion Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.kitchen_motion_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.kitchen_motion_sensor_battery
+                        name: Kitchen Motion Sensor
 
-                    # Kitchen Motion Sensor 2
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.kitchen_motion_sensor_2_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.kitchen_motion_sensor_2_battery
-                      name: Kitchen Motion Sensor 2
+                      # Kitchen Motion Sensor 2
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.kitchen_motion_sensor_2_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.kitchen_motion_sensor_2_battery
+                        name: Kitchen Motion Sensor 2
 
 
 
@@ -167,66 +175,74 @@ cards:
                       template: title
                       name: Buttons Batteries
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Bedside Dima Button
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.bedside_dima_button_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.bedside_dima_button_battery
-                      name: Bedside Dima Button
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr          
+                    cards:
 
-                    # Bedside Galit Button
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.bedside_galit_button_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.bedside_galit_button_battery
-                      name: Bedside Galit Button
+                      # Bedside Dima Button
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.bedside_dima_button_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.bedside_dima_button_battery
+                        name: Bedside Dima Button
 
-                    # Makeup Button
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.makeup_button_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.makeup_button_battery
-                      name: Makeup Button
+                      # Bedside Galit Button
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.bedside_galit_button_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.bedside_galit_button_battery
+                        name: Bedside Galit Button
 
-                    # Kitchen Right Button
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.kitchen_strips_right_button_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.kitchen_strips_right_button_battery
-                      name: Kitchen Right Button
+                      # Makeup Button
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.makeup_button_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.makeup_button_battery
+                        name: Makeup Button
 
-                    # Kitchen Left Button
-                    - type: 'custom:button-card'
-                      template: card_battery
-                      variables:
-                        ulm_card_battery_battery_state_entity_id: sensor.kitchen_strips_left_button_battery
-                        ulm_card_battery_battery_level_danger: 10
-                        ulm_card_battery_battery_level_warning: 30
-                      entity: sensor.kitchen_strips_left_button_battery
-                      name: Kitchen Left Button
+                      # Kitchen Right Button
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.kitchen_strips_right_button_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.kitchen_strips_right_button_battery
+                        name: Kitchen Right Button
+
+                      # Kitchen Left Button
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.kitchen_strips_left_button_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.kitchen_strips_left_button_battery
+                        name: Kitchen Left Button
 
 
                 - type: custom:button-card

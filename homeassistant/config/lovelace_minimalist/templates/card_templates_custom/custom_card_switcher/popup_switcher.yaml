@@ -61,7 +61,123 @@ popup_switcher:
               show_label: false
 
 
+            ############################################################################
+            #                                                                          #
+            #   Sensors                                                                #
+            #                                                                          #
+            ############################################################################
 
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
+
+                # Today
+                - type: "custom:button-card"
+                  template: "popup_text_info"
+                  custom_fields:
+                    item1: 'Today:'
+                    item2: |
+                      [[[ 
+                        var sec_num = states['sensor.boiler_running_time_today'].state * 3600;
+                        var hours   = Math.floor(sec_num / 3600);
+                        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                        var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+                        if (minutes < 10) {minutes = "0"+minutes;}
+                        if (seconds < 10) {seconds = "0"+seconds;}
+                        
+                        var response = ""
+                        if (hours > 0) {response = hours + ':';}
+                        response += minutes+':'+seconds;
+
+                        response += ' • ₪ ' + states['sensor.switcher_boiler_cost_today'].state;
+
+                        return response;
+                      ]]]
+
+                # Yesterday
+                - type: "custom:button-card"
+                  template: "popup_text_info"
+                  custom_fields:
+                    item1: 'Yesterday:'
+                    item2: |
+                      [[[ 
+                        var sec_num = states['sensor.boiler_running_time_yesterday'].state * 3600;
+                        var hours   = Math.floor(sec_num / 3600);
+                        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                        var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+                        if (minutes < 10) {minutes = "0"+minutes;}
+                        if (seconds < 10) {seconds = "0"+seconds;}
+                        
+                        var response = ""
+                        if (hours > 0) {response = hours + ':';}
+                        response += minutes+':'+seconds;
+
+                        response += ' • ₪ ' + states['sensor.switcher_boiler_cost_yesterday'].state;
+
+                        return response;
+                      ]]]
+
+                # Current Month
+                - type: "custom:button-card"
+                  template: "popup_text_info"
+                  custom_fields:
+                    item1: 'Current Month:'
+                    item2: |
+                      [[[ 
+                        var sec_num = states['sensor.boiler_running_time_curr_month'].state * 3600;
+                        var hours   = Math.floor(sec_num / 3600);
+                        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                        var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+                        if (minutes < 10) {minutes = "0"+minutes;}
+                        if (seconds < 10) {seconds = "0"+seconds;}
+
+                        var response = ""
+                        if (hours > 0) {response = hours + ':';}
+                        response += minutes+':'+seconds;
+
+                        response += ' • ₪ ' + states['sensor.switcher_boiler_cost_curr_month'].state;
+
+                        return response;
+                      ]]]
+
+                # Previuos Month
+                - type: "custom:button-card"
+                  template: "popup_text_info"
+                  custom_fields:
+                    item1: 'Previuos Month:'
+                    item2: |
+                      [[[ 
+                        var sec_num = states['sensor.boiler_running_time_prev_month'].state * 3600;
+                        var hours   = Math.floor(sec_num / 3600);
+                        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                        var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+                        if (minutes < 10) {minutes = "0"+minutes;}
+                        if (seconds < 10) {seconds = "0"+seconds;}
+
+                        var response = ""
+                        if (hours > 0) {response = hours + ':';}
+                        response += minutes+':'+seconds;
+
+                        response += ' • ₪ ' + states['sensor.switcher_boiler_cost_prev_month'].state;
+
+                        return response;
+                      ]]]
+
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px
+                
 
             ############################################################################
             #                                                                          #
@@ -72,10 +188,19 @@ popup_switcher:
             - type: custom:layout-card
               layout_type: grid
               layout_options:
-                grid-template-columns: 1fr 1fr
+                grid-template-columns: 1fr 1fr 1fr
                 grid-template-rows: auto
                 grid-gap: 0px 4px
               cards:
+
+                - type: "custom:button-card"
+                  template: 
+                  - "popup_button_power"
+                  tap_action:
+                    action: 'call-service'
+                    service: 'switch.toggle'
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_switcher_entity ]]]'
 
                 - type: "custom:button-card"
                   triggers_update: "all"
@@ -109,8 +234,7 @@ popup_switcher:
             - type: "custom:button-card"
               template: spacer
               variables:
-                height: 40px
-
+                height: 20px
 
 
             ############################################################################
@@ -122,22 +246,13 @@ popup_switcher:
             - type: custom:layout-card
               layout_type: grid
               layout_options:
-                grid-template-columns: 1fr 1fr
+                grid-template-columns: 1fr
                 grid-template-rows: auto
                 grid-gap: 0px 4px
               cards:
 
                 - type: "custom:button-card"
                   template: "popup_button_back"
-
-                - type: "custom:button-card"
-                  template: 
-                  - "popup_button_power"
-                  tap_action:
-                    action: 'call-service'
-                    service: 'switch.toggle'
-                    service_data:
-                      entity_id: '[[[ return variables.ulm_card_switcher_entity ]]]'
 
             - type: "custom:button-card"
               template: spacer

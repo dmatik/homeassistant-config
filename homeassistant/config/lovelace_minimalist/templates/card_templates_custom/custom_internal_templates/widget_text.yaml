@@ -13,7 +13,7 @@ widget_text:
       - background-color: "rgba(var(--color-theme),0.05)"
       - border-radius: "var(--widget-border-radius)"
       - place-self: "center"
-      - height: "42px"
+      - height: "40px"
       - border-style: "none"
     name:
       - color: "rgba(var(--color-theme),0.9)"

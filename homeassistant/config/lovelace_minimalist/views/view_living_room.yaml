@@ -136,80 +136,88 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Living Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.living_room
-                      name: Living Room
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # Dining Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.dining
-                      name: Dining
+                      # Living Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.living_room
+                        name: Living Room
 
-                    # Living Room AC
-                    - type: 'custom:button-card'
-                      template: card_ac_buttons
-                      variables:
-                        ulm_card_ac_entity: climate.living_room
-                        ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
-                        ulm_card_ac_name: 'Living Room'
-                      view_layout:
-                        grid-row-start: span 2                        
+                      # Dining Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.dining
+                        name: Dining
 
-                    # Living Room TV
-                    - type: 'custom:button-card'
-                      template: 'card_harmony_with_buttons'
-                      variables:
-                        ulm_card_harmony_entity: remote.living_room
-                        ulm_card_harmony_name: 'Main TV'
-                        ulm_card_harmony_activity_1_name: 'Smart TV'
-                        ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
-                        ulm_card_harmony_activity_2_name: 'Shield TV'
-                        ulm_card_harmony_activity_2_icon: 'mdi:movie'
-                      view_layout:
-                        grid-row-start: span 2
-                        
-                    # Living Room Motion Sensor
-                    - type: 'custom:button-card'
-                      template: 'card_motion_sensor'
-                      entity: binary_sensor.living_room_motion_sensor_occupancy
-                      name: Motion
-                      show_last_changed: false
-                      variables:
-                        light_level: sensor.living_room_motion_sensor_illuminance_lux
+                      # Living Room AC
+                      - type: 'custom:button-card'
+                        template: card_ac_buttons
+                        variables:
+                          ulm_card_ac_entity: climate.living_room
+                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
+                          ulm_card_ac_name: 'Living Room'
+                        view_layout:
+                          grid-row-start: span 2                        
 
-                    # # New Year Tree Lights
-                    # - type: 'custom:button-card'
-                    #   template: 
-                    #     - card_ny_tree
-                    #   entity: light.new_year_tree
-                    #   icon: mdi:pine-tree
-                    #   name: NY Tree
+                      # Living Room TV
+                      - type: 'custom:button-card'
+                        template: 'card_harmony_with_buttons'
+                        variables:
+                          ulm_card_harmony_entity: remote.living_room
+                          ulm_card_harmony_name: 'Main TV'
+                          ulm_card_harmony_activity_1_name: 'Smart TV'
+                          ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
+                          ulm_card_harmony_activity_2_name: 'Shield TV'
+                          ulm_card_harmony_activity_2_icon: 'mdi:movie'
+                        view_layout:
+                          grid-row-start: span 2
+                          
+                      # Living Room Motion Sensor
+                      - type: 'custom:button-card'
+                        template: 'card_motion_sensor'
+                        entity: binary_sensor.living_room_motion_sensor_occupancy
+                        name: Motion
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.living_room_motion_sensor_illuminance_lux
 
-                    # Balcony Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.balcony
-                      name: Balcony
+                      # # New Year Tree Lights
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - card_ny_tree
+                      #   entity: light.new_year_tree
+                      #   icon: mdi:pine-tree
+                      #   name: NY Tree
 
-                    # Entrance Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.entrance
-                      name: Entrance
+                      # Balcony Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.balcony
+                        name: Balcony
+
+                      # Entrance Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.entrance
+                        name: Entrance
 
 
 

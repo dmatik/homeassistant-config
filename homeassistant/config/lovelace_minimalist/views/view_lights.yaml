@@ -123,48 +123,56 @@ cards:
 
 
                 # Lights
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # # New Year Tree Lights
-                    # - type: 'custom:button-card'
-                    #   template: 
-                    #     - card_ny_tree
-                    #   entity: light.new_year_tree
-                    #   icon: mdi:pine-tree
-                    #   name: NY Tree
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # Living Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.living_room
-                      name: Living Room
+                      # # New Year Tree Lights
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - card_ny_tree
+                      #   entity: light.new_year_tree
+                      #   icon: mdi:pine-tree
+                      #   name: NY Tree
 
-                    # Dining Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.dining
-                      name: Dining
+                      # Living Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.living_room
+                        name: Living Room
 
-                    # Balcony Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.balcony
-                      name: Balcony
+                      # Dining Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.dining
+                        name: Dining
 
-                    # Entrance Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.entrance
-                      name: Entrance
+                      # Balcony Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.balcony
+                        name: Balcony
+
+                      # Entrance Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.entrance
+                        name: Entrance
 
 
 
@@ -184,38 +192,46 @@ cards:
 
 
                 # Lights
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Kitchen Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.kitchen
-                      name: Kitchen
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # Kitchen Strips Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.kitchen_strips
-                      icon: 'mdi:led-strip-variant'
-                      variables:
-                        ulm_card_light_enable_color: true
-                        ulm_card_light_enable_popup: false
-                        ulm_card_light_name: Strips
+                      # Kitchen Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kitchen
+                        name: Kitchen
 
-                    # Service Balcony Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.service_balcony
-                      name: S. Balcony
+                      # Kitchen Strips Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kitchen_strips
+                        icon: 'mdi:led-strip-variant'
+                        variables:
+                          ulm_card_light_enable_color: true
+                          ulm_card_light_enable_popup: false
+                          ulm_card_light_name: Strips
+
+                      # Service Balcony Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.service_balcony
+                        name: S. Balcony
 
 
 
@@ -235,31 +251,39 @@ cards:
 
 
                 # Lights
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Hallway Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.hallway
-                      name: Hallway
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # Gateway Light
-                    # - type: 'custom:button-card'
-                    #   template: 'card_light_simple'
-                    #   entity: light.xiaomi_gateway_servers
-                    #   name: Gateway
-                    #   variables:
-                    #     ulm_card_light_enable_color: true
-                    #     ulm_card_light_enable_popup: true
+                      # Hallway Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.hallway
+                        name: Hallway
+
+                      # Gateway Light
+                      # - type: 'custom:button-card'
+                      #   template: 'card_light_simple'
+                      #   entity: light.xiaomi_gateway_servers
+                      #   name: Gateway
+                      #   variables:
+                      #     ulm_card_light_enable_color: true
+                      #     ulm_card_light_enable_popup: true
 
 
 
@@ -279,49 +303,57 @@ cards:
 
 
                 # Lights
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Bedroom Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.bedroom
-                      name: Bedroom
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # Makeup Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.makeup
-                      icon: mdi:string-lights
-                      name: Makeup
+                      # Bedroom Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bedroom
+                        name: Bedroom
 
-                    # Bedside Dima Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.bedside_dima_bulb
-                      icon: 'mdi:lamp'
-                      variables:
-                        ulm_card_light_enable_color: true
-                        ulm_card_light_enable_popup: false
-                        ulm_card_light_name: Dima
+                      # Makeup Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.makeup
+                        icon: mdi:string-lights
+                        name: Makeup
 
-                    # Bedside Galit Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.bedside_galit_bulb
-                      icon: 'mdi:lamp'
-                      variables:
-                        ulm_card_light_enable_color: true
-                        ulm_card_light_enable_popup: false
-                        ulm_card_light_name: Galit
+                      # Bedside Dima Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bedside_dima_bulb
+                        icon: 'mdi:lamp'
+                        variables:
+                          ulm_card_light_enable_color: true
+                          ulm_card_light_enable_popup: false
+                          ulm_card_light_name: Dima
+
+                      # Bedside Galit Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bedside_galit_bulb
+                        icon: 'mdi:lamp'
+                        variables:
+                          ulm_card_light_enable_color: true
+                          ulm_card_light_enable_popup: false
+                          ulm_card_light_name: Galit
 
 
 
@@ -341,22 +373,30 @@ cards:
 
 
                 # Lights
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Kids Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.kids_room
-                      name: Kids Room
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Kids Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kids_room
+                        name: Kids Room
 
 
 
@@ -376,22 +416,30 @@ cards:
 
 
                 # Lights
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Work Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.work_room
-                      name: Work Room
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Work Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.work_room
+                        name: Work Room
 
 
                 - type: custom:button-card

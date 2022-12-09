@@ -128,59 +128,67 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Work Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.work_room
-                      name: Work Room
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # Dimka PC
-                    - type: 'custom:button-card'
-                      template: card_pc
-                      entity: switch.dimka_hass_agent
-                      icon: 'mdi:desktop-classic'
-                      variables:
-                        ulm_card_pc_name: Dimka PC
-                        ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
-                        ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
-                        ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
-                        ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
-                        ulm_card_pc_wake: 'script.dimka_wake'
-                        ulm_card_pc_sleep: 'script.dimka_sleep'
-                        ulm_card_pc_restart: 'script.dimka_restart'
-                        ulm_card_pc_shutdown: 'script.dimka_shutdown'
+                      # Work Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.work_room
+                        name: Work Room
 
-                    # Work Room Temperature
-                    # - type: 'custom:button-card'
-                    #   template: card_graph
-                    #   variables:
-                    #     ulm_card_graph_color: "var(--google-blue)"
-                    #     ulm_card_graph_name: Work Room
-                    #     ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
-                    #   view_layout:
-                    #     grid-row-start: span 2
-                    - type: 'custom:button-card'
-                      template: card_generic
-                      entity: sensor.work_room_temperature_sensor_temperature
-                      name: Work Room
-                        
-                    # Printer
-                    - type: 'custom:button-card'
-                      template: card_printer
-                      entity: sensor.mfc_j650dw_status
-                      variables:
-                        ulm_card_printer_name: Printer
+                      # Dimka PC
+                      - type: 'custom:button-card'
+                        template: card_pc
+                        entity: switch.dimka_hass_agent
+                        icon: 'mdi:desktop-classic'
+                        variables:
+                          ulm_card_pc_name: Dimka PC
+                          ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
+                          ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
+                          ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
+                          ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
+                          ulm_card_pc_wake: 'script.dimka_wake'
+                          ulm_card_pc_sleep: 'script.dimka_sleep'
+                          ulm_card_pc_restart: 'script.dimka_restart'
+                          ulm_card_pc_shutdown: 'script.dimka_shutdown'
+
+                      # Work Room Temperature
+                      # - type: 'custom:button-card'
+                      #   template: card_graph
+                      #   variables:
+                      #     ulm_card_graph_color: "var(--google-blue)"
+                      #     ulm_card_graph_name: Work Room
+                      #     ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
+                      #   view_layout:
+                      #     grid-row-start: span 2
+                      - type: 'custom:button-card'
+                        template: card_generic
+                        entity: sensor.work_room_temperature_sensor_temperature
+                        name: Work Room
+                          
+                      # Printer
+                      - type: 'custom:button-card'
+                        template: card_printer
+                        entity: sensor.mfc_j650dw_status
+                        variables:
+                          ulm_card_printer_name: Printer
                       
 
 

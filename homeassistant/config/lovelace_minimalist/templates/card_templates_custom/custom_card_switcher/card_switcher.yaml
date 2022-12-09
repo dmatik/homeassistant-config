@@ -132,12 +132,12 @@ switcher_next_select:
       - background-color: "rgba(var(--color-theme),0.00)"
       - border-radius: "var(--widget-border-radius)"
       - place-self: "center"
-      - height: "42px"
+      - height: "40px"
       - border-style: "none"
     name:
       - color: "rgba(var(--color-theme),0.9)"
       - font-weight: '500'
       - font-size: '20px'
-      - padding-top: '1px'
+      - padding-top: '0.5px'
   size: "20px"
   color: "var(--google-grey)"          

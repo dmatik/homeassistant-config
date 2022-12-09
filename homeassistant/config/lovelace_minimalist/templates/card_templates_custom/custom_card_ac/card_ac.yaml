@@ -287,7 +287,7 @@ ac_widget_target_temp:
       - background-color: 'rgba(var(--color-theme),0)'
       - border-radius: 14px
       - place-self: center
-      - height: 42px
+      - height: 40px
       #- font-size: '22px'
       - border-style: "none"
     grid:
@@ -296,4 +296,4 @@ ac_widget_target_temp:
       - color: 'rgba(var(--color-theme),0.9)'
       - font-weight: '500'
       - font-size: '20px'
-      - padding-top: '0px'
+      - padding-top: '0.5px'

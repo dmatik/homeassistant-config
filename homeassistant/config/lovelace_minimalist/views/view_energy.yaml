@@ -1,5 +1,5 @@
-title: Bedroom
-path: minimalist_bedroom
+title: energy
+path: minimalist_energy
 visible: false
 # type: custom:grid-layout
 # layout:
@@ -23,8 +23,8 @@ cards:
       # - type: custom:button-card
       #   template: card_header
       #   variables:
-      #     card_header_title: Bedroom
-      #     card_header_navigate_path: /lovelace/minimalist_rooms
+      #     card_header_title: Home Assistant
+      #     card_header_navigate_path: /lovelace/minimalist_system
       #     card_header_back_button: true
 
 
@@ -86,30 +86,12 @@ cards:
                       - type: 'custom:button-card'
                         template: chip_back_new
                         variables:
-                          ulm_chip_navigate_path: /lovelace/minimalist_rooms
-
-                      # Temperature Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                        icon: 'mdi:thermometer'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
-
-                      # Lights Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_yellow'
-                        icon: 'mdi:lightbulb'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_bedroom
-
+                          ulm_chip_navigate_path: /lovelace/minimalist_system
 
 
           ############################################################################
           #                                                                          #
-          #   Title                                                                  #
+          #   Kids Radiator                                                          #
           #                                                                          #
           ############################################################################
 
@@ -118,15 +100,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Bedroom
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
+                      name: Kids Radiator
 
                 - type: "custom:mod-card"
                   style:
@@ -139,67 +113,118 @@ cards:
                     type: custom:layout-card
                     layout_type: grid
                     layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-columns: 1fr 1fr
                       grid-template-rows: auto
                       grid-gap: 0px 2px
                       mediaquery:
                         "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
+                          grid-template-columns: 1fr
                     cards:
 
-                      # Bedroom Light
+                      # Daily
                       - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.bedroom
-                        name: Bedroom
-
-                      # Bedroom Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
+                        template: card_energy_daily_graph
                         variables:
-                          ulm_card_ac_entity: climate.bedroom
-                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
-                          ulm_card_ac_name: 'Bedroom'
+                          ulm_card_energy_name: Daily
+                          ulm_card_energy_entity: sensor.kids_radiator_energy_today
+                          ulm_card_energy_cost_entity: sensor.kids_radiator_cost_today
+                          ulm_card_energy_type: bar
+                          ulm_card_energy_show_extrema: false
+                          ulm_card_energy_show_average: false
+                          ulm_card_energy_hours: 168
                         view_layout:
                           grid-row-start: span 2
-                          
-                      # Bedside Dima Light
+
+                      # Current Month
                       - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.bedside_dima_bulb
-                        icon: 'mdi:lamp'
+                        template: card_generic
+                        entity: sensor.kids_radiator_monthly_energy_meter
+                        name: Current Month
+                        icon: mdi:lightning-bolt
+                        label: |
+                          [[[
+                            return parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.kids_radiator_cost_curr_month'].state;
+                          ]]]
+
+                      # Previous Month
+                      - type: 'custom:button-card'
+                        template: card_generic
+                        entity: sensor.kids_radiator_monthly_energy_meter
+                        name: Previous Month
+                        icon: mdi:lightning-bolt
+                        label: |
+                          [[[
+                            return parseFloat(entity.attributes.last_period).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.kids_radiator_cost_prev_month'].state;
+                          ]]]
+
+
+          ############################################################################
+          #                                                                          #
+          #   Boiler                                                                 #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Boiler
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr
+                    cards:
+
+                      # Daily
+                      - type: 'custom:button-card'
+                        template: card_energy_daily_graph
                         variables:
-                          ulm_card_light_enable_color: true
-                          ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Dima
+                          ulm_card_energy_name: Daily
+                          ulm_card_energy_entity: sensor.switcher_boiler_daily_energy
+                          ulm_card_energy_cost_entity: sensor.switcher_boiler_cost_today
+                          ulm_card_energy_type: bar
+                          ulm_card_energy_show_extrema: false
+                          ulm_card_energy_show_average: false
+                          ulm_card_energy_hours: 168
+                        view_layout:
+                          grid-row-start: span 2
 
-                      # Bedside Galit Light
+                      # Current Month
                       - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.bedside_galit_bulb
-                        icon: 'mdi:lamp'
-                        variables:
-                          ulm_card_light_enable_color: true
-                          ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Galit
+                        template: card_generic
+                        entity: sensor.switcher_boiler_monthly_energy
+                        name: Current Month
+                        icon: mdi:lightning-bolt
+                        label: |
+                          [[[
+                            return parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.switcher_boiler_cost_curr_month'].state;
+                          ]]]
 
-                      # Makeup Light
+                      # Previous Month
                       - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.makeup
-                        icon: mdi:string-lights
-                        name: Makeup
-
-                      # Bedroom Radiator
-                      # - type: 'custom:button-card'
-                      #   template: card_power_outlet
-                      #   variables:
-                      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                      #   entity: switch.bedroom_radiator
-                      #   name: Radiator
-                      #   icon: mdi:radiator
-
-
+                        template: card_generic
+                        entity: sensor.switcher_boiler_monthly_energy
+                        name: Previous Month
+                        icon: mdi:lightning-bolt
+                        label: |
+                          [[[
+                            return parseFloat(entity.attributes.last_period).toFixed(2) + ' kWh' + ' • ₪ ' + states['sensor.switcher_boiler_cost_prev_month'].state;
+                          ]]]
 
                 - type: custom:button-card
                   template: spacer

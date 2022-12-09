@@ -17,6 +17,25 @@ sensor:
     scan_interval: 600
 
 
+  - platform: template
+    sensors:
+
+      kids_radiator_cost_today:
+        friendly_name: "Kids Radiator Daily Cost"
+        value_template: "{{(states('sensor.kids_radiator_energy_today') | float(0) * 0.574) | round(2)}}"
+        unit_of_measurement: "₪"
+
+      kids_radiator_cost_curr_month:
+        friendly_name: "Kids Radiator Current Month Cost"
+        value_template: "{{(states('sensor.kids_radiator_monthly_energy_meter') | float(0) * 0.574) | round(2)}}"
+        unit_of_measurement: "₪"
+
+      kids_radiator_cost_prev_month:
+        friendly_name: "Kids Radiator Previous Month Cost"
+        value_template: "{{(state_attr('sensor.kids_radiator_monthly_energy_meter', 'last_period') | float(0) * 0.574) | round(2)}}"
+        unit_of_measurement: "₪"
+
+
 
 ############################################################################
 #                                                                          #

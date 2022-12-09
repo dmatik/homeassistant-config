@@ -1,0 +1,15 @@
+utility_meter:
+
+  # Daily Energy
+  switcher_boiler_daily_energy:
+    source: sensor.switcher_boiler_energy
+    name: switcher_boiler_daily_energy
+    unique_id: switcher_boiler_daily_energy
+    cycle: daily
+
+  # Monthly Energy
+  switcher_boiler_monthly_energy:
+    source: sensor.switcher_boiler_energy
+    name: switcher_boiler_monthly_energy
+    unique_id: switcher_boiler_monthly_energy
+    cycle: monthly

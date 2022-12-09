@@ -120,31 +120,39 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 2px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
 
-                    # Hallway Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.hallway
-                      name: Hallway
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
-                    # Gateway Light
-                    # - type: 'custom:button-card'
-                    #   template: 'card_light_simple'
-                    #   entity: light.xiaomi_gateway_servers
-                    #   name: Gateway
-                    #   variables:
-                    #     ulm_card_light_enable_color: true
-                    #     ulm_card_light_enable_popup: true
+                      # Hallway Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.hallway
+                        name: Hallway
+
+                      # Gateway Light
+                      # - type: 'custom:button-card'
+                      #   template: 'card_light_simple'
+                      #   entity: light.xiaomi_gateway_servers
+                      #   name: Gateway
+                      #   variables:
+                      #     ulm_card_light_enable_color: true
+                      #     ulm_card_light_enable_popup: true
 
 
 
