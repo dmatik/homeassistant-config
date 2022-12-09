@@ -18,134 +18,82 @@ sensor:
     value_template: 'OK'
 
 
-  - platform: template
-    sensors:
-      switcher_boiler_time_left:
-        friendly_name: "Time Left"
-        icon_template: mdi:timelapse
-        value_template: >-
-          {% if is_state("sensor.switcher_boiler_state", "off") %}
-              off
-          {% else %}
-              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
-              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
-              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
-              {% set min_int = min|int %}
-              {% set hour_int = hour|int %}
-              {% if hour_int == 0 and min_int == 0 %}
-                  < 1 min
-              {% elif hour_int == 0 %}
-                  {{ min_int }} min
-              {% else %}
-                  {{ hour_int }}h {{ min_int }}m
-              {% endif %}
-          {% endif %}
+  # - platform: template
+  #   sensors:
+  #     switcher_boiler_time_left:
+  #       friendly_name: "Time Left"
+  #       icon_template: mdi:timelapse
+  #       value_template: >-
+  #         {% if is_state("sensor.switcher_boiler_state", "off") %}
+  #             off
+  #         {% else %}
+  #             {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
+  #             {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
+  #             {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
+  #             {% set min_int = min|int %}
+  #             {% set hour_int = hour|int %}
+  #             {% if hour_int == 0 and min_int == 0 %}
+  #                 < 1 min
+  #             {% elif hour_int == 0 %}
+  #                 {{ min_int }} min
+  #             {% else %}
+  #                 {{ hour_int }}h {{ min_int }}m
+  #             {% endif %}
+  #         {% endif %}
 
-      switcher_boiler_time_left_short:
-        friendly_name: "Time Left"
-        icon_template: mdi:timelapse
-        value_template: >-
-          {% if is_state("sensor.switcher_boiler_state", "off") %}
-              off
-          {% else %}
-              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
-              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
-              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
-              {% set min_int = min|int %}
-              {% set hour_int = hour|int %}
-              {{hour + ':' + min}}
-          {% endif %}
+  #     switcher_boiler_time_left_short:
+  #       friendly_name: "Time Left"
+  #       icon_template: mdi:timelapse
+  #       value_template: >-
+  #         {% if is_state("sensor.switcher_boiler_state", "off") %}
+  #             off
+  #         {% else %}
+  #             {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
+  #             {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
+  #             {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
+  #             {% set min_int = min|int %}
+  #             {% set hour_int = hour|int %}
+  #             {{hour + ':' + min}}
+  #         {% endif %}
 
-      switcher_boiler_auto_off_time:
-        friendly_name: "Auto Off"
-        icon_template: mdi:av-timer
-        value_template: >-
-          {% if is_state("sensor.switcher_boiler_state", "off") %}
-              off
-          {% else %}
-              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
-              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
-              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
-              {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
-              {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
-          {% endif %}
+  #     switcher_boiler_auto_off_time:
+  #       friendly_name: "Auto Off"
+  #       icon_template: mdi:av-timer
+  #       value_template: >-
+  #         {% if is_state("sensor.switcher_boiler_state", "off") %}
+  #             off
+  #         {% else %}
+  #             {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
+  #             {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
+  #             {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
+  #             {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
+  #             {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
+  #         {% endif %}
 
-      switcher_boiler_electric_current:
-        friendly_name: "Electric Current"
-        icon_template: mdi:flash-circle
-        unit_of_measurement: A
-        value_template: >-
-          {{ state_attr('sensor.switcher_boiler', 'electric_current') }}
+  #     switcher_boiler_electric_current:
+  #       friendly_name: "Electric Current"
+  #       icon_template: mdi:flash-circle
+  #       unit_of_measurement: A
+  #       value_template: >-
+  #         {{ state_attr('sensor.switcher_boiler', 'electric_current') }}
 
-      switcher_boiler_power_consumption:
-        friendly_name: "Power Consumption"
-        icon_template: mdi:flash-circle
-        unit_of_measurement: W
-        device_class: "power"
-        value_template: >-
-          {{ state_attr('sensor.switcher_boiler', 'power_consumption') }}
+  #     switcher_boiler_power_consumption:
+  #       friendly_name: "Power Consumption"
+  #       icon_template: mdi:flash-circle
+  #       unit_of_measurement: W
+  #       device_class: "power"
+  #       value_template: >-
+  #         {{ state_attr('sensor.switcher_boiler', 'power_consumption') }}
 
-      switcher_boiler_state:
-        friendly_name: "State"
-        icon_template: mdi:shower
-        value_template: >-
-          {% if state_attr('sensor.switcher_boiler', 'state') == 'ON' %}
-              on
-          {% else %}
-              off
-          {% endif %}
-
-
-############################################################################
-#                                                                          #
-#   Boiler Cost Count                                                      #
-#                                                                          #
-############################################################################
-
-      # Boiler Today Cost
-      switcher_boiler_cost_today:
-        friendly_name: "Boiler Today Cost"
-        value_template: "{{(states('sensor.switcher_boiler_daily_energy') | float(0) * 0.574) | round(2)}}"
-        unit_of_measurement: "₪"
-
-      # Boiler Yesterday Cost
-      switcher_boiler_cost_yesterday:
-        friendly_name: "Boiler Yesterday Cost"
-        value_template: "{{(state_attr('sensor.switcher_boiler_daily_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
-        unit_of_measurement: "₪"
-
-      # switcher_boiler_cost_today:
-      #   friendly_name: "Boiler Daily Cost"
-      #   value_template: "{{(states('sensor.boiler_running_time_today') | float(0) * 2.6 * 0.574) | round(2)}}"
-      #   unit_of_measurement: "₪"
-
-      # switcher_boiler_cost_yesterday:
-      #   friendly_name: "Boiler Yesterday Cost"
-      #   value_template: "{{(states('sensor.boiler_running_time_yesterday') | float(0) * 2.6 * 0.574) | round(2)}}"
-      #   unit_of_measurement: "₪"
-
-      # Boiler Curr Month Cost
-      switcher_boiler_cost_curr_month:
-        friendly_name: "Boiler Curr Month Cost"
-        value_template: "{{(states('sensor.switcher_boiler_monthly_energy') | float(0) * 0.574) | round(2)}}"
-        unit_of_measurement: "₪"
-
-      # Boiler Previous Month Cost
-      switcher_boiler_cost_prev_month:
-        friendly_name: "Boiler Previous Month Cost"
-        value_template: "{{(state_attr('sensor.switcher_boiler_monthly_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
-        unit_of_measurement: "₪"
-
-      # switcher_boiler_cost_curr_month:
-      #   friendly_name: "Boiler Curr Month Cost"
-      #   value_template: "{{(states('sensor.boiler_running_time_curr_month') | float(0) * 2.6 * 0.574) | round(2)}}"
-      #   unit_of_measurement: "₪"
-
-      # switcher_boiler_cost_prev_month:
-      #   friendly_name: "Boiler Previous Month Cost"
-      #   value_template: "{{(states('sensor.boiler_running_time_prev_month') | float(0) * 2.6 * 0.574) | round(2)}}"
-      #   unit_of_measurement: "₪"        
-
+  #     switcher_boiler_state:
+  #       friendly_name: "State"
+  #       icon_template: mdi:shower
+  #       value_template: >-
+  #         {% if state_attr('sensor.switcher_boiler', 'state') == 'ON' %}
+  #             on
+  #         {% else %}
+  #             off
+  #         {% endif %}
 
 
 ############################################################################
@@ -206,3 +154,142 @@ sensor:
     unit_prefix: k
     round: 2
     method: left
+
+
+
+template:
+
+############################################################################
+#                                                                          #
+#   Boiler Sensors                                                         #
+#                                                                          #
+############################################################################
+
+  # Time Left
+  - unique_id: switcher_boiler_time_left
+    sensor:
+      - name: "switcher_boiler_time_left"
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("sensor.switcher_boiler_state", "off") %}
+              off
+          {% else %}
+              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
+              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
+              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
+              {% set min_int = min|int %}
+              {% set hour_int = hour|int %}
+              {% if hour_int == 0 and min_int == 0 %}
+                  < 1 min
+              {% elif hour_int == 0 %}
+                  {{ min_int }} min
+              {% else %}
+                  {{ hour_int }}h {{ min_int }}m
+              {% endif %}
+          {% endif %}
+
+  # Time Left Short
+  - unique_id: switcher_boiler_time_left_short
+    sensor:
+      - name: "switcher_boiler_time_left_short"
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("sensor.switcher_boiler_state", "off") %}
+              off
+          {% else %}
+              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
+              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
+              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
+              {% set min_int = min|int %}
+              {% set hour_int = hour|int %}
+              {{hour + ':' + min}}
+          {% endif %}
+
+  # Auto Off
+  - unique_id: switcher_boiler_auto_off_time
+    sensor:
+      - name: "switcher_boiler_auto_off_time"
+        icon: mdi:av-timer
+        state: >-
+          {% if is_state("sensor.switcher_boiler_state", "off") %}
+              off
+          {% else %}
+              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
+              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
+              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
+              {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
+              {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
+          {% endif %}
+
+  # Electric Current
+  - unique_id: switcher_boiler_electric_current
+    sensor:
+      - name: "switcher_boiler_electric_current"
+        icon: mdi:flash-circle
+        unit_of_measurement: A
+        state: >-
+          {{ state_attr('sensor.switcher_boiler', 'electric_current') }}
+
+  # Power Consumption
+  - unique_id: switcher_boiler_power_consumption
+    sensor:
+      - name: "switcher_boiler_power_consumption"
+        icon: mdi:flash-circle
+        unit_of_measurement: W
+        device_class: "power"
+        state: >-
+          {{ state_attr('sensor.switcher_boiler', 'power_consumption') }}
+
+  # State
+  - unique_id: switcher_boiler_state
+    sensor:
+      - name: "switcher_boiler_state"
+        icon: mdi:shower
+        state: >-
+          {% if state_attr('sensor.switcher_boiler', 'state') == 'ON' %}
+              on
+          {% else %}
+              off
+          {% endif %}
+
+
+
+############################################################################
+#                                                                          #
+#   Boiler Cost Count                                                      #
+#                                                                          #
+############################################################################
+
+  # Boiler Today Cost
+  - unique_id: switcher_boiler_cost_today
+    sensor:
+      - name: "switcher_boiler_cost_today"
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        state: "{{(states('sensor.switcher_boiler_daily_energy') | float(0) * 0.574) | round(2)}}"
+
+  # Boiler Yesterday Cost
+  - unique_id: switcher_boiler_cost_yesterday
+    sensor:
+      - name: "switcher_boiler_cost_yesterday"
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        state: "{{(state_attr('sensor.switcher_boiler_daily_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
+
+  # Boiler Curr Month Cost
+  - unique_id: switcher_boiler_cost_curr_month
+    sensor:
+      - name: "switcher_boiler_cost_curr_month"
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        state: "{{(states('sensor.switcher_boiler_monthly_energy') | float(0) * 0.574) | round(2)}}"
+
+  # Boiler Previous Month Cost
+  - unique_id: switcher_boiler_cost_prev_month
+    sensor:
+      - name: "switcher_boiler_cost_prev_month"
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        state: "{{(state_attr('sensor.switcher_boiler_monthly_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
+ 
+
