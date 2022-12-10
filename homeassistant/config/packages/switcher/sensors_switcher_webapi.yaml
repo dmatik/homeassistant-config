@@ -150,7 +150,7 @@ sensor:
   - platform: integration
     unique_id: switcher_boiler_energy
     source: sensor.switcher_boiler_power_consumption
-    name: switcher_boiler_energy
+    name: Boiler
     unit_prefix: k
     round: 2
     method: left
@@ -260,28 +260,32 @@ template:
         unique_id: switcher_boiler_cost_today
         unit_of_measurement: "₪"
         state_class: total_increasing
-        state: "{{(states('sensor.switcher_boiler_daily_energy') | float(0) * 0.574) | round(2)}}"
+        device_class: monetary
+        state: "{{ ( states('sensor.switcher_boiler_daily_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
 
       # Boiler Yesterday Cost
       - name: "switcher_boiler_cost_yesterday"
         unique_id: switcher_boiler_cost_yesterday
         unit_of_measurement: "₪"
         state_class: total_increasing
-        state: "{{(state_attr('sensor.switcher_boiler_daily_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.switcher_boiler_daily_energy', 'last_period') | float(0) *states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
 
       # Boiler Curr Month Cost
       - name: "switcher_boiler_cost_curr_month"
         unique_id: switcher_boiler_cost_curr_month
         unit_of_measurement: "₪"
         state_class: total_increasing
-        state: "{{(states('sensor.switcher_boiler_monthly_energy') | float(0) * 0.574) | round(2)}}"
+        device_class: monetary
+        state: "{{ ( states('sensor.switcher_boiler_monthly_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
 
       # Boiler Previous Month Cost
       - name: "switcher_boiler_cost_prev_month"
         unique_id: switcher_boiler_cost_prev_month
         unit_of_measurement: "₪"
         state_class: total_increasing
-        state: "{{(state_attr('sensor.switcher_boiler_monthly_energy', 'last_period') | float(0) * 0.574) | round(2)}}"
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.switcher_boiler_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
  
 
 

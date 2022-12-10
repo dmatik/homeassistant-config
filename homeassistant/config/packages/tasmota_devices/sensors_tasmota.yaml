@@ -78,21 +78,24 @@ template:
         unique_id: kids_radiator_cost_today
         unit_of_measurement: "₪"
         state_class: total_increasing
-        state: "{{(states('sensor.kids_radiator_energy_today') | float(0) * 0.574) | round(2)}}"
+        device_class: monetary
+        state: "{{ ( states('sensor.kids_radiator_energy_today') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
 
       # Kids Radiator Current Month Cost
       - name: "kids_radiator_cost_curr_month"
         unique_id: kids_radiator_cost_curr_month
         unit_of_measurement: "₪"
         state_class: total_increasing
-        state: "{{(states('sensor.kids_radiator_monthly_energy_meter') | float(0) * 0.574) | round(2)}}"
+        device_class: monetary
+        state: "{{ ( states('sensor.kids_radiator_monthly_energy_meter') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
 
       # Kids Radiator Previous Month Cost
       - name: "kids_radiator_cost_prev_month"
         unique_id: kids_radiator_cost_prev_month
         unit_of_measurement: "₪"
         state_class: total_increasing
-        state: "{{(state_attr('sensor.kids_radiator_monthly_energy_meter', 'last_period') | float(0) * 0.574) | round(2)}}"
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.kids_radiator_monthly_energy_meter', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
 
 
 
