@@ -265,8 +265,6 @@ ac_list_items_favorite:
 
 
 ac_widget_target_temp:
-  tap_action:
-    action: toggle
   color: var(--google-grey-500)
   show_icon: false
   show_name: false
