@@ -126,7 +126,7 @@ cards:
                         template: card_energy_daily_graph
                         variables:
                           ulm_card_energy_name: Daily
-                          ulm_card_energy_entity: sensor.kids_radiator_energy_today
+                          ulm_card_energy_entity: sensor.kids_radiator_daily_energy
                           ulm_card_energy_cost_entity: sensor.kids_radiator_cost_today
                           ulm_card_energy_type: bar
                           ulm_card_energy_show_extrema: false
@@ -138,7 +138,7 @@ cards:
                       # Current Month
                       - type: 'custom:button-card'
                         template: card_generic
-                        entity: sensor.kids_radiator_monthly_energy_meter
+                        entity: sensor.kids_radiator_monthly_energy
                         name: Current Month
                         icon: mdi:lightning-bolt
                         label: |
@@ -162,7 +162,7 @@ cards:
                       # Previous Month
                       - type: 'custom:button-card'
                         template: card_generic
-                        entity: sensor.kids_radiator_monthly_energy_meter
+                        entity: sensor.kids_radiator_monthly_energy
                         name: Previous Month
                         icon: mdi:lightning-bolt
                         label: |

@@ -3,7 +3,7 @@ template:
     sensor:
 
       # Total Energy
-      - name: "Total Energy"
+      - name: "home_total_energy"
         unique_id: home_total_energy
         icon: mdi:home-lightning-bolt
         unit_of_measurement: kWh
@@ -15,7 +15,7 @@ template:
           }}
 
       # Electricity Current Price
-      - name: "Electricity Current Price"
+      - name: "electricity_current_price"
         unique_id: electricity_current_price
         icon: mdi:cash
         unit_of_measurement: "ILS/kWh"

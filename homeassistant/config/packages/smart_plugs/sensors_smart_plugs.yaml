@@ -1,0 +1,112 @@
+sensor:
+
+############################################################################
+#                                                                          #
+#   Kids Radiator Statistics                                               #
+#                                                                          #
+############################################################################
+
+  # Running Time Today
+  - platform: history_stats
+    name: kids_radiator_running_time_today 
+    entity_id: switch.kids_radiator
+    state: "on"
+    type: time
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now() }}"
+
+  # Running Time Yesterday
+  - platform: history_stats
+    name: kids_radiator_running_time_yesterday 
+    entity_id: switch.kids_radiator
+    state: "on"
+    type: time
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    duration:
+      hours: 24
+
+  # Running Time Current Month
+  - platform: history_stats
+    name: kids_radiator_running_time_curr_month
+    entity_id: switch.kids_radiator
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    end: "{{ now() }}"
+
+  # Running Time Previous Month
+  - platform: history_stats
+    name: kids_radiator_running_time_prev_month
+    entity_id: switch.kids_radiator
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+
+
+
+utility_meter:
+
+############################################################################
+#                                                                          #
+#   Kids Radiator Energy Meters                                            #
+#                                                                          #
+############################################################################
+
+  # Daily Energy
+  kids_radiator_daily_energy:
+    source: sensor.kids_radiator_energy_total
+    name: kids_radiator_daily_energy
+    unique_id: kids_radiator_daily_energy
+    cycle: daily
+
+  # Monthly Energy
+  kids_radiator_monthly_energy:
+    source: sensor.kids_radiator_energy_total
+    name: kids_radiator_monthly_energy
+    unique_id: kids_radiator_monthly_energy
+    cycle: monthly
+
+
+
+template:
+
+############################################################################
+#                                                                          #
+#   Kids Radiator Cost                                                     #
+#                                                                          #
+############################################################################
+
+    sensor:
+
+      # Kids Radiator Today Cost
+      - name: "kids_radiator_cost_today"
+        unique_id: kids_radiator_cost_today
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        device_class: monetary
+        state: "{{ ( states('sensor.kids_radiator_daily_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Kids Radiator Yesterday Cost
+      - name: "kids_radiator_cost_yesterday"
+        unique_id: kids_radiator_cost_yesterday
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.kids_radiator_daily_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Kids Radiator Current Month Cost
+      - name: "kids_radiator_cost_curr_month"
+        unique_id: kids_radiator_cost_curr_month
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        device_class: monetary
+        state: "{{ ( states('sensor.kids_radiator_monthly_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Kids Radiator Previous Month Cost
+      - name: "kids_radiator_cost_prev_month"
+        unique_id: kids_radiator_cost_prev_month
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.kids_radiator_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
