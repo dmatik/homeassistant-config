@@ -66,11 +66,11 @@ card_shelly_outdated:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "30px"
+            - left: "28px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
-            - border: "2px solid var(--card-background-color)"
+            - border: "none"
             - font-size: "12px"
             - line-height: "14px"
             - background-color: >

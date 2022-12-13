@@ -76,57 +76,25 @@ popup_switcher:
                 grid-gap: 0px 4px
               cards:
 
-                # Today
-                - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'Today:'
-                    item2: |
-                      [[[ 
-                        var sec_num = states['sensor.boiler_running_time_today'].state * 3600;
-                        var hours   = Math.floor(sec_num / 3600);
-                        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-                        var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
-
-                        var response = '';
-                        if (hours > 0) { response += hours + 'h'; }
-                        if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
-                        if (seconds > 0) { response += ' ' + seconds + 's'; }
-                        if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
-
-                        response += ' • ₪ ' + states['sensor.switcher_boiler_cost_today'].state;
-
-                        return response;
-                      ]]]
-
-                # Yesterday
-                - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'Yesterday:'
-                    item2: |
-                      [[[ 
-                        var sec_num = states['sensor.boiler_running_time_yesterday'].state * 3600;
-                        var hours   = Math.floor(sec_num / 3600);
-                        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-                        var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
-
-                        var response = '';
-                        if (hours > 0) { response += hours + 'h'; }
-                        if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
-                        if (seconds > 0) { response += ' ' + seconds + 's'; }
-                        if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
-
-                        response += ' • ₪ ' + states['sensor.switcher_boiler_cost_yesterday'].state;
-
-                        return response;
-                      ]]]
+                # Daily Graph
+                - type: 'custom:button-card'
+                  template: card_energy_daily_graph
+                  variables:
+                    ulm_card_energy_name: Daily
+                    ulm_card_energy_entity: sensor.switcher_boiler_daily_energy
+                    ulm_card_energy_cost_entity: sensor.switcher_boiler_cost_today
+                    ulm_card_energy_type: bar
+                    ulm_card_energy_show_extrema: false
+                    ulm_card_energy_show_average: false
+                    ulm_card_energy_hours: 168
+                  view_layout:
+                    grid-row-start: span 2
 
                 # Current Month
                 - type: "custom:button-card"
                   template: "popup_text_info"
                   custom_fields:
-                    item1: 'Current Month:'
+                    item1: 'Curr Month:'
                     item2: |
                       [[[ 
                         var sec_num = states['sensor.boiler_running_time_curr_month'].state * 3600;
@@ -140,6 +108,7 @@ popup_switcher:
                         if (seconds > 0) { response += ' ' + seconds + 's'; }
                         if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
 
+                        response += ' • ' + parseFloat(states['sensor.switcher_boiler_monthly_energy'].state).toFixed(2) + ' kWh'
                         response += ' • ₪ ' + states['sensor.switcher_boiler_cost_curr_month'].state;
 
                         return response;
@@ -149,7 +118,7 @@ popup_switcher:
                 - type: "custom:button-card"
                   template: "popup_text_info"
                   custom_fields:
-                    item1: 'Previuos Month:'
+                    item1: 'Prev Month:'
                     item2: |
                       [[[ 
                         var sec_num = states['sensor.boiler_running_time_prev_month'].state * 3600;
@@ -163,6 +132,7 @@ popup_switcher:
                         if (seconds > 0) { response += ' ' + seconds + 's'; }
                         if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
 
+                        response += ' • ' + parseFloat(states['sensor.switcher_boiler_monthly_energy'].attributes.last_period).toFixed(2) + ' kWh'
                         response += ' • ₪ ' + states['sensor.switcher_boiler_cost_prev_month'].state;
 
                         return response;

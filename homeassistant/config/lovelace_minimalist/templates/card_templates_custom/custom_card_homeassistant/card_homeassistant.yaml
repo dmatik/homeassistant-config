@@ -73,11 +73,11 @@ ha_new_version_available:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "26px"
+            - left: "28px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
-            - border: "2px solid var(--card-background-color)"
+            - border: "none"
             - font-size: "12px"
             - line-height: "14px"
             - background-color: >

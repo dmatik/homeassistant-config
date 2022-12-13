@@ -13,11 +13,11 @@ icon_info:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "26px"
+            - left: "28px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
-            - border: "2px solid var(--card-background-color)"
+            - border: "none"
             - font-size: "12px"
             - line-height: "14px"
             - background-color: >
@@ -71,6 +71,7 @@ icon_info:
       # - background-color: "rgba(var(--color-theme),0)"
       - border-style: "none"
       #- text-transform: "capitalize"
+      - position: inherit
   custom_fields:
     notification: >
       [[[

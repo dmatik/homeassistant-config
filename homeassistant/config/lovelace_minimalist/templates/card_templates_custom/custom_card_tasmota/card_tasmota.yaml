@@ -137,11 +137,11 @@ card_tasmota_devices_outdated:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "26px"
+            - left: "28px"
             - top: "-2px"
             - height: "16px"
             - width: "16px"
-            - border: "2px solid var(--card-background-color)"
+            - border: "none"
             - font-size: "12px"
             - line-height: "14px"
             - background-color: >
@@ -189,11 +189,11 @@ card_tasmota_outdated:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "38px"
+            - left: "40px"
             - top: "10px"
             - height: "16px"
             - width: "16px"
-            - border: "2px solid var(--card-background-color)"
+            - border: "none"
             - font-size: "12px"
             - line-height: "14px"
             - background-color: >

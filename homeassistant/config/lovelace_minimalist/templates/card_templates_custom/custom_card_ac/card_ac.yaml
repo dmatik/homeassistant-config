@@ -37,7 +37,6 @@ card_ac_buttons:
                 ]]]
               template:
                 - ac_text_info
-                - ac_curr_temp
                 - popup_ac
               variables:
                 ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
@@ -94,24 +93,6 @@ ac_text_info:
   show_icon: false
   show_label: true
   show_name: true
-  state:
-    - styles:
-        custom_fields:
-          notification:
-            - border-radius: "50%"
-            - position: "absolute"
-            - left: "26px"
-            - top: "-2px"
-            - height: "16px"
-            - width: "16px"
-            - border: "2px solid var(--card-background-color)"
-            - font-size: "12px"
-            - line-height: "14px"
-            - background-color: >
-                [[[
-                  return "rgba(var(--color-red),1)";
-                ]]]
-      value: "unavailable"
   styles:
     label:
       - justify-self: "start"
@@ -147,31 +128,6 @@ ac_text_info:
       - padding: "0px"
       # - background-color: "rgba(var(--color-theme),0)"
       - border-style: "none"
-    custom_fields:
-      curr_temp:
-        - color: 'rgba(var(--color-theme),1)'
-        - background-color: 'rgba(var(--color-theme),0.05)'
-        - border-radius: '50%'
-        - display: flex
-        - justify-content: center
-        - align-items: center
-        - width: '40px'
-        - height: '40px'      
-        - font-size: '18px'
-        - font-weight: '500'
-        - letter-spacing: '0px'
-  custom_fields:
-    notification: >
-      [[[
-        if (entity.state =="unavailable"){
-          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
-        }
-      ]]]
-  size: "20px"
-
-ac_curr_temp:
-  tap_action:
-    action: more-info
   label: >-
     [[[
         if (entity.state =='off') {
@@ -190,6 +146,46 @@ ac_curr_temp:
         return entity.state;
     ]]]
   custom_fields:
+    curr_temp:
+      card:
+        entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+        template:
+          - ac_curr_temp
+        variables:
+          ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+        type: 'custom:button-card'
+  size: "20px"
+
+ac_curr_temp:
+  color: "var(--google-grey)"
+  show_icon: false
+  show_label: false
+  show_name: false
+  grid:
+    - grid-template-areas: "'curr_temp'"
+    - grid-template-columns: "min-content"
+    - grid-template-rows: "min-content"
+  tap_action:
+    action: toggle
+  styles:
+    card:
+      - border-style: none
+      - padding: "0px"
+      - position: inherit
+    custom_fields:
+      curr_temp:
+        - color: 'rgba(var(--color-theme),1)'
+        - background-color: 'rgba(var(--color-theme),0.05)'
+        - border-radius: '50%'
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - width: '40px'
+        - height: '40px'      
+        - font-size: '18px'
+        - font-weight: '500'
+        - letter-spacing: '0px'
+  custom_fields:
     curr_temp: |-
       [[[
           var curr_temp = entity.attributes.current_temperature;
@@ -197,6 +193,12 @@ ac_curr_temp:
             var curr_temp = '--';
           }
           return curr_temp.toFixed(0) + '°';
+      ]]]
+    notification: >
+      [[[
+        if (entity.state =="unavailable"){
+          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
+        }
       ]]]
   state:
     - operator: template
@@ -249,6 +251,24 @@ ac_curr_temp:
           curr_temp:
             - color: 'rgba(var(--color-red),1)'
             - background-color: 'rgba(var(--color-red),0.2)'
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - left: "28px"
+            - top: "-2px"
+            - height: "16px"
+            - width: "16px"
+            - border: "none"
+            - font-size: "12px"
+            - line-height: "14px"
+            - background-color: >
+                [[[
+                  return "rgba(var(--color-red),1)";
+                ]]]
+      
 
 
 ac_list_items_favorite:

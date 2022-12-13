@@ -14,11 +14,11 @@ icon_info_bg:
           notification:
             - border-radius: "50%"
             - position: "absolute"
-            - left: "38px"
+            - left: "40px"
             - top: "10px"
             - height: "16px"
             - width: "16px"
-            - border: "2px solid var(--card-background-color)"
+            - border: "none"
             - font-size: "12px"
             - line-height: "14px"
             - background-color: >
