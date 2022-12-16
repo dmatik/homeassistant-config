@@ -8,23 +8,6 @@ icon_info_bg:
   show_label: true
   show_name: true
   state:
-    # - value: "unavailable"
-    #   styles:
-    #     custom_fields:
-    #       notification:
-    #         - border-radius: "50%"
-    #         - position: "absolute"
-    #         - left: "40px"
-    #         - top: "8px"
-    #         - height: "16px"
-    #         - width: "16px"
-    #         - border: "none"
-    #         - font-size: "12px"
-    #         - line-height: "14px"
-    #         - background-color: >
-    #             [[[
-    #               return "rgba(var(--color-red),1)";
-    #             ]]]
     - value: "unavailable"
       styles:
         custom_fields:
@@ -77,12 +60,6 @@ icon_info_bg:
       - padding: "var(--card-padding)"
       #- border-style: "none"
   custom_fields:
-    # notification: >
-    #   [[[
-    #     if (entity.state =="unavailable"){
-    #       return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
-    #     }
-    #   ]]]
     notification:
       card:
         type: "custom:button-card"

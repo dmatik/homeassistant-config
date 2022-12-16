@@ -74,20 +74,6 @@ ha_new_version_available:
             - position: "absolute"
             - left: "28px"
             - top: "-4px"
-          # notification:
-          #   - border-radius: "50%"
-          #   - position: "absolute"
-          #   - left: "28px"
-          #   - top: "-2px"
-          #   - height: "16px"
-          #   - width: "16px"
-          #   - border: "none"
-          #   - font-size: "12px"
-          #   - line-height: "14px"
-          #   - background-color: >
-          #       [[[
-          #         return "rgba(var(--color-blue),1)";
-          #       ]]]
         icon:
           - color: 'rgba(var(--color-blue),1)'
         img_cell:
@@ -114,11 +100,3 @@ ha_new_version_available:
                 return "rgba(var(--color-blue),1)";
               }
             ]]]
-    # notification: >
-    #   [[[
-    #     if ( entity.state =="unavailable" ) {
-    #       return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-    #     } else if ( entity.state =="on" ) {
-    #       return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-    #     }
-    #   ]]]

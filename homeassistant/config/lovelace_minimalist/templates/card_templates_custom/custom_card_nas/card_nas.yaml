@@ -36,6 +36,8 @@ card_nas_dima:
         styles:
           card:
             - padding: "var(--card-padding)"
+          icon:
+            - color: "rgba(var(--color-theme),0.9)"
     item2:
       card:
         type: 'custom:button-card'
@@ -63,6 +65,7 @@ card_nas_dima:
           mini_graph_entity: '[[[ return variables.ulm_card_nas_ram_entity ]]]'
 
 
+
 nas_new_version_available:
   state:
     - value: "on"
@@ -72,20 +75,6 @@ nas_new_version_available:
             - position: "absolute"
             - left: "40px"
             - top: "8px"
-          # notification:
-          #   - border-radius: "50%"
-          #   - position: "absolute"
-          #   - left: "42px"
-          #   - top: "10px"
-          #   - height: "16px"
-          #   - width: "16px"
-          #   - border: "2px solid var(--card-background-color)"
-          #   - font-size: "12px"
-          #   - line-height: "14px"
-          #   - background-color: >
-          #       [[[
-          #         return "rgba(var(--color-blue),1)";
-          #       ]]]
         icon:
           - color: 'rgba(var(--color-blue),1)'
         img_cell:
@@ -112,11 +101,3 @@ nas_new_version_available:
                 return "rgba(var(--color-blue),1)";
               }
             ]]]
-    # notification: >
-    #   [[[
-    #     if ( entity.state =="unavailable" ) {
-    #       return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-    #     } else if ( entity.state =="on" ) {
-    #       return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-    #     }
-    #   ]]]

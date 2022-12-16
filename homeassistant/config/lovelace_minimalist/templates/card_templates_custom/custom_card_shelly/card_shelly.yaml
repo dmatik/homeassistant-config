@@ -67,20 +67,6 @@ card_shelly_outdated:
             - position: "absolute"
             - left: "28px"
             - top: "-4px"
-          # notification:
-          #   - border-radius: "50%"
-          #   - position: "absolute"
-          #   - left: "28px"
-          #   - top: "-2px"
-          #   - height: "16px"
-          #   - width: "16px"
-          #   - border: "none"
-          #   - font-size: "12px"
-          #   - line-height: "14px"
-          #   - background-color: >
-          #       [[[
-          #         return "rgba(var(--color-blue),1)";
-          #       ]]]
   custom_fields:
     notification:
       card:
@@ -103,11 +89,3 @@ card_shelly_outdated:
                 return "rgba(var(--color-blue),1)";
               }
             ]]]
-    # notification: >
-    #   [[[
-    #     if ( entity.state =="unavailable" ) {
-    #       return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-    #     } else if ( states[variables.ulm_card_shelly_latest_version].state.split('v')[1] != states[variables.ulm_card_shelly_version].state.split('(')[0] ) {
-    #       return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-    #     }
-    #   ]]]

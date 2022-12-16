@@ -6,7 +6,7 @@ card_printer:
     - 'icon_info_bg'
     - 'ulm_language_variables'
     - 'popup_printer'
-    - 'printer_ink_low'
+    - 'badge_notification_alt'
   icon: 'mdi:printer-wireless'
   name: '[[[ return variables.ulm_card_printer_name ]]]'
   label: |-
@@ -34,29 +34,9 @@ card_printer:
       value: "ready"
 
 
+# Not in use
 printer_ink_low:
   state:
-    # - value: "ink low"
-    #   styles:
-    #     custom_fields:
-    #       notification:
-    #         - border-radius: "50%"
-    #         - position: "absolute"
-    #         - left: "40px"
-    #         - top: "10px"
-    #         - height: "16px"
-    #         - width: "16px"
-    #         - border: "none"
-    #         - font-size: "12px"
-    #         - line-height: "14px"
-    #         - background-color: >
-    #             [[[
-    #               return "rgba(var(--color-blue),1)";
-    #             ]]]
-    #     icon:
-    #       - color: 'rgba(var(--color-blue),1)'
-    #     img_cell:
-    #       - background-color: 'rgba(var(--color-blue), 0.2)'
     - value: "ink low"
       styles:
         custom_fields:
@@ -69,14 +49,6 @@ printer_ink_low:
         img_cell:
           - background-color: 'rgba(var(--color-blue), 0.2)'
   custom_fields:
-    # notification: >
-    #   [[[
-    #     if ( entity.state =="unavailable" ) {
-    #       return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-    #     } else if ( entity.state =="ink low" ) {
-    #       return `<ha-icon icon="mdi:water" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-    #     }
-    #   ]]]
     notification:
       card:
         type: "custom:button-card"
