@@ -2,18 +2,6 @@ template:
 
     sensor:
 
-      # Total Energy
-      - name: "home_total_energy"
-        unique_id: home_total_energy
-        icon: mdi:home-lightning-bolt
-        unit_of_measurement: kWh
-        device_class: energy
-        state_class: total_increasing
-        state: >-
-          {{ states('sensor.switcher_boiler_energy') | float(0)
-            + states('sensor.kids_radiator_energy_total') | float(0)
-          }}
-
       # Electricity Current Price
       - name: "electricity_current_price"
         unique_id: electricity_current_price

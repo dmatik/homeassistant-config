@@ -157,7 +157,6 @@ cards:
                       - type: 'custom:button-card'
                         template: card_pc
                         entity: switch.dimka_hass_agent
-                        icon: 'mdi:desktop-classic'
                         variables:
                           ulm_card_pc_name: Dimka PC
                           ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'

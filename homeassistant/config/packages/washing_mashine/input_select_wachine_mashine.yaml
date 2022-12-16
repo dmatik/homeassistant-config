@@ -1,0 +1,8 @@
+input_select:
+
+  washing_machine_status:
+    name: Washing Machine Status
+    options:
+        - "Running"
+        - "Waiting"
+        - "Finished"

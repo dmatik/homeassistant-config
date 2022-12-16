@@ -206,6 +206,12 @@ cards:
                         variables:
                           light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
 
+                      # Washing Machine
+                      - type: 'custom:button-card'
+                        template: card_washing_machine
+                        entity: input_select.washing_machine_status
+                        variables:
+                          ulm_card_washing_machine_name: Washing
 
 
                 - type: custom:button-card

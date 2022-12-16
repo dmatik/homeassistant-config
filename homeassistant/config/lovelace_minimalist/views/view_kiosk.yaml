@@ -147,6 +147,10 @@ cards:
               #     card_image_image: '/local/images/wifi_guest.png'
 
 
+
+
+
+
 ############################################################################
 #                                                                          #
 #   Middle Column                                                          #
@@ -288,7 +292,6 @@ cards:
               - type: 'custom:button-card'
                 template: card_pc
                 entity: switch.dimka_hass_agent
-                icon: 'mdi:desktop-classic'
                 variables:
                   ulm_card_pc_name: Dimka PC
                   ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
@@ -308,6 +311,7 @@ cards:
                   ulm_card_printer_name: Printer
 
 
+                  
 
 ############################################################################
 #                                                                          #
