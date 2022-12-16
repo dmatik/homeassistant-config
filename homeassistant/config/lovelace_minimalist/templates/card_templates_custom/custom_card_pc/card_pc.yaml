@@ -8,6 +8,7 @@ card_pc:
     - 'ulm_language_variables'
     - 'popup_pc'
   name: '[[[ return variables.ulm_card_pc_name ]]]'
+  icon: 'mdi:desktop-classic'
   label: |-
     [[[
       if (entity.state === "on") {

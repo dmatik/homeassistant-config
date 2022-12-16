@@ -64,25 +64,50 @@ card_shelly_outdated:
       styles:
         custom_fields:
           notification:
-            - border-radius: "50%"
             - position: "absolute"
             - left: "28px"
-            - top: "-2px"
-            - height: "16px"
-            - width: "16px"
-            - border: "none"
-            - font-size: "12px"
-            - line-height: "14px"
-            - background-color: >
-                [[[
-                  return "rgba(var(--color-blue),1)";
-                ]]]
+            - top: "-4px"
+          # notification:
+          #   - border-radius: "50%"
+          #   - position: "absolute"
+          #   - left: "28px"
+          #   - top: "-2px"
+          #   - height: "16px"
+          #   - width: "16px"
+          #   - border: "none"
+          #   - font-size: "12px"
+          #   - line-height: "14px"
+          #   - background-color: >
+          #       [[[
+          #         return "rgba(var(--color-blue),1)";
+          #       ]]]
   custom_fields:
-    notification: >
-      [[[
-        if ( entity.state =="unavailable" ) {
-          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-        } else if ( states[variables.ulm_card_shelly_latest_version].state.split('v')[1] != states[variables.ulm_card_shelly_version].state.split('(')[0] ) {
-          return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
-        }
-      ]]]
+    notification:
+      card:
+        type: "custom:button-card"
+        template: "badge"
+        icon: >
+          [[[
+            if ( entity.state =="unavailable" ) {
+              return "mdi:exclamation";
+            } else if ( entity.state =="on" ) {
+              return "mdi:party-popper";
+            }
+          ]]]
+        variables:
+          ulm_badge_icon_backgroung_color: >
+            [[[
+              if ( entity.state =="unavailable" ) {
+                return "rgba(var(--color-red),1)";
+              } else if ( entity.state =="on" ) {
+                return "rgba(var(--color-blue),1)";
+              }
+            ]]]
+    # notification: >
+    #   [[[
+    #     if ( entity.state =="unavailable" ) {
+    #       return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+    #     } else if ( states[variables.ulm_card_shelly_latest_version].state.split('v')[1] != states[variables.ulm_card_shelly_version].state.split('(')[0] ) {
+    #       return `<ha-icon icon="mdi:party-popper" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+    #     }
+    #   ]]]

@@ -8,23 +8,30 @@ icon_info:
   show_label: true
   show_name: true
   state:
-    - styles:
+    # - styles:
+    #     custom_fields:
+    #       notification:
+    #         - border-radius: "50%"
+    #         - position: "absolute"
+    #         - left: "28px"
+    #         - top: "-2px"
+    #         - height: "16px"
+    #         - width: "16px"
+    #         - border: "none"
+    #         - font-size: "12px"
+    #         - line-height: "14px"
+    #         - background-color: >
+    #             [[[
+    #               return "rgba(var(--color-red),1)";
+    #             ]]]
+    #   value: "unavailable"
+    - value: "unavailable"
+      styles:
         custom_fields:
           notification:
-            - border-radius: "50%"
             - position: "absolute"
             - left: "28px"
-            - top: "-2px"
-            - height: "16px"
-            - width: "16px"
-            - border: "none"
-            - font-size: "12px"
-            - line-height: "14px"
-            - background-color: >
-                [[[
-                  return "rgba(var(--color-red),1)";
-                ]]]
-      value: "unavailable"
+            - top: "-4px"
   styles:
     icon:
       - color: "rgba(var(--color-theme),0.2)"
@@ -73,10 +80,27 @@ icon_info:
       #- text-transform: "capitalize"
       - position: inherit
   custom_fields:
-    notification: >
-      [[[
-        if (entity.state =="unavailable"){
-          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
-        }
-      ]]]
+    # notification: >
+    #   [[[
+    #     if (entity.state =="unavailable"){
+    #       return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
+    #     }
+    #   ]]]
+    notification:
+      card:
+        type: "custom:button-card"
+        template: "badge"
+        icon: >
+          [[[
+            if ( entity.state =="unavailable" ) {
+              return "mdi:exclamation";
+            }
+          ]]]
+        variables:
+          ulm_badge_icon_backgroung_color: >
+            [[[
+              if ( entity.state =="unavailable" ) {
+                return "rgba(var(--color-red),1)";
+              }
+            ]]]
   size: "20px"

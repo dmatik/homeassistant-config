@@ -1,0 +1,38 @@
+badge:
+  variables:
+    ulm_badge_icon_color: "var(--primary-background-color)"
+    ulm_badge_icon_backgroung_color: "rgba(var(--color-red),1)"
+  tap_action:
+    action: "none"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - background-color: "rgba(0,0,0,0)"
+      - box-shadow: "none"
+      - height: "auto"
+      - width: "auto"
+      - margin-bottom: "0px"
+      - padding-bottom: "0px"
+      - border-radius: "0px"
+      - border-style: "none"
+      - overflow: "inherit"
+      - z-index: 1
+    img_cell:
+      - background-color: "[[[ return variables.ulm_badge_icon_backgroung_color; ]]]"
+      - border-radius: "50%"
+      - place-self: "center"
+      - width: "16px"
+      - height: "16px"
+    icon:
+      - color: "[[[ return variables.ulm_badge_icon_color; ]]]"
+      - width: "12px"
+      - height: "12px"
+      - display: flex
+      - justify-content: center
+      - align-items: center

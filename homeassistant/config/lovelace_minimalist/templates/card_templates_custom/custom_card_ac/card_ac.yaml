@@ -10,6 +10,7 @@ card_ac_buttons:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
       - padding: "var(--card-padding)"
+      - position: inherit
     grid:
       - grid-template-areas: '"item1" "item2"'
       - grid-template-columns: 1fr
@@ -20,7 +21,9 @@ card_ac_buttons:
       card:
         template: 
           - ac_list_items_favorite
+          - ac_badge
         type: custom:button-card
+        entity: '[[[ return variables.ulm_card_ac_entity ]]]'
         custom_fields:
           item1:
             card:
@@ -88,6 +91,34 @@ card_ac_buttons:
                     type: 'custom:button-card'
                     template: widget_icon_transparent
 
+ac_badge:
+  custom_fields:
+    notification:
+      card:
+        type: "custom:button-card"
+        template: "badge"
+        icon: >
+          [[[
+            if ( entity.state =="unavailable" ) {
+              return "mdi:exclamation";
+            }
+          ]]]
+        variables:
+          ulm_badge_icon_backgroung_color: >
+            [[[
+              if ( entity.state =="unavailable" ) {
+                return "rgba(var(--color-red),1)";
+              }
+            ]]]
+  state:
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - position: "absolute"
+            - left: "28px"
+            - top: "-4px"
+
 ac_text_info:
   color: "var(--google-grey)"
   show_icon: false
@@ -128,6 +159,7 @@ ac_text_info:
       - padding: "0px"
       # - background-color: "rgba(var(--color-theme),0)"
       - border-style: "none"
+      - position: inherit
   label: >-
     [[[
         if (entity.state =='off') {
@@ -194,12 +226,12 @@ ac_curr_temp:
           }
           return curr_temp.toFixed(0) + '°';
       ]]]
-    notification: >
-      [[[
-        if (entity.state =="unavailable"){
-          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
-        }
-      ]]]
+    # notification: >
+    #   [[[
+    #     if (entity.state =="unavailable"){
+    #       return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
+    #     }
+    #   ]]]
   state:
     - operator: template
       value: >
@@ -251,32 +283,36 @@ ac_curr_temp:
           curr_temp:
             - color: 'rgba(var(--color-red),1)'
             - background-color: 'rgba(var(--color-red),0.2)'
-    - value: "unavailable"
-      styles:
-        custom_fields:
-          notification:
-            - border-radius: "50%"
-            - position: "absolute"
-            - left: "28px"
-            - top: "-2px"
-            - height: "16px"
-            - width: "16px"
-            - border: "none"
-            - font-size: "12px"
-            - line-height: "14px"
-            - background-color: >
-                [[[
-                  return "rgba(var(--color-red),1)";
-                ]]]
+    # - value: "unavailable"
+    #   styles:
+    #     custom_fields:
+    #       notification:
+    #         - border-radius: "50%"
+    #         - position: "absolute"
+    #         - left: "28px"
+    #         - top: "-4px"
+    #         - height: "16px"
+    #         - width: "16px"
+    #         - border: "none"
+    #         - font-size: "12px"
+    #         - line-height: "14px"
+    #         - background-color: >
+    #             [[[
+    #               return "rgba(var(--color-red),1)";
+    #             ]]]
       
 
 
 ac_list_items_favorite:
+  show_icon: false
+  show_label: false
+  show_name: false
   styles:
     card:
       - box-shadow: none
       - padding: 0px
       - border-style: "none"
+      - position: inherit
     grid:
       - grid-template-areas: '"item1 item1"'
       - grid-template-columns: 1fr 1fr
