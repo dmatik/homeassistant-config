@@ -32,7 +32,7 @@ card_energy_daily_graph:
         show:
           name: false
           icon: false
-          legend: true
+          legend: false
           labels: false
           #state: true
           graph: 'bar'

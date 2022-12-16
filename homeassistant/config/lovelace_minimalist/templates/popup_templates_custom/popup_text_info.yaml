@@ -22,19 +22,21 @@ popup_text_info:
         - display: flex
         - justify-content: center
         - align-items: center
-        - height: "20px"
+        #- height: "20px"
         - justify-self: "start"
         - font-weight: "bolder"
         - font-size: "14px"
         - filter: "opacity(80%)"
         - margin-left: "2px"
+        - align-self: "start"
       item2:
         - display: flex
         - justify-content: center
         - align-items: center
-        - height: "20px"
+        #- height: "20px"
         - justify-self: "end"
         - font-weight: "bolder"
         - font-size: "14px"
         - filter: "opacity(90%)"
         - margin-right: "2px"
+        - text-align: "end"
