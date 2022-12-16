@@ -301,31 +301,44 @@ services:
             - /volume1/docker/homebridge:/homebridge
 
 
-    cloudflare-ddns:
-        container_name: cloudflare-ddns
-        hostname: cloudflare-ddns
-        image: hotio/cloudflare-ddns:latest
+    # cloudflare-ddns:
+    #     container_name: cloudflare-ddns
+    #     hostname: cloudflare-ddns
+    #     image: hotio/cloudflare-ddns:latest
+    #     restart: always
+    #     volumes:
+    #         - /volume1/docker/cloudflare/config:/config
+    #         - /etc/localtime:/etc/localtime
+    #     environment:
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #         UMASK: 002
+    #         TZ: "Asia/Jerusalem"
+    #         ARGS: ""
+    #         INTERVAL: 300
+    #         DETECTION_MODE: "dig-opendns.com"
+    #         LOG_LEVEL: 2
+    #         CF_USER: ${CF_USER}
+    #         CF_APIKEY: ${CF_APIKEY}
+    #         CF_ZONES: ${CF_DOMAIN}
+    #         CF_HOSTS: ${CF_DOMAIN}
+    #         CF_RECORDTYPES: A
+    #     network_mode: bridge
+    #     labels:
+    #         - com.centurylinklabs.watchtower.enable=false
+
+    cloudflare-tunnel:
+        container_name: cloudflare-tunnel
+        hostname: cloudflare-tunnel
+        image: cloudflare/cloudflared:latest
         restart: always
         volumes:
             - /volume1/docker/cloudflare/config:/config
             - /etc/localtime:/etc/localtime
         environment:
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-            UMASK: 002
             TZ: "Asia/Jerusalem"
-            ARGS: ""
-            INTERVAL: 300
-            DETECTION_MODE: "dig-opendns.com"
-            LOG_LEVEL: 2
-            CF_USER: ${CF_USER}
-            CF_APIKEY: ${CF_APIKEY}
-            CF_ZONES: ${CF_DOMAIN}
-            CF_HOSTS: ${CF_DOMAIN}
-            CF_RECORDTYPES: A
-        network_mode: bridge
-        labels:
-            - com.centurylinklabs.watchtower.enable=false
+        network_mode: host   
+        command: tunnel --no-autoupdate run --token ${CF_TUNNEL_TOKEN}      
 
     switcher_webapi:
         image: tomerfi/switcher_webapi:latest
