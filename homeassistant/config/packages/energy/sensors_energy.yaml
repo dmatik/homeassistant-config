@@ -7,4 +7,4 @@ template:
         unique_id: electricity_current_price
         icon: mdi:cash
         unit_of_measurement: "ILS/kWh"
-        state: 0.574
+        state: 0.625
