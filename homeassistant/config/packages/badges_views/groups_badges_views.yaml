@@ -13,6 +13,7 @@ group:
       - climate.bedroom
       - climate.kids_room
       - switch.kids_radiator
+      - switch.bedroom_radiator
 
 
 
