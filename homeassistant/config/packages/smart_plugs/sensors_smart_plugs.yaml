@@ -40,7 +40,61 @@ sensor:
     entity_id: switch.kids_radiator
     state: "on"
     type: time
-    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
+    start: |
+      {% if ( now().month == 1) -%}
+        {{ now().replace(year=now().year-1, day=1, month=12, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- else -%}
+        {{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- endif %}
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+
+
+############################################################################
+#                                                                          #
+#   Bedroom Radiator Statistics                                            #
+#                                                                          #
+############################################################################
+
+  # Running Time Today
+  - platform: history_stats
+    name: bedroom_radiator_running_time_today 
+    entity_id: switch.bedroom_radiator
+    state: "on"
+    type: time
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now() }}"
+
+  # Running Time Yesterday
+  - platform: history_stats
+    name: bedroom_radiator_running_time_yesterday 
+    entity_id: switch.bedroom_radiator
+    state: "on"
+    type: time
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    duration:
+      hours: 24
+
+  # Running Time Current Month
+  - platform: history_stats
+    name: bedroom_radiator_running_time_curr_month
+    entity_id: switch.bedroom_radiator
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    end: "{{ now() }}"
+
+  # Running Time Previous Month
+  - platform: history_stats
+    name: bedroom_radiator_running_time_prev_month
+    entity_id: switch.bedroom_radiator
+    state: "on"
+    type: time
+    start: |
+      {% if ( now().month == 1) -%}
+        {{ now().replace(year=now().year-1, day=1, month=12, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- else -%}
+        {{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- endif %}
     end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
 
 
@@ -69,15 +123,38 @@ utility_meter:
 
 
 
+############################################################################
+#                                                                          #
+#   Bedroom Radiator Energy Meters                                         #
+#                                                                          #
+############################################################################
+
+  # Daily Energy
+  bedroom_radiator_daily_energy:
+    source: sensor.bedroom_radiator_energy_total
+    name: bedroom_radiator_daily_energy
+    unique_id: bedroom_radiator_daily_energy
+    cycle: daily
+
+  # Monthly Energy
+  bedroom_radiator_monthly_energy:
+    source: sensor.bedroom_radiator_energy_total
+    name: bedroom_radiator_monthly_energy
+    unique_id: bedroom_radiator_monthly_energy
+    cycle: monthly
+
+
+
 template:
+
+    sensor:
+
 
 ############################################################################
 #                                                                          #
 #   Kids Radiator Cost                                                     #
 #                                                                          #
 ############################################################################
-
-    sensor:
 
       # Kids Radiator Today Cost
       - name: "kids_radiator_cost_today"
@@ -110,3 +187,43 @@ template:
         state_class: total_increasing
         device_class: monetary
         state: "{{ ( state_attr('sensor.kids_radiator_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+
+
+############################################################################
+#                                                                          #
+#   Bedroom Radiator Cost                                                  #
+#                                                                          #
+############################################################################
+
+      # Bedroom Radiator Today Cost
+      - name: "bedroom_radiator_cost_today"
+        unique_id: bedroom_radiator_cost_today
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        device_class: monetary
+        state: "{{ ( states('sensor.bedroom_radiator_daily_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Bedroom Radiator Yesterday Cost
+      - name: "bedroom_radiator_cost_yesterday"
+        unique_id: bedroom_radiator_cost_yesterday
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.bedroom_radiator_daily_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Bedroom Radiator Current Month Cost
+      - name: "bedroom_radiator_cost_curr_month"
+        unique_id: bedroom_radiator_cost_curr_month
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        device_class: monetary
+        state: "{{ ( states('sensor.bedroom_radiator_monthly_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Bedroom Radiator Previous Month Cost
+      - name: "bedroom_radiator_cost_prev_month"
+        unique_id: bedroom_radiator_cost_prev_month
+        unit_of_measurement: "₪"
+        state_class: total_increasing
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.bedroom_radiator_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"

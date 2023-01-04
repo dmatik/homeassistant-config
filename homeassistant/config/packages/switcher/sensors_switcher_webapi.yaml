@@ -59,7 +59,12 @@ sensor:
     entity_id: switch.switcher_boiler
     state: "on"
     type: time
-    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
+    start: |
+      {% if ( now().month == 1) -%}
+        {{ now().replace(year=now().year-1, day=1, month=12, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- else -%}
+        {{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- endif %}
     end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
 
 
