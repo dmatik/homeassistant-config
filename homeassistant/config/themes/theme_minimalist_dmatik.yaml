@@ -184,6 +184,8 @@ minimalist-dmatik:
       switch-checked-color: "var(--google-blue)"
       # media player
       mini-media-player-accent-color: "var(--google-red)"
+      # badge
+      badge-icon-color: "255, 255, 255"
 
     dark:
 
@@ -262,3 +264,5 @@ minimalist-dmatik:
       mini-media-player-accent-color: "var(--google-blue)"
       # Journal
       state-icon-color: "rgb(var(--color-theme))"
+      # badge
+      badge-icon-color: "0, 0, 0"

@@ -124,6 +124,8 @@ minimalist-mobile:
       switch-checked-color: "var(--google-blue)"
       # media player
       mini-media-player-accent-color: "var(--google-red)"
+      # badge
+      badge-icon-color: "255, 255, 255"
 
     dark:
 
@@ -132,7 +134,9 @@ minimalist-mobile:
       header-all-tabs-color: 'var(--paper-item-icon-color)'
       header-tab-indicator-color: 'rgba(0, 0, 0, 0)'
       header-background-color: var( --ha-card-background, var(--card-background-color, white) )
-      footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.4)
+      #footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.4)
+      footer-shadow: none
+      footer-border: 1px solid rgb(45,45,45)
       header-shadow: 0px 0.3px 0.3px 0px rgba(200,200,200,0.4)
       header-height: 80px
 
@@ -200,3 +204,5 @@ minimalist-mobile:
       mini-media-player-accent-color: "var(--google-blue)"
       # Journal
       state-icon-color: "rgb(var(--color-theme))"
+      # badge
+      badge-icon-color: "0, 0, 0"

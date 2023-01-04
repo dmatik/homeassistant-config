@@ -2,13 +2,15 @@
 minimalist-desktop:
   # Journal
   state-icon-color: "rgb(var(--color-theme))"
-  border-radius: "20px"
+  border-radius: "12px"
   error-color: "var(--google-red)"
   warning-color: "var(--google-yellow)"
   success-color: "var(--google-green)"
   info-color: "var(--google-blue)"
   divider-color: "rgba(var(--color-theme),.12)"
   accent-color: "var(--google-yellow)"
+  widget-border-radius: "10px"
+  card-padding: "10px"
   card-mod-theme: "minimalist-desktop"
   card-mod-more-info-yaml: |
         $: |
@@ -73,10 +75,10 @@ minimalist-desktop:
       slider-color: "rgb(var(--color-blue))"
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # cards
-      box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
-      #box-shadow: "none"
+      #box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
+      box-shadow: "none"
       ha-card-box-shadow: "var(--box-shadow)"
-      ha-card-border-width: "0px"
+      ha-card-border-width: "1px"
       # sidebar
       sidebar-selected-text-color: "var(--google-red)"
       sidebar-selected-icon-color: "var(--google-red)"
@@ -85,6 +87,9 @@ minimalist-desktop:
       switch-checked-color: "var(--google-blue)"
       # media player
       mini-media-player-accent-color: "var(--google-red)"
+      # badge
+      badge-icon-color: "255, 255, 255"
+
     dark:
       # text
       primary-text-color: "#DDDDDD"
@@ -135,8 +140,10 @@ minimalist-desktop:
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # card
       box-shadow: "none"
-      ha-card-border-width: "0px"
+      ha-card-border-width: "1px"
       # media player
       mini-media-player-accent-color: "var(--google-blue)"
       # Journal
       state-icon-color: "rgb(var(--color-theme))"
+      # badge
+      badge-icon-color: "0, 0, 0"
