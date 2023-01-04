@@ -100,7 +100,7 @@ cards:
                         template:
                           - 'chip_icon_label_state'
                           - 'chip_blue'
-                        icon: 'mdi:home-variant'
+                        icon: 'mdi:home'
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_persons_home
 

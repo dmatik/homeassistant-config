@@ -12,11 +12,11 @@ popup_energy_info:
     card:
       - box-shadow: "none"
       - padding: "8px 16px"
-      - background-color: "none"
+      #- background-color: "none"
       - place-self: "center"
-      - background: "none"
+      #- background: "none"
       #- height: "22px"
-      - border-style: "none"
+      #- border-style: "none"
   custom_fields:
     header:
       card:
@@ -36,7 +36,7 @@ popup_energy_info:
               - justify-self: "start"
               - font-weight: "700"
               - font-size: "18px"
-              - filter: "opacity(80%)"
+              - filter: "opacity(30%)"
               - margin-left: "2px"
               - align-self: "start"
               - padding-bottom: "4px"

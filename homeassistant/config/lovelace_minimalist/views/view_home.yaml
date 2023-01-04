@@ -109,7 +109,7 @@ cards:
                           - 'chip_icon_label_state'
                           - 'chip_navigate_only'
                           - 'chip_blue'
-                        icon: 'mdi:home-variant'
+                        icon: 'mdi:home'
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_persons_home
                           ulm_chip_navigate_path: /lovelace/minimalist_presense
@@ -330,16 +330,10 @@ cards:
                           grid-row-start: span 2
                           
                       # Living Room Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.living_room
-                        name: Living Room
-
-                      # Dining Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.dining
-                        name: Dining
+                      # - type: 'custom:button-card'
+                      #   template: 'card_light_simple'
+                      #   entity: light.living_room
+                      #   name: Living Room
 
                       # NY Tree
                       - type: 'custom:button-card'
@@ -350,14 +344,20 @@ cards:
                         name: NY Tree
                         icon: mdi:pine-tree
 
+                      # Dining Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.dining
+                        name: Dining
+
                       # Bedroom Radiator
-                      # - type: 'custom:button-card'
-                      #   template: card_power_outlet
-                      #   variables:
-                      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                      #   entity: switch.bedroom_radiator
-                      #   name: Bedroom
-                      #   icon: mdi:radiator
+                      - type: 'custom:button-card'
+                        template: card_power_outlet
+                        variables:
+                          ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                        entity: switch.bedroom_radiator
+                        name: Bedroom
+                        icon: mdi:radiator
 
                       # Kids Room Radiator
                       - type: 'custom:button-card'

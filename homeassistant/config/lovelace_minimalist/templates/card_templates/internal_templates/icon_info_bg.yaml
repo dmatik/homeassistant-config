@@ -59,6 +59,7 @@ icon_info_bg:
       - box-shadow: "var(--box-shadow)"
       - padding: "var(--card-padding)"
       #- border-style: "none"
+      - --mdc-ripple-press-opacity: 0.0
   custom_fields:
     notification:
       card:

@@ -16,6 +16,7 @@ widget_icon:
       - place-self: "center"
       - height: "40px"
       - border-style: "none"
+      - --mdc-ripple-press-opacity: 0.0
     icon:
       - color: "rgba(var(--color-theme),0.9)"
   size: "20px"

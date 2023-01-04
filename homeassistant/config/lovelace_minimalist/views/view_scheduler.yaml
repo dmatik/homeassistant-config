@@ -132,12 +132,12 @@ cards:
                     cards:
 
                       - type: custom:scheduler-card
-                        style: |
-                          ha-card {
-                            padding: 0.3em 1.25em 0.4em 0.5em;
-                            border-radius: var(--border-radius);
-                            --secondary-text-color: var(--button-card-text-color);
-                          }
+                        # style: |
+                        #   ha-card {
+                        #     padding: 0.3em 1.25em 0.4em 0.5em;
+                        #     border-radius: var(--border-radius);
+                        #     --secondary-text-color: var(--button-card-text-color);
+                        #   }
                         title: false
                         display_options:
                           primary_info:

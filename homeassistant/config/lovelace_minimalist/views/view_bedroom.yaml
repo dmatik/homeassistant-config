@@ -153,16 +153,13 @@ cards:
                         entity: light.bedroom
                         name: Bedroom
 
-                      # Bedroom Climate
+                      # Makeup Light
                       - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.bedroom
-                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
-                          ulm_card_ac_name: 'Bedroom'
-                        view_layout:
-                          grid-row-start: span 2
-                          
+                        template: 'card_light_simple'
+                        entity: light.makeup
+                        icon: mdi:string-lights
+                        name: Makeup
+                                                  
                       # Bedside Dima Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
@@ -183,21 +180,24 @@ cards:
                           ulm_card_light_enable_popup: false
                           ulm_card_light_name: Galit
 
-                      # Makeup Light
+                      # Bedroom Climate
                       - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.makeup
-                        icon: mdi:string-lights
-                        name: Makeup
+                        template: card_ac_buttons
+                        variables:
+                          ulm_card_ac_entity: climate.bedroom
+                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
+                          ulm_card_ac_name: 'Bedroom'
+                        view_layout:
+                          grid-row-start: span 2
 
                       # Bedroom Radiator
-                      # - type: 'custom:button-card'
-                      #   template: card_power_outlet
-                      #   variables:
-                      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                      #   entity: switch.bedroom_radiator
-                      #   name: Radiator
-                      #   icon: mdi:radiator
+                      - type: 'custom:button-card'
+                        template: card_power_outlet
+                        variables:
+                          ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                        entity: switch.bedroom_radiator
+                        name: Radiator
+                        icon: mdi:radiator
 
 
 

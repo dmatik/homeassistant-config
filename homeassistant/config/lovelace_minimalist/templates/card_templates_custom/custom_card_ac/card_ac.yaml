@@ -133,6 +133,7 @@ ac_text_info:
       # - background-color: "rgba(var(--color-theme),0)"
       - border-style: "none"
       - position: inherit
+      - --mdc-ripple-press-opacity: 0.0
   label: >-
     [[[
         if (entity.state =='off') {
@@ -177,6 +178,8 @@ ac_curr_temp:
       - border-style: none
       - padding: "0px"
       - position: inherit
+      - border-radius: "0px"
+      - --mdc-ripple-press-opacity: 0.0
     custom_fields:
       curr_temp:
         - color: 'rgba(var(--color-theme),1)'
@@ -263,6 +266,7 @@ ac_list_items_favorite:
       - padding: 0px
       - border-style: "none"
       - position: inherit
+      - border-radius: 0px
     grid:
       - grid-template-areas: '"item1 item1"'
       - grid-template-columns: 1fr 1fr

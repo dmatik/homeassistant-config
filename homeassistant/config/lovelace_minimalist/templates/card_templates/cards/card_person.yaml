@@ -82,7 +82,7 @@ card_person:
                 return 'mdi:home-minus';
               }
             } else {
-              return 'mdi:home-variant';
+              return 'mdi:home';
             }
           ]]]
         variables:

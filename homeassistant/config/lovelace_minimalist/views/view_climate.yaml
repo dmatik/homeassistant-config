@@ -220,13 +220,13 @@ cards:
                           grid-row-start: span 2
 
                       # Bedroom Radiator
-                      # - type: 'custom:button-card'
-                      #   template: card_power_outlet
-                      #   variables:
-                      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                      #   entity: switch.bedroom_radiator
-                      #   name: Radiator
-                      #   icon: mdi:radiator
+                      - type: 'custom:button-card'
+                        template: card_power_outlet
+                        variables:
+                          ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                        entity: switch.bedroom_radiator
+                        name: Radiator
+                        icon: mdi:radiator
                     
 
           ############################################################################

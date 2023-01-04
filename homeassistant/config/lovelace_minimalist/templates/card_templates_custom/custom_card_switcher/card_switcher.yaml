@@ -134,6 +134,7 @@ switcher_next_select:
       - place-self: "center"
       - height: "40px"
       - border-style: "none"
+      - --mdc-ripple-press-opacity: 0.0
     name:
       - color: "rgba(var(--color-theme),0.9)"
       - font-weight: '500'

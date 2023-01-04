@@ -299,8 +299,8 @@ popup_switcher:
 
             - type: "custom:button-card"
               template: spacer
-              variables:
-                height: 20px
+              # variables:
+              #   height: 20px
               
 
 

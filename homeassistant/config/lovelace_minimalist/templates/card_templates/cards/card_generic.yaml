@@ -19,6 +19,8 @@ card_generic:
         return variables.ulm_open;
       } else if (entity.state == "closed") {
         return variables.ulm_closed;
+      } else if (entity.state == "unknown") {
+        return "--";
       } else {
         return entity.state + unit;
       }

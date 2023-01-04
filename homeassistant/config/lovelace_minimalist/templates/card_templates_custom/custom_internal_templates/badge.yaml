@@ -1,6 +1,6 @@
 badge:
   variables:
-    ulm_badge_icon_color: "var(--primary-background-color)"
+    ulm_badge_icon_color: "rgb(var(--badge-icon-color))"
     ulm_badge_icon_backgroung_color: "rgba(var(--color-red),1)"
   tap_action:
     action: "none"

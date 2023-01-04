@@ -22,6 +22,7 @@ chip_icon_label_state:
       - padding-right: '8px'
       - padding-top: '0px'
       - padding-bottom: '0px'
+      - --mdc-ripple-press-opacity: 0.0
     grid:
       - grid-template-areas: "'i l'"
       - grid-template-columns: 'max_content auto'
@@ -152,6 +153,7 @@ chip_climate:
       - padding-right: '8px'
       - padding-top: '0px'
       - padding-bottom: '0px'
+      - --mdc-ripple-press-opacity: 0.0
     grid:
       - grid-template-areas: "'i l'"
       - grid-template-columns: 'max_content auto'

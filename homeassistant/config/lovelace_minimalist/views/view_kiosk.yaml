@@ -209,6 +209,15 @@ cards:
                 view_layout:
                   grid-row-start: span 2
 
+              # Bedroom Radiator
+              - type: 'custom:button-card'
+                template: card_power_outlet
+                variables:
+                  ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                entity: switch.bedroom_radiator
+                name: Bedroom
+                icon: mdi:radiator
+                
               # Kids Room Radiator
               - type: 'custom:button-card'
                 template: card_power_outlet
@@ -230,14 +239,6 @@ cards:
                 entity: sensor.work_room_temperature_sensor_temperature
                 name: Work Room
 
-              # Bedroom Radiator
-              # - type: 'custom:button-card'
-              #   template: card_power_outlet
-              #   variables:
-              #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-              #   entity: switch.bedroom_radiator
-              #   name: Bedroom
-              #   icon: mdi:radiator
 
 
           # Devices

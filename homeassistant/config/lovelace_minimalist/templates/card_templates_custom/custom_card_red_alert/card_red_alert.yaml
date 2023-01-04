@@ -125,6 +125,7 @@ card_red_alert:
                   padding: 0.3em 1em 0.4em 0.5em;
                   text-align: right;
                   direction: rtl;
+                  border-style: none;
                 }
               entity: sensor.redalert_history
               title: ''
