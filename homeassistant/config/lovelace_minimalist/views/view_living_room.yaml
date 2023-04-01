@@ -89,12 +89,20 @@ cards:
                           ulm_chip_navigate_path: /lovelace/minimalist_rooms
 
                       # Temperature Chip
+                      # - type: 'custom:button-card'
+                      #   template:
+                      #     - 'chip_icon_label_state'
+                      #   icon: 'mdi:thermometer'
+                      #   variables:
+                      #     ulm_chip_icon_state_entity: sensor.climate_living_room_temp
+
+                      # Climate Chip
                       - type: 'custom:button-card'
                         template:
-                          - 'chip_icon_label_state'
+                          - 'chip_climate'
                         icon: 'mdi:thermometer'
                         variables:
-                          ulm_chip_icon_state_entity: sensor.sensibo_living_room_temp
+                          ulm_chip_temperature_high: sensor.climate_living_room_temp
 
                       # Lights Chip
                       - type: 'custom:button-card'
@@ -172,23 +180,19 @@ cards:
                         template: card_ac_buttons
                         variables:
                           ulm_card_ac_entity: climate.living_room
-                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
+                          ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
                           ulm_card_ac_name: 'Living Room'
                         view_layout:
                           grid-row-start: span 2                        
 
                       # Living Room TV
                       - type: 'custom:button-card'
-                        template: 'card_harmony_with_buttons'
+                        template: 'card_tv'
+                        entity: media_player.lg_webos_tv_oled77cs6la
                         variables:
-                          ulm_card_harmony_entity: remote.living_room
-                          ulm_card_harmony_name: 'Main TV'
-                          ulm_card_harmony_activity_1_name: 'Smart TV'
-                          ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
-                          ulm_card_harmony_activity_2_name: 'Shield TV'
-                          ulm_card_harmony_activity_2_icon: 'mdi:movie'
-                        view_layout:
-                          grid-row-start: span 2
+                          ulm_card_tv_name: 'Main TV'
+                        # view_layout:
+                        #   grid-row-start: span 2   
                           
                       # Living Room Motion Sensor
                       - type: 'custom:button-card'

@@ -1,47 +1,147 @@
 ############################################################################
 #                                                                          #
-#   Kids Room AC Notification                                              #
+#   Kfir AC Notification                                                   #
 #                                                                          #
 ############################################################################
 
-- alias: 'Kids Room AC Notification'
+- alias: 'Kfir AC Notification'
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: climate.kids_room
+      entity_id: climate.kfir
       from: "off"
       to: "cool"
     - platform: state
-      entity_id: climate.kids_room
+      entity_id: climate.kfir
       from: "off"
       to: "heat"
     - platform: state
-      entity_id: climate.kids_room
+      entity_id: climate.kfir
       from: "off"
       to: "heat_cool"
     - platform: state
-      entity_id: climate.kids_room
+      entity_id: climate.kfir
       from: "cool"
       to: "off"
     - platform: state
-      entity_id: climate.kids_room
+      entity_id: climate.kfir
       from: "heat"
       to: "off"
     - platform: state
-      entity_id: climate.kids_room
+      entity_id: climate.kfir
       from: "heat_cool"
       to: "off"
   action:
     - service: notify.mobile_app_iphonedima
       data_template:
-        title: 'Kids Room AC' 
+        title: 'Kfir AC' 
         message: >-
           {% if trigger.to_state.state == 'cool' %}
-            Cooling to {{ state_attr('climate.kids_room', 'temperature') }}°C
+            Cooling to {{ state_attr('climate.kfir', 'temperature') }}°C
           {% elif trigger.to_state.state == 'heat' %}      
-            Heating to {{ state_attr('climate.kids_room', 'temperature') }}°C
+            Heating to {{ state_attr('climate.kfir', 'temperature') }}°C
           {% elif trigger.to_state.state == 'heat_cool' %}      
-            Auto to {{ state_attr('climate.kids_room', 'temperature') }}°C
+            Auto to {{ state_attr('climate.kfir', 'temperature') }}°C
+          {% else %}
+            Off
+          {% endif %}
+
+
+
+############################################################################
+#                                                                          #
+#   Ronen AC Notification                                                  #
+#                                                                          #
+############################################################################
+
+- alias: 'Ronen AC Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: climate.ronen
+      from: "off"
+      to: "cool"
+    - platform: state
+      entity_id: climate.ronen
+      from: "off"
+      to: "heat"
+    - platform: state
+      entity_id: climate.ronen
+      from: "off"
+      to: "heat_cool"
+    - platform: state
+      entity_id: climate.ronen
+      from: "cool"
+      to: "off"
+    - platform: state
+      entity_id: climate.ronen
+      from: "heat"
+      to: "off"
+    - platform: state
+      entity_id: climate.ronen
+      from: "heat_cool"
+      to: "off"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data_template:
+        title: 'Ronen AC' 
+        message: >-
+          {% if trigger.to_state.state == 'cool' %}
+            Cooling to {{ state_attr('climate.ronen', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat' %}      
+            Heating to {{ state_attr('climate.ronen', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat_cool' %}      
+            Auto to {{ state_attr('climate.ronen', 'temperature') }}°C
+          {% else %}
+            Off
+          {% endif %}
+
+
+
+############################################################################
+#                                                                          #
+#   Basement AC Notification                                               #
+#                                                                          #
+############################################################################
+
+- alias: 'Basement AC Notification'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: climate.basement
+      from: "off"
+      to: "cool"
+    - platform: state
+      entity_id: climate.basement
+      from: "off"
+      to: "heat"
+    - platform: state
+      entity_id: climate.basement
+      from: "off"
+      to: "heat_cool"
+    - platform: state
+      entity_id: climate.basement
+      from: "cool"
+      to: "off"
+    - platform: state
+      entity_id: climate.basement
+      from: "heat"
+      to: "off"
+    - platform: state
+      entity_id: climate.basement
+      from: "heat_cool"
+      to: "off"
+  action:
+    - service: notify.mobile_app_iphonedima
+      data_template:
+        title: 'Basement AC' 
+        message: >-
+          {% if trigger.to_state.state == 'cool' %}
+            Cooling to {{ state_attr('climate.basement', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat' %}      
+            Heating to {{ state_attr('climate.basement', 'temperature') }}°C
+          {% elif trigger.to_state.state == 'heat_cool' %}      
+            Auto to {{ state_attr('climate.basement', 'temperature') }}°C
           {% else %}
             Off
           {% endif %}

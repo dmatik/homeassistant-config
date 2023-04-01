@@ -120,15 +120,45 @@ cards:
                           grid-template-columns: 1fr
                     cards:
 
-                    # Work Room Temperature Sensor
+                    # Basement Temperature Sensor
                       - type: 'custom:button-card'
                         template: card_battery
                         variables:
-                          ulm_card_battery_battery_state_entity_id: sensor.work_room_temperature_sensor_battery
+                          ulm_card_battery_battery_state_entity_id: sensor.basement_temperature_sensor_battery
                           ulm_card_battery_battery_level_danger: 10
                           ulm_card_battery_battery_level_warning: 30
-                        entity: sensor.work_room_temperature_sensor_battery
-                        name: Work Room Temperature Sensor
+                        entity: sensor.basement_temperature_sensor_battery
+                        name: Basement Temperature Sensor
+
+                    # Bedroom Temperature Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.bedroom_temperature_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.bedroom_temperature_sensor_battery
+                        name: Bedroom Temperature Sensor
+
+                    # Kfir Room Temperature Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.kfir_room_temperature_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.kfir_room_temperature_sensor_battery
+                        name: Kfir Room Temperature Sensor
+
+                    # Ronen Room Temperature Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.ronen_room_temperature_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.ronen_room_temperature_sensor_battery
+                        name: Ronen Room Temperature Sensor
 
                       # Living Room Motion Sensor
                       - type: 'custom:button-card'

@@ -1,0 +1,128 @@
+type: custom:layout-card
+layout_type: grid
+layout_options:
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  grid-template-rows: auto
+  grid-gap: 0px 4px
+cards:
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'Home'
+    icon: mdi:home
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'DirectionUp'
+    icon: mdi:chevron-up
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'Info'
+    icon: mdi:information-outline
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'Pause'
+    icon: mdi:play-pause
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'DirectionLeft'
+    icon: mdi:chevron-left  
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'Select'
+    icon: mdi:circle-outline
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'DirectionRight'
+    icon: mdi:chevron-right
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'Stop'
+    icon: mdi:stop
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'Menu'
+    icon: mdi:menu
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'DirectionDown'
+    icon: mdi:chevron-down
+
+  - type: 'custom:button-card'
+    triggers_update: 'all'
+    template: 
+      - 'popup_button'
+      - 'ulm_language_variables'
+      - 'popup_button_harmony_remote_button_shield_tv'
+    variables:
+      ulm_card_harmony_entity: '[[[ return variables.ulm_card_harmony_entity ]]]'
+      ulm_card_harmony_command: 'Back'
+    icon: mdi:arrow-left

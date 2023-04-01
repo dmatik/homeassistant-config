@@ -73,12 +73,8 @@
         entity_id:
         - sensor.ipadminidima_battery_level
         - sensor.iphonedima_battery_level
-        - sensor.kfir_tab_battery_level
-        - sensor.kfir_sm_t290_battery_state
-        - sensor.ronen_ronen_tab_battery_state
-        - sensor.kfir_tab_battery_level
-        - sensor.sm_n960f_battery_level
-        - sensor.sm_n960f_battery_state
+        - sensor.ipadkfir_battery_level
+        - sensor.galitphone_battery_level
       actions:
       - service: notify.persistent_notification
         data:

@@ -300,19 +300,16 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
-                      # Living Room TV
+                      # Living Room AC
                       - type: 'custom:button-card'
-                        template: 'card_harmony_with_buttons'
+                        template: card_ac_buttons
                         variables:
-                          ulm_card_harmony_entity: remote.living_room
-                          ulm_card_harmony_name: 'Main TV'
-                          ulm_card_harmony_activity_1_name: 'Smart TV'
-                          ulm_card_harmony_activity_1_icon: 'mdi:television-classic'
-                          ulm_card_harmony_activity_2_name: 'Shield TV'
-                          ulm_card_harmony_activity_2_icon: 'mdi:movie'
+                          ulm_card_ac_entity: climate.living_room
+                          ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
+                          ulm_card_ac_name: 'Living Room'
                         view_layout:
-                          grid-row-start: span 2
-                          
+                          grid-row-start: span 2 
+
                       # Switcher
                       - type: 'custom:button-card'
                         template: 
@@ -328,7 +325,24 @@ cards:
                           ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
                         view_layout:
                           grid-row-start: span 2
-                          
+
+                      # Living Room TV
+                      - type: 'custom:button-card'
+                        template: 'card_tv'
+                        entity: media_player.lg_webos_tv_oled77cs6la
+                        variables:
+                          ulm_card_tv_name: 'Main TV'
+                        # view_layout:
+                        #   grid-row-start: span 2   
+
+                      # Basement TV
+                      - type: 'custom:button-card'
+                        template: 'card_tv'
+                        entity: media_player.samsung_8_series_65
+                        variables:
+                          ulm_card_tv_name: 'Basement TV'
+                        
+                                               
                       # Living Room Light
                       # - type: 'custom:button-card'
                       #   template: 'card_light_simple'
@@ -336,37 +350,37 @@ cards:
                       #   name: Living Room
 
                       # NY Tree
-                      - type: 'custom:button-card'
-                        template: 
-                          - 'card_light_simple'
-                          - 'green_on'
-                        entity: switch.power_socket_01
-                        name: NY Tree
-                        icon: mdi:pine-tree
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - 'card_light_simple'
+                      #     - 'green_on'
+                      #   entity: switch.power_socket_01
+                      #   name: NY Tree
+                      #   icon: mdi:pine-tree
 
                       # Dining Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.dining
-                        name: Dining
+                      # - type: 'custom:button-card'
+                      #   template: 'card_light_simple'
+                      #   entity: light.dining
+                      #   name: Dining
 
                       # Bedroom Radiator
-                      - type: 'custom:button-card'
-                        template: card_power_outlet
-                        variables:
-                          ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                        entity: switch.bedroom_radiator
-                        name: Bedroom
-                        icon: mdi:radiator
+                      # - type: 'custom:button-card'
+                      #   template: card_power_outlet
+                      #   variables:
+                      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                      #   entity: switch.bedroom_radiator
+                      #   name: Bedroom
+                      #   icon: mdi:radiator
 
                       # Kids Room Radiator
-                      - type: 'custom:button-card'
-                        template: card_power_outlet
-                        variables:
-                          ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
-                        entity: switch.kids_radiator
-                        name: Kids Room
-                        icon: mdi:radiator
+                      # - type: 'custom:button-card'
+                      #   template: card_power_outlet
+                      #   variables:
+                      #     ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
+                      #   entity: switch.kids_radiator
+                      #   name: Kids Room
+                      #   icon: mdi:radiator
 
                       # Dimka PC
                       - type: 'custom:button-card'
@@ -389,46 +403,16 @@ cards:
                       - type: 'custom:button-card'
                         template: card_red_alert
 
-
-                      # Living Room AC
+                      # Bedroom Climate
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
-                          ulm_card_ac_entity: climate.living_room
-                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_living_room_fan
-                          ulm_card_ac_name: 'Living Room'
-                        view_layout:
-                          grid-row-start: span 2 
-
-                      # Kids Room AC
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.kids_room
-                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
-                          ulm_card_ac_name: 'Kids Room'
+                          ulm_card_ac_entity: climate.bedroom
+                          #ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
+                          ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
+                          ulm_card_ac_name: 'Bedroom'
                         view_layout:
                           grid-row-start: span 2
-
-                      # Front Gate
-                      - type: 'custom:button-card'
-                        template: card_script
-                        variables: 
-                          ulm_card_script_title: Front Gate
-                          ulm_card_script_icon: 'mdi:garage-variant'
-                        tap_action:
-                          action: call-service
-                          service: script.open_parking_gate_74
-
-                      # Back Gate
-                      - type: 'custom:button-card'
-                        template: card_script
-                        variables: 
-                          ulm_card_script_title: Back Gate
-                          ulm_card_script_icon: 'mdi:garage-variant'
-                        tap_action:
-                          action: call-service
-                          service: script.open_parking_gate_72
 
 
                 - type: custom:button-card

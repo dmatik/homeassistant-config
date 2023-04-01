@@ -11,9 +11,11 @@ group:
     entities:
       - climate.living_room
       - climate.bedroom
-      - climate.kids_room
-      - switch.kids_radiator
-      - switch.bedroom_radiator
+      - climate.kfir
+      - climate.ronen
+      - climate.basement
+      #- switch.kids_radiator
+      #- switch.bedroom_radiator
 
 
 
@@ -79,14 +81,14 @@ group:
 #                                                                          #
 ############################################################################
 
-  all_device_switch_entities:
-    name: All Device Entities
-    entities:
-      #- sensor.washer
-      #- sensor.dryer
-      #- sensor.dishwasher
-      - remote.living_room
-      - switch.switcher_webapi
+  # all_device_switch_entities:
+  #   name: All Device Entities
+  #   entities:
+  #     #- sensor.washer
+  #     #- sensor.dryer
+  #     #- sensor.dishwasher
+  #     - remote.living_room
+  #     - switch.switcher_webapi
 
 
 
@@ -145,17 +147,17 @@ group:
 #                                                                          #
 ############################################################################
 
-  all_batteries_sensor_entities:
-    name: All Batteries Sensor Entities
-    entities:
-      - sensor.xiaomi_work_room_temp_battery
-      - sensor.xiaomi_living_room_motion_battery
-      - sensor.xiaomi_kitchen_motion_battery
-      - sensor.xiaomi_button_bedside_dima_battery
-      - sensor.xiaomi_button_bedside_galit_battery
-      - sensor.xiaomi_button_makeup_battery
-      - sensor.xiaomi_button_kitchen_strip_right_battery
-      - sensor.xiaomi_button_kitchen_strip_left_battery
+  # all_batteries_sensor_entities:
+  #   name: All Batteries Sensor Entities
+  #   entities:
+  #     - sensor.xiaomi_work_room_temp_battery
+  #     - sensor.xiaomi_living_room_motion_battery
+  #     - sensor.xiaomi_kitchen_motion_battery
+  #     - sensor.xiaomi_button_bedside_dima_battery
+  #     - sensor.xiaomi_button_bedside_galit_battery
+  #     - sensor.xiaomi_button_makeup_battery
+  #     - sensor.xiaomi_button_kitchen_strip_right_battery
+  #     - sensor.xiaomi_button_kitchen_strip_left_battery
 
 
 
@@ -181,10 +183,10 @@ group:
 #                                                                          #
 ############################################################################
 
-  all_computer_switch_entities:
-    name: All Computers Entities
-    entities:
-      - switch.dimka
+  # all_computer_switch_entities:
+  #   name: All Computers Entities
+  #   entities:
+  #     - switch.dimka
 
 
 ############################################################################

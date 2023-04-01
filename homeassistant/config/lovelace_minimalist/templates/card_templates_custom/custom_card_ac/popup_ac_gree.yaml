@@ -1,4 +1,4 @@
-popup_ac:
+popup_ac_gree:
   tap_action:
     # action: "fire-dom-event"
     # browser_mod:
@@ -226,7 +226,7 @@ popup_ac:
             - type: custom:layout-card
               layout_type: grid
               layout_options:
-                grid-template-columns: 1fr 1fr 1fr 1fr
+                grid-template-columns: 1fr 1fr 1fr
                 grid-template-rows: auto
                 grid-gap: 0px 4px
               cards:    
@@ -251,7 +251,27 @@ popup_ac:
                         img_cell:
                           - background-color: 'rgba(var(--color-theme), 0.2)'
 
-                # Med
+                # Medium Low
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+                  icon: mdi:fan
+                  name: Med Low
+                  tap_action:
+                    action: call-service
+                    service: climate.set_fan_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      fan_mode: 'medium low'
+                  state:
+                    - value: 'medium low'
+                      styles:
+                        img_cell:
+                          - background-color: 'rgba(var(--color-theme), 0.2)'
+
+                # Medium
                 - type: "custom:button-card"
                   template: 
                     - "popup_button"
@@ -264,9 +284,37 @@ popup_ac:
                     service: climate.set_fan_mode
                     service_data:
                       entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                      fan_mode: 'middle'
+                      fan_mode: 'medium'
                   state:
-                    - value: 'middle'
+                    - value: 'medium'
+                      styles:
+                        img_cell:
+                          - background-color: 'rgba(var(--color-theme), 0.2)'
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr 1fr 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:   
+
+                # Medium High
+                - type: "custom:button-card"
+                  template: 
+                    - "popup_button"
+                    - "ulm_language_variables"
+                  entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+                  icon: mdi:fan
+                  name: Med High
+                  tap_action:
+                    action: call-service
+                    service: climate.set_fan_mode
+                    service_data:
+                      entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                      fan_mode: 'medium high'
+                  state:
+                    - value: 'medium high'
                       styles:
                         img_cell:
                           - background-color: 'rgba(var(--color-theme), 0.2)'

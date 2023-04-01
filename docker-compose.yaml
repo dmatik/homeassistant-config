@@ -67,34 +67,34 @@ services:
     #     ports:
     #         - "8234:8123"
 
-    # mariadb:
-    #     restart: always
-    #     hostname: mariadb
-    #     container_name: mariadb
-    #     image: mariadb:latest
-    #     network_mode: "bridge"
-    #     ports:
-    #         - "3306:3306"
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         MYSQL_DATABASE: TestDB
-    #         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-    #     volumes:
-    #         - /volume1/docker/mariadb/config:/etc/mysql/conf.d
-    #         - /volume1/docker/mariadb/data:/var/lib/mysql
+    mariadb:
+        restart: always
+        hostname: mariadb
+        container_name: mariadb
+        image: mariadb:latest
+        network_mode: "bridge"
+        ports:
+            - "3306:3306"
+        environment:
+            TZ: "Asia/Jerusalem"
+            MYSQL_DATABASE: HomeAssistantDB
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        volumes:
+            - /volume1/docker/mariadb/config:/etc/mysql/conf.d
+            - /volume1/docker/mariadb/data:/var/lib/mysql
         
-    # phpMyAdmin:
-    #     restart: always
-    #     hostname: phpMyAdmin
-    #     container_name: phpMyAdmin
-    #     image: phpmyadmin/phpmyadmin:latest
-    #     network_mode: "bridge"
-    #     ports:
-    #         - "32770:80"
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         PMA_HOST: ${ZEG_IP}
-    #         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    phpMyAdmin:
+        restart: always
+        hostname: phpMyAdmin
+        container_name: phpMyAdmin
+        image: phpmyadmin/phpmyadmin:latest
+        network_mode: "bridge"
+        ports:
+            - "32770:80"
+        environment:
+            TZ: "Asia/Jerusalem"
+            PMA_HOST: ${ZEG_IP}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         
     # mosquitto:
     #     restart: always
@@ -126,7 +126,24 @@ services:
         ports:
             - "1883:1883"
             - "9001:9001"
-        
+
+    jackett:
+        image: lscr.io/linuxserver/jackett:latest
+        container_name: jackett
+        hostname: jackett
+        environment:
+            TZ: "Asia/Jerusalem"
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+            AUTO_UPDATE: "true" #optional
+            #RUN_OPTS: #optional
+        volumes:
+            - /volume1/docker/jackett/config:/config
+            - /volume1/torrent:/downloads
+        ports:
+            - "9117:9117"
+        restart: always
+
     radarr:
         restart: always
         hostname: radarr
@@ -240,6 +257,7 @@ services:
             WATCHTOWER_SCHEDULE: "0 0 6 * * *"
             WATCHTOWER_NOTIFICATIONS: "shoutrrr"
             WATCHTOWER_NOTIFICATION_URL: "telegram://${MY_DOCKER_BOT_TOKEN}@telegram?channels=${TELEGRAM_CHAT_ID}"
+            WATCHTOWER_WARN_ON_HEAD_FAILURE: "never"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             
@@ -586,7 +604,7 @@ services:
             DIFFICULTY: "peaceful"
             MAX_PLAYERS: "30"
             SERVER_NAME: "Trosmans"
-            OPS: ${MC_DMATIK_ID}
+            OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
             ALLOW_CHEATS: "true"
             SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
         volumes:
@@ -606,7 +624,7 @@ services:
             DIFFICULTY: "peaceful"
             MAX_PLAYERS: "30"
             SERVER_NAME: "Trosmans Survival"
-            OPS: ${MC_DMATIK_ID}
+            OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
             ALLOW_CHEATS: "true"
             SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
         volumes:

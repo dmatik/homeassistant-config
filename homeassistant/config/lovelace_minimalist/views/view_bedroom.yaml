@@ -89,12 +89,20 @@ cards:
                           ulm_chip_navigate_path: /lovelace/minimalist_rooms
 
                       # Temperature Chip
+                      # - type: 'custom:button-card'
+                      #   template:
+                      #     - 'chip_icon_label_state'
+                      #   icon: 'mdi:thermometer'
+                      #   variables:
+                      #     ulm_chip_icon_state_entity: sensor.climate_bedroom_temp
+
+                      # Climate Chip
                       - type: 'custom:button-card'
                         template:
-                          - 'chip_icon_label_state'
+                          - 'chip_climate'
                         icon: 'mdi:thermometer'
                         variables:
-                          ulm_chip_icon_state_entity: sensor.sensibo_bedroom_temp
+                          ulm_chip_temperature_high: sensor.climate_bedroom_temp
 
                       # Lights Chip
                       - type: 'custom:button-card'
@@ -185,7 +193,8 @@ cards:
                         template: card_ac_buttons
                         variables:
                           ulm_card_ac_entity: climate.bedroom
-                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
+                          #ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
+                          ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
                           ulm_card_ac_name: 'Bedroom'
                         view_layout:
                           grid-row-start: span 2

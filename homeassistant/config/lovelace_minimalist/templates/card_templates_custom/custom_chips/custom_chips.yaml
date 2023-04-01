@@ -173,7 +173,7 @@ chip_climate:
       - align-items: center
       - color: |
           [[[
-            if (states[variables.ulm_chip_devices_on].state > 0) {
+            if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
               return "rgba(var(--color-blue),1)";
             }
             return "rgb(var(--primary-text-color))";
@@ -194,12 +194,19 @@ chip_climate:
   label: |
       [[[
         var state = "";
-        if (states[variables.ulm_chip_temperature_high].state - states[variables.ulm_chip_temperature_low].state < 0.5) {
-          state = states[variables.ulm_chip_temperature_high].state + "°";
-        } else {
-          state = states[variables.ulm_chip_temperature_low].state + "-" + states[variables.ulm_chip_temperature_high].state + "°";
+        var temp_high = states[variables.ulm_chip_temperature_high].state;
+        temp_high = Number(temp_high).toFixed(1);
+        var temp_low = null;
+        if(variables.ulm_chip_temperature_low != null) {
+          temp_low = states[variables.ulm_chip_temperature_low].state;
+          temp_low = Number(temp_low).toFixed(1);
         }
-        if (states[variables.ulm_chip_devices_on].state > 0) {
+        if (temp_low == null || temp_high - temp_low < 0.5) {
+          state = temp_high + "°";
+        } else {
+          state = temp_low + "-" + temp_high + "°";
+        }
+        if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
           state += " • " + states[variables.ulm_chip_devices_on].state;
         }
         return state;

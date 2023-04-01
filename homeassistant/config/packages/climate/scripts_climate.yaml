@@ -28,21 +28,21 @@ script:
 #   Sensibo Kids Room                                                      #
 #                                                                          #
 ############################################################################
-  sensibo_kids_room_increase_target_temp:
-      alias: Increase
-      sequence:
-          - service: climate.set_temperature
-            data_template:
-              entity_id: climate.kids_room
-              temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) + 1 }}"
+  # sensibo_kids_room_increase_target_temp:
+  #     alias: Increase
+  #     sequence:
+  #         - service: climate.set_temperature
+  #           data_template:
+  #             entity_id: climate.kids_room
+  #             temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) + 1 }}"
               
-  sensibo_kids_room_decrease_target_temp:
-      alias: Decrease
-      sequence:
-          - service: climate.set_temperature
-            data_template:
-              entity_id: climate.kids_room
-              temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"
+  # sensibo_kids_room_decrease_target_temp:
+  #     alias: Decrease
+  #     sequence:
+  #         - service: climate.set_temperature
+  #           data_template:
+  #             entity_id: climate.kids_room
+  #             temperature: "{{ (state_attr('climate.kids_room', 'temperature')|round(0)) - 1 }}"
               
 
 
@@ -52,21 +52,21 @@ script:
 #   Sensibo Bedroom                                                        #
 #                                                                          #
 ############################################################################
-  sensibo_bedroom_increase_target_temp:
-      alias: Increase
-      sequence:
-          - service: climate.set_temperature
-            data_template:
-              entity_id: climate.bedroom
-              temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) + 1 }}"
+  # sensibo_bedroom_increase_target_temp:
+  #     alias: Increase
+  #     sequence:
+  #         - service: climate.set_temperature
+  #           data_template:
+  #             entity_id: climate.bedroom
+  #             temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) + 1 }}"
               
-  sensibo_bedroom_decrease_target_temp:
-      alias: Decrease
-      sequence:
-          - service: climate.set_temperature
-            data_template:
-              entity_id: climate.bedroom
-              temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) - 1 }}"
+  # sensibo_bedroom_decrease_target_temp:
+  #     alias: Decrease
+  #     sequence:
+  #         - service: climate.set_temperature
+  #           data_template:
+  #             entity_id: climate.bedroom
+  #             temperature: "{{ (state_attr('climate.bedroom', 'temperature')|round(0)) - 1 }}"
 
 
 
@@ -75,18 +75,18 @@ script:
 #   Sensibo Living Room                                                    #
 #                                                                          #
 ############################################################################
-  sensibo_living_room_increase_target_temp:
-      alias: Increase
-      sequence:
-          - service: climate.set_temperature
-            data_template:
-              entity_id: climate.living_room
-              temperature: "{{ (state_attr('climate.living_room', 'temperature')|round(0)) + 1 }}"
+  # sensibo_living_room_increase_target_temp:
+  #     alias: Increase
+  #     sequence:
+  #         - service: climate.set_temperature
+  #           data_template:
+  #             entity_id: climate.living_room
+  #             temperature: "{{ (state_attr('climate.living_room', 'temperature')|round(0)) + 1 }}"
               
-  sensibo_living_room_decrease_target_temp:
-      alias: Decrease
-      sequence:
-          - service: climate.set_temperature
-            data_template:
-              entity_id: climate.living_room
-              temperature: "{{ (state_attr('climate.living_room', 'temperature')|round(0)) - 1 }}"  
+  # sensibo_living_room_decrease_target_temp:
+  #     alias: Decrease
+  #     sequence:
+  #         - service: climate.set_temperature
+  #           data_template:
+  #             entity_id: climate.living_room
+  #             temperature: "{{ (state_attr('climate.living_room', 'temperature')|round(0)) - 1 }}"  

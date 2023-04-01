@@ -89,12 +89,12 @@ cards:
                           ulm_chip_navigate_path: /lovelace/minimalist_rooms
 
                       # Temperature Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                        icon: 'mdi:thermometer'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.work_room_temperature_sensor_temperature
+                      # - type: 'custom:button-card'
+                      #   template:
+                      #     - 'chip_icon_label_state'
+                      #   icon: 'mdi:thermometer'
+                      #   variables:
+                      #     ulm_chip_icon_state_entity: sensor.work_room_temperature_sensor_temperature
 
                       # Lights Chip
                       - type: 'custom:button-card'
@@ -177,10 +177,10 @@ cards:
                       #     ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
                       #   view_layout:
                       #     grid-row-start: span 2
-                      - type: 'custom:button-card'
-                        template: card_generic
-                        entity: sensor.work_room_temperature_sensor_temperature
-                        name: Work Room
+                      # - type: 'custom:button-card'
+                      #   template: card_generic
+                      #   entity: sensor.work_room_temperature_sensor_temperature
+                      #   name: Work Room
                           
                       # Printer
                       - type: 'custom:button-card'

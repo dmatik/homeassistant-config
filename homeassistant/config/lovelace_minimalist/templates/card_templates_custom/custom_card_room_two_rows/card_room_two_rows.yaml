@@ -172,7 +172,7 @@ rooms_widget_temp:
         if (entity.state == null) {
           temperature = '--';
         } else {
-          temperature = entity.state + '°';
+          temperature = Number(entity.state).toFixed(1) + '°';
         }
         return temperature;
     ]]]

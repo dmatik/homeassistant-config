@@ -92,46 +92,7 @@ recorder:
   auto_purge: true
   purge_keep_days: 64
   db_url: !secret synology_db_connection
-  # include:
-  #   domains:
-  #     - switch
-  #     - sensor
-  #     - person
-  #     - input_select
-  #     - input_number
-  #     - input_boolean
-  #     - script
-  #     - light
-  #     - climate
-  #     - binary_sensor
-  #     - group
-  # exclude:
-  #   domains:
-  #     - automation
-  #     - updater
-  #     - docker_monitor
-  #     - image_processing
-  #   entities:
-  #     - sun.sun
-  #     - sensor.date
-  #   event_types:
-  #     - service_removed
-  #     - service_executed
-  #     - platform_discovered
-  #     - homeassistant_start
-  #     - homeassistant_stop      
-  #     - feedreader
-  #     - service_registered
-  #     - call_service
-  #     - component_loaded
-  #     - logbook_entry
-  #     - system_log_event
-  #     - automation_triggered
-  #     - script_started
-  #     - timer_out_of_sync
-  #     - panels_updated
-  #     - persistent_notifications_updated
-  #     - config_entry_discovered
+
   
 #Logger
 logger:
@@ -147,17 +108,6 @@ logger:
 #   client_id: !secret google_calendar_client_id
 #   client_secret: !secret google_calendar_client_secret
 
-# MQTT
-# mqtt:
-#   discovery: false
-#   broker: !secret syn_mqtt_broker
-#   username: !secret syn_mqtt_username
-#   password: !secret syn_mqtt_password
-  
-# Sensibo
-# climate:
-#   - platform: sensibo
-#     api_key: !secret sensibo_api_key
     
 #Telegram      
 telegram_bot:
@@ -172,66 +122,13 @@ notify:
     chat_id: !secret telegram_bot_chat_id_1
 
 
-# Life360
-# life360:
-#   accounts:
-#     - username: !secret life360_username
-#       password: !secret life360_password
-#   # MPH, assuming imperial units.
-#   # If using metric (KPH), the equivalent would be 29.
-#   driving_speed: 29
-#   interval_seconds: 10
-#   max_gps_accuracy: 200
-#   max_update_wait:
-#     minutes: 45
-#   show_as_state:
-#     - driving
-#   # Set comm error thresholds so first is not logged,
-#   # second is logged as a WARNING, and third and fourth
-#   # are logged as ERRORs.
-#   warning_threshold: 2
-#   error_threshold: 3
-
 wake_on_lan:
 
-# synology_dsm:
-#   - host: !secret synology_blaze_host
-#     port: !secret synology_blaze_port
-#     username: !secret synology_blaze_username
-#     password: !secret synology_blaze_password
-#     ssl: true
-#   - host: !secret synology_zeg_host
-#     port: !secret synology_zeg_port
-#     username: !secret synology_zeg_username
-#     password: !secret synology_zeg_password
-#     ssl: true
-
-
-# spotify:
-#   client_id: !secret spotify_client_id
-#   client_secret: !secret spotify_client_secret
-
-# homekit:
-#   - filter:
-#       include_entities:
-
-#         # Work Room Temperature Sensor
-#         - sensor.work_room_humidity
-#         - sensor.work_room_pressure
-#         - sensor.work_room_temperature
-#         - sensor.work_room_sensor_battery_level
-
-#         # Living Room Motion Sensor
-#         - binary_sensor.motion_living_room
-#         - sensor.motion_living_room_lightlevel
-#         - sensor.motion_living_room_battery_level
-
-#         # Kitchen Motion Sensor
-#         - binary_sensor.motion_kitchen
-#         - sensor.motion_kitchen_lightlevel
-#         - sensor.motion_kitchen_battery_level
-#         - binary_sensor.motion_kitchen_2
-#         - sensor.motion_kitchen_2_lightlevel
-#         - sensor.motion_kitchen_2_battery_level
-
 camera:
+
+samsungtv:
+  - host: !secret basement_tv_ip
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret basement_tv_mac

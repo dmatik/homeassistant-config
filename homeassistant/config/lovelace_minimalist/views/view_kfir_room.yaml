@@ -1,5 +1,5 @@
-title: Kids Room
-path: minimalist_kids_room
+title: Kfir Room
+path: minimalist_kfir_room
 visible: false
 # type: custom:grid-layout
 # layout:
@@ -89,12 +89,20 @@ cards:
                           ulm_chip_navigate_path: /lovelace/minimalist_rooms
 
                       # Temperature Chip
+                      # - type: 'custom:button-card'
+                      #   template:
+                      #     - 'chip_icon_label_state'
+                      #   icon: 'mdi:thermometer'
+                      #   variables:
+                      #     ulm_chip_icon_state_entity: sensor.climate_kfir_temp
+
+                      # Climate Chip
                       - type: 'custom:button-card'
                         template:
-                          - 'chip_icon_label_state'
+                          - 'chip_climate'
                         icon: 'mdi:thermometer'
                         variables:
-                          ulm_chip_icon_state_entity: sensor.sensibo_kids_room_temp
+                          ulm_chip_temperature_high: sensor.climate_kfir_temp
 
                       # Lights Chip
                       - type: 'custom:button-card'
@@ -103,7 +111,7 @@ cards:
                           - 'chip_yellow'
                         icon: 'mdi:lightbulb'
                         variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_kids_room
+                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_kfir_room
 
 
 
@@ -118,7 +126,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Kids Room
+                      name: Kfir Room
 
 
 
@@ -154,21 +162,22 @@ cards:
                         name: Kids Room
 
                       # Kids Room Radiator
-                      - type: 'custom:button-card'
-                        template: card_power_outlet
-                        variables:
-                          ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
-                        entity: switch.kids_radiator
-                        name: Radiator
-                        icon: mdi:radiator
+                      # - type: 'custom:button-card'
+                      #   template: card_power_outlet
+                      #   variables:
+                      #     ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
+                      #   entity: switch.kids_radiator
+                      #   name: Radiator
+                      #   icon: mdi:radiator
 
-                      # Kids Room Climate
+                      # Kfir Room Climate
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
-                          ulm_card_ac_entity: climate.kids_room
-                          ulm_card_ac_fan_mode_sensor: sensor.sensibo_kids_room_fan
-                          ulm_card_ac_name: 'Kids Room'
+                          ulm_card_ac_entity: climate.kfir
+                          #ulm_card_ac_fan_mode_sensor: sensor.climate_kfir_fan
+                          ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
+                          ulm_card_ac_name: 'Kfir'
                         view_layout:
                           grid-row-start: span 2
                         

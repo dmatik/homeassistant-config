@@ -100,22 +100,58 @@ sensor:
 
 ############################################################################
 #                                                                          #
-#   Number of Lights On - Kids Room                                        #
+#   Number of Lights On - Kfir Room                                        #
 #                                                                          #
 ############################################################################
 
-      number_of_lights_on_kids_room:
-        friendly_name: "Number of lights on Kids Room"
+      number_of_lights_on_kfir_room:
+        friendly_name: "Number of lights on Kfir Room"
         icon_template: mdi:lightbulb
         value_template: >-
           {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('group.kids_room_lights','entity_id') %}
+          {% for entity_id in state_attr('group.kfir_room_lights','entity_id') %}
             {% if (states(entity_id) == 'on') %}
               {% set count.value = count.value + 1 %}
             {% endif %}
           {% endfor %}
           {{ count.value }}
 
+
+############################################################################
+#                                                                          #
+#   Number of Lights On - Ronen Room                                       #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on_ronen_room:
+        friendly_name: "Number of lights on Ronen Room"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.ronen_room_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+############################################################################
+#                                                                          #
+#   Number of Lights On - Basement                                         #
+#                                                                          #
+############################################################################
+
+      number_of_lights_on_basement:
+        friendly_name: "Number of lights on Basement"
+        icon_template: mdi:lightbulb
+        value_template: >-
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.basement_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 
 ############################################################################
 #                                                                          #
@@ -142,15 +178,15 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      only_light_on:
-        friendly_name: "Only Light On"
-        icon_template: mdi:lightbulb
-        value_template: >-
-          {% for entity_id in state_attr('group.all_light_entities','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {{ states[entity_id].attributes.friendly_name }}
-            {% endif %}
-          {% endfor %}
+      # only_light_on:
+      #   friendly_name: "Only Light On"
+      #   icon_template: mdi:lightbulb
+      #   value_template: >-
+      #     {% for entity_id in state_attr('group.all_light_entities','entity_id') %}
+      #       {% if (states(entity_id) == 'on') %}
+      #         {{ states[entity_id].attributes.friendly_name }}
+      #       {% endif %}
+      #     {% endfor %}
 
 
 
@@ -179,15 +215,15 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      only_cover_open:
-        friendly_name: "Only Cover Open"
-        icon_template: mdi:window-shutter
-        value_template: >-
-          {% for entity_id in state_attr('group.all_cover_entities','entity_id') %}
-            {% if (states(entity_id) == 'open') %}
-              {{ states[entity_id].attributes.friendly_name }}
-            {% endif %}
-          {% endfor %}
+      # only_cover_open:
+      #   friendly_name: "Only Cover Open"
+      #   icon_template: mdi:window-shutter
+      #   value_template: >-
+      #     {% for entity_id in state_attr('group.all_cover_entities','entity_id') %}
+      #       {% if (states(entity_id) == 'open') %}
+      #         {{ states[entity_id].attributes.friendly_name }}
+      #       {% endif %}
+      #     {% endfor %}
 
 
 
@@ -216,15 +252,15 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      only_window_open:
-        friendly_name: "Only Window Open"
-        icon_template: mdi:window-closed
-        value_template: >-
-          {% for entity_id in state_attr('group.all_window_entities','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {{ states[entity_id].attributes.friendly_name }}
-            {% endif %}
-          {% endfor %}
+      # only_window_open:
+      #   friendly_name: "Only Window Open"
+      #   icon_template: mdi:window-closed
+      #   value_template: >-
+      #     {% for entity_id in state_attr('group.all_window_entities','entity_id') %}
+      #       {% if (states(entity_id) == 'on') %}
+      #         {{ states[entity_id].attributes.friendly_name }}
+      #       {% endif %}
+      #     {% endfor %}
 
 
 
@@ -253,15 +289,15 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      only_climate_on:
-        friendly_name: "Only Climate On"
-        icon_template: mdi:thermometer
-        value_template: >-
-          {% for entity_id in state_attr('group.all_climate_entities','entity_id') %}
-            {% if (states(entity_id) == 'on' or states(entity_id) == 'heat' or states(entity_id) == 'cool' or states(entity_id) == 'heat_cool') %}
-              {{ states[entity_id].attributes.friendly_name }}
-            {% endif %}
-          {% endfor %}
+      # only_climate_on:
+      #   friendly_name: "Only Climate On"
+      #   icon_template: mdi:thermometer
+      #   value_template: >-
+      #     {% for entity_id in state_attr('group.all_climate_entities','entity_id') %}
+      #       {% if (states(entity_id) == 'on' or states(entity_id) == 'heat' or states(entity_id) == 'cool' or states(entity_id) == 'heat_cool') %}
+      #         {{ states[entity_id].attributes.friendly_name }}
+      #       {% endif %}
+      #     {% endfor %}
 
 
 ############################################################################
@@ -270,17 +306,17 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      number_of_devices_on:
-        friendly_name: "Number of Devices On"
-        icon_template: mdi:power-plug
-        value_template: >-
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('group.all_device_switch_entities','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+      # number_of_devices_on:
+      #   friendly_name: "Number of Devices On"
+      #   icon_template: mdi:power-plug
+      #   value_template: >-
+      #     {% set count = namespace(value=0) %}
+      #     {% for entity_id in state_attr('group.all_device_switch_entities','entity_id') %}
+      #       {% if (states(entity_id) == 'on') %}
+      #         {% set count.value = count.value + 1 %}
+      #       {% endif %}
+      #     {% endfor %}
+      #     {{ count.value }}
 
 
 
@@ -366,15 +402,15 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      only_motion_sensor_on:
-        friendly_name: "Only Motion Sensor On"
-        icon_template: mdi:run
-        value_template: >-
-          {% for entity_id in state_attr('group.all_motion_sensor_entities','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {{ states[entity_id].attributes.friendly_name }}
-            {% endif %}
-          {% endfor %}
+      # only_motion_sensor_on:
+      #   friendly_name: "Only Motion Sensor On"
+      #   icon_template: mdi:run
+      #   value_template: >-
+      #     {% for entity_id in state_attr('group.all_motion_sensor_entities','entity_id') %}
+      #       {% if (states(entity_id) == 'on') %}
+      #         {{ states[entity_id].attributes.friendly_name }}
+      #       {% endif %}
+      #     {% endfor %}
 
 
 ############################################################################
@@ -383,17 +419,17 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      number_of_batteries_low:
-        friendly_name: "Number of Batteries Low"
-        icon_template: mdi:battery
-        value_template: >-
-            {% set count = namespace(value=0) %}
-            {% for entity_id in states.group.all_batteries_sensor_entities.attributes.entity_id %}
-              {% if ( states(entity_id) | int(0) ) < 10 %}
-                {% set count.value = count.value + 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ count.value }}
+      # number_of_batteries_low:
+      #   friendly_name: "Number of Batteries Low"
+      #   icon_template: mdi:battery
+      #   value_template: >-
+      #       {% set count = namespace(value=0) %}
+      #       {% for entity_id in states.group.all_batteries_sensor_entities.attributes.entity_id %}
+      #         {% if ( states(entity_id) | int(0) ) < 10 %}
+      #           {% set count.value = count.value + 1 %}
+      #         {% endif %}
+      #       {% endfor %}
+      #       {{ count.value }}
 
 
 
@@ -423,17 +459,17 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      number_of_computers_on:
-        friendly_name: "Number of Computers On"
-        icon_template: mdi:desktop-classic
-        value_template: >-
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('group.all_computer_switch_entities','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+      # number_of_computers_on:
+      #   friendly_name: "Number of Computers On"
+      #   icon_template: mdi:desktop-classic
+      #   value_template: >-
+      #     {% set count = namespace(value=0) %}
+      #     {% for entity_id in state_attr('group.all_computer_switch_entities','entity_id') %}
+      #       {% if (states(entity_id) == 'on') %}
+      #         {% set count.value = count.value + 1 %}
+      #       {% endif %}
+      #     {% endfor %}
+      #     {{ count.value }}
 
 
 ############################################################################
@@ -481,15 +517,15 @@ sensor:
 #                                                                          #
 ############################################################################
 
-      only_person_home:
-        friendly_name: "Only Person Home"
-        icon_template: mdi:account-circle
-        value_template: >-
-          {% for entity_id in state_attr('group.all_person_entities','entity_id') %}
-            {% if (states(entity_id) == 'home') %}
-              {{ states[entity_id].attributes.friendly_name }}
-            {% endif %}
-          {% endfor %}
+      # only_person_home:
+      #   friendly_name: "Only Person Home"
+      #   icon_template: mdi:account-circle
+      #   value_template: >-
+      #     {% for entity_id in state_attr('group.all_person_entities','entity_id') %}
+      #       {% if (states(entity_id) == 'home') %}
+      #         {{ states[entity_id].attributes.friendly_name }}
+      #       {% endif %}
+      #     {% endfor %}
 
 
 ############################################################################
@@ -543,10 +579,12 @@ sensor:
     name: Lowest Temperature Home
     type: min
     entity_ids:
-      - sensor.sensibo_kids_room_temp
-      - sensor.sensibo_bedroom_temp
-      - sensor.sensibo_living_room_temp
-      - sensor.work_room_temperature_sensor_temperature
+      - sensor.climate_kfir_temp
+      - sensor.climate_ronen_temp
+      - sensor.climate_basement_temp
+      - sensor.climate_bedroom_temp
+      - sensor.climate_living_room_temp
+      #- sensor.work_room_temperature_sensor_temperature
 
 
 ############################################################################
@@ -560,7 +598,9 @@ sensor:
     name: Highest Temperature Home
     type: max
     entity_ids:
-      - sensor.sensibo_kids_room_temp
-      - sensor.sensibo_bedroom_temp
-      - sensor.sensibo_living_room_temp
-      - sensor.work_room_temperature_sensor_temperature
+      - sensor.climate_kfir_temp
+      - sensor.climate_ronen_temp
+      - sensor.climate_basement_temp
+      - sensor.climate_bedroom_temp
+      - sensor.climate_living_room_temp
+      #- sensor.work_room_temperature_sensor_temperature

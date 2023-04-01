@@ -1,5 +1,5 @@
-title: Climate
-path: minimalist_climate
+title: Ronen Room
+path: minimalist_ronen_room
 visible: false
 # type: custom:grid-layout
 # layout:
@@ -23,8 +23,8 @@ cards:
       # - type: custom:button-card
       #   template: card_header
       #   variables:
-      #     card_header_title: Climate
-      #     card_header_navigate_path: /lovelace/minimalist_home
+      #     card_header_title: Kids Room
+      #     card_header_navigate_path: /lovelace/minimalist_rooms
       #     card_header_back_button: true
 
 
@@ -86,38 +86,33 @@ cards:
                       - type: 'custom:button-card'
                         template: chip_back_new
                         variables:
-                          ulm_chip_navigate_path: /lovelace/minimalist_home
+                          ulm_chip_navigate_path: /lovelace/minimalist_rooms
 
                       # Temperature Chip
-                      # - type: custom:button-card
-                      #   template: chip_temperature
+                      # - type: 'custom:button-card'
+                      #   template:
+                      #     - 'chip_icon_label_state'
+                      #   icon: 'mdi:thermometer'
                       #   variables:
-                      #     ulm_chip_temperature_outside: 'sensor.outside_temperature'
-                      #     ulm_chip_temperature_inside: 'sensor.sensibo_living_room_temp'
-                      #     ulm_chip_temperature_weather: 'weather.met_home'
+                      #     ulm_chip_icon_state_entity: sensor.climate_ronen_temp
 
                       # Climate Chip
                       - type: 'custom:button-card'
                         template:
                           - 'chip_climate'
-                          #- 'chip_blue_no_state'
+                        icon: 'mdi:thermometer'
                         variables:
-                          ulm_chip_temperature_low: sensor.lowest_temperature_home
-                          ulm_chip_temperature_high: sensor.highest_temperature_home
-                          ulm_chip_devices_on: sensor.number_of_climate_entities_on
+                          ulm_chip_temperature_high: sensor.climate_ronen_temp
 
-                      # Air Quality Chip
+                      # Lights Chip
                       - type: 'custom:button-card'
                         template:
                           - 'chip_icon_label_state'
-                          - 'chip_air_polution_colors'
-                          - 'chip_air_polution_icons'
-                          - 'popup_chip_air_quality'
-                        #icon: 'mdi:leaf'
+                          - 'chip_yellow'
+                        icon: 'mdi:lightbulb'
                         variables:
-                          ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
-                          ulm_card_air_quality_green: 50
-                          ulm_card_air_quality_yellow: 100
+                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_ronen_room
+
 
 
           ############################################################################
@@ -131,7 +126,9 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Climate
+                      name: Ronen Room
+
+
 
           ############################################################################
           #                                                                          #
@@ -158,49 +155,11 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
-                      # Living Room Climate
+                      # Kids Room Light
                       - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.living_room
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                          ulm_card_ac_name: 'Living Room'
-                          #ulm_card_ac_display_name: 'AC'
-                        view_layout:
-                          grid-row-start: span 2                        
-
-
-                      # Bedroom Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.bedroom
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
-                          ulm_card_ac_name: 'Bedroom'
-                          #ulm_card_ac_display_name: 'AC'
-                        view_layout:
-                          grid-row-start: span 2
-
-                      # Bedroom Radiator
-                      # - type: 'custom:button-card'
-                      #   template: card_power_outlet
-                      #   variables:
-                      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                      #   entity: switch.bedroom_radiator
-                      #   name: Radiator
-                      #   icon: mdi:radiator
-                    
-
-                      # Kfir Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.kfir
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
-                          ulm_card_ac_name: 'Kfir'
-                          #ulm_card_ac_display_name: 'AC'
-                        view_layout:
-                          grid-row-start: span 2
+                        template: 'card_light_simple'
+                        entity: light.kids_room
+                        name: Kids Room
 
                       # Kids Room Radiator
                       # - type: 'custom:button-card'
@@ -211,44 +170,18 @@ cards:
                       #   name: Radiator
                       #   icon: mdi:radiator
 
-                      # Ronen Climate
+                      # Kfir Room Climate
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
                           ulm_card_ac_entity: climate.ronen
+                          #ulm_card_ac_fan_mode_sensor: sensor.climate_ronen_fan
                           ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
                           ulm_card_ac_name: 'Ronen'
-                          #ulm_card_ac_display_name: 'AC'
                         view_layout:
                           grid-row-start: span 2
+                        
 
-                      # Basement Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.basement
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
-                          ulm_card_ac_name: 'Basement'
-                          #ulm_card_ac_display_name: 'AC'
-                        view_layout:
-                          grid-row-start: span 2
-
-
-                      # Work Room Temperature
-                      # - type: 'custom:button-card'
-                      #   template: card_graph
-                      #   variables:
-                      #     ulm_card_graph_color: "var(--google-blue)"
-                      #     ulm_card_graph_name: Work Room
-                      #     ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
-                      #   view_layout:
-                      #     grid-row-start: span 2
-                      # - type: 'custom:button-card'
-                      #   template: card_generic
-                      #   entity: sensor.work_room_temperature_sensor_temperature
-                      #   name: Work Room
-                                                
-                      
 
                 - type: custom:button-card
                   template: spacer
