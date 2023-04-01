@@ -233,7 +233,7 @@ card_fully_image:
         type: custom:refreshable-picture-card
         title: null
         update_interval: 5
-        static_picture: "[[[ return variables.ulm_card_fully_image ]]]"
+        url: "[[[ return variables.ulm_card_fully_image ]]]"
         navigate: "[[[ return variables.ulm_card_fully_image ]]]"
         style: |
           ha-card {
