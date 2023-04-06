@@ -224,5 +224,5 @@ cards:
 
                 - type: custom:button-card
                   template: spacer
-                  variables:
-                    height: 100px
+                  # variables:
+                  #   height: 100px
