@@ -241,8 +241,10 @@ sensor:
         friendly_name: "Living Room Temperature (Sensibo)"
         unit_of_measurement: "°C"
         icon_template: mdi:thermometer
+        # value_template: >-
+        #   {{ state_attr('climate.living_room', 'current_temperature') }}
         value_template: >-
-          {{ state_attr('climate.living_room', 'current_temperature') }}
+          {{ states['sensor.living_room_temperature_sensor_temperature'].state }}
 
       # sensibo_living_room_temp_unit:
       #   friendly_name: "Living Room Temperature (Sensibo)"

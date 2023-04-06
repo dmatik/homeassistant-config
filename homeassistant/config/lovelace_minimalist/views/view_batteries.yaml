@@ -120,6 +120,16 @@ cards:
                           grid-template-columns: 1fr
                     cards:
 
+                    # Living Room Temperature Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.living_room_temperature_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.living_room_temperature_sensor_battery
+                        name: Living Room Temperature Sensor
+
                     # Basement Temperature Sensor
                       - type: 'custom:button-card'
                         template: card_battery
