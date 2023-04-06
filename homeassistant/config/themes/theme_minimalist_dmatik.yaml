@@ -48,17 +48,20 @@ minimalist-dmatik:
         width: 97% !important;
         height: 44px;
       }
+      paper-icon-button {
+        display: none;
+      }
     .: |
       @media (orientation: portrait) {
         a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
           display: none !important;
         }
-        app-toolbar {
+        .toolbar {
           padding-right: 0px;
           padding-left: 0px;
         }
       }
-      app-header {
+      .header {
         top: auto !important;
         bottom: 0 !important;
         transform: unset !important;
@@ -67,14 +70,17 @@ minimalist-dmatik:
         background-color: var(--header-background-color) !important;
         border-top: var(--footer-border) !important;
       }
-      app-toolbar {
+      .toolbar {
         transform: none !important;
         height: 44px !important;
         background-color: var(--header-background-color) !important;
       }
       #view {
         min-height: 100% !important;
-        margin-top: -80px !important;
+        margin-top: 0px !important;
+      }
+      hui-view {
+        padding-bottom: 0px !important;
       }
       ha-tabs {
         --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
