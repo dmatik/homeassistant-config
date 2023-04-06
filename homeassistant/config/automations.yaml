@@ -642,3 +642,16 @@
 
         '
   mode: single
+- id: '1680756525883'
+  alias: Turn On Basement TV with WakeOnLan
+  description: ''
+  trigger:
+  - platform: samsungtv.turn_on
+    entity_id: media_player.samsung_8_series_65
+  condition: []
+  action:
+  - service: wake_on_lan.send_magic_packet
+    data:
+      broadcast_port: 9
+      mac: C0:48:E6:4D:38:15
+  mode: single
