@@ -91,6 +91,10 @@ cards:
                       #     ulm_chip_temperature_weather: 'weather.met_home'
                       #     ulm_chip_navigate_path: /lovelace/minimalist_climate
 
+                      # Menu Chip
+                      - type: 'custom:button-card'
+                        template: chip_menu
+
                       # Climate Chip
                       - type: 'custom:button-card'
                         template:

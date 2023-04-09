@@ -1,12 +1,4 @@
-chip_back_new:
-  template: 
-    - 'chip_icon_label_state'
-    - 'chip_navigate_only'
-  icon: "mdi:arrow-left"
-
-chip_icon_label_state:
-  # variables:
-  #   ulm_chip_icon_state_entity: ''
+chip_base:
   triggers_update: 'all'
   show_icon: 'true'
   show_name: 'false'
@@ -53,6 +45,38 @@ chip_icon_label_state:
       - padding-right: '2px'
       - height: '36px'
       - width: 'auto'      
+
+chip_menu:
+  template: 
+    - 'chip_icon_only_new'
+  icon: "mdi:menu"
+  tap_action:
+    action: 'call-service'
+    service: |
+      [[[
+        this.dispatchEvent(new Event('hass-toggle-menu', { bubbles: true, composed: true}))
+      ]]]  
+
+chip_back_new:
+  template: 
+    - 'chip_icon_label_state'
+    - 'chip_navigate_only'
+  icon: "mdi:arrow-left"
+
+chip_icon_only_new:
+  template:
+    - 'chip_base'
+  show_label: 'true'
+  size: '100%'
+  styles:
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: 'max_content'
+      - grid-template-rows: 'min-content'
+
+chip_icon_label_state:
+  template:
+    - 'chip_base'
   label: |
       [[[
         var state = "";
@@ -71,6 +95,40 @@ chip_icon_label_state:
         label:
           - display: 'none'
 
+chip_climate:
+  template:
+    - 'chip_base'
+  styles:
+    icon:
+      - color: |
+          [[[
+            if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
+              return "rgba(var(--color-blue),1)";
+            }
+            return "rgb(var(--primary-text-color))";
+          ]]]      
+  label: |
+      [[[
+        var state = "";
+        var temp_high = states[variables.ulm_chip_temperature_high].state;
+        temp_high = Number(temp_high).toFixed(1);
+        var temp_low = null;
+        if(variables.ulm_chip_temperature_low != null) {
+          temp_low = states[variables.ulm_chip_temperature_low].state;
+          temp_low = Number(temp_low).toFixed(1);
+        }
+        if (temp_low == null || temp_high - temp_low < 0.5) {
+          state = temp_high + "°";
+        } else {
+          state = temp_low + "-" + temp_high + "°";
+        }
+        if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
+          state += " • " + states[variables.ulm_chip_devices_on].state;
+        }
+        return state;
+      ]]]
+  icon: "mdi:fan"   
+  
 chip_navigate_only:
   tap_action:
     action: 'navigate'
@@ -136,79 +194,3 @@ chip_air_polution_icons:
         return 'mdi:emoticon-sad';
       }      
     ]]]
-
-chip_climate:
-  triggers_update: 'all'
-  show_icon: 'true'
-  show_name: 'false'
-  show_label: 'true'
-  size: '100%'
-  styles:
-    card:
-      - box-shadow: 'var(--box-shadow)'
-      - border-radius: '18px'
-      - height: '38px'
-      - width: 'auto'
-      - padding-left: '8px'
-      - padding-right: '8px'
-      - padding-top: '0px'
-      - padding-bottom: '0px'
-      - --mdc-ripple-press-opacity: 0.0
-    grid:
-      - grid-template-areas: "'i l'"
-      - grid-template-columns: 'max_content auto'
-      - grid-template-rows: 'min-content'
-    img_cell:
-      - display: flex
-      - justify-content: center
-      - align-items: center    
-      #- place-self: 'center'
-      - width: '20px'
-      - height: '36px'
-      - padding-right: '0px'
-      - padding-left: '0px'
-    icon:
-      - display: flex
-      - justify-content: center
-      - align-items: center
-      - color: |
-          [[[
-            if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
-              return "rgba(var(--color-blue),1)";
-            }
-            return "rgb(var(--primary-text-color))";
-          ]]]      
-    label:
-      - display: flex
-      - justify-content: center
-      - align-items: center
-      - justify-self: 'center'
-      - font-weight: 500
-      - font-size: '16px'
-      - margin-left: '0px'
-      - width: 'auto'
-      - padding-left: '2px'
-      - padding-right: '2px'
-      - height: '36px'
-      - width: 'auto'      
-  label: |
-      [[[
-        var state = "";
-        var temp_high = states[variables.ulm_chip_temperature_high].state;
-        temp_high = Number(temp_high).toFixed(1);
-        var temp_low = null;
-        if(variables.ulm_chip_temperature_low != null) {
-          temp_low = states[variables.ulm_chip_temperature_low].state;
-          temp_low = Number(temp_low).toFixed(1);
-        }
-        if (temp_low == null || temp_high - temp_low < 0.5) {
-          state = temp_high + "°";
-        } else {
-          state = temp_low + "-" + temp_high + "°";
-        }
-        if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
-          state += " • " + states[variables.ulm_chip_devices_on].state;
-        }
-        return state;
-      ]]]
-  icon: "mdi:fan"   
