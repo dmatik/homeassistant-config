@@ -37,7 +37,7 @@ minimalist-mobile:
         background: var(--header-background-color) !important;
       }
   card-mod-root: |
-    app-toolbar {
+    .toolbar {
       display: none;
     }
   card-mod-view-yaml: |
