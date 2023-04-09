@@ -30,8 +30,8 @@ icon_info:
         custom_fields:
           notification:
             - position: "absolute"
-            - left: "40px"
-            - top: "8px"
+            - left: "28px"
+            - top: "-4px"
   styles:
     icon:
       - color: "rgba(var(--color-theme),0.2)"
