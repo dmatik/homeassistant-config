@@ -1,7 +1,7 @@
 title: Wall Panel
 
-# kiosk_mode:
-#   kiosk: true
+kiosk_mode:
+  kiosk: true
 
 # decluttering_templates:
 #   !include_dir_merge_named /config/lovelace/decluttering_templates/

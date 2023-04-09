@@ -50,8 +50,8 @@
 #   type: module
 # - url: /local/custom-lovelace/custom-header/custom-header.js
 #   type: module
-# - url: /hacsfiles/kiosk-mode/kiosk-mode.js
-#   type: module
+- url: /hacsfiles/kiosk-mode/kiosk-mode.js
+  type: module
 # - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
 #   type: module
 - url: /hacsfiles/lovelace-hui-element/hui-element.js
