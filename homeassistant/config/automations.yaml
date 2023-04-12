@@ -655,3 +655,19 @@
       broadcast_port: 9
       mac: C0:48:E6:4D:38:15
   mode: single
+- id: '1681297657863'
+  alias: Red Alert Gan Yavne Clear
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_gan_yavne
+    to: 'off'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-gan-yavne
+  mode: single
