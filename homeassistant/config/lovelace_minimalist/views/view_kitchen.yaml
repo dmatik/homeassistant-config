@@ -154,37 +154,15 @@ cards:
                         entity: light.kitchen
                         name: Kitchen
 
-                      # Kitchen Strips Light
+                      # Kitchen Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
-                        entity: light.kitchen_strips
+                        entity: light.kitchen_led_strip
                         icon: 'mdi:led-strip-variant'
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Strips
-
-                      # Switcher
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_switcher
-                        variables:
-                          ulm_card_switcher_name: "Boiler"
-                          ulm_card_switcher_icon: "mdi:waves"
-                          ulm_card_switcher_entity: switch.switcher_boiler
-                          ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
-                          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left
-                          ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
-                          ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
-                          ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
-                        view_layout:
-                          grid-row-start: span 2
-                          
-                      # Service Balcony Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.service_balcony
-                        name: S. Balcony
+                          ulm_card_light_name: Led Strip
 
                       # Kitchen Motion Sensor
                       - type: 'custom:button-card'

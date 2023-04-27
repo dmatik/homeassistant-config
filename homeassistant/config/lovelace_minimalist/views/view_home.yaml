@@ -345,6 +345,26 @@ cards:
                         entity: media_player.samsung_8_series_65
                         variables:
                           ulm_card_tv_name: 'Basement TV'
+
+                      # Bedside Dima Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bedside_dima_bulb
+                        icon: 'mdi:lamp'
+                        variables:
+                          ulm_card_light_enable_color: true
+                          ulm_card_light_enable_popup: false
+                          ulm_card_light_name: Dima
+
+                      # Bedside Galit Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bedside_galit_bulb
+                        icon: 'mdi:lamp'
+                        variables:
+                          ulm_card_light_enable_color: true
+                          ulm_card_light_enable_popup: false
+                          ulm_card_light_name: Galit
                         
                                                
                       # Living Room Light
@@ -417,6 +437,16 @@ cards:
                           ulm_card_ac_name: 'Bedroom'
                         view_layout:
                           grid-row-start: span 2
+
+                      # Kitchen Led Strip
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kitchen_led_strip
+                        icon: 'mdi:led-strip-variant'
+                        variables:
+                          ulm_card_light_enable_color: true
+                          ulm_card_light_enable_popup: false
+                          ulm_card_light_name: Kitchen Strip
 
 
                 - type: custom:button-card

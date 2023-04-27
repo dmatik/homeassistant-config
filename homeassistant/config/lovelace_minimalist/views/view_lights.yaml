@@ -217,21 +217,15 @@ cards:
                         entity: light.kitchen
                         name: Kitchen
 
-                      # Kitchen Strips Light
+                      # Kitchen Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
-                        entity: light.kitchen_strips
+                        entity: light.kitchen_led_strip
                         icon: 'mdi:led-strip-variant'
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Strips
-
-                      # Service Balcony Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.service_balcony
-                        name: S. Balcony
+                          ulm_card_light_name: Kitchen Strip
 
 
 

@@ -20,7 +20,7 @@ group:
 ############################################################################
 
   kitchen_motion_sensors:
-    name: Kitchen
+    name: Kitchen Motion Sensors
     entities:
       #- binary_sensor.motion_kitchen
       - binary_sensor.kitchen_motion_sensor_occupancy

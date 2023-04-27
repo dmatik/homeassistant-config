@@ -143,8 +143,8 @@ light:
 #                                                                          #
 ############################################################################
 
-  - platform: group
-    name: Kitchen Strips
-    entities:
-      - light.kitchen_strip_left
-      - light.kitchen_strip_right
+  # - platform: group
+  #   name: Kitchen Strips
+  #   entities:
+  #     - light.kitchen_strip_left
+  #     - light.kitchen_strip_right
