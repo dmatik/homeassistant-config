@@ -134,6 +134,11 @@ chip_navigate_only:
     action: 'navigate'
     navigation_path: '[[[ return variables.ulm_chip_navigate_path; ]]]'
 
+chip_more_info_with_entity:
+  tap_action:
+    action: 'more-info'
+    entity: '[[[ return variables.ulm_chip_more_info_entity; ]]]'
+
 chip_yellow:
   state:
     - operator: "template"
