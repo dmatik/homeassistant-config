@@ -193,6 +193,7 @@ card_ac_buttons_gree:
 
 
 ac_text_info:
+  triggers_update: "all"
   color: "var(--google-grey)"
   show_icon: false
   show_label: true
@@ -264,6 +265,7 @@ ac_text_info:
   size: "20px"
 
 ac_curr_temp:
+  triggers_update: "all"
   color: "var(--google-grey)"
   show_icon: false
   show_label: false
