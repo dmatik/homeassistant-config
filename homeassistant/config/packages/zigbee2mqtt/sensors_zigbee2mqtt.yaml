@@ -2,6 +2,13 @@ mqtt:
 
   sensor:
 
+
+    ############################################################################
+    #                                                                          #
+    #   Floor 2                                                                #
+    #                                                                          #
+    ############################################################################
+
     # Sensor for monitoring the bridge state
     - name: Zigbee2mqtt Bridge state
       state_topic: "zigbee2mqtt/bridge/state"
@@ -21,4 +28,33 @@ mqtt:
         {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
       # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
       json_attributes_topic: zigbee2mqtt/bridge/response/networkmap
+      json_attributes_template: "{{ value_json.data.value | tojson }}"
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Basement                                                               #
+    #                                                                          #
+    ############################################################################
+
+    # Sensor for monitoring the bridge state
+    - name: Zigbee2mqtt Basement Bridge state
+      state_topic: "z2m_basement/bridge/state"
+      icon: mdi:router-wireless
+
+    # Sensor for Showing the Zigbee2mqtt Version
+    - name: Zigbee2mqtt Basement Version
+      state_topic: "z2m_basement/bridge/config"
+      value_template: "{{ value_json.version }}"
+      icon: mdi:zigbee
+
+    # Sensor for Network Map
+    - name: Zigbee2mqtt Basement Networkmap
+      # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
+      state_topic: z2m_basement/bridge/response/networkmap
+      value_template: >-
+        {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+      # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
+      json_attributes_topic: z2m_basement/bridge/response/networkmap
       json_attributes_template: "{{ value_json.data.value | tojson }}"

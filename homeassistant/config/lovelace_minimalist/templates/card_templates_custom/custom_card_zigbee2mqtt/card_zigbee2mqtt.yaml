@@ -1,8 +1,9 @@
 card_zigbee2mqtt:
   variables:
-    ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_bridge_state'
-    ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_version'
-    ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_restart'
+    ulm_card_zigbee2mqtt_bridge_state: ''
+    ulm_card_zigbee2mqtt_version: ''
+    ulm_card_zigbee2mqtt_restart_script: ''
+    ulm_card_zigbee2mqtt_networkmap: ''
   triggers_update: "all"
   styles:
     grid:
@@ -27,8 +28,8 @@ card_zigbee2mqtt:
         tap_action:
           action: "none"
         entity: "[[[ return variables.ulm_card_zigbee2mqtt_bridge_state ]]]"
-        label: "[[[ return states[variables.ulm_card_zigbee2mqtt_bridge_state].state ]]]"
-        name: "[[[ return states[variables.ulm_card_zigbee2mqtt_version].state ]]]"
+        label: "[[[ return states[variables.ulm_card_zigbee2mqtt_version].state + ' • ' + states[variables.ulm_card_zigbee2mqtt_bridge_state].state ]]]"
+        name: "[[[ return variables.ulm_card_zigbee2mqtt_name ]]]"
         styles:
           icon:
             - color: "rgba(var(--color-theme),0.9)"
@@ -54,7 +55,8 @@ card_zigbee2mqtt:
                 - "widget_text"
                 - "popup_zigbee2mqtt_network_map"
               variables:
-                ulm_card_zigbee2mqtt_title: 'Network Map'
+                ulm_card_zigbee2mqtt_title: "[[[ return variables.ulm_card_zigbee2mqtt_name + ' Network Map' ]]]"
+                ulm_card_zigbee2mqtt_networkmap: "[[[ return variables.ulm_card_zigbee2mqtt_networkmap ]]]"
               name: 'Network Map'
 
 zigbee2mqtt_blue_on:

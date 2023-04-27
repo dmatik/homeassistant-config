@@ -121,13 +121,27 @@ cards:
                           grid-template-columns: 1fr
                     cards:
 
-                      # Zigbee2mqtt
+                      # Zigbee2mqtt Floor 2
                       - type: 'custom:button-card'
                         template: card_zigbee2mqtt
                         variables:
+                          ulm_card_zigbee2mqtt_name: 'Floor 2'
                           ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_bridge_state'
                           ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_version'
                           ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_networkmap'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'zigbee2mqtt'
+
+                      # Zigbee2mqtt Basement
+                      - type: 'custom:button-card'
+                        template: card_zigbee2mqtt
+                        variables:
+                          ulm_card_zigbee2mqtt_name: 'Basement'
+                          ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_basement_bridge_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_basement_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_basement_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_basement_networkmap'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m_basement'
 
                 - type: custom:button-card
                   template: spacer
