@@ -13,7 +13,7 @@ views:
   # Rooms
   - !include /config/lovelace_minimalist/views/view_living_room.yaml
   - !include /config/lovelace_minimalist/views/view_kitchen.yaml
-  - !include /config/lovelace_minimalist/views/view_hallway.yaml
+  - !include /config/lovelace_minimalist/views/view_floor_2.yaml
   - !include /config/lovelace_minimalist/views/view_bedroom.yaml
   - !include /config/lovelace_minimalist/views/view_kfir_room.yaml
   - !include /config/lovelace_minimalist/views/view_ronen_room.yaml
