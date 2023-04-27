@@ -181,7 +181,7 @@ sensor:
       ############################################################################
 
       climate_bedroom_temp:
-        friendly_name: "Bedroom Temperature (Sensibo)"
+        friendly_name: "Bedroom Temperature"
         unit_of_measurement: "°C"
         icon_template: mdi:thermometer
         # value_template: >-
@@ -238,7 +238,7 @@ sensor:
       ############################################################################
       
       climate_living_room_temp:
-        friendly_name: "Living Room Temperature (Sensibo)"
+        friendly_name: "Living Room Temperature"
         unit_of_measurement: "°C"
         icon_template: mdi:thermometer
         # value_template: >-
