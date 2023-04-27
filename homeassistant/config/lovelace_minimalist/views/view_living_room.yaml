@@ -100,9 +100,11 @@ cards:
                       - type: 'custom:button-card'
                         template:
                           - 'chip_climate'
+                          - 'chip_more_info_with_entity'
                         icon: 'mdi:thermometer'
                         variables:
                           ulm_chip_temperature_high: sensor.climate_living_room_temp
+                          ulm_chip_more_info_entity: sensor.climate_living_room_temp
 
                       # Lights Chip
                       - type: 'custom:button-card'
