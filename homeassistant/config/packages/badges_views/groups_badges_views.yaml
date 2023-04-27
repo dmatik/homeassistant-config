@@ -239,6 +239,7 @@ group:
       - sensor.kitchen_firmware_version
       - sensor.dining_firmware_version
       - sensor.work_room_firmware_version
+      - sensor.kitchen_led_strip_firmware_version
 
 ############################################################################
 #                                                                          #

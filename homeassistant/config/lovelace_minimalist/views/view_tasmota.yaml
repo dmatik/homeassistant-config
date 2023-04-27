@@ -214,7 +214,7 @@ cards:
 
           ############################################################################
           #                                                                          #
-          #   Bulbs                                                                  #
+          #   Lights                                                                 #
           #                                                                          #
           ############################################################################
 
@@ -254,7 +254,7 @@ cards:
                           ulm_card_tasmota_wi_fi_quality: 'sensor.bedside_dima_bulb_rssi'
                           ulm_card_tasmota_version: 'sensor.bedside_dima_bulb_firmware_version'
                           ulm_card_tasmota_icon: 'mdi:lightbulb'
-                          ulm_card_tasmota_name: 'Bedside Dima'
+                          ulm_card_tasmota_name: 'Bedside Dima Bulb'
                           ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
                           ulm_card_tasmota_ip: 'sensor.bedside_dima_bulb_ip'
 
@@ -268,11 +268,23 @@ cards:
                           ulm_card_tasmota_wi_fi_quality: 'sensor.bedside_galit_bulb_rssi'
                           ulm_card_tasmota_version: 'sensor.bedside_galit_bulb_firmware_version'
                           ulm_card_tasmota_icon: 'mdi:lightbulb'
-                          ulm_card_tasmota_name: 'Bedside Galit'
+                          ulm_card_tasmota_name: 'Bedside Galit Bulb'
                           ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
                           ulm_card_tasmota_ip: 'sensor.bedside_galit_bulb_ip'
 
-
+                      # Kitchen Led Strip
+                      - type: 'custom:button-card'
+                        entity: light.kitchen_led_strip
+                        template: card_tasmota
+                        variables:
+                          ulm_card_tasmota_entity: 'light.kitchen_led_strip'
+                          ulm_card_tasmota_last_restart: 'sensor.kitchen_led_strip_last_restart_time'
+                          ulm_card_tasmota_wi_fi_quality: 'sensor.kitchen_led_strip_rssi'
+                          ulm_card_tasmota_version: 'sensor.kitchen_led_strip_firmware_version'
+                          ulm_card_tasmota_icon: 'mdi:led-strip-variant'
+                          ulm_card_tasmota_name: 'Kitchen Led Strip'
+                          ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                          ulm_card_tasmota_ip: 'sensor.kitchen_led_strip_ip'
 
           ############################################################################
           #                                                                          #
