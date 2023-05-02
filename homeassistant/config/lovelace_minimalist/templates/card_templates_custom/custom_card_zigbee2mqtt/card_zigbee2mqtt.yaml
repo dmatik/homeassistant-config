@@ -57,6 +57,7 @@ card_zigbee2mqtt:
               variables:
                 ulm_card_zigbee2mqtt_title: "[[[ return variables.ulm_card_zigbee2mqtt_name + ' Network Map' ]]]"
                 ulm_card_zigbee2mqtt_networkmap: "[[[ return variables.ulm_card_zigbee2mqtt_networkmap ]]]"
+                ulm_card_zigbee2mqtt_mqtt_base_topic: "[[[ return variables.ulm_card_zigbee2mqtt_mqtt_base_topic ]]]"
               name: 'Network Map'
 
 zigbee2mqtt_blue_on:
