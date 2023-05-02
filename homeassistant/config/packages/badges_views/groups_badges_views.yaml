@@ -40,8 +40,7 @@ group:
       - light.work_room
       - light.bedside_dima_bulb
       - light.bedside_galit_bulb
-      - light.kitchen_strips
-      #- light.xiaomi_gateway_servers
+      - light.kitchen_led_strip
       - light.makeup
       - light.new_year_tree
 
