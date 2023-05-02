@@ -225,6 +225,26 @@ cards:
                         entity: light.entrance
                         name: Entrance
 
+                      # Ulanzi Clock
+                      - type: 'custom:button-card'
+                        template: card_ulanzi_clock
+                        entity: light.ulanzi_living_room_matrix
+                        variables:
+                          ulm_card_ulanzi_clock_entity: 'light.ulanzi_living_room_matrix'
+                          ulm_card_ulanzi_clock_name: 'Ulanzi Clock'
+                          ulm_card_ulanzi_clock_title: 'Living Room Ulanzi Clock'
+                          ulm_card_ulanzi_clock_current_app: 'sensor.ulanzi_living_room_current_app'
+                          ulm_card_ulanzi_clock_version: 'sensor.ulanzi_living_room_version'
+                          ulm_card_ulanzi_clock_battery: 'sensor.ulanzi_living_room_battery'
+                          ulm_card_ulanzi_clock_temperature: 'sensor.ulanzi_living_room_temperature'
+                          ulm_card_ulanzi_clock_wifi_strength: 'sensor.ulanzi_living_room_wifi_strength'
+                          ulm_card_ulanzi_clock_next_app: 'button.ulanzi_living_room_next_app'
+                          ulm_card_ulanzi_clock_previous_app: 'button.ulanzi_living_room_previous_app'
+                          ulm_card_ulanzi_clock_transition: 'switch.ulanzi_living_room_transition'
+                          ulm_card_ulanzi_clock_indicator_1: 'light.ulanzi_living_room_indicator_1'
+                          ulm_card_ulanzi_clock_indicator_2: 'light.ulanzi_living_room_indicator_2'
+                          ulm_card_ulanzi_clock_dismiss_notification: 'button.ulanzi_living_room_dismiss_notification'
+
 
 
 

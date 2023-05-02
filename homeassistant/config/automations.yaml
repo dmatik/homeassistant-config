@@ -675,3 +675,27 @@
       data:
         tag: redalert-gan-yavne
   mode: single
+- id: '1682968841601'
+  alias: Ulanzi Test Notification
+  description: ''
+  use_blueprint:
+    path: smarthomejunkie/awtrix_create_notification.yaml
+    input:
+      text_case: '0'
+      awtrix_display: 4bd011f1c6a57a8506899e7fce7ab920
+      toggle_helper: input_boolean.ulanzi_test_notification
+      notification_text: This is test notification!
+      my_icon: '87'
+      push_icon: '2'
+      show_rainbow: true
+- id: '1682970537081'
+  alias: Ulanzi Weather App
+  description: ''
+  use_blueprint:
+    path: smarthomejunkie/awtrix_weather_app.yaml
+    input:
+      text_case: '0'
+      awtrix_display: 4bd011f1c6a57a8506899e7fce7ab920
+      toggle_helper: input_boolean.ulanzi_weather
+      my_sensor: weather.met_home
+      show_windspeed: false

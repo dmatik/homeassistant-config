@@ -39,6 +39,30 @@
           actions:
             - action: "SWITCHER_BOILER_OFF"
               title: "Off"
+    - service: mqtt.publish
+      data:
+        qos: 0
+        retain: false
+        topic: "ulanzi_living_room/notify"
+        payload: |-
+          {   
+            "text": "Boiler ON until {{ states('sensor.switcher_boiler_auto_off_time') }}",
+            "icon": "44433",
+            "textCase": "0",
+            "pushIcon": "2",              
+            "hold": false,
+            "duration": "15"
+          }
+    - service: mqtt.publish
+      data:
+        qos: 0
+        retain: false
+        topic: "ulanzi_living_room/indicator1"
+        payload: |-
+          {   
+            "color": [0,255,0],
+            "blink": false
+          }
 
 ############################################################################
 #                                                                          #
@@ -94,6 +118,30 @@
               title: "On 30 min"
             - action: "SWITCHER_BOILER_ON_60"
               title: "On 60 min"
+    - service: mqtt.publish
+      data:
+        qos: 0
+        retain: false
+        topic: "ulanzi_living_room/notify"
+        payload: |-
+          {   
+            "text": "Boiler OFF",
+            "icon": "44433",
+            "textCase": "0",
+            "pushIcon": "2",              
+            "hold": false,
+            "duration": "15"
+          }
+    - service: mqtt.publish
+      data:
+        qos: 0
+        retain: false
+        topic: "ulanzi_living_room/indicator1"
+        payload: |-
+          {   
+            "color": [0,0,0],
+            "blink": false
+          }
 
 
 ############################################################################

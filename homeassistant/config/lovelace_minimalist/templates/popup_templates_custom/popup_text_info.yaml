@@ -1,4 +1,5 @@
 popup_text_info:
+  triggers_update: "all"
   tap_action:
     action: "none"
   show_icon: false
@@ -40,3 +41,7 @@ popup_text_info:
         - filter: "opacity(90%)"
         - margin-right: "2px"
         - text-align: "end"
+
+popup_text_info_item2:
+  custom_fields:
+    item2: "[[[ return states[variables.ulm_card_item2].state ]]]"  
