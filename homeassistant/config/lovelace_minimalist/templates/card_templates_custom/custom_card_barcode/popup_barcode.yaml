@@ -1,0 +1,52 @@
+popup_barcode:
+  variables:
+    ulm_card_barcode_title: ''
+    ulm_card_barcode_image: ''
+  tap_action:
+    action: fire-dom-event
+    browser_mod:
+      service: browser_mod.popup
+      data:
+        card_mod:
+          style:
+            ha-dialog$: |
+              .mdc-dialog__scrim {
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+              }
+            ha-header-bar$: |
+              .mdc-top-app-bar {
+                background: var(--header-background-color) !important;
+              }
+        title: "[[[ return variables.ulm_card_barcode_title ]]]"
+        content:
+
+          type: vertical-stack
+          cards:
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 10px
+
+                
+            ############################################################################
+            #                                                                          #
+            #   Image                                                                  #
+            #                                                                          #
+            ############################################################################
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
+
+                - type: 'custom:button-card'
+                  template: card_image
+                  variables: 
+                    card_image_image: "[[[ return variables.ulm_card_barcode_image ]]]"
+
+

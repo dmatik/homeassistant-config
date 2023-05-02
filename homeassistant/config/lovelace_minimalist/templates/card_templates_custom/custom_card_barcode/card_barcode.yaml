@@ -1,0 +1,13 @@
+card_barcode:
+  template:
+    - "icon_info_bg_no_enity"
+    - "ulm_language_variables"
+    - "popup_barcode"
+  label: "Click on me"
+  styles:
+    icon:
+      - color: "rgba(var(--color-theme),0.9)"
+    grid:
+      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"

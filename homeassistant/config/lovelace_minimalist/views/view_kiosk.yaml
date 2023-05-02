@@ -84,19 +84,19 @@ cards:
               #     }            
 
               # Air Quality
-              - type: 'custom:button-card'
-                template: card_air_quality_graph
-                variables:
-                  ulm_card_graph_color: "var(--google-blue)"
-                  ulm_card_air_quality_name: Air Quality
-                  ulm_card_air_quality_entity: sensor.waqi_ashdod_yshrl_dod
-                  ulm_card_air_quality_url: 'https://aqicn.org/city/ashdod/'
-                  ulm_card_air_quality_type: bar
-                  ulm_card_air_quality_show_extrema: true
-                  ulm_card_air_quality_show_average: true
-                  ulm_card_air_quality_green: 50
-                  ulm_card_air_quality_yellow: 100
-                  ulm_card_air_quality_hours: 48
+              # - type: 'custom:button-card'
+              #   template: card_air_quality_graph
+              #   variables:
+              #     ulm_card_graph_color: "var(--google-blue)"
+              #     ulm_card_air_quality_name: Air Quality
+              #     ulm_card_air_quality_entity: sensor.waqi_ashdod_yshrl_dod
+              #     ulm_card_air_quality_url: 'https://aqicn.org/city/ashdod/'
+              #     ulm_card_air_quality_type: bar
+              #     ulm_card_air_quality_show_extrema: true
+              #     ulm_card_air_quality_show_average: true
+              #     ulm_card_air_quality_green: 50
+              #     ulm_card_air_quality_yellow: 100
+              #     ulm_card_air_quality_hours: 48
 
           # Presense
           - type: custom:layout-card
@@ -140,11 +140,33 @@ cards:
                   ulm_card_person_entity: person.kfir
                   ulm_card_person_use_entity_picture: true
 
-              # # WiFi
-              # - type: 'custom:button-card'
-              #   template: card_image
-              #   variables: 
-              #     card_image_image: '/local/images/wifi_guest.png'
+          # WiFi
+          - type: horizontal-stack
+            cards:
+
+              - type: custom:button-card
+                template: title
+                name: Guest WiFi
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+              mediaquery:
+                "(max-width: 450px)":
+                  grid-template-columns: 1fr 1fr
+            cards:
+
+              # WiFi
+              - type: 'custom:button-card'
+                template: card_barcode
+                name: Guest WiFi
+                icon: mdi:wifi
+                variables:
+                  ulm_card_barcode_title: 'Guest WiFi'
+                  ulm_card_barcode_image: '/local/images/wifi_guest.png'                
 
 
 
