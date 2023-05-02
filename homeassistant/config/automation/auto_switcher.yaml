@@ -60,7 +60,7 @@
         topic: "ulanzi_living_room/indicator1"
         payload: |-
           {   
-            "color": [0,255,0],
+            "color": [255,0,0],
             "blink": false
           }
 
