@@ -43,6 +43,7 @@ group:
       - light.kitchen_led_strip
       - light.makeup
       - light.new_year_tree
+      - light.basement
 
 
 

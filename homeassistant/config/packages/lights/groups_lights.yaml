@@ -87,7 +87,7 @@ group:
   basement_lights:
     name: Basement Lights
     entities:
-      - light.kids_room
+      - light.basement
 
 ############################################################################
 #                                                                          #

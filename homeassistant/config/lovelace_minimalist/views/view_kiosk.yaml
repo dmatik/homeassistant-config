@@ -504,3 +504,28 @@ cards:
                 template: 'card_light_simple'
                 entity: light.work_room
                 name: Work Room
+
+          # Basement Lights
+          - type: horizontal-stack
+            cards:
+
+              - type: custom:button-card
+                template: title
+                name: Basement Lights
+
+          - type: custom:layout-card
+            layout_type: grid
+            layout_options:
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: auto
+              grid-gap: 0px 4px
+              mediaquery:
+                "(max-width: 450px)":
+                  grid-template-columns: 1fr 1fr
+            cards:
+
+              # Basement Light
+              - type: 'custom:button-card'
+                template: 'card_light_simple'
+                entity: light.basement
+                name: Basement

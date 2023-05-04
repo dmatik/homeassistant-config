@@ -396,6 +396,49 @@ cards:
 
           ############################################################################
           #                                                                          #
+          #   Basement                                                               #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Basement
+
+
+                # Lights
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Basement Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.basement
+                        name: Basement
+
+
+
+          ############################################################################
+          #                                                                          #
           #   Work Room                                                              #
           #                                                                          #
           ############################################################################
