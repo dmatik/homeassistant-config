@@ -46,8 +46,8 @@
         topic: "ulanzi_living_room/notify"
         payload: |-
           {   
-            "text": "Boiler ON until {{ states('sensor.switcher_boiler_auto_off_time') }}",
-            "icon": "44433",
+            "text": "ON until {{ states('sensor.switcher_boiler_auto_off_time') }}",
+            "icon": "48802",
             "textCase": "0",
             "pushIcon": "2",              
             "hold": false,
@@ -125,8 +125,8 @@
         topic: "ulanzi_living_room/notify"
         payload: |-
           {   
-            "text": "Boiler OFF",
-            "icon": "44433",
+            "text": "OFF",
+            "icon": "48802",
             "textCase": "0",
             "pushIcon": "2",              
             "hold": false,
