@@ -1,0 +1,7 @@
+title: Climate
+path: climate
+visible: false
+icon: mdi:fan
+panel: true
+    
+cards:

@@ -1,0 +1,122 @@
+title: Wall Panel
+
+kiosk_mode:
+  kiosk: true
+
+button_card_templates: !include_dir_merge_named lovelace_minimalist/templates/
+   
+background: var(--background-image)
+
+sidebar:
+  style: |
+    .digitalClock {
+      text-align: center;
+      padding-bottom: 1px;
+      padding-top: 20px;
+      line-height: 30px!important;
+      letter-spacing: 5px;
+      color: rgba(255, 255, 255, 0.7)!important;
+      font-size: 6.8vw!important;
+      font-weight: 200!important;
+      letter-spacing: -0.05vw!important;
+      text-align: center;
+      padding-bottom: 5px;
+      padding-top: 38px;
+    }
+    .date {
+      text-align: center;
+      padding-bottom: 10px;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 1.6vw;
+      font-weight: 300;
+      letter-spacing: -0.05vw;
+    }
+  #title: "Sidebar title"
+  digitalClock: true
+  date: true
+  dateFormat: "dddd DD MMMM YYYY"
+  hideTopMenu: true
+  width:
+    mobile: 0
+    tablet: 23
+    desktop: 23  
+  sidebarMenu:
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-2/home"
+      name: "Home"
+      active: true
+      icon: mdi:home
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-2/floor-2"
+      name: "Floor 2"
+      active: true
+      icon: mdi:home-floor-2
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-2/basement"
+      name: "Basement"
+      active: true
+      icon: mdi:home-floor-b
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-2/lights"
+      name: "Lights"
+      active: true
+      icon: mdi:lightbulb
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-2/climate"
+      name: "Climate"
+      active: true
+      icon: mdi:fan
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-2/covers"
+      name: "Covers"
+      active: true
+      icon: mdi:window-shutter
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-2/security"
+      name: "Security"
+      active: true
+      icon: mdi:cctv
+  bottomCard:
+    type: horizontal-stack
+    cardOptions:
+      cards:
+            # Climate Chip
+            - type: 'custom:button-card'
+              template:
+                - 'chip_climate'
+              variables:
+                ulm_chip_temperature_low: sensor.lowest_temperature_home
+                ulm_chip_temperature_high: sensor.highest_temperature_home                     
+                ulm_chip_devices_on: sensor.number_of_climate_entities_on
+            # Lights Chip
+            - type: 'custom:button-card'
+              template:
+                - 'chip_icon_label_state'
+                - 'chip_yellow'
+              icon: 'mdi:lightbulb'
+              variables:
+                ulm_chip_icon_state_entity: sensor.number_of_lights_on
+            # Motion Chip
+            - type: 'custom:button-card'
+              template:
+                - 'chip_icon_label_state'
+                - 'chip_blue'
+              icon: 'mdi:run'
+              variables:
+                ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+    cardStyle: |
+      :host {
+        width: 100%;
+        height:100%;
+      }
+
+views:
+
+    # Main
+    - !include /config/lovelace_minimalist/views_wallpanel/view_home.yaml
+    - !include /config/lovelace_minimalist/views_wallpanel/view_floor_2.yaml
+    - !include /config/lovelace_minimalist/views_wallpanel/view_basement.yaml
+    - !include /config/lovelace_minimalist/views_wallpanel/view_lights.yaml
+    - !include /config/lovelace_minimalist/views_wallpanel/view_climate.yaml
+    - !include /config/lovelace_minimalist/views_wallpanel/view_covers.yaml
+    - !include /config/lovelace_minimalist/views_wallpanel/view_security.yaml

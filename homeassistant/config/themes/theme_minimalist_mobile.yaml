@@ -1,5 +1,8 @@
 ---
 minimalist-mobile:
+
+  background-image: 'center / cover no-repeat url("/local/images/backgrounds/background.png") fixed'
+
   # Journal
   state-icon-color: "rgb(var(--color-theme))"
   border-radius: "12px"
@@ -11,6 +14,7 @@ minimalist-mobile:
   accent-color: "var(--google-yellow)"
   widget-border-radius: "10px"
   card-padding: "10px"
+  chips-left-margin: "14px"
 
   card-mod-theme: "minimalist-mobile"
   card-mod-more-info-yaml: |
@@ -36,10 +40,6 @@ minimalist-mobile:
       .mdc-top-app-bar {
         background: var(--header-background-color) !important;
       }
-  card-mod-root: |
-    .toolbar {
-      display: none;
-    }
   card-mod-view-yaml: |
     "*:first-child$": |
       #columns .column > * {
@@ -57,7 +57,7 @@ minimalist-mobile:
       header-background-color: var( --ha-card-background, var(--card-background-color, white) )
       footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)
       header-shadow: 0px 0.3px 0.3px 0px rgba(0,0,0,0.2)
-      header-height: 78px
+      #header-height: 78px
 
       # popup
       popup-background-color: var(--primary-background-color)
@@ -138,7 +138,7 @@ minimalist-mobile:
       footer-shadow: none
       footer-border: 1px solid rgb(45,45,45)
       header-shadow: 0px 0.3px 0.3px 0px rgba(200,200,200,0.4)
-      header-height: 80px
+      #header-height: 80px
 
       # popup
       popup-background-color: var(--primary-background-color)

@@ -1,0 +1,157 @@
+title: Basement
+path: basement
+visible: false
+icon: mdi:home-floor-b
+panel: true
+    
+cards:
+
+  - type: vertical-stack
+    cards:
+ 
+############################################################################
+#                                                                          #
+#   Content                                                                #
+#                                                                          #
+############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+        
+        cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Left Column                                                            #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+            # Climate
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Climate
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Basement Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons
+                    variables:
+                      ulm_card_ac_entity: climate.basement
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
+                      ulm_card_ac_name: 'Basement'
+                    view_layout:
+                      grid-row-start: span 2
+
+
+              # Devices
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Devices
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Basement TV
+                  - type: 'custom:button-card'
+                    template: 'card_tv'
+                    entity: media_player.samsung_8_series_65
+                    variables:
+                      ulm_card_tv_name: 'Basement TV'
+
+                  # Dimka PC
+                  - type: 'custom:button-card'
+                    template: card_pc
+                    entity: switch.dimka_hass_agent
+                    variables:
+                      ulm_card_pc_name: Dimka PC
+                      ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
+                      ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
+                      ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
+                      ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
+                      ulm_card_pc_wake: 'script.dimka_wake'
+                      ulm_card_pc_sleep: 'script.dimka_sleep'
+                      ulm_card_pc_restart: 'script.dimka_restart'
+                      ulm_card_pc_shutdown: 'script.dimka_shutdown'
+
+                  # Printer
+                  - type: 'custom:button-card'
+                    template: card_printer
+                    entity: sensor.mfc_j650dw_status
+                    variables:
+                      ulm_card_printer_name: Printer
+
+
+                      
+
+          ############################################################################
+          #                                                                          #
+          #   Right Column                                                           #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+              # Lights
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Lights
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Basement Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.basement
+                    name: Basement
+
+                  # Work Room Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.work_room
+                    name: Work Room

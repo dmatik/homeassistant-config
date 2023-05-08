@@ -74,6 +74,13 @@ lovelace:
       icon: mdi:view-dashboard
       show_in_sidebar: false
       require_admin: false
+    lovelace-wallpanel-2:
+      mode: yaml
+      filename: ui-wallpanel-2.yaml
+      title: "Wall Panel"
+      icon: mdi:view-dashboard
+      show_in_sidebar: false
+      require_admin: false
     # lovelace-minimalist:
     #   mode: yaml
     #   title: Minimalist
