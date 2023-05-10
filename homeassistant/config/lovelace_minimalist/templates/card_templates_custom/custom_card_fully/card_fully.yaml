@@ -232,9 +232,12 @@ card_fully_image:
       card:
         type: custom:refreshable-picture-card
         title: null
-        update_interval: 5
+        refresh_interval: 5
         url: "[[[ return variables.ulm_card_fully_image ]]]"
-        navigate: "[[[ return variables.ulm_card_fully_image ]]]"
+        noMargin: true
+        tap_action:
+          action: url
+          url_path: "[[[ return variables.ulm_card_fully_image ]]]"
         style: |
           ha-card {
             box-shadow: none;
