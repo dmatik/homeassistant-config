@@ -132,6 +132,17 @@ cards:
                           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_networkmap'
                           ulm_card_zigbee2mqtt_mqtt_base_topic: 'zigbee2mqtt'
 
+                      # Zigbee2mqtt Living Room
+                      - type: 'custom:button-card'
+                        template: card_zigbee2mqtt
+                        variables:
+                          ulm_card_zigbee2mqtt_name: 'Living Room'
+                          ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_living_room_bridge_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_living_room_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_living_room_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_living_room_networkmap'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m_living_room'
+
                       # Zigbee2mqtt Basement
                       - type: 'custom:button-card'
                         template: card_zigbee2mqtt
