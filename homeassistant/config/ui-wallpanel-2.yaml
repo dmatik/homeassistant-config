@@ -5,7 +5,7 @@ kiosk_mode:
 
 button_card_templates: !include_dir_merge_named lovelace_minimalist/templates/
    
-background: var(--background-image)
+#background: var(--background-image)
 
 sidebar:
   style: |
@@ -15,20 +15,20 @@ sidebar:
       padding-top: 20px;
       line-height: 30px!important;
       letter-spacing: 5px;
-      color: rgba(255, 255, 255, 0.7)!important;
+      color: var(--primary-text-color) !important;
       font-size: 6.8vw!important;
-      font-weight: 200!important;
+      font-weight: 300!important;
       letter-spacing: -0.05vw!important;
       text-align: center;
       padding-bottom: 5px;
-      padding-top: 38px;
+      padding-top: 40px;
     }
     .date {
       text-align: center;
-      padding-bottom: 10px;
-      color: rgba(255, 255, 255, 0.3);
+      padding-bottom: 15px;
+      color: var(--secondary-text-color);
       font-size: 1.6vw;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: -0.05vw;
     }
   #title: "Sidebar title"
@@ -108,6 +108,7 @@ sidebar:
       :host {
         width: 100%;
         height:100%;
+        --card-background-color: rgba(var(--color-theme),0.09);
       }
 
 views:
