@@ -15,26 +15,26 @@ cards:
       #                                                                          #
       ############################################################################
 
-      - type: "custom:mod-card"
-        style: 
-          .: |
-            ha-card {
-                padding-top: 8px !important;
-                margin-left: var(--chips-left-margin) !important;
-            }
-        card:
-          type: horizontal-stack
-          cards:
+      # - type: "custom:mod-card"
+      #   style: 
+      #     .: |
+      #       ha-card {
+      #           padding-top: 8px !important;
+      #           margin-left: var(--chips-left-margin) !important;
+      #       }
+      #   card:
+      #     type: horizontal-stack
+      #     cards:
 
-            # Lights Chip
-            - type: 'custom:button-card'
-              template:
-                - 'chip_icon_label_state'
-                #- 'chip_navigate_only'
-                - 'chip_yellow'
-              icon: 'mdi:lightbulb'
-              variables:
-                ulm_chip_icon_state_entity: sensor.number_of_lights_on
+      #       # Lights Chip
+      #       - type: 'custom:button-card'
+      #         template:
+      #           - 'chip_icon_label_state'
+      #           #- 'chip_navigate_only'
+      #           - 'chip_yellow'
+      #         icon: 'mdi:lightbulb'
+      #         variables:
+      #           ulm_chip_icon_state_entity: sensor.number_of_lights_on
 
 
 ############################################################################
@@ -292,7 +292,7 @@ cards:
                     #     ulm_card_light_enable_color: true
                     #     ulm_card_light_enable_popup: true
 
-                    
+
               ############################################################################
               #                                                                          #
               #   Bedroom                                                                #

@@ -5,3 +5,228 @@ icon: mdi:fan
 panel: true
     
 cards:
+
+  - type: vertical-stack
+    cards:
+
+
+      ############################################################################
+      #                                                                          #
+      #   Content                                                                #
+      #                                                                          #
+      ############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+        
+        cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Left Column                                                            #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+
+              ############################################################################
+              #                                                                          #
+              #   Temperature                                                            #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Temperature
+
+
+              # Temperature
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Living Room Temperature
+                  - type: 'custom:button-card'
+                    template: card_graph
+                    variables:
+                      ulm_card_graph_color: "var(--google-blue)"
+                      ulm_card_graph_name: Living Room
+                      ulm_card_graph_entity: sensor.climate_living_room_temp
+                    view_layout:
+                      grid-row-start: span 2
+
+                  # - type: 'custom:button-card'
+                  #   template: card_generic
+                  #   entity: sensor.climate_living_room_temp
+                  #   name: Living Room
+
+                  # Bedroom Temperature
+                  - type: 'custom:button-card'
+                    template: card_graph
+                    variables:
+                      ulm_card_graph_color: "var(--google-blue)"
+                      ulm_card_graph_name: Bedroom
+                      ulm_card_graph_entity: sensor.climate_bedroom_temp
+                    view_layout:
+                      grid-row-start: span 2
+
+                  # Kfir Room Temperature
+                  - type: 'custom:button-card'
+                    template: card_graph
+                    variables:
+                      ulm_card_graph_color: "var(--google-blue)"
+                      ulm_card_graph_name: Kfir Room
+                      ulm_card_graph_entity: sensor.climate_kfir_temp
+                    view_layout:
+                      grid-row-start: span 2
+
+                  # Ronen Room Temperature
+                  - type: 'custom:button-card'
+                    template: card_graph
+                    variables:
+                      ulm_card_graph_color: "var(--google-blue)"
+                      ulm_card_graph_name: Ronen Room
+                      ulm_card_graph_entity: sensor.climate_ronen_temp
+                    view_layout:
+                      grid-row-start: span 2
+
+                  # Basement Temperature
+                  - type: 'custom:button-card'
+                    template: card_graph
+                    variables:
+                      ulm_card_graph_color: "var(--google-blue)"
+                      ulm_card_graph_name: Basement
+                      ulm_card_graph_entity: sensor.climate_basement_temp
+                    view_layout:
+                      grid-row-start: span 2                      
+
+
+          ############################################################################
+          #                                                                          #
+          #   Right Column                                                           #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+              ############################################################################
+              #                                                                          #
+              #   Air Conditioning                                                       #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Air Conditioning
+
+
+              # Air Conditioning
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Living Room Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons
+                    variables:
+                      ulm_card_ac_entity: climate.living_room
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
+                      ulm_card_ac_name: 'Living Room'
+                      #ulm_card_ac_display_name: 'AC'
+                    view_layout:
+                      grid-row-start: span 2                        
+
+
+                  # Bedroom Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons
+                    variables:
+                      ulm_card_ac_entity: climate.bedroom
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
+                      ulm_card_ac_name: 'Bedroom'
+                      #ulm_card_ac_display_name: 'AC'
+                    view_layout:
+                      grid-row-start: span 2
+
+                  # Bedroom Radiator
+                  # - type: 'custom:button-card'
+                  #   template: card_power_outlet
+                  #   variables:
+                  #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                  #   entity: switch.bedroom_radiator
+                  #   name: Radiator
+                  #   icon: mdi:radiator
+                
+
+                  # Kfir Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons
+                    variables:
+                      ulm_card_ac_entity: climate.kfir
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
+                      ulm_card_ac_name: 'Kfir'
+                      #ulm_card_ac_display_name: 'AC'
+                    view_layout:
+                      grid-row-start: span 2
+
+                  # Kids Room Radiator
+                  # - type: 'custom:button-card'
+                  #   template: card_power_outlet
+                  #   variables:
+                  #     ulm_card_power_outlet_consumption_sensor: sensor.kids_radiator_energy_power 
+                  #   entity: switch.kids_radiator
+                  #   name: Radiator
+                  #   icon: mdi:radiator
+
+                  # Ronen Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons
+                    variables:
+                      ulm_card_ac_entity: climate.ronen
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
+                      ulm_card_ac_name: 'Ronen'
+                      #ulm_card_ac_display_name: 'AC'
+                    view_layout:
+                      grid-row-start: span 2
+
+                  # Basement Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons
+                    variables:
+                      ulm_card_ac_entity: climate.basement
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
+                      ulm_card_ac_name: 'Basement'
+                      #ulm_card_ac_display_name: 'AC'
+                    view_layout:
+                      grid-row-start: span 2

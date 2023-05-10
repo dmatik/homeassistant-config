@@ -5,3 +5,90 @@ icon: mdi:cctv
 panel: true
     
 cards:
+
+  - type: vertical-stack
+    cards:
+
+
+      ############################################################################
+      #                                                                          #
+      #   Content                                                                #
+      #                                                                          #
+      ############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+        
+        cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Left Column                                                            #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+
+              ############################################################################
+              #                                                                          #
+              #   Motion                                                                 #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Motion
+
+              # Motion
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Living Room Sensor
+                  - type: 'custom:button-card'
+                    template: 
+                      - card_motion_sensor
+                    entity: binary_sensor.living_room_motion_sensor_occupancy
+                    name: Living Room
+                    show_last_changed: false
+                    variables:
+                      light_level: sensor.living_room_motion_sensor_illuminance_lux
+
+                  # Kitchen Sensor
+                  - type: 'custom:button-card'
+                    template: 
+                      - card_motion_sensor
+                    entity: binary_sensor.kitchen_motion_sensor_occupancy
+                    name: Kitchen
+                    show_last_changed: false
+                    variables:
+                      light_level: sensor.kitchen_motion_sensor_illuminance_lux
+
+                  # Kitchen 2 Sensor
+                  - type: 'custom:button-card'
+                    template: 
+                      - card_motion_sensor
+                    entity: binary_sensor.kitchen_motion_sensor_2_occupancy
+                    name: Kitchen 2
+                    show_last_changed: false
+                    variables:
+                      light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
