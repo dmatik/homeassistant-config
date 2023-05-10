@@ -24,7 +24,7 @@ card_header:
       - padding-right: '0px'
       - font-size: '1.4rem'
       - background: 'var(--header-background-color)'
-      - box-shadow: 'var(--header-shadow)'
+      #- box-shadow: 'var(--header-shadow)'
       - border-radius: 0px
       - font-weight: bold
       - color: var(--primary-text-color)
