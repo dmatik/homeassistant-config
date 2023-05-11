@@ -88,6 +88,9 @@ group:
     name: Basement Lights
     entities:
       - light.basement
+      - light.basement_2_light_1
+      - light.basement_2_light_2
+      - light.basement_toys
 
 ############################################################################
 #                                                                          #

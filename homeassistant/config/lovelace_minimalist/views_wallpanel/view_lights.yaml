@@ -47,7 +47,7 @@ cards:
         layout_type: grid
 
         layout_options:
-          grid-template-columns: 1fr 1fr
+          grid-template-columns: 1fr
           grid-template-rows: auto
           grid-gap: 0px 4px
         
@@ -65,7 +65,7 @@ cards:
 
               ############################################################################
               #                                                                          #
-              #   Living Room                                                            #
+              #   Floor 0                                                                #
               #                                                                          #
               ############################################################################
 
@@ -75,19 +75,19 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Living Room
+                    name: Main Floor
 
 
               # Lights
               - type: custom:layout-card
                 layout_type: grid
                 layout_options:
-                  grid-template-columns: 1fr 1fr
+                  grid-template-columns: 1fr 1fr 1fr 1fr
                   grid-template-rows: auto
                   grid-gap: 0px 4px
                   mediaquery:
                     "(max-width: 450px)":
-                      grid-template-columns: 1fr 1fr
+                      grid-template-columns: 1fr 1fr 1fr 1fr
                 cards:
 
                     # # New Year Tree Lights
@@ -122,35 +122,6 @@ cards:
                       entity: light.entrance
                       name: Entrance
 
-
-
-              ############################################################################
-              #                                                                          #
-              #   Kitchen                                                                #
-              #                                                                          #
-              ############################################################################
-
-              # Title
-              - type: horizontal-stack
-                cards:
-
-                  - type: custom:button-card
-                    template: title
-                    name: Kitchen
-
-
-              # Lights
-              - type: custom:layout-card
-                layout_type: grid
-                layout_options:
-                  grid-template-columns: 1fr 1fr
-                  grid-template-rows: auto
-                  grid-gap: 0px 4px
-                  mediaquery:
-                    "(max-width: 450px)":
-                      grid-template-columns: 1fr 1fr
-                cards:
-
                     # Kitchen Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
@@ -168,44 +139,10 @@ cards:
                         ulm_card_light_name: Kitchen Strip
 
 
-              ############################################################################
-              #                                                                          #
-              #   Basement                                                               #
-              #                                                                          #
-              ############################################################################
-
-              # Title
-              - type: horizontal-stack
-                cards:
-
-                  - type: custom:button-card
-                    template: title
-                    name: Basement
-
-
-              # Lights
-              - type: custom:layout-card
-                layout_type: grid
-                layout_options:
-                  grid-template-columns: 1fr 1fr
-                  grid-template-rows: auto
-                  grid-gap: 0px 4px
-                  mediaquery:
-                    "(max-width: 450px)":
-                      grid-template-columns: 1fr 1fr
-                cards:
-
-                    # Basement Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.basement
-                      name: Basement
-
-
 
               ############################################################################
               #                                                                          #
-              #   Work Room                                                              #
+              #   Floor 2                                                                #
               #                                                                          #
               ############################################################################
 
@@ -215,66 +152,19 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Work Room
+                    name: Floor 2
 
 
               # Lights
               - type: custom:layout-card
                 layout_type: grid
                 layout_options:
-                  grid-template-columns: 1fr 1fr
+                  grid-template-columns: 1fr 1fr 1fr 1fr
                   grid-template-rows: auto
                   grid-gap: 0px 4px
                   mediaquery:
                     "(max-width: 450px)":
-                      grid-template-columns: 1fr 1fr
-                cards:
-
-                    # Work Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.work_room
-                      name: Work Room
-
-
-
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Right Column                                                           #
-          #                                                                          #
-          ############################################################################
-
-          - type: vertical-stack
-            cards:
-
-              ############################################################################
-              #                                                                          #
-              #   Hallway                                                                #
-              #                                                                          #
-              ############################################################################
-
-              # Title
-              - type: horizontal-stack
-                cards:
-
-                  - type: custom:button-card
-                    template: title
-                    name: Hallway
-
-
-              # Lights
-              - type: custom:layout-card
-                layout_type: grid
-                layout_options:
-                  grid-template-columns: 1fr 1fr
-                  grid-template-rows: auto
-                  grid-gap: 0px 4px
-                  mediaquery:
-                    "(max-width: 450px)":
-                      grid-template-columns: 1fr 1fr
+                      grid-template-columns: 1fr 1fr 1fr 1fr
                 cards:
 
                     # Hallway Light
@@ -293,32 +183,6 @@ cards:
                     #     ulm_card_light_enable_popup: true
 
 
-              ############################################################################
-              #                                                                          #
-              #   Bedroom                                                                #
-              #                                                                          #
-              ############################################################################
-
-              # Title
-              - type: horizontal-stack
-                cards:
-
-                  - type: custom:button-card
-                    template: title
-                    name: Bedroom
-
-
-              # Lights
-              - type: custom:layout-card
-                layout_type: grid
-                layout_options:
-                  grid-template-columns: 1fr 1fr
-                  grid-template-rows: auto
-                  grid-gap: 0px 4px
-                  mediaquery:
-                    "(max-width: 450px)":
-                      grid-template-columns: 1fr 1fr
-                cards:
 
                     # Bedroom Light
                     - type: 'custom:button-card'
@@ -354,10 +218,17 @@ cards:
                         ulm_card_light_name: Galit
 
 
+                    # Kids Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.kids_room
+                      name: Kids Room
+
+
 
               ############################################################################
               #                                                                          #
-              #   Kids Room                                                              #
+              #   Basement                                                               #
               #                                                                          #
               ############################################################################
 
@@ -367,26 +238,41 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Kids Room
+                    name: Basement
 
 
               # Lights
               - type: custom:layout-card
                 layout_type: grid
                 layout_options:
-                  grid-template-columns: 1fr 1fr
+                  grid-template-columns: 1fr 1fr 1fr 1fr
                   grid-template-rows: auto
                   grid-gap: 0px 4px
                   mediaquery:
                     "(max-width: 450px)":
-                      grid-template-columns: 1fr 1fr
+                      grid-template-columns: 1fr 1fr 1fr 1fr
                 cards:
 
-                    # Kids Room Light
+                    # Basement Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: light.kids_room
-                      name: Kids Room
+                      entity: light.basement
+                      name: Basement
 
+                    # Basement 2 Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.basement_2_light_1
+                      name: Basement 2
 
+                    # Basement 3 Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.basement_2_light_2
+                      name: Basement 3
 
+                    # Work Room Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.work_room
+                      name: Work Room

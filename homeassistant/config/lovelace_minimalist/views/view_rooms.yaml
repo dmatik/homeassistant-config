@@ -205,7 +205,7 @@ cards:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_basement
                           ulm_card_room_two_rows_name: Basement
                           ulm_card_room_two_rows_icon: mdi:home-floor-b
-                          ulm_card_room_two_rows_light: light.hallway
+                          ulm_card_room_two_rows_light: light.basement
                           ulm_card_room_two_rows_temp: sensor.climate_basement_temp
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_basement
 
