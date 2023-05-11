@@ -627,6 +627,20 @@
         '
       data:
         tag: redalert-gan-yavne
+  - service: notify.mobile_app_galitphone
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        גן יבנה
+
+        '
+      data:
+        tag: redalert-gan-yavne
   mode: single
 - id: '1652706660044'
   alias: Kitchen Wall Panel Battery Low
@@ -670,6 +684,11 @@
   condition: []
   action:
   - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-gan-yavne
+  - service: notify.mobile_app_galitphone
     data:
       message: clear_notification
       data:
