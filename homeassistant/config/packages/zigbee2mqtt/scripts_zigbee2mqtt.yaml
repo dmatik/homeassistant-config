@@ -10,7 +10,7 @@ script:
 
 
   # Zigbee2mqtt Living Room Restart
-  zigbee2mqtt_basement_restart:
+  zigbee2mqtt_living_room_restart:
     alias: 'Zigbee2mqtt Living Room Restart'
     sequence:
       - service: mqtt.publish
