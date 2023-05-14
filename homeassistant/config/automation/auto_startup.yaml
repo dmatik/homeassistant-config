@@ -6,10 +6,10 @@
   action:
 
     # DIMKA status update on Startup
-    - service: mqtt.publish 
-      data:
-        topic: "iotlink/home/dimka/refresh"
-        payload: ""
+    # - service: mqtt.publish 
+    #   data:
+    #     topic: "iotlink/home/dimka/refresh"
+    #     payload: ""
 
     # Startup Notification
     #- service: notify.dimatelegram
@@ -36,3 +36,8 @@
     # Fully Load URL
     - service: rest_command.fully_load_url   
 
+    # Force Publish HA Birth Message
+    - service: mqtt.publish
+      data:
+        topic: "homeassistant/status"
+        payload: "online"
