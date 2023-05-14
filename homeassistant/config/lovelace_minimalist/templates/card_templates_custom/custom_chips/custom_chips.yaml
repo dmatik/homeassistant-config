@@ -111,13 +111,24 @@ chip_climate:
       [[[
         var state = "";
         var temp_high = states[variables.ulm_chip_temperature_high].state;
-        temp_high = Number(temp_high).toFixed(1);
+
+        if (temp_high == null || temp_high == "unavailable" || temp_high == "unknown") {
+          var temp_high = '--';
+        } else {
+          temp_high = Number(temp_high).toFixed(1);
+        }
+
         var temp_low = null;
         if(variables.ulm_chip_temperature_low != null) {
           temp_low = states[variables.ulm_chip_temperature_low].state;
-          temp_low = Number(temp_low).toFixed(1);
+
+          if (temp_low == null || temp_low == "unavailable" || temp_low == "unknown") {
+            var temp_low = '--';
+          } else {
+            temp_low = Number(temp_low).toFixed(1);
+          }
         }
-        if (temp_low == null || temp_high - temp_low < 0.5) {
+        if (temp_low == null || temp_low == '--' || temp_high - temp_low < 0.5) {
           state = temp_high + "°";
         } else {
           state = temp_low + "-" + temp_high + "°";
