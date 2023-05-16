@@ -64,6 +64,7 @@ popup_zigbee2mqtt_network_map:
                 - type: custom:zigbee2mqtt-networkmap
                   entity: "[[[ return variables.ulm_card_zigbee2mqtt_networkmap ]]]"
                   mqtt_base_topic: "[[[ return variables.ulm_card_zigbee2mqtt_mqtt_base_topic ]]]"
+                  mqtt_payload: { type: 'raw', routes: false }
 
 
             ############################################################################
