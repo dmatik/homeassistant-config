@@ -11,7 +11,8 @@ group:
     entities:
       - light.living_room
       - light.dining
-      - light.balcony
+      - light.living_room_tv_wall
+      - light.guests_bathroom
       - light.entrance
       - light.new_year_tree
 
@@ -27,6 +28,7 @@ group:
     entities:
       - light.kitchen
       - light.kitchen_led_strip
+      - light.kitchen_bar
 
 
 ############################################################################

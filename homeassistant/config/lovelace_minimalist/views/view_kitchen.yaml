@@ -164,6 +164,13 @@ cards:
                           ulm_card_light_enable_popup: false
                           ulm_card_light_name: Led Strip
 
+                      # Kitchen Bar Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kitchen_bar
+                        name: Kitchen Bar
+                        icon: mdi:vanity-light
+
                       # Kitchen Motion Sensor
                       - type: 'custom:button-card'
                         template: 

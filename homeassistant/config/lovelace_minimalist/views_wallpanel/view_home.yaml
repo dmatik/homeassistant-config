@@ -286,18 +286,26 @@ cards:
                     template: 'card_light_simple'
                     entity: light.dining
                     name: Dining
+                    icon: mdi:ceiling-light
 
-                  # Balcony Light
+                  # TV Wall Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
-                    entity: light.balcony
-                    name: Balcony
+                    entity: light.living_room_tv_wall
+                    name: TV Wall
+                    icon: mdi:wall-sconce-round
 
                   # Entrance Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.entrance
                     name: Entrance
+
+                  # Guests Bathroom Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.guests_bathroom
+                    name: Guest Bathroom
 
                   # Kitchen Light
                   - type: 'custom:button-card'
@@ -315,17 +323,12 @@ cards:
                       ulm_card_light_enable_popup: false
                       ulm_card_light_name: Kitchen Strip
 
-                  # Service Balcony Light
+                  # Kitchen Bar Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
-                    entity: light.service_balcony
-                    name: S. Balcony
-
-                  # Hallway Light
-                  - type: 'custom:button-card'
-                    template: 'card_light_simple'
-                    entity: light.hallway
-                    name: Hallway
+                    entity: light.kitchen_bar
+                    name: Kitchen Bar
+                    icon: mdi:vanity-light
 
                   # NY Tree
                   # - type: 'custom:button-card'
@@ -385,3 +388,39 @@ cards:
                     template: 'card_light_simple'
                     entity: light.work_room
                     name: Work Room
+
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Scenes
+
+
+              # Scenes
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                    # Basement Lights OFF scene
+                    - type: 'custom:button-card'
+                      template: card_scene
+                      entity: scene.basement_lights_off
+                      name: Basement OFF
+                      icon: mdi:lightbulb-multiple-off
+
+                    # Ground Floor Lights OFF scene
+                    - type: 'custom:button-card'
+                      template: card_scene
+                      entity: scene.ground_floor_lights_off
+                      name: Ground Floor OFF
+                      icon: mdi:lightbulb-multiple-off

@@ -153,6 +153,26 @@ cards:
                         variables:
                           light_level: sensor.living_room_motion_sensor_illuminance_lux
 
+                      # Guest Bathroom Right Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.guest_bathroom_right_motion_sensor_occupancy
+                        name: Guest Right
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
+
+                      # Guest Bathroom Left Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.guest_bathroom_left_motion_sensor_occupancy
+                        name: Guest Left
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
+
 
 
           ############################################################################

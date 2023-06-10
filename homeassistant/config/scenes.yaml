@@ -1,1 +1,114 @@
-[]
+- id: '1684576366279'
+  name: Basement lights off
+  entities:
+    light.basement:
+      supported_color_modes:
+      - onoff
+      friendly_name: Basement Light
+      supported_features: 0
+      state: 'off'
+    light.basement_2_light_1:
+      supported_color_modes:
+      - onoff
+      friendly_name: Basement 2 Light l1
+      supported_features: 0
+      state: 'off'
+    light.basement_2_light_2:
+      supported_color_modes:
+      - onoff
+      friendly_name: Basement 2 Light l2
+      supported_features: 0
+      state: 'off'
+    light.basement_toys:
+      supported_color_modes:
+      - onoff
+      friendly_name: Basement Toys Light
+      supported_features: 0
+      state: 'off'
+    light.work_room:
+      supported_color_modes:
+      - onoff
+      friendly_name: Work Room Light
+      supported_features: 0
+      state: 'off'
+  icon: mdi:lightbulb-multiple-off
+  metadata:
+    light.basement:
+      entity_only: true
+    light.basement_2_light_1:
+      entity_only: true
+    light.basement_2_light_2:
+      entity_only: true
+    light.basement_toys:
+      entity_only: true
+    light.work_room:
+      entity_only: true
+- id: '1685440908271'
+  name: Ground Floor lights off
+  entities:
+    light.living_room:
+      supported_color_modes:
+      - onoff
+      friendly_name: Living Room
+      supported_features: 0
+      state: 'off'
+    light.living_room_tv_wall:
+      supported_color_modes:
+      - onoff
+      friendly_name: TV Wall
+      supported_features: 0
+      state: 'off'
+    light.kitchen:
+      supported_color_modes:
+      - onoff
+      friendly_name: Kitchen Light
+      supported_features: 0
+      state: 'off'
+    light.kitchen_bar:
+      supported_color_modes:
+      - onoff
+      friendly_name: Kitchen Bar
+      supported_features: 0
+      state: 'off'
+    light.kitchen_led_strip:
+      effect_list:
+      - Solid
+      - Wake up
+      - Cycle up
+      - Cycle down
+      - Random
+      supported_color_modes:
+      - hs
+      friendly_name: Kitchen Led Strip
+      supported_features: 36
+      state: 'off'
+    light.guests_bathroom:
+      supported_color_modes:
+      - onoff
+      friendly_name: Guests Bathroom Light
+      supported_features: 0
+      state: 'off'
+  icon: mdi:lightbulb-multiple-off
+  metadata:
+    light.basement:
+      entity_only: true
+    light.basement_2_light_1:
+      entity_only: true
+    light.basement_2_light_2:
+      entity_only: true
+    light.basement_toys:
+      entity_only: true
+    light.work_room:
+      entity_only: true
+    light.living_room:
+      entity_only: true
+    light.living_room_tv_wall:
+      entity_only: true
+    light.kitchen:
+      entity_only: true
+    light.kitchen_bar:
+      entity_only: true
+    light.kitchen_led_strip:
+      entity_only: true
+    light.guests_bathroom:
+      entity_only: true

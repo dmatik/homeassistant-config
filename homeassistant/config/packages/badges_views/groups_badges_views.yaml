@@ -29,14 +29,14 @@ group:
     name: All Light Entities
     entities:
       - light.living_room
+      - light.living_room_tv_wall
       - light.dining
+      - light.guests_bathroom
       - light.kitchen
-      - light.service_balcony
-      - light.balcony
+      - light.kitchen_bar
       - light.entrance
       - light.hallway
       - light.bedroom
-      - light.kids_room
       - light.work_room
       - light.bedside_dima_bulb
       - light.bedside_galit_bulb
@@ -133,14 +133,11 @@ group:
   all_motion_sensor_entities:
     name: All Motion Sensor Entities
     entities:
-      #- binary_sensor.motion_living_room
       - binary_sensor.living_room_motion_sensor_occupancy
-      #- binary_sensor.motion_kitchen
       - binary_sensor.kitchen_motion_sensor_occupancy
-      #- binary_sensor.motion_kitchen_2
       - binary_sensor.kitchen_motion_sensor_2_occupancy
-      #- group.kitchen_motion_sensors
-
+      - binary_sensor.guest_bathroom_right_motion_sensor_occupancy
+      - binary_sensor.guest_bathroom_left_motion_sensor_occupancy
 
 
 

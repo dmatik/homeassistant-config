@@ -9,8 +9,22 @@ group:
   living_room_motion_sensors:
     name: Living Room Motion Sensors
     entities:
-      #- binary_sensor.motion_living_room
       - binary_sensor.living_room_motion_sensor_occupancy
+      - binary_sensor.guest_bathroom_right_motion_sensor_occupancy
+      - binary_sensor.guest_bathroom_left_motion_sensor_occupancy
+
+
+############################################################################
+#                                                                          #
+#   Guest Bathroom                                                         #
+#                                                                          #
+############################################################################
+
+  guest_bathroom_motion_sensors:
+    name: Guest Bathroom Motion Sensors
+    entities:
+      - binary_sensor.guest_bathroom_right_motion_sensor_occupancy
+      - binary_sensor.guest_bathroom_left_motion_sensor_occupancy
 
 
 ############################################################################
@@ -22,7 +36,5 @@ group:
   kitchen_motion_sensors:
     name: Kitchen Motion Sensors
     entities:
-      #- binary_sensor.motion_kitchen
       - binary_sensor.kitchen_motion_sensor_occupancy
-      #- binary_sensor.motion_kitchen_2
       - binary_sensor.kitchen_motion_sensor_2_occupancy

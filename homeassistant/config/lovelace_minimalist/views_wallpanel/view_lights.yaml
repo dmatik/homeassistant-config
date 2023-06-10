@@ -109,18 +109,26 @@ cards:
                       template: 'card_light_simple'
                       entity: light.dining
                       name: Dining
+                      icon: mdi:ceiling-light
 
-                    # Balcony Light
+                    # TV Wall Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
-                      entity: light.balcony
-                      name: Balcony
+                      entity: light.living_room_tv_wall
+                      name: TV Wall
+                      icon: mdi:wall-sconce-round
 
                     # Entrance Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
                       entity: light.entrance
                       name: Entrance
+
+                    # Guests Bathroom Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.guests_bathroom
+                      name: Guest Bathroom
 
                     # Kitchen Light
                     - type: 'custom:button-card'
@@ -138,7 +146,12 @@ cards:
                         ulm_card_light_enable_popup: false
                         ulm_card_light_name: Kitchen Strip
 
-
+                    # Kitchen Bar Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.kitchen_bar
+                      name: Kitchen Bar
+                      icon: mdi:vanity-light
 
               ############################################################################
               #                                                                          #
@@ -216,14 +229,6 @@ cards:
                         ulm_card_light_enable_color: true
                         ulm_card_light_enable_popup: false
                         ulm_card_light_name: Galit
-
-
-                    # Kids Room Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.kids_room
-                      name: Kids Room
-
 
 
               ############################################################################
