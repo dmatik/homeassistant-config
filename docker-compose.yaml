@@ -2,39 +2,6 @@ version: '3.3'
 
 services:
 
-    # appdaemon:
-    #     restart: always
-    #     hostname: appdaemon
-    #     container_name: appdaemon
-    #     image: acockburn/appdaemon:latest
-    #     network_mode: "bridge"
-    #     ports:
-    #         - "5050:5050"
-    #     volumes:
-    #         - /volume1/docker/appdaemon/conf:/conf
-    #     environment:
-    #         HA_URL: http://${ZEG_IP}:8123
-    #         TOKEN: ${APPDAEMON_TOKEN}
-    #         DASH_URL: http://${ZEG_IP}:5050
-    #         TZ: "Asia/Jerusalem"
-        
-    # homeassistant:
-    #     restart: always
-    #     hostname: homeassistant
-    #     container_name: homeassistant
-    #     image: homeassistant/home-assistant:latest
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #     volumes:
-    #         - /volume1/docker/homeassistant/config:/config
-    #         - /var/run/docker.sock:/var/run/docker.sock
-    #     network_mode: "host"
-    #     labels:
-    #         - com.centurylinklabs.watchtower.enable=false
-    #     privileged: true
-    #     devices:
-    #         - /dev/ttyACM0:/dev/ttyACM0
-
     homeassistant:
         restart: always
         hostname: homeassistant
@@ -53,19 +20,6 @@ services:
         devices:
             - /dev/ttyACM0:/dev/ttyACM0
 
-    # hass_hki:
-    #     restart: "unless-stopped"
-    #     hostname: hass_hki
-    #     container_name: hass_hki
-    #     image: homeassistant/home-assistant:latest
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #     volumes:
-    #         - /volume1/docker/hass_hki/config:/config
-    #         - /var/run/docker.sock:/var/run/docker.sock
-    #     network_mode: "bridge"
-    #     ports:
-    #         - "8234:8123"
 
     mariadb:
         restart: always
@@ -95,19 +49,6 @@ services:
             TZ: "Asia/Jerusalem"
             PMA_HOST: ${ZEG_IP}
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        
-    # mosquitto:
-    #     restart: always
-    #     hostname: mosquitto
-    #     container_name: mosquitto
-    #     image: eclipse-mosquitto:1.6.10
-    #     network_mode: "host"
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #     volumes:
-    #         - /volume1/docker/mqtt/log:/mqtt/log
-    #         - /volume1/docker/mqtt/data:/mqtt/data
-    #         - /volume1/docker/mqtt/config:/mqtt/config
 
     mosquitto:
         restart: always
@@ -118,6 +59,8 @@ services:
             TZ: "Asia/Jerusalem"
             USER: ${MQTT_USER}
             PASS: ${MQTT_PASS}
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
         volumes:
             - /volume1/docker/mosquitto/data:/mosquitto/data
             - /volume1/docker/mosquitto/config:/mosquitto/config
@@ -211,40 +154,6 @@ services:
             - /usr/syno/etc/certificate/system/default:/certs
             - /volume1/docker/portainer/data:/data
             
-    # plex:
-    #     restart: always
-    #     hostname: plex
-    #     container_name: plex
-    #     image: plexinc/pms-docker:latest
-    #     network_mode: "host"
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         #VERSION: latest
-    #         PLEX_UID: ${ZEG_PUID}
-    #         PLEX_GID: ${ZEG_PGID}
-    #     volumes:
-    #         - /volume1/docker/plex/config:/config
-    #         - /volume1/docker/plex/transcode:/transcode
-    #         - /volume1/video:/video
-    #         - /volume1/torrent:/torrent
-            
-    # ouroboros_zeg:
-    #     restart: always
-    #     container_name: ouroboros_zeg
-    #     hostname: ouroboros_zeg
-    #     image: pyouroboros/ouroboros:latest
-    #     environment:
-    #         CLEANUP: "true"
-    #         INTERVAL: 300
-    #         LOG_LEVEL: "info"
-    #         SELF_UPDATE: "true"
-    #         IGNORE: "homeassistant mariadb postgres pgadmin"
-    #         TZ: "Asia/Jerusalem"
-    #         NOTIFIERS: "tgram://${MY_DOCKER_BOT_TOKEN}/${TELEGRAM_CHAT_ID}"
-    #         CRON: "0 6 * * *"
-    #     volumes:
-    #         - /var/run/docker.sock:/var/run/docker.sock
-
     watchtower:
         restart: always
         hostname: watchtower
@@ -274,33 +183,6 @@ services:
         volumes:
             - /volume1/docker/tasmoadmin/data:/data
             
-            
-    # ha_dockermon:
-        # container_name: ha_dockermon
-        # hostname: ha_dockermon
-        # image: philhawthorne/ha-dockermon
-        # restart: always
-        # volumes:
-          # - /var/run/docker.sock:/var/run/docker.sock
-          # - /volume1/docker/docker_mon/config:/config
-        # ports:
-          # - 8126:8126
-          
-    # cloud9:
-    #     restart: always
-    #     image: linuxserver/cloud9:latest
-    #     container_name: cloud9
-    #     hostname: cloud9
-    #     network_mode: "bridge"
-    #     environment:
-    #         PUID: ${ZEG_PUID}
-    #         PGID: ${ZEG_PGID}
-    #         TZ: "Asia/Jerusalem"
-    #     volumes:
-    #         - /volume1/docker:/code
-    #         - /var/run/docker.sock:/var/run/docker.sock
-    #     ports:
-    #         - 8000:8000
 
     homebridge:
         image: oznu/homebridge:latest
@@ -445,30 +327,6 @@ services:
             # if using Sqlite the data/ is required!
             - DBNAME=data/tasmobackup
 
-    # pihole:
-    #     container_name: pihole
-    #     hostname: pihole
-    #     image: pihole/pihole:latest
-    #     ports:
-    #         - "53:53/tcp"
-    #         - "53:53/udp"
-    #         - "67:67/udp"
-    #         - "1080:80/tcp"
-    #         - "10443:443/tcp"
-    #     environment:
-    #         TZ: 'Asia/Jerusalem'
-    #         WEBPASSWORD: ${PIHOLE_PASS}
-    #     volumes:
-    #         - '/volume1/docker/pihole/etc-pihole/:/etc/pihole/'
-    #         - '/volume1/docker/pihole/etc-hosts:/etc/hosts'
-    #         - '/volume1/docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
-    #     dns:
-    #         - 127.0.0.1
-    #         - 9.9.9.9
-    #     cap_add:
-    #         - NET_ADMIN
-    #     restart: always
-
     jellyfin:
         hostname: jellyfin
         container_name: jellyfin
@@ -503,92 +361,6 @@ services:
         volumes:
           - /volume1/docker/bitwarden/data:/data
 
-
-    # dozzle:
-    #     hostname: dozzle
-    #     container_name: dozzle
-    #     image: amir20/dozzle:latest
-    #     network_mode: "bridge"
-    #     restart: "always"
-    #     volumes:
-    #         - /var/run/docker.sock:/var/run/docker.sock
-    #     ports:
-    #         - 9999:8080
-    #     environment:
-    #         tailSize: 300
-    #         TZ: "Asia/Jerusalem"
-
-    # havid:
-    #     image: techblog/havid-19:latest
-    #     container_name: havid
-    #     restart: always
-    #     network_mode: "bridge"
-    #     ports:
-    #         - 6800:6700
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #     volumes:
-    #         - /volume1/docker/havid/config:/opt/dockerbot/config
-            
-    # havid_amd:
-    #     image: techblog/havid-19:latest
-    #     container_name: havid_amd
-    #     restart: always
-    #     network_mode: "bridge"
-    #     ports:
-    #         - 6800:6700
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #     volumes:
-    #         - /volume1/docker/havid_amd/config:/opt/dockerbot/config
-    #         - /volume1/docker/havid_amd/Amdocs_Health_Statements.py:/opt/dockerbot/Amdocs_Health_Statements.py
-    #         - /volume1/docker/havid_amd/dockerbot.py:/opt/dockerbot/dockerbot.py
-
-    # botvid:
-    #     image: techblog/botvid-19:latest
-    #     container_name: botvid
-    #     restart: always
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         API_KEY: ${MY_DOCKER_BOT_TOKEN}
-    #         ALLOWED_IDS: ${TELEGRAM_CHAT_ID}
-    #     volumes:
-    #         - /volume1/docker/botvid/config:/opt/dockerbot/config
-
-    # botvid_yuri:
-    #     image: techblog/botvid-19:latest
-    #     container_name: botvid_yuri
-    #     restart: always
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         API_KEY: ${YURI_BOT_TOKEN}
-    #         ALLOWED_IDS: ${YURI_TELEGRAM_CHAT_ID}
-    #     volumes:
-    #         - /volume1/docker/botvid_yuri/config:/opt/dockerbot/config
-
-    # botvid_amosov:
-    #     image: techblog/botvid-19:latest
-    #     container_name: botvid_amosov
-    #     restart: always
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         API_KEY: ${AMOSOV_BOT_TOKEN}
-    #         ALLOWED_IDS: ${AMOSOV_TELEGRAM_CHAT_ID}
-    #     volumes:
-    #         - /volume1/docker/botvid_amosov/config:/opt/dockerbot/config
-
-    # botvid_amd:
-    #     image: techblog/botvid-19:latest
-    #     container_name: botvid_amd
-    #     restart: always
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         API_KEY: ${TEST_BOT_TOKEN}
-    #         ALLOWED_IDS: ${TELEGRAM_CHAT_ID}
-    #     volumes:
-    #         - /volume1/docker/botvid_amd/config:/opt/dockerbot/config
-    #         - /volume1/docker/botvid_amd/Amdocs_Health_Statements.py:/opt/dockerbot/Amdocs_Health_Statements.py
-    #         - /volume1/docker/botvid_amd/dockerbot.py:/opt/dockerbot/dockerbot.py
 
     minecraft-server:
         image: itzg/minecraft-bedrock-server:latest
@@ -629,18 +401,6 @@ services:
             SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
         volumes:
             - /volume1/docker/minecraft_survival/data:/data
-
-
-    # redalert:
-    #     image: techblog/redalert:latest
-    #     container_name: redalert
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         MQTT_HOST: ${ZEG_IP}
-    #         MQTT_USER: ${MQTT_USER}
-    #         MQTT_PASS: ${MQTT_PASS}
-    #         DEBUG_MODE: "False"
-    #     restart: unless-stopped
 
 
     oref-alerts:
@@ -687,49 +447,28 @@ services:
         volumes:
             - /volume1/docker/duckrails/db:/opt/duckrails/db/sqlite/
 
+    z2m_basement:
+        container_name: z2m_basement
+        image: koenkk/zigbee2mqtt
+        restart: unless-stopped
+        volumes:
+          - /volume1/docker/z2m_basement/data:/app/data
+          - /run/udev:/run/udev:ro
+        ports:
+          # Frontend port
+          - 58080:8080
+        environment:
+          - TZ=Asia/Jerusalem
 
-    # mylar3:
-    #     image: ghcr.io/linuxserver/mylar3
-    #     container_name: mylar3
-    #     environment:
-    #         PUID: ${ZEG_PUID}
-    #         PGID: ${ZEG_PGID}
-    #     volumes:
-    #         - /volume1/docker/mylar3/config:/config
-    #         - /volume1/eBooks/Comics:/comics
-    #         - /volume1/torrent/Comics:/downloads
-    #         - /volume1/torrent/Incoming:/watchdir
-    #     ports:
-    #         - 8090:8090
-    #     restart: unless-stopped
-
-
-    # komga:
-    #     image: gotson/komga
-    #     container_name: komga
-    #     volumes:
-    #         - /volume1/docker/komga/config:/config
-    #         - /volume1/eBooks:/data
-    #     ports:
-    #         - 38080:8080
-    #     user: "${ZEG_PUID}:${ZEG_PUID}"
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         PUID: ${ZEG_PUID}
-    #         PGID: ${ZEG_PGID}
-    #     restart: unless-stopped
-
-
-    # conreq:
-    #     image: hotio/conreq
-    #     container_name: conreq
-    #     volumes:
-    #         - /volume1/docker/conreq/config:/config
-    #     ports:
-    #         - 8300:8000
-    #     environment:
-    #         TZ: "Asia/Jerusalem"
-    #         PUID: ${ZEG_PUID}
-    #         PGID: ${ZEG_PGID}
-    #         UMASK: "002"
-    #     restart: unless-stopped
+    z2m_living_room:
+        container_name: z2m_living_room
+        image: koenkk/zigbee2mqtt
+        restart: unless-stopped
+        volumes:
+          - /volume1/docker/z2m_living_room/data:/app/data
+          - /run/udev:/run/udev:ro
+        ports:
+          # Frontend port
+          - 58090:8080
+        environment:
+          - TZ=Asia/Jerusalem
