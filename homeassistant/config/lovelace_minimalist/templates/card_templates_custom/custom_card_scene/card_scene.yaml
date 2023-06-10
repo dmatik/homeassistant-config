@@ -1,0 +1,13 @@
+card_scene:
+  template:
+    - "icon_info_bg"
+    - "purple_no_state"
+    - "ulm_language_variables"
+  tap_action:
+    action: "call-service"
+    service: "scene.turn_on"
+    service_data:
+      entity_id: entity
+  hold_action:
+    action: "more-info"
+  label: "Scene"
