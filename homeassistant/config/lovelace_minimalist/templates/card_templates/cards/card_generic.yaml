@@ -1,6 +1,7 @@
 ---
 ### Card Generic ###
 card_generic:
+  triggers_update: "all"
   template:
     - "icon_info_bg"
     - "ulm_language_variables"
