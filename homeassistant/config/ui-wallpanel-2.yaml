@@ -121,10 +121,12 @@ sidebar:
             - type: 'custom:button-card'
               template:
                 - 'chip_icon_label_state'
+                #- 'chip_navigate_only'
                 - 'chip_yellow'
               icon: 'mdi:lightbulb'
               variables:
                 ulm_chip_icon_state_entity: sensor.number_of_lights_on
+                #ulm_chip_navigate_path: /lovelace-wallpanel-2/lights
             # Motion Chip
             - type: 'custom:button-card'
               template:
