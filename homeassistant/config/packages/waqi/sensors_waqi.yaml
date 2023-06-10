@@ -1,7 +1,12 @@
 sensor:
+  # - platform: waqi
+  #   token: !secret waqi_token
+  #   locations:
+  #     - ashdod
+  #   stations:
+  #     - Ashdod (ישראל,dod)
+
   - platform: waqi
     token: !secret waqi_token
     locations:
-      - ashdod
-    stations:
-      - Ashdod (ישראל,dod)
+      - Bnei Darom
