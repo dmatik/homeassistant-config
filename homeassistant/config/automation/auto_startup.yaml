@@ -37,7 +37,7 @@
     - service: rest_command.fully_load_url   
 
     # Force Publish HA Birth Message
-    - service: mqtt.publish
-      data:
-        topic: "homeassistant/status"
-        payload: "online"
+    # - service: mqtt.publish
+    #   data:
+    #     topic: "homeassistant/status"
+    #     payload: "online"
