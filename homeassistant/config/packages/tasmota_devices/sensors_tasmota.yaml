@@ -1,20 +1,23 @@
-sensor:
-
 ############################################################################
 #                                                                          #
 #   Latest Tasmota Firmware                                                #
 #                                                                          #
 ############################################################################
 
-  # - platform: command_line
-  #   name: "Tasmota Latest"
-  #   command: "curl -s https://github.com/arendst/Tasmota/releases/latest | cut -d'\"' -f2 | rev | cut -d'/' -f1 | rev"
-  #   scan_interval: 600
+command_line:
 
-  - platform: command_line
-    name: "Tasmota Latest"
-    command: /config/tasmota_version.sh
-    scan_interval: 600
+  - sensor:
+      name: "Tasmota Latest"
+      command: /config/tasmota_version.sh
+      scan_interval: 600
+
+
+# sensor:
+
+#   - platform: command_line
+#     name: "Tasmota Latest"
+#     command: /config/tasmota_version.sh
+#     scan_interval: 600
 
 
 
