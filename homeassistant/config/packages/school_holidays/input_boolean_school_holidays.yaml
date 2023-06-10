@@ -1,4 +1,0 @@
-input_boolean:
-  school_auto:
-    name: School Mode
-    icon: mdi:school
