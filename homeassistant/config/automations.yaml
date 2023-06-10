@@ -97,7 +97,7 @@
     device_id: aa52ca9d0fd42efba6d2e9fa0cc8cdc4
     entity_id: sensor.kitchen_motion_sensor_illuminance_lux
     domain: sensor
-    below: 100
+    below: 120
   action:
   - service: light.turn_on
     target:
@@ -492,16 +492,10 @@
   trigger:
   - platform: device
     domain: mqtt
-    device_id: 2472c9bcff44819f5670844e09369c54
-    type: click
-    subtype: single
-    discovery_id: 0x00158d0003598968 click_single
-  - platform: device
-    domain: mqtt
     device_id: b5515f1fd360d60262cc17bbfaed2ca0
-    type: click
+    type: action
     subtype: single
-    discovery_id: 0x00158d000359884e click_single
+    discovery_id: 0x00158d000359884e action_single
   condition: []
   action:
   - service: light.toggle
@@ -718,3 +712,57 @@
       toggle_helper: input_boolean.ulanzi_weather
       my_sensor: weather.met_home
       show_windspeed: false
+- id: '1685443922494'
+  alias: Guest Bathroom Light ON (Motion)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - group.guest_bathroom_motion_sensors
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.guests_bathroom
+    state: 'off'
+  - condition: or
+    conditions:
+    - type: is_illuminance
+      condition: device
+      device_id: 35f86b62114cf84564811f21cb9d4b8a
+      entity_id: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
+      domain: sensor
+      below: 120
+    - type: is_illuminance
+      condition: device
+      device_id: 063da8dd4860ce791e7989e3b3a5488e
+      entity_id: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
+      domain: sensor
+      below: 120
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.guests_bathroom
+  mode: single
+- id: '1685444080924'
+  alias: Guest Bathroom Light OFF (Motion)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - group.guest_bathroom_motion_sensors
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: group.guest_bathroom_motion_sensors
+    state: 'off'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.guests_bathroom
+  mode: single
