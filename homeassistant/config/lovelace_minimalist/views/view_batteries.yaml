@@ -200,7 +200,25 @@ cards:
                         entity: sensor.kitchen_motion_sensor_2_battery
                         name: Kitchen Motion Sensor 2
 
+                      # Guest Bathroom Right Motion Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.guest_bathroom_right_motion_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.guest_bathroom_right_motion_sensor_battery
+                        name: Guest Bathroom Right Motion Sensor
 
+                      # Guest Bathroom Left Motion Sensor
+                      - type: 'custom:button-card'
+                        template: card_battery
+                        variables:
+                          ulm_card_battery_battery_state_entity_id: sensor.guest_bathroom_left_motion_sensor_battery
+                          ulm_card_battery_battery_level_danger: 10
+                          ulm_card_battery_battery_level_warning: 30
+                        entity: sensor.guest_bathroom_left_motion_sensor_battery
+                        name: Guest Bathroom Left Motion Sensor
 
           ############################################################################
           #                                                                          #
