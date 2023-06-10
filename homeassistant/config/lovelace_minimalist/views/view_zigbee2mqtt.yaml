@@ -126,11 +126,11 @@ cards:
                         template: card_zigbee2mqtt
                         variables:
                           ulm_card_zigbee2mqtt_name: 'Floor 2'
-                          ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_bridge_state'
-                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_version'
-                          ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_restart'
-                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_networkmap'
-                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'zigbee2mqtt'
+                          ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_floor_2_bridge_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_floor_2_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_floor_2_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_floor_2_networkmap'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/floor_2'
 
                       # Zigbee2mqtt Living Room
                       - type: 'custom:button-card'
@@ -141,7 +141,7 @@ cards:
                           ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_living_room_version'
                           ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_living_room_restart'
                           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_living_room_networkmap'
-                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m_living_room'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/living_room'
 
                       # Zigbee2mqtt Basement
                       - type: 'custom:button-card'
@@ -152,7 +152,7 @@ cards:
                           ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_basement_version'
                           ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_basement_restart'
                           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_basement_networkmap'
-                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m_basement'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/basement'
 
                 - type: custom:button-card
                   template: spacer

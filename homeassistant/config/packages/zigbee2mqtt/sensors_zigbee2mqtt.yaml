@@ -10,24 +10,24 @@ mqtt:
     ############################################################################
 
     # Sensor for monitoring the bridge state
-    - name: Zigbee2mqtt Bridge state
-      state_topic: "zigbee2mqtt/bridge/state"
+    - name: Zigbee2mqtt Floor 2 Bridge state
+      state_topic: "z2m/floor_2/bridge/state"
       icon: mdi:router-wireless
 
     # Sensor for Showing the Zigbee2mqtt Version
-    - name: Zigbee2mqtt Version
-      state_topic: "zigbee2mqtt/bridge/config"
+    - name: Zigbee2mqtt Floor 2 Version
+      state_topic: "z2m/floor_2/bridge/config"
       value_template: "{{ value_json.version }}"
       icon: mdi:zigbee
 
     # Sensor for Network Map
-    - name: Zigbee2mqtt Networkmap
+    - name: Zigbee2mqtt Floor 2 Networkmap
       # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
-      state_topic: zigbee2mqtt/bridge/response/networkmap
+      state_topic: z2m/floor_2/bridge/response/networkmap
       value_template: >-
         {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
       # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
-      json_attributes_topic: zigbee2mqtt/bridge/response/networkmap
+      json_attributes_topic: z2m/floor_2/bridge/response/networkmap
       json_attributes_template: "{{ value_json.data.value | tojson }}"
 
 
@@ -40,23 +40,23 @@ mqtt:
 
     # Sensor for monitoring the bridge state
     - name: Zigbee2mqtt Living Room Bridge state
-      state_topic: "z2m_living_room/bridge/state"
+      state_topic: "z2m/living_room/bridge/state"
       icon: mdi:router-wireless
 
     # Sensor for Showing the Zigbee2mqtt Version
     - name: Zigbee2mqtt Living Room Version
-      state_topic: "z2m_living_room/bridge/config"
+      state_topic: "z2m/living_room/bridge/config"
       value_template: "{{ value_json.version }}"
       icon: mdi:zigbee
 
     # Sensor for Network Map
     - name: Zigbee2mqtt Living Room Networkmap
       # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
-      state_topic: z2m_living_room/bridge/response/networkmap
+      state_topic: z2m/living_room/bridge/response/networkmap
       value_template: >-
         {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
       # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
-      json_attributes_topic: z2m_living_room/bridge/response/networkmap
+      json_attributes_topic: z2m/living_room/bridge/response/networkmap
       json_attributes_template: "{{ value_json.data.value | tojson }}"
 
 
@@ -68,21 +68,21 @@ mqtt:
 
     # Sensor for monitoring the bridge state
     - name: Zigbee2mqtt Basement Bridge state
-      state_topic: "z2m_basement/bridge/state"
+      state_topic: "z2m/basement/bridge/state"
       icon: mdi:router-wireless
 
     # Sensor for Showing the Zigbee2mqtt Version
     - name: Zigbee2mqtt Basement Version
-      state_topic: "z2m_basement/bridge/config"
+      state_topic: "z2m/basement/bridge/config"
       value_template: "{{ value_json.version }}"
       icon: mdi:zigbee
 
     # Sensor for Network Map
     - name: Zigbee2mqtt Basement Networkmap
       # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
-      state_topic: z2m_basement/bridge/response/networkmap
+      state_topic: z2m/basement/bridge/response/networkmap
       value_template: >-
         {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
       # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
-      json_attributes_topic: z2m_basement/bridge/response/networkmap
+      json_attributes_topic: z2m/basement/bridge/response/networkmap
       json_attributes_template: "{{ value_json.data.value | tojson }}"

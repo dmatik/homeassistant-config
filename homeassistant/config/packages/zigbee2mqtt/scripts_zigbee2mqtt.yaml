@@ -1,12 +1,12 @@
 script:
 
   # Zigbee2mqtt Floor 2 Restart
-  zigbee2mqtt_restart:
+  zigbee2mqtt_floor_2_restart:
     alias: 'Zigbee2mqtt Floor 2 Restart'
     sequence:
       - service: mqtt.publish
         data:
-          topic: zigbee2mqtt/bridge/request/restart
+          topic: z2m/floor_2/bridge/request/restart
 
 
   # Zigbee2mqtt Living Room Restart
@@ -15,7 +15,7 @@ script:
     sequence:
       - service: mqtt.publish
         data:
-          topic: z2m_living_room/bridge/request/restart
+          topic: z2m/living_room/bridge/request/restart
 
 
   # Zigbee2mqtt Basement Restart
@@ -24,4 +24,4 @@ script:
     sequence:
       - service: mqtt.publish
         data:
-          topic: z2m_basement/bridge/request/restart
+          topic: z2m/basement/bridge/request/restart
