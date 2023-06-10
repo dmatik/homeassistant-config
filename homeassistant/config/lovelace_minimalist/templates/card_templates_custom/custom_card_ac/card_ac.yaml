@@ -97,101 +97,6 @@ card_ac_buttons:
 
 
 
-card_ac_buttons_gree:
-  triggers_update: "all"
-  variables:
-    ulm_card_ac_entity: climate.example
-    ulm_card_ac_fan_mode_sensor: sensor.example
-    ulm_card_ac_name: 'AC'
-    ulm_card_ac_display_name: ''
-  styles:
-    card:
-      - border-radius: "var(--border-radius)"
-      - box-shadow: "var(--box-shadow)"
-      - padding: "var(--card-padding)"
-      - position: inherit
-    grid:
-      - grid-template-areas: '"item1" "item2"'
-      - grid-template-columns: 1fr
-      - grid-template-rows: min-content  min-content
-      - row-gap: 12px
-  custom_fields:
-    item1:
-      card:
-        template: 
-          - ac_list_items_favorite
-          - badge_notification
-        type: custom:button-card
-        entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-        custom_fields:
-          item1:
-            card:
-              entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-              name: >
-                [[[
-                    if (variables.ulm_card_ac_name == null && variables.ulm_card_ac_display_name == null) {
-                      return variables.ulm_card_ac_entity;
-                    }
-                    if (variables.ulm_card_ac_display_name != null && variables.ulm_card_ac_display_name != "") {
-                      return variables.ulm_card_ac_display_name
-                    }
-                    return variables.ulm_card_ac_name;
-                ]]]
-              template:
-                - ac_text_info
-                - popup_ac_gree
-              variables:
-                ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
-                ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
-              type: 'custom:button-card'
-    item2:
-      card:
-        template: 'list_1_item'
-        type: 'custom:button-card'
-        custom_fields:
-          item1:
-            card:
-              template: 'list_3_items'
-              type: 'custom:button-card'
-              styles:
-                card:
-                  - box-shadow: "none"
-                  - padding: "0px"
-                  - background-color: "rgba(var(--color-theme),0.05)"
-                  - border-radius: "var(--widget-border-radius)"
-              custom_fields:
-                item1:
-                  card:
-                    icon: 'mdi:minus'
-                    tap_action:
-                      action: call-service
-                      service: script.decrease_climate_temperature
-                      service_data:
-                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    type: 'custom:button-card'
-                    template: widget_icon_transparent
-                item2:
-                  card:
-                    icon: 'mdi:temperature-celsius'
-                    tap_action:
-                      action: none
-                    type: 'custom:button-card'
-                    template: ac_widget_target_temp
-                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                item3:
-                  card:
-                    icon: 'mdi:plus'
-                    tap_action:
-                      action: call-service
-                      service: script.increment_climate_temperature
-                      service_data:
-                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    type: 'custom:button-card'
-                    template: widget_icon_transparent
-
-
-
 ac_text_info:
   triggers_update: "all"
   color: "var(--google-grey)"
@@ -239,18 +144,37 @@ ac_text_info:
     [[[
         if (entity.state =='off') {
           return "Off";
-        } else if (entity.state =='dry') {
-          return "Dry";
-        } else if (entity.state =='heat') {
-          return "Heat";
-        } else if (entity.state =='heat_cool') {
-          return "Auto";
-        } else if (entity.state =='cool') {
-          return "Cool";
-        } else if (entity.state =='fan_only') {
-          return "Fan";
         }
-        return entity.state;
+
+        var operation = entity.state;
+        if (entity.state =='dry') {
+          operation = 'Dry';
+        } else if (entity.state =='heat') {
+          operation = 'Heat';
+        } else if (entity.state =='heat_cool') {
+          operation = 'Auto';
+        } else if (entity.state =='cool') {
+          operation = 'Cool';
+        } else if (entity.state =='fan_only') {
+          operation = 'Fan';
+        }
+
+        var fan = entity.attributes.fan_mode;
+        if (entity.attributes.fan_mode =='auto') {
+          fan = 'Auto';
+        } else if (entity.attributes.fan_mode =='low') {
+          fan = 'Low';
+        } else if (entity.attributes.fan_mode =='medium low') {
+          fan = 'Med low';
+        } else if (entity.attributes.fan_mode =='medium') {
+          fan = 'Medium';
+        } else if (entity.attributes.fan_mode =='medium high') {
+          fan = 'Med High';
+        } else if (entity.attributes.fan_mode =='high') {
+          fan = 'High';
+        }
+
+        return operation + ' • ' + fan;
     ]]]
   custom_fields:
     curr_temp:
