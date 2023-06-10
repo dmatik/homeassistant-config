@@ -165,7 +165,7 @@ minimalist-mobile:
       color-yellow: "252, 214, 99"
       color-blue: "137, 179, 248"
       color-theme: "241,245,251" #"221,221,221"
-      color-purple: "150, 102, 255" #"102, 31, 255"
+      color-purple: "165, 127, 255" #"102, 31, 255"
       color-grey: "187, 187, 187"
       color-pink: "233, 30, 99"
       color-background-yellow: "var(--color-yellow)"
