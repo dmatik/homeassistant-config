@@ -69,8 +69,8 @@ popup_chip_air_quality:
                   variables:
                     ulm_card_graph_color: "var(--google-blue)"
                     ulm_card_air_quality_name: Air Quality
-                    ulm_card_air_quality_entity: sensor.waqi_bnei_darom_southern_coastal_plain_israel_yshrl_bny_drvm_myshvr_hkhvp_hdrvmy
-                    ulm_card_air_quality_url: 'https://aqicn.org/city/israel/bnei-darom-southern-coastal-plain'
+                    ulm_card_air_quality_entity: sensor.waqi_ashdod_yshrl_dod
+                    ulm_card_air_quality_url: 'https://aqicn.org/city/ashdod/'
                     ulm_card_air_quality_type: bar
                     ulm_card_air_quality_show_extrema: true
                     ulm_card_air_quality_show_average: true
