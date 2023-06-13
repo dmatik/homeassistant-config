@@ -1,0 +1,199 @@
+title: LigCovershts
+path: minimalist_covers
+visible: false
+# type: custom:grid-layout
+# layout:
+#   grid-template-columns: 1fr
+#   grid-template-rows: auto
+#   mediaquery:
+#     "(min-width: 800px)":
+#       grid-template-columns: 700px
+panel: true
+subview: false
+cards:
+
+  - type: vertical-stack
+    cards:
+
+############################################################################
+#                                                                          #
+#   Header                                                                 #
+#                                                                          #
+############################################################################
+
+      # - type: custom:button-card
+      #   template: card_header
+      #   variables:
+      #     card_header_title: Covers
+      #     card_header_navigate_path: /lovelace/minimalist_home
+      #     card_header_back_button: true
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style: 
+                    .: |
+                      ha-card {
+                          margin-left: var(--chips-left-margin) !important;
+                      }
+                    hui-horizontal-stack-card$: |
+                      button-card {
+                        margin-right: var(--chips-right-margin) !important;
+                      }
+                  card:
+
+                    type: horizontal-stack
+                    cards:
+
+                      # - type: custom:button-card
+                      #   template: edge
+
+                      # Back Chip
+                      - type: 'custom:button-card'
+                        template: chip_back_new
+                        variables:
+                          ulm_chip_navigate_path: /lovelace/minimalist_home
+
+                      # Covers Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          #- 'chip_navigate_only'
+                          - 'chip_blue'
+                        icon: 'mdi:window-shutter'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_covers_open
+                          #ulm_chip_navigate_path: /lovelace/minimalist_covers
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Main Floor                                                             #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Main Floor
+
+
+                # Covers
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Living Room Cover
+                      - type: 'custom:button-card'
+                        template: card_cover_buttons
+                        variables:
+                          ulm_card_cover_buttons_name: Living Room
+                          ulm_card_cover_buttons_entity: sensor.dummy_shutter_open
+                        view_layout:
+                          grid-row-start: span 2 
+
+                      # Kitchen Cover
+                      - type: 'custom:button-card'
+                        template: card_cover_buttons
+                        variables:
+                          ulm_card_cover_buttons_name: Kitchen
+                          ulm_card_cover_buttons_entity: sensor.dummy_shutter_closed
+                        view_layout:
+                          grid-row-start: span 2 
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Floor 2                                                                #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Floor 2
+
+
+                # Covers
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

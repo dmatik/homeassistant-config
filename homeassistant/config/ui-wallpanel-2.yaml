@@ -127,14 +127,22 @@ sidebar:
               variables:
                 ulm_chip_icon_state_entity: sensor.number_of_lights_on
                 #ulm_chip_navigate_path: /lovelace-wallpanel-2/lights
-            # Motion Chip
+            # Covers Chip
             - type: 'custom:button-card'
               template:
                 - 'chip_icon_label_state'
                 - 'chip_blue'
-              icon: 'mdi:run'
+              icon: 'mdi:window-shutter'
               variables:
-                ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+                ulm_chip_icon_state_entity: sensor.number_of_covers_open
+            # Motion Chip
+            # - type: 'custom:button-card'
+            #   template:
+            #     - 'chip_icon_label_state'
+            #     - 'chip_blue'
+            #   icon: 'mdi:run'
+            #   variables:
+            #     ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
     cardStyle: |
       :host {
         width: 100%;
