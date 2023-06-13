@@ -97,7 +97,7 @@
     device_id: aa52ca9d0fd42efba6d2e9fa0cc8cdc4
     entity_id: sensor.kitchen_motion_sensor_illuminance_lux
     domain: sensor
-    below: 120
+    below: 100
   action:
   - service: light.turn_on
     target:
