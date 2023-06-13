@@ -1,296 +1,39 @@
-sensor:
-
-  - platform: template
-    sensors:
-
-      
-
-      ############################################################################
-      #                                                                          #
-      #   Kfir                                                                   #
-      #                                                                          #
-      ############################################################################
-
-      climate_kfir_temp:
-        friendly_name: "Kfir Room Temperature"
+template:
+  - sensor:
+      - unique_id: climate_kfir_temp
+        name: "Kfir Room Temperature"
         unit_of_measurement: "°C"
-        icon_template: mdi:thermometer
-        # value_template: >-
-        #   {{ state_attr('climate.kfir', 'current_temperature') }}
-        value_template: >-
-          {{ states['sensor.kfir_room_temperature_sensor_temperature'].state }}
-          
-      # climate_kfir_humidity:
-      #   friendly_name: "Kfir Room Humidity"
-      #   unit_of_measurement: "%"
-      #   icon_template: mdi:water-percent
-      #   value_template: >-
-      #     {{ state_attr('climate.kfir', 'current_humidity') }}
-          
-      # climate_kfir_target_temp:
-      #   friendly_name: "Kfir AC Target Temperature"
-      #   #unit_of_measurement: "°C"
-      #   icon_template: mdi:thermometer
-      #   value_template: >-
-      #     {{ state_attr('climate.kfir', 'temperature') }} 
-          
-      # climate_kfir_fan:
-      #   friendly_name: "Kfir AC Fan Mode"
-      #   icon_template: mdi:fan
-      #   value_template: >-
-      #     {% if state_attr('climate.kfir', 'fan_mode') %}
-      #         {{ state_attr('climate.kfir', 'fan_mode') }}
-      #     {% else %}      
-      #         auto
-      #     {% endif %}
+        icon: mdi:thermometer
+        state: "{{ states('sensor.kfir_room_temperature_sensor_temperature') }}"
+        availability: "{{ is_number(states('sensor.kfir_room_temperature_sensor_temperature')) }}"
 
-      # climate_kfir_oper:
-      #   friendly_name: "Kfir AC Operation Mode"
-      #   icon_template: mdi:thermostat
-      #   value_template: >-
-      #     {% if states['climate.kfir'].state == 'heat_cool' %}
-      #         auto
-      #     {% else %}      
-      #         {{ states['climate.kfir'].state }}
-      #     {% endif %}
-
-      # climate_kfir_swing_mode:
-      #   friendly_name: "Kfir AC Swing Mode"
-      #   icon_template: mdi:stack-overflow
-      #   value_template: >-
-      #     {{ state_attr('climate.kfir', 'swing_mode') }}
-
-
-      ############################################################################
-      #                                                                          #
-      #   Ronen                                                                  #
-      #                                                                          #
-      ############################################################################
-
-      climate_ronen_temp:
-        friendly_name: "Ronen Room Temperature"
+      - unique_id: climate_ronen_temp
+        name: "Ronen Room Temperature"
         unit_of_measurement: "°C"
-        icon_template: mdi:thermometer
-        # value_template: >-
-        #   {{ state_attr('climate.ronen', 'current_temperature') }}
-        value_template: >-
-          {{ states['sensor.ronen_room_temperature_sensor_temperature'].state }}          
-          
-      # climate_ronen_humidity:
-      #   friendly_name: "Ronen Room Humidity"
-      #   unit_of_measurement: "%"
-      #   icon_template: mdi:water-percent
-      #   value_template: >-
-      #     {{ state_attr('climate.ronen', 'current_humidity') }}
-          
-      # climate_ronen_target_temp:
-      #   friendly_name: "Ronen AC Target Temperature"
-      #   #unit_of_measurement: "°C"
-      #   icon_template: mdi:thermometer
-      #   value_template: >-
-      #     {{ state_attr('climate.ronen', 'temperature') }} 
-          
-      # climate_ronen_fan:
-      #   friendly_name: "Ronen AC Fan Mode"
-      #   icon_template: mdi:fan
-      #   value_template: >-
-      #     {% if state_attr('climate.ronen', 'fan_mode') %}
-      #         {{ state_attr('climate.ronen', 'fan_mode') }}
-      #     {% else %}      
-      #         auto
-      #     {% endif %}
+        icon: mdi:thermometer
+        state: "{{ states('sensor.ronen_room_temperature_sensor_temperature') }}"
+        availability: "{{ is_number(states('sensor.ronen_room_temperature_sensor_temperature')) }}"
 
-      # climate_ronen_oper:
-      #   friendly_name: "Ronen AC Operation Mode"
-      #   icon_template: mdi:thermostat
-      #   value_template: >-
-      #     {% if states['climate.ronen'].state == 'heat_cool' %}
-      #         auto
-      #     {% else %}      
-      #         {{ states['climate.ronen'].state }}
-      #     {% endif %}
-
-      # climate_ronen_swing_mode:
-      #   friendly_name: "Ronen AC Swing Mode"
-      #   icon_template: mdi:stack-overflow
-      #   value_template: >-
-      #     {{ state_attr('climate.ronen', 'swing_mode') }}
-
-
-      ############################################################################
-      #                                                                          #
-      #   Basement                                                               #
-      #                                                                          #
-      ############################################################################
-
-      climate_basement_temp:
-        friendly_name: "Basement Room Temperature"
+      - unique_id: climate_basement_temp
+        name: "Basement Temperature"
         unit_of_measurement: "°C"
-        icon_template: mdi:thermometer
-        # value_template: >-
-        #   {{ state_attr('climate.basement', 'current_temperature') }}
-        value_template: >-
-          {{ states['sensor.basement_temperature_sensor_temperature'].state }}
-          
-      # climate_basement_humidity:
-      #   friendly_name: "Basement Room Humidity"
-      #   unit_of_measurement: "%"
-      #   icon_template: mdi:water-percent
-      #   value_template: >-
-      #     {{ state_attr('climate.basement', 'current_humidity') }}
-          
-      # climate_basement_target_temp:
-      #   friendly_name: "Basement AC Target Temperature"
-      #   #unit_of_measurement: "°C"
-      #   icon_template: mdi:thermometer
-      #   value_template: >-
-      #     {{ state_attr('climate.basement', 'temperature') }} 
-          
-      # climate_basement_fan:
-      #   friendly_name: "Basement AC Fan Mode"
-      #   icon_template: mdi:fan
-      #   value_template: >-
-      #     {% if state_attr('climate.basement', 'fan_mode') %}
-      #         {{ state_attr('climate.basement', 'fan_mode') }}
-      #     {% else %}      
-      #         auto
-      #     {% endif %}
+        icon: mdi:thermometer
+        state: "{{ states('sensor.basement_temperature_sensor_temperature') }}"
+        availability: "{{ is_number(states('sensor.basement_temperature_sensor_temperature')) }}"
 
-      # climate_basement_oper:
-      #   friendly_name: "Basement AC Operation Mode"
-      #   icon_template: mdi:thermostat
-      #   value_template: >-
-      #     {% if states['climate.basement'].state == 'heat_cool' %}
-      #         auto
-      #     {% else %}      
-      #         {{ states['climate.basement'].state }}
-      #     {% endif %}
-
-      # climate_basement_swing_mode:
-      #   friendly_name: "Basement AC Swing Mode"
-      #   icon_template: mdi:stack-overflow
-      #   value_template: >-
-      #     {{ state_attr('climate.basement', 'swing_mode') }}
-
-
-
-      ############################################################################
-      #                                                                          #
-      #   Bedroom                                                                #
-      #                                                                          #
-      ############################################################################
-
-      climate_bedroom_temp:
-        friendly_name: "Bedroom Temperature"
+      - unique_id: climate_bedroom_temp
+        name: "Bedroom Temperature"
         unit_of_measurement: "°C"
-        icon_template: mdi:thermometer
-        # value_template: >-
-        #   {{ state_attr('climate.bedroom', 'current_temperature') }}
-        value_template: >-
-          {{ states['sensor.bedroom_temperature_sensor_temperature'].state }}
-          
-      # sensibo_bedroom_humidity:
-      #   friendly_name: "Bedroom Humidity (Sensibo)"
-      #   unit_of_measurement: "%"
-      #   icon_template: mdi:water-percent
-      #   value_template: >-
-      #     {{ state_attr('climate.bedroom', 'current_humidity') }}
-          
-      # sensibo_bedroom_target_temp:
-      #   friendly_name: "Bedroom Target Temperature (Sensibo)"
-      #   #unit_of_measurement: "°C"
-      #   icon_template: mdi:thermometer
-      #   value_template: >-
-      #     {{ state_attr('climate.bedroom', 'temperature') }}
-          
-      # sensibo_bedroom_fan:
-      #   friendly_name: "Bedroom Fan Mode (Sensibo)"
-      #   icon_template: mdi:fan
-      #   value_template: >-
-      #     {% if state_attr('climate.bedroom', 'fan_mode') %}
-      #         {{ state_attr('climate.bedroom', 'fan_mode') }}
-      #     {% else %}      
-      #         auto
-      #     {% endif %}
+        icon: mdi:thermometer
+        state: "{{ states('sensor.bedroom_temperature_sensor_temperature') }}"
+        availability: "{{ is_number(states('sensor.bedroom_temperature_sensor_temperature')) }}"
 
-      # sensibo_bedroom_oper:
-      #   friendly_name: "Bedroom Operation Mode (Sensibo)"
-      #   icon_template: mdi:thermostat
-      #   value_template: >-
-      #     {% if states['climate.bedroom'].state == 'heat_cool' %}
-      #         auto
-      #     {% else %}      
-      #         {{ states['climate.bedroom'].state }}
-      #     {% endif %}
-
-      # sensibo_bedroom_swing_mode:
-      #   friendly_name: "Bedroom Swing Mode (Sensibo)"
-      #   icon_template: mdi:stack-overflow
-      #   value_template: >-
-      #     {{ state_attr('climate.bedroom', 'swing_mode') }}
-
-
-
-      ############################################################################
-      #                                                                          #
-      #   Living Room                                                            #
-      #                                                                          #
-      ############################################################################
-      
-      climate_living_room_temp:
-        friendly_name: "Living Room Temperature"
+      - unique_id: climate_living_room_temp
+        name: "Living Room Temperature"
         unit_of_measurement: "°C"
-        icon_template: mdi:thermometer
-        # value_template: >-
-        #   {{ state_attr('climate.living_room', 'current_temperature') }}
-        value_template: >-
-          {{ states['sensor.living_room_temperature_sensor_temperature'].state }}
-
-      # sensibo_living_room_temp_unit:
-      #   friendly_name: "Living Room Temperature (Sensibo)"
-      #   #unit_of_measurement: "°C"
-      #   icon_template: mdi:thermometer
-      #   value_template: >-
-      #     {{ state_attr('climate.living_room', 'current_temperature') }}°C
-          
-      # sensibo_living_room_humidity:
-      #   friendly_name: "Living Room Humidity (Sensibo)"
-      #   unit_of_measurement: "%"
-      #   icon_template: mdi:water-percent
-      #   value_template: >-
-      #     {{ state_attr('climate.living_room', 'current_humidity') }}
-          
-      # sensibo_living_room_target_temp:
-      #   friendly_name: "Living Room Target Temperature (Sensibo)"
-      #   #unit_of_measurement: "°C"
-      #   icon_template: mdi:thermometer
-      #   value_template: >- 
-      #     {{ state_attr('climate.living_room', 'temperature') }}
-          
-      # sensibo_living_room_fan:
-      #   friendly_name: "Living Room Fan Mode (Sensibo)"
-      #   icon_template: mdi:fan
-      #   value_template: >-
-      #     {% if state_attr('climate.living_room', 'fan_mode') %}
-      #         {{ state_attr('climate.living_room', 'fan_mode') }}
-      #     {% else %}      
-      #         auto
-      #     {% endif %}
-
-      # sensibo_living_room_oper:
-      #   friendly_name: "Living Room Operation Mode (Sensibo)"
-      #   icon_template: mdi:thermostat
-      #   value_template: >-
-      #     {% if states['climate.living_room'].state == 'heat_cool' %}
-      #         auto
-      #     {% else %}      
-      #         {{ states['climate.living_room'].state }}
-      #     {% endif %}
-
-      # sensibo_living_room_swing_mode:
-      #   friendly_name: "Living Room Swing Mode (Sensibo)"
-      #   icon_template: mdi:stack-overflow
-      #   value_template: >-
-      #     {{ state_attr('climate.living_room', 'swing_mode') }}
+        icon: mdi:thermometer
+        state: "{{ states('sensor.living_room_temperature_sensor_temperature') }}"
+        availability: "{{ is_number(states('sensor.living_room_temperature_sensor_temperature')) }}"
 
 
+ 
