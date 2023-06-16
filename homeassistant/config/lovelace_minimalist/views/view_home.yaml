@@ -340,6 +340,7 @@ cards:
                         template: 'card_light_simple'
                         entity: light.entrance
                         name: Entrance
+                        icon: mdi:lightbulb-spot
 
                       # Living Room AC
                       - type: 'custom:button-card'
