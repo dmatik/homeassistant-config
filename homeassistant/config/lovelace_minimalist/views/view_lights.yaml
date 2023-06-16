@@ -205,6 +205,18 @@ cards:
                         name: Kitchen Bar
                         icon: mdi:vanity-light
 
+                      # Front Yard Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.front_yard
+                        name: Front Yard
+
+                      # Back Yard Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.back_yard
+                        name: Back Yard
+
 
 
           ############################################################################

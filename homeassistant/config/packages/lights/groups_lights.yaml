@@ -14,6 +14,8 @@ group:
       - light.living_room_tv_wall
       - light.guests_bathroom
       - light.entrance
+      - light.front_yard
+      - light.back_yard
       - light.new_year_tree
 
 

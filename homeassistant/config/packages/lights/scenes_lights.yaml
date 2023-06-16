@@ -1,80 +1,5 @@
 scene:
 
-############################################################################
-#                                                                          #
-#   Bedside                                                                #
-#                                                                          #
-############################################################################
-
-  # - name: Bedside Off
-  #   entities:
-  #     light.bedside_dima:
-  #       state: off
-  #     light.bedside_galit:
-  #       state: off
-
-  # - name: Bedside Normal
-  #   entities:
-  #     light.bedside_dima:
-  #       state: on
-  #       xy_color: [0.323, 0.329]
-  #       brightness: 140
-  #     light.bedside_galit:
-  #       state: on
-  #       xy_color: [0.323, 0.329]
-  #       brightness: 140
-
-  # - name: Bedside Romantic
-  #   entities:
-  #     light.bedside_dima:
-  #       state: on
-  #       xy_color: [0.156, 0.049] #blue
-  #       brightness: 200
-  #     light.bedside_galit:
-  #       state: on
-  #       xy_color: [0.156, 0.049] #blue
-  #       brightness: 200
-
-
-
-############################################################################
-#                                                                          #
-#   Lights Off                                                             #
-#                                                                          #
-############################################################################
-
-  - name: Lights Off
-    entities:
-      light.living_room:
-        state: off
-      light.dining:
-        state: off
-      light.balcony:
-        state: off
-      light.enterence:
-        state: off
-      light.kitchen:
-        state: off
-      light.service_balcony:
-        state: off
-      light.hallway:
-        state: off
-      light.bedroom:
-        state: off
-      light.kids_room:
-        state: off
-      light.work_room:
-        state: off
-      light.bedside_dima_bulb:
-        state: off
-      light.bedside_galit_bulb:
-        state: off
-      light.kitchen_strip_left:
-        state: off
-      light.kitchen_strip_right:
-        state: off
-
-
 
 ############################################################################
 #                                                                          #
@@ -84,10 +9,6 @@ scene:
 
   - name: Night Lights On
     entities:
-      light.dining:
-        state: on
-      light.hallway:
-        state: on
       light.bedside_dima_bulb:
         state: on
       light.bedside_galit_bulb:
@@ -95,10 +16,6 @@ scene:
 
   - name: Night Lights Off
     entities:
-      light.dining:
-        state: off
-      light.hallway:
-        state: off
       light.bedside_dima_bulb:
         state: off
       light.bedside_galit_bulb:

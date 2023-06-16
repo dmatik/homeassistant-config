@@ -185,11 +185,29 @@ cards:
                         name: TV Wall
                         icon: mdi:wall-sconce-round
 
+                      # Entrance Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.entrance
+                        name: Entrance
+
+                      # Front Yard Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.front_yard
+                        name: Front Yard
+
                       # Guests Bathroom Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.guests_bathroom
                         name: Guest Bathroom
+
+                      # Back Yard Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.back_yard
+                        name: Back Yard
 
                       # Living Room AC
                       - type: 'custom:button-card'
@@ -247,12 +265,6 @@ cards:
                       #   entity: light.new_year_tree
                       #   icon: mdi:pine-tree
                       #   name: NY Tree
-
-                      # Entrance Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.entrance
-                        name: Entrance
 
                       # Ulanzi Clock
                       - type: 'custom:button-card'

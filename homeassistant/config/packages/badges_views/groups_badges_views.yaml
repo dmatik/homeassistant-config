@@ -35,6 +35,8 @@ group:
       - light.kitchen
       - light.kitchen_bar
       - light.entrance
+      - light.front_yard
+      - light.back_yard
       - light.hallway
       - light.bedroom
       - light.work_room

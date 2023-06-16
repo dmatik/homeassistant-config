@@ -70,3 +70,5 @@
   type: module
 - url: /hacsfiles/sidebar-card/sidebar-card.js
   type: module
+# - url: /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
+#   type: module

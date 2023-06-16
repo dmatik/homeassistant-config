@@ -61,7 +61,7 @@
     light.kitchen:
       supported_color_modes:
       - onoff
-      friendly_name: Kitchen Light
+      friendly_name: Kitchen
       supported_features: 0
       state: 'off'
     light.kitchen_bar:
@@ -85,21 +85,35 @@
     light.guests_bathroom:
       supported_color_modes:
       - onoff
-      friendly_name: Guests Bathroom Light
+      friendly_name: Guests Bathroom
+      supported_features: 0
+      state: 'off'
+    light.entrance:
+      supported_color_modes:
+      - onoff
+      friendly_name: Entrance
+      supported_features: 0
+      state: 'off'
+    light.dining:
+      supported_color_modes:
+      - onoff
+      friendly_name: Dining
+      supported_features: 0
+      state: 'off'
+    light.front_yard:
+      supported_color_modes:
+      - onoff
+      friendly_name: Front Yard
+      supported_features: 0
+      state: 'off'
+    light.back_yard:
+      supported_color_modes:
+      - onoff
+      friendly_name: Back Yard
       supported_features: 0
       state: 'off'
   icon: mdi:lightbulb-multiple-off
   metadata:
-    light.basement:
-      entity_only: true
-    light.basement_2_light_1:
-      entity_only: true
-    light.basement_2_light_2:
-      entity_only: true
-    light.basement_toys:
-      entity_only: true
-    light.work_room:
-      entity_only: true
     light.living_room:
       entity_only: true
     light.living_room_tv_wall:
@@ -111,4 +125,12 @@
     light.kitchen_led_strip:
       entity_only: true
     light.guests_bathroom:
+      entity_only: true
+    light.entrance:
+      entity_only: true
+    light.dining:
+      entity_only: true
+    light.front_yard:
+      entity_only: true
+    light.back_yard:
       entity_only: true
