@@ -11,3 +11,25 @@ card_scene:
   hold_action:
     action: "more-info"
   label: "Scene"
+
+card_scene_vertical:
+  template: "vertical_buttons"
+  variables:
+    # blue, red, green, yellow, purple, pink
+    color: "purple"
+  show_last_changed: false
+  name: "[[[ return variables.state ]]]"
+  styles:
+    name:
+      - text-transform: "capitalize"
+    icon:
+      - color: "[[[ return `rgba(var(--color-${variables.color}), 1)`; ]]]"
+    img_cell:
+      - background-color: "[[[ return `rgba(var(--color-${variables.color}), 0.2)`; ]]]"
+  tap_action:
+    action: "call-service"
+    service: "scene.turn_on"
+    service_data:
+      entity_id: entity
+  hold_action:
+    action: "more-info" 
