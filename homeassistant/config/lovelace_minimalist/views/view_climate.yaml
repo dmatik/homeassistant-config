@@ -115,7 +115,7 @@ cards:
                           - 'popup_chip_air_quality'
                         #icon: 'mdi:leaf'
                         variables:
-                          ulm_chip_icon_state_entity: sensor.waqi_bnei_darom_southern_coastal_plain_israel_yshrl_bny_drvm_myshvr_hkhvp_hdrvmy
+                          ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
                           ulm_card_air_quality_green: 50
                           ulm_card_air_quality_yellow: 100
 
