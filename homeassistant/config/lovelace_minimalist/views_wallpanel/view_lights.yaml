@@ -123,6 +123,7 @@ cards:
                       template: 'card_light_simple'
                       entity: light.entrance
                       name: Entrance
+                      icon: mdi:lightbulb-spot
 
                     # Guests Bathroom Light
                     - type: 'custom:button-card'
