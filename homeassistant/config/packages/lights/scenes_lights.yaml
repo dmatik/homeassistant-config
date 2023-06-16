@@ -13,10 +13,18 @@ scene:
         state: on
       light.bedside_galit_bulb:
         state: on
+      light.living_room:
+        state: on
+      light.living_room_tv_wall:
+        state: on
 
   - name: Night Lights Off
     entities:
       light.bedside_dima_bulb:
         state: off
       light.bedside_galit_bulb:
+        state: off
+      light.living_room:
+        state: off
+      light.living_room_tv_wall:
         state: off

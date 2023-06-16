@@ -8,7 +8,5 @@ scene:
 
   - name: Red Alert Lights
     entities:
-      light.dining:
-        state: on
-      light.hallway:
+      light.basement:
         state: on
