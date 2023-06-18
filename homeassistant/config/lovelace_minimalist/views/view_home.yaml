@@ -61,7 +61,6 @@ cards:
           #                                                                          #
           ############################################################################
 
-
                 - type: "custom:mod-card"
                   style: 
                     .: |
@@ -71,6 +70,11 @@ cards:
                     hui-horizontal-stack-card$: |
                       button-card {
                         margin-right: var(--chips-right-margin) !important;
+                        margin-left: 0px !important;
+                        margin-bottom: 4px !important;
+                      }
+                      #root {
+                        flex-wrap: wrap;
                       }
                   card:
 
@@ -92,8 +96,8 @@ cards:
                       #     ulm_chip_navigate_path: /lovelace/minimalist_climate
 
                       # Menu Chip
-                      # - type: 'custom:button-card'
-                      #   template: chip_menu
+                      - type: 'custom:button-card'
+                        template: chip_menu
 
                       # Climate Chip
                       - type: 'custom:button-card'

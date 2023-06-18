@@ -72,6 +72,11 @@ cards:
                     hui-horizontal-stack-card$: |
                       button-card {
                         margin-right: var(--chips-right-margin) !important;
+                        margin-left: 0px !important;
+                        margin-bottom: 4px !important;
+                      }
+                      #root {
+                        flex-wrap: wrap;
                       }
                   card:
 

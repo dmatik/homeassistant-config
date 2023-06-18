@@ -10,7 +10,12 @@ minimalist-desktop:
   divider-color: "rgba(var(--color-theme),.12)"
   accent-color: "var(--google-yellow)"
   widget-border-radius: "10px"
-  card-padding: "10px"
+  card-padding: "12px"
+  masonry-view-card-margin: "6px 4px 4px"
+  chips-left-margin: "6px"
+  chips-right-margin: "6px"
+  view-margins: "0px"
+  grid-layout-margins: "-10px -2px 12px"
   card-mod-theme: "minimalist-desktop"
   card-mod-more-info-yaml: |
         $: |

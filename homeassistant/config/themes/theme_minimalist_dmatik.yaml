@@ -13,7 +13,7 @@ minimalist-dmatik:
   card-padding: "12px"
   masonry-view-card-margin: "6px 4px 4px"
   chips-left-margin: "6px"
-  chips-right-margin: "2px"
+  chips-right-margin: "6px"
   view-margins: "0px"
   grid-layout-margins: "-10px -2px 12px"
 
