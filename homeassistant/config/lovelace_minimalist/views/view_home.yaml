@@ -96,8 +96,8 @@ cards:
                       #     ulm_chip_navigate_path: /lovelace/minimalist_climate
 
                       # Menu Chip
-                      - type: 'custom:button-card'
-                        template: chip_menu
+                      # - type: 'custom:button-card'
+                      #   template: chip_menu
 
                       # Climate Chip
                       - type: 'custom:button-card'
@@ -132,6 +132,16 @@ cards:
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_lights_on
                           ulm_chip_navigate_path: /lovelace/minimalist_lights
+
+                      # # Lights Chip
+                      # - type: 'custom:button-card'
+                      #   template:
+                      #     - 'chip_lights_two_rows'
+                      #     - 'chip_navigate_only'
+                      #   icon: 'mdi:lightbulb'
+                      #   variables:
+                      #     ulm_chip_icon_state_entity: sensor.number_of_lights_on
+                      #     ulm_chip_navigate_path: /lovelace/minimalist_lights
 
                       # Covers Chip
                       - type: 'custom:button-card'
