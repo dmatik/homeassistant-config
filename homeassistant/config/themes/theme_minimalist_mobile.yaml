@@ -73,6 +73,12 @@ minimalist-mobile:
       popup-padding-y: 0px
       popup-button-border: "1px solid rgba(var(--color-theme),0.15)"
 
+      # Printer colors
+      printer-black-color: 'rgba(150,150,150,1)'
+      printer-yellow-color: 'rgba(250,255,0,0.2)'
+      printer-magenta-color: 'rgba(248,0,255,0.2)'
+      printer-cyan-color: 'rgba(0,255,255,0.2)'      
+
       # text
       primary-text-color: "#212121"
       # main interface colors
@@ -154,6 +160,12 @@ minimalist-mobile:
       popup-padding-y: 0px
       popup-button-border: "1px solid rgba(var(--color-theme),0.15)"
 
+      # Printer colors
+      printer-black-color: 'rgba(50,50,50,1)'
+      printer-yellow-color: 'rgba(250,255,0,0.2)'
+      printer-magenta-color: 'rgba(248,0,255,0.2)'
+      printer-cyan-color: 'rgba(0,255,255,0.2)'
+      
       # text
       primary-text-color: "#DDDDDD"
       # main interface colors

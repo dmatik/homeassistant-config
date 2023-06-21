@@ -24,7 +24,7 @@ widget_mini_graph_bar:
     item1:
       card:
         type: "custom:bar-card"
-        height: "20px"
+        height: "28px"
         positions:
           name: "inside"
           value: "inside"
@@ -50,15 +50,16 @@ widget_mini_graph_bar:
             justify-content: start;
             display: flex;
             color: rgba(var(--primary-text-color),1);
-            padding-top: 1px;
+            padding-top: 2px;
           }
           bar-card-value{
-            width: 2rem;
-            margin-left: 40px !important;
-            justify-content: center;
+            width: 100%;
+            margin-left: 0px !important;
+            margin-right: 10px !important;
+            justify-content: end;
             display: flex;
             color: rgba(var(--primary-text-color),1);
-            padding-top: 1px;
+            padding-top: 2px;
           }
           bar-card-background{
             margin: 4px 0 4px 0 !important;
