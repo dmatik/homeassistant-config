@@ -82,7 +82,8 @@ services:
             #RUN_OPTS: #optional
         volumes:
             - /volume1/docker/jackett/config:/config
-            - /volume1/torrent:/downloads
+            #- /volume1/torrent:/downloads
+            - /volume1/data/torrent:/downloads
         ports:
             - "9117:9117"
         restart: always
@@ -100,7 +101,8 @@ services:
             PUID: ${ZEG_PUID}
             PGID: ${ZEG_PGID}
         volumes:
-            - /volume1/torrent:/torrent
+            #- /volume1/torrent:/torrent
+            - /volume1/data:/data
             - /volume1/docker/radarr/config:/config
         
     sonarr:
@@ -117,9 +119,25 @@ services:
             PUID: ${ZEG_PUID}
             PGID: ${ZEG_PGID}
         volumes:
-            - /volume1/torrent:/torrent
+            #- /volume1/torrent:/torrent
+            #- /volume1/video:/video
+            - /volume1/data:/data
             - /volume1/docker/sonarr/config:/config
-            - /volume1/video:/video
+
+    prowlarr:
+        hostname: prowlarr
+        image: lscr.io/linuxserver/prowlarr:latest
+        container_name: prowlarr
+        network_mode: "bridge"
+        ports:
+            - 9696:9696
+        environment:
+            TZ: "Asia/Jerusalem"
+            PUID: ${ZEG_PUID}
+            PGID: ${ZEG_PGID}
+        volumes:
+            - /volume1/docker/prowlarr/config:/config
+        restart: unless-stopped
 
     bazarr:
         restart: always
@@ -134,9 +152,10 @@ services:
             PUID: ${ZEG_PUID}
             PGID: ${ZEG_PGID}
         volumes:
-            - /volume1/torrent:/torrent
             - /volume1/docker/bazarr/config:/config
-            - /volume1/video:/video
+            #- /volume1/torrent:/torrent
+            #- /volume1/video:/video
+            - /volume1/data:/data
         
     portainer:
         hostname: portainer
@@ -344,8 +363,9 @@ services:
         volumes:
           - /volume1/docker/jellyfin/config:/config
           - /volume1/docker/jellyfin/cache:/cache
-          - /volume1/video:/video
-          - /volume1/torrent:/torrent
+          #- /volume1/video:/video
+          #- /volume1/torrent:/torrent
+          - /volume1/data:/data
 
     bitwarden_server:
         hostname: bitwarden_server
