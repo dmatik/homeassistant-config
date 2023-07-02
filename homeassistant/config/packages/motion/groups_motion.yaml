@@ -27,6 +27,33 @@ group:
       - binary_sensor.guest_bathroom_left_motion_sensor_occupancy
 
 
+
+############################################################################
+#                                                                          #
+#   Bedroom                                                                #
+#                                                                          #
+############################################################################
+
+  bedroom_motion_sensors:
+    name: Bedroom Motion Sensors
+    entities:
+      - binary_sensor.parents_bathroom_right_motion_sensor_occupancy
+
+
+
+############################################################################
+#                                                                          #
+#   Parents Bathroom                                                       #
+#                                                                          #
+############################################################################
+
+  parents_bathroom_motion_sensors:
+    name: Parents Bathroom Motion Sensors
+    entities:
+      - binary_sensor.parents_bathroom_right_motion_sensor_occupancy
+
+
+
 ############################################################################
 #                                                                          #
 #   Kitchen                                                                #

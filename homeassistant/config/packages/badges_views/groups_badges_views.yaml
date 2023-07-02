@@ -140,6 +140,7 @@ group:
       - binary_sensor.kitchen_motion_sensor_2_occupancy
       - binary_sensor.guest_bathroom_right_motion_sensor_occupancy
       - binary_sensor.guest_bathroom_left_motion_sensor_occupancy
+      - binary_sensor.parents_bathroom_right_motion_sensor_occupancy
 
 
 
