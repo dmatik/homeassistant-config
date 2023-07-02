@@ -70,15 +70,15 @@ cards:
                       ha-card {
                           margin-left: var(--chips-left-margin) !important;
                       }
-                    hui-horizontal-stack-card$: |
-                      button-card {
-                        margin-right: var(--chips-right-margin) !important;
-                        margin-left: 0px !important;
-                        margin-bottom: 4px !important;
-                      }
-                      #root {
-                        flex-wrap: wrap;
-                      }
+                    # hui-horizontal-stack-card$: |
+                    #   button-card {
+                    #     margin-right: var(--chips-right-margin) !important;
+                    #     margin-left: 0px !important;
+                    #     margin-bottom: 4px !important;
+                    #   }
+                    #   #root {
+                    #     flex-wrap: wrap;
+                    #   }
                   card:
 
                     type: horizontal-stack
@@ -92,6 +92,42 @@ cards:
                         template: chip_back_new
                         variables:
                           ulm_chip_navigate_path: /lovelace/minimalist_home
+
+                      # Climate Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_climate'
+                        variables:
+                          ulm_chip_temperature_low: sensor.lowest_temperature_home
+                          ulm_chip_temperature_high: sensor.highest_temperature_home                     
+                          ulm_chip_devices_on: sensor.number_of_climate_entities_on
+
+                      # Lights Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_yellow'
+                        icon: 'mdi:lightbulb'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_lights_on
+
+                      # Covers Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_blue'
+                        icon: 'mdi:window-shutter'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_covers_open
+
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_blue'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
 
 
                 # - type: custom:button-card
@@ -146,7 +182,7 @@ cards:
                           ulm_card_room_two_rows_icon: mdi:sofa
                           ulm_card_room_two_rows_light: light.living_room
                           ulm_card_room_two_rows_temp: sensor.climate_living_room_temp
-                          ulm_card_room_two_rows_sensor: binary_sensor.living_room_motion_sensor_occupancy
+                          ulm_card_room_two_rows_sensor: group.living_room_motion_sensors
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_living_room
 
                       # Kitchen
@@ -179,6 +215,7 @@ cards:
                           ulm_card_room_two_rows_icon: mdi:bed-empty
                           ulm_card_room_two_rows_light: light.bedroom
                           ulm_card_room_two_rows_temp: sensor.climate_bedroom_temp
+                          ulm_card_room_two_rows_sensor: group.bedroom_motion_sensors
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_bedroom
 
                       # Kfir Room

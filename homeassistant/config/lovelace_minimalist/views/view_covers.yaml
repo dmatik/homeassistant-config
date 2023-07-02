@@ -69,15 +69,15 @@ cards:
                       ha-card {
                           margin-left: var(--chips-left-margin) !important;
                       }
-                    hui-horizontal-stack-card$: |
-                      button-card {
-                        margin-right: var(--chips-right-margin) !important;
-                        margin-left: 0px !important;
-                        margin-bottom: 4px !important;
-                      }
-                      #root {
-                        flex-wrap: wrap;
-                      }
+                    # hui-horizontal-stack-card$: |
+                    #   button-card {
+                    #     margin-right: var(--chips-right-margin) !important;
+                    #     margin-left: 0px !important;
+                    #     margin-bottom: 4px !important;
+                    #   }
+                    #   #root {
+                    #     flex-wrap: wrap;
+                    #   }
                   card:
 
                     type: horizontal-stack

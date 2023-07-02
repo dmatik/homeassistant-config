@@ -69,15 +69,15 @@ cards:
                       ha-card {
                           margin-left: var(--chips-left-margin) !important;
                       }
-                    hui-horizontal-stack-card$: |
-                      button-card {
-                        margin-right: var(--chips-right-margin) !important;
-                        margin-left: 0px !important;
-                        margin-bottom: 4px !important;
-                      }
-                      #root {
-                        flex-wrap: wrap;
-                      }
+                    # hui-horizontal-stack-card$: |
+                    #   button-card {
+                    #     margin-right: var(--chips-right-margin) !important;
+                    #     margin-left: 0px !important;
+                    #     margin-bottom: 4px !important;
+                    #   }
+                    #   #root {
+                    #     flex-wrap: wrap;
+                    #   }
                   card:
 
                     type: horizontal-stack
@@ -260,24 +260,6 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
-                      # Hallway Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.hallway
-                        name: Hallway
-
-                      # Bedroom Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.bedroom
-                        name: Bedroom
-
-                      # Makeup Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.makeup
-                        icon: mdi:string-lights
-                        name: Makeup
 
                       # Bedside Dima Light
                       - type: 'custom:button-card'
@@ -298,12 +280,6 @@ cards:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
                           ulm_card_light_name: Galit
-
-                      # Kids Room Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.kids_room
-                        name: Kids Room
 
 
 

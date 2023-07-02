@@ -62,20 +62,21 @@ cards:
           ############################################################################
 
                 - type: "custom:mod-card"
-                  style: 
-                    .: |
-                      ha-card {
-                          margin-left: var(--chips-left-margin) !important;
-                      }
-                    hui-horizontal-stack-card$: |
-                      button-card {
-                        margin-right: var(--chips-right-margin) !important;
-                        margin-left: 0px !important;
-                        margin-bottom: 4px !important;
-                      }
-                      #root {
-                        flex-wrap: wrap;
-                      }
+                  card_mod:
+                    style:
+                      .: |
+                        ha-card {
+                            margin-left: var(--chips-left-margin) !important;
+                        }
+                      # hui-horizontal-stack-card$: |
+                      #   button-card {
+                      #     margin-right: var(--chips-right-margin) !important;
+                      #     margin-left: 0px !important;
+                      #     margin-bottom: 4px !important;
+                      #   }
+                      #   div#root {
+                      #     flex-wrap: wrap;
+                      #   }
                   card:
 
                     type: horizontal-stack
@@ -110,6 +111,19 @@ cards:
                           ulm_chip_temperature_high: sensor.highest_temperature_home                     
                           ulm_chip_devices_on: sensor.number_of_climate_entities_on
                           ulm_chip_navigate_path: /lovelace/minimalist_climate
+
+                      # Air Quality Chip
+                      # - type: 'custom:button-card'
+                      #   template:
+                      #     - 'chip_icon_label_state'
+                      #     - 'chip_air_polution_colors'
+                      #     - 'chip_air_polution_icons'
+                      #     - 'popup_chip_air_quality'
+                      #   #icon: 'mdi:leaf'
+                      #   variables:
+                      #     ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
+                      #     ulm_card_air_quality_green: 50
+                      #     ulm_card_air_quality_yellow: 100
 
                       # Presense Chip
                       - type: 'custom:button-card'
@@ -247,55 +261,6 @@ cards:
 
           ############################################################################
           #                                                                          #
-          #   Scenes                                                                 #
-          #                                                                          #
-          ############################################################################
-
-                # # Title
-                # - type: horizontal-stack
-                #   cards:
-
-                #     - type: custom:button-card
-                #       template: title
-                #       name: Scenes
-
-
-                # #Cards
-                # - type: custom:layout-card
-                #   layout_type: grid
-                #   layout_options:
-                #     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
-                #     grid-template-rows: auto
-                #     grid-gap: 0px 4px
-                #     mediaquery:
-                #       "(max-width: 450px)":
-                #         grid-template-columns: 1fr 1fr 1fr 1fr
-                #   cards:
-
-                #     # Night Lights
-                #     - type: 'custom:button-card'
-                #       template: 'card_vertical_button'
-                #       entity: scene.night_lights_on
-                #       name: 'Night'
-                #       label: 'Lights'
-                #       icon: 'mdi:weather-night'
-                #       variables:
-                #         color: 'blue'
-
-                #     # Lights Off
-                #     - type: 'custom:button-card'
-                #       template: 'card_vertical_button'
-                #       entity: scene.lights_off
-                #       name: 'Lights'
-                #       label: 'Off'
-                #       icon: 'mdi:lightbulb-group-off'
-                #       variables:
-                #         color: 'yellow'
-
-
-
-          ############################################################################
-          #                                                                          #
           #   Favorites                                                              #
           #                                                                          #
           ############################################################################
@@ -343,18 +308,24 @@ cards:
                         icon: mdi:ceiling-light
 
                       # TV Wall Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.living_room_tv_wall
-                        name: TV Wall
-                        icon: mdi:wall-sconce-round
+                      # - type: 'custom:button-card'
+                      #   template: 'card_light_simple'
+                      #   entity: light.living_room_tv_wall
+                      #   name: TV Wall
+                      #   icon: mdi:wall-sconce-round
 
                       # Entrance Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.entrance
-                        name: Entrance
-                        icon: mdi:lightbulb-spot
+                      # - type: 'custom:button-card'
+                      #   template: 'card_light_simple'
+                      #   entity: light.entrance
+                      #   name: Entrance
+                      #   icon: mdi:lightbulb-spot
+
+                      # Back Yard Light
+                      # - type: 'custom:button-card'
+                      #   template: 'card_light_simple'
+                      #   entity: light.back_yard
+                      #   name: Back Yard    
 
                       # Living Room AC
                       - type: 'custom:button-card'
@@ -417,12 +388,7 @@ cards:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
                           ulm_card_light_name: Galit
-
-                      # Back Yard Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.back_yard
-                        name: Back Yard                        
+                    
                                                
                       # NY Tree
                       # - type: 'custom:button-card'
@@ -466,11 +432,10 @@ cards:
                           ulm_card_pc_restart: 'script.dimka_restart'
                           ulm_card_pc_shutdown: 'script.dimka_shutdown'
 
-
-
                       # Red Alert
                       - type: 'custom:button-card'
                         template: card_red_alert
+
 
 
           ############################################################################

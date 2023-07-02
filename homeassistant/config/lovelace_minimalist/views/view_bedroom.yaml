@@ -70,15 +70,15 @@ cards:
                       ha-card {
                           margin-left: var(--chips-left-margin) !important;
                       }
-                    hui-horizontal-stack-card$: |
-                      button-card {
-                        margin-right: var(--chips-right-margin) !important;
-                        margin-left: 0px !important;
-                        margin-bottom: 4px !important;
-                      }
-                      #root {
-                        flex-wrap: wrap;
-                      }
+                    # hui-horizontal-stack-card$: |
+                    #   button-card {
+                    #     margin-right: var(--chips-right-margin) !important;
+                    #     margin-left: 0px !important;
+                    #     margin-bottom: 4px !important;
+                    #   }
+                    #   #root {
+                    #     flex-wrap: wrap;
+                    #   }
                   card:
 
                     type: horizontal-stack
@@ -120,6 +120,14 @@ cards:
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_lights_on_bedroom
 
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_blue'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_bedroom
 
 
           ############################################################################
@@ -162,18 +170,6 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
-                      # Bedroom Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.bedroom
-                        name: Bedroom
-
-                      # Makeup Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.makeup
-                        icon: mdi:string-lights
-                        name: Makeup
                                                   
                       # Bedside Dima Light
                       - type: 'custom:button-card'
@@ -207,13 +203,23 @@ cards:
                           grid-row-start: span 2
 
                       # Bedroom Radiator
+                      # - type: 'custom:button-card'
+                      #   template: card_power_outlet
+                      #   variables:
+                      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+                      #   entity: switch.bedroom_radiator
+                      #   name: Radiator
+                      #   icon: mdi:radiator
+
+                      # Parents Bathroom Right Sensor
                       - type: 'custom:button-card'
-                        template: card_power_outlet
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.parents_bathroom_right_motion_sensor_occupancy
+                        name: Bathroom Right
+                        show_last_changed: false
                         variables:
-                          ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                        entity: switch.bedroom_radiator
-                        name: Radiator
-                        icon: mdi:radiator
+                          light_level: sensor.parents_bathroom_right_motion_sensor_illuminance_lux
 
 
 

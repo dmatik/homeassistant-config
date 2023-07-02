@@ -37,75 +37,16 @@ chip_base:
       - justify-content: center
       - align-items: center
       - justify-self: 'center'
-      - font-weight: 500
-      - font-size: '16px'
+      - font-weight: 550
+      - font-size: '14px'
       - margin-left: '0px'
       - width: 'auto'
       - padding-left: '2px'
       - padding-right: '2px'
       - height: '36px'
-      - width: 'auto'      
-
-chip_base_two_rows:
-  triggers_update: 'all'
-  show_icon: 'true'
-  show_name: 'true'
-  show_label: 'true'
-  size: '100%'
-  styles:
-    card:
-      - box-shadow: 'var(--box-shadow)'
-      - border-radius: '18px'
-      - height: '42px'
-      - width: 'auto'
-      - padding-left: '8px'
-      - padding-right: '8px'
-      - padding-top: '0px'
-      - padding-bottom: '0px'
-      - --mdc-ripple-press-opacity: 0.0
-    grid:
-      - grid-template-areas: "'i n' 'i l'"
-      - grid-template-columns: 'max_content auto'
-      - grid-template-rows: 'min-content'
-    img_cell:
-      - display: flex
-      - justify-content: center
-      - align-items: center    
-      #- place-self: 'center'
-      - width: '20px'
-      - height: '36px'
-      - padding-right: '0px'
-      - padding-left: '0px'
-    icon:
-      - display: flex
-      - justify-content: center
-      - align-items: center      
-    name:
-      - display: flex
-      - justify-content: center
-      - align-items: center
-      - justify-self: 'center'
-      - font-weight: 500
-      - font-size: '12px'
-      - margin-left: '0px'
-      - width: 'auto'
-      - padding-left: '2px'
-      - padding-right: '2px'
-      - height: '19px'
-      - width: 'auto'   
-    label:
-      - display: flex
-      - justify-content: center
-      - align-items: center
-      - justify-self: 'center'
-      - font-weight: 300
-      - font-size: '12px'
-      - margin-left: '0px'
-      - width: 'auto'
-      - padding-left: '2px'
-      - padding-right: '2px'
-      - height: '19px'
-      - width: 'auto'     
+      - width: 'auto' 
+      #- color: "var(--secondary-text-color)"  
+      - letter-spacing: '-0.2px'   
 
 chip_menu:
   template: 
@@ -271,18 +212,3 @@ chip_air_polution_icons:
         return 'mdi:emoticon-sad';
       }      
     ]]]
-
-
-chip_lights_two_rows:
-  template:
-    - 'chip_base_two_rows'
-    - 'chip_yellow'
-  name: Lights
-  label: |
-      [[[
-        var state = "";
-        if (variables.ulm_chip_icon_state_entity != null && states[variables.ulm_chip_icon_state_entity].state){
-          state = states[variables.ulm_chip_icon_state_entity].state;
-        }
-        return state;
-      ]]]

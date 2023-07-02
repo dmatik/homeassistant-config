@@ -129,19 +129,6 @@ cards:
                       grid-template-columns: 1fr 1fr
                 cards:
 
-                  # Bedroom Light
-                  - type: 'custom:button-card'
-                    template: 'card_light_simple'
-                    entity: light.bedroom
-                    name: Bedroom
-
-                  # Makeup Light
-                  - type: 'custom:button-card'
-                    template: 'card_light_simple'
-                    entity: light.makeup
-                    icon: mdi:string-lights
-                    name: Makeup
-
                   # Bedside Dima Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
@@ -161,11 +148,5 @@ cards:
                       ulm_card_light_enable_color: true
                       ulm_card_light_enable_popup: false
                       ulm_card_light_name: Galit
-
-                  # Kids Room Light
-                  - type: 'custom:button-card'
-                    template: 'card_light_simple'
-                    entity: light.kids_room
-                    name: Kids Room
 
 

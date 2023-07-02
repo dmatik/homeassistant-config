@@ -166,6 +166,8 @@ cards:
                       entity: light.back_yard
                       name: Back Yard
 
+
+
               ############################################################################
               #                                                                          #
               #   Floor 2                                                                #
@@ -192,36 +194,6 @@ cards:
                     "(max-width: 450px)":
                       grid-template-columns: 1fr 1fr 1fr 1fr
                 cards:
-
-                    # Hallway Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.hallway
-                      name: Hallway
-
-                    # Gateway Light
-                    # - type: 'custom:button-card'
-                    #   template: 'card_light_simple'
-                    #   entity: light.xiaomi_gateway_servers
-                    #   name: Gateway
-                    #   variables:
-                    #     ulm_card_light_enable_color: true
-                    #     ulm_card_light_enable_popup: true
-
-
-
-                    # Bedroom Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.bedroom
-                      name: Bedroom
-
-                    # Makeup Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.makeup
-                      icon: mdi:string-lights
-                      name: Makeup
 
                     # Bedside Dima Light
                     - type: 'custom:button-card'

@@ -70,15 +70,15 @@ cards:
                       ha-card {
                           margin-left: var(--chips-left-margin) !important;
                       }
-                    hui-horizontal-stack-card$: |
-                      button-card {
-                        margin-right: var(--chips-right-margin) !important;
-                        margin-left: 0px !important;
-                        margin-bottom: 4px !important;
-                      }
-                      #root {
-                        flex-wrap: wrap;
-                      }
+                    # hui-horizontal-stack-card$: |
+                    #   button-card {
+                    #     margin-right: var(--chips-right-margin) !important;
+                    #     margin-left: 0px !important;
+                    #     margin-bottom: 4px !important;
+                    #   }
+                    #   #root {
+                    #     flex-wrap: wrap;
+                    #   }
                   card:
 
                     type: horizontal-stack
@@ -161,12 +161,6 @@ cards:
                         "(max-width: 450px)":
                           grid-template-columns: 1fr 1fr            
                     cards:
-
-                      # Kids Room Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.kids_room
-                        name: Kids Room
 
                       # Kids Room Radiator
                       # - type: 'custom:button-card'

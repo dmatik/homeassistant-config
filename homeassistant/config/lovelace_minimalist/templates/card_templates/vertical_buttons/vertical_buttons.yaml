@@ -9,14 +9,17 @@ vertical_buttons:
     label:
       - justify-self: "center"
       - align-self: "start"
-      - font-weight: "bolder"
+      - font-weight: "400"
       - font-size: "12px"
-      - filter: "opacity(40%)"
+      - color: "var(--secondary-text-color)"
+      - letter-spacing: "0.4px"
     name:
       - margin-top: "10px"
       - justify-self: "center"
-      - font-weight: "bold"
+      #- font-weight: "bold"
       - font-size: "14px"
+      - font-weight: "500"
+      - letter-spacing: "0.1px"
     img_cell:
       - background-color: "rgba(var(--color-theme),0.05)"
       - border-radius: "50%"

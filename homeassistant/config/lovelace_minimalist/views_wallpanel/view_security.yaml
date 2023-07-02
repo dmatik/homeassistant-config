@@ -112,3 +112,13 @@ cards:
                     show_last_changed: false
                     variables:
                       light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
+
+                  # Parents Bathroom Right Sensor
+                  - type: 'custom:button-card'
+                    template: 
+                      - card_motion_sensor
+                    entity: binary_sensor.parents_bathroom_right_motion_sensor_occupancy
+                    name: Parents Bathroom Right
+                    show_last_changed: false
+                    variables:
+                      light_level: sensor.parents_bathroom_right_motion_sensor_illuminance_lux

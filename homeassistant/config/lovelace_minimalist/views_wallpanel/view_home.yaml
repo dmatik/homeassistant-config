@@ -8,51 +8,6 @@ cards:
   - type: vertical-stack
     cards:
 
-      # ############################################################################
-      # #                                                                          #
-      # #   Chips                                                                  #
-      # #                                                                          #
-      # ############################################################################
-
-      # - type: "custom:mod-card"
-      #   style: 
-      #     .: |
-      #       ha-card {
-      #           padding-top: 8px !important;
-      #           margin-left: var(--chips-left-margin) !important;
-      #       }
-      #   card:
-      #     type: horizontal-stack
-      #     cards:
-
-      #       # Climate Chip
-      #       - type: 'custom:button-card'
-      #         template:
-      #           - 'chip_climate'
-      #         variables:
-      #           ulm_chip_temperature_low: sensor.lowest_temperature_home
-      #           ulm_chip_temperature_high: sensor.highest_temperature_home                     
-      #           ulm_chip_devices_on: sensor.number_of_climate_entities_on
-
-      #       # Lights Chip
-      #       - type: 'custom:button-card'
-      #         template:
-      #           - 'chip_icon_label_state'
-      #           - 'chip_yellow'
-      #         icon: 'mdi:lightbulb'
-      #         variables:
-      #           ulm_chip_icon_state_entity: sensor.number_of_lights_on
-
-      #       # Motion Chip
-      #       - type: 'custom:button-card'
-      #         template:
-      #           - 'chip_icon_label_state'
-      #           - 'chip_blue'
-      #         icon: 'mdi:run'
-      #         variables:
-      #           ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
-
-
 
 ############################################################################
 #                                                                          #

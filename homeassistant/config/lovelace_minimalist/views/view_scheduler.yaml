@@ -70,15 +70,15 @@ cards:
                       ha-card {
                           margin-left: var(--chips-left-margin) !important;
                       }
-                    hui-horizontal-stack-card$: |
-                      button-card {
-                        margin-right: var(--chips-right-margin) !important;
-                        margin-left: 0px !important;
-                        margin-bottom: 4px !important;
-                      }
-                      #root {
-                        flex-wrap: wrap;
-                      }
+                    # hui-horizontal-stack-card$: |
+                    #   button-card {
+                    #     margin-right: var(--chips-right-margin) !important;
+                    #     margin-left: 0px !important;
+                    #     margin-bottom: 4px !important;
+                    #   }
+                    #   #root {
+                    #     flex-wrap: wrap;
+                    #   }
                   card:
 
                     type: horizontal-stack
@@ -157,26 +157,35 @@ cards:
                           - name: "Lights"
                             icon: "hass:lightbulb"
                             include:
-                              - light.balcony
                               - light.living_room
+                              - light.living_room_tv_wall
                               - light.dining
+                              - light.guests_bathroom
                               - light.kitchen
-                              - light.service_balcony
-                              - light.kitchen_strips
+                              - light.kitchen_bar
+                              - light.entrance
+                              - light.front_yard
+                              - light.back_yard
                               - light.hallway
-                              - light.work_room
-                              - light.kids_room
                               - light.bedroom
-                              - light.bedside_dima
-                              - light.bedside_galit
+                              - light.work_room
+                              - light.bedside_dima_bulb
+                              - light.bedside_galit_bulb
+                              - light.kitchen_led_strip
+                              - light.makeup
+                              - light.new_year_tree
+                              - light.basement
+                              - light.basement_2_light_1
+                              - light.basement_2_light_2
+                              - light.basement_toys
                           - name: "Climate"
                             icon: "hass:home-thermometer"
                             include:
-                              - climate.bedroom
-                              - climate.kids_room
                               - climate.living_room
-                              - switch.kids_radiator
-                              - switch.bedroom_radiator
+                              - climate.bedroom
+                              - climate.kfir
+                              - climate.ronen
+                              - climate.basement
                           - name: "Scenes"
                             icon: "hass:palette"
                             include:

@@ -70,15 +70,15 @@ cards:
                       ha-card {
                           margin-left: var(--chips-left-margin) !important;
                       }
-                    hui-horizontal-stack-card$: |
-                      button-card {
-                        margin-right: var(--chips-right-margin) !important;
-                        margin-left: 0px !important;
-                        margin-bottom: 4px !important;
-                      }
-                      #root {
-                        flex-wrap: wrap;
-                      }
+                    # hui-horizontal-stack-card$: |
+                    #   button-card {
+                    #     margin-right: var(--chips-right-margin) !important;
+                    #     margin-left: 0px !important;
+                    #     margin-bottom: 4px !important;
+                    #   }
+                    #   #root {
+                    #     flex-wrap: wrap;
+                    #   }
                   card:
 
                     type: horizontal-stack
@@ -143,21 +143,6 @@ cards:
                         "(max-width: 450px)":
                           grid-template-columns: 1fr 1fr            
                     cards:
-
-                      # Hallway Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.hallway
-                        name: Hallway
-
-                      # Gateway Light
-                      # - type: 'custom:button-card'
-                      #   template: 'card_light_simple'
-                      #   entity: light.xiaomi_gateway_servers
-                      #   name: Gateway
-                      #   variables:
-                      #     ulm_card_light_enable_color: true
-                      #     ulm_card_light_enable_popup: true
                       
                       # Switcher
                       - type: 'custom:button-card'
