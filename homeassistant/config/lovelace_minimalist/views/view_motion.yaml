@@ -281,6 +281,16 @@ cards:
                         variables:
                           light_level: sensor.parents_bathroom_right_motion_sensor_illuminance_lux
 
+                      # Parents Bathroom Left Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.parents_bathroom_left_motion_sensor_occupancy
+                        name: Bathroom Left
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.parents_bathroom_left_motion_sensor_illuminance
+
 
                 - type: custom:button-card
                   template: spacer
