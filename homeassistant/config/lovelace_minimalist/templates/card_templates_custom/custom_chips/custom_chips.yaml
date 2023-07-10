@@ -76,6 +76,17 @@ chip_icon_only_new:
       - grid-template-columns: 'max_content'
       - grid-template-rows: 'min-content'
 
+chip_icon_state_new:
+  template:
+    - 'chip_base'
+  show_label: 'false'
+  size: '100%'
+  styles:
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: 'max_content'
+      - grid-template-rows: 'min-content'
+
 chip_icon_label_state:
   template:
     - 'chip_base'
@@ -163,7 +174,7 @@ chip_yellow:
 chip_blue:
   state:
     - operator: "template"
-      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 0 ]]]'
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 0 || states[variables.ulm_chip_icon_state_entity].state == "on" ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-blue),1)'
