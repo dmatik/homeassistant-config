@@ -1,0 +1,27 @@
+############################################################################
+#                                                                          #
+#   Stairs Lights                                                          #
+#                                                                          #
+############################################################################
+
+- alias: Sync Stairs Switches
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - light.stairs_ground_floor
+        - light.stairs_basement
+        - light.stairs_floor_2
+      to:
+        - "on"
+        - "off"
+  condition: []
+  action:
+    - service_template: homeassistant.turn_{{trigger.to_state.state}}
+      data:
+        entity_id:
+          - light.stairs_ground_floor
+          - light.stairs_basement
+          - light.stairs_floor_2
+  mode: single
+  max_exceeded: silent

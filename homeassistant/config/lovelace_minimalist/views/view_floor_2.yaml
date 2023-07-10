@@ -100,7 +100,7 @@ cards:
                           - 'chip_yellow'
                         icon: 'mdi:lightbulb'
                         variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_hallway
+                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_floor_2
 
 
 
@@ -143,7 +143,13 @@ cards:
                         "(max-width: 450px)":
                           grid-template-columns: 1fr 1fr            
                     cards:
-                      
+
+                      # Stairs Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.stairs_floor_2
+                        name: Stairs
+
                       # Switcher
                       - type: 'custom:button-card'
                         template: 

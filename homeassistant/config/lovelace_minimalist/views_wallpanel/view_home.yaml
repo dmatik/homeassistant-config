@@ -125,6 +125,35 @@ cards:
                       grid-row-start: span 2
 
 
+              # Covers
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Covers
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Kitchen Cover
+                  - type: 'custom:button-card'
+                    template: card_cover_buttons
+                    variables:
+                      ulm_card_cover_buttons_name: Kitchen
+                      ulm_card_cover_buttons_entity: cover.kitchen
+                    view_layout:
+                      grid-row-start: span 2 
+
+
               # Devices
               - type: horizontal-stack
                 cards:
@@ -152,26 +181,26 @@ cards:
                       ulm_card_tv_name: 'Main TV'
 
                   # Dimka PC
-                  - type: 'custom:button-card'
-                    template: card_pc
-                    entity: switch.dimka_hass_agent
-                    variables:
-                      ulm_card_pc_name: Dimka PC
-                      ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
-                      ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
-                      ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
-                      ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
-                      ulm_card_pc_wake: 'script.dimka_wake'
-                      ulm_card_pc_sleep: 'script.dimka_sleep'
-                      ulm_card_pc_restart: 'script.dimka_restart'
-                      ulm_card_pc_shutdown: 'script.dimka_shutdown'
+                  # - type: 'custom:button-card'
+                  #   template: card_pc
+                  #   entity: switch.dimka_hass_agent
+                  #   variables:
+                  #     ulm_card_pc_name: Dimka PC
+                  #     ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
+                  #     ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
+                  #     ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
+                  #     ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
+                  #     ulm_card_pc_wake: 'script.dimka_wake'
+                  #     ulm_card_pc_sleep: 'script.dimka_sleep'
+                  #     ulm_card_pc_restart: 'script.dimka_restart'
+                  #     ulm_card_pc_shutdown: 'script.dimka_shutdown'
 
                   # Printer
-                  - type: 'custom:button-card'
-                    template: card_printer
-                    entity: sensor.mfc_j650dw_status
-                    variables:
-                      ulm_card_printer_name: Printer
+                  # - type: 'custom:button-card'
+                  #   template: card_printer
+                  #   entity: sensor.mfc_j650dw_status
+                  #   variables:
+                  #     ulm_card_printer_name: Printer
 
 
                   # WiFi
@@ -250,6 +279,12 @@ cards:
                     name: TV Wall
                     icon: mdi:wall-sconce-round
 
+                  # Stairs Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.stairs_ground_floor
+                    name: Stairs
+
                   # Entrance Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
@@ -287,16 +322,18 @@ cards:
                     icon: mdi:vanity-light
 
                   # Front Yard Light
-                  - type: 'custom:button-card'
-                    template: 'card_light_simple'
-                    entity: light.front_yard
-                    name: Front Yard
+                  # - type: 'custom:button-card'
+                  #   template: 'card_light_simple'
+                  #   entity: light.front_yard
+                  #   name: Front Yard
+                  #   icon: mdi:outdoor-lamp
 
                   # Back Yard Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.back_yard
                     name: Back Yard
+                    icon: mdi:outdoor-lamp
 
                   # NY Tree
                   # - type: 'custom:button-card'

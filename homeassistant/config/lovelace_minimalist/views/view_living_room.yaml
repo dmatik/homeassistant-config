@@ -176,6 +176,16 @@ cards:
                         entity: light.living_room
                         name: Living Room
 
+                      # Living Room AC
+                      - type: 'custom:button-card'
+                        template: card_ac_buttons
+                        variables:
+                          ulm_card_ac_entity: climate.living_room
+                          ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
+                          ulm_card_ac_name: 'Living Room'
+                        view_layout:
+                          grid-row-start: span 2  
+                          
                       # Dining Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
@@ -190,6 +200,12 @@ cards:
                         name: TV Wall
                         icon: mdi:wall-sconce-round
 
+                      # Stairs Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.stairs_ground_floor
+                        name: Stairs
+
                       # Entrance Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
@@ -197,33 +213,25 @@ cards:
                         name: Entrance
                         icon: mdi:lightbulb-spot
 
-                      # Front Yard Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.front_yard
-                        name: Front Yard
-
                       # Guests Bathroom Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.guests_bathroom
                         name: Guest Bathroom
 
+                      # Front Yard Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.front_yard
+                        name: Front Yard
+                        icon: mdi:outdoor-lamp
+                        
                       # Back Yard Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.back_yard
                         name: Back Yard
-
-                      # Living Room AC
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.living_room
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                          ulm_card_ac_name: 'Living Room'
-                        view_layout:
-                          grid-row-start: span 2                        
+                        icon: mdi:outdoor-lamp
 
                       # Living Room TV
                       - type: 'custom:button-card'

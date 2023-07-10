@@ -150,6 +150,12 @@ cards:
                     entity: light.basement
                     name: Basement
 
+                  # Stairs Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.stairs_basement
+                    name: Stairs
+
                   # Basement 2 Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'

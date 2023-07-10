@@ -118,6 +118,12 @@ cards:
                       name: TV Wall
                       icon: mdi:wall-sconce-round
 
+                    # Stairs Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.stairs_ground_floor
+                      name: Stairs
+
                     # Entrance Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
@@ -159,12 +165,14 @@ cards:
                       template: 'card_light_simple'
                       entity: light.front_yard
                       name: Front Yard
+                      icon: mdi:outdoor-lamp
 
                     # Back Yard Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
                       entity: light.back_yard
                       name: Back Yard
+                      icon: mdi:outdoor-lamp
 
 
 
@@ -194,6 +202,12 @@ cards:
                     "(max-width: 450px)":
                       grid-template-columns: 1fr 1fr 1fr 1fr
                 cards:
+
+                    # Stairs Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.stairs_floor_2
+                      name: Stairs
 
                     # Bedside Dima Light
                     - type: 'custom:button-card'
@@ -248,6 +262,12 @@ cards:
                       template: 'card_light_simple'
                       entity: light.basement
                       name: Basement
+
+                    # Stairs Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.stairs_basement
+                      name: Stairs
 
                     # Basement 2 Light
                     - type: 'custom:button-card'
