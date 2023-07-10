@@ -36,4 +36,62 @@ template:
         availability: "{{ is_number(states('sensor.living_room_temperature_sensor_temperature')) }}"
 
 
+      ############################################################################
+      #                                                                          #
+      #   Number of Climates On                                                  #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Climate Entities On"
+        unique_id: number_of_climate_entities_on
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_climate_entities','entity_id') %}
+            {% if (states(entity_id) == 'on' or states(entity_id) == 'heat' or states(entity_id) == 'cool' or states(entity_id) == 'heat_cool') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+
+sensor:
+
+  ############################################################################
+  #                                                                          #
+  #   Lowest Temperature Home                                                #
+  #                                                                          #
+  ############################################################################
+
+  - platform: min_max
+    unique_id : lowest_temperature_home
+    name: Lowest Temperature Home
+    type: min
+    entity_ids:
+      - sensor.climate_kfir_temp
+      - sensor.climate_ronen_temp
+      - sensor.climate_basement_temp
+      - sensor.climate_bedroom_temp
+      - sensor.climate_living_room_temp
+      #- sensor.work_room_temperature_sensor_temperature
+
+
+  ############################################################################
+  #                                                                          #
+  #   Highest Temperature Home                                               #
+  #                                                                          #
+  ############################################################################
+
+  - platform: min_max
+    unique_id : highest_temperature_home
+    name: Highest Temperature Home
+    type: max
+    entity_ids:
+      - sensor.climate_kfir_temp
+      - sensor.climate_ronen_temp
+      - sensor.climate_basement_temp
+      - sensor.climate_bedroom_temp
+      - sensor.climate_living_room_temp
+      #- sensor.work_room_temperature_sensor_temperature
+
  

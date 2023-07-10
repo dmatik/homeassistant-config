@@ -86,7 +86,7 @@
   trigger:
   - platform: state
     entity_id:
-    - group.kitchen_motion_sensors
+    - binary_sensor.kitchen_motion_sensors
     to: 'on'
   condition:
   - condition: state
@@ -97,6 +97,10 @@
     device_id: aa52ca9d0fd42efba6d2e9fa0cc8cdc4
     entity_id: sensor.kitchen_motion_sensor_illuminance_lux
     domain: sensor
+    below: 100
+    enabled: false
+  - condition: numeric_state
+    entity_id: sensor.kitchen_light_level
     below: 100
   action:
   - service: light.turn_on
@@ -110,7 +114,8 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: group.kitchen_motion_sensors
+    entity_id:
+    - binary_sensor.kitchen_motion_sensors
     to: 'off'
     for:
       hours: 0
@@ -118,7 +123,7 @@
       seconds: 0
   condition:
   - condition: state
-    entity_id: group.kitchen_motion_sensors
+    entity_id: binary_sensor.kitchen_motion_sensors
     state: 'off'
   action:
   - service: light.turn_off
@@ -718,7 +723,7 @@
   trigger:
   - platform: state
     entity_id:
-    - group.guest_bathroom_motion_sensors
+    - binary_sensor.guest_bathroom_motion_sensors
     to: 'on'
   condition:
   - condition: state
@@ -732,11 +737,16 @@
       entity_id: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
       domain: sensor
       below: 120
+      enabled: false
     - type: is_illuminance
       condition: device
       device_id: 063da8dd4860ce791e7989e3b3a5488e
       entity_id: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
       domain: sensor
+      below: 120
+      enabled: false
+    - condition: numeric_state
+      entity_id: sensor.guest_bathroom_light_level
       below: 120
   action:
   - service: light.turn_on
@@ -750,7 +760,7 @@
   trigger:
   - platform: state
     entity_id:
-    - group.guest_bathroom_motion_sensors
+    - binary_sensor.guest_bathroom_motion_sensors
     to: 'off'
     for:
       hours: 0
@@ -758,7 +768,7 @@
       seconds: 0
   condition:
   - condition: state
-    entity_id: group.guest_bathroom_motion_sensors
+    entity_id: binary_sensor.guest_bathroom_motion_sensors
     state: 'off'
   action:
   - service: light.turn_off

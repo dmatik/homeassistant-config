@@ -1,0 +1,20 @@
+template:
+
+  - sensor:
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Inks Low                                                     #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Inks Low"
+        unique_id: number_of_inks_low
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('sensor.all_inks','entity_id') %}
+            {% if ( states(entity_id) | int(0) ) < 10 %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}

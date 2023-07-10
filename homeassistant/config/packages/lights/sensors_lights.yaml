@@ -1,0 +1,165 @@
+template:
+
+  - sensor:
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On                                                    #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On"
+        unique_id: number_of_lights_on
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('light.all_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On - Living Room                                      #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On Living Room"
+        unique_id: number_of_lights_on_living_room
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('light.living_room_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On - Kitchen                                          #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On Kitchen"
+        unique_id: number_of_lights_on_kitchen
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('light.kitchen_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On - Bedroom                                          #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On Bedroom"
+        unique_id: number_of_lights_on_bedroom
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('light.bedroom_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On - Work Room                                        #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On Work Room"
+        unique_id: number_of_lights_on_work_room
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('light.work_room_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On - Kfir Room                                        #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On Kfir Room"
+        unique_id: number_of_lights_on_kfir_room
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.kfir_room_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On - Ronen Room                                       #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On Ronen Room"
+        unique_id: number_of_lights_on_ronen_room
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.ronen_room_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On - Basement                                         #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On Basement"
+        unique_id: number_of_lights_on_basement
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('light.basement_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Lights On - Floor 2                                          #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Lights On Floor 2"
+        unique_id: number_of_lights_on_floor_2
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('light.floor_2_lights','entity_id') %}
+            {% if (states(entity_id) == 'on') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}

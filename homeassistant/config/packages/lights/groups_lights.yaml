@@ -6,17 +6,18 @@ group:
 #                                                                          #
 ############################################################################
 
-  living_room_lights:
-    name: Living Room Lights
-    entities:
-      - light.living_room
-      - light.dining
-      - light.living_room_tv_wall
-      - light.guests_bathroom
-      - light.entrance
-      - light.front_yard
-      - light.back_yard
-      - light.new_year_tree
+  # living_room_lights:
+  #   name: Living Room Lights
+  #   entities:
+  #     - light.living_room
+  #     - light.dining
+  #     - light.living_room_tv_wall
+  #     - light.guests_bathroom
+  #     - light.entrance
+  #     - light.front_yard
+  #     - light.back_yard
+  #     - light.new_year_tree
+  #     - light.stairs_ground_floor
 
 
 ############################################################################
@@ -25,12 +26,12 @@ group:
 #                                                                          #
 ############################################################################
 
-  kitchen_lights:
-    name: Kitchen Lights
-    entities:
-      - light.kitchen
-      - light.kitchen_led_strip
-      - light.kitchen_bar
+  # kitchen_lights:
+  #   name: Kitchen Lights
+  #   entities:
+  #     - light.kitchen
+  #     - light.kitchen_led_strip
+  #     - light.kitchen_bar
 
 
 ############################################################################
@@ -39,13 +40,13 @@ group:
 #                                                                          #
 ############################################################################
 
-  bedroom_lights:
-    name: Bedroom Lights
-    entities:
-      - light.bedroom
-      - light.bedside_dima_bulb
-      - light.bedside_galit_bulb
-      - light.makeup
+  # bedroom_lights:
+  #   name: Bedroom Lights
+  #   entities:
+  #     - light.bedroom
+  #     - light.bedside_dima_bulb
+  #     - light.bedside_galit_bulb
+  #     - light.makeup
 
 
 ############################################################################
@@ -54,10 +55,10 @@ group:
 #                                                                          #
 ############################################################################
 
-  work_room_lights:
-    name: Work Room Lights
-    entities:
-      - light.work_room
+  # work_room_lights:
+  #   name: Work Room Lights
+  #   entities:
+  #     - light.work_room
 
 
 ############################################################################
@@ -88,22 +89,22 @@ group:
 #                                                                          #
 ############################################################################
 
-  basement_lights:
-    name: Basement Lights
-    entities:
-      - light.basement
-      - light.basement_2_light_1
-      - light.basement_2_light_2
-      - light.basement_toys
+  # basement_lights:
+  #   name: Basement Lights
+  #   entities:
+  #     - light.basement
+  #     - light.basement_2_light_1
+  #     - light.basement_2_light_2
+  #     - light.basement_toys
+  #     - light.stairs_basement
 
 ############################################################################
 #                                                                          #
-#   Hallway                                                                #
+#   Floor 2                                                                #
 #                                                                          #
 ############################################################################
 
-  hallway_lights:
-    name: Hallway Lights
-    entities:
-      - light.hallway
-      #- light.xiaomi_gateway_servers
+  # floor_2_lights:
+  #   name: Floor 2 Lights
+  #   entities:
+  #     - light.stairs_floor_2

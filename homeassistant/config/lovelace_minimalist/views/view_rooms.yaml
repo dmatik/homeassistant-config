@@ -182,7 +182,7 @@ cards:
                           ulm_card_room_two_rows_icon: mdi:sofa
                           ulm_card_room_two_rows_light: light.living_room
                           ulm_card_room_two_rows_temp: sensor.climate_living_room_temp
-                          ulm_card_room_two_rows_sensor: group.living_room_motion_sensors
+                          ulm_card_room_two_rows_sensor: binary_sensor.living_room_motion_sensors
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_living_room
 
                       # Kitchen
@@ -193,7 +193,7 @@ cards:
                           ulm_card_room_two_rows_name: Kitchen
                           ulm_card_room_two_rows_icon: mdi:silverware-fork-knife
                           ulm_card_room_two_rows_light: light.kitchen
-                          ulm_card_room_two_rows_sensor: group.kitchen_motion_sensors
+                          ulm_card_room_two_rows_sensor: binary_sensor.kitchen_motion_sensors
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_kitchen
 
                       # Floor 2
@@ -204,7 +204,7 @@ cards:
                           ulm_card_room_two_rows_name: Floor 2
                           ulm_card_room_two_rows_icon: mdi:door-open
                           ulm_card_room_two_rows_light: light.hallway
-                          ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_hallway
+                          ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_floor_2
 
                       # Bedroom
                       - type: custom:button-card
@@ -215,7 +215,7 @@ cards:
                           ulm_card_room_two_rows_icon: mdi:bed-empty
                           ulm_card_room_two_rows_light: light.bedroom
                           ulm_card_room_two_rows_temp: sensor.climate_bedroom_temp
-                          ulm_card_room_two_rows_sensor: group.bedroom_motion_sensors
+                          ulm_card_room_two_rows_sensor: binary_sensor.bedroom_motion_sensors
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_bedroom
 
                       # Kfir Room

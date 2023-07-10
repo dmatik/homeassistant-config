@@ -12,17 +12,29 @@ command_line:
       scan_interval: 600
 
 
-# sensor:
-
-#   - platform: command_line
-#     name: "Tasmota Latest"
-#     command: /config/tasmota_version.sh
-#     scan_interval: 600
 
 
 
+template:
 
+  - sensor:
 
+      ############################################################################
+      #                                                                          #
+      #   Number of Tasmota Versions old                                         #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Tasmota Versions Old"
+        unique_id: number_of_tasmota_versions_old
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('group.all_tasmota_versions','entity_id') %}
+            {% if ( states(entity_id) != 'unavailable' and states(entity_id).split('(')[0] != states('sensor.tasmota_latest').split('v')[1] ) %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 
 
 

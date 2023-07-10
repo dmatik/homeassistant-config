@@ -17,6 +17,8 @@ scene:
         state: on
       light.living_room_tv_wall:
         state: on
+      light.stairs_ground_floor:
+        state: on
 
   - name: Night Lights Off
     entities:
@@ -27,4 +29,6 @@ scene:
       light.living_room:
         state: off
       light.living_room_tv_wall:
+        state: off
+      light.stairs_ground_floor:
         state: off

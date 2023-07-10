@@ -1,25 +1,40 @@
-sensor:
+template:
+
+  - sensor:
 
 
+      ############################################################################
+      #                                                                          #
+      #   Number of Covers Open                                                  #
+      #                                                                          #
+      ############################################################################
 
-  - platform: template
-    sensors:
+      - name: "Number Of Covers Open"
+        unique_id: number_of_covers_open
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('cover.all_covers','entity_id') %}
+            {% if (states(entity_id) == 'open') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 
-      dummy_shutter_position:
-        friendly_name: "Dummy Shutter Position"
-        icon_template: mdi:window-shutter
-        value_template: >-
-          50
 
-      dummy_shutter_open:
-        friendly_name: "Dummy_1"
-        icon_template: mdi:window-shutter
-        value_template: >-
-          open
+      ############################################################################
+      #                                                                          #
+      #   Number of Covers Open - Kitchen                                        #
+      #                                                                          #
+      ############################################################################
 
-      dummy_shutter_closed:
-        friendly_name: "Dummy_2"
-        icon_template: mdi:window-shutter
-        value_template: >-
-          closed
+      - name: "Number Of Covers Open Kitchen"
+        unique_id: number_of_covers_open_kitchen
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('cover.kitchen_covers','entity_id') %}
+            {% if (states(entity_id) == 'open') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
 

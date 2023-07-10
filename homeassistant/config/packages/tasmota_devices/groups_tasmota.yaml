@@ -1,22 +1,14 @@
 group:
 
-  home_residents:
-    name: Home Residents
-    entities:
-      - person.dmatik
-      - person.galit
-
-
   ############################################################################
   #                                                                          #
-  #   All Persons Entities                                                   #
+  #   All Tasmota Versions                                                   #
   #                                                                          #
   ############################################################################
 
-  all_person_entities:
-    name: All Persons Entities
+  all_tasmota_versions:
+    name: All Tasmota Versions
     entities:
-      - person.dmatik
-      - person.galit
-      - person.ronen
-      - person.kfir
+      - sensor.bedside_dima_bulb_firmware_version
+      - sensor.bedside_galit_bulb_firmware_version
+      - sensor.kitchen_led_strip_firmware_version
