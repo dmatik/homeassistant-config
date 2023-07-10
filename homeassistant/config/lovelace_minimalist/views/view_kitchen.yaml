@@ -102,6 +102,15 @@ cards:
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_lights_on_kitchen
 
+                      # Covers Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_blue'
+                        icon: 'mdi:window-shutter'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_covers_open_kitchen
+
                       # Motion Chip
                       - type: 'custom:button-card'
                         template:
@@ -195,6 +204,15 @@ cards:
                         show_last_changed: false
                         variables:
                           light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
+
+                      # Kitchen Cover
+                      - type: 'custom:button-card'
+                        template: card_cover_buttons
+                        variables:
+                          ulm_card_cover_buttons_name: Cover
+                          ulm_card_cover_buttons_entity: cover.kitchen
+                        view_layout:
+                          grid-row-start: span 2 
 
                       # Washing Machine
                       - type: 'custom:button-card'

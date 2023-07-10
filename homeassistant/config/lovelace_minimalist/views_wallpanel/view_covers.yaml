@@ -5,3 +5,96 @@ icon: mdi:window-shutter
 panel: true
     
 cards:
+
+  - type: vertical-stack
+    cards:
+
+      ############################################################################
+      #                                                                          #
+      #   Chips                                                                  #
+      #                                                                          #
+      ############################################################################
+
+      # - type: "custom:mod-card"
+      #   style: 
+      #     .: |
+      #       ha-card {
+      #           padding-top: 8px !important;
+      #           margin-left: var(--chips-left-margin) !important;
+      #       }
+      #   card:
+      #     type: horizontal-stack
+      #     cards:
+
+      #       # Lights Chip
+      #       - type: 'custom:button-card'
+      #         template:
+      #           - 'chip_icon_label_state'
+      #           #- 'chip_navigate_only'
+      #           - 'chip_yellow'
+      #         icon: 'mdi:lightbulb'
+      #         variables:
+      #           ulm_chip_icon_state_entity: sensor.number_of_lights_on
+
+
+############################################################################
+#                                                                          #
+#   Content                                                                #
+#                                                                          #
+############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+
+        layout_options:
+          grid-template-columns: 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+        
+        cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Left Column                                                            #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+              ############################################################################
+              #                                                                          #
+              #   Floor 0                                                                #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Main Floor
+
+
+              # Covers
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                cards:
+
+                    # Kitchen Cover
+                    - type: 'custom:button-card'
+                      template: card_cover_buttons
+                      variables:
+                        ulm_card_cover_buttons_name: Kitchen
+                        ulm_card_cover_buttons_entity: cover.kitchen
+                      view_layout:
+                        grid-row-start: span 2 
