@@ -148,12 +148,12 @@ cards:
                           ulm_card_navigate_icon: mdi:home-assistant 
 
                       # Scheduler
-                      - type: custom:button-card
-                        template: card_navigate
-                        variables:
-                          ulm_card_navigate_path: /lovelace/minimalist_scheduler
-                          ulm_card_navigate_title: Scheduler
-                          ulm_card_navigate_icon: mdi:calendar-today 
+                      # - type: custom:button-card
+                      #   template: card_navigate
+                      #   variables:
+                      #     ulm_card_navigate_path: /lovelace/minimalist_scheduler
+                      #     ulm_card_navigate_title: Scheduler
+                      #     ulm_card_navigate_icon: mdi:calendar-today 
 
                       # Wall Panel
                       - type: custom:button-card
@@ -171,13 +171,13 @@ cards:
                           ulm_card_navigate_title: NAS
                           ulm_card_navigate_icon: mdi:nas
 
-                      # NAS
-                      - type: custom:button-card
-                        template: card_navigate
-                        variables:
-                          ulm_card_navigate_path: /lovelace/minimalist_batteries
-                          ulm_card_navigate_title: Batteries
-                          ulm_card_navigate_icon: mdi:battery
+                      # Batteries
+                      # - type: custom:button-card
+                      #   template: card_navigate
+                      #   variables:
+                      #     ulm_card_navigate_path: /lovelace/minimalist_batteries
+                      #     ulm_card_navigate_title: Batteries
+                      #     ulm_card_navigate_icon: mdi:battery
 
                       # Tasmota
                       - type: custom:button-card
