@@ -134,3 +134,86 @@
       entity_only: true
     light.back_yard:
       entity_only: true
+- id: '1689149624591'
+  name: Night Kids AC Cooling
+  entities:
+    climate.ronen:
+      hvac_modes:
+      - auto
+      - cool
+      - dry
+      - fan_only
+      - heat
+      - 'off'
+      min_temp: 8
+      max_temp: 30
+      target_temp_step: 1
+      fan_modes:
+      - auto
+      - low
+      - medium low
+      - medium
+      - medium high
+      - high
+      preset_modes:
+      - eco
+      - away
+      - boost
+      - none
+      - sleep
+      swing_modes:
+      - 'off'
+      - vertical
+      - horizontal
+      - both
+      current_temperature: 25
+      temperature: 25
+      fan_mode: low
+      preset_mode: none
+      swing_mode: 'off'
+      friendly_name: Ronen
+      supported_features: 57
+      state: cool
+    climate.kfir:
+      hvac_modes:
+      - auto
+      - cool
+      - dry
+      - fan_only
+      - heat
+      - 'off'
+      min_temp: 8
+      max_temp: 30
+      target_temp_step: 1
+      fan_modes:
+      - auto
+      - low
+      - medium low
+      - medium
+      - medium high
+      - high
+      preset_modes:
+      - eco
+      - away
+      - boost
+      - none
+      - sleep
+      swing_modes:
+      - 'off'
+      - vertical
+      - horizontal
+      - both
+      current_temperature: 25
+      temperature: 25
+      fan_mode: low
+      preset_mode: none
+      swing_mode: 'off'
+      friendly_name: Kfir
+      supported_features: 57
+      state: cool
+  icon: mdi:air-conditioner
+  metadata:
+    climate.ronen:
+      entity_only: true
+    climate.kfir:
+      entity_only: true

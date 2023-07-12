@@ -22,11 +22,11 @@ views:
   - !include /config/lovelace_minimalist/views/view_work_room.yaml
 
   # System
-  - !include /config/lovelace_minimalist/views/view_scheduler.yaml
+  #- !include /config/lovelace_minimalist/views/view_scheduler.yaml
   - !include /config/lovelace_minimalist/views/view_homeassistant.yaml
   - !include /config/lovelace_minimalist/views/view_wallpanel.yaml
   - !include /config/lovelace_minimalist/views/view_nas.yaml
-  - !include /config/lovelace_minimalist/views/view_batteries.yaml
+  #- !include /config/lovelace_minimalist/views/view_batteries.yaml
   - !include /config/lovelace_minimalist/views/view_tasmota.yaml
   - !include /config/lovelace_minimalist/views/view_zigbee2mqtt.yaml
   - !include /config/lovelace_minimalist/views/view_energy.yaml
