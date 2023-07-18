@@ -731,7 +731,7 @@
     to: 'off'
     for:
       hours: 0
-      minutes: 10
+      minutes: 20
       seconds: 0
   condition:
   - condition: state
@@ -841,4 +841,38 @@
           entity_id:
           - climate.ronen
           - climate.kfir
+  mode: single
+- id: '1689234315907'
+  alias: Main Floor Cooling
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.climate_living_room_temp
+    below: 26.5
+    id: 'off'
+  - platform: numeric_state
+    entity_id: sensor.climate_living_room_temp
+    above: 27.5
+    id: 'on'
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - 'off'
+      sequence:
+      - service: climate.turn_off
+        data: {}
+        target:
+          entity_id: climate.living_room
+    - conditions:
+      - condition: trigger
+        id:
+        - 'on'
+      sequence:
+      - service: climate.turn_on
+        data: {}
+        target:
+          entity_id: climate.living_room
   mode: single
