@@ -291,6 +291,34 @@ cards:
                           ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
                           ulm_card_tasmota_ip: 'sensor.kitchen_led_strip_ip'
 
+                      # Ronen Led Strip
+                      - type: 'custom:button-card'
+                        entity: light.ronen_led_strip
+                        template: card_tasmota
+                        variables:
+                          ulm_card_tasmota_entity: 'light.ronen_led_strip'
+                          ulm_card_tasmota_last_restart: 'sensor.ronen_led_strip_last_restart_time'
+                          ulm_card_tasmota_wi_fi_quality: 'sensor.ronen_led_strip_rssi'
+                          ulm_card_tasmota_version: 'sensor.ronen_led_strip_firmware_version'
+                          ulm_card_tasmota_icon: 'mdi:led-strip-variant'
+                          ulm_card_tasmota_name: 'Ronen Led Strip'
+                          ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                          ulm_card_tasmota_ip: 'sensor.ronen_led_strip_ip'
+
+                      # Kfir Led Strip
+                      - type: 'custom:button-card'
+                        entity: light.kfir_led_strip
+                        template: card_tasmota
+                        variables:
+                          ulm_card_tasmota_entity: 'light.kfir_led_strip'
+                          ulm_card_tasmota_last_restart: 'sensor.kfir_led_strip_last_restart_time'
+                          ulm_card_tasmota_wi_fi_quality: 'sensor.kfir_led_strip_rssi'
+                          ulm_card_tasmota_version: 'sensor.kfir_led_strip_firmware_version'
+                          ulm_card_tasmota_icon: 'mdi:led-strip-variant'
+                          ulm_card_tasmota_name: 'Kfir Led Strip'
+                          ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+                          ulm_card_tasmota_ip: 'sensor.kfir_led_strip_ip'
+
           ############################################################################
           #                                                                          #
           #   Light Switches                                                         #

@@ -110,7 +110,7 @@ cards:
           - type: vertical-stack
             cards:
 
-              # Main Lights
+              # Lights
               - type: horizontal-stack
                 cards:
 
@@ -154,5 +154,25 @@ cards:
                       ulm_card_light_enable_color: true
                       ulm_card_light_enable_popup: false
                       ulm_card_light_name: Galit
+
+                  # Ronen Led Strip
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.ronen_led_strip
+                    icon: 'mdi:led-strip-variant'
+                    variables:
+                      ulm_card_light_enable_color: true
+                      ulm_card_light_enable_popup: false
+                      ulm_card_light_name: Ronen Led Strip
+
+                  # Kfir Led Strip
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.kfir_led_strip
+                    icon: 'mdi:led-strip-variant'
+                    variables:
+                      ulm_card_light_enable_color: true
+                      ulm_card_light_enable_popup: false
+                      ulm_card_light_name: Kfir Led Strip
 
 

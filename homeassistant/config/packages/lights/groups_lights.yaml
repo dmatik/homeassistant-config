@@ -67,10 +67,10 @@ group:
 #                                                                          #
 ############################################################################
 
-  kfir_room_lights:
-    name: Kfir Room Lights
-    entities:
-      - light.kids_room
+  # kfir_room_lights:
+  #   name: Kfir Room Lights
+  #   entities:
+  #     - light.kids_room
 
 ############################################################################
 #                                                                          #
@@ -78,10 +78,10 @@ group:
 #                                                                          #
 ############################################################################
 
-  ronen_room_lights:
-    name: Ronen Room Lights
-    entities:
-      - light.kids_room
+  # ronen_room_lights:
+  #   name: Ronen Room Lights
+  #   entities:
+  #     - light.kids_room
 
 ############################################################################
 #                                                                          #

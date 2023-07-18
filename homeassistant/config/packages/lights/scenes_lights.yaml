@@ -19,6 +19,10 @@ scene:
         state: on
       light.stairs_ground_floor:
         state: on
+      light.ronen_led_strip:
+        state: on
+      light.kfir_led_strip:
+        state: on
 
   - name: Night Lights Off
     entities:
@@ -32,3 +36,7 @@ scene:
         state: off
       light.stairs_ground_floor:
         state: off
+      light.ronen_led_strip:
+        state: off
+      light.kfir_led_strip:
+        state: off        
