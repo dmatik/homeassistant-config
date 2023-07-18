@@ -70,23 +70,23 @@ services:
             - "1883:1883"
             - "9001:9001"
 
-    jackett:
-        image: lscr.io/linuxserver/jackett:latest
-        container_name: jackett
-        hostname: jackett
-        environment:
-            TZ: "Asia/Jerusalem"
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-            AUTO_UPDATE: "true" #optional
-            #RUN_OPTS: #optional
-        volumes:
-            - /volume1/docker/jackett/config:/config
-            #- /volume1/torrent:/downloads
-            - /volume1/data/torrent:/downloads
-        ports:
-            - "9117:9117"
-        restart: always
+    # jackett:
+    #     image: lscr.io/linuxserver/jackett:latest
+    #     container_name: jackett
+    #     hostname: jackett
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #         AUTO_UPDATE: "true" #optional
+    #         #RUN_OPTS: #optional
+    #     volumes:
+    #         - /volume1/docker/jackett/config:/config
+    #         #- /volume1/torrent:/downloads
+    #         - /volume1/data/torrent:/downloads
+    #     ports:
+    #         - "9117:9117"
+    #     restart: always
 
     radarr:
         restart: always
@@ -422,6 +422,26 @@ services:
         volumes:
             - /volume1/docker/minecraft_survival/data:/data
 
+    minecraft-pockedrock:
+        image: itzg/minecraft-bedrock-server:latest
+        container_name: minecraft-pockedrock
+        restart: "unless-stopped"
+        network_mode: "bridge"
+        ports:
+            - 19332:19132/udp
+        environment:
+            TZ: "Asia/Jerusalem"
+            EULA: "TRUE"
+            GAMEMODE: "survival"
+            DIFFICULTY: "peaceful"
+            MAX_PLAYERS: "30"
+            SERVER_NAME: "Trosmans Pockedrock"
+            OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
+            ALLOW_CHEATS: "true"
+            SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
+        volumes:
+            - /volume1/docker/minecraft_pockedrock/data:/data
+
 
     oref-alerts:
         image: dmatik/oref-alerts:latest
@@ -462,7 +482,7 @@ services:
         environment:
             DATABASE_ADAPTER: sqlite3
             DATABASE_NAME: db/sqlite/production.sqlite3
-            SECRET_KEY_BASE: "61867f2ea52bfcd0956063c8947abd745968b9830387aba3034c3bfd2c63d2e22519d0b14df362f85bacd3d36029139a2e5ccb0a08bd2bd88f7ef353556dd7fa"
+            SECRET_KEY_BASE: "${DUCKRAILS_SECRET_KEY_BASE}"
         restart: unless-stopped
         volumes:
             - /volume1/docker/duckrails/db:/opt/duckrails/db/sqlite/
