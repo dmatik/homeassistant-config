@@ -1,0 +1,21 @@
+card_toggle_vertical:
+  template: "vertical_buttons"
+  variables:
+    # blue, red, green, yellow, purple, pink
+    color: "purple"
+  show_last_changed: false
+  name: "[[[ return variables.state ]]]"
+  styles:
+    name:
+      - text-transform: "capitalize"
+  state:
+    - value: 'on'
+      styles:
+        icon:
+          - color: "[[[ return `rgba(var(--color-${variables.color}), 1)`; ]]]"
+        img_cell:
+          - background-color: "[[[ return `rgba(var(--color-${variables.color}), 0.2)`; ]]]"  
+  tap_action:
+    action: "toggle"
+  hold_action:
+    action: "more-info" 
