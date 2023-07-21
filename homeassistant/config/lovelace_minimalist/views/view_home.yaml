@@ -490,14 +490,34 @@ cards:
                         icon: mdi:lightbulb-multiple-off
 
                       # Main Floor Cooling
-                      - type: 'custom:button-card'
-                        template: card_toggle_vertical
-                        entity: automation.main_floor_cooling
-                        name: Main Floor
-                        label: "Cooling"
-                        icon: mdi:snowflake-thermometer
-                        variables:
-                          color: blue
+                      # - type: 'custom:button-card'
+                      #   template: card_toggle_vertical
+                      #   entity: automation.main_floor_cooling
+                      #   name: Main Floor
+                      #   label: "Cooling"
+                      #   icon: mdi:snowflake-thermometer
+                      #   variables:
+                      #     color: blue
+
+                      # Bedroom AC Night Cooling
+                      # - type: 'custom:button-card'
+                      #   template: card_toggle_vertical
+                      #   entity: automation.bedroom_ac_night_cooling
+                      #   name: Bedroom AC
+                      #   label: "Night Cool"
+                      #   icon: mdi:snowflake-thermometer
+                      #   variables:
+                      #     color: blue
+
+                      # Kids ACs Night Cooling
+                      # - type: 'custom:button-card'
+                      #   template: card_toggle_vertical
+                      #   entity: automation.kids_ac_night_cooling
+                      #   name: Kids ACs
+                      #   label: "Night Cool"
+                      #   icon: mdi:snowflake-thermometer
+                      #   variables:
+                      #     color: blue
 
 
 
