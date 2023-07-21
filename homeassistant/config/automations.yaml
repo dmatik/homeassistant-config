@@ -781,14 +781,18 @@
           entity_id: scene.night_lights_off
   mode: single
 - id: '1689147291665'
-  alias: Night Kids AC Cooling
+  alias: Kids AC Night Cooling
   description: ''
   trigger:
   - platform: time
-    at: '20:30:00'
+    at:
+    - '20:30:00'
+    - 02:00:00
     id: 'on'
   - platform: time
-    at: '23:00:00'
+    at:
+    - '23:00:00'
+    - 04:00:00
     id: 'off'
   condition:
   - condition: state
@@ -801,31 +805,6 @@
         id:
         - 'on'
       sequence:
-      - service: climate.set_hvac_mode
-        data:
-          hvac_mode: cool
-        target:
-          entity_id:
-          - climate.ronen
-          - climate.kfir
-        enabled: false
-      - service: climate.set_temperature
-        data:
-          temperature: 25
-          hvac_mode: cool
-        target:
-          entity_id:
-          - climate.ronen
-          - climate.kfir
-        enabled: false
-      - service: climate.set_fan_mode
-        data:
-          fan_mode: low
-        target:
-          entity_id:
-          - climate.ronen
-          - climate.kfir
-        enabled: false
       - service: scene.turn_on
         data: {}
         target:
@@ -875,4 +854,83 @@
         data: {}
         target:
           entity_id: climate.living_room
+  mode: single
+- id: '1689702798760'
+  alias: Bedroom AC Night Cooling
+  description: ''
+  trigger:
+  - platform: time
+    at:
+    - '23:00:00'
+    id: 'on'
+  - platform: time
+    at:
+    - 06:00:00
+    id: 'off'
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: 'off'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - 'on'
+      sequence:
+      - service: scene.turn_on
+        data: {}
+        target:
+          entity_id:
+          - scene.bedroom_ac_night_cooling
+    - conditions:
+      - condition: trigger
+        id:
+        - 'off'
+      sequence:
+      - service: climate.turn_off
+        data: {}
+        target:
+          entity_id:
+          - climate.bedroom
+  mode: single
+- id: '1689872165826'
+  alias: Bathroom Heater Auto OFF
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: 8893bfbc82bf90ae3b65bcaeb1340d9d
+    entity_id: 78e8fa82cffc1d49daa90f1749874a4c
+    domain: switch
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 8893bfbc82bf90ae3b65bcaeb1340d9d
+    entity_id: 78e8fa82cffc1d49daa90f1749874a4c
+    domain: switch
+  mode: single
+- id: '1689872267478'
+  alias: Parents Bathroom Heater Auto OFF
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: 935d4f1c81b42ab5080d9d2e22d581aa
+    entity_id: 733198b09aab4b211fb459e0eb2919fb
+    domain: switch
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 935d4f1c81b42ab5080d9d2e22d581aa
+    entity_id: 733198b09aab4b211fb459e0eb2919fb
+    domain: switch
   mode: single
