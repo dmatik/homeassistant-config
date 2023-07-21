@@ -2,73 +2,73 @@ version: '3.3'
 
 services:
 
-    homeassistant:
-        restart: always
-        hostname: homeassistant
-        container_name: homeassistant
-        image: ghcr.io/home-assistant/home-assistant:stable
-        environment:
-            TZ: "Asia/Jerusalem"
-        volumes:
-            - /volume1/docker/homeassistant/config:/config
-            - /var/run/docker.sock:/var/run/docker.sock
-            - /etc/localtime:/etc/localtime:ro
-        network_mode: "host"
-        labels:
-            - com.centurylinklabs.watchtower.enable=false
-        privileged: true
-        devices:
-            - /dev/ttyACM0:/dev/ttyACM0
+    # homeassistant:
+    #     restart: always
+    #     hostname: homeassistant
+    #     container_name: homeassistant
+    #     image: ghcr.io/home-assistant/home-assistant:stable
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #         - /volume1/docker/homeassistant/config:/config
+    #         - /var/run/docker.sock:/var/run/docker.sock
+    #         - /etc/localtime:/etc/localtime:ro
+    #     network_mode: "host"
+    #     labels:
+    #         - com.centurylinklabs.watchtower.enable=false
+    #     privileged: true
+    #     devices:
+    #         - /dev/ttyACM0:/dev/ttyACM0
 
 
-    mariadb:
-        restart: always
-        hostname: mariadb
-        container_name: mariadb
-        image: mariadb:latest
-        network_mode: "bridge"
-        ports:
-            - "3306:3306"
-        environment:
-            TZ: "Asia/Jerusalem"
-            MYSQL_DATABASE: HomeAssistantDB
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        volumes:
-            - /volume1/docker/mariadb/config:/etc/mysql/conf.d
-            - /volume1/docker/mariadb/data:/var/lib/mysql
+    # mariadb:
+    #     restart: always
+    #     hostname: mariadb
+    #     container_name: mariadb
+    #     image: mariadb:latest
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "3306:3306"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         MYSQL_DATABASE: HomeAssistantDB
+    #         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    #     volumes:
+    #         - /volume1/docker/mariadb/config:/etc/mysql/conf.d
+    #         - /volume1/docker/mariadb/data:/var/lib/mysql
         
-    phpMyAdmin:
-        restart: always
-        hostname: phpMyAdmin
-        container_name: phpMyAdmin
-        image: phpmyadmin/phpmyadmin:latest
-        network_mode: "bridge"
-        ports:
-            - "32770:80"
-        environment:
-            TZ: "Asia/Jerusalem"
-            PMA_HOST: ${ZEG_IP}
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    # phpMyAdmin:
+    #     restart: always
+    #     hostname: phpMyAdmin
+    #     container_name: phpMyAdmin
+    #     image: phpmyadmin/phpmyadmin:latest
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "32770:80"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PMA_HOST: ${ZEG_IP}
+    #         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
-    mosquitto:
-        restart: always
-        hostname: mosquitto
-        container_name: mosquitto
-        image: eclipse-mosquitto:latest
-        environment:
-            TZ: "Asia/Jerusalem"
-            USER: ${MQTT_USER}
-            PASS: ${MQTT_PASS}
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-        volumes:
-            - /volume1/docker/mosquitto/data:/mosquitto/data
-            - /volume1/docker/mosquitto/config:/mosquitto/config
-            - /volume1/docker/mosquitto/log:/mosquitto/log
-        network_mode: "bridge"
-        ports:
-            - "1883:1883"
-            - "9001:9001"
+    # mosquitto:
+    #     restart: always
+    #     hostname: mosquitto
+    #     container_name: mosquitto
+    #     image: eclipse-mosquitto:latest
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         USER: ${MQTT_USER}
+    #         PASS: ${MQTT_PASS}
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #     volumes:
+    #         - /volume1/docker/mosquitto/data:/mosquitto/data
+    #         - /volume1/docker/mosquitto/config:/mosquitto/config
+    #         - /volume1/docker/mosquitto/log:/mosquitto/log
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "1883:1883"
+    #         - "9001:9001"
 
     # jackett:
     #     image: lscr.io/linuxserver/jackett:latest
@@ -88,74 +88,74 @@ services:
     #         - "9117:9117"
     #     restart: always
 
-    radarr:
-        restart: always
-        hostname: radarr
-        container_name: radarr
-        image: linuxserver/radarr:latest
-        network_mode: "bridge"
-        ports:
-            - "7878:7878"
-        environment:
-            TZ: "Asia/Jerusalem"
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-        volumes:
-            #- /volume1/torrent:/torrent
-            - /volume1/data:/data
-            - /volume1/docker/radarr/config:/config
+    # radarr:
+    #     restart: always
+    #     hostname: radarr
+    #     container_name: radarr
+    #     image: linuxserver/radarr:latest
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "7878:7878"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #     volumes:
+    #         #- /volume1/torrent:/torrent
+    #         - /volume1/data:/data
+    #         - /volume1/docker/radarr/config:/config
         
-    sonarr:
-        restart: always
-        hostname: sonarr
-        container_name: sonarr
-        image: linuxserver/sonarr:latest
-        network_mode: "bridge"
-        ports:
-            - "8989:8989"
-            - "9898:9898"
-        environment:
-            TZ: "Asia/Jerusalem"
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-        volumes:
-            #- /volume1/torrent:/torrent
-            #- /volume1/video:/video
-            - /volume1/data:/data
-            - /volume1/docker/sonarr/config:/config
+    # sonarr:
+    #     restart: always
+    #     hostname: sonarr
+    #     container_name: sonarr
+    #     image: linuxserver/sonarr:latest
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "8989:8989"
+    #         - "9898:9898"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #     volumes:
+    #         #- /volume1/torrent:/torrent
+    #         #- /volume1/video:/video
+    #         - /volume1/data:/data
+    #         - /volume1/docker/sonarr/config:/config
 
-    prowlarr:
-        hostname: prowlarr
-        image: lscr.io/linuxserver/prowlarr:latest
-        container_name: prowlarr
-        network_mode: "bridge"
-        ports:
-            - 9696:9696
-        environment:
-            TZ: "Asia/Jerusalem"
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-        volumes:
-            - /volume1/docker/prowlarr/config:/config
-        restart: unless-stopped
+    # prowlarr:
+    #     hostname: prowlarr
+    #     image: lscr.io/linuxserver/prowlarr:latest
+    #     container_name: prowlarr
+    #     network_mode: "bridge"
+    #     ports:
+    #         - 9696:9696
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #     volumes:
+    #         - /volume1/docker/prowlarr/config:/config
+    #     restart: unless-stopped
 
-    bazarr:
-        restart: always
-        hostname: bazarr
-        container_name: bazarr
-        image: linuxserver/bazarr:latest
-        network_mode: "bridge"
-        ports:
-            - "6868:6767"
-        environment:
-            TZ: "Asia/Jerusalem"
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-        volumes:
-            - /volume1/docker/bazarr/config:/config
-            #- /volume1/torrent:/torrent
-            #- /volume1/video:/video
-            - /volume1/data:/data
+    # bazarr:
+    #     restart: always
+    #     hostname: bazarr
+    #     container_name: bazarr
+    #     image: linuxserver/bazarr:latest
+    #     network_mode: "bridge"
+    #     ports:
+    #         - "6868:6767"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #     volumes:
+    #         - /volume1/docker/bazarr/config:/config
+    #         #- /volume1/torrent:/torrent
+    #         #- /volume1/video:/video
+    #         - /volume1/data:/data
         
     portainer:
         hostname: portainer
@@ -164,7 +164,7 @@ services:
         restart: always
         network_mode: "bridge"
         ports:
-            - 9000:9000
+            - 9443:9443
             - 8000:8000
         environment:
             TZ: "Asia/Jerusalem"
@@ -173,51 +173,51 @@ services:
             - /usr/syno/etc/certificate/system/default:/certs
             - /volume1/docker/portainer/data:/data
             
-    watchtower:
-        restart: always
-        hostname: watchtower
-        container_name: watchtower
-        image: containrrr/watchtower:latest
-        network_mode: "bridge"
-        environment:
-            TZ: "Asia/Jerusalem"
-            WATCHTOWER_CLEANUP: "true"
-            WATCHTOWER_SCHEDULE: "0 0 6 * * *"
-            WATCHTOWER_NOTIFICATIONS: "shoutrrr"
-            WATCHTOWER_NOTIFICATION_URL: "telegram://${MY_DOCKER_BOT_TOKEN}@telegram?channels=${TELEGRAM_CHAT_ID}"
-            WATCHTOWER_WARN_ON_HEAD_FAILURE: "never"
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
+    # watchtower:
+    #     restart: always
+    #     hostname: watchtower
+    #     container_name: watchtower
+    #     image: containrrr/watchtower:latest
+    #     network_mode: "bridge"
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         WATCHTOWER_CLEANUP: "true"
+    #         WATCHTOWER_SCHEDULE: "0 0 6 * * *"
+    #         WATCHTOWER_NOTIFICATIONS: "shoutrrr"
+    #         WATCHTOWER_NOTIFICATION_URL: "telegram://${MY_DOCKER_BOT_TOKEN}@telegram?channels=${TELEGRAM_CHAT_ID}"
+    #         WATCHTOWER_WARN_ON_HEAD_FAILURE: "never"
+    #     volumes:
+    #         - /var/run/docker.sock:/var/run/docker.sock
             
-    tasmoadmin:
-        restart: always
-        container_name: tasmoadmin
-        hostname: tasmoadmin
-        image: raymondmm/tasmoadmin:latest
-        network_mode: "bridge"
-        ports:
-            - 5555:80
-        environment:
-            TZ: "Asia/Jerusalem"
-        volumes:
-            - /volume1/docker/tasmoadmin/data:/data
+    # tasmoadmin:
+    #     restart: always
+    #     container_name: tasmoadmin
+    #     hostname: tasmoadmin
+    #     image: raymondmm/tasmoadmin:latest
+    #     network_mode: "bridge"
+    #     ports:
+    #         - 5555:80
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #         - /volume1/docker/tasmoadmin/data:/data
             
 
-    homebridge:
-        image: oznu/homebridge:latest
-        container_name: homebridge
-        hostname: homebridge
-        restart: always
-        network_mode: host
-        environment:
-            TZ: "Asia/Jerusalem"
-            PGID: ${ZEG_PUID}
-            PUID: ${ZEG_PGID}
-            HOMEBRIDGE_CONFIG_UI: 1
-            HOMEBRIDGE_CONFIG_UI_PORT: 8080
-            DSM_HOSTNAME: "zeg"
-        volumes:
-            - /volume1/docker/homebridge:/homebridge
+    # homebridge:
+    #     image: oznu/homebridge:latest
+    #     container_name: homebridge
+    #     hostname: homebridge
+    #     restart: always
+    #     network_mode: host
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         PGID: ${ZEG_PUID}
+    #         PUID: ${ZEG_PGID}
+    #         HOMEBRIDGE_CONFIG_UI: 1
+    #         HOMEBRIDGE_CONFIG_UI_PORT: 8080
+    #         DSM_HOSTNAME: "zeg"
+    #     volumes:
+    #         - /volume1/docker/homebridge:/homebridge
 
 
     # cloudflare-ddns:
@@ -246,48 +246,48 @@ services:
     #     labels:
     #         - com.centurylinklabs.watchtower.enable=false
 
-    cloudflare-tunnel:
-        container_name: cloudflare-tunnel
-        hostname: cloudflare-tunnel
-        image: cloudflare/cloudflared:latest
-        restart: always
-        volumes:
-            - /volume1/docker/cloudflare/config:/config
-            - /etc/localtime:/etc/localtime
-        environment:
-            TZ: "Asia/Jerusalem"
-        network_mode: host   
-        command: tunnel --no-autoupdate run --token ${CF_TUNNEL_TOKEN}      
+    # cloudflare-tunnel:
+    #     container_name: cloudflare-tunnel
+    #     hostname: cloudflare-tunnel
+    #     image: cloudflare/cloudflared:latest
+    #     restart: always
+    #     volumes:
+    #         - /volume1/docker/cloudflare/config:/config
+    #         - /etc/localtime:/etc/localtime
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     network_mode: host   
+    #     command: tunnel --no-autoupdate run --token ${CF_TUNNEL_TOKEN}      
 
-    switcher_webapi:
-        image: tomerfi/switcher_webapi:latest
-        container_name: switcher_webapi
-        hostname: switcher_webapi
-        restart: always
-        network_mode: bridge
-        ports:
-          - 8150:8000
-        environment:
-            TZ: "Asia/Jerusalem"
-            LOG_LEVEL: "INFO"
+    # switcher_webapi:
+    #     image: tomerfi/switcher_webapi:latest
+    #     container_name: switcher_webapi
+    #     hostname: switcher_webapi
+    #     restart: always
+    #     network_mode: bridge
+    #     ports:
+    #       - 8150:8000
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         LOG_LEVEL: "INFO"
         
-    vscode:
-        image: linuxserver/code-server
-        container_name: vscode
-        hostname: vscode
-        restart: always
-        network_mode: bridge
-        ports:
-          - 8553:8443
-        environment:
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-            TZ: "Asia/Jerusalem"
-            PASSWORD: ${VSCODE_PASSWORD} #optional
-            #SUDO_PASSWORD: password #optional
-        volumes:
-            - /volume1/docker/vscode/config:/config
-            - /volume1/docker:/docker
+    # vscode:
+    #     image: linuxserver/code-server
+    #     container_name: vscode
+    #     hostname: vscode
+    #     restart: always
+    #     network_mode: bridge
+    #     ports:
+    #       - 8553:8443
+    #     environment:
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #         TZ: "Asia/Jerusalem"
+    #         PASSWORD: ${VSCODE_PASSWORD} #optional
+    #         #SUDO_PASSWORD: password #optional
+    #     volumes:
+    #         - /volume1/docker/vscode/config:/config
+    #         - /volume1/docker:/docker
 
 
     # postgres:
@@ -325,190 +325,190 @@ services:
     #     labels:
     #         - com.centurylinklabs.watchtower.enable=false
 
-    tasmobackup:
-        restart: always
-        hostname: tasmobackup
-        container_name: tasmobackup
-        image: danmed/tasmobackupv1
-        ports:
-            - '8259:80'
-        volumes:
-            - /volume1/docker/tasmobackup/data:/var/www/html/data
-        environment:
-            # MYSQL env's are not needed if you are using sqlite
-            #- MYSQL_SERVER=IPADDRESS
-            #- MYSQL_USERNAME=USERNAME
-            #- MYSQL_PASSWORD=PASSWORD
-            # change below to mysql if you don't want to use sqlite
-            # you will need to have a mysql server (set above) with a blank database already created.
-            - DBTYPE=sqlite
-            # if using Mysql remove the data/ from the below line
-            # if using Sqlite the data/ is required!
-            - DBNAME=data/tasmobackup
+    # tasmobackup:
+    #     restart: always
+    #     hostname: tasmobackup
+    #     container_name: tasmobackup
+    #     image: danmed/tasmobackupv1
+    #     ports:
+    #         - '8259:80'
+    #     volumes:
+    #         - /volume1/docker/tasmobackup/data:/var/www/html/data
+    #     environment:
+    #         # MYSQL env's are not needed if you are using sqlite
+    #         #- MYSQL_SERVER=IPADDRESS
+    #         #- MYSQL_USERNAME=USERNAME
+    #         #- MYSQL_PASSWORD=PASSWORD
+    #         # change below to mysql if you don't want to use sqlite
+    #         # you will need to have a mysql server (set above) with a blank database already created.
+    #         - DBTYPE=sqlite
+    #         # if using Mysql remove the data/ from the below line
+    #         # if using Sqlite the data/ is required!
+    #         - DBNAME=data/tasmobackup
 
-    jellyfin:
-        hostname: jellyfin
-        container_name: jellyfin
-        image: jellyfin/jellyfin
-        user: ${ZEG_PUID}:${ZEG_PGID}
-        network_mode: "host"
-        restart: "unless-stopped"
-        privileged: true
-        devices:
-            - /dev/dri:/dev/dri
-        environment:
-            PUID: ${ZEG_PUID}
-            PGID: ${ZEG_PGID}
-            TZ: "Asia/Jerusalem"
-        volumes:
-          - /volume1/docker/jellyfin/config:/config
-          - /volume1/docker/jellyfin/cache:/cache
-          #- /volume1/video:/video
-          #- /volume1/torrent:/torrent
-          - /volume1/data:/data
+    # jellyfin:
+    #     hostname: jellyfin
+    #     container_name: jellyfin
+    #     image: jellyfin/jellyfin
+    #     user: ${ZEG_PUID}:${ZEG_PGID}
+    #     network_mode: "host"
+    #     restart: "unless-stopped"
+    #     privileged: true
+    #     devices:
+    #         - /dev/dri:/dev/dri
+    #     environment:
+    #         PUID: ${ZEG_PUID}
+    #         PGID: ${ZEG_PGID}
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #       - /volume1/docker/jellyfin/config:/config
+    #       - /volume1/docker/jellyfin/cache:/cache
+    #       #- /volume1/video:/video
+    #       #- /volume1/torrent:/torrent
+    #       - /volume1/data:/data
 
-    bitwarden_server:
-        hostname: bitwarden_server
-        container_name: bitwarden_server
-        image: vaultwarden/server:latest
-        network_mode: "bridge"
-        restart: "always"
-        privileged: true
-        ports:
-            - 5151:80
-        environment:
-            TZ: "Asia/Jerusalem"
-        volumes:
-          - /volume1/docker/bitwarden/data:/data
-
-
-    minecraft-server:
-        image: itzg/minecraft-bedrock-server:latest
-        container_name: minecraft-server
-        restart: "unless-stopped"
-        network_mode: "bridge"
-        ports:
-            - 19132:19132/udp
-        environment:
-            TZ: "Asia/Jerusalem"
-            EULA: "TRUE"
-            GAMEMODE: "creative"
-            DIFFICULTY: "peaceful"
-            MAX_PLAYERS: "30"
-            SERVER_NAME: "Trosmans"
-            OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
-            ALLOW_CHEATS: "true"
-            SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
-        volumes:
-            - /volume1/docker/mc/data:/data
-
-    minecraft-survival:
-        image: itzg/minecraft-bedrock-server:latest
-        container_name: minecraft-survival
-        restart: "unless-stopped"
-        network_mode: "bridge"
-        ports:
-            - 19232:19132/udp
-        environment:
-            TZ: "Asia/Jerusalem"
-            EULA: "TRUE"
-            GAMEMODE: "survival"
-            DIFFICULTY: "peaceful"
-            MAX_PLAYERS: "30"
-            SERVER_NAME: "Trosmans Survival"
-            OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
-            ALLOW_CHEATS: "true"
-            SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
-        volumes:
-            - /volume1/docker/minecraft_survival/data:/data
-
-    minecraft-pockedrock:
-        image: itzg/minecraft-bedrock-server:latest
-        container_name: minecraft-pockedrock
-        restart: "unless-stopped"
-        network_mode: "bridge"
-        ports:
-            - 19332:19132/udp
-        environment:
-            TZ: "Asia/Jerusalem"
-            EULA: "TRUE"
-            GAMEMODE: "survival"
-            DIFFICULTY: "peaceful"
-            MAX_PLAYERS: "30"
-            SERVER_NAME: "Trosmans Pockedrock"
-            OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
-            ALLOW_CHEATS: "true"
-            SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
-        volumes:
-            - /volume1/docker/minecraft_pockedrock/data:/data
+    # bitwarden_server:
+    #     hostname: bitwarden_server
+    #     container_name: bitwarden_server
+    #     image: vaultwarden/server:latest
+    #     network_mode: "bridge"
+    #     restart: "always"
+    #     privileged: true
+    #     ports:
+    #         - 5151:80
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #     volumes:
+    #       - /volume1/docker/bitwarden/data:/data
 
 
-    oref-alerts:
-        image: dmatik/oref-alerts:latest
-        container_name: oref-alerts
-        hostname: oref-alerts
-        restart: unless-stopped
-        network_mode: "bridge"
-        ports:
-          - 49000:9001
-        environment:
-            TZ: "Asia/Jerusalem"
-            LOGGING_LEVEL_COM_DMATIK_OREFALERTS_SERVICE: "INFO"
+    # minecraft-server:
+    #     image: itzg/minecraft-bedrock-server:latest
+    #     container_name: minecraft-server
+    #     restart: "unless-stopped"
+    #     network_mode: "bridge"
+    #     ports:
+    #         - 19132:19132/udp
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         EULA: "TRUE"
+    #         GAMEMODE: "creative"
+    #         DIFFICULTY: "peaceful"
+    #         MAX_PLAYERS: "30"
+    #         SERVER_NAME: "Trosmans"
+    #         OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
+    #         ALLOW_CHEATS: "true"
+    #         SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
+    #     volumes:
+    #         - /volume1/docker/mc/data:/data
 
-    oref-alerts-dev:
-        image: dmatik/oref-alerts:v1.0.9-dev
-        container_name: oref-alerts-dev
-        hostname: oref-alerts-dev
-        restart: unless-stopped
-        network_mode: "bridge"
-        ports:
-          - 49100:9001
-        environment:
-            TZ: "Asia/Jerusalem"
-            LOGGING_LEVEL_COM_DMATIK_OREFALERTS_SERVICE: "INFO"
-            CURRENT_ALERT_MOCK: ""
-            HISTORY_MOCK: ""
-            CURRENT_ALERT_TEST_MODE: ""
-            CURRENT_ALERT_TEST_MODE_LOC: "אשדוד"
-            HISTORY_TEST_MODE: ""
+    # minecraft-survival:
+    #     image: itzg/minecraft-bedrock-server:latest
+    #     container_name: minecraft-survival
+    #     restart: "unless-stopped"
+    #     network_mode: "bridge"
+    #     ports:
+    #         - 19232:19132/udp
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         EULA: "TRUE"
+    #         GAMEMODE: "survival"
+    #         DIFFICULTY: "peaceful"
+    #         MAX_PLAYERS: "30"
+    #         SERVER_NAME: "Trosmans Survival"
+    #         OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
+    #         ALLOW_CHEATS: "true"
+    #         SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
+    #     volumes:
+    #         - /volume1/docker/minecraft_survival/data:/data
 
-    duckrails:
-        image: iridakos/duckrails:latest
-        container_name: duckrails
-        hostname: duckrails
-        network_mode: "bridge"
-        ports:
-            - 48080:80
-        environment:
-            DATABASE_ADAPTER: sqlite3
-            DATABASE_NAME: db/sqlite/production.sqlite3
-            SECRET_KEY_BASE: "${DUCKRAILS_SECRET_KEY_BASE}"
-        restart: unless-stopped
-        volumes:
-            - /volume1/docker/duckrails/db:/opt/duckrails/db/sqlite/
+    # minecraft-pockedrock:
+    #     image: itzg/minecraft-bedrock-server:latest
+    #     container_name: minecraft-pockedrock
+    #     restart: "unless-stopped"
+    #     network_mode: "bridge"
+    #     ports:
+    #         - 19332:19132/udp
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         EULA: "TRUE"
+    #         GAMEMODE: "survival"
+    #         DIFFICULTY: "peaceful"
+    #         MAX_PLAYERS: "30"
+    #         SERVER_NAME: "Trosmans Pockedrock"
+    #         OPS: "${MC_DMATIK_ID},${MC_RONEN_ID},${MC_KFIR_ID},${MC_ILAN_ID},${MC_SASHA_ID}"
+    #         ALLOW_CHEATS: "true"
+    #         SERVER_AUTHORITATIVE_MOVEMENT: "server-auth"
+    #     volumes:
+    #         - /volume1/docker/minecraft_pockedrock/data:/data
 
-    z2m_basement:
-        container_name: z2m_basement
-        image: koenkk/zigbee2mqtt
-        restart: unless-stopped
-        volumes:
-          - /volume1/docker/z2m_basement/data:/app/data
-          - /run/udev:/run/udev:ro
-        ports:
-          # Frontend port
-          - 58080:8080
-        environment:
-          - TZ=Asia/Jerusalem
 
-    z2m_living_room:
-        container_name: z2m_living_room
-        image: koenkk/zigbee2mqtt
-        restart: unless-stopped
-        volumes:
-          - /volume1/docker/z2m_living_room/data:/app/data
-          - /run/udev:/run/udev:ro
-        ports:
-          # Frontend port
-          - 58090:8080
-        environment:
-          - TZ=Asia/Jerusalem
+    # oref-alerts:
+    #     image: dmatik/oref-alerts:latest
+    #     container_name: oref-alerts
+    #     hostname: oref-alerts
+    #     restart: unless-stopped
+    #     network_mode: "bridge"
+    #     ports:
+    #       - 49000:9001
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         LOGGING_LEVEL_COM_DMATIK_OREFALERTS_SERVICE: "INFO"
+
+    # oref-alerts-dev:
+    #     image: dmatik/oref-alerts:v1.0.9-dev
+    #     container_name: oref-alerts-dev
+    #     hostname: oref-alerts-dev
+    #     restart: unless-stopped
+    #     network_mode: "bridge"
+    #     ports:
+    #       - 49100:9001
+    #     environment:
+    #         TZ: "Asia/Jerusalem"
+    #         LOGGING_LEVEL_COM_DMATIK_OREFALERTS_SERVICE: "INFO"
+    #         CURRENT_ALERT_MOCK: ""
+    #         HISTORY_MOCK: ""
+    #         CURRENT_ALERT_TEST_MODE: ""
+    #         CURRENT_ALERT_TEST_MODE_LOC: "אשדוד"
+    #         HISTORY_TEST_MODE: ""
+
+    # duckrails:
+    #     image: iridakos/duckrails:latest
+    #     container_name: duckrails
+    #     hostname: duckrails
+    #     network_mode: "bridge"
+    #     ports:
+    #         - 48080:80
+    #     environment:
+    #         DATABASE_ADAPTER: sqlite3
+    #         DATABASE_NAME: db/sqlite/production.sqlite3
+    #         SECRET_KEY_BASE: "${DUCKRAILS_SECRET_KEY_BASE}"
+    #     restart: unless-stopped
+    #     volumes:
+    #         - /volume1/docker/duckrails/db:/opt/duckrails/db/sqlite/
+
+    # z2m_basement:
+    #     container_name: z2m_basement
+    #     image: koenkk/zigbee2mqtt
+    #     restart: unless-stopped
+    #     volumes:
+    #       - /volume1/docker/z2m_basement/data:/app/data
+    #       - /run/udev:/run/udev:ro
+    #     ports:
+    #       # Frontend port
+    #       - 58080:8080
+    #     environment:
+    #       - TZ=Asia/Jerusalem
+
+    # z2m_living_room:
+    #     container_name: z2m_living_room
+    #     image: koenkk/zigbee2mqtt
+    #     restart: unless-stopped
+    #     volumes:
+    #       - /volume1/docker/z2m_living_room/data:/app/data
+    #       - /run/udev:/run/udev:ro
+    #     ports:
+    #       # Frontend port
+    #       - 58090:8080
+    #     environment:
+    #       - TZ=Asia/Jerusalem
