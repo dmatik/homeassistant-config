@@ -9,4 +9,5 @@ script:
   update_homeassistant_container:
     alias: "Update"
     sequence:
-      - service: shell_command.update_homeassistant_container
+      #- service: shell_command.update_homeassistant_container
+      - service: rest_command.update_homeassistant_container
