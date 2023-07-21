@@ -1,0 +1,182 @@
+sensor:
+
+  ############################################################################
+  #                                                                          #
+  #   Bathroom Heater Statistics                                             #
+  #                                                                          #
+  ############################################################################
+
+  # Running Time Today
+  - platform: history_stats
+    name: bathroom_heater_running_time_today 
+    entity_id: switch.bathroom_heater
+    state: "on"
+    type: time
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now() }}"
+
+  # Running Time Yesterday
+  - platform: history_stats
+    name: bathroom_heater_running_time_yesterday 
+    entity_id: switch.bathroom_heater
+    state: "on"
+    type: time
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    duration:
+      hours: 24
+
+  # Running Time Current Month
+  - platform: history_stats
+    name: bathroom_heater_running_time_curr_month
+    entity_id: switch.bathroom_heater
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    end: "{{ now() }}"
+
+  # Running Time Previous Month
+  - platform: history_stats
+    name: bathroom_heater_running_time_prev_month
+    entity_id: switch.bathroom_heater
+    state: "on"
+    type: time
+    start: |
+      {% if ( now().month == 1) -%}
+        {{ now().replace(year=now().year-1, day=1, month=12, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- else -%}
+        {{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- endif %}
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+
+
+  ############################################################################
+  #                                                                          #
+  #   Parents Bathroom Heater Statistics                                     #
+  #                                                                          #
+  ############################################################################
+
+  # Running Time Today
+  - platform: history_stats
+    name: parents_bathroom_heater_running_time_today 
+    entity_id: switch.parents_bathroom_heater
+    state: "on"
+    type: time
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now() }}"
+
+  # Running Time Yesterday
+  - platform: history_stats
+    name: parents_bathroom_heater_running_time_yesterday 
+    entity_id: switch.parents_bathroom_heater
+    state: "on"
+    type: time
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    duration:
+      hours: 24
+
+  # Running Time Current Month
+  - platform: history_stats
+    name: parents_bathroom_heater_running_time_curr_month
+    entity_id: switch.parents_bathroom_heater
+    state: "on"
+    type: time
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    end: "{{ now() }}"
+
+  # Running Time Previous Month
+  - platform: history_stats
+    name: parents_bathroom_heater_running_time_prev_month
+    entity_id: switch.parents_bathroom_heater
+    state: "on"
+    type: time
+    start: |
+      {% if ( now().month == 1) -%}
+        {{ now().replace(year=now().year-1, day=1, month=12, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- else -%}
+        {{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}
+      {%- endif %}
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+
+
+
+template:
+
+    sensor:
+
+      ############################################################################
+      #                                                                          #
+      #   Bathroom Heater Cost Count                                             #
+      #                                                                          #
+      ############################################################################
+
+      # Bathroom Heater Today Cost
+      - name: "bathroom_heater_cost_today"
+        unique_id: bathroom_heater_cost_today
+        unit_of_measurement: "₪"
+        state_class: total
+        device_class: monetary
+        state: "{{ ( states('sensor.bathroom_heater_daily_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Bathroom Heater Yesterday Cost
+      - name: "bathroom_heater_cost_yesterday"
+        unique_id: bathroom_heater_cost_yesterday
+        unit_of_measurement: "₪"
+        state_class: total
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.bathroom_heater_daily_energy', 'last_period') | float(0) *states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Bathroom Heater Curr Month Cost
+      - name: "bathroom_heater_cost_curr_month"
+        unique_id: bathroom_heater_cost_curr_month
+        unit_of_measurement: "₪"
+        state_class: total
+        device_class: monetary
+        state: "{{ ( states('sensor.bathroom_heater_monthly_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Bathroom Heater Previous Month Cost
+      - name: "bathroom_heater_cost_prev_month"
+        unique_id: bathroom_heater_cost_prev_month
+        unit_of_measurement: "₪"
+        state_class: total
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.bathroom_heater_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+
+
+      ############################################################################
+      #                                                                          #
+      #   Parents Bathroom Heater Cost Count                                     #
+      #                                                                          #
+      ############################################################################
+
+      # Parents Bathroom Heater Today Cost
+      - name: "parents_bathroom_heater_cost_today"
+        unique_id: parents_bathroom_heater_cost_today
+        unit_of_measurement: "₪"
+        state_class: total
+        device_class: monetary
+        state: "{{ ( states('sensor.parents_bathroom_heater_daily_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Parents Bathroom Heater Yesterday Cost
+      - name: "parents_bathroom_heater_cost_yesterday"
+        unique_id: parents_bathroom_heater_cost_yesterday
+        unit_of_measurement: "₪"
+        state_class: total
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.parents_bathroom_heater_daily_energy', 'last_period') | float(0) *states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Parents Bathroom Heater Curr Month Cost
+      - name: "parents_bathroom_heater_cost_curr_month"
+        unique_id: parents_bathroom_heater_cost_curr_month
+        unit_of_measurement: "₪"
+        state_class: total
+        device_class: monetary
+        state: "{{ ( states('sensor.parents_bathroom_heater_monthly_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Parents Bathroom Heater Previous Month Cost
+      - name: "parents_bathroom_heater_cost_prev_month"
+        unique_id: parents_bathroom_heater_cost_prev_month
+        unit_of_measurement: "₪"
+        state_class: total
+        device_class: monetary
+        state: "{{ ( state_attr('sensor.parents_bathroom_heater_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"

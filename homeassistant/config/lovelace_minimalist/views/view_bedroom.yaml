@@ -202,6 +202,17 @@ cards:
                         view_layout:
                           grid-row-start: span 2
 
+                      # Parents Bathroom Heater
+                      - type: 'custom:button-card'
+                        template: 
+                          - "card_power_outlet"
+                          - "red_on"
+                        variables:
+                          ulm_card_power_outlet_consumption_sensor: sensor.parents_bathroom_heater_power
+                        entity: switch.parents_bathroom_heater
+                        name: Parents Bath
+                        icon: mdi:heat-wave
+
                       # Bedroom Radiator
                       # - type: 'custom:button-card'
                       #   template: card_power_outlet

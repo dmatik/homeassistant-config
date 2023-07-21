@@ -1,0 +1,75 @@
+sensor:
+
+  ############################################################################
+  #                                                                          #
+  #   Bathroom Heater Energy Integration                                     #
+  #                                                                          #
+  ############################################################################
+
+  - platform: integration
+    name: bathroom_heater_energy
+    unique_id: bathroom_heater_energy
+    source: sensor.bathroom_heater_power
+    unit_prefix: k
+    round: 2
+    method: left
+
+
+  ############################################################################
+  #                                                                          #
+  #   Parents Bathroom Heater Energy Integration                             #
+  #                                                                          #
+  ############################################################################
+
+  - platform: integration
+    name: parents_bathroom_heater_energy
+    unique_id: parents_bathroom_heater_energy
+    source: sensor.parents_bathroom_heater_power
+    unit_prefix: k
+    round: 2
+    method: left
+
+
+
+utility_meter:
+
+  ############################################################################
+  #                                                                          #
+  #   Bathroom Heater                                                        #
+  #                                                                          #
+  ############################################################################
+
+  # Daily Energy
+  bathroom_heater_daily_energy:
+    source: sensor.bathroom_heater_energy
+    name: bathroom_heater_daily_energy
+    unique_id: bathroom_heater_daily_energy
+    cycle: daily
+
+  # Monthly Energy
+  bathroom_heater_monthly_energy:
+    source: sensor.bathroom_heater_energy
+    name: bathroom_heater_monthly_energy
+    unique_id: bathroom_heater_monthly_energy
+    cycle: monthly
+
+
+  ############################################################################
+  #                                                                          #
+  #   Paretnts Bathroom Heater                                               #
+  #                                                                          #
+  ############################################################################
+
+  # Daily Energy
+  parents_bathroom_heater_daily_energy:
+    source: sensor.parents_bathroom_heater_energy
+    name: parents_bathroom_heater_daily_energy
+    unique_id: parents_bathroom_heater_daily_energy
+    cycle: daily
+
+  # Monthly Energy
+  parents_bathroom_heater_monthly_energy:
+    source: sensor.parents_bathroom_heater_energy
+    name: parents_bathroom_heater_monthly_energy
+    unique_id: parents_bathroom_heater_monthly_energy
+    cycle: monthly
