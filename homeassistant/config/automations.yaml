@@ -934,3 +934,13 @@
     entity_id: 733198b09aab4b211fb459e0eb2919fb
     domain: switch
   mode: single
+- id: '1690049408548'
+  alias: Sync Stairs Switches
+  description: ''
+  use_blueprint:
+    path: sync_switches.yaml
+    input:
+      switch:
+      - light.stairs_basement
+      - light.stairs_ground_floor
+      - light.stairs_floor_2
