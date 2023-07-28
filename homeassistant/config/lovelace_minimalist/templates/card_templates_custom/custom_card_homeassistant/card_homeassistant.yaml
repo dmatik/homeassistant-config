@@ -57,11 +57,16 @@ card_homeassistant:
           item2:
             card:
               type: "custom:button-card"
-              template: "widget_text"
-              name: 'Update'
-              tap_action:
-                action: call-service
-                service: "[[[ return variables.ulm_card_homeassistant_update_script ]]]"
+              template: 
+                - "widget_text"
+                - "ha_update_in_progress"
+              variables:
+                ulm_card_homeassistant_update_script: "[[[ return variables.ulm_card_homeassistant_update_script ]]]"
+              entity: "[[[ return variables.ulm_card_homeassistant_entity ]]]"
+              #name: 'Update'
+              # tap_action:
+              #   action: call-service
+              #   service: "[[[ return variables.ulm_card_homeassistant_update_script ]]]"
 
 
 
@@ -100,3 +105,23 @@ ha_new_version_available:
                 return "rgba(var(--color-blue),1)";
               }
             ]]]
+
+ha_update_in_progress:
+  name: |
+    [[[
+      if ( states[variables.ulm_card_homeassistant_update_script].state == "on" ) {
+        return "Updating...";
+      } else {
+        return "Update";
+      }
+    ]]]
+  tap_action:
+    action: |
+      [[[
+        if ( states[variables.ulm_card_homeassistant_update_script].state == "on" || entity.state != "on" ) {
+          return "none";
+        } else {
+          return "call-service";
+        }
+      ]]]    
+    service: "[[[ return variables.ulm_card_homeassistant_update_script ]]]"    
