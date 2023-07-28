@@ -23,6 +23,24 @@ template:
 
       ############################################################################
       #                                                                          #
+      #   Number of Covers Open - Living Room                                    #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Covers Open Living Room"
+        unique_id: number_of_covers_open_living_room
+        state: >
+          {% set count = namespace(value=0) %}
+          {% for entity_id in state_attr('cover.living_room_covers','entity_id') %}
+            {% if (states(entity_id) == 'open') %}
+              {% set count.value = count.value + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
       #   Number of Covers Open - Kitchen                                        #
       #                                                                          #
       ############################################################################

@@ -90,6 +90,24 @@ cards:
                       grid-template-columns: 1fr 1fr 1fr 1fr
                 cards:
 
+                    # Living Room Cover
+                    - type: 'custom:button-card'
+                      template: card_cover_buttons
+                      variables:
+                        ulm_card_cover_buttons_name: Living Room
+                        ulm_card_cover_buttons_entity: cover.living_room
+                      view_layout:
+                        grid-row-start: span 2 
+
+                    # Bar Cover
+                    - type: 'custom:button-card'
+                      template: card_cover_buttons
+                      variables:
+                        ulm_card_cover_buttons_name: Bar
+                        ulm_card_cover_buttons_entity: cover.bar
+                      view_layout:
+                        grid-row-start: span 2 
+
                     # Kitchen Cover
                     - type: 'custom:button-card'
                       template: card_cover_buttons
