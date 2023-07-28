@@ -165,7 +165,6 @@ cards:
                         variables:
                           ulm_card_person_entity: person.galit
                           ulm_card_person_use_entity_picture: true
-                          ulm_card_person_zone1: zone.work_2
 
                       # Ronen
                       - type: 'custom:button-card'
