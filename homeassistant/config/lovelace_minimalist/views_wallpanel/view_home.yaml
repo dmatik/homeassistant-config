@@ -144,15 +144,15 @@ cards:
                       grid-template-columns: 1fr 1fr
                 cards:
 
-                  # Living Room Cover
+                  # Back Yard Cover
                   - type: 'custom:button-card'
                     template: card_cover_buttons
                     variables:
-                      ulm_card_cover_buttons_name: Living Room
-                      ulm_card_cover_buttons_entity: cover.living_room
+                      ulm_card_cover_buttons_name: Back Yard
+                      ulm_card_cover_buttons_entity: cover.back_yard
                     view_layout:
-                      grid-row-start: span 2 
-                      
+                      grid-row-start: span 2
+
                   # Kitchen Cover
                   - type: 'custom:button-card'
                     template: card_cover_buttons
