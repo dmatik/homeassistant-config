@@ -3,3 +3,5 @@ rest_command:
   update_homeassistant_container:
     url: !secret update_ha_portainer_webhook
     method: "POST"
+    verify_ssl: false
+    timeout: 300
