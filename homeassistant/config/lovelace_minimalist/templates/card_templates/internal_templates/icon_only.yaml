@@ -19,6 +19,7 @@ icon_only:
       - font-size: "12px"
       - filter: "opacity(40%)"
       - margin-left: "12px"
+      - margin-top: "0px"
     img_cell:
       - background-color: "rgba(var(--color-theme),0.05)"
       - border-radius: "50%"

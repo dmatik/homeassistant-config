@@ -40,11 +40,11 @@ chip_base:
       - font-weight: 550
       - font-size: '14px'
       - margin-left: '0px'
+      - margin-top: '0px'
       - width: 'auto'
       - padding-left: '2px'
       - padding-right: '2px'
       - height: '36px'
-      - width: 'auto' 
       #- color: "var(--secondary-text-color)"  
       - letter-spacing: '-0.2px'   
 
