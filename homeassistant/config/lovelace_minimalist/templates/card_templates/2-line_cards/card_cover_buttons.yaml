@@ -55,7 +55,7 @@ card_cover_buttons:
                 service: "cover.stop_cover"
                 service_data:
                   entity_id: "[[[ return variables.ulm_card_cover_buttons_entity ]]]"
-              icon: "mdi:pause"
+              icon: "mdi:stop"
           item3:
             card:
               type: "custom:button-card"
