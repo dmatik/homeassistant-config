@@ -258,6 +258,82 @@ cards:
                       card_notification_icon: "mdi:nas"
 
 
+          ############################################################################
+          #                                                                          #
+          #   Scenes                                                                 #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Scenes
+
+
+                # Scenes
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr 1fr 1fr
+                    cards:
+
+                      # Basement Lights OFF scene
+                      - type: 'custom:button-card'
+                        template: card_scene_vertical
+                        entity: scene.basement_lights_off
+                        name: Basement
+                        label: "Lights OFF"
+                        icon: mdi:lightbulb-multiple-off
+                        variables:
+                          color: "yellow"
+
+                      # Ground Floor Lights OFF scene
+                      - type: 'custom:button-card'
+                        template: card_scene_vertical
+                        entity: scene.ground_floor_lights_off
+                        name: Ground
+                        label: "Lights OFF"
+                        icon: mdi:lightbulb-multiple-off
+                        variables:
+                          color: "yellow"                        
+
+                      # Main Floor Covers
+                      - type: 'custom:button-card'
+                        template: card_scene_vertical
+                        entity: scene.main_floor_covers
+                        name: Ground
+                        label: "Covers"
+                        icon: mdi:window-shutter
+                        variables:
+                          color: "blue"
+
+                      # Movie time
+                      - type: 'custom:button-card'
+                        template: card_scene_vertical
+                        entity: scene.movie_time
+                        name: Movie
+                        label: "Scene"
+                        icon: mdi:movie-filter
+                        variables:
+                          color: "purple"
+
+
 
           ############################################################################
           #                                                                          #
@@ -353,6 +429,15 @@ cards:
                         view_layout:
                           grid-row-start: span 2
 
+                      # Back Yard Cover
+                      - type: 'custom:button-card'
+                        template: card_cover_buttons
+                        variables:
+                          ulm_card_cover_buttons_name: Back Yard
+                          ulm_card_cover_buttons_entity: cover.back_yard
+                        view_layout:
+                          grid-row-start: span 2
+
                       # Living Room TV
                       - type: 'custom:button-card'
                         template: 'card_tv'
@@ -436,88 +521,6 @@ cards:
                       - type: 'custom:button-card'
                         template: card_red_alert
 
-
-
-          ############################################################################
-          #                                                                          #
-          #   Scenes                                                                 #
-          #                                                                          #
-          ############################################################################
-
-                # Title
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: Scenes
-
-
-                # Scenes
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr 1fr 1fr
-                    cards:
-
-                      # Basement Lights OFF scene
-                      - type: 'custom:button-card'
-                        template: card_scene_vertical
-                        entity: scene.basement_lights_off
-                        name: Basement
-                        label: "Lights OFF"
-                        icon: mdi:lightbulb-multiple-off
-
-                      # Ground Floor Lights OFF scene
-                      - type: 'custom:button-card'
-                        template: card_scene_vertical
-                        entity: scene.ground_floor_lights_off
-                        name: Ground
-                        label: "Lights OFF"
-                        icon: mdi:lightbulb-multiple-off
-
-                      # Main Floor Cooling
-                      # - type: 'custom:button-card'
-                      #   template: card_toggle_vertical
-                      #   entity: automation.main_floor_cooling
-                      #   name: Main Floor
-                      #   label: "Cooling"
-                      #   icon: mdi:snowflake-thermometer
-                      #   variables:
-                      #     color: blue
-
-                      # Bedroom AC Night Cooling
-                      # - type: 'custom:button-card'
-                      #   template: card_toggle_vertical
-                      #   entity: automation.bedroom_ac_night_cooling
-                      #   name: Bedroom AC
-                      #   label: "Night Cool"
-                      #   icon: mdi:snowflake-thermometer
-                      #   variables:
-                      #     color: blue
-
-                      # Kids ACs Night Cooling
-                      # - type: 'custom:button-card'
-                      #   template: card_toggle_vertical
-                      #   entity: automation.kids_ac_night_cooling
-                      #   name: Kids ACs
-                      #   label: "Night Cool"
-                      #   icon: mdi:snowflake-thermometer
-                      #   variables:
-                      #     color: blue
 
 
 

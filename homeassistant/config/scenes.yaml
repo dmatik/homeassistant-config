@@ -249,8 +249,8 @@
       - vertical
       - horizontal
       - both
-      current_temperature: 25
-      temperature: 25
+      current_temperature: 26
+      temperature: 26
       fan_mode: low
       preset_mode: none
       swing_mode: 'off'

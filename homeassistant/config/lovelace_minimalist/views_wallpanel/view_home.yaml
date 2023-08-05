@@ -432,6 +432,8 @@ cards:
                       name: Basement
                       label: "Lights OFF"
                       icon: mdi:lightbulb-multiple-off
+                      variables:
+                        color: "yellow"
 
                     # Ground Floor Lights OFF scene
                     - type: 'custom:button-card'
@@ -440,6 +442,28 @@ cards:
                       name: Ground
                       label: "Lights OFF"
                       icon: mdi:lightbulb-multiple-off
+                      variables:
+                        color: "yellow"
+
+                    # Main Floor Covers
+                    - type: 'custom:button-card'
+                      template: card_scene_vertical
+                      entity: scene.main_floor_covers
+                      name: Ground
+                      label: "Covers"
+                      icon: mdi:window-shutter
+                      variables:
+                        color: "blue"
+
+                    # Movie time
+                    - type: 'custom:button-card'
+                      template: card_scene_vertical
+                      entity: scene.movie_time
+                      name: Movie
+                      label: "Scene"
+                      icon: mdi:movie-filter
+                      variables:
+                        color: "purple"
 
                     # Main Floor Cooling
                     # - type: 'custom:button-card'

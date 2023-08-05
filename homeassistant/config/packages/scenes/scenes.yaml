@@ -1,0 +1,34 @@
+scene:
+
+  - id: '1690716251473'
+    name: Movie time
+    entities:
+      cover.back_yard:
+        current_position: 30
+        state: open
+      cover.living_room_window:
+        current_position: 0
+        state: closed
+      cover.kitchen:
+        current_position: 0
+        state: closed
+    icon: mdi:movie-filter
+    metadata:
+      cover.kitchen:
+        entity_only: true
+  - id: '1690716481331'
+    name: Main Floor Covers
+    entities:
+      cover.back_yard:
+        current_position: 92
+        state: open
+      cover.living_room_window:
+        current_position: 30
+        state: open
+      cover.kitchen:
+        current_position: 34
+        state: open
+    icon: mdi:window-shutter
+    metadata:
+      cover.kitchen:
+        entity_only: true
