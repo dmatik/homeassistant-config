@@ -103,7 +103,12 @@ chip_icon_label_state:
       ]]]
   state:
     - operator: "template"
-      value: '[[[ return variables.ulm_chip_icon_state_entity == null || states[variables.ulm_chip_icon_state_entity].state == 0 ]]]'
+      value: |
+        [[[ return variables.ulm_chip_icon_state_entity == null 
+                    || states[variables.ulm_chip_icon_state_entity].state == 0
+                    || states[variables.ulm_chip_icon_state_entity].state == "unavailable"
+                    || states[variables.ulm_chip_icon_state_entity].state == "unknown";
+        ]]]
       styles:
         label:
           - display: 'none'
