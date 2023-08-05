@@ -7,17 +7,6 @@ popup_barcode:
     browser_mod:
       service: browser_mod.popup
       data:
-        card_mod:
-          style:
-            ha-dialog$: |
-              .mdc-dialog__scrim {
-                backdrop-filter: blur(3px);
-                -webkit-backdrop-filter: blur(3px);
-              }
-            ha-header-bar$: |
-              .mdc-top-app-bar {
-                background: var(--header-background-color) !important;
-              }
         title: "[[[ return variables.ulm_card_barcode_title ]]]"
         content:
 

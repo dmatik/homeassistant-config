@@ -21,26 +21,43 @@ minimalist-dmatik:
   card-mod-theme: "minimalist-dmatik"
 
   card-mod-more-info-yaml: |
+    .: |
+      @media (max-width: 450px), (max-height: 500px) {
+        ha-dialog {
+          --mdc-dialog-min-width: 100vw !important;
+        }
+      }
     $: |
       .mdc-dialog__scrim {
-        backdrop-filter: blur(20px) brightness(70%);
-        -webkit-backdrop-filter: blur(20px) brightness(70%);
+        backdrop-filter: var(--popup-backdrop-filter);
+        -webkit-backdrop-filter: var(--popup-backdrop-filter);
       }        
       .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-        border-radius: 0px;
-        background: var(--primary-background-color);
+        border-radius: var(--popup-border-radius);
       }
       .mdc-dialog .mdc-dialog__content {
           padding-top: 0px !important;
       }
+      @media (max-width: 450px), (max-height: 500px) {
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          border-radius: 0px !important;
+        }
+      }
     ha-dialog$: |
       .mdc-dialog__scrim {
-        backdrop-filter: blur(3px);
-        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: var(--popup-backdrop-filter);
+        -webkit-backdrop-filter: var(--popup-backdrop-filter);
       }
-    ha-header-bar$: |
-      .mdc-top-app-bar {
-        background: var(--header-background-color) !important;
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        border-radius: var(--popup-border-radius);
+      }
+      .mdc-dialog .mdc-dialog__content {
+          padding-top: 0px !important;
+      }
+      @media (max-width: 450px), (max-height: 500px) {
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          border-radius: 0px !important;
+        }
       }
   card-mod-root-yaml: | 
     ha-tabs$: |
@@ -135,6 +152,9 @@ minimalist-dmatik:
       popup-padding-x: 0px
       popup-padding-y: 0px
       popup-button-border: "1px solid rgba(var(--color-theme),0.15)"
+      popup-button-background-color: "rgba(189,189,189,0.2)" #"#bdbdbd"
+      popup-button-power-background-color: "rgba(189,189,189,0.6)" #"#bdbdbd"
+      popup-backdrop-filter: "blur(10px) brightness(100%)"
 
       # Printer colors
       printer-black-color: 'rgba(150,150,150,1)'
@@ -222,6 +242,9 @@ minimalist-dmatik:
       popup-padding-x: 0px
       popup-padding-y: 0px
       popup-button-border: "1px solid rgba(var(--color-theme),0.15)"
+      popup-button-background-color: "rgba(189,189,189,0.2)" #"#bdbdbd"
+      popup-button-power-background-color: "rgba(189,189,189,0.4)" #"#bdbdbd"
+      popup-backdrop-filter: "blur(10px) contrast(50%)"
 
       # Printer colors
       printer-black-color: 'rgba(50,50,50,1)'
