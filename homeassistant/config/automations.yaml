@@ -944,3 +944,19 @@
       - light.stairs_basement
       - light.stairs_ground_floor
       - light.stairs_floor_2
+- id: '1690950062764'
+  alias: Morning Main Floor Covers
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:30:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: 'off'
+  action:
+  - service: scene.turn_on
+    data: {}
+    target:
+      entity_id: scene.main_floor_covers
+  mode: single
