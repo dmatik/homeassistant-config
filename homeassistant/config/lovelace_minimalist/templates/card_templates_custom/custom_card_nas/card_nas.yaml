@@ -6,10 +6,11 @@ card_nas_dima:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding-top: "0px"
-      - padding-left: "0px"
-      - padding-right: "0px"
-      - padding-bottom: "var(--card-padding)"
+      # - padding-top: "0px"
+      # - padding-left: "0px"
+      # - padding-right: "0px"
+      # - padding-bottom: "var(--card-padding)"
+      - padding: "0px"
     grid:
       - grid-template-areas: "'item1' 'item2' 'item3' 'item4'"
       - grid-template-columns: "1fr"
@@ -30,12 +31,12 @@ card_nas_dima:
           ]]]
         label: '[[[ return states[variables.ulm_card_nas_entity].attributes.installed_version ]]]'
         template:
-          - "icon_info"
+          - "icon_info"        
           - "nas_new_version_available"
           #- "blue_no_state"
         styles:
-          card:
-            - padding: "var(--card-padding)"
+          # card:
+          #   - padding: "var(--card-padding)"
           icon:
             - color: "rgba(var(--color-theme),0.9)"
     item2:
@@ -46,6 +47,9 @@ card_nas_dima:
           mini_graph_name: 'HD'
           mini_graph_color: 'rgba(var(--color-green),0.2)'
           mini_graph_entity: '[[[ return variables.ulm_card_nas_hd_entity ]]]'
+        styles:
+          card:
+            - padding-top: "10px"
         
     item3:
       card:
@@ -63,6 +67,9 @@ card_nas_dima:
           mini_graph_name: 'RAM'
           mini_graph_color: 'rgba(var(--color-purple),0.2)'
           mini_graph_entity: '[[[ return variables.ulm_card_nas_ram_entity ]]]'
+        styles:
+          card:
+            - padding-bottom: "var(--card-padding)"
 
 
 
@@ -79,6 +86,13 @@ nas_new_version_available:
           - color: 'rgba(var(--color-blue),1)'
         img_cell:
           - background-color: 'rgba(var(--color-blue), 0.2)'
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - position: "absolute"
+            - left: "40px"
+            - top: "8px"
   custom_fields:
     notification:
       card:

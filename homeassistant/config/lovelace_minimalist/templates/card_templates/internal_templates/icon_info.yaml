@@ -30,8 +30,8 @@ icon_info:
         custom_fields:
           notification:
             - position: "absolute"
-            - left: "28px"
-            - top: "-4px"
+            - left: "40px"
+            - top: "8px"
   styles:
     icon:
       - color: "rgba(var(--color-theme),0.2)"
@@ -52,6 +52,7 @@ icon_info:
       - font-weight: "500"
       - font-size: "14px"
       - margin-left: "12px"
+      - margin-top: "0px"
       - height: "20px"
       - letter-spacing: "0.1px"
     state:
@@ -74,7 +75,10 @@ icon_info:
     card:
       - border-radius: "21px 8px 8px 21px"
       - box-shadow: "none"
-      - padding: "0px"
+      - padding-top: "12px"
+      - padding-bottom: "0px"
+      - padding-right: "12px"
+      - padding-left: "12px"
       # - background-color: "rgba(var(--color-theme),0)"
       - border-style: "none"
       #- text-transform: "capitalize"
@@ -93,14 +97,14 @@ icon_info:
         template: "badge"
         icon: >
           [[[
-            if ( entity.state =="unavailable" ) {
+            if ( entity.state == "unavailable" ) {
               return "mdi:exclamation";
             }
           ]]]
         variables:
           ulm_badge_icon_backgroung_color: >
             [[[
-              if ( entity.state =="unavailable" ) {
+              if ( entity.state == "unavailable" ) {
                 return "rgba(var(--color-red),1)";
               }
             ]]]

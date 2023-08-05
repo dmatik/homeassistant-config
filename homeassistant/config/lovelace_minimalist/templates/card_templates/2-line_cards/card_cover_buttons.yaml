@@ -13,7 +13,7 @@ card_cover_buttons:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "12px"
+      - padding: "0px"
   custom_fields:
     item1:
       card:

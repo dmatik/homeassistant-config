@@ -22,7 +22,8 @@ card_fully:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "var(--card-padding)"
+      #- padding: "var(--card-padding)"
+      - padding: "0px"
   custom_fields:
     item1:
       card:
@@ -113,7 +114,7 @@ card_fully:
               template: "list_2_items"
               styles:
                 card:
-                  - padding-top: 10px
+                  - padding: "10px 0px 0px 0px"
               custom_fields:
                 item1:
                   card:
@@ -137,7 +138,7 @@ card_fully:
               template: "list_2_items"
               styles:
                 card:
-                  - padding-top: 10px
+                  - padding: "10px 0px 0px 0px"
               custom_fields:
                 item1:
                   card:
@@ -161,7 +162,7 @@ card_fully:
               template: "list_2_items"
               styles:
                 card:
-                  - padding-top: 10px
+                  - padding: "10px 0px 0px 0px"
               custom_fields:
                 item1:
                   card:
@@ -185,7 +186,7 @@ card_fully:
               template: "list_2_items"
               styles:
                 card:
-                  - padding-top: 10px
+                  - padding: "10px 0px 0px 0px"
               custom_fields:
                 item1:
                   card:

@@ -9,6 +9,9 @@ list_two_third_items:
       - column-gap: "7px"
     card:
       - box-shadow: "none"
-      - padding: "0px"
+      - padding-top: "0px"
+      - padding-bottom: "12px"
+      - padding-right: "12px"
+      - padding-left: "12px"
       - border-style: "none"
       - border-radius: "0px"

@@ -14,7 +14,8 @@ card_homeassistant:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "var(--card-padding)"
+      #- padding: "var(--card-padding)"
+      - padding: "0px"
   custom_fields:
     item1:
       card:
@@ -77,8 +78,8 @@ ha_new_version_available:
         custom_fields:
           notification:
             - position: "absolute"
-            - left: "28px"
-            - top: "-4px"
+            - left: "40px"
+            - top: "8px"
         icon:
           - color: 'rgba(var(--color-blue),1)'
         img_cell:

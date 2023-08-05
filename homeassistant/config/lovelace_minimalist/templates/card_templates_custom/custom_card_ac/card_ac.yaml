@@ -10,7 +10,8 @@ card_ac_buttons:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "var(--card-padding)"
+      #- padding: "var(--card-padding)"
+      - padding: "0px"
       - position: inherit
     grid:
       - grid-template-areas: '"item1" "item2"'
@@ -292,7 +293,10 @@ ac_list_items_favorite:
   styles:
     card:
       - box-shadow: none
-      - padding: 0px
+      - padding-top: "12px"
+      - padding-bottom: "0px"
+      - padding-right: "12px"
+      - padding-left: "12px"
       - border-style: "none"
       - position: inherit
       - border-radius: 0px

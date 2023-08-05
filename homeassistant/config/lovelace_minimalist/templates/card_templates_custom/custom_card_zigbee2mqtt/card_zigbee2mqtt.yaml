@@ -14,7 +14,8 @@ card_zigbee2mqtt:
     card:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
-      - padding: "var(--card-padding)"
+      #- padding: "var(--card-padding)"
+      - padding: "0px"
   custom_fields:
     item1:
       card:
