@@ -1,0 +1,5 @@
+popup_card_style:
+  styles:
+    card:
+      - background-color: "rgba(189,189,189,0.05)"
+      - border-style: "none"

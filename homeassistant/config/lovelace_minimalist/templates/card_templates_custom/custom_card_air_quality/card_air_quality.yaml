@@ -118,6 +118,7 @@ card_air_quality_graph:
             - box-shadow: "none"
             - border-radius: "var(--border-radius) var(--border-radius) 0px 0px"
             - padding: "var(--card-padding)"
+            - background: "none"
         entity: "[[[ return variables.ulm_card_air_quality_entity ]]]"
         name: "[[[ return variables.ulm_card_air_quality_name ]]]"
     item2:
@@ -159,6 +160,7 @@ card_air_quality_graph:
             padding-right: var(--card-padding) !important;
             padding-left: var(--card-padding) !important;
             border-style: none;
+            background: none;
           }
           .graph {
             padding: 0px !important;

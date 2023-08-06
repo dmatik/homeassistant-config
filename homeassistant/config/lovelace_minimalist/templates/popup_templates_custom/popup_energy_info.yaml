@@ -1,4 +1,5 @@
 popup_energy_info:
+  template: "popup_card_style"
   tap_action:
     action: "none"
   show_icon: false
