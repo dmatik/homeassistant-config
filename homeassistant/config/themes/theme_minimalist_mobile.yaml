@@ -41,8 +41,13 @@ minimalist-mobile:
       }
       @media (max-width: 450px), (max-height: 500px) {
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          border-radius: 0px !important;
+          border-radius: var(--popup-border-radius) !important;
         }
+        .mdc-dialog__scrim {
+          background: var(--primary-background-color) !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;          
+        } 
       }
     ha-dialog$: |
       .mdc-dialog__scrim {
@@ -57,8 +62,13 @@ minimalist-mobile:
       }
       @media (max-width: 450px), (max-height: 500px) {
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          border-radius: 0px !important;
+          border-radius: var(--popup-border-radius) !important;
         }
+        .mdc-dialog__scrim {
+          background: var(--primary-background-color) !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+        } 
       }
   card-mod-view-yaml: |
     "*:first-child$": |
@@ -82,14 +92,14 @@ minimalist-mobile:
       # popup
       popup-background-color: var(--primary-background-color)
       popup-header-background-color: var(--google-red)
-      popup-border-radius: var(--border-radius)
+      popup-border-radius: 28px
       popup-border-width: 1px
       popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
       popup-padding-x: 0px
       popup-padding-y: 0px
       popup-button-border: "1px solid rgba(var(--color-theme),0.15)"
       popup-button-background-color: "rgba(189,189,189,0.2)" #"#bdbdbd"
-      popup-button-power-background-color: "rgba(189,189,189,0.6)" #"#bdbdbd"
+      popup-card-background-color: "rgba(189,189,189,0.15)"
       popup-backdrop-filter: "blur(10px) brightness(100%)"
 
       # Printer colors
@@ -172,14 +182,14 @@ minimalist-mobile:
       # popup
       popup-background-color: var(--primary-background-color)
       popup-header-background-color: var(--google-red)
-      popup-border-radius: var(--border-radius)
+      popup-border-radius: 28px
       popup-border-width: 1px
       popup-border-color: var(--ha-card-border-color, var(--divider-color, #eee))
       popup-padding-x: 0px
       popup-padding-y: 0px
       popup-button-border: "1px solid rgba(var(--color-theme),0.15)"
       popup-button-background-color: "rgba(189,189,189,0.2)" #"#bdbdbd"
-      popup-button-power-background-color: "rgba(189,189,189,0.4)" #"#bdbdbd"
+      popup-card-background-color: "rgba(189,189,189,0.05)"
       popup-backdrop-filter: "blur(10px) contrast(50%)"
 
       # Printer colors
