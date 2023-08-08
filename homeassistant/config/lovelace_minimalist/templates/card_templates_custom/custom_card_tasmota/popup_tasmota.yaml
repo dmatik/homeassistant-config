@@ -25,12 +25,16 @@ popup_tasmota:
             - type: "custom:button-card"
               template: 
                 - 'popup_header_ha_style'
-                - 'popup_button_blue'
+                #- 'popup_button_blue'
               triggers_update: all
               entity: '[[[ return variables.ulm_card_tasmota_entity ]]]'
               #icon: '[[[ return variables.ulm_card_tasmota_icon ]]]'
 
 
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px
 
             ############################################################################
             #                                                                          #
@@ -177,6 +181,10 @@ popup_tasmota_with_power:
               #icon: '[[[ return variables.ulm_card_tasmota_icon ]]]'
 
 
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px
 
             ############################################################################
             #                                                                          #

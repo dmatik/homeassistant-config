@@ -31,13 +31,19 @@ popup_ulanzi_clock:
             - type: "custom:button-card"
               template: 
                 - 'popup_header_ha_style'
-                - 'popup_button_blue'
+                #- 'popup_button_blue'
                 - 'popup_header_ulanzi_name'
               variables:
                 ulm_card_ulanzi_clock_current_app: '[[[ return variables.ulm_card_ulanzi_clock_current_app ]]]'
               triggers_update: all
               entity: '[[[ return variables.ulm_card_ulanzi_clock_entity ]]]'
               #icon: 'mdi:clock-digital'
+
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px
 
 
             ############################################################################

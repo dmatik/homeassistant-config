@@ -35,17 +35,19 @@ popup_chip_air_quality:
             #                                                                          #
             ############################################################################
 
-            # - type: custom:button-card
-            #   template: card_header_popup
-            #   variables:
-            #     card_header_title: "Air Quality"
-            #     card_header_back_button: true   
+            - type: "custom:button-card"
+              template: 
+                - 'popup_header_ha_style'
+              triggers_update: all
+              entity: sensor.waqi_ashdod_yshrl_dod
+
 
 
             - type: "custom:button-card"
               template: spacer
               variables:
-                height: 10px
+                height: 20px
+
 
 
                 
@@ -67,7 +69,7 @@ popup_chip_air_quality:
                 - type: 'custom:button-card'
                   template: 
                     - "popup_card_style"
-                    - "card_air_quality_graph"
+                    - "card_air_quality_graph_only"
                   variables:
                     ulm_card_graph_color: "var(--google-blue)"
                     ulm_card_air_quality_name: Air Quality

@@ -31,10 +31,9 @@ popup_fully_image:
             - type: "custom:button-card"
               template: spacer
               variables:
-                height: 10px
+                height: 20px
 
 
-                
             ############################################################################
             #                                                                          #
             #   Image                                                                  #
@@ -50,7 +49,9 @@ popup_fully_image:
               cards:
 
                 - type: 'custom:button-card'
-                  template: card_fully_image
+                  template: 
+                    - "popup_card_style"
+                    - "card_fully_image"
                   variables:
                     ulm_card_fully_image: "[[[ return variables.ulm_card_fully_image ]]]"
                     ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_refresh_command ]]]"
@@ -77,7 +78,7 @@ popup_fully_image:
                 # Refresh
                 - type: "custom:button-card"
                   template: 
-                    - "popup_button"
+                    - "popup_button_ha_style"
                     - "ulm_language_variables"
                   #entity: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
                   icon: mdi:refresh
@@ -125,7 +126,7 @@ popup_fully_image_auto:
             - type: "custom:button-card"
               template: spacer
               variables:
-                height: 10px
+                height: 20px
 
 
                 
@@ -144,7 +145,9 @@ popup_fully_image_auto:
               cards:
 
                 - type: 'custom:button-card'
-                  template: card_fully_image_auto
+                  template: 
+                    - "popup_card_style"
+                    - "card_fully_image_auto"
                   variables:
                     ulm_card_fully_image: "[[[ return variables.ulm_card_fully_image ]]]"
 

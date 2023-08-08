@@ -53,6 +53,12 @@ popup_switcher:
               entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
 
 
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px
+
+
             ############################################################################
             #                                                                          #
             #   Sensors                                                                #
