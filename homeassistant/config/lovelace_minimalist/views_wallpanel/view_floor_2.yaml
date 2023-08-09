@@ -209,6 +209,18 @@ cards:
                       ulm_card_light_enable_popup: false
                       ulm_card_light_name: Galit
 
+                  # Parents Bathroom Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.parents_bathroom_ceiling
+                    name: Parent Bathroom
+
+                  # Parents Bathroom Mirror Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.parents_bathroom_mirror
+                    name: Parents Bathroom Mirror
+
                   # Ronen Led Strip
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
@@ -228,5 +240,23 @@ cards:
                       ulm_card_light_enable_color: true
                       ulm_card_light_enable_popup: false
                       ulm_card_light_name: Kfir Led Strip
+
+                  # Bathroom Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.bathroom_ceiling
+                    name: Bathroom
+
+                  # Bathroom Mirror Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.bathroom_mirror
+                    name: Bath Mirror
+
+                  # Laundry Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.laundry
+                    name: Laundry
 
 

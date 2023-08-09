@@ -202,6 +202,18 @@ cards:
                         view_layout:
                           grid-row-start: span 2
 
+                      # Parents Bathroom Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.parents_bathroom_ceiling
+                        name: Parent Bath
+
+                      # Parents Bathroom Mirror Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.parents_bathroom_mirror
+                        name: Prnts Bath Mirror
+
                       # Parents Bathroom Heater
                       - type: 'custom:button-card'
                         template: 

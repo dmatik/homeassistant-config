@@ -150,6 +150,24 @@ cards:
                         entity: light.stairs_floor_2
                         name: Stairs
 
+                      # Bathroom Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bathroom_ceiling
+                        name: Bathroom
+
+                      # Bathroom Mirror Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bathroom_mirror
+                        name: Bath Mirror
+
+                      # Laundry Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.laundry
+                        name: Laundry
+
                       # Bathroom Heater
                       - type: 'custom:button-card'
                         template: 
