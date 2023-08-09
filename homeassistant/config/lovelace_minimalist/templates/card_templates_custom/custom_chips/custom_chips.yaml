@@ -61,9 +61,12 @@ chip_menu:
 
 chip_back_new:
   template: 
-    - 'chip_icon_label_state'
+    - 'chip_base'
     - 'chip_navigate_only'
   icon: "mdi:arrow-left"
+  # tap_action:
+  #   action: "url"
+  #   url_path: "javascript:window.history.back();"
 
 chip_icon_only_new:
   template:
