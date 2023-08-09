@@ -302,6 +302,7 @@ cards:
                         icon: mdi:lightbulb-multiple-off
                         variables:
                           color: "yellow"
+                          confirmation_text: "Turn off Basement lights?"
 
                       # Ground Floor Lights OFF scene
                       - type: 'custom:button-card'
@@ -311,7 +312,8 @@ cards:
                         label: "Lights OFF"
                         icon: mdi:lightbulb-multiple-off
                         variables:
-                          color: "yellow"                        
+                          color: "yellow"
+                          confirmation_text: "Turn off Ground Floor lights?"
 
                       # Main Floor Covers
                       - type: 'custom:button-card'
@@ -322,6 +324,7 @@ cards:
                         icon: mdi:window-shutter
                         variables:
                           color: "blue"
+                          confirmation_text: "Main Floor covers?"
 
                       # Movie time
                       - type: 'custom:button-card'
@@ -332,6 +335,7 @@ cards:
                         icon: mdi:movie-filter
                         variables:
                           color: "purple"
+                          confirmation_text: "Movie scene?"
 
 
 

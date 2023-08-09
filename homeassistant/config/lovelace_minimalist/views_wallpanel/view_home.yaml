@@ -425,45 +425,49 @@ cards:
                       grid-template-columns: 1fr 1fr 1fr 1fr
                 cards:
 
-                    # Basement Lights OFF scene
-                    - type: 'custom:button-card'
-                      template: card_scene_vertical
-                      entity: scene.basement_lights_off
-                      name: Basement
-                      label: "Lights OFF"
-                      icon: mdi:lightbulb-multiple-off
-                      variables:
-                        color: "yellow"
+                  # Basement Lights OFF scene
+                  - type: 'custom:button-card'
+                    template: card_scene_vertical
+                    entity: scene.basement_lights_off
+                    name: Basement
+                    label: "Lights OFF"
+                    icon: mdi:lightbulb-multiple-off
+                    variables:
+                      color: "yellow"
+                      confirmation_text: "Turn off Basement lights?"
 
-                    # Ground Floor Lights OFF scene
-                    - type: 'custom:button-card'
-                      template: card_scene_vertical
-                      entity: scene.ground_floor_lights_off
-                      name: Ground
-                      label: "Lights OFF"
-                      icon: mdi:lightbulb-multiple-off
-                      variables:
-                        color: "yellow"
+                  # Ground Floor Lights OFF scene
+                  - type: 'custom:button-card'
+                    template: card_scene_vertical
+                    entity: scene.ground_floor_lights_off
+                    name: Ground
+                    label: "Lights OFF"
+                    icon: mdi:lightbulb-multiple-off
+                    variables:
+                      color: "yellow"
+                      confirmation_text: "Turn off Ground Floor lights?"
 
-                    # Main Floor Covers
-                    - type: 'custom:button-card'
-                      template: card_scene_vertical
-                      entity: scene.main_floor_covers
-                      name: Ground
-                      label: "Covers"
-                      icon: mdi:window-shutter
-                      variables:
-                        color: "blue"
+                  # Main Floor Covers
+                  - type: 'custom:button-card'
+                    template: card_scene_vertical
+                    entity: scene.main_floor_covers
+                    name: Ground
+                    label: "Covers"
+                    icon: mdi:window-shutter
+                    variables:
+                      color: "blue"
+                      confirmation_text: "Main Floor covers?"
 
-                    # Movie time
-                    - type: 'custom:button-card'
-                      template: card_scene_vertical
-                      entity: scene.movie_time
-                      name: Movie
-                      label: "Scene"
-                      icon: mdi:movie-filter
-                      variables:
-                        color: "purple"
+                  # Movie time
+                  - type: 'custom:button-card'
+                    template: card_scene_vertical
+                    entity: scene.movie_time
+                    name: Movie
+                    label: "Scene"
+                    icon: mdi:movie-filter
+                    variables:
+                      color: "purple"
+                      confirmation_text: "Movie scene?"
 
                     # Main Floor Cooling
                     # - type: 'custom:button-card'
