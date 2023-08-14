@@ -26,7 +26,7 @@ scene:
         current_position: 30
         state: open
       cover.kitchen:
-        current_position: 34
+        current_position: 30
         state: open
     icon: mdi:window-shutter
     metadata:
