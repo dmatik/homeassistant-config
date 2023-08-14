@@ -563,9 +563,11 @@
       update_entities:
       - update.blaze_dsm_update
       - update.zeg_dsm_update
-      - update.bedroom_update_available
-      - update.kids_room_update_available
-      - update.living_room_update_available
+      - update.back_yard_cover_firmware_update
+      - update.kitchen_cover_firmware_update
+      - update.living_room_window_cover_firmware_update
+      - update.bathroom_heater
+      - update.parents_bathroom_heater
       mobile_app_device: b8bfbfe5b468a685dd2cc07f662069ee
       send_to_ha: true
       take_backup: true
@@ -949,7 +951,7 @@
   description: ''
   trigger:
   - platform: time
-    at: 06:30:00
+    at: 06:00:00
   condition:
   - condition: state
     entity_id: input_boolean.vacation
@@ -959,4 +961,101 @@
     data: {}
     target:
       entity_id: scene.main_floor_covers
+  mode: single
+- id: '1691642236580'
+  alias: Parents Bathroom Light ON (Motion)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.parents_bathroom_motion_sensors
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.parents_bathroom_ceiling
+    state: 'off'
+  - condition: or
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.parents_bathroom_light_level
+      below: 500
+    enabled: false
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id:
+      - light.parents_bathroom_ceiling
+  mode: single
+- id: '1691642409395'
+  alias: Parents Bathroom Light OFF (Motion)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.parents_bathroom_motion_sensors
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 20
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: binary_sensor.parents_bathroom_motion_sensors
+    state: 'off'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.parents_bathroom_ceiling
+      - light.parents_bathroom_mirror
+  mode: single
+- id: '1691821020032'
+  alias: Bathroom Light ON (Motion)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.bathroom_motion_sensors
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.bathroom_ceiling
+    state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.bathroom_light_level
+    below: 800
+    enabled: false
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id:
+      - light.bathroom_ceiling
+  mode: single
+- id: '1691821140888'
+  alias: Bathroom Light OFF (Motion)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.bathroom_motion_sensors
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 20
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: binary_sensor.bathroom_motion_sensors
+    state: 'off'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.bathroom_ceiling
+      - light.bathroom_mirror
+      - light.laundry
   mode: single

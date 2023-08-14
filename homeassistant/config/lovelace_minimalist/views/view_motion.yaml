@@ -238,6 +238,73 @@ cards:
 
           ############################################################################
           #                                                                          #
+          #   Floor 2                                                                #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Floor 2
+
+
+                # Sensors
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Bathroom Toilet Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.bathroom_toilet_motion_sensor_occupancy
+                        name: Bathroom Toilet
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.bathroom_toilet_motion_sensor_illuminance
+
+                      # Bathroom Bathtub Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.bathroom_bathtub_motion_sensor_occupancy
+                        name: Bathroom Tub
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.bathroom_bathtub_motion_sensor_illuminance
+
+                      # Bathroom Mirror Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.bathroom_mirror_motion_sensor_occupancy
+                        name: Bathroom Mirror
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.bathroom_mirror_motion_sensor_illuminance
+
+
+
+          ############################################################################
+          #                                                                          #
           #   Bedroom                                                                #
           #                                                                          #
           ############################################################################
@@ -281,15 +348,25 @@ cards:
                         variables:
                           light_level: sensor.parents_bathroom_right_motion_sensor_illuminance_lux
 
-                      # Parents Bathroom Left Sensor
+                      # Parents Bathroom Toilet Sensor
                       - type: 'custom:button-card'
                         template: 
                           - card_motion_sensor
-                        entity: binary_sensor.parents_bathroom_left_motion_sensor_occupancy
-                        name: Bathroom Left
+                        entity: binary_sensor.parents_bathroom_toilet_motion_sensor_occupancy
+                        name: Bathroom Toilet
                         show_last_changed: false
                         variables:
-                          light_level: sensor.parents_bathroom_left_motion_sensor_illuminance
+                          light_level: sensor.parents_bathroom_toilet_motion_sensor_illuminance
+
+                      # Parents Bathroom Mirror Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.parents_bathroom_mirror_motion_sensor_occupancy
+                        name: Bathroom Mirror
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.parents_bathroom_mirror_motion_sensor_illuminance
 
 
                 - type: custom:button-card

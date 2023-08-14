@@ -244,15 +244,25 @@ cards:
                         variables:
                           light_level: sensor.parents_bathroom_right_motion_sensor_illuminance_lux
 
-                      # Parents Bathroom Left Sensor
+                      # Parents Bathroom Toilet Sensor
                       - type: 'custom:button-card'
                         template: 
                           - card_motion_sensor
-                        entity: binary_sensor.parents_bathroom_left_motion_sensor_occupancy
-                        name: Bathroom Left
+                        entity: binary_sensor.parents_bathroom_toilet_motion_sensor_occupancy
+                        name: Bathroom Toilet
                         show_last_changed: false
                         variables:
-                          light_level: sensor.parents_bathroom_left_motion_sensor_illuminance
+                          light_level: sensor.parents_bathroom_toilet_motion_sensor_illuminance
+
+                      # Parents Bathroom Mirror Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.parents_bathroom_mirror_motion_sensor_occupancy
+                        name: Bathroom Mirror
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.parents_bathroom_mirror_motion_sensor_illuminance
 
 
 

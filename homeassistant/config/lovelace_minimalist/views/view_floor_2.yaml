@@ -102,6 +102,15 @@ cards:
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_lights_on_floor_2
 
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_blue'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_floor_2
+
 
 
           ############################################################################
@@ -195,7 +204,35 @@ cards:
                         view_layout:
                           grid-row-start: span 2
 
+                      # Bathroom Toilet Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.bathroom_toilet_motion_sensor_occupancy
+                        name: Bathroom Toilet
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.bathroom_toilet_motion_sensor_illuminance
 
+                      # Bathroom Bathtub Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.bathroom_bathtub_motion_sensor_occupancy
+                        name: Bathroom Tub
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.bathroom_bathtub_motion_sensor_illuminance
+
+                      # Bathroom Mirror Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.bathroom_mirror_motion_sensor_occupancy
+                        name: Bathroom Mirror
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.bathroom_mirror_motion_sensor_illuminance
 
                 - type: custom:button-card
                   template: spacer
