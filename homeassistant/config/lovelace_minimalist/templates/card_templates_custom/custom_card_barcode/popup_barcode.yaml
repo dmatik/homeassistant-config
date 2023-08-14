@@ -34,7 +34,9 @@ popup_barcode:
               cards:
 
                 - type: 'custom:button-card'
-                  template: card_image
+                  template:
+                    - "popup_card_style"
+                    - "card_image"
                   variables: 
                     card_image_image: "[[[ return variables.ulm_card_barcode_image ]]]"
 
