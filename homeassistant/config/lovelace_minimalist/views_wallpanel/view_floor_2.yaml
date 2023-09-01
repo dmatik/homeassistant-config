@@ -221,6 +221,12 @@ cards:
                     entity: light.parents_bathroom_mirror
                     name: Parents Bathroom Mirror
 
+                  # Ronen Room Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.ronen_room
+                    name: Ronen Room
+
                   # Ronen Led Strip
                   - type: 'custom:button-card'
                     template: 'card_light_simple'

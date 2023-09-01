@@ -237,6 +237,12 @@ cards:
                     view_layout:
                       grid-row-start: span 2
 
+                  # Suka
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: switch.power_socket_01
+                    name: סוכה
+                    icon: mdi:tent
 
                       
 

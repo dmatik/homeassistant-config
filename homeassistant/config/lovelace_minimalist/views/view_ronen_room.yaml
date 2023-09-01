@@ -162,6 +162,12 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
+                      # Ronen Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.ronen_room
+                        name: Ronen Room
+                        
                       # Ronen Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'

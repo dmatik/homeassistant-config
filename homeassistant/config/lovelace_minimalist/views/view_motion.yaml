@@ -178,6 +178,15 @@ cards:
                         variables:
                           light_level: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
 
+                      # Guest Bathroom Mirror Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
+                        name: Guest Mirror
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
 
 
           ############################################################################
@@ -214,6 +223,26 @@ cards:
                         "(max-width: 450px)":
                           grid-template-columns: 1fr 1fr            
                     cards:
+
+                      # Kitchen Left
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.kitchen_left_motion_sensor_occupancy
+                        name: Kitchen Left
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.kitchen_left_motion_sensor_illuminance
+
+                      # Kitchen Right
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.kitchen_right_motion_sensor_occupancy
+                        name: Kitchen Right
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.kitchen_right_motion_sensor_illuminance
 
                       # Kitchen Sensor
                       - type: 'custom:button-card'
