@@ -47,58 +47,6 @@
         data:
           title: Battery Low
           message: 'Low battery warning for: {{sensors}}'
-- id: '1630044898982'
-  alias: Kitchen Strips ON (Motion)
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.kitchen_motion_sensors
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: light.kitchen_led_strip
-    state: 'off'
-  - type: is_illuminance
-    condition: device
-    device_id: aa52ca9d0fd42efba6d2e9fa0cc8cdc4
-    entity_id: sensor.kitchen_motion_sensor_illuminance_lux
-    domain: sensor
-    below: 100
-    enabled: false
-  - condition: numeric_state
-    entity_id: sensor.kitchen_light_level
-    below: 100
-  action:
-  - service: light.turn_on
-    target:
-      entity_id:
-      - light.kitchen_led_strip
-    data: {}
-  mode: single
-- id: '1630045120285'
-  alias: Kitchen Strips OFF (Motion)
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.kitchen_motion_sensors
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-  condition:
-  - condition: state
-    entity_id: binary_sensor.kitchen_motion_sensors
-    state: 'off'
-  action:
-  - service: light.turn_off
-    target:
-      entity_id:
-      - light.kitchen_led_strip
-    data: {}
-  mode: single
 - id: '1630052525462'
   alias: Red Alert Ashdod
   description: ''
@@ -686,65 +634,6 @@
       toggle_helper: input_boolean.ulanzi_weather
       my_sensor: weather.met_home
       show_windspeed: false
-- id: '1685443922494'
-  alias: Guest Bathroom Light ON (Motion)
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.guest_bathroom_motion_sensors
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: light.guests_bathroom
-    state: 'off'
-  - condition: or
-    conditions:
-    - type: is_illuminance
-      condition: device
-      device_id: 35f86b62114cf84564811f21cb9d4b8a
-      entity_id: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
-      domain: sensor
-      below: 120
-      enabled: false
-    - type: is_illuminance
-      condition: device
-      device_id: 063da8dd4860ce791e7989e3b3a5488e
-      entity_id: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
-      domain: sensor
-      below: 120
-      enabled: false
-    - condition: numeric_state
-      entity_id: sensor.guest_bathroom_light_level
-      below: 400
-  action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.guests_bathroom
-  mode: single
-- id: '1685444080924'
-  alias: Guest Bathroom Light OFF (Motion)
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.guest_bathroom_motion_sensors
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 20
-      seconds: 0
-  condition:
-  - condition: state
-    entity_id: binary_sensor.guest_bathroom_motion_sensors
-    state: 'off'
-  action:
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.guests_bathroom
-  mode: single
 - id: '1689144825201'
   alias: Night Lights
   description: ''
@@ -761,6 +650,7 @@
   - condition: state
     entity_id: input_boolean.vacation
     state: 'off'
+    enabled: false
   action:
   - choose:
     - conditions:
@@ -962,100 +852,116 @@
     target:
       entity_id: scene.main_floor_covers
   mode: single
-- id: '1691642236580'
+- id: '1692775444713'
   alias: Parents Bathroom Light ON (Motion)
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.parents_bathroom_motion_sensors
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: light.parents_bathroom_ceiling
-    state: 'off'
-  - condition: or
-    conditions:
-    - condition: numeric_state
-      entity_id: sensor.parents_bathroom_light_level
-      below: 500
-    enabled: false
-  action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id:
-      - light.parents_bathroom_ceiling
-  mode: single
-- id: '1691642409395'
+  use_blueprint:
+    path: motion_lights_on.yaml
+    input:
+      motion_entity: binary_sensor.parents_bathroom_motion_sensors
+      light_target:
+        entity_id:
+        - light.parents_bathroom_ceiling
+      condition:
+      - condition: numeric_state
+        entity_id: sensor.parents_bathroom_light_level
+        below: 800
+        enabled: false
+      light_level_entity: sensor.parents_bathroom_light_level
+      light_level_threshold: 1500
+      light_level_threshold_value: 1500
+- id: '1692782322408'
   alias: Parents Bathroom Light OFF (Motion)
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.parents_bathroom_motion_sensors
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 20
-      seconds: 0
-  condition:
-  - condition: state
-    entity_id: binary_sensor.parents_bathroom_motion_sensors
-    state: 'off'
-  action:
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id:
-      - light.parents_bathroom_ceiling
-      - light.parents_bathroom_mirror
-  mode: single
-- id: '1691821020032'
+  use_blueprint:
+    path: motion_lights_off.yaml
+    input:
+      motion_entity: binary_sensor.parents_bathroom_motion_sensors
+      no_motion_wait: 10
+      light_target:
+        entity_id:
+        - light.parents_bathroom_ceiling
+        - light.parents_bathroom_mirror
+- id: '1692783833962'
   alias: Bathroom Light ON (Motion)
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_motion_sensors
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: light.bathroom_ceiling
-    state: 'off'
-  - condition: numeric_state
-    entity_id: sensor.bathroom_light_level
-    below: 800
-    enabled: false
-  action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id:
-      - light.bathroom_ceiling
-  mode: single
-- id: '1691821140888'
+  use_blueprint:
+    path: motion_lights_on.yaml
+    input:
+      condition:
+      - condition: numeric_state
+        entity_id: sensor.bathroom_light_level
+        below: 800
+        enabled: false
+      motion_entity: binary_sensor.bathroom_motion_sensors
+      light_target:
+        entity_id:
+        - light.bathroom_ceiling
+      light_level_entity: sensor.bathroom_light_level
+      light_level_threshold: 1500
+      light_level_threshold_value: 1500
+- id: '1692783916775'
   alias: Bathroom Light OFF (Motion)
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_motion_sensors
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 20
-      seconds: 0
-  condition:
-  - condition: state
-    entity_id: binary_sensor.bathroom_motion_sensors
-    state: 'off'
-  action:
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id:
-      - light.bathroom_ceiling
-      - light.bathroom_mirror
-      - light.laundry
-  mode: single
+  use_blueprint:
+    path: motion_lights_off.yaml
+    input:
+      motion_entity: binary_sensor.bathroom_motion_sensors
+      no_motion_wait: 15
+      light_target:
+        entity_id:
+        - light.bathroom_ceiling
+        - light.bathroom_mirror
+        - light.laundry
+- id: '1692784029133'
+  alias: Guest Bathroom Light ON (Motion)
+  description: ''
+  use_blueprint:
+    path: motion_lights_on.yaml
+    input:
+      condition:
+      - condition: numeric_state
+        entity_id: sensor.guest_bathroom_light_level
+        below: 400
+      motion_entity: binary_sensor.guest_bathroom_motion_sensors
+      light_target:
+        entity_id: light.guests_bathroom
+      light_level_entity: sensor.guest_bathroom_light_level
+      light_level_threshold: 400
+      light_level_threshold_value: 800
+- id: '1692784093288'
+  alias: Guest Bathroom Light OFF (Motion)
+  description: ''
+  use_blueprint:
+    path: motion_lights_off.yaml
+    input:
+      no_motion_wait: 20
+      motion_entity: binary_sensor.guest_bathroom_motion_sensors
+      light_target:
+        entity_id: light.guests_bathroom
+- id: '1692784229112'
+  alias: Kitchen Strips ON (Motion)
+  description: ''
+  use_blueprint:
+    path: motion_lights_on.yaml
+    input:
+      condition:
+      - condition: numeric_state
+        entity_id: sensor.kitchen_light_level
+        below: 100
+      motion_entity: binary_sensor.kitchen_motion_sensors
+      light_target:
+        entity_id: light.kitchen_led_strip
+      light_level_threshold: 100
+      light_level_entity: sensor.kitchen_light_level
+      light_level_threshold_value: 3000
+- id: '1692784288283'
+  alias: Kitchen Strips OFF (Motion)
+  description: ''
+  use_blueprint:
+    path: motion_lights_off.yaml
+    input:
+      motion_entity: binary_sensor.kitchen_motion_sensors
+      no_motion_wait: 10
+      light_target:
+        entity_id: light.kitchen_led_strip

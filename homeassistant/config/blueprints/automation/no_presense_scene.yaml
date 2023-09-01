@@ -1,0 +1,35 @@
+blueprint:
+  name: No Presense Scene
+  description: Run a scene when no presense detected for specific amount of time
+  domain: automation
+  input:
+    presense_entity:
+      name: Presense Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+    no_presense_wait:
+      name: Wait time
+      default: 5
+      selector:
+        number:
+          min: 0
+          max: 60
+          unit_of_measurement: minutes
+    scene_target:
+      name: Scene
+      selector:
+        target:
+          entity:
+            domain: scene
+trigger:
+  - platform: state
+    entity_id: !input presense_entity
+    to: "off"
+    for:
+      hours: 0
+      minutes: !input no_presense_wait
+      seconds: 0
+action:
+  - service: scene.turn_on
+    target: !input scene_target

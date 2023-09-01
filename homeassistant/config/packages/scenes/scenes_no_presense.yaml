@@ -1,0 +1,17 @@
+scene:
+
+  - id: 'no_presense_basement'
+    name: 'No Presense Basement'
+    entities:
+      climate.basement:
+        state: 'off'
+      light.basement:
+        state: 'off'
+      light.basement_2_light_1:
+        state: 'off'
+      light.basement_2_light_2:
+        state: 'off'
+      light.basement_toys:
+        state: 'off'
+      light.work_room:
+        state: 'off'
