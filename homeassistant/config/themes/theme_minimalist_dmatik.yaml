@@ -69,6 +69,9 @@ minimalist-dmatik:
           -webkit-backdrop-filter: none !important;
         } 
       }
+      div {
+        outline: none !important;
+      }
   card-mod-root-yaml: | 
     ha-tabs$: |
       #tabsContent {
