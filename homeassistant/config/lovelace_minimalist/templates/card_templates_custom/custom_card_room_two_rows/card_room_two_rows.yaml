@@ -157,6 +157,8 @@ rooms_widget_light:
     card:
       - width: 48px
       - border-radius: 10px
+    icon:
+      - color: "rgba(var(--color-theme),0.2)"
 
 
 rooms_widget_temp:
