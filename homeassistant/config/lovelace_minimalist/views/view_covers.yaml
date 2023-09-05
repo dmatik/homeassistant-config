@@ -158,6 +158,15 @@ cards:
                         view_layout:
                           grid-row-start: span 2 
 
+                      # Entrance Window Cover
+                      - type: 'custom:button-card'
+                        template: card_cover_buttons
+                        variables:
+                          ulm_card_cover_buttons_name: Entrance
+                          ulm_card_cover_buttons_entity: cover.entrance_window
+                        view_layout:
+                          grid-row-start: span 2 
+
                       # Kitchen Cover
                       - type: 'custom:button-card'
                         template: card_cover_buttons

@@ -516,6 +516,8 @@
       - update.living_room_window_cover_firmware_update
       - update.bathroom_heater
       - update.parents_bathroom_heater
+      - update.entrance_window_cover_firmware_update
+      - update.ronen_room_switch_firmware_update
       mobile_app_device: b8bfbfe5b468a685dd2cc07f662069ee
       send_to_ha: true
       take_backup: true
