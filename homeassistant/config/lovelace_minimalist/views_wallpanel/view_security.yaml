@@ -123,25 +123,25 @@ cards:
                     variables:
                       light_level: sensor.kitchen_right_motion_sensor_illuminance
 
-                  # Kitchen Sensor
-                  - type: 'custom:button-card'
-                    template: 
-                      - card_motion_sensor
-                    entity: binary_sensor.kitchen_motion_sensor_occupancy
-                    name: Kitchen
-                    show_last_changed: false
-                    variables:
-                      light_level: sensor.kitchen_motion_sensor_illuminance_lux
+                  # # Kitchen Sensor
+                  # - type: 'custom:button-card'
+                  #   template: 
+                  #     - card_motion_sensor
+                  #   entity: binary_sensor.kitchen_motion_sensor_occupancy
+                  #   name: Kitchen
+                  #   show_last_changed: false
+                  #   variables:
+                  #     light_level: sensor.kitchen_motion_sensor_illuminance_lux
 
-                  # Kitchen 2 Sensor
-                  - type: 'custom:button-card'
-                    template: 
-                      - card_motion_sensor
-                    entity: binary_sensor.kitchen_motion_sensor_2_occupancy
-                    name: Kitchen 2
-                    show_last_changed: false
-                    variables:
-                      light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
+                  # # Kitchen 2 Sensor
+                  # - type: 'custom:button-card'
+                  #   template: 
+                  #     - card_motion_sensor
+                  #   entity: binary_sensor.kitchen_motion_sensor_2_occupancy
+                  #   name: Kitchen 2
+                  #   show_last_changed: false
+                  #   variables:
+                  #     light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
 
                   # Bathroom Toilet Sensor
                   - type: 'custom:button-card'
