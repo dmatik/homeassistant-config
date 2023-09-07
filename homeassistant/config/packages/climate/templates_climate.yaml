@@ -1,0 +1,372 @@
+climate:
+
+  ############################################################################
+  #                                                                          #
+  #   Living Room AC Template                                                #
+  #                                                                          #
+  ############################################################################
+
+  - platform: climate_template
+    name: Living Room Template
+    unique_id: climate_living_room_template
+
+    modes:
+      - "off" 
+      - "heat_cool"
+      - "cool"
+      - "heat"
+      - "fan_only"
+      - "dry"
+
+    min_temp: 16
+    max_temp: 32
+
+    temp_step: 1
+
+    fan_modes:
+      - "auto"
+      - "sleep"
+      - "quiet"
+      - "low"
+      - "health"
+      - "medium"
+      - "natural"
+      - "strong"
+      - "high"
+
+    current_temperature_template: "{{ states('sensor.climate_living_room_temp') }}"
+
+    target_temperature_template: "{{ state_attr('climate.living_room', 'temperature') }}"
+
+    set_temperature:
+      - service: climate.set_temperature
+        data:
+          temperature: "{{ temperature }}"
+        target:
+          entity_id: climate.living_room
+
+    fan_mode_template: "{{ state_attr('climate.living_room', 'fan_mode') }}"
+
+    set_fan_mode:
+      - service: climate.set_fan_mode
+        data:
+          fan_mode: "{{ fan_mode }}"
+        target:
+          entity_id: climate.living_room    
+
+    availability_template: "{{ not is_state('climate.living_room', 'unavailable') }}"
+
+    set_hvac_mode:
+      - service: climate.set_hvac_mode
+        data:
+          hvac_mode: "{{ hvac_mode }}"
+        target:
+          entity_id: climate.living_room
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Basement AC Template                                                   #
+  #                                                                          #
+  ############################################################################
+
+  - platform: climate_template
+    name: Basement Template
+    unique_id: climate_basement_template
+
+    modes:
+      - "auto"
+      - "cool"
+      - "dry"
+      - "fan_only"
+      - "heat"
+      - "off"
+
+    min_temp: 8
+    max_temp: 30
+
+    temp_step: 1
+
+    fan_modes:
+      - "auto"
+      - "low" 
+      - "medium low"
+      - "medium"
+      - "medium high"
+      - "high"
+
+    swing_modes:
+      - "off"
+      - "vertical"
+      - "horizontal"
+      - "both"
+
+    current_temperature_template: "{{ states('sensor.climate_basement_temp') }}"
+
+    target_temperature_template: "{{ state_attr('climate.basement', 'temperature') }}"
+
+    set_temperature:
+      - service: climate.set_temperature
+        data:
+          temperature: "{{ temperature }}"
+        target:
+          entity_id: climate.basement
+
+    fan_mode_template: "{{ state_attr('climate.basement', 'fan_mode') }}"
+
+    set_fan_mode:
+      - service: climate.set_fan_mode
+        data:
+          fan_mode: "{{ fan_mode }}"
+        target:
+          entity_id: climate.basement    
+
+    swing_mode_template: "{{ state_attr('climate.basement', 'swing_mode') }}"
+
+    set_swing_mode:
+      - service: climate.set_swing_mode
+        data:
+          swing_mode: "{{ swing_mode }}"
+        target:
+          entity_id: climate.basement      
+
+    availability_template: "{{ not is_state('climate.basement', 'unavailable') }}"
+
+    set_hvac_mode:
+      - service: climate.set_hvac_mode
+        data:
+          hvac_mode: "{{ hvac_mode }}"
+        target:
+          entity_id: climate.basement
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Bedroom AC Template                                                    #
+  #                                                                          #
+  ############################################################################
+
+  - platform: climate_template
+    name: Bedroom Template
+    unique_id: climate_bedroom_template
+
+    modes:
+      - "auto"
+      - "cool"
+      - "dry"
+      - "fan_only"
+      - "heat"
+      - "off"
+
+    min_temp: 8
+    max_temp: 30
+
+    temp_step: 1
+
+    fan_modes:
+      - "auto"
+      - "low" 
+      - "medium low"
+      - "medium"
+      - "medium high"
+      - "high"
+
+    swing_modes:
+      - "off"
+      - "vertical"
+      - "horizontal"
+      - "both"
+
+    current_temperature_template: "{{ states('sensor.climate_bedroom_temp') }}"
+
+    target_temperature_template: "{{ state_attr('climate.bedroom', 'temperature') }}"
+
+    set_temperature:
+      - service: climate.set_temperature
+        data:
+          temperature: "{{ temperature }}"
+        target:
+          entity_id: climate.bedroom
+
+    fan_mode_template: "{{ state_attr('climate.bedroom', 'fan_mode') }}"
+
+    set_fan_mode:
+      - service: climate.set_fan_mode
+        data:
+          fan_mode: "{{ fan_mode }}"
+        target:
+          entity_id: climate.bedroom    
+
+    swing_mode_template: "{{ state_attr('climate.bedroom', 'swing_mode') }}"
+
+    set_swing_mode:
+      - service: climate.set_swing_mode
+        data:
+          swing_mode: "{{ swing_mode }}"
+        target:
+          entity_id: climate.bedroom      
+
+    availability_template: "{{ not is_state('climate.bedroom', 'unavailable') }}"
+
+    set_hvac_mode:
+      - service: climate.set_hvac_mode
+        data:
+          hvac_mode: "{{ hvac_mode }}"
+        target:
+          entity_id: climate.bedroom
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Ronen AC Template                                                      #
+  #                                                                          #
+  ############################################################################
+
+  - platform: climate_template
+    name: Ronen Template
+    unique_id: climate_ronen_template
+
+    modes:
+      - "auto"
+      - "cool"
+      - "dry"
+      - "fan_only"
+      - "heat"
+      - "off"
+
+    min_temp: 8
+    max_temp: 30
+
+    temp_step: 1
+
+    fan_modes:
+      - "auto"
+      - "low" 
+      - "medium low"
+      - "medium"
+      - "medium high"
+      - "high"
+
+    swing_modes:
+      - "off"
+      - "vertical"
+      - "horizontal"
+      - "both"
+
+    current_temperature_template: "{{ states('sensor.climate_ronen_temp') }}"
+
+    target_temperature_template: "{{ state_attr('climate.ronen', 'temperature') }}"
+
+    set_temperature:
+      - service: climate.set_temperature
+        data:
+          temperature: "{{ temperature }}"
+        target:
+          entity_id: climate.ronen
+
+    fan_mode_template: "{{ state_attr('climate.ronen', 'fan_mode') }}"
+
+    set_fan_mode:
+      - service: climate.set_fan_mode
+        data:
+          fan_mode: "{{ fan_mode }}"
+        target:
+          entity_id: climate.ronen    
+
+    swing_mode_template: "{{ state_attr('climate.ronen', 'swing_mode') }}"
+
+    set_swing_mode:
+      - service: climate.set_swing_mode
+        data:
+          swing_mode: "{{ swing_mode }}"
+        target:
+          entity_id: climate.ronen      
+
+    availability_template: "{{ not is_state('climate.ronen', 'unavailable') }}"
+
+    set_hvac_mode:
+      - service: climate.set_hvac_mode
+        data:
+          hvac_mode: "{{ hvac_mode }}"
+        target:
+          entity_id: climate.ronen
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Kfir AC Template                                                       #
+  #                                                                          #
+  ############################################################################
+
+  - platform: climate_template
+    name: Kfir Template
+    unique_id: climate_kfir_template
+
+    modes:
+      - "auto"
+      - "cool"
+      - "dry"
+      - "fan_only"
+      - "heat"
+      - "off"
+
+    min_temp: 8
+    max_temp: 30
+
+    temp_step: 1
+
+    fan_modes:
+      - "auto"
+      - "low" 
+      - "medium low"
+      - "medium"
+      - "medium high"
+      - "high"
+
+    swing_modes:
+      - "off"
+      - "vertical"
+      - "horizontal"
+      - "both"
+
+    current_temperature_template: "{{ states('sensor.climate_kfir_temp') }}"
+
+    target_temperature_template: "{{ state_attr('climate.kfir', 'temperature') }}"
+
+    set_temperature:
+      - service: climate.set_temperature
+        data:
+          temperature: "{{ temperature }}"
+        target:
+          entity_id: climate.kfir
+
+    fan_mode_template: "{{ state_attr('climate.kfir', 'fan_mode') }}"
+
+    set_fan_mode:
+      - service: climate.set_fan_mode
+        data:
+          fan_mode: "{{ fan_mode }}"
+        target:
+          entity_id: climate.kfir    
+
+    swing_mode_template: "{{ state_attr('climate.kfir', 'swing_mode') }}"
+
+    set_swing_mode:
+      - service: climate.set_swing_mode
+        data:
+          swing_mode: "{{ swing_mode }}"
+        target:
+          entity_id: climate.kfir      
+
+    availability_template: "{{ not is_state('climate.kfir', 'unavailable') }}"
+
+    set_hvac_mode:
+      - service: climate.set_hvac_mode
+        data:
+          hvac_mode: "{{ hvac_mode }}"
+        target:
+          entity_id: climate.kfir

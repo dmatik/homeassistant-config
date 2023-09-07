@@ -411,7 +411,7 @@ cards:
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
-                          ulm_card_ac_entity: climate.living_room
+                          ulm_card_ac_entity: climate.living_room_template
                           ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
                           ulm_card_ac_name: 'Living Room'
                         view_layout:

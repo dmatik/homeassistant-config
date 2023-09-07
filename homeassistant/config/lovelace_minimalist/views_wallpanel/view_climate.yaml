@@ -202,7 +202,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_ac_buttons
                     variables:
-                      ulm_card_ac_entity: climate.living_room
+                      ulm_card_ac_entity: climate.living_room_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
                       ulm_card_ac_name: 'Living Room'
                       #ulm_card_ac_display_name: 'AC'
@@ -214,7 +214,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_ac_buttons
                     variables:
-                      ulm_card_ac_entity: climate.bedroom
+                      ulm_card_ac_entity: climate.bedroom_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
                       ulm_card_ac_name: 'Bedroom'
                       #ulm_card_ac_display_name: 'AC'
@@ -235,7 +235,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_ac_buttons
                     variables:
-                      ulm_card_ac_entity: climate.kfir
+                      ulm_card_ac_entity: climate.kfir_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
                       ulm_card_ac_name: 'Kfir'
                       #ulm_card_ac_display_name: 'AC'
@@ -255,7 +255,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_ac_buttons
                     variables:
-                      ulm_card_ac_entity: climate.ronen
+                      ulm_card_ac_entity: climate.ronen_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
                       ulm_card_ac_name: 'Ronen'
                       #ulm_card_ac_display_name: 'AC'
@@ -266,7 +266,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_ac_buttons
                     variables:
-                      ulm_card_ac_entity: climate.basement
+                      ulm_card_ac_entity: climate.basement_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
                       ulm_card_ac_name: 'Basement'
                       #ulm_card_ac_display_name: 'AC'
