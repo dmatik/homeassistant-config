@@ -64,7 +64,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_ac_buttons
                     variables:
-                      ulm_card_ac_entity: climate.bedroom_template
+                      ulm_card_ac_entity: climate.bedroom
                       ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
                       ulm_card_ac_name: 'Bedroom'
                     view_layout:
@@ -74,7 +74,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_ac_buttons
                     variables:
-                      ulm_card_ac_entity: climate.kfir_template
+                      ulm_card_ac_entity: climate.kfir
                       ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
                       ulm_card_ac_name: 'Kfir'
                     view_layout:
@@ -84,7 +84,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_ac_buttons
                     variables:
-                      ulm_card_ac_entity: climate.ronen_template
+                      ulm_card_ac_entity: climate.ronen
                       ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
                       ulm_card_ac_name: 'Ronen'
                     view_layout:

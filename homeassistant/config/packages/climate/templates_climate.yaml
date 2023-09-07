@@ -56,6 +56,8 @@ climate:
 
     availability_template: "{{ not is_state('climate.living_room', 'unavailable') }}"
 
+    hvac_mode_template: "{{ states('climate.living_room') }}"
+
     set_hvac_mode:
       - service: climate.set_hvac_mode
         data:
@@ -132,6 +134,8 @@ climate:
           entity_id: climate.basement      
 
     availability_template: "{{ not is_state('climate.basement', 'unavailable') }}"
+
+    hvac_mode_template: "{{ states('climate.basement') }}"
 
     set_hvac_mode:
       - service: climate.set_hvac_mode
@@ -210,6 +214,8 @@ climate:
 
     availability_template: "{{ not is_state('climate.bedroom', 'unavailable') }}"
 
+    hvac_mode_template: "{{ states('climate.bedroom') }}"
+
     set_hvac_mode:
       - service: climate.set_hvac_mode
         data:
@@ -287,6 +293,8 @@ climate:
 
     availability_template: "{{ not is_state('climate.ronen', 'unavailable') }}"
 
+    hvac_mode_template: "{{ states('climate.ronen') }}"
+
     set_hvac_mode:
       - service: climate.set_hvac_mode
         data:
@@ -363,6 +371,8 @@ climate:
           entity_id: climate.kfir      
 
     availability_template: "{{ not is_state('climate.kfir', 'unavailable') }}"
+
+    hvac_mode_template: "{{ states('climate.kfir') }}"
 
     set_hvac_mode:
       - service: climate.set_hvac_mode
