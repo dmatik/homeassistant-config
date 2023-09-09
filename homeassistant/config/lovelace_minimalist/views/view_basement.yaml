@@ -212,7 +212,7 @@ cards:
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
-                          ulm_card_ac_entity: climate.basement
+                          ulm_card_ac_entity: climate.basement_template
                           ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
                           ulm_card_ac_name: 'Basement'
                         view_layout:

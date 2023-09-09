@@ -106,23 +106,23 @@ cards:
 
                   # Living Room Climate
                   - type: 'custom:button-card'
-                    template: card_ac_buttons
+                    template: card_ac_buttons_with_temp
                     variables:
-                      ulm_card_ac_entity: climate.living_room
+                      ulm_card_ac_entity: climate.living_room_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
                       ulm_card_ac_name: 'Living Room'
                     view_layout:
-                      grid-row-start: span 2
+                      grid-row-start: span 3
 
                   # Basement Climate
                   - type: 'custom:button-card'
-                    template: card_ac_buttons
+                    template: card_ac_buttons_with_temp
                     variables:
-                      ulm_card_ac_entity: climate.basement
+                      ulm_card_ac_entity: climate.basement_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
                       ulm_card_ac_name: 'Basement'
                     view_layout:
-                      grid-row-start: span 2
+                      grid-row-start: span 3
 
 
               # Covers
