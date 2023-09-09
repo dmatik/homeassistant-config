@@ -20,6 +20,11 @@ minimalist-mobile:
   view-margins: "0px"
   grid-layout-margins: "-10px -2px 12px"
 
+  # Climate
+  climate-cool-color: "30, 150, 243"
+  climate-heat-color: "255, 111, 34"
+  climate-auto-color: "76, 175, 80"
+
   card-mod-theme: "minimalist-mobile"
   card-mod-more-info-yaml: |
     .: |

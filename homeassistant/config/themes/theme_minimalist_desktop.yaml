@@ -17,6 +17,12 @@ minimalist-desktop:
   view-margins: "0px"
   grid-layout-margins: "-10px -2px 12px"
   card-mod-theme: "minimalist-desktop"
+
+  # Climate
+  climate-cool-color: "30, 150, 243"
+  climate-heat-color: "255, 111, 34"
+  climate-auto-color: "76, 175, 80"
+
   card-mod-more-info-yaml: |
         $: |
               .mdc-dialog__scrim {
