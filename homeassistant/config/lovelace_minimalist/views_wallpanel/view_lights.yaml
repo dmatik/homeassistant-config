@@ -209,6 +209,12 @@ cards:
                     #   entity: light.stairs_floor_2
                     #   name: Stairs
 
+                    # Bedroom Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.bedroom
+                      name: Bedroom
+
                     # Bedside Dima Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
