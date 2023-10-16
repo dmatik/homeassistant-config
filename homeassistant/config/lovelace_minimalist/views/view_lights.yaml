@@ -114,7 +114,7 @@ cards:
 
           ############################################################################
           #                                                                          #
-          #   Main Floor                                                             #
+          #   Living Room                                                            #
           #                                                                          #
           ############################################################################
 
@@ -124,7 +124,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Main Floor
+                      name: Living Room
 
 
                 # Lights
@@ -194,6 +194,42 @@ cards:
                         entity: light.guests_bathroom
                         name: Guest Bathroom
 
+
+
+          ############################################################################
+          #                                                                          #
+          #   Kitchen                                                                #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Kitchen
+
+                # Lights
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+                    
                       # Kitchen Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
@@ -247,7 +283,6 @@ cards:
                       template: title
                       name: Floor 2
 
-
                 # Lights
                 - type: "custom:mod-card"
                   style:
@@ -268,11 +303,59 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
-                      # Stairs Light
-                      # - type: 'custom:button-card'
-                      #   template: 'card_light_simple'
-                      #   entity: light.stairs_floor_2
-                      #   name: Stairs
+                      # Bathroom Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bathroom_ceiling
+                        name: Bathroom
+
+                      # Bathroom Mirror Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bathroom_mirror
+                        name: Bath Mirror
+
+                      # Laundry Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.laundry
+                        name: Laundry
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Bedroom                                                                #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Bedroom
+
+                # Lights
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
                       # Bedside Dima Light
                       - type: 'custom:button-card'
@@ -306,6 +389,42 @@ cards:
                         entity: light.parents_bathroom_mirror
                         name: Prnts Bath Mirror
 
+
+
+          ############################################################################
+          #                                                                          #
+          #   Ronen Room                                                             #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Ronen Room
+
+                # Lights
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
                       # Ronen Room Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
@@ -322,6 +441,48 @@ cards:
                           ulm_card_light_enable_popup: false
                           ulm_card_light_name: Ronen Strip
 
+
+
+          ############################################################################
+          #                                                                          #
+          #   Kfir Room                                                              #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Kfir Room
+
+                # Lights
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Kfir Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kfir_room
+                        name: Kfir Room
+
                       # Kfir Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
@@ -331,24 +492,6 @@ cards:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
                           ulm_card_light_name: Kfir Strip
-
-                      # Bathroom Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.bathroom_ceiling
-                        name: Bathroom
-
-                      # Bathroom Mirror Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.bathroom_mirror
-                        name: Bath Mirror
-
-                      # Laundry Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.laundry
-                        name: Laundry
 
 
 
@@ -365,7 +508,6 @@ cards:
                     - type: custom:button-card
                       template: title
                       name: Basement
-
 
                 # Lights
                 - type: "custom:mod-card"
@@ -416,6 +558,43 @@ cards:
                         template: 'card_light_simple'
                         entity: light.basement_toys
                         name: Basement Toys
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Work Room                                                              #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Work Room
+
+                # Lights
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
 
                       # Work Room Light
                       - type: 'custom:button-card'

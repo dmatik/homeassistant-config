@@ -237,6 +237,12 @@ cards:
                       ulm_card_light_enable_popup: false
                       ulm_card_light_name: Ronen Led Strip
 
+                  # Kfir Room Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.kfir_room
+                    name: Kfir Room
+
                   # Kfir Led Strip
                   - type: 'custom:button-card'
                     template: 'card_light_simple'

@@ -162,6 +162,12 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
+                      # Kfir Room Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kfir_room
+                        name: Kfir Room
+
                       # Kfir Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
