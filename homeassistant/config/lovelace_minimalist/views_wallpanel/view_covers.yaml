@@ -63,6 +63,67 @@ cards:
           - type: vertical-stack
             cards:
 
+
+              ############################################################################
+              #                                                                          #
+              #   Scenes                                                                 #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: Scenes
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+                cards:
+
+                  # Main Floor Covers
+                  - type: 'custom:button-card'
+                    template: card_scene_vertical
+                    entity: scene.main_floor_covers
+                    name: Covers
+                    label: "Main"
+                    icon: mdi:window-shutter
+                    variables:
+                      color: "blue"
+                      confirmation_text: "Main Floor covers?"
+
+                  # Main Floor Morning Covers
+                  - type: 'custom:button-card'
+                    template: card_scene_vertical
+                    entity: scene.main_floor_morning_covers
+                    name: Covers
+                    label: "Morning"
+                    icon: mdi:window-shutter-open
+                    variables:
+                      color: "blue"
+                      confirmation_text: "Main Floor morning covers?"
+
+                  # Movie time
+                  - type: 'custom:button-card'
+                    template: card_scene_vertical
+                    entity: scene.movie_time
+                    name: Movie
+                    label: "Scene"
+                    icon: mdi:movie-filter
+                    variables:
+                      color: "purple"
+                      confirmation_text: "Movie scene?"
+
+
+
               ############################################################################
               #                                                                          #
               #   Floor 0                                                                #

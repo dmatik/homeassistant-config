@@ -238,11 +238,11 @@ cards:
                       grid-row-start: span 2
 
                   # Suka
-                  - type: 'custom:button-card'
-                    template: 'card_light_simple'
-                    entity: switch.power_socket_01
-                    name: סוכה
-                    icon: mdi:tent
+                  # - type: 'custom:button-card'
+                  #   template: 'card_light_simple'
+                  #   entity: switch.power_socket_01
+                  #   name: סוכה
+                  #   icon: mdi:tent
 
                       
 
@@ -457,8 +457,8 @@ cards:
                   - type: 'custom:button-card'
                     template: card_scene_vertical
                     entity: scene.main_floor_covers
-                    name: Ground
-                    label: "Covers"
+                    name: Covers
+                    label: "Main"
                     icon: mdi:window-shutter
                     variables:
                       color: "blue"

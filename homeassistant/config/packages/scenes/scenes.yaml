@@ -13,9 +13,6 @@ scene:
         current_position: 0
         state: closed
     icon: mdi:movie-filter
-    metadata:
-      cover.kitchen:
-        entity_only: true
   - id: '1690716481331'
     name: Main Floor Covers
     entities:
@@ -28,7 +25,23 @@ scene:
       cover.kitchen:
         current_position: 30
         state: open
+      cover.entrance_window:
+        current_position: 30
+        state: open   
     icon: mdi:window-shutter
-    metadata:
+  - id: 'main_floor_morning_covers'
+    name: Main Floor Morning Covers
+    entities:
+      cover.back_yard:
+        current_position: 90
+        state: open
+      cover.living_room_window:
+        current_position: 62
+        state: open
       cover.kitchen:
-        entity_only: true
+        current_position: 30
+        state: open
+      cover.entrance_window:
+        current_position: 64
+        state: open        
+    icon: mdi:window-shutter-open
