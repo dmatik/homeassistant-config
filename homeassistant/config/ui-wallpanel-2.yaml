@@ -27,7 +27,7 @@ sidebar:
       text-align: center;
       padding-bottom: 15px;
       color: var(--secondary-text-color);
-      font-size: 1.6vw;
+      font-size: 1.3vw;
       font-weight: 400;
       letter-spacing: -0.05vw;
     }
