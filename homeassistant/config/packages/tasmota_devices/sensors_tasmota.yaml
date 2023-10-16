@@ -29,11 +29,13 @@ template:
         unique_id: number_of_tasmota_versions_old
         state: >
           {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('group.all_tasmota_versions','entity_id') %}
-            {% if ( states(entity_id) != 'unavailable' and states(entity_id).split('(')[0] != states('sensor.tasmota_latest').split('v')[1] ) %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
+          {% if ( states('sensor.tasmota_latest') != 'unavailable' and states('sensor.tasmota_latest') != 'unknown' and states('sensor.tasmota_latest') != 'latest' ) %}
+            {% for entity_id in state_attr('group.all_tasmota_versions','entity_id') %}
+              {% if ( states(entity_id) != 'unavailable' and states(entity_id).split('(')[0] != states('sensor.tasmota_latest').split('v')[1] ) %}
+                {% set count.value = count.value + 1 %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}  
           {{ count.value }}
 
 

@@ -519,7 +519,7 @@
       - update.entrance_window_cover_firmware_update
       - update.ronen_room_switch_firmware_update
       mobile_app_device: b8bfbfe5b468a685dd2cc07f662069ee
-      send_to_ha: true
+      send_to_ha: false
       take_backup: true
 - id: '1652336327236'
   alias: Red Alert Gan Yavne
@@ -852,7 +852,8 @@
   - service: scene.turn_on
     data: {}
     target:
-      entity_id: scene.main_floor_covers
+      entity_id:
+      - scene.main_floor_morning_covers
   mode: single
 - id: '1692775444713'
   alias: Parents Bathroom Light ON (Motion)
@@ -879,7 +880,7 @@
     path: motion_lights_off.yaml
     input:
       motion_entity: binary_sensor.parents_bathroom_motion_sensors
-      no_motion_wait: 10
+      no_motion_wait: 15
       light_target:
         entity_id:
         - light.parents_bathroom_ceiling
