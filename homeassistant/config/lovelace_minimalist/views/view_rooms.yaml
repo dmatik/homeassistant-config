@@ -233,7 +233,7 @@ cards:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_kfir_room
                           ulm_card_room_two_rows_name: Kfir Room
                           ulm_card_room_two_rows_icon: mdi:teddy-bear
-                          ulm_card_room_two_rows_light: light.hallway
+                          ulm_card_room_two_rows_light: light.kfir_room
                           ulm_card_room_two_rows_temp: sensor.climate_kfir_temp
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_kfir_room
 
