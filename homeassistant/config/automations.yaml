@@ -47,63 +47,6 @@
         data:
           title: Battery Low
           message: 'Low battery warning for: {{sensors}}'
-- id: '1630052525462'
-  alias: Red Alert Ashdod
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.redalert_ashdod
-    to: 'on'
-  condition: []
-  action:
-  - service: scene.turn_on
-    target:
-      entity_id: scene.red_alert_lights
-    data: {}
-  - service: notify.mobile_app_iphonedima
-    data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        אשדוד
-
-        '
-      data:
-        tag: redalert-ahsdod
-  - service: notify.mobile_app_sm_n960f
-    data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        אשדוד
-
-        '
-      data:
-        tag: redalert-ahsdod
-  mode: single
-- id: '1630053062911'
-  alias: Red Alert Ashdod Clear
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.redalert_ashdod
-    to: 'off'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-ahsdod
-  mode: single
 - id: '1630053159448'
   alias: Red Alert Qiryat Gat
   description: ''
@@ -545,6 +488,11 @@
         '
       data:
         tag: redalert-gan-yavne
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1
   - service: notify.mobile_app_galitphone
     data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
@@ -559,6 +507,9 @@
         '
       data:
         tag: redalert-gan-yavne
+        ttl: 0
+        priority: high
+    enabled: true
   mode: single
 - id: '1652706660044'
   alias: Kitchen Wall Panel Battery Low
@@ -599,6 +550,11 @@
     entity_id:
     - binary_sensor.redalert_gan_yavne
     to: 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    from: 'on'
   condition: []
   action:
   - service: notify.mobile_app_iphonedima

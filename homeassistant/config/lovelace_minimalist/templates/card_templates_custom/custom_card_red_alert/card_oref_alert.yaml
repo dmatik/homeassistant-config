@@ -1,4 +1,4 @@
-card_red_alert:
+card_oref_alert:
   template:
     - 'icon_info_bg'
     - 'red'

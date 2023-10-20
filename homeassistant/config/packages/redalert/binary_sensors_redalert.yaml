@@ -16,19 +16,6 @@ binary_sensor:
           {{ state_attr('sensor.redalert', 'alert') == true }}
 
 
-############################################################################
-#                                                                          #
-#   Redalert Ashdod                                                        #
-#                                                                          #
-############################################################################
-
-      redalert_ashdod:
-        friendly_name: "Redalert Ashdod"
-        value_template: >-
-          {{ state_attr('sensor.redalert', 'alert') == true and 
-                    'אשדוד - יא,יב,טו,יז,מרינה' in state_attr('sensor.redalert', 'current')['data'] }}
-
-
 
 ############################################################################
 #                                                                          #
