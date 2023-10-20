@@ -12,3 +12,5 @@ group:
       - sensor.bedside_dima_bulb_firmware_version
       - sensor.bedside_galit_bulb_firmware_version
       - sensor.kitchen_led_strip_firmware_version
+      - sensor.ronen_led_strip_firmware_version
+      - sensor.kfir_led_strip_firmware_version
