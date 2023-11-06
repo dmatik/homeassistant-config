@@ -44,6 +44,67 @@ binary_sensor:
                     'גן יבנה' in state_attr('sensor.redalert', 'current')['data'] }}
 
 
+
+############################################################################
+#                                                                          #
+#   Redalert Bitsron                                                       #
+#                                                                          #
+############################################################################
+
+      redalert_bitsron:
+        friendly_name: "Redalert Bitsron"
+        value_template: >-
+          {{ state_attr('sensor.redalert', 'alert') == true and 
+                    'ביצרון' in state_attr('sensor.redalert', 'current')['data'] }}
+
+
+
+############################################################################
+#                                                                          #
+#   Redalert Shtulim                                                        #
+#                                                                          #
+############################################################################
+
+      redalert_shtulim:
+        friendly_name: "Redalert Shtulim"
+        value_template: >-
+          {{ state_attr('sensor.redalert', 'alert') == true and 
+                    'שתולים' in state_attr('sensor.redalert', 'current')['data'] }}
+
+
+
+############################################################################
+#                                                                          #
+#   Redalert Hatsor                                                        #
+#                                                                          #
+############################################################################
+
+      redalert_hatsor:
+        friendly_name: "Redalert Hatsor"
+        value_template: >-
+          {{ state_attr('sensor.redalert', 'alert') == true and 
+                    'חצור' in state_attr('sensor.redalert', 'current')['data'] }}
+
+
+
+############################################################################
+#                                                                          #
+#   Redalert Ashdod                                                        #
+#                                                                          #
+############################################################################
+
+      redalert_ashdod:
+        friendly_name: "Redalert Ashdod"
+        value_template: >-
+          {{ state_attr('sensor.redalert', 'alert') == true and 
+                    ('אשדוד - א,ב,ד,ה' in state_attr('sensor.redalert', 'current')['data'] or
+                     'אשדוד - איזור תעשייה צפוני' in state_attr('sensor.redalert', 'current')['data'] or
+                     'אשדוד - ג,ו,ז' in state_attr('sensor.redalert', 'current')['data'] or
+                     'אשדוד - ח,ט,י,יג,יד,טז' in state_attr('sensor.redalert', 'current')['data'] or
+                     'אשדוד -יא,יב,טו,יז,מרינה,סיט' in state_attr('sensor.redalert', 'current')['data'] ) }}
+
+
+
 ############################################################################
 #                                                                          #
 #   Redalert Test                                                          #

@@ -552,7 +552,7 @@
     to: 'off'
     for:
       hours: 0
-      minutes: 5
+      minutes: 10
       seconds: 0
     from: 'on'
   condition: []
@@ -924,3 +924,267 @@
       no_motion_wait: 10
       light_target:
         entity_id: light.kitchen_led_strip
+- id: '1699248159943'
+  alias: Red Alert Shtulim
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_shtulim
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        שתולים
+
+        '
+      data:
+        tag: redalert-shtulim
+  - service: notify.mobile_app_galitphone
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        שתולים
+
+        '
+      data:
+        tag: redalert-shtulim
+    enabled: true
+  mode: single
+- id: '1699248227759'
+  alias: Red Alert Shtulim Clear
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_shtulim
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    from: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-shtulim
+  - service: notify.mobile_app_galitphone
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-shtulim
+  mode: single
+- id: '1699248446778'
+  alias: Red Alert Hatsor
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_hatsor
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        חצור
+
+        '
+      data:
+        tag: redalert-hatsor
+  - service: notify.mobile_app_galitphone
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        חצור
+
+        '
+      data:
+        tag: redalert-hatsor
+    enabled: true
+  mode: single
+- id: '1699248492044'
+  alias: Red Alert Hatsor Clear
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_hatsor
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    from: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-hatsor
+  - service: notify.mobile_app_galitphone
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-hatsor
+  mode: single
+- id: '1699248553557'
+  alias: Red Alert Bitsron
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_bitsron
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        ביצרון
+
+        '
+      data:
+        tag: redalert-bitsron
+  - service: notify.mobile_app_galitphone
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        ביצרון
+
+        '
+      data:
+        tag: redalert-bitsron
+    enabled: true
+  mode: single
+- id: '1699248594979'
+  alias: Red Alert Bitsron Clear
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_bitsron
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    from: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-bitsron
+  - service: notify.mobile_app_galitphone
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-bitsron
+  mode: single
+- id: '1699248658108'
+  alias: Red Alert Ashdod
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_ashdod
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        אשדוד
+
+        '
+      data:
+        tag: redalert-ashdod
+  - service: notify.mobile_app_galitphone
+    data:
+      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
+      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
+
+        {{state_attr("sensor.redalert", "current")["desc"]}}
+
+        {%- endif %}
+
+        אשדוד
+
+        '
+      data:
+        tag: redalert-ashdod
+    enabled: true
+  mode: single
+- id: '1699248701741'
+  alias: Red Alert Ashdod Clear
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.redalert_ashdod
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    from: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphonedima
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-ashdod
+  - service: notify.mobile_app_galitphone
+    data:
+      message: clear_notification
+      data:
+        tag: redalert-ashdod
+  mode: single
