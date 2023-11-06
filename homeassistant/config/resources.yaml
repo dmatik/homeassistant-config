@@ -56,21 +56,21 @@
 #   type: module
 - url: /hacsfiles/lovelace-hui-element/hui-element.js
   type: module
-- url: /hacsfiles/scheduler-card/scheduler-card.js
-  type: module
+# - url: /hacsfiles/scheduler-card/scheduler-card.js
+#   type: module
 - url: /hacsfiles/my-cards/my-cards.js
   type: module
 - url: /local/browser_mod_icon.js
   type: module
 - url: /hacsfiles/clock-weather-card/clock-weather-card.js
   type: module
-- url: /hacsfiles/lovelace-mushroom/mushroom.js
-  type: module
+# - url: /hacsfiles/lovelace-mushroom/mushroom.js
+#   type: module
 - url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
   type: module
 - url: /hacsfiles/sidebar-card/sidebar-card.js
   type: module
 # - url: /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
 #   type: module
-- url: /hacsfiles/Bubble-Card/bubble-card.js
-  type: module
+# - url: /hacsfiles/Bubble-Card/bubble-card.js
+#   type: module
