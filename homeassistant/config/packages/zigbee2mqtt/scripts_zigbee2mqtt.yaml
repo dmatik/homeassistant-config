@@ -6,7 +6,7 @@ script:
     sequence:
       - service: mqtt.publish
         data:
-          topic: z2m/floor_2/bridge/request/restart
+          topic: z2m/floor2/bridge/request/restart
 
 
   # Zigbee2mqtt Living Room Restart

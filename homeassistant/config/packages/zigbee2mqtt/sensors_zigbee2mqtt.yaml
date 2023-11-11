@@ -11,23 +11,23 @@ mqtt:
 
     # Sensor for monitoring the bridge state
     - name: Zigbee2mqtt Floor 2 Bridge state
-      state_topic: "z2m/floor_2/bridge/state"
+      state_topic: "z2m/floor2/bridge/state"
       icon: mdi:router-wireless
 
     # Sensor for Showing the Zigbee2mqtt Version
     - name: Zigbee2mqtt Floor 2 Version
-      state_topic: "z2m/floor_2/bridge/config"
+      state_topic: "z2m/floor2/bridge/config"
       value_template: "{{ value_json.version }}"
       icon: mdi:zigbee
 
     # Sensor for Network Map
     - name: Zigbee2mqtt Floor 2 Networkmap
       # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
-      state_topic: z2m/floor_2/bridge/response/networkmap
+      state_topic: z2m/floor2/bridge/response/networkmap
       value_template: >-
         {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
       # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
-      json_attributes_topic: z2m/floor_2/bridge/response/networkmap
+      json_attributes_topic: z2m/floor2/bridge/response/networkmap
       json_attributes_template: "{{ value_json.data.value | tojson }}"
 
 

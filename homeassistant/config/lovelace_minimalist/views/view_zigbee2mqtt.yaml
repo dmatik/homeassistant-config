@@ -135,7 +135,7 @@ cards:
                           ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_floor_2_version'
                           ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_floor_2_restart'
                           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_floor_2_networkmap'
-                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/floor_2'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/floor2'
 
                       # Zigbee2mqtt Living Room
                       - type: 'custom:button-card'
