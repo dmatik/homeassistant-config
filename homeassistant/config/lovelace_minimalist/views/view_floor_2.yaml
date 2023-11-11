@@ -153,6 +153,12 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
+                      # Hallway Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.hallway_stairs
+                        name: Hallway
+
                       # Stairs Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'

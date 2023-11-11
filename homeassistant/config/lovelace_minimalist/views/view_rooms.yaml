@@ -211,7 +211,7 @@ cards:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_floor_2
                           ulm_card_room_two_rows_name: Floor 2
                           ulm_card_room_two_rows_icon: mdi:door-open
-                          ulm_card_room_two_rows_light: light.hallway
+                          ulm_card_room_two_rows_light: light.hallway_stairs
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_floor_2
 
                       # Bedroom

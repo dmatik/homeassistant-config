@@ -294,12 +294,6 @@ cards:
                     name: TV Wall
                     icon: mdi:wall-sconce-round
 
-                  # Stairs Light
-                  - type: 'custom:button-card'
-                    template: 'card_light_simple'
-                    entity: light.stairs_ground_floor
-                    name: Stairs
-
                   # Entrance Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
@@ -314,10 +308,10 @@ cards:
                     name: Guest Bathroom
 
                   # Kitchen Light
-                  - type: 'custom:button-card'
-                    template: 'card_light_simple'
-                    entity: light.kitchen
-                    name: Kitchen
+                  # - type: 'custom:button-card'
+                  #   template: 'card_light_simple'
+                  #   entity: light.kitchen
+                  #   name: Kitchen
 
                   # Kitchen Led Strip
                   - type: 'custom:button-card'
@@ -358,6 +352,18 @@ cards:
                   #   entity: switch.power_socket_01
                   #   name: NY Tree
                   #   icon: mdi:pine-tree
+
+                  # Stairs Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.stairs_ground_floor
+                    name: Stairs
+
+                  # Hallway Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.hallway_stairs
+                    name: Hallway
 
                   # Bedside Dima Light
                   - type: 'custom:button-card'

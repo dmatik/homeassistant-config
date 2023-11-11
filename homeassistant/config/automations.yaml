@@ -593,7 +593,7 @@
       my_sensor: weather.met_home
       show_windspeed: false
 - id: '1689144825201'
-  alias: Night Lights
+  alias: Night Lights and Covers
   description: ''
   trigger:
   - platform: sun
@@ -620,6 +620,15 @@
         data: {}
         target:
           entity_id: scene.night_lights_on
+        enabled: false
+      - service: scene.turn_on
+        target:
+          entity_id: scene.main_floor_covers
+        metadata: {}
+      - service: scene.turn_on
+        target:
+          entity_id: scene.night_lights_on
+        metadata: {}
     - conditions:
       - condition: trigger
         id:
@@ -629,6 +638,11 @@
         data: {}
         target:
           entity_id: scene.night_lights_off
+        enabled: false
+      - service: scene.turn_on
+        target:
+          entity_id: scene.night_lights_off
+        metadata: {}
   mode: single
 - id: '1689147291665'
   alias: Kids AC Night Cooling
@@ -751,7 +765,7 @@
   - platform: device
     type: turned_on
     device_id: 8893bfbc82bf90ae3b65bcaeb1340d9d
-    entity_id: 78e8fa82cffc1d49daa90f1749874a4c
+    entity_id: 257fd153c5c22ae4424fd7b157a82608
     domain: switch
     for:
       hours: 1
@@ -761,7 +775,7 @@
   action:
   - type: turn_off
     device_id: 8893bfbc82bf90ae3b65bcaeb1340d9d
-    entity_id: 78e8fa82cffc1d49daa90f1749874a4c
+    entity_id: 257fd153c5c22ae4424fd7b157a82608
     domain: switch
   mode: single
 - id: '1689872267478'
@@ -771,7 +785,7 @@
   - platform: device
     type: turned_on
     device_id: 935d4f1c81b42ab5080d9d2e22d581aa
-    entity_id: 733198b09aab4b211fb459e0eb2919fb
+    entity_id: c28bc6ef5aa6fbae25e59d0463a9c800
     domain: switch
     for:
       hours: 1
@@ -781,7 +795,7 @@
   action:
   - type: turn_off
     device_id: 935d4f1c81b42ab5080d9d2e22d581aa
-    entity_id: 733198b09aab4b211fb459e0eb2919fb
+    entity_id: c28bc6ef5aa6fbae25e59d0463a9c800
     domain: switch
   mode: single
 - id: '1690049408548'
@@ -1188,3 +1202,12 @@
       data:
         tag: redalert-ashdod
   mode: single
+- id: '1699608927236'
+  alias: Sync Hallway Switches
+  description: ''
+  use_blueprint:
+    path: sync_switches.yaml
+    input:
+      switch:
+      - light.hallway_stairs
+      - light.hallway_bedroom

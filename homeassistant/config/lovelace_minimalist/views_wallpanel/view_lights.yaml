@@ -137,6 +137,20 @@ cards:
                       entity: light.guests_bathroom
                       name: Guest Bathroom
 
+                    # Front Yard Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.front_yard
+                      name: Front Yard
+                      icon: mdi:outdoor-lamp
+
+                    # Back Yard Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.back_yard
+                      name: Back Yard
+                      icon: mdi:outdoor-lamp
+                      
                     # Kitchen Light
                     - type: 'custom:button-card'
                       template: 'card_light_simple'
@@ -159,20 +173,6 @@ cards:
                       entity: light.kitchen_bar
                       name: Kitchen Bar
                       icon: mdi:vanity-light
-
-                    # Front Yard Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.front_yard
-                      name: Front Yard
-                      icon: mdi:outdoor-lamp
-
-                    # Back Yard Light
-                    - type: 'custom:button-card'
-                      template: 'card_light_simple'
-                      entity: light.back_yard
-                      name: Back Yard
-                      icon: mdi:outdoor-lamp
 
 
 
@@ -208,6 +208,12 @@ cards:
                     #   template: 'card_light_simple'
                     #   entity: light.stairs_floor_2
                     #   name: Stairs
+                    
+                    # Hallway Light
+                    - type: 'custom:button-card'
+                      template: 'card_light_simple'
+                      entity: light.hallway_stairs
+                      name: Hallway
 
                     # Bedroom Light
                     - type: 'custom:button-card'
