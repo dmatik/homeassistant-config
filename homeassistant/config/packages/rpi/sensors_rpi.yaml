@@ -1,0 +1,34 @@
+template:
+
+  binary_sensor:
+
+    # Floor 2 RPI Running
+    - name: "rpi_floor2_running"
+      unique_id: rpi_floor2_running
+      icon: mdi:raspberry-pi
+      state: >-
+        {% if is_state("sensor.rpi_raspberrypi_rpi_monitor_raspberrypi", "unavailable") or 
+              is_state("sensor.rpi_raspberrypi_rpi_monitor_raspberrypi", "unknown") %}
+          off
+        {% else %}
+          {% set last_update_time = states('sensor.rpi_raspberrypi_rpi_monitor_raspberrypi') %}
+          {% set time_delta = now() - as_datetime(last_update_time) %}
+          {{  time_delta < as_timedelta("00:10:00") }}
+        {% endif %}
+
+
+
+  sensor:
+
+    # Floor 2 RPI Last Update Relative
+    - name: "rpi_floor2_last_update_relative"
+      unique_id: rpi_floor2_last_update_relative
+      icon: mdi:raspberry-pi
+      state: >-
+        {% if is_state("sensor.rpi_raspberrypi_rpi_monitor_raspberrypi", "unavailable") or 
+              is_state("sensor.rpi_raspberrypi_rpi_monitor_raspberrypi", "unknown") %}
+          off
+        {% else %}
+          {% set last_update_time = states('sensor.rpi_raspberrypi_rpi_monitor_raspberrypi') %}
+          {{  relative_time( as_datetime(last_update_time) ) }}
+        {% endif %}

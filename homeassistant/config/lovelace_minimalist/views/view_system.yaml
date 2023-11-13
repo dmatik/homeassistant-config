@@ -195,6 +195,14 @@ cards:
                           ulm_card_navigate_title: Zigbee2mqtt
                           ulm_card_navigate_icon: mdi:zigbee
 
+                      # Rasbperry Pi
+                      - type: custom:button-card
+                        template: card_navigate
+                        variables:
+                          ulm_card_navigate_path: /lovelace/minimalist_rpi
+                          ulm_card_navigate_title: Raspberry Pi
+                          ulm_card_navigate_icon: mdi:raspberry-pi
+
                       # Energy
                       - type: custom:button-card
                         template: card_navigate

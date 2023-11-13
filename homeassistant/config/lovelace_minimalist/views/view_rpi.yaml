@@ -1,0 +1,115 @@
+title: Raspberry Pi
+path: minimalist_rpi
+visible: false
+panel: true
+cards:
+
+  - type: vertical-stack
+    cards:
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style: 
+                    .: |
+                      ha-card {
+                          margin-left: var(--chips-left-margin) !important;
+                      }
+                  card:
+
+                    type: horizontal-stack
+                    cards:
+
+                      # Back Chip
+                      - type: 'custom:button-card'
+                        template: chip_back_new
+                        variables:
+                          ulm_chip_navigate_path: /lovelace/minimalist_system
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   RPIs                                                                   #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Raspberry Pi
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Floor 2
+                      - type: 'custom:button-card'
+                        entity: binary_sensor.rpi_floor2_running
+                        template: card_rpi
+                        variables:
+                          ulm_card_rpi_entity: 'binary_sensor.rpi_floor2_running'
+                          ulm_card_rpi_name: 'Floor 2'
+                          ulm_card_rpi_sensor: 'sensor.rpi_raspberrypi_rpi_monitor_raspberrypi'
+                          ulm_card_rpi_memory: 'sensor.rpi_raspberrypi_rpi_mem_used_raspberrypi'
+                          ulm_card_rpi_cpu: 'sensor.rpi_raspberrypi_rpi_cpu_use_raspberrypi'
+                          ulm_card_rpi_disk: 'sensor.rpi_raspberrypi_rpi_disk_used_raspberrypi'
+                          ulm_card_rpi_last_update_relative: 'sensor.rpi_floor2_last_update_relative'
+
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px
