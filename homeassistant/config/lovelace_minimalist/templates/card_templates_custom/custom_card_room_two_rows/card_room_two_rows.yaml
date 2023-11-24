@@ -1,7 +1,9 @@
 card_room_two_rows:
+  template:
+    - 'ulm_language_variables'
   variables:
     ulm_card_room_two_rows_navigate_path: null
-    ulm_card_room_two_rows_name: null
+    x_ulm_card_room_two_rows_name: null
     ulm_card_room_two_rows_icon: null
     ulm_card_room_two_rows_light: null
     ulm_card_room_two_rows_temp: null
@@ -27,7 +29,7 @@ card_room_two_rows:
           - "room_info"
         variables:
           ulm_card_room_two_rows_lights_on: "[[[ return variables.ulm_card_room_two_rows_lights_on; ]]]"
-        name: "[[[ return variables.ulm_card_room_two_rows_name; ]]]"
+        name: "[[[ return variables.x_ulm_card_room_two_rows_name; ]]]"
         icon: "[[[ return variables.ulm_card_room_two_rows_icon; ]]]"
         tap_action:
           action: "navigate"
@@ -97,9 +99,9 @@ room_info:
       if (lights_on == 0) {
         lights_on = variables.ulm_off;
       } else if (lights_on == 1) {
-        lights_on = "1 light";
+        lights_on = variables.ulm_1_light;
       } else {
-        lights_on = lights_on + " lights";
+        lights_on = lights_on + variables.ulm_lights;
       }
 
       return lights_on;
@@ -112,18 +114,20 @@ room_info:
     label:
       - justify-self: "start"
       - align-self: "start"
-      - font-weight: "400"
-      - font-size: "12px"
+      - font-weight: "[[[ return variables.ulm_label_font_weight; ]]]"
+      - font-size: "[[[ return variables.ulm_label_font_size; ]]]"
       #- filter: "opacity(40%)"
       - margin-left: "12px"
+      - margin-right: "12px"
       - color: "var(--secondary-text-color)"
       - letter-spacing: "0.4px"
     name:
       - align-self: "end"
       - justify-self: "start"
-      - font-weight: "500"
-      - font-size: "14px"
+      - font-weight: "[[[ return variables.ulm_name_font_weight; ]]]"
+      - font-size: "[[[ return variables.ulm_name_font_size; ]]]"
       - margin-left: "12px"
+      - margin-right: "12px"
       - margin-top: "0px"
       - height: "20px"
       - letter-spacing: "0.1px"
@@ -134,6 +138,7 @@ room_info:
       - font-size: "12px"
       - filter: "opacity(40%)"
       - margin-left: "12px"
+      - margin-right: "12px"
     img_cell:
       - background-color: "rgba(var(--color-blue), 0.2)"
       - border-radius: "50%"

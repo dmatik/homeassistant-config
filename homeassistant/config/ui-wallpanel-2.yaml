@@ -27,9 +27,12 @@ sidebar:
       text-align: center;
       padding-bottom: 15px;
       color: var(--secondary-text-color);
-      font-size: 1.3vw;
+      font-size: 1.5vw;
       font-weight: 400;
       letter-spacing: -0.05vw;
+    }
+    .sidebarMenu li {
+      font-size: 22px !important;
     }
   #title: "Sidebar title"
   digitalClock: true
@@ -43,39 +46,39 @@ sidebar:
   sidebarMenu:
     - action: navigate
       navigation_path: "/lovelace-wallpanel-2/home"
-      name: "Home"
+      name: "ראשי" #"Home"
       active: true
-      icon: mdi:home
+      #icon: mdi:home
     - action: navigate
       navigation_path: "/lovelace-wallpanel-2/floor-2"
-      name: "Floor 2"
+      name: "קומה 2" #"Floor 2"
       active: true
-      icon: mdi:home-floor-2
+      #icon: mdi:home-floor-2
     - action: navigate
       navigation_path: "/lovelace-wallpanel-2/basement"
-      name: "Basement"
+      name: "מרתף" #"Basement"
       active: true
-      icon: mdi:home-floor-b
+      #icon: mdi:home-floor-b
     - action: navigate
       navigation_path: "/lovelace-wallpanel-2/lights"
-      name: "Lights"
+      name: "אורות" #"Lights"
       active: true
-      icon: mdi:lightbulb
+      #icon: mdi:lightbulb
     - action: navigate
       navigation_path: "/lovelace-wallpanel-2/climate"
-      name: "Climate"
+      name: "אקלים" #"Climate"
       active: true
-      icon: mdi:fan
+      #icon: mdi:fan
     - action: navigate
       navigation_path: "/lovelace-wallpanel-2/covers"
-      name: "Covers"
+      name: "תריסים" #"Covers"
       active: true
-      icon: mdi:window-shutter
+      #icon: mdi:window-shutter
     - action: navigate
       navigation_path: "/lovelace-wallpanel-2/security"
-      name: "Security"
+      name: "אבטחה" #"Security"
       active: true
-      icon: mdi:cctv
+      #icon: mdi:cctv
   bottomCard:
     type: vertical-stack
     cardOptions:

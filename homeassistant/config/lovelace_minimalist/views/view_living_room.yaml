@@ -64,25 +64,13 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: "custom:mod-card"
-                  style: 
-                    .: |
-                      ha-card {
-                          margin-left: var(--chips-left-margin) !important;
-                      }
-                    # hui-horizontal-stack-card$: |
-                    #   button-card {
-                    #     margin-right: var(--chips-right-margin) !important;
-                    #     margin-left: 0px !important;
-                    #     margin-bottom: 4px !important;
-                    #   }
-                    #   #root {
-                    #     flex-wrap: wrap;
-                    #   }
-                  card:
-
-                    type: horizontal-stack
-                    cards:
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
 
                       # - type: custom:button-card
                       #   template: edge
@@ -141,7 +129,7 @@ cards:
 
           ############################################################################
           #                                                                          #
-          #   Title                                                                  #
+          #   Living Room                                                            #
           #                                                                          #
           ############################################################################
 
@@ -150,7 +138,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Living Room
+                      name: "[[[ return variables.ulm_living_room; ]]]"
 
 
 
@@ -183,7 +171,7 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.living_room
-                        name: Living Room
+                        name: "[[[ return variables.ulm_living_room; ]]]"
 
                       # Living Room AC
                       - type: 'custom:button-card'
@@ -191,7 +179,7 @@ cards:
                         variables:
                           ulm_card_ac_entity: climate.living_room_template
                           ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                          ulm_card_ac_name: 'Living Room'
+                          x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                         view_layout:
                           grid-row-start: span 2  
                           
@@ -199,14 +187,14 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.dining
-                        name: Dining
+                        name: "[[[ return variables.ulm_dining; ]]]"
                         icon: mdi:ceiling-light
 
                       # Back Yard Cover
                       - type: 'custom:button-card'
                         template: card_cover_buttons
                         variables:
-                          ulm_card_cover_buttons_name: Back Yard
+                          x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_back_yard; ]]]"
                           ulm_card_cover_buttons_entity: cover.back_yard
                         view_layout:
                           grid-row-start: span 2
@@ -215,58 +203,29 @@ cards:
                       - type: 'custom:button-card'
                         template: card_cover_buttons
                         variables:
-                          ulm_card_cover_buttons_name: Window
+                          x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_living_room_window; ]]]"
                           ulm_card_cover_buttons_entity: cover.living_room_window
                         view_layout:
                           grid-row-start: span 2
-
-                      # Entrance Window Cover
-                      - type: 'custom:button-card'
-                        template: card_cover_buttons
-                        variables:
-                          ulm_card_cover_buttons_name: Entrance
-                          ulm_card_cover_buttons_entity: cover.entrance_window
-                        view_layout:
-                          grid-row-start: span 2 
 
                       # TV Wall Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.living_room_tv_wall
-                        name: TV Wall
+                        name: "[[[ return variables.ulm_tv_wall; ]]]"
                         icon: mdi:wall-sconce-round
 
                       # Stairs Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.stairs_ground_floor
-                        name: Stairs
-
-                      # Entrance Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.entrance
-                        name: Entrance
-                        icon: mdi:lightbulb-spot
-
-                      # Guests Bathroom Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.guests_bathroom
-                        name: Guest Bathroom
-
-                      # Front Yard Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.front_yard
-                        name: Front Yard
-                        icon: mdi:outdoor-lamp
+                        name: "[[[ return variables.ulm_stairs; ]]]"
                         
                       # Back Yard Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.back_yard
-                        name: Back Yard
+                        name: "[[[ return variables.ulm_back_yard; ]]]"
                         icon: mdi:outdoor-lamp
 
                       # Living Room TV
@@ -274,49 +233,17 @@ cards:
                         template: 'card_tv'
                         entity: media_player.lg_webos_tv_oled77cs6la
                         variables:
-                          ulm_card_tv_name: 'Main TV'
-                        # view_layout:
-                        #   grid-row-start: span 2   
+                          x_ulm_card_tv_name: "[[[ return variables.ulm_living_room_tv; ]]]" 
                           
-                      # Living Room Motion Sensor
+                      # Living Room Sensor
                       - type: 'custom:button-card'
-                        template: 'card_motion_sensor'
+                        template: 
+                          - card_motion_sensor
                         entity: binary_sensor.living_room_motion_sensor_occupancy
-                        name: Motion
+                        name: "[[[ return variables.ulm_living_room; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.living_room_motion_sensor_illuminance_lux
-
-                      # Guest Bathroom Right Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.guest_bathroom_right_motion_sensor_occupancy
-                        name: Guest Right
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
-
-                      # Guest Bathroom Left Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.guest_bathroom_left_motion_sensor_occupancy
-                        name: Guest Left
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
-
-                      # Guest Bathroom Mirror Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
-                        name: Guest Mirror
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
-
                         
                       # # New Year Tree Lights
                       # - type: 'custom:button-card'
@@ -348,6 +275,146 @@ cards:
 
 
 
+          ############################################################################
+          #                                                                          #
+          #   Entrance                                                               #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_entrance; ]]]"
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Entrance Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.entrance
+                        name: "[[[ return variables.ulm_entrance; ]]]"
+                        icon: mdi:lightbulb-spot
+
+                      # Front Yard Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.front_yard
+                        name: "[[[ return variables.ulm_front_yard; ]]]"
+                        icon: mdi:outdoor-lamp
+
+                      # Entrance Window Cover
+                      - type: 'custom:button-card'
+                        template: card_cover_buttons
+                        variables:
+                          x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_entrance; ]]]"
+                          ulm_card_cover_buttons_entity: cover.entrance_window
+                        view_layout:
+                          grid-row-start: span 2 
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Guest Bathroom                                                         #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_guest_bathroom; ]]]"
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Guests Bathroom Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.guests_bathroom
+                        name: "[[[ return variables.ulm_guest_bathroom; ]]]"
+
+                      # Guest Bathroom Right Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.guest_bathroom_right_motion_sensor_occupancy
+                        name: "[[[ return variables.ulm_guest_toilet; ]]]"
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
+
+                      # Guest Bathroom Left Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.guest_bathroom_left_motion_sensor_occupancy
+                        name: "[[[ return variables.ulm_guest_cabinet; ]]]"
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
+
+                      # Guest Bathroom Mirror Sensor
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
+                        name: "[[[ return variables.ulm_guest_mirror; ]]]"
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
 
                 - type: custom:button-card
                   template: spacer

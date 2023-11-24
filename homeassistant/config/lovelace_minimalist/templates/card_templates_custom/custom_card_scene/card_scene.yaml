@@ -13,11 +13,13 @@ card_scene:
   label: "Scene"
 
 card_scene_vertical:
-  template: "vertical_buttons"
+  template: 
+    - "vertical_buttons"
+    - "ulm_language_variables"
   variables:
     # blue, red, green, yellow, purple, pink
     color: "purple"
-    confirmation_text: "Are you sure?"
+    x_confirmation_text: "Are you sure?"
   show_last_changed: false
   name: "[[[ return variables.state ]]]"
   styles:
@@ -33,6 +35,6 @@ card_scene_vertical:
     service_data:
       entity_id: entity
     confirmation:
-      text: "[[[ return variables.confirmation_text ]]]"
+      text: "[[[ return variables.x_confirmation_text ]]]"
   hold_action:
     action: "more-info" 

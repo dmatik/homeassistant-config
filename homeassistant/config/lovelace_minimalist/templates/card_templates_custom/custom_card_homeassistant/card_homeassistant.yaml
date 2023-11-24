@@ -24,7 +24,7 @@ card_homeassistant:
         template:
           - "icon_info"
           - "ha_new_version_available"
-          - "ulm_language_variables"
+          - "ulm_language_variables_EN"
         icon: 'mdi:home-assistant'
         tap_action:
           action: "none"

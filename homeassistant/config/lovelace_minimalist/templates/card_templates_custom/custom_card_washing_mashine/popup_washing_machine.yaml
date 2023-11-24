@@ -22,7 +22,7 @@ popup_washing_machine:
               .mdc-top-app-bar {
                 background: var(--header-background-color) !important;
               }
-        title: '[[[ return variables.ulm_card_washing_machine_name; ]]]'
+        title: '[[[ return variables.x_ulm_card_washing_machine_name; ]]]'
         content:
 
           type: vertical-stack

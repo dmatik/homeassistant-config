@@ -104,3 +104,4 @@ action:
             data: {}
             target:
               entity_id: !input motion_timer_entity
+max_exceeded: silent

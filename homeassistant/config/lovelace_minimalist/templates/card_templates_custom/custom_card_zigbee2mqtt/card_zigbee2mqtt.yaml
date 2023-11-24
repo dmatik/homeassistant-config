@@ -24,7 +24,7 @@ card_zigbee2mqtt:
         template:
           - "icon_info"
           - "zigbee2mqtt_blue_on"
-          - "ulm_language_variables"
+          - "ulm_language_variables_EN"
         icon: 'mdi:zigbee'
         tap_action:
           action: "none"

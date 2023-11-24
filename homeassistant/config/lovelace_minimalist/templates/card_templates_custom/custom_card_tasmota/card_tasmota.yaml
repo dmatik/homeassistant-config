@@ -23,7 +23,7 @@ card_tasmota_version:
         template:
           - "icon_info"
           - "card_tasmota_devices_outdated"
-          - "ulm_language_variables"
+          - "ulm_language_variables_EN"
         variables:
           ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
         icon: 'mdi:chip'
@@ -40,7 +40,7 @@ card_tasmota:
   template:
     - "icon_info_bg"
     - "card_tasmota_outdated"
-    - "ulm_language_variables"
+    - "ulm_language_variables_EN"
     - "blue"
     - "popup_tasmota"
   variables:
@@ -72,7 +72,7 @@ card_tasmota_with_power:
   template:
     - "icon_info_bg"
     - "card_tasmota_outdated"
-    - "ulm_language_variables"
+    - "ulm_language_variables_EN"
     - "blue"
     - "popup_tasmota_with_power"
   variables:

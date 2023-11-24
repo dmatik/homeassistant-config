@@ -1,13 +1,13 @@
 card_washing_machine:
   variables:
     ulm_card_washing_machine_entity: '[[[ return entity.entity_id ]]]'
-    ulm_card_washing_machine_name: '[[[ return variables.ulm_card_washing_machine_name ]]]'
+    x_ulm_card_washing_machine_name: '[[[ return variables.x_ulm_card_washing_machine_name ]]]'
   template:
     - 'icon_info_bg'
     - 'washing_machine_status_colors'
     - 'ulm_language_variables'
     - 'popup_washing_machine'
-  name: '[[[ return variables.ulm_card_washing_machine_name; ]]]'
+  name: '[[[ return variables.x_ulm_card_washing_machine_name; ]]]'
   icon: 'mdi:washing-machine'
   label: |-
     [[[

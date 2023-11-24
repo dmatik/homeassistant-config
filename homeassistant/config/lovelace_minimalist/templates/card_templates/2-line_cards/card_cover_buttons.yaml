@@ -1,8 +1,10 @@
 ---
 ### Card Cover With Buttons ###
 card_cover_buttons:
+  template:
+    - "ulm_language_variables"
   variables:
-    ulm_card_cover_buttons_name: "n/a"
+    x_ulm_card_cover_buttons_name: "n/a"
   triggers_update: "all"
   styles:
     grid:
@@ -25,7 +27,7 @@ card_cover_buttons:
         tap_action:
           action: "more-info"
         entity: "[[[ return variables.ulm_card_cover_buttons_entity ]]]"
-        name: "[[[ return variables.ulm_card_cover_buttons_name ]]]"
+        name: "[[[ return variables.x_ulm_card_cover_buttons_name ]]]"
     item2:
       card:
         type: "custom:button-card"

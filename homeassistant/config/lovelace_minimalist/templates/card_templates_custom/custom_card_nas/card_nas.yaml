@@ -33,6 +33,7 @@ card_nas_dima:
         template:
           - "icon_info"        
           - "nas_new_version_available"
+          - "ulm_language_variables_EN"
           #- "blue_no_state"
         styles:
           # card:

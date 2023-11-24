@@ -18,6 +18,7 @@ card_navigate:
       - font-weight: "500"
       - font-size: "14px"
       - margin-left: "12px"
+      - margin-right: "12px"
       - filter: "opacity(100%)"
       - letter-spacing: "0.1px"
     img_cell:

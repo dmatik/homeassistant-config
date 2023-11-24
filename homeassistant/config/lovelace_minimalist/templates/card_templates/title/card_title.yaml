@@ -3,6 +3,8 @@
 ---
 ### Card Title ###
 card_title:
+  template:
+    - 'ulm_language_variables'
   tap_action:
     action: "none"
   show_icon: false
@@ -17,6 +19,7 @@ card_title:
       - width: "auto"
       - margin-top: "12px"
       - margin-left: "12px"
+      - margin-right: "12px"
       - margin-bottom: "0px"
       - padding-bottom: "0px"
       - border-radius: "0px"
@@ -31,7 +34,7 @@ card_title:
     name:
       - justify-self: "start"
       - font-weight: "bold"
-      - font-size: "1.2rem"
+      - font-size: "[[[ return variables.ulm_title_font_size; ]]]"
     label:
       - justify-self: "start"
       - font-weight: "bold"

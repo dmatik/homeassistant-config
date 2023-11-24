@@ -64,25 +64,13 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: "custom:mod-card"
-                  style: 
-                    .: |
-                      ha-card {
-                          margin-left: var(--chips-left-margin) !important;
-                      }
-                    # hui-horizontal-stack-card$: |
-                    #   button-card {
-                    #     margin-right: var(--chips-right-margin) !important;
-                    #     margin-left: 0px !important;
-                    #     margin-bottom: 4px !important;
-                    #   }
-                    #   #root {
-                    #     flex-wrap: wrap;
-                    #   }
-                  card:
-
-                    type: horizontal-stack
-                    cards:
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
 
                       # - type: custom:button-card
                       #   template: edge
@@ -133,7 +121,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Kitchen
+                      name: "[[[ return variables.ulm_kitchen; ]]]"
 
 
 
@@ -166,23 +154,23 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.kitchen
-                        name: Kitchen
+                        name: "[[[ return variables.ulm_kitchen; ]]]"
 
                       # Kitchen Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.kitchen_led_strip
                         icon: 'mdi:led-strip-variant'
+                        name: "[[[ return variables.ulm_kitchen_strip; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Led Strip
 
                       # Kitchen Bar Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.kitchen_bar
-                        name: Kitchen Bar
+                        name: "[[[ return variables.ulm_kitchen_bar; ]]]"
                         icon: mdi:vanity-light
 
                       # Kitchen Left
@@ -190,7 +178,7 @@ cards:
                         template: 
                           - card_motion_sensor
                         entity: binary_sensor.kitchen_left_motion_sensor_occupancy
-                        name: Kitchen Left
+                        name: "[[[ return variables.ulm_kitchen_left; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.kitchen_left_motion_sensor_illuminance
@@ -200,36 +188,16 @@ cards:
                         template: 
                           - card_motion_sensor
                         entity: binary_sensor.kitchen_right_motion_sensor_occupancy
-                        name: Kitchen Right
+                        name: "[[[ return variables.ulm_kitchen_right; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.kitchen_right_motion_sensor_illuminance
-                          
-                      # # Kitchen Motion Sensor
-                      # - type: 'custom:button-card'
-                      #   template: 
-                      #     - card_motion_sensor
-                      #   entity: binary_sensor.kitchen_motion_sensor_occupancy
-                      #   name: Motion
-                      #   show_last_changed: false
-                      #   variables:
-                      #     light_level: sensor.kitchen_motion_sensor_illuminance_lux
-
-                      # # Kitchen 2 Motion Sensor
-                      # - type: 'custom:button-card'
-                      #   template: 
-                      #     - card_motion_sensor
-                      #   entity: binary_sensor.kitchen_motion_sensor_2_occupancy
-                      #   name: Motion 2
-                      #   show_last_changed: false
-                      #   variables:
-                      #     light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
 
                       # Kitchen Cover
                       - type: 'custom:button-card'
                         template: card_cover_buttons
                         variables:
-                          ulm_card_cover_buttons_name: Cover
+                          x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_kitchen; ]]]"
                           ulm_card_cover_buttons_entity: cover.kitchen
                         view_layout:
                           grid-row-start: span 2 
@@ -239,7 +207,7 @@ cards:
                         template: card_washing_machine
                         entity: input_select.washing_machine_status
                         variables:
-                          ulm_card_washing_machine_name: Washing
+                          x_ulm_card_washing_machine_name: "[[[ return variables.ulm_washing_machine; ]]]"
 
 
                 - type: custom:button-card

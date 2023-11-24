@@ -31,7 +31,7 @@ card_fully:
         type: "custom:button-card"
         template:
           - "icon_info"
-          - "ulm_language_variables"
+          - "ulm_language_variables_EN"
         icon: 'mdi:view-dashboard'
         tap_action:
           action: "none"

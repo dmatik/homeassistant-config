@@ -23,18 +23,20 @@ icon_info_bg:
     label:
       - justify-self: "start"
       - align-self: "start"
-      - font-weight: "400"
-      - font-size: "12px"
+      - font-weight: "[[[ return variables.ulm_label_font_weight; ]]]"
+      - font-size: "[[[ return variables.ulm_label_font_size; ]]]"
       # filter: "opacity(40%)"
       - margin-left: "12px"
+      - margin-right: "12px"
       - letter-spacing: "0.4px"
       - color: "var(--secondary-text-color)"
     name:
       - align-self: "end"
       - justify-self: "start"
-      - font-weight: "500"
-      - font-size: "14px"
+      - font-weight: "[[[ return variables.ulm_name_font_weight; ]]]"
+      - font-size: "[[[ return variables.ulm_name_font_size; ]]]"
       - margin-left: "12px"
+      - margin-right: "12px"
       - margin-top: "0px"
       - height: 20px
       - letter-spacing: "0.1px"
@@ -45,6 +47,7 @@ icon_info_bg:
       - font-size: "12px"
       - filter: "opacity(40%)"
       - margin-left: "12px"
+      - margin-right: "12px"
     img_cell:
       - background-color: "rgba(var(--color-theme),0.05)"
       - border-radius: "50%"
@@ -61,22 +64,22 @@ icon_info_bg:
       - padding: "var(--card-padding)"
       #- border-style: "none"
       - --mdc-ripple-press-opacity: 0.0
-  custom_fields:
-    notification:
-      card:
-        type: "custom:button-card"
-        template: "badge"
-        icon: >
-          [[[
-            if ( entity.state =="unavailable" ) {
-              return "mdi:exclamation";
-            }
-          ]]]
-        variables:
-          ulm_badge_icon_backgroung_color: >
-            [[[
-              if ( entity.state =="unavailable" ) {
-                return "rgba(var(--color-red),1)";
-              }
-            ]]]
+  # custom_fields:
+  #   notification:
+  #     card:
+  #       type: "custom:button-card"
+  #       template: "badge"
+  #       icon: >
+  #         [[[
+  #           if ( entity.state =="unavailable" ) {
+  #             return "mdi:exclamation";
+  #           }
+  #         ]]]
+  #       variables:
+  #         ulm_badge_icon_backgroung_color: >
+  #           [[[
+  #             if ( entity.state =="unavailable" ) {
+  #               return "rgba(var(--color-red),1)";
+  #             }
+  #           ]]]
   size: "20px"

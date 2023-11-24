@@ -5,7 +5,7 @@ popup_switcher:
     browser_mod:
       service: browser_mod.popup
       data:
-        title: '[[[ return variables.ulm_card_switcher_name ]]]'
+        title: '[[[ return variables.x_ulm_card_switcher_name ]]]'
         content:
 
 
@@ -23,7 +23,7 @@ popup_switcher:
             # - type: custom:button-card
             #   template: card_header_popup
             #   variables:
-            #     card_header_title: '[[[ return variables.ulm_card_switcher_name ]]]'
+            #     card_header_title: '[[[ return variables.x_ulm_card_switcher_name ]]]'
             #     card_header_back_button: true   
 
 

@@ -12,7 +12,7 @@ minimalist-dmatik:
   widget-border-radius: "10px"
   card-padding: "12px"
   masonry-view-card-margin: "6px 4px 4px"
-  chips-left-margin: "6px"
+  chips-left-margin: "2px"
   chips-right-margin: "6px"
   view-margins: "0px"
   grid-layout-margins: "-10px -2px 12px"
@@ -121,6 +121,7 @@ minimalist-dmatik:
       ha-tabs {
         --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
         --mdc-icon-size: 28px;
+        margin-right: 10px;
       }
       paper-tab[aria-selected=true] {
         color: var(--header-active-tab-color) !important;

@@ -5,9 +5,9 @@ card_tv:
     - "ulm_language_variables"
   variables:
     ulm_card_tv_entity:
-    ulm_card_tv_name:
+    x_ulm_card_tv_name:
   triggers_update: "all"
-  name: '[[[ return variables.ulm_card_tv_name; ]]]'
+  name: '[[[ return variables.x_ulm_card_tv_name; ]]]'
   label: |-
     [[[
       if (entity.state === "on") {
@@ -30,7 +30,7 @@ card_tv:
 card_tv_with_buttons:
   variables:
     ulm_card_tv_entity: remote.living_room
-    ulm_card_tv_name: 'Main TV'
+    x_ulm_card_tv_name: 'Main TV'
   triggers_update: "all"
   styles:
     grid:
@@ -53,11 +53,11 @@ card_tv_with_buttons:
           - 'popup_tv'
         variables:
           ulm_card_tv_entity: '[[[ return variables.ulm_card_tv_entity ]]]'
-          ulm_card_tv_name: '[[[ return variables.ulm_card_tv_name ]]]'         
+          x_ulm_card_tv_name: '[[[ return variables.x_ulm_card_tv_name ]]]'         
         # tap_action:
         #   action: "more-info"
         entity: '[[[ return variables.ulm_card_tv_entity ]]]'
-        name: '[[[ return variables.ulm_card_tv_name ]]]'
+        name: '[[[ return variables.x_ulm_card_tv_name ]]]'
     item2:
       card:
         type: "custom:button-card"

@@ -64,25 +64,13 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: "custom:mod-card"
-                  style: 
-                    .: |
-                      ha-card {
-                          margin-left: var(--chips-left-margin) !important;
-                      }
-                    # hui-horizontal-stack-card$: |
-                    #   button-card {
-                    #     margin-right: var(--chips-right-margin) !important;
-                    #     margin-left: 0px !important;
-                    #     margin-bottom: 4px !important;
-                    #   }
-                    #   #root {
-                    #     flex-wrap: wrap;
-                    #   }
-                  card:
-
-                    type: horizontal-stack
-                    cards:
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
 
                       # - type: custom:button-card
                       #   template: edge
@@ -152,7 +140,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Rooms
+                      name: "[[[ return variables.ulm_rooms; ]]]"
 
 
 
@@ -186,7 +174,7 @@ cards:
                         template: card_room_two_rows
                         variables:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_living_room
-                          ulm_card_room_two_rows_name: Living Room
+                          x_ulm_card_room_two_rows_name: "[[[ return variables.ulm_living_room; ]]]"
                           ulm_card_room_two_rows_icon: mdi:sofa
                           ulm_card_room_two_rows_light: light.living_room
                           ulm_card_room_two_rows_temp: sensor.climate_living_room_temp
@@ -198,7 +186,7 @@ cards:
                         template: card_room_two_rows
                         variables:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_kitchen
-                          ulm_card_room_two_rows_name: Kitchen
+                          x_ulm_card_room_two_rows_name: "[[[ return variables.ulm_kitchen; ]]]"
                           ulm_card_room_two_rows_icon: mdi:silverware-fork-knife
                           ulm_card_room_two_rows_light: light.kitchen
                           ulm_card_room_two_rows_sensor: binary_sensor.kitchen_motion_sensors
@@ -209,7 +197,7 @@ cards:
                         template: card_room_two_rows
                         variables:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_floor_2
-                          ulm_card_room_two_rows_name: Floor 2
+                          x_ulm_card_room_two_rows_name: "[[[ return variables.ulm_floor_2; ]]]"
                           ulm_card_room_two_rows_icon: mdi:door-open
                           ulm_card_room_two_rows_light: light.hallway_stairs
                           ulm_card_room_two_rows_lights_on: sensor.number_of_lights_on_floor_2
@@ -219,7 +207,7 @@ cards:
                         template: card_room_two_rows
                         variables:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_bedroom
-                          ulm_card_room_two_rows_name: Bedroom
+                          x_ulm_card_room_two_rows_name: "[[[ return variables.ulm_bedroom; ]]]"
                           ulm_card_room_two_rows_icon: mdi:bed-empty
                           ulm_card_room_two_rows_light: light.bedroom
                           ulm_card_room_two_rows_temp: sensor.climate_bedroom_temp
@@ -231,7 +219,7 @@ cards:
                         template: card_room_two_rows
                         variables:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_kfir_room
-                          ulm_card_room_two_rows_name: Kfir Room
+                          x_ulm_card_room_two_rows_name: "[[[ return variables.ulm_kfir_room; ]]]"
                           ulm_card_room_two_rows_icon: mdi:teddy-bear
                           ulm_card_room_two_rows_light: light.kfir_room
                           ulm_card_room_two_rows_temp: sensor.climate_kfir_temp
@@ -242,7 +230,7 @@ cards:
                         template: card_room_two_rows
                         variables:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_ronen_room
-                          ulm_card_room_two_rows_name: Ronen Room
+                          x_ulm_card_room_two_rows_name: "[[[ return variables.ulm_ronen_room; ]]]"
                           ulm_card_room_two_rows_icon: mdi:soccer
                           ulm_card_room_two_rows_light: light.ronen_room
                           ulm_card_room_two_rows_temp: sensor.climate_ronen_temp
@@ -253,7 +241,7 @@ cards:
                         template: card_room_two_rows
                         variables:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_basement
-                          ulm_card_room_two_rows_name: Basement
+                          x_ulm_card_room_two_rows_name: "[[[ return variables.ulm_basement; ]]]"
                           ulm_card_room_two_rows_icon: mdi:home-floor-b
                           ulm_card_room_two_rows_light: light.basement
                           ulm_card_room_two_rows_temp: sensor.climate_basement_temp
@@ -264,7 +252,7 @@ cards:
                         template: card_room_two_rows
                         variables:
                           ulm_card_room_two_rows_navigate_path: /lovelace/minimalist_work_room
-                          ulm_card_room_two_rows_name: Work Room
+                          x_ulm_card_room_two_rows_name: "[[[ return variables.ulm_work_room; ]]]"
                           ulm_card_room_two_rows_icon: mdi:laptop
                           ulm_card_room_two_rows_light: light.work_room
                           #ulm_card_room_two_rows_temp: sensor.work_room_temperature_sensor_temperature

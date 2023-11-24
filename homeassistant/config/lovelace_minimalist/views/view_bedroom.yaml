@@ -64,25 +64,13 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: "custom:mod-card"
-                  style: 
-                    .: |
-                      ha-card {
-                          margin-left: var(--chips-left-margin) !important;
-                      }
-                    # hui-horizontal-stack-card$: |
-                    #   button-card {
-                    #     margin-right: var(--chips-right-margin) !important;
-                    #     margin-left: 0px !important;
-                    #     margin-bottom: 4px !important;
-                    #   }
-                    #   #root {
-                    #     flex-wrap: wrap;
-                    #   }
-                  card:
-
-                    type: horizontal-stack
-                    cards:
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
 
                       # - type: custom:button-card
                       #   template: edge
@@ -132,7 +120,7 @@ cards:
 
           ############################################################################
           #                                                                          #
-          #   Title                                                                  #
+          #   Bedroom                                                                #
           #                                                                          #
           ############################################################################
 
@@ -141,7 +129,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Bedroom
+                      name: "[[[ return variables.ulm_bedroom; ]]]"
 
 
 
@@ -174,27 +162,27 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bedroom
-                        name: Bedroom
+                        name: "[[[ return variables.ulm_bedroom; ]]]"
 
                       # Bedside Dima Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bedside_dima_bulb
                         icon: 'mdi:lamp'
+                        name: "[[[ return variables.ulm_dima; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Dima
 
                       # Bedside Galit Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bedside_galit_bulb
                         icon: 'mdi:lamp'
+                        name: "[[[ return variables.ulm_galit; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Galit
 
                       # Bedroom Climate
                       - type: 'custom:button-card'
@@ -203,32 +191,9 @@ cards:
                           ulm_card_ac_entity: climate.bedroom_template
                           #ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
                           ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
-                          ulm_card_ac_name: 'Bedroom'
+                          x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                         view_layout:
                           grid-row-start: span 2
-
-                      # Parents Bathroom Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.parents_bathroom_ceiling
-                        name: Parent Bath
-
-                      # Parents Bathroom Mirror Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.parents_bathroom_mirror
-                        name: Prnts Bath Mirror
-
-                      # Parents Bathroom Heater
-                      - type: 'custom:button-card'
-                        template: 
-                          - "card_power_outlet"
-                          - "red_on"
-                        variables:
-                          ulm_card_power_outlet_consumption_sensor: sensor.parents_bathroom_heater_power
-                        entity: switch.parents_bathroom_heater
-                        name: Parents Bath
-                        icon: mdi:heat-wave
 
                       # Bedroom Radiator
                       # - type: 'custom:button-card'
@@ -239,12 +204,77 @@ cards:
                       #   name: Radiator
                       #   icon: mdi:radiator
 
+
+
+          ############################################################################
+          #                                                                          #
+          #   Parents Bathroom                                                       #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Parents Bathroom Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.parents_bathroom_ceiling
+                        name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+
+                      # Parents Bathroom Mirror Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.parents_bathroom_mirror
+                        name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
+
+                      # Parents Bathroom Heater
+                      - type: 'custom:button-card'
+                        template: 
+                          - "card_power_outlet"
+                          - "red_on"
+                        variables:
+                          ulm_card_power_outlet_consumption_sensor: sensor.parents_bathroom_heater_power
+                        entity: switch.parents_bathroom_heater
+                        name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+                        icon: mdi:heat-wave
+
                       # Parents Bathroom Right Sensor
                       - type: 'custom:button-card'
                         template: 
                           - card_motion_sensor
                         entity: binary_sensor.parents_bathroom_right_motion_sensor_occupancy
-                        name: Bathroom Right
+                        name: "[[[ return variables.ulm_parents_bathroom_tub; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.parents_bathroom_right_motion_sensor_illuminance_lux
@@ -254,7 +284,7 @@ cards:
                         template: 
                           - card_motion_sensor
                         entity: binary_sensor.parents_bathroom_toilet_motion_sensor_occupancy
-                        name: Bathroom Toilet
+                        name: "[[[ return variables.ulm_parents_bathroom_toilet; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.parents_bathroom_toilet_motion_sensor_illuminance
@@ -264,12 +294,11 @@ cards:
                         template: 
                           - card_motion_sensor
                         entity: binary_sensor.parents_bathroom_mirror_motion_sensor_occupancy
-                        name: Bathroom Mirror
+                        name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.parents_bathroom_mirror_motion_sensor_illuminance
-
-
+                          
 
                 - type: custom:button-card
                   template: spacer

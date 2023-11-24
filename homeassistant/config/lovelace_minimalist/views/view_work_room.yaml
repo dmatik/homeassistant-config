@@ -64,25 +64,13 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: "custom:mod-card"
-                  style: 
-                    .: |
-                      ha-card {
-                          margin-left: var(--chips-left-margin) !important;
-                      }
-                    # hui-horizontal-stack-card$: |
-                    #   button-card {
-                    #     margin-right: var(--chips-right-margin) !important;
-                    #     margin-left: 0px !important;
-                    #     margin-bottom: 4px !important;
-                    #   }
-                    #   #root {
-                    #     flex-wrap: wrap;
-                    #   }
-                  card:
-
-                    type: horizontal-stack
-                    cards:
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
 
                       # - type: custom:button-card
                       #   template: edge
@@ -123,7 +111,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Work Room
+                      name: "[[[ return variables.ulm_work_room; ]]]"
 
 
 
@@ -156,14 +144,14 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.work_room
-                        name: Work Room
+                        name: "[[[ return variables.ulm_work_room; ]]]"
 
                       # Dimka PC
                       - type: 'custom:button-card'
                         template: card_pc
                         entity: switch.dimka_hass_agent
                         variables:
-                          ulm_card_pc_name: Dimka PC
+                          x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
                           ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
                           ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
                           ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
@@ -192,7 +180,7 @@ cards:
                         template: card_printer
                         entity: sensor.mfc_j650dw_status
                         variables:
-                          ulm_card_printer_name: Printer
+                          x_ulm_card_printer_name: "[[[ return variables.ulm_printer; ]]]"
                       
 
 

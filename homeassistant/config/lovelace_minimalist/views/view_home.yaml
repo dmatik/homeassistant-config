@@ -61,26 +61,34 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: "custom:mod-card"
-                  card_mod:
-                    style:
-                      .: |
-                        ha-card {
-                            margin-left: var(--chips-left-margin) !important;
-                        }
-                      # hui-horizontal-stack-card$: |
-                      #   button-card {
-                      #     margin-right: var(--chips-right-margin) !important;
-                      #     margin-left: 0px !important;
-                      #     margin-bottom: 4px !important;
-                      #   }
-                      #   div#root {
-                      #     flex-wrap: wrap;
-                      #   }
-                  card:
+                # - type: "custom:mod-card"
+                #   card_mod:
+                #     style:
+                #       # .: |
+                #       #   ha-card {
+                #       #       margin-left: var(--chips-left-margin) !important;
+                #       #   }
+                #       hui-horizontal-stack-card$: |
+                #         #root > :first-child {
+                #           margin-left: 4px !important;
+                #           margin-right: 4px !important;
+                #         }
+                #         #root > :last-child {
+                #           margin-left: 4px !important;
+                #           margin-right: 4px !important;
+                #         }
+                #   card:
 
-                    type: horizontal-stack
-                    cards:
+                #     type: horizontal-stack
+                #     cards:
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
 
                       # - type: custom:button-card
                       #   template: edge
@@ -270,7 +278,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Scenes
+                      name: "[[[ return variables.ulm_scenes; ]]]"
 
 
                 # Scenes
@@ -297,45 +305,45 @@ cards:
                       - type: 'custom:button-card'
                         template: card_scene_vertical
                         entity: scene.basement_lights_off
-                        name: Basement
-                        label: "Lights OFF"
+                        name: "[[[ return variables.ulm_basement; ]]]"
+                        label: "[[[ return variables.ulm_lights_off; ]]]"
                         icon: mdi:lightbulb-multiple-off
                         variables:
                           color: "yellow"
-                          confirmation_text: "Turn off Basement lights?"
+                          x_confirmation_text: "[[[ return variables.ulm_turn_off_basment_lights; ]]]"
 
-                      # Ground Floor Lights OFF scene
+                      # Main Floor Lights OFF scene
                       - type: 'custom:button-card'
                         template: card_scene_vertical
                         entity: scene.ground_floor_lights_off
-                        name: Ground
-                        label: "Lights OFF"
+                        name: "[[[ return variables.ulm_ground; ]]]"
+                        label: "[[[ return variables.ulm_lights_off; ]]]"
                         icon: mdi:lightbulb-multiple-off
                         variables:
                           color: "yellow"
-                          confirmation_text: "Turn off Ground Floor lights?"
+                          x_confirmation_text: "[[[ return variables.ulm_turn_off_ground_lights; ]]]"
 
                       # Main Floor Covers
                       - type: 'custom:button-card'
                         template: card_scene_vertical
                         entity: scene.main_floor_covers
-                        name: Covers
-                        label: "Main"
+                        name: "[[[ return variables.ulm_covers; ]]]"
+                        label: "[[[ return variables.ulm_main; ]]]"
                         icon: mdi:window-shutter
                         variables:
                           color: "blue"
-                          confirmation_text: "Main Floor covers?"
+                          x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
 
                       # Movie time
                       - type: 'custom:button-card'
                         template: card_scene_vertical
                         entity: scene.movie_time
-                        name: Movie
-                        label: "Scene"
+                        name: "[[[ return variables.ulm_movie; ]]]"
+                        label: "[[[ return variables.ulm_scene; ]]]"
                         icon: mdi:movie-filter
                         variables:
                           color: "purple"
-                          confirmation_text: "Movie scene?"
+                          x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"
 
 
 
@@ -351,7 +359,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Favorites
+                      name: "[[[ return variables.ulm_favorites; ]]]"
 
 
                 #Cards
@@ -378,34 +386,14 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.living_room
-                        name: Living Room
+                        name: "[[[ return variables.ulm_living_room; ]]]"
 
                       # Dining Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.dining
-                        name: Dining
+                        name: "[[[ return variables.ulm_dining; ]]]"
                         icon: mdi:ceiling-light
-
-                      # TV Wall Light
-                      # - type: 'custom:button-card'
-                      #   template: 'card_light_simple'
-                      #   entity: light.living_room_tv_wall
-                      #   name: TV Wall
-                      #   icon: mdi:wall-sconce-round
-
-                      # Entrance Light
-                      # - type: 'custom:button-card'
-                      #   template: 'card_light_simple'
-                      #   entity: light.entrance
-                      #   name: Entrance
-                      #   icon: mdi:lightbulb-spot
-
-                      # Back Yard Light
-                      # - type: 'custom:button-card'
-                      #   template: 'card_light_simple'
-                      #   entity: light.back_yard
-                      #   name: Back Yard    
 
                       # Living Room AC
                       - type: 'custom:button-card'
@@ -413,7 +401,7 @@ cards:
                         variables:
                           ulm_card_ac_entity: climate.living_room_template
                           ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                          ulm_card_ac_name: 'Living Room'
+                          x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                         view_layout:
                           grid-row-start: span 2 
 
@@ -422,11 +410,11 @@ cards:
                         template: 
                           - card_switcher
                         variables:
-                          ulm_card_switcher_name: "Boiler"
+                          x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
                           ulm_card_switcher_icon: "mdi:waves"
                           ulm_card_switcher_entity: switch.switcher_boiler
                           ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
-                          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left
+                          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
                           ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
                           ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
                           ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
@@ -437,7 +425,7 @@ cards:
                       - type: 'custom:button-card'
                         template: card_cover_buttons
                         variables:
-                          ulm_card_cover_buttons_name: Back Yard
+                          x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_back_yard; ]]]"
                           ulm_card_cover_buttons_entity: cover.back_yard
                         view_layout:
                           grid-row-start: span 2
@@ -447,36 +435,34 @@ cards:
                         template: 'card_tv'
                         entity: media_player.lg_webos_tv_oled77cs6la
                         variables:
-                          ulm_card_tv_name: 'Main TV'
-                        # view_layout:
-                        #   grid-row-start: span 2   
+                          x_ulm_card_tv_name: "[[[ return variables.ulm_living_room_tv; ]]]"
 
                       # Basement TV
                       - type: 'custom:button-card'
                         template: 'card_tv'
                         entity: media_player.samsung_8_series_65
                         variables:
-                          ulm_card_tv_name: 'Basement TV'
+                          x_ulm_card_tv_name: "[[[ return variables.ulm_basement_tv; ]]]"
 
                       # Bedside Dima Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bedside_dima_bulb
                         icon: 'mdi:lamp'
+                        name: "[[[ return variables.ulm_dima; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Dima
 
                       # Bedside Galit Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bedside_galit_bulb
                         icon: 'mdi:lamp'
+                        name: "[[[ return variables.ulm_galit; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Galit
                     
                                                
                       # NY Tree
@@ -511,7 +497,7 @@ cards:
                         template: card_pc
                         entity: switch.dimka_hass_agent
                         variables:
-                          ulm_card_pc_name: Dimka PC
+                          x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
                           ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
                           ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
                           ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'

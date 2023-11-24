@@ -64,25 +64,13 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: "custom:mod-card"
-                  style: 
-                    .: |
-                      ha-card {
-                          margin-left: var(--chips-left-margin) !important;
-                      }
-                    # hui-horizontal-stack-card$: |
-                    #   button-card {
-                    #     margin-right: var(--chips-right-margin) !important;
-                    #     margin-left: 0px !important;
-                    #     margin-bottom: 4px !important;
-                    #   }
-                    #   #root {
-                    #     flex-wrap: wrap;
-                    #   }
-                  card:
-
-                    type: horizontal-stack
-                    cards:
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
 
                       # - type: custom:button-card
                       #   template: edge
@@ -115,7 +103,7 @@ cards:
 
           ############################################################################
           #                                                                          #
-          #   Title                                                                  #
+          #   Hallway                                                                #
           #                                                                          #
           ############################################################################
 
@@ -124,7 +112,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Hallway
+                      name: "[[[ return variables.ulm_hallway; ]]]"
 
 
 
@@ -157,31 +145,89 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.hallway_stairs
-                        name: Hallway
+                        name: "[[[ return variables.ulm_hallway; ]]]"
 
                       # Stairs Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.stairs_floor_2
-                        name: Stairs
+                        name: "[[[ return variables.ulm_stairs; ]]]"
+
+                      # Switcher
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_switcher
+                        variables:
+                          x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+                          ulm_card_switcher_icon: "mdi:waves"
+                          ulm_card_switcher_entity: switch.switcher_boiler
+                          ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
+                          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
+                          ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+                          ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
+                          ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+                        view_layout:
+                          grid-row-start: span 2
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Bathroom                                                               #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_bathroom; ]]]"
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
 
                       # Bathroom Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bathroom_ceiling
-                        name: Bathroom
+                        name: "[[[ return variables.ulm_bathroom; ]]]"
 
                       # Bathroom Mirror Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bathroom_mirror
-                        name: Bath Mirror
+                        name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
 
                       # Laundry Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.laundry
-                        name: Laundry
+                        name: "[[[ return variables.ulm_laundry; ]]]"
 
                       # Bathroom Heater
                       - type: 'custom:button-card'
@@ -191,31 +237,15 @@ cards:
                         variables:
                           ulm_card_power_outlet_consumption_sensor: sensor.bathroom_heater_power
                         entity: switch.bathroom_heater
-                        name: Bathroom
+                        name: "[[[ return variables.ulm_bathroom; ]]]"
                         icon: mdi:heat-wave
-
-                      # Switcher
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_switcher
-                        variables:
-                          ulm_card_switcher_name: "Boiler"
-                          ulm_card_switcher_icon: "mdi:waves"
-                          ulm_card_switcher_entity: switch.switcher_boiler
-                          ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
-                          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left
-                          ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
-                          ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
-                          ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
-                        view_layout:
-                          grid-row-start: span 2
 
                       # Bathroom Toilet Sensor
                       - type: 'custom:button-card'
                         template: 
                           - card_motion_sensor
                         entity: binary_sensor.bathroom_toilet_motion_sensor_occupancy
-                        name: Bathroom Toilet
+                        name: "[[[ return variables.ulm_bathroom_toilet; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.bathroom_toilet_motion_sensor_illuminance
@@ -225,7 +255,7 @@ cards:
                         template: 
                           - card_motion_sensor
                         entity: binary_sensor.bathroom_bathtub_motion_sensor_occupancy
-                        name: Bathroom Tub
+                        name: "[[[ return variables.ulm_bathroom_tub; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.bathroom_bathtub_motion_sensor_illuminance
@@ -235,7 +265,7 @@ cards:
                         template: 
                           - card_motion_sensor
                         entity: binary_sensor.bathroom_mirror_motion_sensor_occupancy
-                        name: Bathroom Mirror
+                        name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
                         show_last_changed: false
                         variables:
                           light_level: sensor.bathroom_mirror_motion_sensor_illuminance

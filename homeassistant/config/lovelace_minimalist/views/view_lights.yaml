@@ -63,25 +63,13 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: "custom:mod-card"
-                  style: 
-                    .: |
-                      ha-card {
-                          margin-left: var(--chips-left-margin) !important;
-                      }
-                    # hui-horizontal-stack-card$: |
-                    #   button-card {
-                    #     margin-right: var(--chips-right-margin) !important;
-                    #     margin-left: 0px !important;
-                    #     margin-bottom: 4px !important;
-                    #   }
-                    #   #root {
-                    #     flex-wrap: wrap;
-                    #   }
-                  card:
-
-                    type: horizontal-stack
-                    cards:
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
 
                       # - type: custom:button-card
                       #   template: edge
@@ -124,7 +112,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Living Room
+                      name: "[[[ return variables.ulm_living_room; ]]]"
 
 
                 # Lights
@@ -159,53 +147,53 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.living_room
-                        name: Living Room
+                        name: "[[[ return variables.ulm_living_room; ]]]"
 
                       # Dining Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.dining
-                        name: Dining
+                        name: "[[[ return variables.ulm_dining; ]]]"
                         icon: mdi:ceiling-light
 
                       # TV Wall Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.living_room_tv_wall
-                        name: TV Wall
+                        name: "[[[ return variables.ulm_tv_wall; ]]]"
                         icon: mdi:wall-sconce-round
 
                       # Stairs Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.stairs_ground_floor
-                        name: Stairs
+                        name: "[[[ return variables.ulm_stairs; ]]]"
                         
                       # Entrance Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.entrance
-                        name: Entrance
+                        name: "[[[ return variables.ulm_entrance; ]]]"
                         icon: mdi:lightbulb-spot
 
                       # Guests Bathroom Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.guests_bathroom
-                        name: Guest Bathroom
+                        name: "[[[ return variables.ulm_guest_bathroom; ]]]"
 
                       # Front Yard Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.front_yard
-                        name: Front Yard
+                        name: "[[[ return variables.ulm_front_yard; ]]]"
                         icon: mdi:outdoor-lamp
 
                       # Back Yard Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.back_yard
-                        name: Back Yard
+                        name: "[[[ return variables.ulm_back_yard; ]]]"
                         icon: mdi:outdoor-lamp
 
 
@@ -222,7 +210,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Kitchen
+                      name: "[[[ return variables.ulm_kitchen; ]]]"
 
                 # Lights
                 - type: "custom:mod-card"
@@ -248,23 +236,23 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.kitchen
-                        name: Kitchen
+                        name: "[[[ return variables.ulm_kitchen; ]]]"
 
                       # Kitchen Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.kitchen_led_strip
                         icon: 'mdi:led-strip-variant'
+                        name: "[[[ return variables.ulm_kitchen_strip; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Kitchen Strip
 
                       # Kitchen Bar Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.kitchen_bar
-                        name: Kitchen Bar
+                        name: "[[[ return variables.ulm_kitchen_bar; ]]]"
                         icon: mdi:vanity-light
 
 
@@ -281,7 +269,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Floor 2
+                      name: "[[[ return variables.ulm_floor_2; ]]]"
 
                 # Lights
                 - type: "custom:mod-card"
@@ -307,25 +295,25 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.hallway_stairs
-                        name: Hallway
+                        name: "[[[ return variables.ulm_hallway; ]]]"
 
                       # Bathroom Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bathroom_ceiling
-                        name: Bathroom
+                        name: "[[[ return variables.ulm_bathroom; ]]]"
 
                       # Bathroom Mirror Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bathroom_mirror
-                        name: Bath Mirror
+                        name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
 
                       # Laundry Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.laundry
-                        name: Laundry
+                        name: "[[[ return variables.ulm_laundry; ]]]"
 
 
 
@@ -341,7 +329,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Bedroom
+                      name: "[[[ return variables.ulm_bedroom; ]]]"
 
                 # Lights
                 - type: "custom:mod-card"
@@ -367,39 +355,39 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bedroom
-                        name: Bedroom
+                        name: "[[[ return variables.ulm_bedroom; ]]]"
                         
                       # Bedside Dima Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bedside_dima_bulb
                         icon: 'mdi:lamp'
+                        name: "[[[ return variables.ulm_dima; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Dima
 
                       # Bedside Galit Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.bedside_galit_bulb
                         icon: 'mdi:lamp'
+                        name: "[[[ return variables.ulm_galit; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Galit
 
                       # Parents Bathroom Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.parents_bathroom_ceiling
-                        name: Parent Bath
+                        name: "[[[ return variables.ulm_parents_bathroom; ]]]"
 
                       # Parents Bathroom Mirror Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.parents_bathroom_mirror
-                        name: Prnts Bath Mirror
+                        name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
 
 
 
@@ -415,7 +403,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Ronen Room
+                      name: "[[[ return variables.ulm_ronen_room; ]]]"
 
                 # Lights
                 - type: "custom:mod-card"
@@ -441,17 +429,17 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.ronen_room
-                        name: Ronen Room
+                        name: "[[[ return variables.ulm_ronen_room; ]]]"
 
                       # Ronen Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.ronen_led_strip
                         icon: 'mdi:led-strip-variant'
+                        name: "[[[ return variables.ulm_ronen_strip; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Ronen Strip
 
 
 
@@ -467,7 +455,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Kfir Room
+                      name: "[[[ return variables.ulm_kfir_room; ]]]"
 
                 # Lights
                 - type: "custom:mod-card"
@@ -493,17 +481,17 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.kfir_room
-                        name: Kfir Room
+                        name: "[[[ return variables.ulm_kfir_room; ]]]"
 
                       # Kfir Led Strip
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.kfir_led_strip
                         icon: 'mdi:led-strip-variant'
+                        name: "[[[ return variables.ulm_kfir_strip; ]]]"
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                          ulm_card_light_name: Kfir Strip
 
 
 
@@ -519,7 +507,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Basement
+                      name: "[[[ return variables.ulm_basement; ]]]"
 
                 # Lights
                 - type: "custom:mod-card"
@@ -545,31 +533,25 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.basement
-                        name: Basement
-
-                      # Stairs Light
-                      # - type: 'custom:button-card'
-                      #   template: 'card_light_simple'
-                      #   entity: light.stairs_basement
-                      #   name: Stairs
+                        name: "[[[ return variables.ulm_basement; ]]]"
 
                       # Basement 2 Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.basement_2_light_1
-                        name: Basement 2
+                        name: "[[[ return variables.ulm_basement_2; ]]]"
 
                       # Basement 3 Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.basement_2_light_2
-                        name: Basement 3
+                        name: "[[[ return variables.ulm_basement_3; ]]]"
 
                       # Basement Toys Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.basement_toys
-                        name: Basement Toys
+                        name: "[[[ return variables.ulm_basement_toys; ]]]"
 
 
 
@@ -585,7 +567,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: Work Room
+                      name: "[[[ return variables.ulm_work_room; ]]]"
 
                 # Lights
                 - type: "custom:mod-card"
@@ -612,7 +594,7 @@ cards:
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
                         entity: light.work_room
-                        name: Work Room
+                        name: "[[[ return variables.ulm_work_room; ]]]"
 
 
 

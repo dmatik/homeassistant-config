@@ -23,7 +23,7 @@ popup_tv:
               .mdc-top-app-bar {
                 background: var(--header-background-color) !important;
               }
-        title: '[[[ return variables.ulm_card_tv_name; ]]]'
+        title: '[[[ return variables.x_ulm_card_tv_name; ]]]'
         content:
 
           type: vertical-stack

@@ -41,7 +41,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Climate
+                    name: "[[[ return variables.ulm_climate; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -60,7 +60,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.basement_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
-                      ulm_card_ac_name: 'Basement'
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -71,7 +71,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Devices
+                    name: "[[[ return variables.ulm_devices; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -89,14 +89,14 @@ cards:
                     template: 'card_tv'
                     entity: media_player.samsung_8_series_65
                     variables:
-                      ulm_card_tv_name: 'Basement TV'
+                      x_ulm_card_tv_name: "[[[ return variables.ulm_basement_tv; ]]]"
 
                   # Dimka PC
                   - type: 'custom:button-card'
                     template: card_pc
                     entity: switch.dimka_hass_agent
                     variables:
-                      ulm_card_pc_name: Dimka PC
+                      x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
                       ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
                       ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
                       ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
@@ -111,7 +111,7 @@ cards:
                     template: card_printer
                     entity: sensor.mfc_j650dw_status
                     variables:
-                      ulm_card_printer_name: Printer
+                      x_ulm_card_printer_name: "[[[ return variables.ulm_printer; ]]]"
 
 
                       
@@ -131,7 +131,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Lights
+                    name: "[[[ return variables.ulm_lights; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -148,34 +148,34 @@ cards:
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.basement
-                    name: Basement
+                    name: "[[[ return variables.ulm_basement; ]]]"
 
                   # Stairs Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.stairs_basement
-                    name: Stairs
+                    name: "[[[ return variables.ulm_stairs; ]]]"
 
                   # Basement 2 Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.basement_2_light_1
-                    name: Basement 2
+                    name: "[[[ return variables.ulm_basement_2; ]]]"
 
                   # Basement 3 Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.basement_2_light_2
-                    name: Basement 3
+                    name: "[[[ return variables.ulm_basement_3; ]]]"
 
                   # Basement Toys Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.basement_toys
-                    name: Basement Toys
+                    name: "[[[ return variables.ulm_basement_toys; ]]]"
 
                   # Work Room Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.work_room
-                    name: Work Room
+                    name: "[[[ return variables.ulm_work_room; ]]]"

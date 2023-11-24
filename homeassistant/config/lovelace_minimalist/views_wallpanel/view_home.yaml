@@ -41,7 +41,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Presense
+                    name: "[[[ return variables.ulm_presense; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -91,7 +91,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Climate
+                    name: "[[[ return variables.ulm_climate; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -110,7 +110,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.living_room_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                      ulm_card_ac_name: 'Living Room'
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -120,7 +120,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.basement_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
-                      ulm_card_ac_name: 'Basement'
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -131,7 +131,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Covers
+                    name: "[[[ return variables.ulm_covers; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -148,7 +148,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_cover_buttons
                     variables:
-                      ulm_card_cover_buttons_name: Back Yard
+                      x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_back_yard; ]]]"
                       ulm_card_cover_buttons_entity: cover.back_yard
                     view_layout:
                       grid-row-start: span 2
@@ -157,7 +157,7 @@ cards:
                   - type: 'custom:button-card'
                     template: card_cover_buttons
                     variables:
-                      ulm_card_cover_buttons_name: Kitchen
+                      x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_kitchen; ]]]"
                       ulm_card_cover_buttons_entity: cover.kitchen
                     view_layout:
                       grid-row-start: span 2 
@@ -169,7 +169,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Devices
+                    name: "[[[ return variables.ulm_devices; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -187,7 +187,7 @@ cards:
                     template: 'card_tv'
                     entity: media_player.lg_webos_tv_oled77cs6la
                     variables:
-                      ulm_card_tv_name: 'Main TV'
+                      x_ulm_card_tv_name: "[[[ return variables.ulm_living_room_tv; ]]]"
 
                   # Dimka PC
                   # - type: 'custom:button-card'
@@ -226,11 +226,11 @@ cards:
                     template: 
                       - card_switcher
                     variables:
-                      ulm_card_switcher_name: "Boiler"
+                      x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
                       ulm_card_switcher_icon: "mdi:waves"
                       ulm_card_switcher_entity: switch.switcher_boiler
                       ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
-                      ulm_card_switcher_time_left: sensor.switcher_boiler_time_left
+                      ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
                       ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
                       ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
                       ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
@@ -261,7 +261,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Lights
+                    name: "[[[ return variables.ulm_lights; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -278,70 +278,70 @@ cards:
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.living_room
-                    name: Living Room
+                    name: "[[[ return variables.ulm_living_room; ]]]"
 
                   # Dining Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.dining
-                    name: Dining
+                    name: "[[[ return variables.ulm_dining; ]]]"
                     icon: mdi:ceiling-light
 
                   # TV Wall Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.living_room_tv_wall
-                    name: TV Wall
+                    name: "[[[ return variables.ulm_tv_wall; ]]]"
                     icon: mdi:wall-sconce-round
 
                   # Entrance Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.entrance
-                    name: Entrance
+                    name: "[[[ return variables.ulm_entrance; ]]]"
                     icon: mdi:lightbulb-spot
 
                   # Guests Bathroom Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.guests_bathroom
-                    name: Guest Bathroom
+                    name: "[[[ return variables.ulm_guest_bathroom; ]]]"
 
                   # Kitchen Light
                   # - type: 'custom:button-card'
                   #   template: 'card_light_simple'
                   #   entity: light.kitchen
-                  #   name: Kitchen
+                  #   name: "[[[ return variables.ulm_kitchen; ]]]"
 
                   # Kitchen Led Strip
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.kitchen_led_strip
                     icon: 'mdi:led-strip-variant'
+                    name: "[[[ return variables.ulm_kitchen_strip; ]]]"
                     variables:
                       ulm_card_light_enable_color: true
                       ulm_card_light_enable_popup: false
-                      ulm_card_light_name: Kitchen Strip
 
                   # Kitchen Bar Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.kitchen_bar
-                    name: Kitchen Bar
+                    name: "[[[ return variables.ulm_kitchen_bar; ]]]"
                     icon: mdi:vanity-light
 
                   # Front Yard Light
                   # - type: 'custom:button-card'
                   #   template: 'card_light_simple'
                   #   entity: light.front_yard
-                  #   name: Front Yard
+                  #   name: "[[[ return variables.ulm_front_yard; ]]]"
                   #   icon: mdi:outdoor-lamp
 
                   # Back Yard Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.back_yard
-                    name: Back Yard
+                    name: "[[[ return variables.ulm_back_yard; ]]]"
                     icon: mdi:outdoor-lamp
 
                   # NY Tree
@@ -357,63 +357,45 @@ cards:
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.stairs_ground_floor
-                    name: Stairs
+                    name: "[[[ return variables.ulm_stairs; ]]]"
 
                   # Hallway Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.hallway_stairs
-                    name: Hallway
+                    name: "[[[ return variables.ulm_hallway; ]]]"
 
                   # Bedside Dima Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.bedside_dima_bulb
                     icon: 'mdi:lamp'
+                    name: "[[[ return variables.ulm_dima; ]]]"
                     variables:
                       ulm_card_light_enable_color: true
                       ulm_card_light_enable_popup: false
-                      ulm_card_light_name: Dima
 
                   # Bedside Galit Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.bedside_galit_bulb
                     icon: 'mdi:lamp'
+                    name: "[[[ return variables.ulm_galit; ]]]"
                     variables:
                       ulm_card_light_enable_color: true
                       ulm_card_light_enable_popup: false
-                      ulm_card_light_name: Galit
 
                   # Basement Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.basement
-                    name: Basement
-
-                  # # Basement 2 Light
-                  # - type: 'custom:button-card'
-                  #   template: 'card_light_simple'
-                  #   entity: light.basement_2_light_1
-                  #   name: Basement 2
-
-                  # # Basement 3 Light
-                  # - type: 'custom:button-card'
-                  #   template: 'card_light_simple'
-                  #   entity: light.basement_2_light_2
-                  #   name: Basement 3
-
-                  # # Basement Toys Light
-                  # - type: 'custom:button-card'
-                  #   template: 'card_light_simple'
-                  #   entity: light.basement_toys
-                  #   name: Basement Toys
+                    name: "[[[ return variables.ulm_basement; ]]]"
                     
                   # Work Room Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.work_room
-                    name: Work Room
+                    name: "[[[ return variables.ulm_work_room; ]]]"
 
 
               # Title
@@ -422,7 +404,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Scenes
+                    name: "[[[ return variables.ulm_scenes; ]]]"
 
 
               # Scenes
@@ -441,72 +423,42 @@ cards:
                   - type: 'custom:button-card'
                     template: card_scene_vertical
                     entity: scene.basement_lights_off
-                    name: Basement
-                    label: "Lights OFF"
+                    name: "[[[ return variables.ulm_basement; ]]]"
+                    label: "[[[ return variables.ulm_lights_off; ]]]"
                     icon: mdi:lightbulb-multiple-off
                     variables:
                       color: "yellow"
-                      confirmation_text: "Turn off Basement lights?"
+                      x_confirmation_text: "[[[ return variables.ulm_turn_off_basment_lights; ]]]"
 
-                  # Ground Floor Lights OFF scene
+                  # Main Floor Lights OFF scene
                   - type: 'custom:button-card'
                     template: card_scene_vertical
                     entity: scene.ground_floor_lights_off
-                    name: Ground
-                    label: "Lights OFF"
+                    name: "[[[ return variables.ulm_ground; ]]]"
+                    label: "[[[ return variables.ulm_lights_off; ]]]"
                     icon: mdi:lightbulb-multiple-off
                     variables:
                       color: "yellow"
-                      confirmation_text: "Turn off Ground Floor lights?"
+                      x_confirmation_text: "[[[ return variables.ulm_turn_off_ground_lights; ]]]"
 
                   # Main Floor Covers
                   - type: 'custom:button-card'
                     template: card_scene_vertical
                     entity: scene.main_floor_covers
-                    name: Covers
-                    label: "Main"
+                    name: "[[[ return variables.ulm_covers; ]]]"
+                    label: "[[[ return variables.ulm_main; ]]]"
                     icon: mdi:window-shutter
                     variables:
                       color: "blue"
-                      confirmation_text: "Main Floor covers?"
+                      x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
 
                   # Movie time
                   - type: 'custom:button-card'
                     template: card_scene_vertical
                     entity: scene.movie_time
-                    name: Movie
-                    label: "Scene"
+                    name: "[[[ return variables.ulm_movie; ]]]"
+                    label: "[[[ return variables.ulm_scene; ]]]"
                     icon: mdi:movie-filter
                     variables:
                       color: "purple"
-                      confirmation_text: "Movie scene?"
-
-                    # Main Floor Cooling
-                    # - type: 'custom:button-card'
-                    #   template: card_toggle_vertical
-                    #   entity: automation.main_floor_cooling
-                    #   name: Main Floor
-                    #   label: "Cooling"
-                    #   icon: mdi:snowflake-thermometer
-                    #   variables:
-                    #     color: blue
-
-                    # Bedroom AC Night Cooling
-                    # - type: 'custom:button-card'
-                    #   template: card_toggle_vertical
-                    #   entity: automation.bedroom_ac_night_cooling
-                    #   name: Bedroom AC
-                    #   label: "Night Cooling"
-                    #   icon: mdi:snowflake-thermometer
-                    #   variables:
-                    #     color: blue
-
-                    # Kids ACs Night Cooling
-                    # - type: 'custom:button-card'
-                    #   template: card_toggle_vertical
-                    #   entity: automation.kids_ac_night_cooling
-                    #   name: Kids ACs
-                    #   label: "Night Cooling"
-                    #   icon: mdi:snowflake-thermometer
-                    #   variables:
-                    #     color: blue
+                      x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"

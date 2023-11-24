@@ -1,6 +1,8 @@
 card_switcher:
+  template: 
+    - ulm_language_variables
   variables:
-    ulm_card_switcher_name: ""
+    x_ulm_card_switcher_name: ""
     ulm_card_switcher_icon: ""
     ulm_card_switcher_entity: ""
     ulm_card_switcher_timer_script: ""
@@ -31,7 +33,7 @@ card_switcher:
           ulm_card_switcher_timer_minutes: '[[[ return variables.ulm_card_switcher_timer_minutes ]]]'
           ulm_card_switcher_timer_script: '[[[ return variables.ulm_card_switcher_timer_script ]]]'
           ulm_card_switcher_auto_off: '[[[ return variables.ulm_card_switcher_auto_off ]]]'
-          ulm_card_switcher_name: '[[[ return variables.ulm_card_switcher_name ]]]'
+          x_ulm_card_switcher_name: '[[[ return variables.x_ulm_card_switcher_name ]]]'
           ulm_card_switcher_icon: '[[[ return variables.ulm_card_switcher_icon ]]]'
         type: "custom:button-card"
         template:
@@ -40,7 +42,7 @@ card_switcher:
           - "switcher"
           - "popup_switcher"
         entity: "[[[ return variables.ulm_card_switcher_entity ]]]"
-        name: "[[[ return variables.ulm_card_switcher_name ]]]"
+        name: "[[[ return variables.x_ulm_card_switcher_name ]]]"
     item2:
       card:
         type: "custom:button-card"

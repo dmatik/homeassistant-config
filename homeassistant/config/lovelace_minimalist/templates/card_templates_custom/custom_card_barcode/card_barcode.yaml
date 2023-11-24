@@ -1,7 +1,7 @@
 card_barcode:
   template:
     - "icon_info_bg_no_enity"
-    - "ulm_language_variables"
+    - "ulm_language_variables_EN"
     - "popup_barcode"
   label: "Click on me"
   styles:

@@ -49,7 +49,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Motion
+                    name: "[[[ return variables.ulm_motion; ]]]"
 
               # Motion
               - type: custom:layout-card
@@ -68,7 +68,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.living_room_motion_sensor_occupancy
-                    name: Living Room
+                    name: "[[[ return variables.ulm_living_room; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.living_room_motion_sensor_illuminance_lux
@@ -78,7 +78,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.guest_bathroom_right_motion_sensor_occupancy
-                    name: Guest Right
+                    name: "[[[ return variables.ulm_guest_toilet; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
@@ -88,7 +88,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.guest_bathroom_left_motion_sensor_occupancy
-                    name: Guest Left
+                    name: "[[[ return variables.ulm_guest_cabinet; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
@@ -98,7 +98,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
-                    name: Guest Mirror
+                    name: "[[[ return variables.ulm_guest_mirror; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
@@ -108,7 +108,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.kitchen_left_motion_sensor_occupancy
-                    name: Kitchen Left
+                    name: "[[[ return variables.ulm_kitchen_left; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.kitchen_left_motion_sensor_illuminance
@@ -118,37 +118,17 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.kitchen_right_motion_sensor_occupancy
-                    name: Kitchen Right
+                    name: "[[[ return variables.ulm_kitchen_right; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.kitchen_right_motion_sensor_illuminance
-
-                  # # Kitchen Sensor
-                  # - type: 'custom:button-card'
-                  #   template: 
-                  #     - card_motion_sensor
-                  #   entity: binary_sensor.kitchen_motion_sensor_occupancy
-                  #   name: Kitchen
-                  #   show_last_changed: false
-                  #   variables:
-                  #     light_level: sensor.kitchen_motion_sensor_illuminance_lux
-
-                  # # Kitchen 2 Sensor
-                  # - type: 'custom:button-card'
-                  #   template: 
-                  #     - card_motion_sensor
-                  #   entity: binary_sensor.kitchen_motion_sensor_2_occupancy
-                  #   name: Kitchen 2
-                  #   show_last_changed: false
-                  #   variables:
-                  #     light_level: sensor.kitchen_motion_sensor_2_illuminance_lux
 
                   # Bathroom Toilet Sensor
                   - type: 'custom:button-card'
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.bathroom_toilet_motion_sensor_occupancy
-                    name: Bathroom Toilet
+                    name: "[[[ return variables.ulm_bathroom_toilet; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.bathroom_toilet_motion_sensor_illuminance
@@ -158,7 +138,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.bathroom_bathtub_motion_sensor_occupancy
-                    name: Bathroom Tub
+                    name: "[[[ return variables.ulm_bathroom_tub; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.bathroom_bathtub_motion_sensor_illuminance
@@ -168,7 +148,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.bathroom_mirror_motion_sensor_occupancy
-                    name: Bathroom Mirror
+                    name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.bathroom_mirror_motion_sensor_illuminance
@@ -178,7 +158,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.parents_bathroom_right_motion_sensor_occupancy
-                    name: Parents Bathroom Right
+                    name: "[[[ return variables.ulm_parents_bathroom_tub; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.parents_bathroom_right_motion_sensor_illuminance_lux
@@ -188,7 +168,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.parents_bathroom_toilet_motion_sensor_occupancy
-                    name: Parents Bathroom Toilet
+                    name: "[[[ return variables.ulm_parents_bathroom_toilet; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.parents_bathroom_toilet_motion_sensor_illuminance
@@ -198,7 +178,7 @@ cards:
                     template: 
                       - card_motion_sensor
                     entity: binary_sensor.parents_bathroom_mirror_motion_sensor_occupancy
-                    name: Parents Bathroom Mirror
+                    name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
                     show_last_changed: false
                     variables:
                       light_level: sensor.parents_bathroom_mirror_motion_sensor_illuminance

@@ -36,3 +36,4 @@ action:
           {% endif %}
         {% endfor %}
         {{ ts.switch | list }}
+max_exceeded: silent

@@ -7,7 +7,7 @@ card_rpi:
   template:
     - 'icon_info_bg'
     - 'blue'
-    - 'ulm_language_variables'
+    - "ulm_language_variables_EN"
     - 'popup_rpi'
   name: '[[[ return variables.ulm_card_rpi_name ]]]'
   icon: 'mdi:raspberry-pi'

@@ -18,7 +18,7 @@ card_ulanzi_clock:
   template:
     - 'icon_info_bg'
     - 'blue'
-    - 'ulm_language_variables'
+    - "ulm_language_variables_EN"
     - 'popup_ulanzi_clock'
   name: '[[[ return variables.ulm_card_ulanzi_clock_name ]]]'
   icon: 'mdi:clock-digital'

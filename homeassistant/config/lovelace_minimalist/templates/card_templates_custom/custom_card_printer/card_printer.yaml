@@ -1,14 +1,14 @@
 card_printer:
   variables:
     ulm_card_printer_entity: '[[[ return entity.entity_id ]]]'
-    ulm_card_printer_name: '[[[ return variables.ulm_card_printer_name ]]]'
+    x_ulm_card_printer_name: '[[[ return variables.x_ulm_card_printer_name ]]]'
   template:
     - 'icon_info_bg'
     - 'ulm_language_variables'
     - 'popup_printer'
     - 'badge_notification_alt'
   icon: 'mdi:printer-wireless'
-  name: '[[[ return variables.ulm_card_printer_name ]]]'
+  name: '[[[ return variables.x_ulm_card_printer_name ]]]'
   label: |-
     [[[
       if (entity.state === "on") {

@@ -20,7 +20,7 @@ popup_header_ha_style:
       - padding-bottom: "20px"
     name:
       - justify-self: "center"
-      - text-transform: "capitalize"
+      #- text-transform: "capitalize"
       - font-style: "normal"
       - font-weight: "400"
       - font-size: "36px"

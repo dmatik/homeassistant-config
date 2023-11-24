@@ -1,4 +1,6 @@
 chip_base:
+  template: 
+    - ulm_language_variables
   triggers_update: 'all'
   show_icon: 'true'
   show_name: 'false'
@@ -63,7 +65,7 @@ chip_back_new:
   template: 
     - 'chip_base'
     - 'chip_navigate_only'
-  icon: "mdi:arrow-left"
+  icon: "[[[ return variables.ulm_chip_back_icon; ]]]"
   # tap_action:
   #   action: "url"
   #   url_path: "javascript:window.history.back();"

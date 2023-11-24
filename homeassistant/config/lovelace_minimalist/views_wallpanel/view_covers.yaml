@@ -76,7 +76,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Scenes
+                    name: "[[[ return variables.ulm_scenes; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -93,34 +93,34 @@ cards:
                   - type: 'custom:button-card'
                     template: card_scene_vertical
                     entity: scene.main_floor_covers
-                    name: Covers
-                    label: "Main"
+                    name: "[[[ return variables.ulm_covers; ]]]"
+                    label: "[[[ return variables.ulm_main; ]]]"
                     icon: mdi:window-shutter
                     variables:
                       color: "blue"
-                      confirmation_text: "Main Floor covers?"
+                      x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
 
                   # Main Floor Morning Covers
                   - type: 'custom:button-card'
                     template: card_scene_vertical
                     entity: scene.main_floor_morning_covers
-                    name: Covers
-                    label: "Morning"
+                    name: "[[[ return variables.ulm_covers; ]]]"
+                    label: "[[[ return variables.ulm_morning; ]]]"
                     icon: mdi:window-shutter-open
                     variables:
                       color: "blue"
-                      confirmation_text: "Main Floor morning covers?"
+                      confirmation_text: "[[[ return variables.ulm_main_floor_morning_covers; ]]]"
 
                   # Movie time
                   - type: 'custom:button-card'
                     template: card_scene_vertical
                     entity: scene.movie_time
-                    name: Movie
-                    label: "Scene"
+                    name: "[[[ return variables.ulm_movie; ]]]"
+                    label: "[[[ return variables.ulm_scene; ]]]"
                     icon: mdi:movie-filter
                     variables:
                       color: "purple"
-                      confirmation_text: "Movie scene?"
+                      x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"
 
 
 
@@ -136,7 +136,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Main Floor
+                    name: "[[[ return variables.ulm_ground_floor; ]]]"
 
 
               # Covers
@@ -155,7 +155,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_cover_buttons
                       variables:
-                        ulm_card_cover_buttons_name: Back Yard
+                        x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_back_yard; ]]]"
                         ulm_card_cover_buttons_entity: cover.back_yard
                       view_layout:
                         grid-row-start: span 2
@@ -164,7 +164,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_cover_buttons
                       variables:
-                        ulm_card_cover_buttons_name: Window
+                        x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_living_room_window; ]]]"
                         ulm_card_cover_buttons_entity: cover.living_room_window
                       view_layout:
                         grid-row-start: span 2 
@@ -173,7 +173,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_cover_buttons
                       variables:
-                        ulm_card_cover_buttons_name: Entrance
+                        x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_entrance; ]]]"
                         ulm_card_cover_buttons_entity: cover.entrance_window
                       view_layout:
                         grid-row-start: span 2 
@@ -182,7 +182,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_cover_buttons
                       variables:
-                        ulm_card_cover_buttons_name: Kitchen
+                        x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_kitchen; ]]]"
                         ulm_card_cover_buttons_entity: cover.kitchen
                       view_layout:
                         grid-row-start: span 2 

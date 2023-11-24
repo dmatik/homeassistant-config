@@ -65,35 +65,35 @@ card_person:
         - left: "40px"
         - top: "8px"
   custom_fields:
-    notification:
-      card:
-        type: "custom:button-card"
-        template: "badge"
-        icon: >
-          [[[
-            if (states[variables.ulm_card_person_entity].state !== 'home') {
-              if (states[variables.ulm_card_person_entity].state === states[variables.ulm_card_person_zone1]?.attributes?.friendly_name) {
-                var icon = states[variables.ulm_card_person_zone1].attributes.icon !== null ? states[variables.ulm_card_person_zone1].attributes.icon : 'mdi:help-circle'
-                return icon;
-              } else if (states[variables.ulm_card_person_entity].state === states[variables.ulm_card_person_zone2]?.attributes?.friendly_name) {
-                var icon = states[variables.ulm_card_person_zone2].attributes.icon !== null ? states[variables.ulm_card_person_zone2].attributes.icon : 'mdi:help-circle'
-                return icon;
-              } else {
-                return 'mdi:home-minus';
-              }
-            } else {
-              return 'mdi:home';
-            }
-          ]]]
-        variables:
-          ulm_badge_icon_backgroung_color: >
-            [[[
-              if (states[variables.ulm_card_person_entity].state !== 'home') {
-                return 'rgba(var(--color-green),1)';
-              } else {
-                return 'rgba(var(--color-blue),1)';
-              }
-            ]]]
+    # notification:
+    #   card:
+    #     type: "custom:button-card"
+    #     template: "badge"
+    #     icon: >
+    #       [[[
+    #         if (states[variables.ulm_card_person_entity].state !== 'home') {
+    #           if (states[variables.ulm_card_person_entity].state === states[variables.ulm_card_person_zone1]?.attributes?.friendly_name) {
+    #             var icon = states[variables.ulm_card_person_zone1].attributes.icon !== null ? states[variables.ulm_card_person_zone1].attributes.icon : 'mdi:help-circle'
+    #             return icon;
+    #           } else if (states[variables.ulm_card_person_entity].state === states[variables.ulm_card_person_zone2]?.attributes?.friendly_name) {
+    #             var icon = states[variables.ulm_card_person_zone2].attributes.icon !== null ? states[variables.ulm_card_person_zone2].attributes.icon : 'mdi:help-circle'
+    #             return icon;
+    #           } else {
+    #             return 'mdi:home-minus';
+    #           }
+    #         } else {
+    #           return 'mdi:home';
+    #         }
+    #       ]]]
+    #     variables:
+    #       ulm_badge_icon_backgroung_color: >
+    #         [[[
+    #           if (states[variables.ulm_card_person_entity].state !== 'home') {
+    #             return 'rgba(var(--color-green),1)';
+    #           } else {
+    #             return 'rgba(var(--color-blue),1)';
+    #           }
+    #         ]]]
   state:
     - operator: "template"
       value: >

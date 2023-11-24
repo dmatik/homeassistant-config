@@ -49,7 +49,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Temperature
+                    name: "[[[ return variables.ulm_temperature; ]]]"
 
 
               # Temperature
@@ -132,7 +132,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Air Quality
+                    name: "[[[ return variables.ulm_air_quality; ]]]"
 
 
               # Air Quality
@@ -185,7 +185,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Air Conditioning
+                    name: "[[[ return variables.ulm_air_conditioning; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -204,7 +204,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.living_room_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                      ulm_card_ac_name: 'Living Room'
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
                       grid-row-start: span 3                        
@@ -216,7 +216,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.bedroom_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
-                      ulm_card_ac_name: 'Bedroom'
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
                       grid-row-start: span 3
@@ -237,7 +237,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.kfir_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
-                      ulm_card_ac_name: 'Kfir'
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
                       grid-row-start: span 3
@@ -257,7 +257,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.ronen_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
-                      ulm_card_ac_name: 'Ronen'
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
                       grid-row-start: span 3
@@ -268,7 +268,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.basement_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
-                      ulm_card_ac_name: 'Basement'
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
                       grid-row-start: span 3
@@ -286,7 +286,7 @@ cards:
 
                   - type: custom:button-card
                     template: title
-                    name: Heating
+                    name: "[[[ return variables.ulm_heating; ]]]"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -307,7 +307,7 @@ cards:
                     variables:
                       ulm_card_power_outlet_consumption_sensor: sensor.bathroom_heater_power
                     entity: switch.bathroom_heater
-                    name: Bathroom
+                    name: "[[[ return variables.ulm_bathroom; ]]]"
                     icon: mdi:heat-wave
 
                   # Parents Bathroom Heater
@@ -318,5 +318,5 @@ cards:
                     variables:
                       ulm_card_power_outlet_consumption_sensor: sensor.parents_bathroom_heater_power
                     entity: switch.parents_bathroom_heater
-                    name: Parents Bathroom
+                    name: "[[[ return variables.ulm_parents_bathroom; ]]]"
                     icon: mdi:heat-wave

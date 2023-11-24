@@ -9,16 +9,16 @@ vertical_buttons:
     label:
       - justify-self: "center"
       - align-self: "start"
-      - font-weight: "400"
-      - font-size: "12px"
+      - font-weight: "[[[ return variables.ulm_label_font_weight; ]]]"
+      - font-size: "[[[ return variables.ulm_label_font_size; ]]]"
       - color: "var(--secondary-text-color)"
       - letter-spacing: "0.4px"
     name:
       - margin-top: "10px"
       - justify-self: "center"
       #- font-weight: "bold"
-      - font-size: "14px"
-      - font-weight: "500"
+      - font-weight: "[[[ return variables.ulm_name_font_weight; ]]]"
+      - font-size: "[[[ return variables.ulm_name_font_size; ]]]"
       - letter-spacing: "0.1px"
     img_cell:
       - background-color: "rgba(var(--color-theme),0.05)"
