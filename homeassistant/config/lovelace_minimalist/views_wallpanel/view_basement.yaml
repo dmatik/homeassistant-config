@@ -42,6 +42,8 @@ cards:
                   - type: custom:button-card
                     template: title
                     name: "[[[ return variables.ulm_climate; ]]]"
+                    variables:
+                      ulm_title_margin_top: "0px"
 
               - type: custom:layout-card
                 layout_type: grid
@@ -132,6 +134,8 @@ cards:
                   - type: custom:button-card
                     template: title
                     name: "[[[ return variables.ulm_lights; ]]]"
+                    variables:
+                      ulm_title_margin_top: "0px"                    
 
               - type: custom:layout-card
                 layout_type: grid

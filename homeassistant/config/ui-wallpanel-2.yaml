@@ -61,7 +61,7 @@ sidebar:
       #icon: mdi:home-floor-b
     - action: navigate
       navigation_path: "/lovelace-wallpanel-2/lights"
-      name: "אורות" #"Lights"
+      name: "תאורה" #"Lights"
       active: true
       #icon: mdi:lightbulb
     - action: navigate
@@ -110,7 +110,12 @@ sidebar:
                   }
             - type: custom:button-card
               template: spacer
-        - type: horizontal-stack
+        - type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            margin: 0px
           cards:
             # Climate Chip
             - type: 'custom:button-card'

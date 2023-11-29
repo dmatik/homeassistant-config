@@ -3,6 +3,8 @@
 ---
 ### Card Title ###
 card_title:
+  variables:
+    ulm_title_margin_top: "12px"
   template:
     - 'ulm_language_variables'
   tap_action:
@@ -17,7 +19,7 @@ card_title:
       - box-shadow: "none"
       - height: "auto"
       - width: "auto"
-      - margin-top: "12px"
+      - margin-top: "[[[ return variables.ulm_title_margin_top; ]]]"
       - margin-left: "12px"
       - margin-right: "12px"
       - margin-bottom: "0px"

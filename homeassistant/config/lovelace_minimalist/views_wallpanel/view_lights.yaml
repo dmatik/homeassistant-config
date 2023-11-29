@@ -76,7 +76,8 @@ cards:
                   - type: custom:button-card
                     template: title
                     name: "[[[ return variables.ulm_ground_floor; ]]]"
-
+                    variables:
+                      ulm_title_margin_top: "0px"
 
               # Lights
               - type: custom:layout-card
