@@ -185,7 +185,15 @@ cards:
                           x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
                         view_layout:
                           grid-row-start: span 2
-                        
+
+                      # Ronen Room Cover
+                      - type: 'custom:button-card'
+                        template: card_cover_buttons
+                        variables:
+                          x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_ronen_room; ]]]"
+                          ulm_card_cover_buttons_entity: cover.ronen_room
+                        view_layout:
+                          grid-row-start: span 2                        
 
 
                 - type: custom:button-card
