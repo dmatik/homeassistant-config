@@ -119,6 +119,15 @@ cards:
                       grid-template-columns: 1fr 1fr
                 cards:
 
+                  # Bedroom Makup Cover
+                  - type: 'custom:button-card'
+                    template: card_cover_buttons
+                    variables:
+                      x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_bedroom_makeup; ]]]"
+                      ulm_card_cover_buttons_entity: cover.parents_makeup
+                    view_layout:
+                      grid-row-start: span 2
+
                   # Ronen Room Cover
                   - type: 'custom:button-card'
                     template: card_cover_buttons
@@ -139,69 +148,6 @@ cards:
 
 
 
-              ############################################################################
-              #                                                                          #
-              #   Heating                                                                #
-              #                                                                          #
-              ############################################################################
-
-              # Title
-              - type: horizontal-stack
-                cards:
-
-                  - type: custom:button-card
-                    template: title
-                    name: "[[[ return variables.ulm_heating; ]]]"
-
-              - type: custom:layout-card
-                layout_type: grid
-                layout_options:
-                  grid-template-columns: 1fr 1fr
-                  grid-template-rows: auto
-                  grid-gap: 0px 4px
-                  mediaquery:
-                    "(max-width: 450px)":
-                      grid-template-columns: 1fr 1fr
-                cards:
-
-                  # Bathroom Heater
-                  - type: 'custom:button-card'
-                    template: 
-                      - "card_power_outlet"
-                      - "red_on"
-                    variables:
-                      ulm_card_power_outlet_consumption_sensor: sensor.bathroom_heater_power
-                    entity: switch.bathroom_heater
-                    name: "[[[ return variables.ulm_bathroom; ]]]"
-                    icon: mdi:heat-wave
-
-                  # Parents Bathroom Heater
-                  - type: 'custom:button-card'
-                    template: 
-                      - "card_power_outlet"
-                      - "red_on"
-                    variables:
-                      ulm_card_power_outlet_consumption_sensor: sensor.parents_bathroom_heater_power
-                    entity: switch.parents_bathroom_heater
-                    name: "[[[ return variables.ulm_parents_bathroom; ]]]"
-                    icon: mdi:heat-wave
-
-                  # Switcher
-                  - type: 'custom:button-card'
-                    template: 
-                      - card_switcher
-                    variables:
-                      x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
-                      ulm_card_switcher_icon: "mdi:waves"
-                      ulm_card_switcher_entity: switch.switcher_boiler
-                      ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
-                      ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
-                      ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
-                      ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
-                      ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
-                    view_layout:
-                      grid-row-start: span 2
-
           ############################################################################
           #                                                                          #
           #   Right Column                                                           #
@@ -210,6 +156,13 @@ cards:
 
           - type: vertical-stack
             cards:
+
+
+              ############################################################################
+              #                                                                          #
+              #   Lights                                                                 #
+              #                                                                          #
+              ############################################################################
 
               # Lights
               - type: horizontal-stack
@@ -333,3 +286,65 @@ cards:
                     name: "[[[ return variables.ulm_laundry; ]]]"
 
 
+              ############################################################################
+              #                                                                          #
+              #   Heating                                                                #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_heating; ]]]"
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Bathroom Heater
+                  - type: 'custom:button-card'
+                    template: 
+                      - "card_power_outlet"
+                      - "red_on"
+                    variables:
+                      ulm_card_power_outlet_consumption_sensor: sensor.bathroom_heater_power
+                    entity: switch.bathroom_heater
+                    name: "[[[ return variables.ulm_bathroom; ]]]"
+                    icon: mdi:heat-wave
+
+                  # Parents Bathroom Heater
+                  - type: 'custom:button-card'
+                    template: 
+                      - "card_power_outlet"
+                      - "red_on"
+                    variables:
+                      ulm_card_power_outlet_consumption_sensor: sensor.parents_bathroom_heater_power
+                    entity: switch.parents_bathroom_heater
+                    name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+                    icon: mdi:heat-wave
+
+                  # Switcher
+                  - type: 'custom:button-card'
+                    template: 
+                      - card_switcher
+                    variables:
+                      x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+                      ulm_card_switcher_icon: "mdi:waves"
+                      ulm_card_switcher_entity: switch.switcher_boiler
+                      ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
+                      ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
+                      ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+                      ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
+                      ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+                    view_layout:
+                      grid-row-start: span 2

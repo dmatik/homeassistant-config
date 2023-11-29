@@ -108,6 +108,15 @@ cards:
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_lights_on_bedroom
 
+                      # Covers Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_blue'
+                        icon: 'mdi:window-shutter'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_covers_open_bedroom
+
                       # Motion Chip
                       - type: 'custom:button-card'
                         template:
@@ -192,6 +201,15 @@ cards:
                           #ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
                           ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
                           x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
+                        view_layout:
+                          grid-row-start: span 2
+
+                      # Bedroom Makup Cover
+                      - type: 'custom:button-card'
+                        template: card_cover_buttons
+                        variables:
+                          x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_bedroom_makeup; ]]]"
+                          ulm_card_cover_buttons_entity: cover.parents_makeup
                         view_layout:
                           grid-row-start: span 2
 
