@@ -38,7 +38,7 @@ sidebar:
   digitalClock: true
   date: true
   dateFormat: "dddd DD MMMM YYYY"
-  hideTopMenu: true
+  hideTopMenu: false
   width:
     mobile: 0
     tablet: 23

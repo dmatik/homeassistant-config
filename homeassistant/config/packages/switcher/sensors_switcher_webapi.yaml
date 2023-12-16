@@ -169,7 +169,7 @@ template:
         unique_id: switcher_boiler_state
         icon: mdi:shower
         state: >-
-          {% if state_attr('sensor.switcher_boiler', 'state') == 'ON' %}
+          {% if is_state_attr('sensor.switcher_boiler', 'state', 'ON') %}
               on
           {% else %}
               off

@@ -6,7 +6,9 @@ switch:
       switcher_boiler:
           friendly_name: Boiler
           icon_template: mdi:shower
-          value_template: "{{ is_state('sensor.switcher_boiler_state', 'on') }}"
+          #value_template: "{{ is_state('sensor.switcher_boiler_state', 'on') }}"
+          value_template: "{{ is_state_attr('sensor.switcher_boiler', 'state', 'ON') }}"
+          availability_template: "{{ is_state('sensor.switcher_boiler', 'OK') }}"
           turn_on:
               service: script.turn_on
               data:

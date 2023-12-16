@@ -232,13 +232,12 @@ cards:
                       # Bathroom Heater
                       - type: 'custom:button-card'
                         template: 
-                          - "card_power_outlet"
-                          - "red_on"
+                          - "card_heater_with_timer"
                         variables:
-                          ulm_card_power_outlet_consumption_sensor: sensor.bathroom_heater_power
+                          ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
+                          ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
                         entity: switch.bathroom_heater
                         name: "[[[ return variables.ulm_bathroom; ]]]"
-                        icon: mdi:heat-wave
 
                       # Bathroom Toilet Sensor
                       - type: 'custom:button-card'

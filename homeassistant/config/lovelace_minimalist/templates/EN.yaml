@@ -70,7 +70,8 @@ ulm_language_variables_EN:
     ulm_work_room: "Work Room"
     ulm_floor_2: "Floor 2"
     ulm_1_light: "1 light"
-    ulm_lights: " lights"
+    ulm_lights: "Lights"
+    ulm_lights_on: " lights"
     ulm_bedroom_makeup: "Makeup"
     
     ulm_boiler: "Boiler"
@@ -128,4 +129,5 @@ ulm_language_variables_EN:
     ulm_motion: "Motion"
 
     ulm_chip_back_icon: "mdi:arrow-left"
+    ulm_new_year_tree: "Елка"
 

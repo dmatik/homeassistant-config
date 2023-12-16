@@ -23,6 +23,7 @@
   trigger:
     - platform: state
       entity_id: switch.switcher_boiler
+      from: "off"
       to: "on"
   action:
     - wait_template: "{{ not is_state('sensor.switcher_boiler_auto_off_time', 'off') }}"
@@ -101,6 +102,7 @@
   trigger:
     - platform: state
       entity_id: switch.switcher_boiler
+      from: "on"
       to: "off"
   action:
     - wait_template: "{{ is_state('sensor.switcher_boiler_auto_off_time', 'off') }}"

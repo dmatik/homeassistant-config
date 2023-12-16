@@ -92,8 +92,8 @@ minimalist-dmatik:
           display: none !important;
         }
         .toolbar {
-          padding-right: 0px;
-          padding-left: 0px;
+          padding-right: 0px !important; 
+          padding-left: 0px !important; 
         }
       }
       .header {
@@ -121,15 +121,15 @@ minimalist-dmatik:
       ha-tabs {
         --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
         --mdc-icon-size: 28px;
-        margin-right: 10px;
+        margin-right: 10px !important;
       }
       paper-tab[aria-selected=true] {
         color: var(--header-active-tab-color) !important;
       }
       paper-tab {
-        padding-left: 0px;
-        padding-right: 0px;
-        width: calc(100% / 3);
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        width: calc(100% / 3) !important;
         color: var(--header-all-tabs-color) !important;
       }
 

@@ -23,7 +23,7 @@ card_ac_target_temperature:
       card:
         template: 
           - ac_list_items_favorite
-          - badge_notification
+          #- badge_notification
         type: custom:button-card
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
         custom_fields:
@@ -125,7 +125,7 @@ card_ac_buttons:
       card:
         template: 
           - ac_list_items_favorite
-          - badge_notification
+          #- badge_notification
         type: custom:button-card
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
         custom_fields:
@@ -248,7 +248,7 @@ card_ac_buttons_with_temp:
       card:
         template: 
           - ac_list_items_favorite
-          - badge_notification
+          #- badge_notification
         type: custom:button-card
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
         custom_fields:
@@ -458,7 +458,9 @@ ac_text_info:
           operation = variables.ulm_ac_cool + ' • ' + target_temp + '°';
         } else if (entity.state =='fan_only') {
           operation = variables.ulm_ac_fan;
-        }
+        } else if (entity.state =='unavailable') {
+          operation = variables.unavailable;
+        }        
 
         // var fan = entity.attributes.fan_mode;
         // if (entity.attributes.fan_mode =='auto') {

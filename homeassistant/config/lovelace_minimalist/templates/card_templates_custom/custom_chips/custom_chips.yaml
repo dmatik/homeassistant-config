@@ -17,6 +17,7 @@ chip_base:
       - padding-top: '0px'
       - padding-bottom: '0px'
       - --mdc-ripple-press-opacity: 0.0
+      - margin: '0px'
     grid:
       - grid-template-areas: "'i l'"
       - grid-template-columns: 'max_content auto'

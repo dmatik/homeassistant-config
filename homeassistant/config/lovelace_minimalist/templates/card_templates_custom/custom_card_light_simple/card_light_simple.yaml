@@ -34,6 +34,8 @@ card_light_simple:
     - "ulm_language_variables"
   tap_action:
     action: "toggle"
+  double_tap_action:
+    action: "more-info"
   hold_action:
     action: >
       [[[

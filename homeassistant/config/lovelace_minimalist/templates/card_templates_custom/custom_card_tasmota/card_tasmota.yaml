@@ -39,7 +39,7 @@ card_tasmota_version:
 card_tasmota:
   template:
     - "icon_info_bg"
-    - "card_tasmota_outdated"
+    #- "card_tasmota_outdated"
     - "ulm_language_variables_EN"
     - "blue"
     - "popup_tasmota"
@@ -71,7 +71,7 @@ card_tasmota:
 card_tasmota_with_power:
   template:
     - "icon_info_bg"
-    - "card_tasmota_outdated"
+    #- "card_tasmota_outdated"
     - "ulm_language_variables_EN"
     - "blue"
     - "popup_tasmota_with_power"
@@ -113,11 +113,11 @@ card_tasmota_devices_outdated:
           return entity.state > 0;
         ]]]
       styles:
-        custom_fields:
-          notification:
-            - position: "absolute"
-            - left: "40px"
-            - top: "8px"
+        # custom_fields:
+        #   notification:
+        #     - position: "absolute"
+        #     - left: "40px"
+        #     - top: "8px"
         icon:
           - color: 'rgba(var(--color-blue),1)'
         img_cell:
@@ -136,28 +136,28 @@ card_tasmota_devices_outdated:
       else
         return "All devices updated";
     ]]]
-  custom_fields:
-    notification:
-      card:
-        type: "custom:button-card"
-        template: "badge"
-        icon: >
-          [[[
-            if ( entity.state =="unavailable" ) {
-              return "mdi:exclamation";
-            } else if ( entity.state > 0 ) {
-              return "mdi:party-popper";
-            }
-          ]]]
-        variables:
-          ulm_badge_icon_backgroung_color: >
-            [[[
-              if ( entity.state =="unavailable" ) {
-                return "rgba(var(--color-red),1)";
-              } else if ( entity.state > 0 ) {
-                return "rgba(var(--color-blue),1)";
-              }
-            ]]]
+  # custom_fields:
+  #   notification:
+  #     card:
+  #       type: "custom:button-card"
+  #       template: "badge"
+  #       icon: >
+  #         [[[
+  #           if ( entity.state =="unavailable" ) {
+  #             return "mdi:exclamation";
+  #           } else if ( entity.state > 0 ) {
+  #             return "mdi:party-popper";
+  #           }
+  #         ]]]
+  #       variables:
+  #         ulm_badge_icon_backgroung_color: >
+  #           [[[
+  #             if ( entity.state =="unavailable" ) {
+  #               return "rgba(var(--color-red),1)";
+  #             } else if ( entity.state > 0 ) {
+  #               return "rgba(var(--color-blue),1)";
+  #             }
+  #           ]]]
 
 
 card_tasmota_outdated:

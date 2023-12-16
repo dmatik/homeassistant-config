@@ -1,0 +1,30 @@
+card_heater_with_timer:
+  template:
+    - "icon_info_bg"
+    - "red_on"
+    - "ulm_language_variables"
+  variables:
+    ulm_card_heater_consumption_sensor:
+    ulm_card_heater_counter_sensor:
+  triggers_update: "all"
+  icon: mdi:heat-wave
+  label: |-
+    [[[
+      if (entity.state === "on" && variables.ulm_card_heater_consumption_sensor !== null) {
+        return states[variables.ulm_card_heater_counter_sensor].state + " • " + states[variables.ulm_card_heater_consumption_sensor].state + "W";
+      } else if (entity.state === "on") {
+        return variables.ulm_on;
+      } else if (entity.state === "off") {
+        return variables.ulm_off;
+      } else if (entity.state === "unavailable") {
+        return variables.ulm_unavailable;
+      } else {
+        return entity.state;
+      }
+    ]]]
+  tap_action:
+    action: "toggle"
+  hold_action:
+    action: "more-info"
+  double_tap_action:
+    action: "more-info"

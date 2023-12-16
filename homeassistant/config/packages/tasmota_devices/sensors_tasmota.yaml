@@ -12,9 +12,6 @@ command_line:
       scan_interval: 600
 
 
-
-
-
 template:
 
   - sensor:
@@ -31,11 +28,11 @@ template:
           {% set count = namespace(value=0) %}
           {% if ( states('sensor.tasmota_latest') != 'unavailable' and states('sensor.tasmota_latest') != 'unknown' and states('sensor.tasmota_latest') != 'latest' ) %}
             {% for entity_id in state_attr('group.all_tasmota_versions','entity_id') %}
-              {% if ( states(entity_id) != 'unavailable' and states(entity_id).split('(')[0] != states('sensor.tasmota_latest').split('v')[1] ) %}
+              {% if ( states(entity_id) != 'unavailable' and states(entity_id) != 'unknown' and states(entity_id).split('(')[0] != states('sensor.tasmota_latest').split('v')[1] ) %}
                 {% set count.value = count.value + 1 %}
               {% endif %}
             {% endfor %}
-          {% endif %}  
+          {% endif %}
           {{ count.value }}
 
 

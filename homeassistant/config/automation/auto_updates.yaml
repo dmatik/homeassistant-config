@@ -133,7 +133,9 @@
     - condition: template
       value_template: "{{ states('sensor.tasmota_latest') != 'latest' }}"
     - condition: template
-      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"      
+      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"
+    - condition: template
+      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unavailable' }}"   
     - condition: template
       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != '0' }}"
   action:

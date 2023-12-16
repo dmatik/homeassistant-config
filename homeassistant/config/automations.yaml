@@ -34,7 +34,7 @@
   use_blueprint:
     path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
     input:
-      threshold: 10
+      threshold: 20
       time: '5:00:00'
       exclude:
         entity_id:
@@ -42,6 +42,7 @@
         - sensor.iphonedima_battery_level
         - sensor.ipadkfir_battery_level
         - sensor.galitphone_battery_level
+        - sensor.iphoneronen_battery_level
       actions:
       - service: notify.persistent_notification
         data:
@@ -565,7 +566,7 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: -01:00:00
+    offset: -01:30:00
     id: 'on'
   - platform: sun
     event: sunrise
@@ -739,6 +740,12 @@
     event_type: timer.finished
     event_data:
       entity_id: timer.bathroom_heater
+    id: timer_finished
+  - platform: device
+    type: turned_off
+    device_id: 8893bfbc82bf90ae3b65bcaeb1340d9d
+    entity_id: 257fd153c5c22ae4424fd7b157a82608
+    domain: switch
     id: heater_off
   condition: []
   action:
@@ -755,12 +762,21 @@
     - conditions:
       - condition: trigger
         id:
-        - heater_off
+        - timer_finished
       sequence:
       - type: turn_off
         device_id: 8893bfbc82bf90ae3b65bcaeb1340d9d
         entity_id: 257fd153c5c22ae4424fd7b157a82608
         domain: switch
+    - conditions:
+      - condition: trigger
+        id:
+        - heater_off
+      sequence:
+      - service: timer.cancel
+        target:
+          entity_id: timer.bathroom_heater
+        data: {}
   mode: single
 - id: '1689872267478'
   alias: Parents Bathroom Heater Auto OFF
@@ -776,6 +792,12 @@
     event_type: timer.finished
     event_data:
       entity_id: timer.parents_bathroom_heater
+    id: timer_finished
+  - platform: device
+    type: turned_off
+    device_id: 935d4f1c81b42ab5080d9d2e22d581aa
+    entity_id: c28bc6ef5aa6fbae25e59d0463a9c800
+    domain: switch
     id: heater_off
   condition: []
   action:
@@ -792,12 +814,21 @@
     - conditions:
       - condition: trigger
         id:
-        - heater_off
+        - timer_finished
       sequence:
       - type: turn_off
         device_id: 935d4f1c81b42ab5080d9d2e22d581aa
         entity_id: c28bc6ef5aa6fbae25e59d0463a9c800
         domain: switch
+    - conditions:
+      - condition: trigger
+        id:
+        - heater_off
+      sequence:
+      - service: timer.cancel
+        target:
+          entity_id: timer.parents_bathroom_heater
+        data: {}
   mode: single
 - id: '1690049408548'
   alias: Sync Stairs Switches

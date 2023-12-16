@@ -1,6 +1,6 @@
 title: Basement
 path: basement
-visible: false
+visible: true
 icon: mdi:home-floor-b
 panel: true
     

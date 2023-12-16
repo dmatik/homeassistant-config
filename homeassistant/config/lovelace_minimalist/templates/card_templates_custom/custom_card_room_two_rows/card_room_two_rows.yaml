@@ -101,7 +101,7 @@ room_info:
       } else if (lights_on == 1) {
         lights_on = variables.ulm_1_light;
       } else {
-        lights_on = lights_on + variables.ulm_lights;
+        lights_on = lights_on + variables.ulm_lights_on;
       }
 
       return lights_on;

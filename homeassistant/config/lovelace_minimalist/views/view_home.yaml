@@ -211,17 +211,17 @@ cards:
                 #       card_notification_icon: "mdi:party-popper"
 
                 # Tasmota Versions
-                - type: conditional
-                  conditions:
-                    - entity: sensor.number_of_tasmota_versions_old
-                      state_not: "0"
-                  card:
-                    type: 'custom:button-card'
-                    template: 'card_notification_tasmota'
-                    variables:
-                      card_notification_sensor: "sensor.number_of_tasmota_versions_old"
-                      card_notification_navigate_path: "/lovelace/minimalist_tasmota"
-                      card_notification_icon: "mdi:chip"
+                # - type: conditional
+                #   conditions:
+                #     - entity: sensor.number_of_tasmota_versions_old
+                #       state_not: "0"
+                #   card:
+                #     type: 'custom:button-card'
+                #     template: 'card_notification_tasmota'
+                #     variables:
+                #       card_notification_sensor: "sensor.number_of_tasmota_versions_old"
+                #       card_notification_navigate_path: "/lovelace/minimalist_tasmota"
+                #       card_notification_icon: "mdi:chip"
 
                 # HACS Updates
                 # - type: conditional
@@ -389,11 +389,20 @@ cards:
                         name: "[[[ return variables.ulm_living_room; ]]]"
 
                       # Dining Light
+                      # - type: 'custom:button-card'
+                      #   template: 'card_light_simple'
+                      #   entity: light.dining
+                      #   name: "[[[ return variables.ulm_dining; ]]]"
+                      #   icon: mdi:ceiling-light
+
+                      # NY Tree
                       - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.dining
-                        name: "[[[ return variables.ulm_dining; ]]]"
-                        icon: mdi:ceiling-light
+                        template: 
+                          - 'card_light_simple'
+                          - 'green_on'
+                        entity: switch.power_socket_01
+                        name: "[[[ return variables.ulm_new_year_tree; ]]]"
+                        icon: mdi:pine-tree
 
                       # Living Room AC
                       - type: 'custom:button-card'
@@ -463,16 +472,6 @@ cards:
                         variables:
                           ulm_card_light_enable_color: true
                           ulm_card_light_enable_popup: false
-                    
-                                               
-                      # NY Tree
-                      # - type: 'custom:button-card'
-                      #   template: 
-                      #     - 'card_light_simple'
-                      #     - 'green_on'
-                      #   entity: switch.power_socket_01
-                      #   name: NY Tree
-                      #   icon: mdi:pine-tree
 
                       # Bedroom Radiator
                       # - type: 'custom:button-card'

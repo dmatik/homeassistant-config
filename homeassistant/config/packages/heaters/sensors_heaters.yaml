@@ -180,3 +180,46 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( state_attr('sensor.parents_bathroom_heater_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+
+      ############################################################################
+      #                                                                          #
+      #   Heaters Timers Sensors                                                 #
+      #                                                                          #
+      ############################################################################
+
+      # Bathroom Heater Time Left
+      - name: "bathroom_heater_time_left"
+        unique_id: bathroom_heater_time_left
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("timer.bathroom_heater", "idle") %}
+              off
+          {% else %}
+              {% set finishes_at = state_attr("timer.bathroom_heater","finishes_at") %}
+              {% set time_delta = as_datetime(finishes_at) - now() %}
+              {% set hour = (time_delta|string).split(':')[0] %}
+              {% set min = (time_delta|string).split(':')[1] %}
+              {% if (hour | int < 10) %}
+                {% set hour = "0" + hour %}
+              {% endif %}
+              {{ hour + ":" + min }}
+          {% endif %}
+
+      # Parents Bathroom Heater Time Left
+      - name: "parents_bathroom_heater_time_left"
+        unique_id: parents_bathroom_heater_time_left
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("timer.parents_bathroom_heater", "idle") %}
+              off
+          {% else %}
+              {% set finishes_at = state_attr("timer.parents_bathroom_heater","finishes_at") %}
+              {% set time_delta = as_datetime(finishes_at) - now() %}
+              {% set hour = (time_delta|string).split(':')[0] %}
+              {% set min = (time_delta|string).split(':')[1] %}
+              {% if (hour | int < 10) %}
+                {% set hour = "0" + hour %}
+              {% endif %}
+              {{ hour + ":" + min }}
+          {% endif %}   
