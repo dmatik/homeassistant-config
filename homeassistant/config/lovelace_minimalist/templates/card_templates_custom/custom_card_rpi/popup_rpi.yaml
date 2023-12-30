@@ -18,12 +18,12 @@ popup_rpi:
               entity: '[[[ return variables.ulm_card_rpi_entity ]]]'
               name: |-
                 [[[
-                  if ( entity.state ) {
+                  if ( entity.state == 'on' ) {
                     return 'Running';
                   } else {
                     return 'Stopped';
                   }
-                ]]]       
+                ]]]      
 
             - type: "custom:button-card"
               template: spacer

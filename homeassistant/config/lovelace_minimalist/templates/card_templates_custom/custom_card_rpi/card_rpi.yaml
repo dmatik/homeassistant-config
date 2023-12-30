@@ -13,7 +13,7 @@ card_rpi:
   icon: 'mdi:raspberry-pi'
   label: |-
     [[[
-      if ( entity.state ) {
+      if ( entity.state == 'on' ) {
         return 'Running';
       } else {
         return 'Stopped';

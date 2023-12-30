@@ -37,44 +37,45 @@ widget_mini_graph_bar:
         color: '[[[ return variables.mini_graph_color ]]]'
         entity: "[[[ return variables.mini_graph_entity ]]]"
         attribute: "[[[ return variables.mini_graph_attribute ]]]"
-        style: |
-          bar-card-currentbar{
-            border: 0.01rem solid rgba(var(--color-theme),.4);
-          }
-          bar-card-backgroundbar{
-            display: none;
-          }
-          bar-card-name{
-            width: 8rem;
-            margin-left: 10px !important;
-            justify-content: start;
-            display: flex;
-            color: rgba(var(--primary-text-color),1);
-            padding-top: 2px;
-          }
-          bar-card-value{
-            width: 100%;
-            margin-left: 0px !important;
-            margin-right: 10px !important;
-            justify-content: end;
-            display: flex;
-            color: rgba(var(--primary-text-color),1);
-            padding-top: 2px;
-          }
-          bar-card-background{
-            margin: 4px 0 4px 0 !important;
-            text-align: initial;
-          }
-          ha-card{
-            --bar-card-border-radius: 5px;
-            border-radius: 0px;
-            box-shadow: none;
-            background: none;
-            border-style: none;
-          }
-          #states{
-            padding-top: 0px;
-            padding-left: var(--card-padding);
-            padding-right: var(--card-padding);
-            padding-bottom: 0px;
-          }
+        card_mod:
+          style: |
+            bar-card-currentbar{
+              border: 0.01rem solid rgba(var(--color-theme),.4);
+            }
+            bar-card-backgroundbar{
+              display: none;
+            }
+            bar-card-name{
+              width: 8rem;
+              margin-left: 10px !important;
+              justify-content: start;
+              display: flex;
+              color: rgba(var(--primary-text-color),1);
+              padding-top: 2px;
+            }
+            bar-card-value{
+              width: 100%;
+              margin-left: 0px !important;
+              margin-right: 10px !important;
+              justify-content: end;
+              display: flex;
+              color: rgba(var(--primary-text-color),1);
+              padding-top: 2px;
+            }
+            bar-card-background{
+              margin: 4px 0 4px 0 !important;
+              text-align: initial;
+            }
+            ha-card{
+              --bar-card-border-radius: 5px;
+              border-radius: 0px;
+              box-shadow: none;
+              background: none;
+              border-style: none;
+            }
+            #states{
+              padding-top: 0px;
+              padding-left: var(--card-padding);
+              padding-right: var(--card-padding);
+              padding-bottom: 0px;
+            }
