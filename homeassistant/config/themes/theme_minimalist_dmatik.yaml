@@ -88,8 +88,17 @@ minimalist-dmatik:
       }
     .: |
       @media (orientation: portrait) {
-        a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
+        //a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
+        //  display: none !important;
+        //}
+        a.menu-link[target="_blank"], ha-button-menu, [main-title] {
           display: none !important;
+        }
+        ha-menu-button, ha-button-menu {
+          --mdc-icon-size: 28px !important;
+        }
+        ha-menu-button {
+          padding-right: 14px !important;
         }
         .toolbar {
           padding-right: 0px !important; 
@@ -121,7 +130,8 @@ minimalist-dmatik:
       ha-tabs {
         --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
         --mdc-icon-size: 28px;
-        margin-right: 10px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
       }
       paper-tab[aria-selected=true] {
         color: var(--header-active-tab-color) !important;
