@@ -18,22 +18,16 @@ trigger:
   - platform: state
     entity_id: !input switch
 condition:
-  - "{{ trigger.to_state.context.parent_id == none }}"
+  #- "{{ trigger.to_state.context.parent_id == none }}"
   - "{{ trigger.to_state.state == 'on' or trigger.to_state.state == 'off' }}"
 action:
-  - service_template: >
+  - service: >
       {% if trigger.to_state.state == 'on' %} 
         homeassistant.turn_on 
       {% elif trigger.to_state.state == 'off' %}
         homeassistant.turn_off
       {% endif %}
-    data_template:
-      entity_id: >
-        {% set ts = namespace(switch=[]) %} 
-        {% for sw in switches %}
-          {% if not is_state(sw,trigger.to_state.state) %}
-            {% set ts.switch = ts.switch + [sw] %}
-          {% endif %}
-        {% endfor %}
-        {{ ts.switch | list }}
+    target:
+      entity_id: !input switch
 max_exceeded: silent
+mode: single

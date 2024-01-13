@@ -568,10 +568,24 @@
     event: sunset
     offset: -01:30:00
     id: 'on'
+    enabled: false
   - platform: sun
     event: sunrise
     offset: +01:00:00
     id: 'off'
+    enabled: false
+  - platform: numeric_state
+    entity_id:
+    - sun.sun
+    attribute: elevation
+    above: 8
+    id: 'off'
+  - platform: numeric_state
+    entity_id:
+    - sun.sun
+    attribute: elevation
+    below: 8
+    id: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.vacation
