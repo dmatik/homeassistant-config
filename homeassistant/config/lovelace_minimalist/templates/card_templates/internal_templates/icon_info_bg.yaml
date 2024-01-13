@@ -10,6 +10,12 @@ icon_info_bg:
   state:
     - value: "unavailable"
       styles:
+        card:
+          - filter: "opacity(70%)"
+        label:
+          - filter: "opacity(70%)"
+        name:
+          - filter: "opacity(70%)"
         custom_fields:
           notification:
             - position: "absolute"

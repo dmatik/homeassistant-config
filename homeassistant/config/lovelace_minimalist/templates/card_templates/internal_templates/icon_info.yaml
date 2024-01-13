@@ -27,6 +27,12 @@ icon_info:
     #   value: "unavailable"
     - value: "unavailable"
       styles:
+        card:
+          - filter: "opacity(70%)"
+        label:
+          - filter: "opacity(70%)"
+        name:
+          - filter: "opacity(70%)"
         custom_fields:
           notification:
             - position: "absolute"
