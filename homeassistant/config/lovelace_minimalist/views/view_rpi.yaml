@@ -2,6 +2,7 @@ title: Raspberry Pi
 path: minimalist_rpi
 visible: false
 panel: true
+subview: true
 cards:
 
   - type: vertical-stack
@@ -43,19 +44,19 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
+                # - type: custom:layout-card
+                #   layout_type: grid
+                #   layout_options:
+                #     grid-auto-flow: column
+                #     grid-auto-columns: max-content
+                #     margin: var(--chips-left-margin)
+                #   cards:
 
-                      # Back Chip
-                      - type: 'custom:button-card'
-                        template: chip_back_new
-                        variables:
-                          ulm_chip_navigate_path: /lovelace/minimalist_system
+                #       # Back Chip
+                #       - type: 'custom:button-card'
+                #         template: chip_back_new
+                #         variables:
+                #           ulm_chip_navigate_path: /lovelace/minimalist_system
 
 
 

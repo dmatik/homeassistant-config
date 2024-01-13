@@ -1,4 +1,4 @@
-title: LigCovershts
+title: תריסים
 path: minimalist_covers
 visible: false
 # type: custom:grid-layout
@@ -9,7 +9,7 @@ visible: false
 #     "(min-width: 800px)":
 #       grid-template-columns: 700px
 panel: true
-subview: false
+subview: true
 cards:
 
   - type: vertical-stack
@@ -75,10 +75,10 @@ cards:
                       #   template: edge
 
                       # Back Chip
-                      - type: 'custom:button-card'
-                        template: chip_back_new
-                        variables:
-                          ulm_chip_navigate_path: /lovelace/minimalist_home
+                      # - type: 'custom:button-card'
+                      #   template: chip_back_new
+                      #   variables:
+                      #     ulm_chip_navigate_path: /lovelace/minimalist_home
 
                       # Covers Chip
                       - type: 'custom:button-card'

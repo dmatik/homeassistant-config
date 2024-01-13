@@ -9,6 +9,7 @@ visible: false
 #     "(min-width: 800px)":
 #       grid-template-columns: 700px
 panel: true
+subview: true
 cards:
 
   - type: vertical-stack
@@ -64,22 +65,22 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
+                # - type: custom:layout-card
+                #   layout_type: grid
+                #   layout_options:
+                #     grid-auto-flow: column
+                #     grid-auto-columns: max-content
+                #     margin: var(--chips-left-margin)
+                #   cards:
 
                       # - type: custom:button-card
                       #   template: edge
 
                       # Back Chip
-                      - type: 'custom:button-card'
-                        template: chip_back_new
-                        variables:
-                          ulm_chip_navigate_path: /lovelace/minimalist_system
+                      # - type: 'custom:button-card'
+                      #   template: chip_back_new
+                      #   variables:
+                      #     ulm_chip_navigate_path: /lovelace/minimalist_system
 
 
           ############################################################################

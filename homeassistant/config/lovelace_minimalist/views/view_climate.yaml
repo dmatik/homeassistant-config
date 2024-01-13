@@ -1,4 +1,4 @@
-title: Climate
+title: אקלים
 path: minimalist_climate
 visible: false
 # type: custom:grid-layout
@@ -9,6 +9,7 @@ visible: false
 #     "(min-width: 800px)":
 #       grid-template-columns: 700px
 panel: true
+subview: true
 cards:
 
   - type: vertical-stack
@@ -76,10 +77,10 @@ cards:
                       #   template: edge
 
                       # Back Chip
-                      - type: 'custom:button-card'
-                        template: chip_back_new
-                        variables:
-                          ulm_chip_navigate_path: /lovelace/minimalist_home
+                      # - type: 'custom:button-card'
+                      #   template: chip_back_new
+                      #   variables:
+                      #     ulm_chip_navigate_path: /lovelace/minimalist_home
 
                       # Temperature Chip
                       # - type: custom:button-card
@@ -322,7 +323,21 @@ cards:
                       #   name: "[[[ return variables.ulm_parents_bathroom; ]]]"
                       #   icon: mdi:heat-wave
 
-
+                      # Switcher
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_switcher
+                        variables:
+                          x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+                          ulm_card_switcher_icon: "mdi:waves"
+                          ulm_card_switcher_entity: switch.switcher_boiler
+                          ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
+                          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
+                          ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+                          ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
+                          ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+                        view_layout:
+                          grid-row-start: span 2
 
 
                 - type: custom:button-card

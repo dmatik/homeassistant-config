@@ -370,19 +370,19 @@ cards:
                     name: "[[[ return variables.ulm_basement; ]]]"
                     
                   # Work Room Light
-                  # - type: 'custom:button-card'
-                  #   template: 'card_light_simple'
-                  #   entity: light.work_room
-                  #   name: "[[[ return variables.ulm_work_room; ]]]"
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.work_room
+                    name: "[[[ return variables.ulm_work_room; ]]]"
 
                   # NY Tree
-                  - type: 'custom:button-card'
-                    template: 
-                      - 'card_light_simple'
-                      - 'green_on'
-                    entity: switch.power_socket_01
-                    name: "[[[ return variables.ulm_new_year_tree; ]]]"
-                    icon: mdi:pine-tree
+                  # - type: 'custom:button-card'
+                  #   template: 
+                  #     - 'card_light_simple'
+                  #     - 'green_on'
+                  #   entity: switch.power_socket_01
+                  #   name: "[[[ return variables.ulm_new_year_tree; ]]]"
+                  #   icon: mdi:pine-tree
 
 
 

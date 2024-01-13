@@ -1,6 +1,6 @@
-title: Home
+title: בית
 path: minimalist_home
-icon: mdi:home-variant
+#icon: mdi:home-variant
 type: custom:grid-layout
 # layout:
 #   grid-template-columns: 1fr
@@ -389,20 +389,20 @@ cards:
                         name: "[[[ return variables.ulm_living_room; ]]]"
 
                       # Dining Light
-                      # - type: 'custom:button-card'
-                      #   template: 'card_light_simple'
-                      #   entity: light.dining
-                      #   name: "[[[ return variables.ulm_dining; ]]]"
-                      #   icon: mdi:ceiling-light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.dining
+                        name: "[[[ return variables.ulm_dining; ]]]"
+                        icon: mdi:ceiling-light
 
                       # NY Tree
-                      - type: 'custom:button-card'
-                        template: 
-                          - 'card_light_simple'
-                          - 'green_on'
-                        entity: switch.power_socket_01
-                        name: "[[[ return variables.ulm_new_year_tree; ]]]"
-                        icon: mdi:pine-tree
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - 'card_light_simple'
+                      #     - 'green_on'
+                      #   entity: switch.power_socket_01
+                      #   name: "[[[ return variables.ulm_new_year_tree; ]]]"
+                      #   icon: mdi:pine-tree
 
                       # Living Room AC
                       - type: 'custom:button-card'

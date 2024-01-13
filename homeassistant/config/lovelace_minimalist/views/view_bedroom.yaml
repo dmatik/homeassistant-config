@@ -1,4 +1,4 @@
-title: Bedroom
+title: הורים
 path: minimalist_bedroom
 visible: false
 # type: custom:grid-layout
@@ -9,6 +9,7 @@ visible: false
 #     "(min-width: 800px)":
 #       grid-template-columns: 700px
 panel: true
+subview: true
 cards:
 
   - type: vertical-stack
@@ -76,10 +77,10 @@ cards:
                       #   template: edge
 
                       # Back Chip
-                      - type: 'custom:button-card'
-                        template: chip_back_new
-                        variables:
-                          ulm_chip_navigate_path: /lovelace/minimalist_rooms
+                      # - type: 'custom:button-card'
+                      #   template: chip_back_new
+                      #   variables:
+                      #     ulm_chip_navigate_path: /lovelace/minimalist_rooms
 
                       # Temperature Chip
                       # - type: 'custom:button-card'
