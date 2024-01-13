@@ -17,7 +17,7 @@ popup_energy_info:
       - place-self: "center"
       #- background: "none"
       #- height: "22px"
-      #- border-style: "none"
+      - border-style: "none"
   custom_fields:
     header:
       card:
@@ -147,6 +147,7 @@ pupup_energy_info_raw:
       - background: "none"
       #- height: "22px"
       - border-style: "none"
+      - direction: "ltr"
     custom_fields:
       energy:
         - display: flex

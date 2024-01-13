@@ -24,6 +24,7 @@ card_fully:
       - box-shadow: "var(--box-shadow)"
       #- padding: "var(--card-padding)"
       - padding: "0px"
+      - direction: "ltr"
   custom_fields:
     item1:
       card:

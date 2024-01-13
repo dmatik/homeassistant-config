@@ -72,6 +72,7 @@ widget_mini_graph_bar:
               box-shadow: none;
               background: none;
               border-style: none;
+              direction: ltr;
             }
             #states{
               padding-top: 0px;

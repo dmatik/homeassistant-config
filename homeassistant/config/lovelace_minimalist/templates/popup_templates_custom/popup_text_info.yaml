@@ -20,6 +20,7 @@ popup_text_info:
       - border-style: "none"
       - margin-top: "0px"
       - margin-bottom: "0px"
+      - direction: "ltr"
     custom_fields:
       item1:
         - color: "var(--primary-text-color)"
