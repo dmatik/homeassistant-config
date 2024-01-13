@@ -93,6 +93,7 @@ sidebar:
                   ha-card {
                     background: none;
                     border: none;
+                    box-shadow: none !important;
                   }
             # WiFi
             - type: 'custom:button-card'
@@ -107,6 +108,7 @@ sidebar:
                   ha-card {
                     background: none;
                     border: none;
+                    box-shadow: none !important;
                   }
             - type: custom:button-card
               template: spacer

@@ -46,13 +46,14 @@ minimalist-mobile:
       }
       @media (max-width: 450px), (max-height: 500px) {
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          border-radius: var(--popup-border-radius) !important;
+          //border-radius: var(--popup-border-radius) !important;
+          border-radius: 0px !important;
         }
-        .mdc-dialog__scrim {
-          background: var(--primary-background-color) !important;
-          backdrop-filter: none !important;
-          -webkit-backdrop-filter: none !important;          
-        } 
+        //.mdc-dialog__scrim {
+          //background: var(--primary-background-color) !important;
+          //backdrop-filter: none !important;
+          //-webkit-backdrop-filter: none !important;          
+        //} 
       }
     ha-dialog$: |
       .mdc-dialog__scrim {
@@ -67,13 +68,14 @@ minimalist-mobile:
       }
       @media (max-width: 450px), (max-height: 500px) {
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          border-radius: var(--popup-border-radius) !important;
+          //border-radius: var(--popup-border-radius) !important;
+          border-radius: 0px !important;
         }
-        .mdc-dialog__scrim {
-          background: var(--primary-background-color) !important;
-          backdrop-filter: none !important;
-          -webkit-backdrop-filter: none !important;
-        }
+        //.mdc-dialog__scrim {
+          //background: var(--primary-background-color) !important;
+          //backdrop-filter: none !important;
+          //-webkit-backdrop-filter: none !important;
+        //} 
       }
       div {
         outline: none !important;
@@ -93,9 +95,11 @@ minimalist-mobile:
       header-all-tabs-color: 'var(--paper-item-icon-color)'
       header-tab-indicator-color: 'rgba(0, 0, 0, 0)'
       header-background-color: var( --ha-card-background, var(--card-background-color, white) )
-      footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)
-      header-shadow: 0px 0.3px 0.3px 0px rgba(0,0,0,0.2)
-      #header-height: 78px
+      #footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)
+      footer-shadow: none
+      footer-border: 1px solid rgb(220,220,220)
+      header-shadow: 0px 0px 3px 0px rgba(0,0,0,0.25)
+      #header-height: 80px
 
       # popup
       popup-background-color: var(--primary-background-color)
@@ -159,8 +163,8 @@ minimalist-mobile:
       slider-color: "rgb(var(--color-blue))"
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # cards
-      #box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
-      box-shadow: "none"
+      box-shadow: rgba(0,0,0,0.06) 0 0 10px #"0px 2px 4px 0px rgba(0,0,0,0.16)"
+      #box-shadow: "none"
       ha-card-box-shadow: "var(--box-shadow)"
       ha-card-border-width: "1px"
       # sidebar
@@ -184,7 +188,7 @@ minimalist-mobile:
       #footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.4)
       footer-shadow: none
       footer-border: 1px solid rgb(45,45,45)
-      header-shadow: 0px 0.3px 0.3px 0px rgba(200,200,200,0.4)
+      header-shadow: 0 1px 3px rgba(0,0,0,.3)
       #header-height: 80px
 
       # popup
@@ -254,7 +258,9 @@ minimalist-mobile:
       slider-color: "rgb(var(--color-blue))"
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # card
-      box-shadow: "none"
+      box-shadow: rgba(0,0,0,0.1) 0 1 10px #"0px 2px 4px 0px rgba(0,0,0,0.16)"
+      #box-shadow: "none"
+      ha-card-box-shadow: "var(--box-shadow)"
       ha-card-border-width: "1px"
       # media player
       mini-media-player-accent-color: "var(--google-blue)"

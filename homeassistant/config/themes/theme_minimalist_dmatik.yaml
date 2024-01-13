@@ -32,6 +32,9 @@ minimalist-dmatik:
           --mdc-dialog-min-width: 100vw !important;
         }
       }
+      ha-dialog {
+        direction: rtl !important;
+      }
     $: |
       .mdc-dialog__scrim {
         backdrop-filter: var(--popup-backdrop-filter);
@@ -45,13 +48,14 @@ minimalist-dmatik:
       }
       @media (max-width: 450px), (max-height: 500px) {
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          border-radius: var(--popup-border-radius) !important;
+          //border-radius: var(--popup-border-radius) !important;
+          border-radius: 0px !important;
         }
-        .mdc-dialog__scrim {
-          background: var(--primary-background-color) !important;
-          backdrop-filter: none !important;
-          -webkit-backdrop-filter: none !important;          
-        } 
+        //.mdc-dialog__scrim {
+          //background: var(--primary-background-color) !important;
+          //backdrop-filter: none !important;
+          //-webkit-backdrop-filter: none !important;          
+        //} 
       }
     ha-dialog$: |
       .mdc-dialog__scrim {
@@ -66,13 +70,14 @@ minimalist-dmatik:
       }
       @media (max-width: 450px), (max-height: 500px) {
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          border-radius: var(--popup-border-radius) !important;
+          //border-radius: var(--popup-border-radius) !important;
+          border-radius: 0px !important;
         }
-        .mdc-dialog__scrim {
-          background: var(--primary-background-color) !important;
-          backdrop-filter: none !important;
-          -webkit-backdrop-filter: none !important;
-        } 
+        //.mdc-dialog__scrim {
+          //background: var(--primary-background-color) !important;
+          //backdrop-filter: none !important;
+          //-webkit-backdrop-filter: none !important;
+        //} 
       }
       div {
         outline: none !important;
@@ -80,66 +85,44 @@ minimalist-dmatik:
   card-mod-root-yaml: | 
     ha-tabs$: |
       #tabsContent {
-        width: 97% !important;
-        height: 44px;
+        //width: 97% !important;
+        //height: 44px;
       }
       paper-icon-button {
         display: none;
       }
     .: |
-      @media (orientation: portrait) {
-        //a.menu-link[target="_blank"], ha-button-menu, ha-menu-button, [main-title] {
-        //  display: none !important;
-        //}
-        a.menu-link[target="_blank"], ha-button-menu, [main-title] {
-          display: none !important;
-        }
-        ha-menu-button, ha-button-menu {
-          --mdc-icon-size: 28px !important;
-        }
-        ha-menu-button {
-          padding-right: 14px !important;
-        }
-        .toolbar {
-          padding-right: 0px !important; 
-          padding-left: 0px !important; 
-        }
-      }
       .header {
-        top: auto !important;
-        bottom: 0 !important;
-        transform: unset !important;
-        box-shadow: var(--footer-shadow) !important;
-        height: var(--header-height) !important;
+        //top: auto !important;
+        //bottom: 0 !important;
+        //transform: unset !important;
+        box-shadow: var(--header-shadow) !important;
+        //height: var(--header-height) !important;
         background-color: var(--header-background-color) !important;
-        border-top: var(--footer-border) !important;
+        //border-top: var(--footer-border) !important;
+        //--mdc-icon-size: 28px !important;
       }
       .toolbar {
-        transform: none !important;
-        height: 44px !important;
+        //transform: none !important;
+        //height: 44px !important;
         background-color: var(--header-background-color) !important;
       }
       #view {
-        min-height: 100% !important;
-        margin-top: 0px !important;
-        padding-top: 0px !important;
+        //min-height: 100% !important;
+        //margin-top: 0px !important;
+        //padding-top: 0px !important;
       }
       hui-view {
-        padding-bottom: 0px !important;
+        //padding-bottom: 0px !important;
       }
       ha-tabs {
-        --paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
-        --mdc-icon-size: 28px;
-        margin-right: 0px !important;
-        margin-left: 0px !important;
+        //--paper-tabs-selection-bar-color: var(--header-tab-indicator-color) !important;
+        --paper-tabs-selection-bar-color: var(--header-active-tab-color) !important;
       }
       paper-tab[aria-selected=true] {
         color: var(--header-active-tab-color) !important;
       }
       paper-tab {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-        width: calc(100% / 3) !important;
         color: var(--header-all-tabs-color) !important;
       }
 
@@ -169,8 +152,8 @@ minimalist-dmatik:
       #footer-shadow: 0px -0.3px 0.3px 0px rgba(0,0,0,0.2)
       footer-shadow: none
       footer-border: 1px solid rgb(220,220,220)
-      header-shadow: 0px 0.3px 0.3px 0px rgba(0,0,0,0.2)
-      header-height: 80px
+      header-shadow: 0px 0px 3px 0px rgba(0,0,0,0.25)
+      #header-height: 80px
 
       # popup
       popup-background-color: var(--primary-background-color)
@@ -228,14 +211,14 @@ minimalist-dmatik:
       secondary-background-color: "#EFEFEF"
       # header
       app-header-text-color: "var(--primary-text-color)"
-      app-header-background-color: "var(--primary-background-color)" #var(--header-background-color)
+      app-header-background-color: var(--header-background-color) #"var(--primary-background-color)"
       # paper-tabs-selection-bar-color: "var(--primary-text-color)"
       # slider
       slider-color: "rgb(var(--color-blue))"
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # cards
-      #box-shadow: "0px 2px 4px 0px rgba(0,0,0,0.16)"
-      box-shadow: "none"
+      box-shadow: rgba(0,0,0,0.06) 0 0 10px #"0px 2px 4px 0px rgba(0,0,0,0.16)"
+      #box-shadow: "none"
       ha-card-box-shadow: "var(--box-shadow)"
       ha-card-border-width: "1px"
       # sidebar
@@ -259,8 +242,8 @@ minimalist-dmatik:
       #footer-shadow: 0px -0.3px 0.3px 0px rgba(200,200,200,0.4)
       footer-shadow: none
       footer-border: 1px solid rgb(45,45,45)
-      header-shadow: 0px 0.3px 0.3px 0px rgba(200,200,200,0.4)
-      header-height: 80px
+      header-shadow: 0 1px 3px rgba(0,0,0,.3)
+      #header-height: 80px
 
       # popup
       popup-background-color: var(--primary-background-color)
@@ -320,7 +303,7 @@ minimalist-dmatik:
       secondary-background-color: "#000000" #"#121212"
       # header
       app-header-text-color: "var(--primary-text-color)"
-      app-header-background-color: "var(--primary-background-color)" #var(--header-background-color)
+      app-header-background-color: var(--header-background-color) #"var(--primary-background-color)"
       paper-tabs-selection-bar-color: "var(--primary-text-color)"
       # Sidebar
       sidebar-selected-text-color: "rgb(var(--color-blue))"
@@ -329,7 +312,9 @@ minimalist-dmatik:
       slider-color: "rgb(var(--color-blue))"
       slider-bar-color: "rgba(var(--color-blue),0.38)"
       # card
-      box-shadow: "none"
+      box-shadow: rgba(0,0,0,0.1) 0 1 10px #"0px 2px 4px 0px rgba(0,0,0,0.16)"
+      #box-shadow: "none"
+      ha-card-box-shadow: "var(--box-shadow)"
       ha-card-border-width: "1px"
       # media player
       mini-media-player-accent-color: "var(--google-blue)"
