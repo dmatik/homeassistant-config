@@ -16,5 +16,6 @@ group:
       - climate.basement
       - switch.bathroom_heater
       - switch.parents_bathroom_heater
+      - switch.switcher_boiler
       #- switch.kids_radiator
       #- switch.bedroom_radiator
