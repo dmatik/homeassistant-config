@@ -15,6 +15,7 @@ card_energy_daily_graph:
       - border-radius: "var(--border-radius)"
       - box-shadow: "var(--box-shadow)"
       - padding: "8px"
+      - direction: "ltr"
   custom_fields:
     item1:
       card:
@@ -46,23 +47,24 @@ card_energy_daily_graph:
         #bar_spacing: 2
         tap_action:
           action: more-info
-        style: |
-          ha-card {
-            padding-top: 0px !important;
-            padding-bottom: var(--card-padding) !important;
-            padding-right: var(--card-padding) !important;
-            padding-left: var(--card-padding) !important;
-            border-style: none;
-          }
-          .graph {
-            padding: 0px !important;
-          }
-          .info {
-            padding-bottom: 4px !important;
-            padding-right: 4px !important;
-            padding-left: 4px !important;
-            font-size: 10px;
-          }
+        card_mod:
+          style: |
+            ha-card {
+              padding-top: 0px !important;
+              padding-bottom: var(--card-padding) !important;
+              padding-right: var(--card-padding) !important;
+              padding-left: var(--card-padding) !important;
+              border-style: none;
+            }
+            .graph {
+              padding: 0px !important;
+            }
+            .info {
+              padding-bottom: 4px !important;
+              padding-right: 4px !important;
+              padding-left: 4px !important;
+              font-size: 10px;
+            }
 
 card_monthly_statistics:
   variables:
@@ -89,3 +91,6 @@ card_monthly_statistics:
 
       return response;
     ]]]
+  styles:
+    card:
+      - direction: "ltr"    
