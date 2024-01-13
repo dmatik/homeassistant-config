@@ -71,13 +71,14 @@ card_graph:
           average: "[[[ return variables.ulm_card_graph_show_average; ]]]"
         hours_to_show: "[[[ return variables.ulm_card_graph_hours; ]]]"
         points_per_hour: "[[[ return variables.ulm_card_graph_points_per_hour; ]]]"
-        style: |
-          ha-card {
-            box-shadow: none;
-            border-radius: var(--border-radius);
-            border-style: none;
-          }
-          .info {
-            padding-bottom: 0px !important;
-            font-size: 10px;
-          }
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: none;
+              border-radius: var(--border-radius);
+              border-style: none;
+            }
+            .info {
+              padding-bottom: 0px !important;
+              font-size: 10px;
+            }
