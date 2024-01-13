@@ -25,6 +25,8 @@ scene:
         state: on
       light.kfir_led_strip:
         state: on
+      # switch.power_socket_01:
+      #   state: on
 
   - name: Night Lights Off
     entities:
@@ -32,10 +34,10 @@ scene:
         state: off
       light.bedside_galit_bulb:
         state: off
-      light.living_room:
-        state: off
-      light.living_room_tv_wall:
-        state: off
+      # light.living_room:
+      #   state: off
+      # light.living_room_tv_wall:
+      #   state: off
       light.stairs_ground_floor:
         state: off
       light.hallway_stairs:
@@ -43,4 +45,6 @@ scene:
       light.ronen_led_strip:
         state: off
       light.kfir_led_strip:
-        state: off        
+        state: off
+      # switch.power_socket_01:
+      #   state: off        
