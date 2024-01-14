@@ -356,7 +356,13 @@ cards:
                         template: 'card_light_simple'
                         entity: light.bedroom
                         name: "[[[ return variables.ulm_bedroom; ]]]"
-                        
+
+                      # Bedroom Balcony Light
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.bedroom_balcony
+                        name: "[[[ return variables.ulm_balcony; ]]]"
+                                                
                       # Bedside Dima Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'

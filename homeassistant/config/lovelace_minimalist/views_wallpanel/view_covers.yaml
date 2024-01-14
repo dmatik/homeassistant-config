@@ -217,6 +217,24 @@ cards:
                       grid-template-columns: 1fr 1fr 1fr 1fr
                 cards:
 
+                    # Bedroom Balcony Cover
+                    - type: 'custom:button-card'
+                      template: card_cover_buttons
+                      variables:
+                        x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_bedroom_balcony; ]]]"
+                        ulm_card_cover_buttons_entity: cover.bedroom_balcony
+                      view_layout:
+                        grid-row-start: span 2
+                        
+                    # Bedroom Window Cover
+                    - type: 'custom:button-card'
+                      template: card_cover_buttons
+                      variables:
+                        x_ulm_card_cover_buttons_name: "[[[ return variables.ulm_bedroom_window; ]]]"
+                        ulm_card_cover_buttons_entity: cover.bedroom_window
+                      view_layout:
+                        grid-row-start: span 2
+
                     # Bedroom Makup Cover
                     - type: 'custom:button-card'
                       template: card_cover_buttons

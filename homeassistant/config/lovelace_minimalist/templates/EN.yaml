@@ -73,6 +73,9 @@ ulm_language_variables_EN:
     ulm_lights: "Lights"
     ulm_lights_on: " lights"
     ulm_bedroom_makeup: "Makeup"
+    ulm_bedroom_balcony: "Balcony"
+    ulm_bedroom_window: "Window"
+    ulm_balcony: "Balcony"
     
     ulm_boiler: "Boiler"
     ulm_kfir: "Kfir"

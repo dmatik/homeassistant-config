@@ -73,6 +73,9 @@ ulm_language_variables:
     ulm_lights: "תאורה"
     ulm_lights_on: " אורות"
     ulm_bedroom_makeup: "הורים איפור"
+    ulm_bedroom_balcony: "הורים מרפסת"
+    ulm_bedroom_window: "הורים חלון"
+    ulm_balcony: "מרפסת"
 
     ulm_boiler: "דוד שמש"
     ulm_kfir: "כפיר"
