@@ -31,9 +31,6 @@ card_tasmota_version:
           action: "none"
         entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
         #name: "[[[ return 'Latest: ' + states[variables.ulm_card_tasmota_latest_version].state ]]]"
-        styles:
-          icon:
-            - color: "rgba(var(--color-theme),0.9)"
 
 
 card_tasmota:
@@ -63,9 +60,6 @@ card_tasmota:
       version = version.split("(")[0];
       return "v" + version; 
     ]]]
-  styles:
-    icon:
-      - color: "rgba(var(--color-theme),0.9)"
 
 
 card_tasmota_with_power:
@@ -99,9 +93,6 @@ card_tasmota_with_power:
       version = version.split("(")[0];
       return "v" + version; 
     ]]]
-  styles:
-    icon:
-      - color: "rgba(var(--color-theme),0.9)"
 
 
 
@@ -119,9 +110,9 @@ card_tasmota_devices_outdated:
         #     - left: "40px"
         #     - top: "8px"
         icon:
-          - color: 'rgba(var(--color-blue),1)'
+          - color: 'var(--color-blue-icon)'
         img_cell:
-          - background-color: 'rgba(var(--color-blue), 0.2)'
+          - background-color: 'var(--color-blue-icon-background)'
   name: >
     [[[
       if ( states[variables.ulm_card_tasmota_latest_version].state == "" )

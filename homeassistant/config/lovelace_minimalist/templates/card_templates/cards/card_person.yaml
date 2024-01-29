@@ -9,8 +9,7 @@ card_person:
   triggers_update: "all"
   variables:
     ulm_card_person_use_entity_picture: false
-    ulm_card_person_zone1: ""
-    ulm_card_person_zone2: ""
+    ulm_card_person_battery_level_sensor: ""
   tap_action:
     action: "more-info"
     entity: "[[[ return variables.ulm_card_person_entity; ]]]"
@@ -18,13 +17,19 @@ card_person:
   show_name: true
   label: >
     [[[
-      if (states[variables.ulm_card_person_entity].state == 'not_home')
-        return variables.ulm_away;
-      else if (states[variables.ulm_card_person_entity].state == 'home')
-        return variables.ulm_home;
-      else
-        return states[variables.ulm_card_person_entity].state;
+      var status = states[variables.ulm_card_person_entity].state;
 
+      if (status == 'not_home')
+        status = variables.ulm_away;
+      if (status == 'home')
+        status = variables.ulm_home;
+
+      if (variables.ulm_card_person_battery_level_sensor != "") {
+        var battery_level = states[variables.ulm_card_person_battery_level_sensor].state;
+        status += " • " + battery_level + "%";
+      }
+
+      return status;
     ]]]
   name: "[[[ return states[variables.ulm_card_person_entity].attributes.friendly_name ]]]"
   entity: "[[[ return variables.ulm_card_person_entity; ]]]"
@@ -59,50 +64,3 @@ card_person:
               return "stretch stretch";
             }
           ]]]
-    custom_fields:
-      notification:
-        - position: "absolute"
-        - left: "40px"
-        - top: "8px"
-  custom_fields:
-    # notification:
-    #   card:
-    #     type: "custom:button-card"
-    #     template: "badge"
-    #     icon: >
-    #       [[[
-    #         if (states[variables.ulm_card_person_entity].state !== 'home') {
-    #           if (states[variables.ulm_card_person_entity].state === states[variables.ulm_card_person_zone1]?.attributes?.friendly_name) {
-    #             var icon = states[variables.ulm_card_person_zone1].attributes.icon !== null ? states[variables.ulm_card_person_zone1].attributes.icon : 'mdi:help-circle'
-    #             return icon;
-    #           } else if (states[variables.ulm_card_person_entity].state === states[variables.ulm_card_person_zone2]?.attributes?.friendly_name) {
-    #             var icon = states[variables.ulm_card_person_zone2].attributes.icon !== null ? states[variables.ulm_card_person_zone2].attributes.icon : 'mdi:help-circle'
-    #             return icon;
-    #           } else {
-    #             return 'mdi:home-minus';
-    #           }
-    #         } else {
-    #           return 'mdi:home';
-    #         }
-    #       ]]]
-    #     variables:
-    #       ulm_badge_icon_backgroung_color: >
-    #         [[[
-    #           if (states[variables.ulm_card_person_entity].state !== 'home') {
-    #             return 'rgba(var(--color-green),1)';
-    #           } else {
-    #             return 'rgba(var(--color-blue),1)';
-    #           }
-    #         ]]]
-  state:
-    - operator: "template"
-      value: >
-        [[[
-          return states[variables.ulm_card_person_entity].state !== 'home' 
-            && states[variables.ulm_card_person_entity].state !== states[variables.ulm_card_person_zone1]?.attributes?.friendly_name
-            && states[variables.ulm_card_person_entity].state !== states[variables.ulm_card_person_zone2]?.attributes?.friendly_name;
-        ]]]
-      styles:
-        custom_fields:
-          notification:
-            - display: 'none' 

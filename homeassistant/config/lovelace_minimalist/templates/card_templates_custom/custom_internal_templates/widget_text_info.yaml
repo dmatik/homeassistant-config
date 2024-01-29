@@ -16,6 +16,7 @@ widget_text_info:
       - place-self: "center"
       #- height: "22px"
       - border-style: "none"
+      - background: "none"
     custom_fields:
       item1:
         - display: flex

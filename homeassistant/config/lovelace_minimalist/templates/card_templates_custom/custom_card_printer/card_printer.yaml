@@ -28,9 +28,15 @@ card_printer:
   state:
     - styles:
         icon:
-          - color: "rgba(var(--color-blue),1)"
+          - color: 'var(--color-blue-icon)'
+        label:
+          - color: "var(--color-blue-label)"
+        name:
+          - color: "var(--color-blue-name)"
         img_cell:
-          - background-color: "rgba(var(--color-blue), 0.2)"
+          - background-color: 'var(--color-blue-icon-background)'
+        card:
+          - background-color: "var(--color-background-blue)"
       value: "ready"
 
 

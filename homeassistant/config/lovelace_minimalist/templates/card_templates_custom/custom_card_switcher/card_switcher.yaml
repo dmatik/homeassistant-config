@@ -11,6 +11,12 @@ card_switcher:
     ulm_card_switcher_electric_current: ""
     ulm_card_switcher_auto_off: ""
   triggers_update: "all"
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_card_switcher_entity].state == 'on'; ]]]"
+      styles:
+        card:
+          - background-color: "var(--color-background-red)"
   styles:
     grid:
       - grid-template-areas: "'item1' 'item2'"
@@ -52,6 +58,8 @@ card_switcher:
             card:
               type: "custom:button-card"
               template: "widget_icon"
+              variables:
+                ulm_widget_entity: "[[[ return variables.ulm_card_switcher_entity ]]]"
               tap_action:
                 action: "call-service"
                 service: "switch.toggle"
@@ -75,13 +83,15 @@ card_switcher:
                   - padding-bottom: "0px"
                   - padding-right: "10px"
                   - padding-left: "6px"
-                  - background-color: "rgba(var(--color-theme),0.05)"
+                  - background-color: "var(--widget-background-color)"
                   - border-radius: "var(--widget-border-radius)"
               custom_fields:
                 item1:
                   card:
                     type: "custom:button-card"
                     template: "widget_icon_transparent"
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_switcher_entity ]]]"
                     tap_action:
                       action: "call-service"
                       service: "script.turn_on"
@@ -92,6 +102,8 @@ card_switcher:
                   card:
                     type: "custom:button-card"
                     template: "switcher_next_select"
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_switcher_entity ]]]"
                     name: "[[[ return states[variables.ulm_card_switcher_timer_minutes].state ]]]"
                     tap_action:
                       action: "call-service"
@@ -118,9 +130,15 @@ switcher:
       value: "[[[ return entity.state == 'on'; ]]]"
       styles:
         icon:
-          - color: "rgba(var(--color-red),1)"
+          - color: 'var(--color-red-icon)'
+        label:
+          - color: "var(--color-red-label)"
+        name:
+          - color: "var(--color-red-name)"
         img_cell:
-          - background-color: "rgba(var(--color-red),0.2)"
+          - background-color: 'var(--color-red-icon-background)'
+        # card:
+        #   - background-color: "var(--color-background-red)"
 
 
 switcher_next_select:
@@ -132,16 +150,22 @@ switcher_next_select:
     card:
       - box-shadow: "none"
       - padding: "0px"
-      - background-color: "rgba(var(--color-theme),0.00)"
+      - background: "none"
       - border-radius: "var(--widget-border-radius)"
       - place-self: "center"
       - height: "40px"
       - border-style: "none"
       - --mdc-ripple-press-opacity: 0.0
     name:
-      - color: "rgba(var(--color-theme),0.9)"
+      - color: "var(--widget-icon-color)"
       - font-weight: '500'
       - font-size: '20px'
       - padding-top: '0.5px'
   size: "20px"
-  color: "var(--google-grey)"          
+  color: "var(--google-grey)"
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_widget_entity].state == 'on'; ]]]"
+      styles:
+        name:
+          - color : "var(--widget-icon-color-on)"

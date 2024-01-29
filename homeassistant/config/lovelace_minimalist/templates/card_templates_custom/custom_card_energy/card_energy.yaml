@@ -55,6 +55,7 @@ card_energy_daily_graph:
               padding-right: var(--card-padding) !important;
               padding-left: var(--card-padding) !important;
               border-style: none;
+              background: none;
             }
             .graph {
               padding: 0px !important;

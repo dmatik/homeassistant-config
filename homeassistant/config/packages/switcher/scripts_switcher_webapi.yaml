@@ -17,6 +17,7 @@ script:
               switcher_web_api_port: !secret switcher_web_api_port
               switcher_device_id: !secret switcher_boiler_device_id
               switcher_ip: !secret switcher_boiler_local_ip_addr
+              switcher_key: !secret switcher_boiler_key
               minutes: '{{ states("input_select.switcher_boiler_timer_minutes_input_select") }}'
           - service: homeassistant.update_entity
             entity_id: sensor.switcher_boiler
@@ -37,6 +38,7 @@ script:
               switcher_web_api_port: !secret switcher_web_api_port
               switcher_device_id: !secret switcher_boiler_device_id
               switcher_ip: !secret switcher_boiler_local_ip_addr
+              switcher_key: !secret switcher_boiler_key
           - service: homeassistant.update_entity
             entity_id: sensor.switcher_boiler
 
@@ -49,5 +51,6 @@ script:
               switcher_web_api_port: !secret switcher_web_api_port
               switcher_device_id: !secret switcher_boiler_device_id
               switcher_ip: !secret switcher_boiler_local_ip_addr
+              switcher_key: !secret switcher_boiler_key
           - service: homeassistant.update_entity
             entity_id: sensor.switcher_boiler

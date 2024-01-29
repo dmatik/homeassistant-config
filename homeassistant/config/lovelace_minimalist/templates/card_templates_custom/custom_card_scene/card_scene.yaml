@@ -23,12 +23,18 @@ card_scene_vertical:
   show_last_changed: false
   name: "[[[ return variables.state ]]]"
   styles:
-    name:
-      - text-transform: "capitalize"
     icon:
-      - color: "[[[ return `rgba(var(--color-${variables.color}), 1)`; ]]]"
+      - color: "[[[ return `var(--color-${variables.color}-icon)`; ]]]"
+    #label:
+      #- color: "[[[ return `var(--color-${variables.color}-label)`; ]]]"
+      #- font-size: "[[[ return variables.ulm_label_font_size; ]]]"
+    name:
+      #- color: "[[[ return `var(--color-${variables.color}-name)`; ]]]"
+      - text-transform: "capitalize"
     img_cell:
-      - background-color: "[[[ return `rgba(var(--color-${variables.color}), 0.2)`; ]]]"
+      - background-color: "[[[ return `var(--color-${variables.color}-icon-background)`; ]]]"
+    #card:
+      #- background-color: "[[[ return `var(--color-background-${variables.color})`; ]]]"
   tap_action:
     action: "call-service"
     service: "scene.turn_on"

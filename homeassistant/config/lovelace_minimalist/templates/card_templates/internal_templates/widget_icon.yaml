@@ -1,6 +1,8 @@
 ---
 ### Widget Icon ###
 widget_icon:
+  variables:
+    ulm_widget_entity: ""
   tap_action:
     action: "toggle"
   show_icon: true
@@ -11,13 +13,21 @@ widget_icon:
     card:
       - box-shadow: "none"
       - padding: "0px"
-      - background-color: "rgba(var(--color-theme),0.05)"
+      - background-color: "var(--widget-background-color)" #"rgba(var(--color-theme),0.05)"
       - border-radius: "var(--widget-border-radius)"
       - place-self: "center"
       - height: "40px"
       - border-style: "none"
       - --mdc-ripple-press-opacity: 0.0
     icon:
-      - color: "rgba(var(--color-theme),0.9)"
+      - color: "var(--widget-icon-color)" #"rgba(var(--color-theme),0.9)"
   size: "20px"
   color: "var(--google-grey)"
+  state:
+    - operator: "template"
+      value: "[[[ return variables.ulm_widget_entity != '' && states[variables.ulm_widget_entity].state == 'on'; ]]]"
+      styles:
+        card:
+          - background-color: "var(--widget-background-color-on)"
+        icon:
+          - color : "var(--widget-icon-color-on)"

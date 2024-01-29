@@ -39,9 +39,6 @@ card_fully:
         entity: "[[[ return variables.ulm_card_fully_entity ]]]"
         name: "[[[ return variables.ulm_card_fully_name ]]]"
         label: '[[[ return states[variables.ulm_card_fully_entity].attributes.currentPageUrl ]]]'
-        styles:
-          icon:
-            - color: "rgba(var(--color-theme),0.9)"
     item2:
       card:
         type: "custom:button-card"

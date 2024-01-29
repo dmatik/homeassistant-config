@@ -1,10 +1,10 @@
 ---
 ulm_language_variables:
   variables:
-    ulm_name_font_size: "16px"
-    ulm_name_font_weight: "500"
-    ulm_label_font_size: "14px"
-    ulm_label_font_weight: "400"
+    ulm_name_font_size: "var(--card-primary-font-size)"
+    ulm_name_font_weight: "var(--card-primary-font-weight)"
+    ulm_label_font_size: "var(--card-secondary-font-size)"
+    ulm_label_font_weight: "var(--card-secondary-font-weight)"
     ulm_title_font_size: "1.2rem"
 
     ulm_on: "דלוק"
@@ -12,6 +12,8 @@ ulm_language_variables:
     ulm_lights_off: "כיבוי אורות"
     ulm_open: "פתוח"
     ulm_closed: "סגור"
+    ulm_opening: "פותח"
+    ulm_closing: "סוגר"    
     ulm_unavailable: "לא זמין"
     ulm_standby: "Standby"
     ulm_idle: "Idle"

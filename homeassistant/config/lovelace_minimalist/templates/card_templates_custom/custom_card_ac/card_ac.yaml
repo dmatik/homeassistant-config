@@ -6,6 +6,12 @@ card_ac_target_temperature:
     #ulm_card_ac_curr_temp_sensor: sensor.example
     ulm_card_ac_name: 'AC'
     ulm_card_ac_display_name: ''
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+      styles:
+        card:
+          - background-color: "var(--card-background-color-on)"    
   styles:
     card:
       - border-radius: "var(--border-radius)"
@@ -64,7 +70,7 @@ card_ac_target_temperature:
                 card:
                   - box-shadow: "none"
                   - padding: "0px"
-                  - background-color: "rgba(var(--color-theme),0.05)"
+                  - background-color: "var(--widget-background-color)" #"rgba(var(--color-theme),0.05)"
                   - border-radius: "var(--widget-border-radius)"
               custom_fields:
                 item1:
@@ -77,6 +83,14 @@ card_ac_target_temperature:
                         entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
+                    state:
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
                 item2:
                   card:
                     icon: 'mdi:temperature-celsius'
@@ -84,6 +98,8 @@ card_ac_target_temperature:
                       action: none
                     type: 'custom:button-card'
                     template: ac_widget_target_temp
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
                     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                 item3:
                   card:
@@ -95,6 +111,14 @@ card_ac_target_temperature:
                         entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
+                    state:
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
 
 
 
@@ -108,6 +132,12 @@ card_ac_buttons:
     #ulm_card_ac_curr_temp_sensor: sensor.example
     x_ulm_card_ac_name: 'AC'
     ulm_card_ac_display_name: ''
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+      styles:
+        card:
+          - background-color: "var(--card-background-color-on)"
   styles:
     card:
       - border-radius: "var(--border-radius)"
@@ -167,7 +197,7 @@ card_ac_buttons:
                 card:
                   - box-shadow: "none"
                   - padding: "0px"
-                  - background-color: "rgba(var(--color-theme),0.05)"
+                  - background-color: "var(--widget-background-color)" #"rgba(var(--color-theme),0.05)"
                   - border-radius: "var(--widget-border-radius)"
               custom_fields:
                 item1:
@@ -175,6 +205,8 @@ card_ac_buttons:
                     icon: 'mdi:fire'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
                     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                     tap_action:
                       action: call-service
@@ -186,14 +218,21 @@ card_ac_buttons:
                       - value: "heat"
                         styles:
                           icon:
-                            - color: "rgba(var(--climate-heat-color),1)"
+                            - color: 'var(--climate-heat-color-text)'                           
                           img_cell:
-                            - background-color: "rgba(var(--climate-heat-color), 0.2)"
+                            - background-color: 'var(--climate-heat-color-background)'
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off' && states[variables.ulm_card_ac_entity].state != 'heat'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
                 item2:
                   card:
                     icon: 'mdi:snowflake'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
                     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                     tap_action:
                       action: call-service
@@ -205,9 +244,14 @@ card_ac_buttons:
                       - value: "cool"
                         styles:
                           icon:
-                            - color: "rgba(var(--climate-cool-color),1)"
+                            - color: 'var(--climate-cool-color-text)'                           
                           img_cell:
-                            - background-color: "rgba(var(--climate-cool-color), 0.2)"
+                            - background-color: 'var(--climate-cool-color-background)'
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off' && states[variables.ulm_card_ac_entity].state != 'cool'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
                 item3:
                   card:
                     icon: 'mdi:power'
@@ -218,6 +262,14 @@ card_ac_buttons:
                         entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
+                    state:
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
 
 
 
@@ -231,6 +283,12 @@ card_ac_buttons_with_temp:
     #ulm_card_ac_curr_temp_sensor: sensor.example
     x_ulm_card_ac_name: 'AC'
     ulm_card_ac_display_name: ''
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+      styles:
+        card:
+          - background-color: "var(--card-background-color-on)"
   styles:
     card:
       - border-radius: "var(--border-radius)"
@@ -293,7 +351,7 @@ card_ac_buttons_with_temp:
                 card:
                   - box-shadow: "none"
                   - padding: "0px"
-                  - background-color: "rgba(var(--color-theme),0.05)"
+                  - background-color: "var(--widget-background-color)" #"rgba(var(--color-theme),0.05)"
                   - border-radius: "var(--widget-border-radius)"
               custom_fields:
                 item1:
@@ -301,6 +359,8 @@ card_ac_buttons_with_temp:
                     icon: 'mdi:fire'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
                     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                     tap_action:
                       action: call-service
@@ -312,14 +372,21 @@ card_ac_buttons_with_temp:
                       - value: "heat"
                         styles:
                           icon:
-                            - color: "rgba(var(--climate-heat-color),1)"
+                            - color: 'var(--climate-heat-color-text)'                           
                           img_cell:
-                            - background-color: "rgba(var(--climate-heat-color), 0.2)"
+                            - background-color: 'var(--climate-heat-color-background)'
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off' && states[variables.ulm_card_ac_entity].state != 'heat'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
                 item2:
                   card:
                     icon: 'mdi:snowflake'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
                     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                     tap_action:
                       action: call-service
@@ -331,9 +398,14 @@ card_ac_buttons_with_temp:
                       - value: "cool"
                         styles:
                           icon:
-                            - color: "rgba(var(--climate-cool-color),1)"
+                            - color: 'var(--climate-cool-color-text)'                           
                           img_cell:
-                            - background-color: "rgba(var(--climate-cool-color), 0.2)"
+                            - background-color: 'var(--climate-cool-color-background)'
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off' && states[variables.ulm_card_ac_entity].state != 'cool'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
                 item3:
                   card:
                     icon: 'mdi:power'
@@ -344,6 +416,14 @@ card_ac_buttons_with_temp:
                         entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
+                    state:
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
     item3:
       card:
         template: 'list_1_item'
@@ -357,7 +437,7 @@ card_ac_buttons_with_temp:
                 card:
                   - box-shadow: "none"
                   - padding: "0px"
-                  - background-color: "rgba(var(--color-theme),0.05)"
+                  - background-color: "var(--widget-background-color)" #"rgba(var(--color-theme),0.05)"
                   - border-radius: "var(--widget-border-radius)"
               custom_fields:
                 item1:
@@ -370,6 +450,14 @@ card_ac_buttons_with_temp:
                         entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
+                    state:
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
                 item2:
                   card:
                     icon: 'mdi:temperature-celsius'
@@ -377,6 +465,8 @@ card_ac_buttons_with_temp:
                       action: none
                     type: 'custom:button-card'
                     template: ac_widget_target_temp
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
                     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                 item3:
                   card:
@@ -388,6 +478,14 @@ card_ac_buttons_with_temp:
                         entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
                     type: 'custom:button-card'
                     template: widget_icon_transparent
+                    variables:
+                      ulm_widget_entity: "[[[ return variables.ulm_card_ac_entity ]]]"
+                    state:
+                      - operator: "template"
+                        value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+                        styles:
+                          icon:
+                            - color : "var(--widget-icon-color-on)"
 
 
 
@@ -399,6 +497,14 @@ ac_text_info:
   show_icon: false
   show_label: true
   show_name: true
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_card_ac_entity].state != 'off'; ]]]"
+      styles:
+        label:
+          - color: "var(--color-red-label)"
+        name:
+          - color: "var(--color-red-name)"          
   styles:
     label:
       - justify-self: "start"
@@ -439,6 +545,7 @@ ac_text_info:
       - border-style: "none"
       - position: inherit
       - --mdc-ripple-press-opacity: 0.0
+      - background: "none"
   label: >-
     [[[
         if (entity.state =='off') {
@@ -511,10 +618,11 @@ ac_curr_temp:
       - position: inherit
       - border-radius: "0px"
       - --mdc-ripple-press-opacity: 0.0
+      - background: "none"
     custom_fields:
       curr_temp:
-        - color: 'rgba(var(--color-theme),1)'
-        - background-color: 'rgba(var(--color-theme),0.05)'
+        - color: "var(--climate-curr-temp-color)" #'rgba(var(--color-theme),1)'
+        - background-color: "var(--climate-curr-temp-background-color)" #'rgba(var(--color-theme),0.05)'
         - border-radius: '50%'
         - display: flex
         - justify-content: center
@@ -544,8 +652,8 @@ ac_curr_temp:
       styles:
         custom_fields:
           curr_temp:
-            - color: 'rgba(var(--climate-heat-color),1)'
-            - background-color: 'rgba(var(--climate-heat-color),0.2)'
+            - color: 'var(--climate-heat-color-text)' #'rgba(var(--climate-heat-color),1)'
+            - background-color: 'var(--climate-heat-color-background)' #'rgba(var(--climate-heat-color),0.2)'
     - operator: template
       value: >
         [[[
@@ -554,8 +662,8 @@ ac_curr_temp:
       styles:
         custom_fields:
           curr_temp:
-            - color: 'rgba(var(--climate-heat-color),1)'
-            - background-color: 'rgba(var(--climate-heat-color),0.2)'
+            - color: 'var(--climate-heat-color-text)'
+            - background-color: 'var(--climate-heat-color-background)'
     - operator: template
       value: >
         [[[
@@ -564,8 +672,8 @@ ac_curr_temp:
       styles:
         custom_fields:
           curr_temp:
-            - color: 'rgba(var(--climate-cool-color),1)'
-            - background-color: 'rgba(var(--climate-cool-color),0.2)'
+            - color: 'var(--climate-cool-color-text)'
+            - background-color: 'var(--climate-cool-color-background)'
     - operator: template
       value: >
         [[[
@@ -574,8 +682,8 @@ ac_curr_temp:
       styles:
         custom_fields:
           curr_temp:
-            - color: 'rgba(var(--climate-auto-color),1)'
-            - background-color: 'rgba(var(--climate-auto-color),0.2)'
+            - color: 'var(--climate-auto-color-text)'
+            - background-color: 'var(--climate-auto-color-background)'
     - operator: template
       value: >
         [[[
@@ -584,8 +692,8 @@ ac_curr_temp:
       styles:
         custom_fields:
           curr_temp:
-            - color: 'rgba(var(--color-red),1)'
-            - background-color: 'rgba(var(--color-red),0.2)'
+            - color: 'var(--climate-fan-only-color-text)'
+            - background-color: 'var(--climate-fan-only-color-background)'
       
 
 
@@ -603,6 +711,7 @@ ac_list_items_favorite:
       - border-style: "none"
       - position: inherit
       - border-radius: 0px
+      - background: "none"
     grid:
       - grid-template-areas: '"item1 item1"'
       - grid-template-columns: 1fr 1fr
@@ -628,7 +737,7 @@ ac_widget_target_temp:
     card:
       - box-shadow: none
       - padding: 0px
-      - background-color: 'rgba(var(--color-theme),0)'
+      - background: none
       - border-radius: 14px
       - place-self: center
       - height: 40px
@@ -637,7 +746,13 @@ ac_widget_target_temp:
     grid:
       - grid-template-areas: '"l"'
     label:
-      - color: 'rgba(var(--color-theme),0.9)'
+      - color: "var(--widget-icon-color-off)"
       - font-weight: '500'
       - font-size: '20px'
       - padding-top: '0.5px'
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_widget_entity].state != 'off'; ]]]"
+      styles:
+        label:
+          - color : "var(--widget-icon-color-on)"

@@ -56,35 +56,37 @@ cards:
                       grid-template-columns: 1fr 1fr
                 cards:
 
-                      # Dima
-                      - type: 'custom:button-card'
-                        template: card_person
-                        variables:
-                          ulm_card_person_entity: person.dmatik
-                          ulm_card_person_use_entity_picture: true
-                          ulm_card_person_zone1: zone.work
+                  # Dima
+                  - type: 'custom:button-card'
+                    template: card_person
+                    variables:
+                      ulm_card_person_entity: person.dmatik
+                      ulm_card_person_use_entity_picture: true
+                      ulm_card_person_battery_level_sensor: sensor.iphonedima_battery_level
 
-                      # Galit
-                      - type: 'custom:button-card'
-                        template: card_person
-                        variables:
-                          ulm_card_person_entity: person.galit
-                          ulm_card_person_use_entity_picture: true
-                          ulm_card_person_zone1: zone.work_2
+                  # Galit
+                  - type: 'custom:button-card'
+                    template: card_person
+                    variables:
+                      ulm_card_person_entity: person.galit
+                      ulm_card_person_use_entity_picture: true
+                      ulm_card_person_battery_level_sensor: sensor.galitphone_battery_level
 
-                      # Ronen
-                      - type: 'custom:button-card'
-                        template: card_person
-                        variables:
-                          ulm_card_person_entity: person.ronen
-                          ulm_card_person_use_entity_picture: true
+                  # Ronen
+                  - type: 'custom:button-card'
+                    template: card_person
+                    variables:
+                      ulm_card_person_entity: person.ronen
+                      ulm_card_person_use_entity_picture: true
+                      ulm_card_person_battery_level_sensor: sensor.iphoneronen_battery_level
 
-                      # Kfir
-                      - type: 'custom:button-card'
-                        template: card_person
-                        variables:
-                          ulm_card_person_entity: person.kfir
-                          ulm_card_person_use_entity_picture: true
+                  # Kfir
+                  - type: 'custom:button-card'
+                    template: card_person
+                    variables:
+                      ulm_card_person_entity: person.kfir
+                      ulm_card_person_use_entity_picture: true
+                      #ulm_card_person_battery_level_sensor: sensor.ipadkfir_battery_level
 
 
             # Climate
@@ -293,6 +295,8 @@ cards:
                     template: 'card_light_simple'
                     entity: light.guests_bathroom
                     name: "[[[ return variables.ulm_guest_bathroom; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
 
                   # Kitchen Light
                   # - type: 'custom:button-card'

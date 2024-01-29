@@ -163,3 +163,64 @@ template:
             {% endif %}
           {% endfor %}
           {{ count.value }}
+
+
+      ############################################################################
+      #                                                                          #
+      #   Lights  Timers Sensors                                                 #
+      #                                                                          #
+      ############################################################################
+
+      # Bathroom Light Time Left
+      - name: "bathroom_light_time_left"
+        unique_id: bathroom_light_time_left
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("timer.bathroom_light", "idle") %}
+              off
+          {% else %}
+              {% set finishes_at = state_attr("timer.bathroom_light","finishes_at") %}
+              {% set time_delta = as_datetime(finishes_at) - now() %}
+              {% set hour = (time_delta|string).split(':')[0] %}
+              {% set min = (time_delta|string).split(':')[1] %}
+              {% if (hour | int < 10) %}
+                {% set hour = "0" + hour %}
+              {% endif %}
+              {{ hour + ":" + min }}
+          {% endif %}
+
+      # Parents Bathroom Light Time Left
+      - name: "parents_bathroom_light_time_left"
+        unique_id: parents_bathroom_light_time_left
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("timer.parents_bathroom_light", "idle") %}
+              off
+          {% else %}
+              {% set finishes_at = state_attr("timer.parents_bathroom_light","finishes_at") %}
+              {% set time_delta = as_datetime(finishes_at) - now() %}
+              {% set hour = (time_delta|string).split(':')[0] %}
+              {% set min = (time_delta|string).split(':')[1] %}
+              {% if (hour | int < 10) %}
+                {% set hour = "0" + hour %}
+              {% endif %}
+              {{ hour + ":" + min }}
+          {% endif %}
+
+      # Guest Bathroom Light Time Left
+      - name: "guest_bathroom_light_time_left"
+        unique_id: guest_bathroom_light_time_left
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("timer.guest_bathroom_light", "idle") %}
+              off
+          {% else %}
+              {% set finishes_at = state_attr("timer.guest_bathroom_light","finishes_at") %}
+              {% set time_delta = as_datetime(finishes_at) - now() %}
+              {% set hour = (time_delta|string).split(':')[0] %}
+              {% set min = (time_delta|string).split(':')[1] %}
+              {% if (hour | int < 10) %}
+                {% set hour = "0" + hour %}
+              {% endif %}
+              {{ hour + ":" + min }}
+          {% endif %}

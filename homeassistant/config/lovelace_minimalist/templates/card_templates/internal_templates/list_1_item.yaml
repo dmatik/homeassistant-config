@@ -15,3 +15,4 @@ list_1_item:
       - padding-left: "12px"
       - border-style: "none"
       - border-radius: "0px"
+      - background: "none"

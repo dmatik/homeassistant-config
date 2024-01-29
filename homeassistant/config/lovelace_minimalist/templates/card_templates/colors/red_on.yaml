@@ -3,12 +3,14 @@ red_on:
   state:
     - styles:
         icon:
-          - color: "rgba(var(--color-red),1)"
-        # label:
-        #   - color: "rgba(var(--color-red-text),1)"
-        # name:
-        #   - color: "rgba(var(--color-red-text),1)"
+          - color: 'var(--color-red-icon)'
+        label:
+          - color: "var(--color-red-label)"
+        name:
+          - color: "var(--color-red-name)"
         img_cell:
-          - background-color: "rgba(var(--color-red), 0.2)"
+          - background-color: 'var(--color-red-icon-background)'
+        card:
+          - background-color: "var(--color-background-red)"
       value: "on"
       id: "on"

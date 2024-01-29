@@ -46,9 +46,10 @@ card_room_two_rows:
             card:
               type: "custom:button-card"
               template: 
-               - "widget_icon"
-               - "yellow_on"
-               - "rooms_widget_light"
+                - "rooms_widget_light" 
+                - "widget_icon"
+              variables:
+                ulm_widget_entity: "[[[ return variables.ulm_card_room_two_rows_light ]]]"
               entity: "[[[ return variables.ulm_card_room_two_rows_light; ]]]"
               icon: "mdi:lightbulb"
           item2:
@@ -56,8 +57,10 @@ card_room_two_rows:
               type: "custom:button-card"
               triggers_update: "all"
               template: 
-               - "widget_icon"
-               - "rooms_widget_sensor"
+                - "rooms_widget_sensor"
+                - "widget_icon"
+              variables:
+                ulm_widget_entity: "[[[ return variables.ulm_card_room_two_rows_sensor ]]]"
               entity: "[[[ return variables.ulm_card_room_two_rows_sensor; ]]]"
               tap_action:
                 action: none
@@ -67,6 +70,7 @@ card_room_two_rows:
               template: rooms_widget_temp
               variables:
                 ulm_card_room_two_rows_temp: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
+                ulm_widget_entity: "[[[ return variables.ulm_card_room_two_rows_temp ]]]"
               entity: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
               icon: 'mdi:temperature-celsius'
               tap_action:
@@ -85,6 +89,7 @@ rooms_list_3_items:
       - padding: "0px"
       - border-style: "none"
       - border-radius: "0px"
+      - background: "none"
 
 
 room_info:
@@ -108,7 +113,7 @@ room_info:
     ]]]
   styles:
     icon:
-      - color: "rgba(var(--color-blue),0.7)"
+      - color: 'var(--color-blue-icon)'
       - width: "24px"
       - height: "24px"
     label:
@@ -140,7 +145,7 @@ room_info:
       - margin-left: "12px"
       - margin-right: "12px"
     img_cell:
-      - background-color: "rgba(var(--color-blue), 0.2)"
+      - background-color: 'var(--color-blue-icon-background)'
       - border-radius: "50%"
       - place-self: "center"
       - width: "40px"
@@ -154,6 +159,7 @@ room_info:
       - box-shadow: "none"
       - padding: "0px"
       - border-style: "none"
+      - background: "none"
   size: "20px"
 
 
@@ -163,7 +169,15 @@ rooms_widget_light:
       - width: 48px
       - border-radius: 10px
     icon:
-      - color: "rgba(var(--color-theme),0.2)"
+      - color: "var(--ha-card-icon-off-color)"
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_widget_entity].state == 'on'; ]]]"
+      styles:
+        icon:
+          - color: 'var(--color-yellow-icon)'                           
+        img_cell:
+          - background-color: 'var(--color-yellow-icon-background)'
 
 
 rooms_widget_temp:
@@ -188,7 +202,8 @@ rooms_widget_temp:
     card:
       - box-shadow: none
       - padding: 0px
-      - background-color: 'rgba(var(--color-theme),0)'
+      #- background-color: 'rgba(var(--color-theme),0)'
+      - background: "none"
       - place-self: center
       - font-size: '18px'
       - border-radius: "0px"
@@ -210,7 +225,7 @@ rooms_widget_temp:
     grid:
       - grid-template-areas: '"l"'
     label:
-      - color: 'rgba(var(--color-theme),0.9)'
+      - color: 'var(--secondary-text-color)'
       - display: flex
       - justify-content: center
       - align-items: center
@@ -241,6 +256,8 @@ rooms_widget_sensor:
             if (entity == null)
               return "0px";
           ]]]
+    img_cell:
+      - background-color: "none"
   state:
     - id: "on"
       value: "on"
@@ -250,6 +267,7 @@ rooms_widget_sensor:
         card:
           - height: 22px
           - width: 20px
+          - background-color: "none"        
     - id: "off"
       value: "off"
       styles:

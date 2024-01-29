@@ -252,12 +252,16 @@ cards:
                     template: 'card_light_simple'
                     entity: light.parents_bathroom_ceiling
                     name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"                    
 
                   # Parents Bathroom Mirror Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.parents_bathroom_mirror
                     name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
 
                   # Ronen Room Light
                   - type: 'custom:button-card'
@@ -296,18 +300,24 @@ cards:
                     template: 'card_light_simple'
                     entity: light.bathroom_ceiling
                     name: "[[[ return variables.ulm_bathroom; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
 
                   # Bathroom Mirror Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.bathroom_mirror
                     name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
 
                   # Laundry Light
                   - type: 'custom:button-card'
                     template: 'card_light_simple'
                     entity: light.laundry
                     name: "[[[ return variables.ulm_laundry; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
 
 
               ############################################################################

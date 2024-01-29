@@ -12,8 +12,8 @@ chip_base:
       - border-radius: '18px'
       - height: '38px'
       - width: 'auto'
-      - padding-left: '8px'
-      - padding-right: '8px'
+      - padding-left: '9px'
+      - padding-right: '9px'
       - padding-top: '0px'
       - padding-bottom: '0px'
       - --mdc-ripple-press-opacity: 0.0
@@ -34,7 +34,8 @@ chip_base:
     icon:
       - display: flex
       - justify-content: center
-      - align-items: center      
+      - align-items: center
+      - color: "var(--chip-icon-off-color)"
     label:
       - display: flex
       - justify-content: center
@@ -47,7 +48,7 @@ chip_base:
       - width: 'auto'
       - padding-left: '2px'
       - padding-right: '2px'
-      - height: '36px'
+      - height: '38px'
       #- color: "var(--secondary-text-color)"  
       - letter-spacing: '-0.2px'   
 
@@ -122,15 +123,16 @@ chip_icon_label_state:
 chip_climate:
   template:
     - 'chip_base'
-  styles:
-    icon:
-      - color: |
-          [[[
-            if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
-              return "rgba(var(--color-blue),1)";
-            }
-            return "rgb(var(--primary-text-color))";
-          ]]]      
+  state:
+    - operator: "template"
+      value: '[[[ return variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0 ]]]'
+      styles:
+        icon:
+          - color: 'rgba(var(--color-blue),1)'
+        # label:
+        #   - color: "var(--color-blue-name)"
+        # card:
+        #   - background-color: "var(--color-background-blue)"     
   label: |
       [[[
         var state = "";
@@ -181,6 +183,10 @@ chip_yellow:
       styles:
         icon:
           - color: 'rgba(var(--color-yellow),1)'
+        # label:
+        #   - color: "var(--color-yellow-name)"
+        # card:
+        #   - background-color: "var(--color-background-yellow)"
 
 chip_blue:
   state:
@@ -189,11 +195,17 @@ chip_blue:
       styles:
         icon:
           - color: 'rgba(var(--color-blue),1)'
+        # label:
+        #   - color: "var(--color-blue-name)"
+        # card:
+        #   - background-color: "var(--color-background-blue)"
 
 chip_blue_no_state:
   styles:
     icon:
       - color: "rgba(var(--color-blue),1)"
+    card:
+      - background-color: "var(--color-background-blue)"
 
 chip_air_polution_colors:
   variables:
@@ -205,17 +217,29 @@ chip_air_polution_colors:
       styles:
         icon:
           - color: 'rgba(var(--color-green),1)'
+        # label:
+        #   - color: "var(--color-green-name)"          
+        # card:
+        #   - background-color: "var(--color-background-green)"
     - operator: "template"
       value: '[[[ return ( states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_green && 
                             states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_yellow ) ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-yellow),1)'
+        # label:
+        #   - color: "var(--color-yellow-name)"          
+        # card:
+        #   - background-color: "var(--color-background-yellow)"
     - operator: "template"
       value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_yellow ]]]'
       styles:
         icon:
           - color: 'rgba(var(--color-red),1)'
+        # label:
+        #   - color: "var(--color-red-name)"
+        # card:
+        #   - background-color: "var(--color-background-red)"
 
 
 chip_air_polution_icons:

@@ -28,7 +28,7 @@ card_generic:
     ]]]
   styles:
     icon:
-      - color: "rgba(var(--color-theme),0.9)"
+      - color: "var(--ha-card-icon-off-color)"
     label:
       - align-self: "end"
       - justify-self: "start"

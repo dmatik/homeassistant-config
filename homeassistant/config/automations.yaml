@@ -561,7 +561,7 @@
       my_sensor: weather.met_home
       show_windspeed: false
 - id: '1689144825201'
-  alias: Night Lights and Covers
+  alias: Night Lights
   description: ''
   trigger:
   - platform: sun
@@ -599,15 +599,6 @@
         - 'on'
       sequence:
       - service: scene.turn_on
-        data: {}
-        target:
-          entity_id: scene.night_lights_on
-        enabled: false
-      - service: scene.turn_on
-        target:
-          entity_id: scene.main_floor_covers
-        metadata: {}
-      - service: scene.turn_on
         target:
           entity_id: scene.night_lights_on
         metadata: {}
@@ -616,11 +607,6 @@
         id:
         - 'off'
       sequence:
-      - service: scene.turn_on
-        data: {}
-        target:
-          entity_id: scene.night_lights_off
-        enabled: false
       - service: scene.turn_on
         target:
           entity_id: scene.night_lights_off
@@ -854,23 +840,6 @@
       - light.stairs_basement
       - light.stairs_ground_floor
       - light.stairs_floor_2
-- id: '1690950062764'
-  alias: Morning Main Floor Covers
-  description: ''
-  trigger:
-  - platform: time
-    at: 06:00:00
-  condition:
-  - condition: state
-    entity_id: input_boolean.vacation
-    state: 'off'
-  action:
-  - service: scene.turn_on
-    data: {}
-    target:
-      entity_id:
-      - scene.main_floor_morning_covers
-  mode: single
 - id: '1699248159943'
   alias: Red Alert Shtulim
   description: ''
@@ -1202,3 +1171,94 @@
       - light.kitchen_led_strip
       light_target_off:
       - light.kitchen_led_strip
+- id: '1705640821118'
+  alias: Covers
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:30:00
+    id: morning
+  - platform: time
+    at: 09:00:00
+    id: day
+  - platform: numeric_state
+    entity_id:
+    - sun.sun
+    attribute: elevation
+    below: 8
+    id: evening
+  - platform: time
+    at: '20:30:00'
+    id: night
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: 'off'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - morning
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.main_floor_morning_covers
+      - if:
+        - condition: state
+          entity_id: binary_sensor.workday_sensor
+          state: 'on'
+        then:
+        - service: scene.turn_on
+          metadata: {}
+          target:
+            entity_id: scene.bedroom_morning_covers
+        - service: scene.turn_on
+          metadata: {}
+          target:
+            entity_id: scene.kids_morning_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - day
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.bedroom_day_covers
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.kids_day_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - evening
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.main_floor_evening_covers
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.kids_evening_covers
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.bedroom_night_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - night
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.main_floor_night_covers
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.kids_night_covers
+  mode: single

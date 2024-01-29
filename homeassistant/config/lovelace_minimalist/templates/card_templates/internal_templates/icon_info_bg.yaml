@@ -23,7 +23,7 @@ icon_info_bg:
             - top: "8px"
   styles:
     icon:
-      - color: "rgba(var(--color-theme),0.2)"
+      - color: "var(--ha-card-icon-off-color)"
       - width: "24px"
       - height: "24px"
     label:
@@ -55,7 +55,7 @@ icon_info_bg:
       - margin-left: "12px"
       - margin-right: "12px"
     img_cell:
-      - background-color: "rgba(var(--color-theme),0.05)"
+      - background-color: "var(--ha-card-icon-background-color)"
       - border-radius: "50%"
       - place-self: "center"
       - width: "40px"

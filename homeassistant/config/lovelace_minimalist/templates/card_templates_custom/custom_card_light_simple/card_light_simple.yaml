@@ -26,9 +26,11 @@
 #     ]]]
 
 card_light_simple:
+  triggers_update: "all"
   variables:
     ulm_card_light_enable_color: false
     ulm_card_light_enable_popup: false
+    ulm_card_light_counter_sensor: ""
   template:
     - "icon_info_bg"
     - "ulm_language_variables"
@@ -74,12 +76,17 @@ card_light_simple:
         if ( entity.state == "off" || entity.state == "unknown" ) {
           return variables.ulm_off;
         } else if (entity.state == "on"){
+          var response = "";
           if (entity.attributes.brightness != null){
             var bri = Math.round(entity.attributes.brightness / 2.55);
-            return (bri ? bri : "0") + "%";
+            response = (bri ? bri : "0") + "%";
           } else {
-            return variables.ulm_on
+            response = variables.ulm_on
           }
+          if (variables.ulm_card_light_counter_sensor != "" && states[variables.ulm_card_light_counter_sensor].state != "off") {
+            response += " • " + states[variables.ulm_card_light_counter_sensor].state;
+          }
+          return response;
         }
       } else {
         return variables.ulm_unavailable;
@@ -87,30 +94,55 @@ card_light_simple:
     ]]]
   styles:
     icon:
-      - color: >
-          [[[
-              var color = entity.attributes.rgb_color;
-              if (entity.state != "on"){
-                return 'rgba(var(--color-theme),0.2)';
-              }
-              else if (color && variables.ulm_card_light_enable_color){
-                return 'rgba(' + color + ',1)'
-              }
-              else{
-                return 'rgba(var(--color-yellow),1)'
-              }
-          ]]]
+      - color: 'var(--ha-card-icon-off-color)'
     img_cell:
-      - background-color: >
-          [[[
-              var color = entity.attributes.rgb_color;
-              if (entity.state != "on"){
-                return 'rgba(var(--color-theme),0.05)';
-              }
-              else if (color && variables.ulm_card_light_enable_color){
-                return 'rgba(' + color + ',0.2)';
-              }
-              else{
-                return 'rgba(var(--color-yellow),0.2)';
-              }
-          ]]]
+      - background-color: 'var(--ha-card-icon-background-color)'
+  state:
+    - value: "on"
+      styles:
+        card:
+          - background-color: "var(--color-background-yellow)"
+        label:
+          - color: "var(--color-yellow-label)"
+        name:
+          - color: "var(--color-yellow-name)"
+        icon:
+          - color: >
+              [[[
+                  var color = entity.attributes.rgb_color;
+                  if (color && variables.ulm_card_light_enable_color){
+                    return 'rgba(' + color + ',1)';
+                  }
+                  else{
+                    //return 'rgba(var(--color-yellow),1)';
+                    //return '#fff';
+                    return 'var(--color-yellow-icon)';
+                  }
+              ]]]
+        img_cell:
+          - background-color: >
+              [[[
+                  var color = entity.attributes.rgb_color;
+                  if (color && variables.ulm_card_light_enable_color){
+                    return 'rgba(' + color + ',0.2)';
+                  }
+                  else{
+                    //return 'rgba(var(--color-yellow),0.2)';
+                    //return 'rgba(var(--color-yellow),1)';
+                    return 'var(--color-yellow-icon-background)';
+                  }
+              ]]]
+        # icon:
+        #   - color: 'var(--color-yellow-icon)'
+        # img_cell:
+        #   - background-color: >
+        #       [[[
+        #           var color = entity.attributes.rgb_color;
+        #           if (color && variables.ulm_card_light_enable_color){
+        #             return 'rgba(' + color + ',1)';
+        #           }
+        #           else{
+        #             return 'var(--color-yellow-icon-background)';
+        #           }
+        #       ]]]
+        

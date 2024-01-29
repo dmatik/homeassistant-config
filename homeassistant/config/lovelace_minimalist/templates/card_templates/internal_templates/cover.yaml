@@ -1,6 +1,7 @@
 ---
 ### Cover ###
 cover:
+  triggers_update: "all"
   tap_action:
     action: "more-info"
   icon: |
@@ -21,26 +22,44 @@ cover:
     ]]]
   label: >-
     [[[
-        var icon = "mdi:help-circle";
-        if (typeof states[entity.entity_id].attributes.current_position === "undefined"){
-          if (states[entity.entity_id].state == "closed"){
+        if (typeof states[entity.entity_id].attributes.current_position === "undefined") {
+          if (entity.state == "closed") {
             return variables.ulm_closed;
-          } else
+          }
+          if (entity.state == "open") {
             return variables.ulm_open;
+          }
+          if (entity.state == "closing") {
+            return variables.ulm_closing;
+          }
+          if (entity.state == "opening") {
+            return variables.ulm_opening;          
+          } 
         } else {
-          if (states[entity.entity_id].attributes.current_position == 0){
+          if (entity.state == "closing") {
+            return variables.ulm_closing;
+          }
+          if (entity.state == "opening") {
+            return variables.ulm_opening;          
+          } 
+          if (states[entity.entity_id].attributes.current_position == 0) {
             return variables.ulm_closed;
+          } else if (states[entity.entity_id].attributes.current_position == 100) {
+            return variables.ulm_open;
           } else {
             return variables.ulm_open + " • " + (states[entity.entity_id].attributes.current_position) + "%" ;
           }
         }
-        return icon ;
     ]]]
   state:
     - operator: "template"
       value: "[[[ return states[entity.entity_id].attributes.current_position != 0; ]]]"
       styles:
         icon:
-          - color: "rgba(var(--color-blue),1)"
+          - color: 'var(--color-blue-icon)'
         img_cell:
-          - background-color: "rgba(var(--color-blue),0.2)"
+          - background-color: 'var(--color-blue-icon-background)'
+        label:
+          - color: "var(--color-blue-label)"
+        name:
+          - color: "var(--color-blue-name)"

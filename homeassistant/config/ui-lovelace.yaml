@@ -1,3 +1,4 @@
+#background: var(--background-image)
 button_card_templates: !include_dir_merge_named lovelace_minimalist/templates/
 views:
   - !include /config/lovelace_minimalist/views/view_home.yaml

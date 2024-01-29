@@ -1,14 +1,14 @@
 rest_command:
 
   switcher_turn_on:
-    url: http://{{switcher_web_api_ip}}:{{switcher_web_api_port}}/switcher/turn_on?id={{switcher_device_id}}&ip={{switcher_ip}}
+    url: http://{{switcher_web_api_ip}}:{{switcher_web_api_port}}/switcher/turn_on?id={{switcher_device_id}}&ip={{switcher_ip}}&key={{switcher_key}}
     method: "POST"
 
   switcher_turn_on_timer:
-    url: http://{{switcher_web_api_ip}}:{{switcher_web_api_port}}/switcher/turn_on?id={{switcher_device_id}}&ip={{switcher_ip}}
+    url: http://{{switcher_web_api_ip}}:{{switcher_web_api_port}}/switcher/turn_on?id={{switcher_device_id}}&ip={{switcher_ip}}&key={{switcher_key}}
     method: "POST"
     payload: '{"minutes": "{{minutes}}"}'
 
   switcher_turn_off:
-    url: http://{{switcher_web_api_ip}}:{{switcher_web_api_port}}/switcher/turn_off?id={{switcher_device_id}}&ip={{switcher_ip}}
+    url: http://{{switcher_web_api_ip}}:{{switcher_web_api_port}}/switcher/turn_off?id={{switcher_device_id}}&ip={{switcher_ip}}&key={{switcher_key}}
     method: "POST"

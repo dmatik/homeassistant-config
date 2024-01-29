@@ -1,7 +1,7 @@
 card_red_alert:
   template:
     - 'icon_info_bg'
-    - 'red'
+    - 'red_on'
     - 'ulm_language_variables'
   entity: 'binary_sensor.redalert_all'
   icon: 'mdi:radio-tower'

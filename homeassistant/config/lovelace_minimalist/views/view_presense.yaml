@@ -146,7 +146,7 @@ cards:
                         variables:
                           ulm_card_person_entity: person.dmatik
                           ulm_card_person_use_entity_picture: true
-                          ulm_card_person_zone1: zone.work
+                          ulm_card_person_battery_level_sensor: sensor.iphonedima_battery_level
 
                       # Galit
                       - type: 'custom:button-card'
@@ -154,6 +154,7 @@ cards:
                         variables:
                           ulm_card_person_entity: person.galit
                           ulm_card_person_use_entity_picture: true
+                          ulm_card_person_battery_level_sensor: sensor.galitphone_battery_level
 
                       # Ronen
                       - type: 'custom:button-card'
@@ -161,6 +162,7 @@ cards:
                         variables:
                           ulm_card_person_entity: person.ronen
                           ulm_card_person_use_entity_picture: true
+                          ulm_card_person_battery_level_sensor: sensor.iphoneronen_battery_level
 
                       # Kfir
                       - type: 'custom:button-card'
@@ -168,6 +170,7 @@ cards:
                         variables:
                           ulm_card_person_entity: person.kfir
                           ulm_card_person_use_entity_picture: true
+                          #ulm_card_person_battery_level_sensor: sensor.ipadkfir_battery_level
 
 
                 - type: custom:button-card

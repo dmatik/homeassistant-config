@@ -23,7 +23,8 @@ card_homeassistant:
         type: "custom:button-card"
         template:
           - "icon_info"
-          - "ha_new_version_available"
+          #- "ha_new_version_available"
+          - "blue_on"
           - "ulm_language_variables_EN"
         icon: 'mdi:home-assistant'
         tap_action:
@@ -39,9 +40,6 @@ card_homeassistant:
               }
               return 'Latest: ' + latest_version;
           ]]]
-        styles:
-          icon:
-            - color: "rgba(var(--color-theme),0.9)"
     item2:
       card:
         type: "custom:button-card"
@@ -81,9 +79,9 @@ ha_new_version_available:
         #     - left: "40px"
         #     - top: "8px"
         icon:
-          - color: 'rgba(var(--color-blue),1)'
+          - color: 'var(--color-blue-icon)'
         img_cell:
-          - background-color: 'rgba(var(--color-blue), 0.2)'
+          - background-color: 'var(--color-blue-icon-background)'
   # custom_fields:
   #   notification:
   #     card:

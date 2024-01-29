@@ -11,13 +11,19 @@ widget_icon_transparent:
     card:
       - box-shadow: "none"
       - padding: "0px"
-      - background-color: "rgba(var(--color-theme),0.00)"
+      - background: "none"
       - border-radius: "var(--widget-border-radius)"
       - place-self: "center"
       - height: "40px"
       - border-style: "none"
       - --mdc-ripple-press-opacity: 0.0
     icon:
-      - color: "rgba(var(--color-theme),0.9)"
+      - color: "var(--widget-icon-color)"
   size: "20px"
   color: "var(--google-grey)"
+  state:
+    - operator: "template"
+      value: "[[[ return states[variables.ulm_widget_entity].state == 'on'; ]]]"
+      styles:
+        icon:
+          - color : "var(--widget-icon-color-on)"

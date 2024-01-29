@@ -1,5 +1,11 @@
 scene:
 
+############################################################################
+#                                                                          #
+#    Ground Floor                                                          #
+#                                                                          #
+############################################################################
+
   - id: '1690716251473'
     name: Movie time
     entities:
@@ -13,6 +19,7 @@ scene:
         current_position: 0
         state: closed
     icon: mdi:movie-filter
+
   - id: '1690716481331'
     name: Main Floor Covers
     entities:
@@ -29,6 +36,7 @@ scene:
         current_position: 30
         state: open   
     icon: mdi:window-shutter
+
   - id: 'main_floor_morning_covers'
     name: Main Floor Morning Covers
     entities:
@@ -36,12 +44,131 @@ scene:
         current_position: 90
         state: open
       cover.living_room_window:
-        current_position: 62
+        current_position: 30
         state: open
       cover.kitchen:
         current_position: 30
         state: open
       cover.entrance_window:
-        current_position: 64
+        current_position: 30
         state: open        
+    icon: mdi:window-shutter-open
+
+  - id: 'main_floor_evening_covers'
+    name: Main Floor Evening Covers
+    entities:
+      cover.back_yard:
+        current_position: 90
+        state: open
+      cover.living_room_window:
+        current_position: 30
+        state: open
+      cover.kitchen:
+        current_position: 30
+        state: open
+      cover.entrance_window:
+        current_position: 30
+        state: open        
+    icon: mdi:window-shutter-open
+
+  - id: 'main_floor_night_covers'
+    name: Main Floor Night Covers
+    entities:
+      cover.living_room_window:
+        state: closed
+      cover.kitchen:
+        state: closed
+      cover.entrance_window:
+        state: closed        
+    icon: mdi:window-shutter
+
+
+############################################################################
+#                                                                          #
+#    Bedroom                                                               #
+#                                                                          #
+############################################################################
+
+  - id: 'bedroom_morning_covers'
+    name: Bedroom Morning Covers
+    entities:
+      cover.bedroom_balcony:
+        current_position: 70
+        state: open
+      cover.bedroom_window:
+        current_position: 40
+        state: open
+      cover.parents_makeup:
+        current_position: 30
+        state: open       
+    icon: mdi:window-shutter-open
+
+  - id: 'bedroom_day_covers'
+    name: Bedroom Day Covers
+    entities:
+      cover.bedroom_balcony:
+        state: open
+      cover.bedroom_window:
+        state: open
+      cover.parents_makeup:
+        state: open       
+    icon: mdi:window-shutter-open
+
+  - id: 'bedroom_night_covers'
+    name: Bedroom Night Covers
+    entities:
+      cover.bedroom_balcony:
+        current_position: 70
+        state: open
+      cover.bedroom_window:
+        state: closed
+      cover.parents_makeup:
+        state: closed       
+    icon: mdi:window-shutter-open
+
+
+############################################################################
+#                                                                          #
+#    Kids                                                                  #
+#                                                                          #
+############################################################################
+
+  - id: 'kids_evening_covers'
+    name: Kids Evening Covers
+    entities:
+      cover.ronen_room:
+        current_position: 30
+        state: open
+      cover.kfir_room:
+        current_position: 28
+        state: open     
+    icon: mdi:window-shutter-open
+
+  - id: 'kids_night_covers'
+    name: Kids Night Covers
+    entities:
+      cover.ronen_room:
+        state: closed
+      cover.kfir_room:
+        state: closed     
+    icon: mdi:window-shutter
+
+  - id: 'kids_morning_covers'
+    name: Kids Morning Covers
+    entities:
+      cover.ronen_room:
+        current_position: 30
+        state: open
+      cover.kfir_room:
+        current_position: 28
+        state: open     
+    icon: mdi:window-shutter-open
+
+  - id: 'kids_day_covers'
+    name: Kids Day Covers
+    entities:
+      cover.ronen_room:
+        state: open
+      cover.kfir_room:
+        state: open     
     icon: mdi:window-shutter-open

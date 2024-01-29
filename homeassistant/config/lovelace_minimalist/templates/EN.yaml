@@ -1,10 +1,10 @@
 ---
 ulm_language_variables_EN:
   variables:
-    ulm_name_font_size: "14px"
-    ulm_name_font_weight: "500"
-    ulm_label_font_size: "12px"
-    ulm_label_font_weight: "400"
+    ulm_name_font_size: "var(--card-primary-font-size)"
+    ulm_name_font_weight: "var(--card-primary-font-weight)"
+    ulm_label_font_size: "var(--card-secondary-font-size)"
+    ulm_label_font_weight: "var(--card-secondary-font-weight)"
     ulm_title_font_size: "1.2rem"
 
     ulm_on: "On"
@@ -12,6 +12,8 @@ ulm_language_variables_EN:
     ulm_lights_off: "Lights OFF"
     ulm_open: "Open"
     ulm_closed: "Closed"
+    ulm_opening: "Opening"
+    ulm_closing: "Closing"
     ulm_unavailable: "Unavailable"
     ulm_standby: "Standby"
     ulm_idle: "Idle"
