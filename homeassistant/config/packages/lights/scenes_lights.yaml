@@ -17,8 +17,8 @@ scene:
         state: on
       light.living_room_tv_wall:
         state: on
-      light.stairs_ground_floor:
-        state: on
+      # light.stairs_ground_floor:
+      #   state: on
       light.hallway_stairs:
         state: on
       light.ronen_led_strip:
