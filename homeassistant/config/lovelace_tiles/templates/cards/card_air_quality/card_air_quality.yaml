@@ -1,0 +1,243 @@
+card_air_quality:
+  variables:
+    ulm_card_air_quality_url: ''
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100  
+  template:
+    - "icon_info_bg"
+    - "ulm_language_variables_EN"
+  #icon: mdi:leaf
+  icon: >
+    [[[
+      if (entity.state <= variables.ulm_card_air_quality_green) {
+        return 'mdi:emoticon-happy-outline';
+      }
+      if (entity.state > variables.ulm_card_air_quality_green && entity.state <= variables.ulm_card_air_quality_yellow) {
+        return 'mdi:emoticon-neutral-outline';
+      }
+      if (entity.state > variables.ulm_card_air_quality_yellow) {
+        return 'mdi:emoticon-sad-outline';
+      }      
+    ]]]
+  label: >
+    [[[
+      var unit = entity.attributes.unit_of_measurement != null ? " " + entity.attributes.unit_of_measurement : ""
+      if (entity.state == "unavailable") {
+        return variables.ulm_unavailable;
+      } else {
+        return entity.state + unit;
+      }
+    ]]]
+  styles:
+    icon:
+      - color: 'var(--grey-color)'
+    label:
+      - align-self: "end"
+      - justify-self: "start"
+      - font-weight: "500"
+      - font-size: "14px"
+      - margin-left: "12px"
+      - letter-spacing: "0.1px"
+      - color: "var(--primary-text-color)"
+      - height: "20px"
+    name:
+      - justify-self: "start"
+      - align-self: "start"
+      - font-weight: "400"
+      - font-size: "12px"
+      #- filter: "opacity(40%)"
+      - margin-left: "12px"
+      - letter-spacing: "0.4px"
+      - color: "var(--primary-text-color)"
+      - height: "17px"
+    grid:
+      - grid-template-areas: "'i l' 'i n'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-style: "none"
+  state:
+    - operator: "template"
+      value: '[[[ return entity.state <= variables.ulm_card_air_quality_green ]]]'
+      styles:
+        icon:
+          - color: 'var(--green-color)'
+        img_cell:
+          - background-color: "rgba(var(--rgb-green-color), 0.2)"
+    - operator: "template"
+      value: '[[[ return ( entity.state > variables.ulm_card_air_quality_green && entity.state <= variables.ulm_card_air_quality_yellow ) ]]]'
+      styles:
+        icon:
+          - color: 'var(--yellow-color)'
+        img_cell:
+          - background-color: "rgba(var(--rgb-yellow-color), 0.2)"
+    - operator: "template"
+      value: '[[[ return entity.state > variables.ulm_card_air_quality_yellow ]]]'
+      styles:
+        icon:
+          - color: 'var(--red-color)'
+        img_cell:
+          - background-color: "rgba(var(--rgb-red-color), 0.2)"
+  tap_action: 
+    action: url
+    url_path: '[[[ return variables.ulm_card_air_quality_url; ]]]'
+
+
+card_air_quality_graph:
+  variables:    
+    ulm_card_air_quality_entity: ''
+    ulm_card_air_quality_url: ''
+    ulm_card_air_quality_hours: 24
+    ulm_card_air_quality_show_extrema: false
+    ulm_card_air_quality_show_average: false
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px);"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:button-card"
+        template:
+          - "card_air_quality"
+        variables:
+          ulm_card_air_quality_url: "[[[ return variables.ulm_card_air_quality_url ]]]"
+          ulm_card_air_quality_green: "[[[ return variables.ulm_card_air_quality_green; ]]]"
+          ulm_card_air_quality_yellow: "[[[ return variables.ulm_card_air_quality_yellow; ]]]"
+        styles:
+          card:
+            - box-shadow: "none"
+            - border-radius: "var(--border-radius) var(--border-radius) 0px 0px"
+            - padding: "var(--card-padding)"
+            - background: "none"
+        entity: "[[[ return variables.ulm_card_air_quality_entity ]]]"
+        name: "[[[ return variables.ulm_card_air_quality_name ]]]"
+    item2:
+      card:
+        type: "custom:mini-graph-card"
+        group: true
+        entities: >
+          [[[
+            var ent = [];
+            ent.push(variables.ulm_card_air_quality_entity);
+            return ent;
+          ]]]
+        show:
+          name: false
+          icon: false
+          legend: false
+          state: false
+          graph: 'bar'
+          fill: true
+          extrema: "[[[ return variables.ulm_card_air_quality_show_extrema; ]]]"
+          average: "[[[ return variables.ulm_card_air_quality_show_average; ]]]"
+        hours_to_show: "[[[ return variables.ulm_card_air_quality_hours; ]]]"
+        points_per_hour: 1
+        group_by: 'hour'
+        bar_spacing: 2
+        color_thresholds:
+          - value: 0
+            color: 'var(--green-color)'
+          - value: "[[[ return variables.ulm_card_air_quality_green; ]]]"
+            color: 'var(--yellow-color)'
+          - value: "[[[ return variables.ulm_card_air_quality_yellow; ]]]"
+            color: 'var(--red-color)'
+        tap_action:
+          action: more-info
+        card_mod:
+          style: |
+            ha-card {
+              padding-top: 12px !important;
+              padding-bottom: 0px !important;
+              padding-right: 0px !important;
+              padding-left: 0px !important;
+              border-style: none;
+              background: none;
+            }
+            .graph {
+              padding: 0px !important;
+            }
+            .info {
+              padding-bottom: 4px !important;
+              padding-right: 4px !important;
+              padding-left: 4px !important;
+              font-size: 10px;
+            }
+
+
+card_air_quality_graph_only:
+  variables:    
+    ulm_card_air_quality_entity: ''
+    ulm_card_air_quality_url: ''
+    ulm_card_air_quality_hours: 24
+    ulm_card_air_quality_show_extrema: false
+    ulm_card_air_quality_show_average: false
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px);"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "0px"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:mini-graph-card"
+        group: true
+        entities: >
+          [[[
+            var ent = [];
+            ent.push(variables.ulm_card_air_quality_entity);
+            return ent;
+          ]]]
+        show:
+          name: false
+          icon: false
+          legend: false
+          state: false
+          graph: 'bar'
+          fill: true
+          extrema: "[[[ return variables.ulm_card_air_quality_show_extrema; ]]]"
+          average: "[[[ return variables.ulm_card_air_quality_show_average; ]]]"
+        hours_to_show: "[[[ return variables.ulm_card_air_quality_hours; ]]]"
+        points_per_hour: 1
+        group_by: 'hour'
+        bar_spacing: 2
+        color_thresholds:
+          - value: 0
+            color: 'var(--green-color)'
+          - value: "[[[ return variables.ulm_card_air_quality_green; ]]]"
+            color: 'var(--yellow-color)'
+          - value: "[[[ return variables.ulm_card_air_quality_yellow; ]]]"
+            color: 'var(--red-color)'
+        tap_action:
+          action: more-info
+        card_mod:
+          style: |
+            ha-card {
+              padding: 12px !important;
+              border-style: none;
+              background: none;
+            }
+            .graph {
+              padding: 0px !important;
+            }
+            .info {
+              padding-bottom: 4px !important;
+              padding-right: 4px !important;
+              padding-left: 4px !important;
+              font-size: 10px;
+            }

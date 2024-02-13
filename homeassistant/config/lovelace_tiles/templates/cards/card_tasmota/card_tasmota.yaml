@@ -1,0 +1,120 @@
+card_tasmota_version:
+  variables:
+    ulm_card_tasmota_entity: 'sensor.number_of_tasmota_versions_old'
+    ulm_card_tasmota_latest_version: 'sensor.tasmota_latest'
+    ulm_card_tasmota_sync_script: 'script.tasmotas_state_sync'
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "0px 0px 12px 0px"
+  custom_fields:
+    item1:
+      card:
+        triggers_update: "all"
+        type: "custom:button-card"
+        template:
+          - "icon_info"
+          - "card_tasmota_devices_outdated"
+          - "ulm_language_variables_EN"
+        variables:
+          ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
+        icon: 'mdi:chip'
+        tap_action:
+          action: "none"
+        entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
+
+
+card_tasmota:
+  template:
+    - "icon_info_bg"
+    - "ulm_language_variables_EN"
+    - "blue_on"
+    - "popup_tasmota"
+  variables:
+    ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
+    ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
+    ulm_card_tasmota_name: "[[[ return variables.ulm_card_tasmota_name ]]]"
+    ulm_card_tasmota_entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
+    ulm_card_tasmota_icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+    ulm_card_tasmota_last_restart: "[[[ return variables.ulm_card_tasmota_last_restart ]]]"
+    ulm_card_tasmota_wi_fi_quality: "[[[ return variables.ulm_card_tasmota_wi_fi_quality ]]]"
+    ulm_card_tasmota_ip: "[[[ return variables.ulm_card_tasmota_ip ]]]"
+  icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+  label: "[[[ return variables.ulm_card_tasmota_name ]]]"
+  name: |
+    [[[ 
+      if (states[variables.ulm_card_tasmota_version].state == "unavailable")
+        return variables.ulm_unavailable;
+        
+      var version = states[variables.ulm_card_tasmota_version].state;
+      version = version.split("(")[0];
+      return "v" + version; 
+    ]]]
+
+
+card_tasmota_with_power:
+  template:
+    - "icon_info_bg"
+    - "ulm_language_variables_EN"
+    - "blue_on"
+    - "popup_tasmota_with_power"
+  variables:
+    ulm_card_tasmota_version: "[[[ return variables.ulm_card_tasmota_version ]]]"
+    ulm_card_tasmota_latest_version: "[[[ return variables.ulm_card_tasmota_latest_version ]]]"
+    ulm_card_tasmota_name: "[[[ return variables.ulm_card_tasmota_name ]]]"
+    ulm_card_tasmota_entity: "[[[ return variables.ulm_card_tasmota_entity ]]]"
+    ulm_card_tasmota_icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+    ulm_card_tasmota_last_restart: "[[[ return variables.ulm_card_tasmota_last_restart ]]]"
+    ulm_card_tasmota_wi_fi_quality: "[[[ return variables.ulm_card_tasmota_wi_fi_quality ]]]"
+    ulm_card_tasmota_ip: "[[[ return variables.ulm_card_tasmota_ip ]]]"
+    ulm_card_tasmota_current: "[[[ return variables.ulm_card_tasmota_current ]]]"
+    ulm_card_tasmota_energy_today: "[[[ return variables.ulm_card_tasmota_energy_today ]]]"
+    ulm_card_tasmota_power: "[[[ return variables.ulm_card_tasmota_power ]]]"
+    ulm_card_tasmota_latest_voltage: "[[[ return variables.ulm_card_tasmota_latest_voltage ]]]"
+  icon: "[[[ return variables.ulm_card_tasmota_icon ]]]"
+  label: "[[[ return variables.ulm_card_tasmota_name ]]]"
+  name: |
+    [[[ 
+      if (states[variables.ulm_card_tasmota_version].state == "unavailable")
+        return variables.ulm_unavailable;
+        
+      var version = states[variables.ulm_card_tasmota_version].state;
+      version = version.split("(")[0];
+      return "v" + version; 
+    ]]]
+
+
+
+card_tasmota_devices_outdated:
+  state:
+    - operator: 'template'
+      value: >
+        [[[
+          return entity.state > 0;
+        ]]]
+      styles:
+        icon:
+          - color: 'var(--blue-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-blue-color),0.2)'
+  name: >
+    [[[
+      if ( states[variables.ulm_card_tasmota_latest_version].state == "" )
+        return "Latest: --";
+      else
+        return "Latest: " + states[variables.ulm_card_tasmota_latest_version].state;
+    ]]]
+  label: >
+    [[[
+      if (entity.state > 0)
+        return entity.state + " devices outdated";
+      else
+        return "All devices updated";
+    ]]]

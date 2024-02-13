@@ -46,7 +46,8 @@ card_room_two_rows:
             card:
               type: "custom:button-card"
               template: 
-                - "rooms_widget_light" 
+                - "rooms_widget_light"
+                - "yellow_on"
                 - "widget_icon"
               variables:
                 ulm_widget_entity: "[[[ return variables.ulm_card_room_two_rows_light ]]]"
@@ -164,20 +165,30 @@ room_info:
 
 
 rooms_widget_light:
+  # variables:
+  #   ulm_widget_entity: ""
   styles:
     card:
       - width: 48px
       - border-radius: 10px
     icon:
       - color: "var(--ha-card-icon-off-color)"
-  state:
-    - operator: "template"
-      value: "[[[ return states[variables.ulm_widget_entity].state == 'on'; ]]]"
-      styles:
-        icon:
-          - color: 'var(--color-yellow-icon)'                           
-        img_cell:
-          - background-color: 'var(--color-yellow-icon-background)'
+  # state:
+  #   - operator: "template"
+  #     #value: "[[[ return variables.ulm_widget_entity != '' && states[variables.ulm_widget_entity].state == 'on'; ]]]"
+  #     value: >
+  #       [[[ 
+  #         if (variables.ulm_widget_entity != '' && states[variables.ulm_widget_entity].state == 'on') {
+  #           return true;
+  #         } else {
+  #           return false;
+  #         }
+  #       ]]]
+  #     styles:
+  #       icon:
+  #         - color: 'var(--color-yellow-icon)'                           
+  #       img_cell:
+  #         - background-color: 'var(--color-yellow-icon-background)'
 
 
 rooms_widget_temp:

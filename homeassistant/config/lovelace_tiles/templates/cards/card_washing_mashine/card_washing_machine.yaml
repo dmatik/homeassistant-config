@@ -1,0 +1,39 @@
+card_washing_machine:
+  variables:
+    ulm_card_washing_machine_entity: '[[[ return entity.entity_id ]]]'
+    x_ulm_card_washing_machine_name: '[[[ return variables.x_ulm_card_washing_machine_name ]]]'
+  template:
+    - 'icon_info_bg'
+    - 'washing_machine_status_colors'
+    - 'ulm_language_variables'
+    - 'popup_washing_machine'
+  name: '[[[ return variables.x_ulm_card_washing_machine_name; ]]]'
+  icon: 'mdi:washing-machine'
+  label: |-
+    [[[
+      if (entity.state === "unavailable") {
+        return variables.ulm_unavailable;
+      } else {
+        return entity.state;
+      }
+    ]]]
+
+
+washing_machine_status_colors:
+  state:
+    - value: "Running"
+      id: "Running"
+      styles:
+        icon:
+          - color: "var(--blue-color)"
+        img_cell:
+          - background-color: "rgba(var(--rgb-blue-color), 0.2)"
+    - value: "Waiting"
+      id: "Running"
+      styles:
+        icon:
+          - color: "var(--blue-color)"
+        img_cell:
+          - background-color: "rgba(var(--rgb-blue-color), 0.2)"
+
+

@@ -1,0 +1,43 @@
+---
+### Card Title ###
+card_title:
+  variables:
+    ulm_title_margin_top: "12px"
+  template:
+    - 'ulm_language_variables'
+  tap_action:
+    action: "none"
+  show_icon: false
+  #show_label: true
+  show_label: false
+  show_name: true
+  styles:
+    card:
+      - background-color: "rgba(0,0,0,0)"
+      - box-shadow: "none"
+      - height: "auto"
+      - width: "auto"
+      - margin-top: "[[[ return variables.ulm_title_margin_top; ]]]"
+      - margin-left: "12px"
+      - margin-right: "12px"
+      - margin-bottom: "0px"
+      - padding-bottom: "0px"
+      - border-radius: "0px"
+      - border-style: "none"
+    grid:
+      - grid-template-areas: "'n'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+    name:
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "[[[ return variables.ulm_title_font_size; ]]]"
+    label:
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "0.9rem"
+      - opacity: "0.4"
+
+### Legacy ###
+title:
+  template: "card_title"

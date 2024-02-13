@@ -1,0 +1,37 @@
+#background: var(--background-image)
+button_card_templates: !include_dir_merge_named lovelace_minimalist/templates/
+views:
+  - !include /config/lovelace_minimalist/views/view_home.yaml
+  - !include /config/lovelace_minimalist/views/view_rooms.yaml
+  - !include /config/lovelace_minimalist/views/view_system.yaml
+
+  # Chips
+  - !include /config/lovelace_minimalist/views/view_climate.yaml
+  - !include /config/lovelace_minimalist/views/view_presense.yaml
+  - !include /config/lovelace_minimalist/views/view_lights.yaml
+  - !include /config/lovelace_minimalist/views/view_covers.yaml
+  - !include /config/lovelace_minimalist/views/view_motion.yaml
+
+  # Rooms
+  - !include /config/lovelace_minimalist/views/view_living_room.yaml
+  - !include /config/lovelace_minimalist/views/view_kitchen.yaml
+  - !include /config/lovelace_minimalist/views/view_floor_2.yaml
+  - !include /config/lovelace_minimalist/views/view_bedroom.yaml
+  - !include /config/lovelace_minimalist/views/view_kfir_room.yaml
+  - !include /config/lovelace_minimalist/views/view_ronen_room.yaml
+  - !include /config/lovelace_minimalist/views/view_basement.yaml
+  - !include /config/lovelace_minimalist/views/view_work_room.yaml
+
+  # System
+  #- !include /config/lovelace_minimalist/views/view_scheduler.yaml
+  - !include /config/lovelace_minimalist/views/view_homeassistant.yaml
+  - !include /config/lovelace_minimalist/views/view_wallpanel.yaml
+  - !include /config/lovelace_minimalist/views/view_nas.yaml
+  #- !include /config/lovelace_minimalist/views/view_batteries.yaml
+  - !include /config/lovelace_minimalist/views/view_tasmota.yaml
+  - !include /config/lovelace_minimalist/views/view_rpi.yaml
+  - !include /config/lovelace_minimalist/views/view_zigbee2mqtt.yaml
+  - !include /config/lovelace_minimalist/views/view_energy.yaml
+
+  # Kiosk
+  #- !include /config/lovelace_minimalist/views/view_kiosk.yaml

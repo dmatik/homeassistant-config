@@ -1,0 +1,247 @@
+chip_base:
+  template: 
+    - ulm_language_variables
+  triggers_update: 'all'
+  show_icon: 'true'
+  show_name: 'false'
+  show_label: 'true'
+  size: '100%'
+  styles:
+    card:
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - border-radius: '18px'
+      - height: '38px'
+      - width: 'auto'
+      - padding-left: '8px'
+      - padding-right: '8px'
+      - padding-top: '0px'
+      - padding-bottom: '0px'
+      #- --mdc-ripple-press-opacity: 0.0
+      - margin: '0px'
+    grid:
+      - grid-template-areas: "'i l'"
+      - grid-template-columns: 'max_content auto'
+      - grid-template-rows: 'min-content'
+    img_cell:
+      - display: flex
+      - justify-content: center
+      - align-items: center    
+      #- place-self: 'center'
+      - width: '20px'
+      - height: '36px'
+      - padding-right: '0px'
+      - padding-left: '0px'
+    icon:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - color: 'var(--grey-color)'
+    label:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - justify-self: 'center'
+      - font-weight: 500
+      - font-size: '14px'
+      - margin-left: '0px'
+      - margin-top: '0px'
+      - width: 'auto'
+      - padding-left: '2px'
+      - padding-right: '2px'
+      - height: '36px'
+      #- color: "var(--secondary-text-color)"  
+      - letter-spacing: '-0.2px'   
+
+chip_menu:
+  template: 
+    - 'chip_icon_only_new'
+  icon: "mdi:menu"
+  tap_action:
+    action: 'call-service'
+    service: |
+      [[[
+        this.dispatchEvent(new Event('hass-toggle-menu', { bubbles: true, composed: true}))
+      ]]]  
+
+chip_back_new:
+  template: 
+    - 'chip_base'
+    - 'chip_navigate_only'
+  icon: "[[[ return variables.ulm_chip_back_icon; ]]]"
+  # tap_action:
+  #   action: "url"
+  #   url_path: "javascript:window.history.back();"
+
+chip_icon_only_new:
+  template:
+    - 'chip_base'
+  show_label: 'true'
+  size: '100%'
+  styles:
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: 'max_content'
+      - grid-template-rows: 'min-content'
+
+chip_icon_state_new:
+  template:
+    - 'chip_base'
+  show_label: 'false'
+  size: '100%'
+  styles:
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: 'max_content'
+      - grid-template-rows: 'min-content'
+
+chip_icon_label_state:
+  template:
+    - 'chip_base'
+  label: |
+      [[[
+        var state = "";
+        if (variables.ulm_chip_icon_state_entity != null && states[variables.ulm_chip_icon_state_entity].state){
+          state = states[variables.ulm_chip_icon_state_entity].state;
+          if (states[variables.ulm_chip_icon_state_entity].attributes.unit_of_measurement){
+            state += " " + states[variables.ulm_chip_icon_state_entity].attributes.unit_of_measurement;
+          }
+        }
+        return state;
+      ]]]
+  state:
+    - operator: "template"
+      value: |
+        [[[ return variables.ulm_chip_icon_state_entity == null 
+                    || states[variables.ulm_chip_icon_state_entity].state == 0
+                    || states[variables.ulm_chip_icon_state_entity].state == "unavailable"
+                    || states[variables.ulm_chip_icon_state_entity].state == "unknown";
+        ]]]
+      styles:
+        label:
+          - display: 'none'
+
+chip_climate:
+  template:
+    - 'chip_base'
+  state:
+    - operator: "template"
+      value: '[[[ return variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0 ]]]'
+      styles:
+        icon:
+          - color: 'var(--blue-color)'  
+  label: |
+      [[[
+        var state = "";
+        var temp_high = states[variables.ulm_chip_temperature_high].state;
+
+        if (temp_high == null || temp_high == "unavailable" || temp_high == "unknown") {
+          var temp_high = '--';
+        } else {
+          temp_high = Number(temp_high).toFixed(1);
+        }
+
+        var temp_low = null;
+        if(variables.ulm_chip_temperature_low != null) {
+          temp_low = states[variables.ulm_chip_temperature_low].state;
+
+          if (temp_low == null || temp_low == "unavailable" || temp_low == "unknown") {
+            var temp_low = '--';
+          } else {
+            temp_low = Number(temp_low).toFixed(1);
+          }
+        }
+        if (temp_low == null || temp_low == '--' || temp_high - temp_low < 0.5) {
+          state = temp_high + "°";
+        } else {
+          state = temp_low + "-" + temp_high + "°";
+        }
+        if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
+          state += " • " + states[variables.ulm_chip_devices_on].state;
+        }
+        return state;
+      ]]]
+  icon: "mdi:fan"   
+  
+chip_navigate_only:
+  tap_action:
+    action: 'navigate'
+    navigation_path: '[[[ return variables.ulm_chip_navigate_path; ]]]'
+
+chip_more_info_with_entity:
+  tap_action:
+    action: 'more-info'
+    entity: '[[[ return variables.ulm_chip_more_info_entity; ]]]'
+
+chip_purple:
+  state:
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 0 || states[variables.ulm_chip_icon_state_entity].state == "on" ]]]'
+      styles:
+        icon:
+          - color: 'var(--purple-color)'
+
+chip_yellow:
+  state:
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 0 ]]]'
+      styles:
+        icon:
+          - color: 'var(--yellow-color)'
+
+chip_blue:
+  state:
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 0 || states[variables.ulm_chip_icon_state_entity].state == "on" ]]]'
+      styles:
+        icon:
+          - color: 'var(--blue-color)'
+
+chip_blue_no_state:
+  styles:
+    icon:
+      - color: 'var(--blue-color)'
+
+chip_paper_no_state:
+  styles:
+    icon:
+      - color: 'var(--paper-item-icon-color)'
+
+chip_air_polution_colors:
+  variables:
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100
+  state:
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_green ]]]'
+      styles:
+        icon:
+          - color: 'var(--green-color)'
+    - operator: "template"
+      value: '[[[ return ( states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_green && 
+                            states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_yellow ) ]]]'
+      styles:
+        icon:
+          - color: 'var(--yellow-color)'
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_yellow ]]]'
+      styles:
+        icon:
+          - color: 'var(--red-color)'
+
+
+chip_air_polution_icons:
+  variables:
+    ulm_card_air_quality_green: 50
+    ulm_card_air_quality_yellow: 100
+  icon: >
+    [[[
+      if (states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_green) {
+        return 'mdi:emoticon-happy';
+      }
+      if (states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_green && states[variables.ulm_chip_icon_state_entity].state <= variables.ulm_card_air_quality_yellow) {
+        return 'mdi:emoticon-neutral';
+      }
+      if (states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_yellow) {
+        return 'mdi:emoticon-sad';
+      }      
+    ]]]

@@ -1,0 +1,61 @@
+card_light_simple:
+  triggers_update: "all"
+  variables:
+    ulm_card_light_enable_color: false
+    ulm_card_light_counter_sensor: ""
+  template:
+    - "icon_info_bg"
+    - "ulm_language_variables"
+  tap_action:
+    action: "toggle"
+  double_tap_action:
+    action: "more-info"
+  hold_action:
+    action: 'more-info'
+  #name: "[[[ return variables.ulm_card_light_name ]]]"
+  label: >-
+    [[[
+      if (entity.state !="unavailable"){
+        if ( entity.state == "off" || entity.state == "unknown" ) {
+          return variables.ulm_off;
+        } else if (entity.state == "on"){
+          var response = "";
+          if (entity.attributes.brightness != null){
+            var bri = Math.round(entity.attributes.brightness / 2.55);
+            response = (bri ? bri : "0") + "%";
+          } else {
+            response = variables.ulm_on
+          }
+          if (variables.ulm_card_light_counter_sensor != "" && states[variables.ulm_card_light_counter_sensor].state != "off") {
+            response += " • " + states[variables.ulm_card_light_counter_sensor].state;
+          }
+          return response;
+        }
+      } else {
+        return variables.ulm_unavailable;
+      }
+    ]]]
+  state:
+    - value: "on"
+      styles:
+        icon:
+          - color: >
+              [[[
+                  var color = entity.attributes.rgb_color;
+                  if (color && variables.ulm_card_light_enable_color) {
+                    return 'rgba(' + color + ',1)';
+                  } else {
+                    return 'var(--yellow-color)';
+                  }
+              ]]]
+        img_cell:
+          - background-color: >
+              [[[
+                  var color = entity.attributes.rgb_color;
+                  if (color && variables.ulm_card_light_enable_color){
+                    return 'rgba(' + color + ',0.2)';
+                  }
+                  else{
+                    return 'rgba(var(--rgb-yellow-color),0.2)';
+                  }
+              ]]]

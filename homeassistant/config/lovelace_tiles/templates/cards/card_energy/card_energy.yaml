@@ -1,0 +1,97 @@
+card_energy_daily_graph:
+  variables:    
+    ulm_card_energy_entity: ''
+    ulm_card_energy_cost_entity: ''
+    ulm_card_energy_hours: 168
+    ulm_card_energy_show_extrema: false
+    ulm_card_energy_show_average: false
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "8px"
+      - direction: "ltr"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:mini-graph-card"
+        group: true
+        entities: 
+          - entity: "[[[ return variables.ulm_card_energy_entity; ]]]"
+            name: Energy (kWh)
+            show_state: false
+            color: orange
+          - entity: "[[[ return variables.ulm_card_energy_cost_entity; ]]]"
+            name: Cost (₪)
+            show_state: true
+            color: green
+        show:
+          name: false
+          icon: false
+          legend: false
+          labels: false
+          #state: true
+          graph: 'bar'
+          fill: true
+          extrema: "[[[ return variables.ulm_card_energy_show_extrema; ]]]"
+          average: "[[[ return variables.ulm_card_energy_show_average; ]]]"
+        hours_to_show: "[[[ return variables.ulm_card_energy_hours; ]]]"
+        #points_per_hour: 0.042
+        group_by: 'date'
+        aggregate_func: max
+        #bar_spacing: 2
+        tap_action:
+          action: more-info
+        card_mod:
+          style: |
+            ha-card {
+              padding-top: 0px !important;
+              padding-bottom: var(--card-padding) !important;
+              padding-right: var(--card-padding) !important;
+              padding-left: var(--card-padding) !important;
+              border-style: none;
+              background: none;
+            }
+            .graph {
+              padding: 0px !important;
+            }
+            .info {
+              padding-bottom: 4px !important;
+              padding-right: 4px !important;
+              padding-left: 4px !important;
+              font-size: 10px;
+            }
+
+card_monthly_statistics:
+  variables:
+    ulm_card_monthly_statistics_name: ''
+    ulm_card_monthly_statistics_time: ''
+    ulm_card_monthly_statistics_cost: ''
+  template: card_generic
+  name: "[[[ return variables.ulm_card_monthly_statistics_name; ]]]"
+  icon: mdi:lightning-bolt
+  label: |
+    [[[
+      var sec_num = states[variables.ulm_card_monthly_statistics_time].state * 3600;
+      var hours   = Math.floor(sec_num / 3600);
+      var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+      var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+      var response = '';
+      if (hours > 0) { response += hours + 'h'; }
+      if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
+      if (seconds > 0) { response += ' ' + seconds + 's'; }
+      if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+
+      response += ' • ' + parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + states[variables.ulm_card_monthly_statistics_cost].state;
+
+      return response;
+    ]]]
+  styles:
+    card:
+      - direction: "ltr"    

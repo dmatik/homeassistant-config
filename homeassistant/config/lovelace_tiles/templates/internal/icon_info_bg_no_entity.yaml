@@ -1,0 +1,53 @@
+icon_info_bg_no_enity:
+  show_icon: true
+  show_label: true
+  show_name: true
+  styles:
+    icon:
+      - color: 'var(--grey-color)'
+      - width: "24px"
+      - height: "24px"
+    label:
+      - justify-self: "start"
+      - align-self: "start"
+      - font-weight: "400"
+      - font-size: "12px"
+      # filter: "opacity(40%)"
+      - margin-left: "12px"
+      - margin-right: "12px"
+      - letter-spacing: "0.4px"
+      - color: "var(--primary-text-color)"
+    name:
+      - align-self: "end"
+      - justify-self: "start"
+      - font-weight: "500"
+      - font-size: "14px"
+      - margin-left: "12px"
+      - margin-right: "12px"
+      - height: 20px
+      - letter-spacing: "0.1px"
+    state:
+      - justify-self: "start"
+      - align-self: "start"
+      - font-weight: "bold"
+      - font-size: "12px"
+      - filter: "opacity(40%)"
+      - margin-left: "12px"
+      - margin-right: "12px"
+    img_cell:
+      - background-color: 'rgba(var(--rgb-grey-color),0.2)'
+      - border-radius: "50%"
+      - place-self: "center"
+      - width: "40px"
+      - height: "40px"
+    grid:
+      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "12px"
+      #- border-style: "none"
+      #- --mdc-ripple-press-opacity: 0.0
+  size: "20px"

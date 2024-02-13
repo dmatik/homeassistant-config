@@ -1,6 +1,6 @@
 title: Climate
 path: climate
-visible: true
+visible: false
 icon: mdi:fan
 panel: true
     

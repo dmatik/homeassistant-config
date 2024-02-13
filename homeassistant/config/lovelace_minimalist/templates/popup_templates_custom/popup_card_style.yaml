@@ -3,3 +3,4 @@ popup_card_style:
     card:
       - background-color: "var(--popup-card-background-color)"
       - border-style: "none"
+      - box-shadow: "none"

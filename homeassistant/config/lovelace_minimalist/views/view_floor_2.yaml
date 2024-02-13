@@ -151,7 +151,8 @@ cards:
                       # Stairs Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'
-                        entity: light.stairs_floor_2
+                        #entity: light.stairs_floor_2
+                        entity: light.stairs_ground_floor
                         name: "[[[ return variables.ulm_stairs; ]]]"
 
                       # Switcher

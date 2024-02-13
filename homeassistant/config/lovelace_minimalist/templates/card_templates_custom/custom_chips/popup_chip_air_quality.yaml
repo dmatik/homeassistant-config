@@ -11,17 +11,17 @@ popup_chip_air_quality:
     browser_mod:
       service: browser_mod.popup
       data:
-        card_mod:
-          style:
-            ha-dialog$: |
-              .mdc-dialog__scrim {
-                backdrop-filter: blur(3px);
-                -webkit-backdrop-filter: blur(3px);
-              }
-            ha-header-bar$: |
-              .mdc-top-app-bar {
-                background: var(--header-background-color) !important;
-              }
+        # card_mod:
+        #   style:
+        #     ha-dialog$: |
+        #       .mdc-dialog__scrim {
+        #         backdrop-filter: blur(3px);
+        #         -webkit-backdrop-filter: blur(3px);
+        #       }
+        #     ha-header-bar$: |
+        #       .mdc-top-app-bar {
+        #         background: var(--header-background-color) !important;
+        #       }
         title: "Air Quality"
         content:
         
@@ -68,8 +68,8 @@ popup_chip_air_quality:
                 # Air Quality
                 - type: 'custom:button-card'
                   template: 
-                    - "popup_card_style"
                     - "card_air_quality_graph_only"
+                    - "popup_card_style"
                   variables:
                     ulm_card_graph_color: "var(--google-blue)"
                     ulm_card_air_quality_name: Air Quality

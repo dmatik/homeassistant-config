@@ -1,0 +1,22 @@
+card_rpi:
+  variables:
+    ulm_card_rpi_entity: '[[[ return entity.entity_id ]]]'
+    ulm_card_rpi_name: '[[[ return variables.ulm_card_rpi_name ]]]'
+    ulm_card_rpi_sensor: '[[[ return variables.ulm_card_rpi_sensor ]]]'
+    ulm_card_rpi_last_update_relative: '[[[ return variables.ulm_card_rpi_last_update_relative ]]]'
+  template:
+    - 'icon_info_bg'
+    - 'blue_on'
+    - "ulm_language_variables_EN"
+    - 'popup_rpi'
+  name: '[[[ return variables.ulm_card_rpi_name ]]]'
+  icon: 'mdi:raspberry-pi'
+  label: |-
+    [[[
+      if ( entity.state == 'on' ) {
+        return 'Running';
+      } else {
+        return 'Stopped';
+      }
+    ]]]
+

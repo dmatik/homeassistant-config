@@ -1,0 +1,125 @@
+Tiles:
+
+  # Layout
+  view-margins: "0px"
+  grid-layout-margins: "-10px -2px 12px"
+
+  # Colors
+  rgb-grey-color: '158,158,158' #'#9e9e9e'
+  yellow-color: '#ffc107'
+  rgb-yellow-color: '255,193,7' #'#ffc107'
+  rgb-blue-color: '33,150,243' #'#2196f3'
+  rgb-purple-color: '146,107,199' #'#926BC7'
+  rgb-green-color: '76,175,80' #'#4caf50'
+
+  # Climate Colors
+  rgb-climate-heat-color: '255,111,34'
+  rgb-climate-cool-color: '33,150,243'
+  rgb-climate-auto-color: '255,111,34'
+  rgb-climate-fan-only-color: '0,188,212'
+  rgb-climate-dry-color: '255,152,0'
+
+  # Control Button
+  control-button-border-radius: '10px'
+
+  # Chips
+  chips-left-margin: "2px"
+
+  modes:
+  
+    light:
+
+      # Colors
+      rgb-disabled-color: '189,189,189' #'#bdbdbd'
+      red-color: '#F54436'
+      rgb-red-color: "245, 68, 54" #'244,67,54' #'#f44336'
+
+      # Popup
+      popup-backdrop-filter: "blur(10px) brightness(100%)"
+
+      # Printer colors
+      printer-black-color: 'rgba(150,150,150,1)'
+      printer-yellow-color: 'rgba(250,255,0,0.2)'
+      printer-magenta-color: 'rgba(248,0,255,0.2)'
+      printer-cyan-color: 'rgba(0,255,255,0.2)'  
+
+
+    dark:
+
+      # Colors
+      rgb-disabled-color: '70,70,70' #'#464646'
+      red-color: '#F18B82'
+      rgb-red-color: "241, 139, 130" #'244,67,54' #'#f44336'
+
+      # Popup
+      popup-backdrop-filter: "blur(10px) contrast(50%)"
+
+      # Printer colors
+      printer-black-color: 'rgba(50,50,50,1)'
+      printer-yellow-color: 'rgba(250,255,0,0.2)'
+      printer-magenta-color: 'rgba(248,0,255,0.2)'
+      printer-cyan-color: 'rgba(0,255,255,0.2)'      
+
+
+# Card-Mod
+  card-mod-theme: "Tiles"
+
+  card-mod-more-info-yaml: |
+    .: |
+      @media (max-width: 450px), (max-height: 500px) {
+        ha-dialog {
+          --mdc-dialog-min-width: 100vw !important;
+        }
+      }
+      ha-dialog {
+        direction: rtl !important;
+      }
+    $: |
+      .mdc-dialog__scrim {
+        backdrop-filter: var(--popup-backdrop-filter);
+        -webkit-backdrop-filter: var(--popup-backdrop-filter);
+      }        
+      @media (max-width: 450px), (max-height: 500px) {
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          border-radius: 0px !important;
+        }
+      }
+    ha-dialog$: |
+      .mdc-dialog__scrim {
+        backdrop-filter: var(--popup-backdrop-filter);
+        -webkit-backdrop-filter: var(--popup-backdrop-filter);
+      }
+      @media (max-width: 450px), (max-height: 500px) {
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          border-radius: 0px !important;
+        }
+      }
+
+
+  card-mod-view-yaml: |
+    "*:first-child$": |
+      #columns .column > * {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+      }
+    grid-layout$: |
+      #root {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+
+  # Fixing Sidebar profile right padding, in case of RTL
+  card-mod-sidebar: |
+    a.profile {
+      paper-icon-item {
+        padding-right: 4px !important;
+      }
+    }
+
+  # Fixing the tile cards height in case of 2 rows span in layout
+  card-mod-card: |
+    ha-card {
+      height: fit-content !important;
+    }   
+

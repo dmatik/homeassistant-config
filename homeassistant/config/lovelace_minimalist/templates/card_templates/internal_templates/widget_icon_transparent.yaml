@@ -1,6 +1,8 @@
 ---
 ### Widget Icon Transparent ###
 widget_icon_transparent:
+  variables:
+    ulm_widget_entity: null
   tap_action:
     action: "toggle"
   show_icon: true
@@ -23,7 +25,7 @@ widget_icon_transparent:
   color: "var(--google-grey)"
   state:
     - operator: "template"
-      value: "[[[ return states[variables.ulm_widget_entity].state == 'on'; ]]]"
+      value: "[[[ return variables.ulm_widget_entity != null && states[variables.ulm_widget_entity].state == 'on'; ]]]"
       styles:
         icon:
           - color : "var(--widget-icon-color-on)"

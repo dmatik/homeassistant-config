@@ -1,0 +1,24 @@
+---
+### Widget Icon ###
+widget_icon:
+  tap_action:
+    action: "toggle"
+  show_icon: true
+  show_name: false
+  styles:
+    grid:
+      - grid-template-areas: "'i'"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+      - background-color: "rgba(var(--rgb-disabled-color),0.2)"
+      - border-radius: "var(--control-button-border-radius)"
+      - place-self: "center"
+      #- height: "40px"
+      - border-style: "none"
+      - --mdc-ripple-press-opacity: 0.0
+    img_cell:
+      - height: "40px"
+    icon:
+      - color: 'var(--primary-text-color)'
+  size: "20px"

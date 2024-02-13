@@ -1,0 +1,195 @@
+title: מטבח
+path: tiles_kitchen
+visible: false
+panel: true
+subview: true
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
+
+                      # Lights Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_yellow'
+                        icon: 'mdi:lightbulb'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_kitchen
+
+                      # Covers Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_purple'
+                        icon: 'mdi:window-shutter'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_covers_open_kitchen
+
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_yellow'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_kitchen
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_kitchen; ]]]"
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Kitchen Light
+                      - type: tile
+                        entity: light.kitchen
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Kitchen Led Strip
+                      - type: 'custom:button-card'
+                        template: 'card_light_simple'
+                        entity: light.kitchen_led_strip
+                        icon: 'mdi:led-strip-variant'
+                        name: "[[[ return variables.ulm_kitchen_strip; ]]]"
+                        variables:
+                          ulm_card_light_enable_color: true
+                          ulm_card_light_enable_popup: false
+                          ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
+
+                      # Kitchen Bar Light
+                      - type: tile
+                        entity: light.kitchen_bar
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Kitchen Left
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.kitchen_left_motion_sensor_occupancy
+                        name: "[[[ return variables.ulm_kitchen_left; ]]]"
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.kitchen_left_motion_sensor_illuminance
+
+                      # Kitchen Right
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.kitchen_right_motion_sensor_occupancy
+                        name: "[[[ return variables.ulm_kitchen_right; ]]]"
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.kitchen_right_motion_sensor_illuminance
+
+                      # Kitchen Cover
+                      - type: tile
+                        entity: cover.kitchen
+                        features:
+                          - type: "cover-open-close"
+                        view_layout:
+                          grid-row-start: span 2 
+
+                      # Washing Machine
+                      - type: 'custom:button-card'
+                        template: card_washing_machine
+                        entity: input_select.washing_machine_status
+                        variables:
+                          x_ulm_card_washing_machine_name: "[[[ return variables.ulm_washing_machine; ]]]"
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

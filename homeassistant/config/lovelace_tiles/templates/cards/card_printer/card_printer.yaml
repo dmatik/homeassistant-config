@@ -1,0 +1,42 @@
+card_printer:
+  variables:
+    ulm_card_printer_entity: '[[[ return entity.entity_id ]]]'
+    x_ulm_card_printer_name: '[[[ return variables.x_ulm_card_printer_name ]]]'
+  template:
+    - 'icon_info_bg'
+    - 'ulm_language_variables'
+    - 'popup_printer'
+    #- 'badge_notification_alt'
+  icon: 'mdi:printer-wireless'
+  name: '[[[ return variables.x_ulm_card_printer_name ]]]'
+  label: |-
+    [[[
+      if (entity.state === "on") {
+        return variables.ulm_on;
+      } else if (entity.state === "off") {
+        return variables.ulm_off;
+      } else if (entity.state === "unavailable") {
+        return variables.ulm_unavailable;
+      } else {
+        const words = entity.state.split(" ");
+        for (let i = 0; i < words.length; i++) {
+            words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+        return words.join(" ");
+      }
+    ]]]
+  state:
+    - value: "ready"
+      styles:
+        icon:
+          - color: 'var(--blue-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-blue-color),0.2)'
+    - value: "ink low"
+      styles:
+        icon:
+          - color: 'var(--red-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-red-color),0.2)'
+
+

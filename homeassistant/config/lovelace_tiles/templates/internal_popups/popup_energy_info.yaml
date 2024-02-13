@@ -1,0 +1,184 @@
+popup_energy_info:
+  template: "popup_card_style"
+  tap_action:
+    action: "none"
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'header' 'time' 'energy' 'cost'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "max-content max-content max-content max-content"
+    card:
+      - box-shadow: "none"
+      - padding: "8px 16px"
+      #- background-color: "none"
+      - place-self: "center"
+      #- background: "none"
+      #- height: "22px"
+      - border-style: "none"
+  custom_fields:
+    header:
+      card:
+        type: "custom:button-card"
+        template: "pupup_energy_info_raw"
+        custom_fields:
+          energy: '[[[ return variables.ulm_card_popup_title; ]]]'
+          curr: '[[[ return variables.ulm_card_popup_energy_curr_header; ]]]'
+          prev: '[[[ return variables.ulm_card_popup_energy_prev_header; ]]]'
+        styles:
+          custom_fields:
+            energy:
+              - display: flex
+              - justify-content: center
+              - align-items: center
+              #- height: "20px"
+              - justify-self: "start"
+              - font-weight: "700"
+              - font-size: "18px"
+              - filter: "opacity(30%)"
+              - margin-left: "2px"
+              - align-self: "start"
+              - padding-bottom: "4px"
+            curr:
+              - display: flex
+              - justify-content: center
+              - align-items: center
+              #- height: "20px"
+              - justify-self: "end"
+              - font-weight: "550"
+              - font-size: "14px"
+              #- filter: "opacity(90%)"
+              - margin-right: "2px"
+              - text-align: "end"
+            prev:
+              - display: flex
+              - justify-content: center
+              - align-items: center
+              #- height: "20px"
+              - justify-self: "end"
+              - font-weight: "550"
+              - font-size: "14px"
+              #- filter: "opacity(90%)"
+              - margin-right: "2px"
+              - text-align: "end"
+    time:
+      card:
+        type: "custom:button-card"
+        template: "pupup_energy_info_raw"
+        custom_fields:
+          energy: 'Time'
+          curr: |
+            [[[ 
+              var sec_num = states[variables.ulm_card_popup_energy_time_curr].state * 3600;
+              var hours   = Math.floor(sec_num / 3600);
+              var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+              var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+              var response = '';
+              if (hours > 0) { response += hours + 'h'; }
+              if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
+              if (seconds > 0) { response += ' ' + seconds + 's'; }
+              if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+
+              return response;
+            ]]]
+          prev: |
+            [[[ 
+              var sec_num = states[variables.ulm_card_popup_energy_time_prev].state * 3600;
+              var hours   = Math.floor(sec_num / 3600);
+              var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+              var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
+
+              var response = '';
+              if (hours > 0) { response += hours + 'h'; }
+              if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
+              if (seconds > 0) { response += ' ' + seconds + 's'; }
+              if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+
+              return response;
+            ]]]
+    energy:
+      card:
+        type: "custom:button-card"
+        template: "pupup_energy_info_raw"
+        custom_fields:
+          energy: 'Energy'
+          curr: |
+            [[[ 
+              return parseFloat(states[variables.ulm_card_popup_energy_meter].state).toFixed(2) + ' kWh';
+            ]]]
+          prev: |
+            [[[ 
+              return parseFloat(states[variables.ulm_card_popup_energy_meter].attributes.last_period).toFixed(2) + ' kWh';
+            ]]]
+    cost:
+      card:
+        type: "custom:button-card"
+        template: "pupup_energy_info_raw"
+        custom_fields:
+          energy: 'Cost'
+          curr: |
+            [[[ 
+              return '₪ ' + states[variables.ulm_card_popup_energy_cost_curr].state;
+            ]]]
+          prev: |
+            [[[ 
+              return '₪ ' + states[variables.ulm_card_popup_energy_cost_prev].state;
+            ]]]
+
+pupup_energy_info_raw:
+  tap_action:
+    action: "none"
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'energy curr prev'"
+      - grid-template-columns: "3fr 2fr 2fr"
+      - grid-template-rows: "max-content"
+    card:
+      - box-shadow: "none"
+      - padding: "0px 0px"
+      - background-color: "none"
+      - place-self: "center"
+      - background: "none"
+      #- height: "22px"
+      - border-style: "none"
+      - direction: "ltr"
+    custom_fields:
+      energy:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        #- height: "20px"
+        - justify-self: "start"
+        - font-weight: "600"
+        - font-size: "14px"
+        - filter: "opacity(80%)"
+        - margin-left: "2px"
+        - align-self: "start"
+      curr:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        #- height: "20px"
+        - justify-self: "end"
+        - font-weight: "400"
+        - font-size: "14px"
+        - filter: "opacity(90%)"
+        - margin-right: "2px"
+        - text-align: "end"
+      prev:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        #- height: "20px"
+        - justify-self: "end"
+        - font-weight: "400"
+        - font-size: "14px"
+        - filter: "opacity(90%)"
+        - margin-right: "2px"
+        - text-align: "end"

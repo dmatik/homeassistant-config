@@ -1,0 +1,25 @@
+widget_text:
+  tap_action:
+    action: "toggle"
+  show_icon: false
+  show_name: true
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'n'"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+      - background-color: "rgba(var(--rgb-disabled-color),0.2)"
+      - border-radius: "var(--control-button-border-radius)"
+      - place-self: "center"
+      - height: "40px"
+      - border-style: "none"
+    name:
+      - color: 'var(--primary-text-color)'
+      - height: "40px"
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - justify-self: 'center'      
+  size: "20px"

@@ -1,0 +1,267 @@
+card_fully:
+  variables:
+    ulm_card_fully_entity: ''
+    ulm_card_fully_name: ''
+    ulm_card_fully_reload_url_command: ''
+    ulm_card_fully_disable_kiosk_command: ''
+    ulm_card_fully_restart_app_command: ''
+    ulm_card_fully_clear_cache_command: ''
+    ulm_card_fully_screenshot_image: ''
+    ulm_card_fully_screenshot_command: ''
+    ulm_card_fully_camshot_image: ''
+    ulm_card_fully_camshot_command: ''
+    ulm_card_fully_screen_on_command: ''
+    ulm_card_fully_screen_off_command: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "0px"
+      - direction: "ltr"
+  custom_fields:
+    item1:
+      card:
+        triggers_update: "all"
+        type: "custom:button-card"
+        template:
+          - "icon_info"
+          - "ulm_language_variables_EN"
+        icon: 'mdi:view-dashboard'
+        tap_action:
+          action: "none"
+        entity: "[[[ return variables.ulm_card_fully_entity ]]]"
+        name: "[[[ return variables.ulm_card_fully_name ]]]"
+        label: '[[[ return states[variables.ulm_card_fully_entity].attributes.currentPageUrl ]]]'
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "list_info_items_10_lines"
+        custom_fields:
+          item1:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'App Version:'
+                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.version ]]]"
+          item2:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'WiFi Signal:'
+                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.wifiSignalLevel ]]]"
+          item3:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'Battery:'
+                item2: |
+                  [[[ 
+                    var plugged;
+                    if (states[variables.ulm_card_fully_entity].attributes.plugged == true) {
+                      plugged = "Plugged";
+                    } else {
+                      plugged = "Unplugged";
+                    }
+                    return states[variables.ulm_card_fully_entity].attributes.batteryLevel + '% • ' + 
+                    states[variables.ulm_card_fully_entity].attributes.batteryTemperature + '°C • ' +
+                    plugged;
+                  ]]]
+          item4:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'IP:'
+                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.ip4 ]]]"
+          item5:
+            card:
+              type: "custom:button-card"
+              template: "widget_text_info"
+              custom_fields:
+                item1: 'Screen:'
+                item2: >-
+                  [[[
+                    if (states[variables.ulm_card_fully_entity].attributes.screenOn == true) {
+                      return "On";
+                    } else {
+                      return "Off";
+                    }
+                  ]]]
+          item6:
+            card:
+              type: "custom:button-card"
+              template: "list_2_items"
+              styles:
+                card:
+                  - padding: "10px 0px 0px 0px"
+              custom_fields:
+                item1:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Reload URL'
+                    tap_action:
+                      action: "call-service"
+                      service: "[[[ return variables.ulm_card_fully_reload_url_command ]]]"
+                item2:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Disable Kiosk'
+                    tap_action:
+                      action: call-service
+                      service: "[[[ return variables.ulm_card_fully_disable_kiosk_command ]]]"
+          item7:
+            card:
+              type: "custom:button-card"
+              template: "list_2_items"
+              styles:
+                card:
+                  - padding: "10px 0px 0px 0px"
+              custom_fields:
+                item1:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Restart App'
+                    tap_action:
+                      action: call-service
+                      service: "[[[ return variables.ulm_card_fully_restart_app_command ]]]"
+                item2:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Clear Cache'
+                    tap_action:
+                      action: call-service
+                      service: "[[[ return variables.ulm_card_fully_clear_cache_command ]]]"
+          item8:
+            card:
+              type: "custom:button-card"
+              template: "list_2_items"
+              styles:
+                card:
+                  - padding: "10px 0px 0px 0px"
+              custom_fields:
+                item1:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Screen On'
+                    tap_action:
+                      action: call-service
+                      service: "[[[ return variables.ulm_card_fully_screen_on_command ]]]"
+                item2:
+                  card:
+                    type: "custom:button-card"
+                    template: "widget_text"
+                    name: 'Screen Off'
+                    tap_action:
+                      action: call-service
+                      service: "[[[ return variables.ulm_card_fully_screen_off_command ]]]"
+          item9:
+            card:
+              type: "custom:button-card"
+              template: "list_2_items"
+              styles:
+                card:
+                  - padding: "10px 0px 0px 0px"
+              custom_fields:
+                item1:
+                  card:
+                    type: "custom:button-card"
+                    template: 
+                      - "widget_text"
+                      - "popup_fully_image"
+                    variables:
+                      ulm_card_fully_title: 'Screenshot'
+                      ulm_card_fully_image: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
+                      ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_screenshot_command ]]]"
+                    name: 'Screenshot'
+                item2:
+                  card:
+                    type: "custom:button-card"
+                    template: 
+                      - "widget_text"
+                      - "popup_fully_image_auto"
+                    variables:
+                      ulm_card_fully_title: 'Camshot'
+                      ulm_card_fully_image: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
+                      #ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
+                    name: 'Camshot'
+
+
+
+card_fully_image:
+  variables:
+    ulm_card_fully_image: ''
+    ulm_card_fully_refresh_command: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: custom:refreshable-picture-card
+        title: null
+        refresh_interval: 5
+        url: "[[[ return variables.ulm_card_fully_image ]]]"
+        noMargin: true
+        tap_action:
+          action: url
+          url_path: "[[[ return variables.ulm_card_fully_image ]]]"
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: none;
+              border-radius: 10px;
+              border-style: none;
+            }
+
+
+card_fully_image_auto:
+  variables:
+    ulm_card_fully_image: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: picture-entity
+        entity: "[[[ return variables.ulm_card_fully_image ]]]"
+        name: 'Kitchen'
+        show_name: false
+        show_state: false
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: none;
+              border-radius: 10px;
+              border-style: none;
+            }

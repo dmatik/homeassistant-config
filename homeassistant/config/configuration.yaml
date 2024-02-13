@@ -60,23 +60,9 @@ lovelace:
   mode: yaml
   resources: !include /config/resources.yaml
   dashboards:
-    # lovelace-system:
-    #   mode: yaml
-    #   filename: ui-system.yaml
-    #   title: "System"
-    #   icon: mdi:view-dashboard
-    #   show_in_sidebar: true
-    #   require_admin: false
-    lovelace-wallpanel:
+    lovelace-wallpanel-tiles:
       mode: yaml
-      filename: ui-wallpanel.yaml
-      title: "Wall Panel"
-      icon: mdi:view-dashboard
-      show_in_sidebar: false
-      require_admin: false
-    lovelace-wallpanel-2:
-      mode: yaml
-      filename: ui-wallpanel-2.yaml
+      filename: ui-wallpanel-tiles.yaml
       title: "Wall Panel"
       icon: mdi:view-dashboard
       show_in_sidebar: false
@@ -87,12 +73,6 @@ lovelace:
     #   icon: mdi:view-dashboard
     #   show_in_sidebar: true
     #   filename: ui-minimalist.yaml
-    # lovelace-homekit:
-    #   mode: yaml
-    #   title: Homekit
-    #   icon: mdi:view-dashboard
-    #   show_in_sidebar: true
-    #   filename: ui-homekit.yaml
 
 #Recorder
 recorder:

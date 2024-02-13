@@ -1,0 +1,9 @@
+spacer:
+  variables:
+      height: '10px'
+      width: '0px'
+  styles:
+    card:
+      - height: '[[[ return variables.height ]]]'
+      - width: '[[[ return variables.width ]]]'
+      - border-style: "none"

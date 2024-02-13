@@ -1,0 +1,392 @@
+title: Floor 2
+path: floor-2
+visible: false
+icon: mdi:home-floor-2
+panel: true
+    
+cards:
+
+  - type: vertical-stack
+    cards:
+
+############################################################################
+#                                                                          #
+#   Content                                                                #
+#                                                                          #
+############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+
+        layout_options:
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+        
+        cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Left Column                                                            #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+              ############################################################################
+              #                                                                          #
+              #   Air Conditioning                                                       #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_air_conditioning; ]]]"
+                    variables:
+                      ulm_title_margin_top: "0px"
+                      
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Bedroom Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons_with_temp
+                    variables:
+                      ulm_card_ac_entity: climate.bedroom_template
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
+                    view_layout:
+                      grid-row-start: span 3
+
+                  # Kfir Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons_with_temp
+                    variables:
+                      ulm_card_ac_entity: climate.kfir_template
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
+                    view_layout:
+                      grid-row-start: span 3
+
+                  # Ronen Climate
+                  - type: 'custom:button-card'
+                    template: card_ac_buttons_with_temp
+                    variables:
+                      ulm_card_ac_entity: climate.ronen_template
+                      ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
+                      x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
+                    view_layout:
+                      grid-row-start: span 3
+
+
+
+              ############################################################################
+              #                                                                          #
+              #   Covers                                                                 #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_covers; ]]]"
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Bedroom Balcony Cover
+                  - type: tile
+                    entity: cover.bedroom_balcony
+                    features:
+                      - type: "cover-open-close"
+                    view_layout:
+                      grid-row-start: span 2 
+
+                  # Bedroom Window Cover
+                  - type: tile
+                    entity: cover.bedroom_window
+                    features:
+                      - type: "cover-open-close"
+                    view_layout:
+                      grid-row-start: span 2                           
+
+                  # Bedroom Makup Cover
+                  - type: tile
+                    entity: cover.parents_makeup
+                    features:
+                      - type: "cover-open-close"
+                    view_layout:
+                      grid-row-start: span 2                            
+
+                  # Ronen Room Cover
+                  - type: tile
+                    entity: cover.ronen_room
+                    features:
+                      - type: "cover-open-close"
+                    view_layout:
+                      grid-row-start: span 2  
+
+                  # Kfir Room Cover
+                  - type: tile
+                    entity: cover.kfir_room
+                    features:
+                      - type: "cover-open-close"
+                    view_layout:
+                      grid-row-start: span 2 
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Right Column                                                           #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+
+              ############################################################################
+              #                                                                          #
+              #   Lights                                                                 #
+              #                                                                          #
+              ############################################################################
+
+              # Lights
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_lights; ]]]"
+                    variables:
+                      ulm_title_margin_top: "0px"
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Hallway Light
+                  - type: tile
+                    entity: light.hallway_stairs
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info 
+
+                  # Bathroom Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.bathroom_ceiling
+                    #name: "[[[ return variables.ulm_bathroom; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+
+                  # Bathroom Mirror Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.bathroom_mirror
+                    #name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+
+                  # Laundry Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.laundry
+                    #name: "[[[ return variables.ulm_laundry; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+
+                  # Bedroom Light
+                  - type: tile
+                    entity: light.bedroom
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Bedroom Balcony Light
+                  - type: tile
+                    entity: light.bedroom_balcony
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Bedside Dima Light
+                  - type: tile
+                    entity: light.bedside_dima_bulb
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info                                                
+
+                  # Bedside Galit Light
+                  - type: tile
+                    entity: light.bedside_galit_bulb
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info 
+
+                  # Parents Bathroom Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.parents_bathroom_ceiling
+                    #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+
+                  # Parents Bathroom Mirror Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.parents_bathroom_mirror
+                    #name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+
+                  # Ronen Room Light
+                  - type: tile
+                    entity: light.ronen_room
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info 
+
+                  # Ronen Led Strip
+                  - type: tile
+                    entity: light.ronen_led_strip
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Kfir Room Light
+                  - type: tile
+                    entity: light.kfir_room
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Kfir Led Strip
+                  - type: tile
+                    entity: light.kfir_led_strip
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+
+
+              ############################################################################
+              #                                                                          #
+              #   Heating                                                                #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_heating; ]]]"
+
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr
+                cards:
+
+                  # Bathroom Heater
+                  - type: 'custom:button-card'
+                    template: 
+                      - "card_heater_with_timer"
+                    variables:
+                      ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
+                      ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
+                    entity: switch.bathroom_heater
+                    name: "[[[ return variables.ulm_bathroom; ]]]"
+
+                  # Parents Bathroom Heater
+                  - type: 'custom:button-card'
+                    template: 
+                      - "card_heater_with_timer"
+                    variables:
+                      ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
+                      ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
+                    entity: switch.parents_bathroom_heater
+                    name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+
+                  # Switcher
+                  - type: 'custom:button-card'
+                    template: 
+                      - card_switcher
+                    variables:
+                      x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+                      ulm_card_switcher_icon: "mdi:waves"
+                      ulm_card_switcher_entity: switch.switcher_boiler
+                      ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
+                      ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
+                      ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+                      ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
+                      ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+                    view_layout:
+                      grid-row-start: span 2

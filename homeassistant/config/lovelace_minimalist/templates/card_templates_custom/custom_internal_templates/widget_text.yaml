@@ -1,6 +1,6 @@
 widget_text:
   variables:
-    ulm_widget_entity: ""
+    ulm_widget_entity: null
   tap_action:
     action: "toggle"
   show_icon: false
@@ -23,7 +23,7 @@ widget_text:
   color: "var(--google-grey)"
   state:
     - operator: "template"
-      value: "[[[ return variables.ulm_widget_entity != '' && states[variables.ulm_widget_entity].state == 'on'; ]]]"
+      value: "[[[ return variables.ulm_widget_entity != null && states[variables.ulm_widget_entity].state == 'on'; ]]]"
       styles:
         card:
           - background-color: "var(--widget-background-color-on)"

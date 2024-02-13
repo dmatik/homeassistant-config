@@ -1,0 +1,129 @@
+card_red_alert:
+  template:
+    - 'icon_info_bg'
+    - 'red_on'
+    - 'ulm_language_variables'
+  entity: 'binary_sensor.redalert_all'
+  icon: 'mdi:radio-tower'
+  name: "[[[ return variables.ulm_red_alert; ]]]"
+  label: |-
+    [[[ 
+      if ( states['binary_sensor.redalert_gan_yavne'].state == 'on' )
+        return 'גן יבנה';
+      else if ( states['binary_sensor.redalert_qiryat_gat'].state == 'on' )
+        return 'קריית גת';
+      else if (entity.state == 'off')
+        return variables.ulm_off;
+      else
+        return variables.ulm_on; 
+    ]]]
+  hold_action:
+    action: more-info
+  tap_action:
+    action: fire-dom-event
+    browser_mod:
+      service: browser_mod.popup
+      data:
+        title: צבע אדום
+        content:
+
+
+          type: vertical-stack
+          cards:
+
+            ############################################################################
+            #                                                                          #
+            #   Current Alerts                                                         #
+            #                                                                          #
+            ############################################################################
+
+            - type: markdown
+              card_mod:
+                style: |
+                  ha-card.type-markdown {
+                    background: none;
+                    box-shadow: none;
+                    padding: 0.3em 1.25em 0.4em 0.5em;
+                    text-align: right;
+                    direction: rtl;
+                    border-style: none;
+                  }
+              entity_id: sensor.redalert
+              content: |
+                {% if state_attr('sensor.redalert', 'alert') == true %}
+                  ### {{ state_attr("sensor.redalert", "current")["title"] }}
+                  #### {{ state_attr("sensor.redalert", "current")["desc"] }}
+                  {% for l in state_attr('sensor.redalert', 'current')['data'] %}
+                    {{- l }}
+                  {% endfor %}
+                {% else %}
+                  אין התרעות כרגע
+                {% endif %}
+
+
+
+            ############################################################################
+            #                                                                          #
+            #   History                                                                #
+            #                                                                          #
+            ############################################################################
+
+            - type: markdown
+              card_mod:
+                style: |
+                  ha-card.type-markdown {
+                    background: none;
+                    box-shadow: none;
+                    padding: 0.3em 1.25em 0em 0.5em;
+                    text-align: right;
+                    direction: rtl;
+                    border-style: none;
+                  }
+                  ha-markdown.no-header {
+                    padding-bottom: 0px;
+                  }
+              entity_id: sensor.redalert_history
+              content: |
+                ### יממה אחרונה ({{ states['sensor.redalert_history_count'].state }} התרעות)
+                
+            - type: custom:list-card
+              card_mod:
+                style: |
+                  ha-card.type-custom-list-card {
+                    background: none;
+                    box-shadow: none;
+                    padding: 0.3em 1em 0.4em 0.5em;
+                    text-align: right;
+                    direction: rtl;
+                    border-style: none;
+                  }
+              entity: sensor.redalert_history
+              title: ''
+              feed_attribute: history
+              columns:
+                - title: תאריך
+                  field: date
+                  style:
+                    - text-align: right
+                    - width: 90px
+                    - background-color: 'var(--card-background-color)'                    
+                - title: שעה
+                  field: time
+                  style:
+                    - text-align: right
+                    - width: 56px
+                    - background-color: 'var(--card-background-color)'
+                    - padding-right: '10px'
+                    - padding-left: '10px'                    
+                - title: מיקום
+                  field: data
+                  style:
+                    - text-align: right
+                    - background-color: 'var(--card-background-color)'
+                    - padding-right: '10px'
+
+
+            - type: "custom:button-card"
+              template: spacer
+              # variables:
+              #   height: 20px

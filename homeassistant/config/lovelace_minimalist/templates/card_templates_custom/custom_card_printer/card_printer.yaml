@@ -6,7 +6,7 @@ card_printer:
     - 'icon_info_bg'
     - 'ulm_language_variables'
     - 'popup_printer'
-    - 'badge_notification_alt'
+    #- 'badge_notification_alt'
   icon: 'mdi:printer-wireless'
   name: '[[[ return variables.x_ulm_card_printer_name ]]]'
   label: |-
@@ -26,7 +26,8 @@ card_printer:
       }
     ]]]
   state:
-    - styles:
+    - value: "ready"
+      styles:
         icon:
           - color: 'var(--color-blue-icon)'
         label:
@@ -37,42 +38,17 @@ card_printer:
           - background-color: 'var(--color-blue-icon-background)'
         card:
           - background-color: "var(--color-background-blue)"
-      value: "ready"
-
-
-# Not in use
-printer_ink_low:
-  state:
     - value: "ink low"
       styles:
-        custom_fields:
-          notification:
-            - position: "absolute"
-            - left: "40px"
-            - top: "8px"  
         icon:
-          - color: 'rgba(var(--color-blue),1)'
+          - color: 'var(--ha-card-icon-off-color)'
+        label:
+          - color: "rgb(var(--color-red))"
+        name:
+          - color: "var(--primary-text-color))"
         img_cell:
-          - background-color: 'rgba(var(--color-blue), 0.2)'
-  custom_fields:
-    notification:
-      card:
-        type: "custom:button-card"
-        template: "badge"
-        icon: >
-          [[[
-            if ( entity.state =="unavailable" ) {
-              return "mdi:exclamation";
-            } else if ( entity.state =="ink low" ) {
-              return "mdi:water";
-            }
-          ]]]
-        variables:
-          ulm_badge_icon_backgroung_color: >
-            [[[
-              if ( entity.state =="unavailable" ) {
-                return "rgba(var(--color-red),1)";
-              } else if ( entity.state =="ink low" ) {
-                return "rgba(var(--color-blue),1)";
-              }
-            ]]]
+          - background-color: 'var(--ha-card-icon-background-color)'
+        card:
+          - background-color: "var(--card-background-color)"
+
+

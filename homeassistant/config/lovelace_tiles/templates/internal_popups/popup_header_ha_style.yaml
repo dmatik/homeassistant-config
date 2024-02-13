@@ -1,0 +1,51 @@
+popup_header_ha_style:
+  template:
+    - "ulm_language_variables"
+  show_name: true
+  show_label: true
+  show_icon: false
+  show_last_changed: true
+  tap_action:
+    action: "more-info"
+  styles:
+    grid:
+      - grid-template-areas: "'n' 'l'"
+      - grid-template-columns: "auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - background: "none"
+      - box-shadow: "none"
+      - border-style: "none"
+      - padding-top: "16px"
+      - padding-bottom: "20px"
+    name:
+      - justify-self: "center"
+      #- text-transform: "capitalize"
+      - font-style: "normal"
+      - font-weight: "400"
+      - font-size: "36px"
+      #- margin-top: "12px"
+      - line-height: "44px"
+    label:
+      - justify-self: "center"
+      - padding: "4px 0px"
+      - font-style: "normal"
+      - font-weight: "500"
+      - font-size: "16px"
+      - line-height: "24px"
+      - letter-spacing: "0.1px"
+  name: |-
+    [[[
+      if (entity.state == 'on')
+        return variables.ulm_on;
+      else if (entity.state == 'cool')
+        return 'Cooling to ' + entity.attributes.temperature + '°';
+      else if (entity.state == 'heat')
+        return 'Heating to ' + entity.attributes.temperature + '°';
+      else if (entity.state == 'heat_cool')
+        return 'Auto to ' + entity.attributes.temperature + '°';
+      else if (entity.state == 'off')
+        return variables.ulm_off;
+      else
+        return entity.state;
+    ]]]

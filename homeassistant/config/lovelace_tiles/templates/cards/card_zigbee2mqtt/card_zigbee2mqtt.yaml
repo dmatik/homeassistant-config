@@ -1,0 +1,66 @@
+card_zigbee2mqtt:
+  variables:
+    ulm_card_zigbee2mqtt_bridge_state: ''
+    ulm_card_zigbee2mqtt_version: ''
+    ulm_card_zigbee2mqtt_restart_script: ''
+    ulm_card_zigbee2mqtt_networkmap: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item2'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content  min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "0px"
+  custom_fields:
+    item1:
+      card:
+        triggers_update: "all"
+        type: "custom:button-card"
+        template:
+          - "icon_info"
+          - "zigbee2mqtt_blue_on"
+          - "ulm_language_variables_EN"
+        icon: 'mdi:zigbee'
+        tap_action:
+          action: "none"
+        entity: "[[[ return variables.ulm_card_zigbee2mqtt_bridge_state ]]]"
+        label: "[[[ return states[variables.ulm_card_zigbee2mqtt_version].state + ' • ' + states[variables.ulm_card_zigbee2mqtt_bridge_state].state ]]]"
+        name: "[[[ return variables.ulm_card_zigbee2mqtt_name ]]]"
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "list_2_items"
+        custom_fields:
+          item1:
+            card:
+              type: "custom:button-card"
+              template: "widget_text"
+              name: 'Restart'
+              tap_action:
+                action: call-service
+                service: "[[[ return variables.ulm_card_zigbee2mqtt_restart_script ]]]"
+          item2:
+            card:
+              type: "custom:button-card"
+              template: 
+                - "widget_text"
+                - "popup_zigbee2mqtt_network_map"
+              variables:
+                ulm_card_zigbee2mqtt_title: "[[[ return variables.ulm_card_zigbee2mqtt_name + ' Network Map' ]]]"
+                ulm_card_zigbee2mqtt_networkmap: "[[[ return variables.ulm_card_zigbee2mqtt_networkmap ]]]"
+                ulm_card_zigbee2mqtt_mqtt_base_topic: "[[[ return variables.ulm_card_zigbee2mqtt_mqtt_base_topic ]]]"
+              name: 'Network Map'
+
+zigbee2mqtt_blue_on:
+  state:
+    - styles:
+        icon:
+          - color: 'var(--blue-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-blue-color),0.2)'
+      id: "online"
+      value: "online"

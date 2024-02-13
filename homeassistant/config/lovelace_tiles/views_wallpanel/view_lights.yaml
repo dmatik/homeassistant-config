@@ -1,0 +1,411 @@
+title: Lights
+path: lights
+visible: false
+icon: mdi:lightbulb
+panel: true
+    
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   Content                                                                #
+#                                                                          #
+############################################################################
+
+      - type: custom:layout-card
+        layout_type: grid
+
+        layout_options:
+          grid-template-columns: 1fr
+          grid-template-rows: auto
+          grid-gap: 0px 4px
+        
+        cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Left Column                                                            #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+              ############################################################################
+              #                                                                          #
+              #   Floor 0                                                                #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_ground_floor; ]]]"
+                    variables:
+                      ulm_title_margin_top: "0px"
+
+              # Lights
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                cards:
+
+                  # Living Room Light
+                  - type: tile
+                    entity: light.living_room
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Dining Light
+                  - type: tile
+                    entity: light.dining
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # TV Wall Light
+                  - type: tile
+                    entity: light.living_room_tv_wall
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Stairs Light
+                  - type: tile
+                    entity: light.stairs_ground_floor
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Entrance Light
+                  - type: tile
+                    entity: light.entrance
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info                        
+
+                  # Guests Bathroom Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.guests_bathroom
+                    #name: "[[[ return variables.ulm_guest_bathroom; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
+
+                  # Front Yard Light
+                  - type: tile
+                    entity: light.front_yard
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info 
+
+                  # Back Yard Light
+                  - type: tile
+                    entity: light.back_yard
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info 
+
+                  # Kitchen Light
+                  - type: tile
+                    entity: light.kitchen
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Kitchen Led Strip
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.kitchen_led_strip
+                    icon: 'mdi:led-strip-variant'
+                    name: "[[[ return variables.ulm_kitchen_strip; ]]]"
+                    variables:
+                      ulm_card_light_enable_color: true
+                      ulm_card_light_enable_popup: false
+                      ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
+
+                  # Kitchen Bar Light
+                  - type: tile
+                    entity: light.kitchen_bar
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+
+
+              ############################################################################
+              #                                                                          #
+              #   Floor 2                                                                #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_floor_2; ]]]"
+
+
+              # Lights
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                cards:
+
+                  # Hallway Light
+                  - type: tile
+                    entity: light.hallway_stairs
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info 
+
+                  # Bathroom Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.bathroom_ceiling
+                    #name: "[[[ return variables.ulm_bathroom; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+
+                  # Bathroom Mirror Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.bathroom_mirror
+                    #name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+
+                  # Laundry Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.laundry
+                    #name: "[[[ return variables.ulm_laundry; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+
+                  # Bedroom Light
+                  - type: tile
+                    entity: light.bedroom
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Bedroom Balcony Light
+                  - type: tile
+                    entity: light.bedroom_balcony
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Bedside Dima Light
+                  - type: tile
+                    entity: light.bedside_dima_bulb
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info                                                
+
+                  # Bedside Galit Light
+                  - type: tile
+                    entity: light.bedside_galit_bulb
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info 
+
+                  # Parents Bathroom Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.parents_bathroom_ceiling
+                    #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+
+                  # Parents Bathroom Mirror Light
+                  - type: 'custom:button-card'
+                    template: 'card_light_simple'
+                    entity: light.parents_bathroom_mirror
+                    #name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
+                    variables:
+                      ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+
+                  # Ronen Room Light
+                  - type: tile
+                    entity: light.ronen_room
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info 
+
+                  # Ronen Led Strip
+                  - type: tile
+                    entity: light.ronen_led_strip
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Kfir Room Light
+                  - type: tile
+                    entity: light.kfir_room
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Kfir Led Strip
+                  - type: tile
+                    entity: light.kfir_led_strip
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info                          
+
+
+              ############################################################################
+              #                                                                          #
+              #   Basement                                                               #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_basement; ]]]"
+
+
+              # Lights
+              - type: custom:layout-card
+                layout_type: grid
+                layout_options:
+                  grid-template-columns: 1fr 1fr 1fr 1fr
+                  grid-template-rows: auto
+                  grid-gap: 0px 4px
+                  mediaquery:
+                    "(max-width: 450px)":
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                cards:
+
+                  # Basement Light
+                  - type: tile
+                    entity: light.basement
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Basement 2 Light
+                  - type: tile
+                    entity: light.basement_2_light_1
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Basement 3 Light
+                  - type: tile
+                    entity: light.basement_2_light_2
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Basement Toys Light
+                  - type: tile
+                    entity: light.basement_toys
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+
+                  # Work Room Light
+                  - type: tile
+                    entity: light.work_room
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info

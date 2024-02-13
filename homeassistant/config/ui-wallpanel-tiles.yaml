@@ -1,0 +1,168 @@
+title: Wall Panel
+
+kiosk_mode:
+  kiosk: true
+
+button_card_templates: !include_dir_merge_named lovelace_tiles/templates/
+   
+#background: var(--background-image)
+
+sidebar:
+  style: |
+    .digitalClock {
+      text-align: center;
+      padding-bottom: 1px;
+      padding-top: 20px;
+      line-height: 30px!important;
+      letter-spacing: 5px;
+      color: var(--primary-text-color) !important;
+      font-size: 6.8vw!important;
+      font-weight: 300!important;
+      letter-spacing: -0.05vw!important;
+      text-align: center;
+      padding-bottom: 5px;
+      padding-top: 40px;
+    }
+    .date {
+      text-align: center;
+      padding-bottom: 15px;
+      color: var(--secondary-text-color);
+      font-size: 1.5vw;
+      font-weight: 400;
+      letter-spacing: -0.05vw;
+    }
+    .sidebarMenu li {
+      font-size: 22px !important;
+    }
+  #title: "Sidebar title"
+  digitalClock: true
+  date: true
+  dateFormat: "dddd DD MMMM YYYY"
+  hideTopMenu: false
+  width:
+    mobile: 0
+    tablet: 23
+    desktop: 23  
+  sidebarMenu:
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-tiles/home"
+      name: "ראשי" #"Home"
+      active: true
+      #icon: mdi:home
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-tiles/floor-2"
+      name: "קומה 2" #"Floor 2"
+      active: true
+      #icon: mdi:home-floor-2
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-tiles/basement"
+      name: "מרתף" #"Basement"
+      active: true
+      #icon: mdi:home-floor-b
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-tiles/lights"
+      name: "תאורה" #"Lights"
+      active: true
+      #icon: mdi:lightbulb
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-tiles/climate"
+      name: "אקלים" #"Climate"
+      active: true
+      #icon: mdi:fan
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-tiles/covers"
+      name: "תריסים" #"Covers"
+      active: true
+      #icon: mdi:window-shutter
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-tiles/security"
+      name: "אבטחה" #"Security"
+      active: true
+      #icon: mdi:cctv
+  bottomCard:
+    type: vertical-stack
+    cardOptions:
+      cards:
+        - type: vertical-stack
+          cards:
+            # Red Alert
+            - type: 'custom:button-card'
+              template: card_red_alert
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none;
+                    border: none;
+                    box-shadow: none !important;
+                  }
+            # WiFi
+            - type: 'custom:button-card'
+              template: card_barcode
+              name: Guest WiFi
+              icon: mdi:wifi
+              variables:
+                ulm_card_barcode_title: 'Guest WiFi'
+                ulm_card_barcode_image: '/local/images/wifi_guest.png'
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none;
+                    border: none;
+                    box-shadow: none !important;
+                  }
+            - type: custom:button-card
+              template: spacer
+        - type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            margin: 0px
+          cards:
+            # Climate Chip
+            - type: 'custom:button-card'
+              template:
+                - 'chip_climate'
+                - 'chip_navigate_only'
+              variables:
+                ulm_chip_temperature_low: sensor.lowest_temperature_home
+                ulm_chip_temperature_high: sensor.highest_temperature_home                     
+                ulm_chip_devices_on: sensor.number_of_climate_entities_on
+                ulm_chip_navigate_path: /lovelace-wallpanel-tiles/climate
+            # Lights Chip
+            - type: 'custom:button-card'
+              template:
+                - 'chip_icon_label_state'
+                - 'chip_navigate_only'
+                - 'chip_yellow'
+              icon: 'mdi:lightbulb'
+              variables:
+                ulm_chip_icon_state_entity: sensor.number_of_lights_on
+                ulm_chip_navigate_path: /lovelace-wallpanel-tiles/lights
+            # Covers Chip
+            - type: 'custom:button-card'
+              template:
+                - 'chip_icon_label_state'
+                - 'chip_navigate_only'
+                - 'chip_purple'
+              icon: 'mdi:window-shutter'
+              variables:
+                ulm_chip_icon_state_entity: sensor.number_of_covers_open
+                ulm_chip_navigate_path: /lovelace-wallpanel-tiles/covers
+    cardStyle: |
+      :host {
+        width: 100%;
+        height:100%;
+        --card-background-color: rgba(var(--rgb-disabled-color),0.2);
+      }
+
+views:
+
+    # Main
+    - !include /config/lovelace_tiles/views_wallpanel/view_home.yaml
+    - !include /config/lovelace_tiles/views_wallpanel/view_floor_2.yaml
+    - !include /config/lovelace_tiles/views_wallpanel/view_basement.yaml
+    - !include /config/lovelace_tiles/views_wallpanel/view_lights.yaml
+    - !include /config/lovelace_tiles/views_wallpanel/view_climate.yaml
+    - !include /config/lovelace_tiles/views_wallpanel/view_covers.yaml
+    - !include /config/lovelace_tiles/views_wallpanel/view_security.yaml

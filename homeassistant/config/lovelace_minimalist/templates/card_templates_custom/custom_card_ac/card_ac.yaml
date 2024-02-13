@@ -25,38 +25,38 @@ card_ac_target_temperature:
       - grid-template-rows: min-content  min-content
       - row-gap: 12px
   custom_fields:
+    # item1:
+    #   card:
+    #     template: 
+    #       - ac_list_items_favorite
+    #       #- badge_notification
+    #     type: custom:button-card
+    #     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+    #     custom_fields:
     item1:
       card:
-        template: 
-          - ac_list_items_favorite
-          #- badge_notification
-        type: custom:button-card
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-        custom_fields:
-          item1:
-            card:
-              entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-              name: >
-                [[[
-                    if (variables.ulm_card_ac_name == null && variables.ulm_card_ac_display_name == null) {
-                      return variables.ulm_card_ac_entity;
-                    }
-                    if (variables.ulm_card_ac_display_name != null && variables.ulm_card_ac_display_name != "") {
-                      return variables.ulm_card_ac_display_name
-                    }
-                    return variables.ulm_card_ac_name;
-                ]]]
-              template:
-                - ac_text_info
-                #- popup_ac
-              variables:
-                ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
-                ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
-                ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
-              type: 'custom:button-card'
-              tap_action:
-                action: more-info
+        name: >
+          [[[
+              if (variables.ulm_card_ac_name == null && variables.ulm_card_ac_display_name == null) {
+                return variables.ulm_card_ac_entity;
+              }
+              if (variables.ulm_card_ac_display_name != null && variables.ulm_card_ac_display_name != "") {
+                return variables.ulm_card_ac_display_name
+              }
+              return variables.ulm_card_ac_name;
+          ]]]
+        template:
+          - ac_text_info
+          #- popup_ac
+        variables:
+          ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+          ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
+          ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+          ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
+        type: 'custom:button-card'
+        tap_action:
+          action: more-info
     item2:
       card:
         template: 'list_1_item'
@@ -151,39 +151,39 @@ card_ac_buttons:
       - grid-template-rows: min-content  min-content
       - row-gap: 12px
   custom_fields:
+    # item1:
+    #   card:
+    #     template: 
+    #       - ac_list_items_favorite
+    #       #- badge_notification
+    #     type: custom:button-card
+    #     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+    #     custom_fields:
     item1:
       card:
-        template: 
-          - ac_list_items_favorite
-          #- badge_notification
-        type: custom:button-card
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-        custom_fields:
-          item1:
-            card:
-              entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-              name: '[[[ return variables.x_ulm_card_ac_name ]]]'
-              # name: >
-              #   [[[
-              #       if (variables.ulm_card_ac_name == null && variables.ulm_card_ac_display_name == null) {
-              #         return variables.ulm_card_ac_entity;
-              #       }
-              #       if (variables.ulm_card_ac_display_name != null && variables.ulm_card_ac_display_name != "") {
-              #         return variables.ulm_card_ac_display_name
-              #       }
-              #       return variables.ulm_card_ac_name;
-              #   ]]]
-              template:
-                - ac_text_info
-                #- popup_ac
-              variables:
-                ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                #ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
-                ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
-                ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
-              type: 'custom:button-card'
-              tap_action:
-                action: more-info
+        name: '[[[ return variables.x_ulm_card_ac_name ]]]'
+        # name: >
+        #   [[[
+        #       if (variables.ulm_card_ac_name == null && variables.ulm_card_ac_display_name == null) {
+        #         return variables.ulm_card_ac_entity;
+        #       }
+        #       if (variables.ulm_card_ac_display_name != null && variables.ulm_card_ac_display_name != "") {
+        #         return variables.ulm_card_ac_display_name
+        #       }
+        #       return variables.ulm_card_ac_name;
+        #   ]]]
+        template:
+          - ac_text_info
+          #- popup_ac
+        variables:
+          ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+          #ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
+          ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+          ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
+        type: 'custom:button-card'
+        tap_action:
+          action: more-info
     item2:
       card:
         template: 'list_1_item'
@@ -302,39 +302,39 @@ card_ac_buttons_with_temp:
       - grid-template-rows: min-content  min-content
       - row-gap: 12px
   custom_fields:
+    # item1:
+    #   card:
+    #     template: 
+    #       - ac_list_items_favorite
+    #       #- badge_notification
+    #     type: custom:button-card
+    #     entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+    #     custom_fields:
     item1:
       card:
-        template: 
-          - ac_list_items_favorite
-          #- badge_notification
-        type: custom:button-card
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-        custom_fields:
-          item1:
-            card:
-              entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-              name: '[[[ return variables.x_ulm_card_ac_name ]]]'
-              # name: >
-              #   [[[
-              #       if (variables.ulm_card_ac_name == null && variables.ulm_card_ac_display_name == null) {
-              #         return variables.ulm_card_ac_entity;
-              #       }
-              #       if (variables.ulm_card_ac_display_name != null && variables.ulm_card_ac_display_name != "") {
-              #         return variables.ulm_card_ac_display_name
-              #       }
-              #       return variables.ulm_card_ac_name;
-              #   ]]]
-              template:
-                - ac_text_info
-                #- popup_ac
-              variables:
-                ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-                #ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
-                ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
-                ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
-              type: 'custom:button-card'
-              tap_action:
-                action: more-info
+        name: '[[[ return variables.x_ulm_card_ac_name ]]]'
+        # name: >
+        #   [[[
+        #       if (variables.ulm_card_ac_name == null && variables.ulm_card_ac_display_name == null) {
+        #         return variables.ulm_card_ac_entity;
+        #       }
+        #       if (variables.ulm_card_ac_display_name != null && variables.ulm_card_ac_display_name != "") {
+        #         return variables.ulm_card_ac_display_name
+        #       }
+        #       return variables.ulm_card_ac_name;
+        #   ]]]
+        template:
+          - ac_text_info
+          #- popup_ac
+        variables:
+          ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+          #ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
+          ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+          ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
+        type: 'custom:button-card'
+        tap_action:
+          action: more-info
     item2:
       card:
         template: 'list_1_item'
@@ -493,7 +493,7 @@ ac_text_info:
   template: 
     - ulm_language_variables
   triggers_update: "all"
-  color: "var(--google-grey)"
+  #color: "var(--google-grey)"
   show_icon: false
   show_label: true
   show_name: true
@@ -525,27 +525,31 @@ ac_text_info:
       - margin-right: "12px"
       - height: "20px"
       - letter-spacing: "0.1px"
-    state:
-      - justify-self: "start"
-      - align-self: "start"
-      - font-weight: "bolder"
-      - font-size: "12px"
-      - filter: "opacity(40%)"
-      - margin-left: "12px"
-      - margin-right: "12px"
+    # state:
+    #   - justify-self: "start"
+    #   - align-self: "start"
+    #   - font-weight: "bolder"
+    #   - font-size: "12px"
+    #   - filter: "opacity(40%)"
+    #   - margin-left: "12px"
+    #   - margin-right: "12px"
     grid:
       - grid-template-areas: "'curr_temp n' 'curr_temp l'"
       - grid-template-columns: "min-content auto"
       - grid-template-rows: "min-content min-content"
     card:
-      - border-radius: "21px 8px 8px 21px"
+      - border-radius: "0px"
       - box-shadow: "none"
-      - padding: "0px"
+      #- padding: "0px"
       # - background-color: "rgba(var(--color-theme),0)"
-      - border-style: "none"
+      #- border-style: "none"
       - position: inherit
       - --mdc-ripple-press-opacity: 0.0
       - background: "none"
+      - padding-top: "12px"
+      - padding-bottom: "0px"
+      - padding-right: "12px"
+      - padding-left: "12px"
   label: >-
     [[[
         if (entity.state =='off') {
@@ -601,7 +605,7 @@ ac_text_info:
 
 ac_curr_temp:
   triggers_update: "all"
-  color: "var(--google-grey)"
+  #color: "var(--google-grey)"
   show_icon: false
   show_label: false
   show_name: false
@@ -619,6 +623,7 @@ ac_curr_temp:
       - border-radius: "0px"
       - --mdc-ripple-press-opacity: 0.0
       - background: "none"
+      - box-shadow: "none"
     custom_fields:
       curr_temp:
         - color: "var(--climate-curr-temp-color)" #'rgba(var(--color-theme),1)'

@@ -1,0 +1,20 @@
+popup_button_power_ha_style:
+  template:
+    - "popup_button_ha_style"
+    - "ulm_language_variables"
+  #icon: "mdi:power"
+  icon: |
+    [[[
+      if ( entity.state == "on" )
+        return "mdi:power-cycle";
+      else 
+        return "mdi:power-off";
+    ]]]
+  name: "[[[ return variables.ulm_popups_power ]]]"
+  styles:
+    name:
+      - text-transform: "uppercase"
+    # img_cell:
+    #   - background-color: "var(--popup-button-power-background-color)"
+  tap_action:
+    action: "toggle"

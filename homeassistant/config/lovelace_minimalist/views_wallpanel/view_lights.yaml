@@ -1,6 +1,6 @@
 title: Lights
 path: lights
-visible: true
+visible: false
 icon: mdi:lightbulb
 panel: true
     

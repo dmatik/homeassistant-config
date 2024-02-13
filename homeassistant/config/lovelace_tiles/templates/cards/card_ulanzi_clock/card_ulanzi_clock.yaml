@@ -1,0 +1,35 @@
+card_ulanzi_clock:
+  triggers_update: "all"
+  variables:
+    ulm_card_ulanzi_clock_entity: '[[[ return entity.entity_id ]]]'
+    ulm_card_ulanzi_clock_name: '[[[ return variables.ulm_card_ulanzi_clock_name ]]]'
+    ulm_card_ulanzi_clock_title: '[[[ return variables.ulm_card_ulanzi_clock_title ]]]'
+    ulm_card_ulanzi_clock_current_app: '[[[ return variables.ulm_card_ulanzi_clock_current_app ]]]'
+    ulm_card_ulanzi_clock_version: '[[[ return variables.ulm_card_ulanzi_clock_version ]]]'
+    ulm_card_ulanzi_clock_battery: '[[[ return variables.ulm_card_ulanzi_clock_battery ]]]'
+    ulm_card_ulanzi_clock_temperature: '[[[ return variables.ulm_card_ulanzi_clock_temperature ]]]'
+    ulm_card_ulanzi_clock_wifi_strength: '[[[ return variables.ulm_card_ulanzi_clock_wifi_strength ]]]'
+    ulm_card_ulanzi_clock_next_app: '[[[ return variables.ulm_card_ulanzi_clock_next_app ]]]'
+    ulm_card_ulanzi_clock_previous_app: '[[[ return variables.ulm_card_ulanzi_clock_previous_app ]]]'
+    ulm_card_ulanzi_clock_transition: '[[[ return variables.ulm_card_ulanzi_clock_transition ]]]'
+    ulm_card_ulanzi_clock_indicator_1: '[[[ return variables.ulm_card_ulanzi_clock_indicator_1 ]]]'
+    ulm_card_ulanzi_clock_indicator_2: '[[[ return variables.ulm_card_ulanzi_clock_indicator_2 ]]]'
+    ulm_card_ulanzi_clock_dismiss_notification: '[[[ return variables.ulm_card_ulanzi_clock_dismiss_notification ]]]'
+  template:
+    - 'icon_info_bg'
+    - 'blue_on'
+    - "ulm_language_variables_EN"
+    - 'popup_ulanzi_clock'
+  name: '[[[ return variables.ulm_card_ulanzi_clock_name ]]]'
+  icon: 'mdi:clock-digital'
+  label: |-
+    [[[
+      if (entity.state === "off") {
+        return variables.ulm_off;
+      } else if (entity.state === "unavailable") {
+        return variables.ulm_unavailable;
+      } else {
+        return states[variables.ulm_card_ulanzi_clock_current_app].state;
+      }
+    ]]]
+

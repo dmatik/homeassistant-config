@@ -1,0 +1,500 @@
+card_ac_buttons:
+  template: 
+    - ulm_language_variables
+  triggers_update: "all"
+  variables:
+    ulm_card_ac_entity: climate.example
+    ulm_card_ac_fan_mode_sensor: sensor.example
+    #ulm_card_ac_curr_temp_sensor: sensor.example
+    x_ulm_card_ac_name: 'AC'
+    ulm_card_ac_display_name: ''
+  styles:
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px);"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "0px"
+      - position: inherit
+    grid:
+      - grid-template-areas: '"item1" "item2"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: min-content  min-content
+      - row-gap: 12px
+  custom_fields:
+    item1:
+      card:
+        entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+        name: '[[[ return variables.x_ulm_card_ac_name ]]]'
+        template:
+          - ac_text_info
+        variables:
+          ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+          ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+          ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
+        type: 'custom:button-card'
+        tap_action:
+          action: more-info
+    item2:
+      card:
+        template: 'list_1_item'
+        type: 'custom:button-card'
+        custom_fields:
+          item1:
+            card:
+              template: 'list_3_items_no_gap'
+              type: 'custom:button-card'
+              styles:
+                card:
+                  - box-shadow: "none"
+                  - padding: "0px"
+                  - background-color: "rgba(var(--rgb-disabled-color),0.2)"
+                  - border-radius: "var(--control-button-border-radius)"
+              custom_fields:
+                item1:
+                  card:
+                    icon: 'mdi:fire'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    tap_action:
+                      action: call-service
+                      service: climate.set_hvac_mode
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                        hvac_mode: heat
+                    state:
+                      - value: "heat"
+                        styles:
+                          icon:
+                            - color: 'rgb(255,255,255)'                          
+                          img_cell:
+                            - background-color: 'rgb(var(--rgb-climate-heat-color))'
+                item2:
+                  card:
+                    icon: 'mdi:snowflake'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    tap_action:
+                      action: call-service
+                      service: climate.set_hvac_mode
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                        hvac_mode: cool
+                    state:
+                      - value: "cool"
+                        styles:
+                          icon:
+                            - color: 'rgb(255,255,255)'                          
+                          img_cell:
+                            - background-color: 'rgb(var(--rgb-climate-cool-color))'
+                item3:
+                  card:
+                    icon: 'mdi:power'
+                    tap_action:
+                      action: call-service
+                      service: climate.turn_off
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+
+
+
+card_ac_buttons_with_temp:
+  template: 
+    - ulm_language_variables
+  triggers_update: "all"
+  variables:
+    ulm_card_ac_entity: climate.example
+    ulm_card_ac_fan_mode_sensor: sensor.example
+    #ulm_card_ac_curr_temp_sensor: sensor.example
+    x_ulm_card_ac_name: 'AC'
+    ulm_card_ac_display_name: ''
+  styles:
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px);"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "0px"
+      - position: inherit
+    grid:
+      - grid-template-areas: '"item1" "item2" "item3"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: min-content  min-content
+      - row-gap: 12px
+  custom_fields:
+    item1:
+      card:
+        entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+        name: '[[[ return variables.x_ulm_card_ac_name ]]]'
+        template:
+          - ac_text_info
+        variables:
+          ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+          #ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
+          ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
+          ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
+        type: 'custom:button-card'
+        tap_action:
+          action: more-info
+    item2:
+      card:
+        template: 'list_1_item'
+        type: 'custom:button-card'
+        styles:
+          card:
+            - padding-bottom: "0px"
+        custom_fields:
+          item1:
+            card:
+              template: 'list_3_items_no_gap'
+              type: 'custom:button-card'
+              styles:
+                card:
+                  - box-shadow: "none"
+                  - padding: "0px"
+                  - background-color: "rgba(var(--rgb-disabled-color),0.2)"
+                  - border-radius: "var(--control-button-border-radius)"
+              custom_fields:
+                item1:
+                  card:
+                    icon: 'mdi:fire'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    tap_action:
+                      action: call-service
+                      service: climate.set_hvac_mode
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                        hvac_mode: heat
+                    state:
+                      - value: "heat"
+                        styles:
+                          icon:
+                            - color: 'rgb(255,255,255)'                           
+                          img_cell:
+                            - background-color: 'rgb(var(--rgb-climate-heat-color))'
+                item2:
+                  card:
+                    icon: 'mdi:snowflake'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    tap_action:
+                      action: call-service
+                      service: climate.set_hvac_mode
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                        hvac_mode: cool
+                    state:
+                      - value: "cool"
+                        styles:
+                          icon:
+                            - color: 'rgb(255,255,255)'
+                          img_cell:
+                            - background-color: 'rgb(var(--rgb-climate-cool-color))'
+                item3:
+                  card:
+                    icon: 'mdi:power'
+                    tap_action:
+                      action: call-service
+                      service: climate.turn_off
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+    item3:
+      card:
+        template: 'list_1_item'
+        type: 'custom:button-card'
+        custom_fields:
+          item1:
+            card:
+              template: 'list_3_items'
+              type: 'custom:button-card'
+              styles:
+                card:
+                  - box-shadow: "none"
+                  - padding: "0px"
+                  - background-color: "rgba(var(--rgb-disabled-color),0.2)"
+                  - border-radius: "var(--control-button-border-radius)"
+              custom_fields:
+                item1:
+                  card:
+                    icon: 'mdi:minus'
+                    tap_action:
+                      action: call-service
+                      service: script.decrease_climate_temperature
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+                item2:
+                  card:
+                    icon: 'mdi:temperature-celsius'
+                    tap_action:
+                      action: none
+                    type: 'custom:button-card'
+                    template: ac_widget_target_temp
+                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+                item3:
+                  card:
+                    icon: 'mdi:plus'
+                    tap_action:
+                      action: call-service
+                      service: script.increment_climate_temperature
+                      service_data:
+                        entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+
+
+
+ac_text_info:
+  template: 
+    - ulm_language_variables
+  triggers_update: "all"
+  #color: "var(--google-grey)"
+  show_icon: false
+  show_label: true
+  show_name: true
+  styles:
+    label:
+      - justify-self: "start"
+      - align-self: "start"
+      - font-weight: "400"
+      - font-size: "12px"
+      #- filter: "opacity(40%)"
+      - margin-left: "12px"
+      - margin-right: "12px"
+      - letter-spacing: "0.4px"
+      - color: "var(--primary-text-color)"
+    name:
+      - align-self: "end"
+      - justify-self: "start"
+      - font-weight: "500"
+      - font-size: "14px"
+      - margin-left: "12px"
+      - margin-right: "12px"
+      - height: "20px"
+      - letter-spacing: "0.1px"
+    grid:
+      - grid-template-areas: "'curr_temp n' 'curr_temp l'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "0px"
+      - box-shadow: "none"
+      - position: inherit
+      - --mdc-ripple-press-opacity: 0.0
+      - background: "none"
+      - padding-top: "12px"
+      - padding-bottom: "0px"
+      - padding-right: "12px"
+      - padding-left: "12px"
+      - border-style: "none"
+  label: >-
+    [[[
+        if (entity.state =='off') {
+          return variables.ulm_off;
+        }
+
+        var target_temp = entity.attributes.temperature;
+
+        var operation = entity.state;
+        if (entity.state =='dry') {
+          operation = variables.ulm_ac_dry;
+        } else if (entity.state =='heat') {
+          operation = variables.ulm_ac_heat + ' • ' + target_temp + '°';
+        } else if (entity.state =='heat_cool') {
+          operation = variables.ulm_ac_auto;
+        } else if (entity.state =='cool') {
+          operation = variables.ulm_ac_cool + ' • ' + target_temp + '°';
+        } else if (entity.state =='fan_only') {
+          operation = variables.ulm_ac_fan;
+        } else if (entity.state =='unavailable') {
+          operation = variables.unavailable;
+        }        
+
+        // var fan = entity.attributes.fan_mode;
+        // if (entity.attributes.fan_mode =='auto') {
+        //   fan = 'Auto';
+        // } else if (entity.attributes.fan_mode =='low') {
+        //   fan = 'Low';
+        // } else if (entity.attributes.fan_mode =='medium low') {
+        //   fan = 'Med low';
+        // } else if (entity.attributes.fan_mode =='medium') {
+        //   fan = 'Medium';
+        // } else if (entity.attributes.fan_mode =='medium high') {
+        //   fan = 'Med High';
+        // } else if (entity.attributes.fan_mode =='high') {
+        //   fan = 'High';
+        // }
+
+        //return operation + ' • ' + fan;
+        return operation;
+    ]]]
+  custom_fields:
+    curr_temp:
+      card:
+        entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+        template:
+          - ac_curr_temp
+        variables:
+          ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
+          ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
+        type: 'custom:button-card'
+  size: "20px"
+
+ac_curr_temp:
+  triggers_update: "all"
+  #color: "var(--google-grey)"
+  show_icon: false
+  show_label: false
+  show_name: false
+  grid:
+    - grid-template-areas: "'curr_temp'"
+    - grid-template-columns: "min-content"
+    - grid-template-rows: "min-content"
+  tap_action:
+    action: more-info
+  styles:
+    card:
+      - border-style: none
+      - padding: "0px"
+      - position: inherit
+      - border-radius: "0px"
+      - --mdc-ripple-press-opacity: 0.0
+      - background: "none"
+      - box-shadow: "none"
+    custom_fields:
+      curr_temp:
+        - color: 'var(--grey-color)'
+        - background-color: 'rgba(var(--rgb-grey-color),0.2)'
+        - border-radius: '50%'
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - width: '40px'
+        - height: '40px'      
+        - font-size: '16px'
+        - font-weight: '450'
+        - letter-spacing: '-1px'
+  custom_fields:
+    curr_temp: |-
+      [[[
+          var curr_temp = states[variables.ulm_card_ac_curr_temp_sensor].state;
+          if (curr_temp == null || curr_temp == "unavailable" || curr_temp == "unknown") {
+            var curr_temp = '--';
+          } else {
+            curr_temp = Number(curr_temp).toFixed(1);
+          }
+          return curr_temp + '°';
+      ]]]
+  state:
+    - operator: template
+      value: >
+        [[[
+          return entity.state == 'heat';
+        ]]]
+      styles:
+        custom_fields:
+          curr_temp:
+            - color: 'rgb(var(--rgb-climate-heat-color))'
+            - background-color: 'rgb(var(--rgb-climate-heat-color),0.2)'
+    - operator: template
+      value: >
+        [[[
+          return entity.state == 'dry';
+        ]]]
+      styles:
+        custom_fields:
+          curr_temp:
+            - color: 'rgb(var(--rgb-climate-dry-color))'
+            - background-color: 'rgb(var(--rgb-climate-dry-color),0.2)'
+    - operator: template
+      value: >
+        [[[
+          return entity.state == 'cool';
+        ]]]
+      styles:
+        custom_fields:
+          curr_temp:
+            - color: 'rgb(var(--rgb-climate-cool-color))'
+            - background-color: 'rgb(var(--rgb-climate-cool-color),0.2)'
+    - operator: template
+      value: >
+        [[[
+          return entity.state == 'heat_cool';
+        ]]]
+      styles:
+        custom_fields:
+          curr_temp:
+            - color: 'rgb(var(--rgb-climate-auto-color))'
+            - background-color: 'rgb(var(--rgb-climate-auto-color),0.2)'
+    - operator: template
+      value: >
+        [[[
+          return entity.state == 'fan_only';
+        ]]]
+      styles:
+        custom_fields:
+          curr_temp:
+            - color: 'rgb(var(--rgb-climate-fan-only-color))'
+            - background-color: 'rgb(var(--rgb-climate-fan-only-color),0.2)'
+      
+
+
+ac_list_items_favorite:
+  show_icon: false
+  show_label: false
+  show_name: false
+  styles:
+    card:
+      - box-shadow: none
+      - padding-top: "12px"
+      - padding-bottom: "0px"
+      - padding-right: "12px"
+      - padding-left: "12px"
+      - border-style: "none"
+      - position: inherit
+      - border-radius: 0px
+      - background: "none"
+    grid:
+      - grid-template-areas: '"item1 item1"'
+      - grid-template-columns: 1fr 1fr
+      - grid-template-rows: min-content
+      - column-gap: 7px
+
+
+ac_widget_target_temp:
+  #color: var(--google-grey-500)
+  show_icon: false
+  show_name: false
+  show_label: true
+  size: 20px
+  label: |-
+    [[[
+        var temperature = entity.attributes.temperature;
+        if (temperature == null) {
+          var temperature = '--';
+        }
+        return temperature;
+    ]]]
+  styles:
+    card:
+      - box-shadow: none
+      - padding: 0px
+      - background: none
+      - border-radius: 14px
+      - place-self: center
+      - height: 40px
+      #- font-size: '22px'
+      - border-style: "none"
+    grid:
+      - grid-template-areas: '"l"'
+    label:
+      - color: 'var(--primary-text-color)'
+      - font-weight: '500'
+      - font-size: '20px'
+      - padding-top: '0.5px'

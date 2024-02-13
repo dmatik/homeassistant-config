@@ -1,0 +1,24 @@
+card_pc:
+  variables:
+    ulm_card_pc_entity: '[[[ return entity.entity_id ]]]'
+    x_ulm_card_pc_name: '[[[ return variables.x_ulm_card_pc_name ]]]'
+  template:
+    - 'icon_info_bg'
+    - 'blue_on'
+    - 'ulm_language_variables'
+    - 'popup_pc'
+  name: '[[[ return variables.x_ulm_card_pc_name ]]]'
+  icon: 'mdi:desktop-classic'
+  label: |-
+    [[[
+      if (entity.state === "on") {
+        return variables.ulm_on;
+      } else if (entity.state === "off") {
+        return variables.ulm_off;
+      } else if (entity.state === "unavailable") {
+        return variables.ulm_unavailable;
+      } else {
+        return entity.state;
+      }
+    ]]]
+

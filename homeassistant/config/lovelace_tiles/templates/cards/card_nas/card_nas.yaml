@@ -1,0 +1,63 @@
+card_nas:
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "0px"
+    grid:
+      - grid-template-areas: "'item1' 'item2' 'item3' 'item4'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+  custom_fields:
+    item1:
+      card:
+        type: 'custom:button-card'
+        entity: '[[[ return variables.ulm_card_nas_entity ]]]'
+        icon: mdi:nas
+        name: | 
+          [[[
+            var name = variables.ulm_card_nas_name;
+            if ( states[variables.ulm_card_nas_entity].attributes.latest_version != null && states[variables.ulm_card_nas_entity].state == "on" ) {
+              name = name + " • New: " + states[variables.ulm_card_nas_entity].attributes.latest_version;
+            } 
+            return name;
+          ]]]
+        label: '[[[ return states[variables.ulm_card_nas_entity].attributes.installed_version ]]]'
+        template:
+          - "icon_info"        
+          - "blue_on"
+          - "ulm_language_variables_EN"
+    item2:
+      card:
+        type: 'custom:button-card'
+        template: 'widget_mini_graph_bar'
+        variables:
+          mini_graph_name: 'HD'
+          mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
+          mini_graph_entity: '[[[ return variables.ulm_card_nas_hd_entity ]]]'
+        styles:
+          card:
+            - padding-top: "10px"
+        
+    item3:
+      card:
+        type: 'custom:button-card'
+        template: 'widget_mini_graph_bar'
+        variables:
+          mini_graph_name: 'CPU'
+          mini_graph_color: 'rgba(var(--rgb-blue-color),0.2)'
+          mini_graph_entity: '[[[ return variables.ulm_card_nas_cpu_entity ]]]'
+    item4:
+      card:
+        type: 'custom:button-card'
+        template: 'widget_mini_graph_bar'
+        variables:
+          mini_graph_name: 'RAM'
+          mini_graph_color: 'rgba(var(--rgb-purple-color),0.2)'
+          mini_graph_entity: '[[[ return variables.ulm_card_nas_ram_entity ]]]'
+        styles:
+          card:
+            - padding-bottom: "12px"

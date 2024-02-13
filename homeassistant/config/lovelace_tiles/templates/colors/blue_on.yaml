@@ -1,0 +1,12 @@
+---
+
+blue_on:
+  state:
+    - styles:
+        icon:
+          - color: 'var(--blue-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-blue-color),0.2)'
+      id: "on"
+      value: "on"
+

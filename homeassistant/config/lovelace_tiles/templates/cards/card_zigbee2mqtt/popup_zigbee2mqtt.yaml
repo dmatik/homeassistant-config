@@ -1,0 +1,48 @@
+popup_zigbee2mqtt_network_map:
+  variables:
+    ulm_card_zigbee2mqtt_title: ''
+  tap_action:
+
+    action: fire-dom-event
+    browser_mod:
+      service: browser_mod.popup
+      data:
+        title: "[[[ return variables.ulm_card_zigbee2mqtt_title ]]]"
+        size: fullscreen
+        content:
+
+          type: vertical-stack
+          cards:
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 10px
+
+
+            ############################################################################
+            #                                                                          #
+            #   Network Map                                                            #
+            #                                                                          #
+            ############################################################################
+
+            - type: custom:layout-card
+              layout_type: grid
+              layout_options:
+                grid-template-columns: 1fr
+                grid-template-rows: auto
+                grid-gap: 0px 4px
+              cards:
+
+
+                - type: custom:zigbee2mqtt-networkmap
+                  entity: "[[[ return variables.ulm_card_zigbee2mqtt_networkmap ]]]"
+                  mqtt_base_topic: "[[[ return variables.ulm_card_zigbee2mqtt_mqtt_base_topic ]]]"
+                  mqtt_payload: { type: 'raw', routes: false }
+
+
+
+            - type: "custom:button-card"
+              template: spacer
+              variables:
+                height: 20px

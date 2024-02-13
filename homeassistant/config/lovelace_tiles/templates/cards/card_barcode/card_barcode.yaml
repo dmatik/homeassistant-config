@@ -1,0 +1,16 @@
+card_barcode:
+  template:
+    - "icon_info_bg_no_enity"
+    - "ulm_language_variables_EN"
+    - "popup_barcode"
+  variables:
+    ulm_card_barcode_title: "[[[ return variables.ulm_card_barcode_title ]]]"
+    ulm_card_barcode_image: "[[[ return variables.ulm_card_barcode_image ]]]"  
+  label: "Click on me"
+  styles:
+    icon:
+      - color: 'var(--grey-color)'
+    grid:
+      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"

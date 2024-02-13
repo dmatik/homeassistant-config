@@ -1,0 +1,63 @@
+# card_image:
+#   variables:
+#     card_image_image: ""
+#   show_icon: true
+#   show_label: false
+#   show_name: false
+#   show_entity_picture: true
+#   #aspect_ratio: 1/1
+#   entity_picture: "[[[ return variables.card_image_image ]]]"
+#   styles:
+#     icon:
+#       - width: "520px"
+#       - height: "520px"
+#       - place-self: "center"
+#     grid:
+#       - grid-template-areas: "'i'"
+#       - grid-template-columns: "min-content"
+#       - grid-template-rows: "min-content"  
+#     card:
+#       - border-radius: "var(--ha-card-border-radius,12px)"
+#       - box-shadow: "var(--ha-card-box-shadow)"
+#       - padding: "12px"
+#     img_cell:
+#       - border-radius: 8px
+#       - width: "520px"
+#       - height: "520px"
+#       - place-self: "center"
+#       - 
+#   tap_action:
+#     action: none
+
+card_image:
+  variables:
+    ulm_card_image: ''
+    ulm_card_refresh_command: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: custom:refreshable-picture-card
+        title: null
+        refresh_interval: 5
+        url: "[[[ return variables.ulm_card_image ]]]"
+        noMargin: true
+        tap_action:
+          action: none
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: none;
+              border-radius: 10px;
+              border-style: none;
+            }

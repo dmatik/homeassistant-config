@@ -1,0 +1,341 @@
+title: בית
+path: tiles_home
+icon: mdi:home-variant
+type: custom:grid-layout
+panel: true
+cards:
+
+  - type: vertical-stack
+    cards:
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
+
+                      # - type: custom:button-card
+                      #   template: edge
+
+                      # Climate Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_climate'
+                          - 'chip_navigate_only'
+                          #- 'chip_blue_no_state'
+                        variables:
+                          ulm_chip_temperature_low: sensor.lowest_temperature_home
+                          ulm_chip_temperature_high: sensor.highest_temperature_home                     
+                          ulm_chip_devices_on: sensor.number_of_climate_entities_on
+                          ulm_chip_navigate_path: /lovelace/tiles_climate
+
+                      # Presense Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_navigate_only'
+                          - 'chip_blue'
+                        icon: 'mdi:home'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_persons_home
+                          ulm_chip_navigate_path: /lovelace/tiles_presense
+
+                      # Lights Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_navigate_only'
+                          - 'chip_yellow'
+                        icon: 'mdi:lightbulb'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_lights_on
+                          ulm_chip_navigate_path: /lovelace/tiles_lights
+
+                      # Covers Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_navigate_only'
+                          - 'chip_purple'
+                        icon: 'mdi:window-shutter'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_covers_open
+                          ulm_chip_navigate_path: /lovelace/tiles_covers
+
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_navigate_only'
+                          - 'chip_yellow'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+                          ulm_chip_navigate_path: /lovelace/tiles_motion
+
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Scenes                                                                 #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_scenes; ]]]"
+
+
+                # Scenes
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr 1fr 1fr
+                    cards:
+
+                      # Basement Lights OFF scene
+                      - type: 'custom:button-card'
+                        template: card_scene_vertical
+                        entity: scene.basement_lights_off
+                        name: "[[[ return variables.ulm_basement; ]]]"
+                        label: "[[[ return variables.ulm_lights_off; ]]]"
+                        icon: mdi:lightbulb-multiple-off
+                        variables:
+                          color: "yellow"
+                          x_confirmation_text: "[[[ return variables.ulm_turn_off_basment_lights; ]]]"
+
+                      # Main Floor Lights OFF scene
+                      - type: 'custom:button-card'
+                        template: card_scene_vertical
+                        entity: scene.ground_floor_lights_off
+                        name: "[[[ return variables.ulm_ground; ]]]"
+                        label: "[[[ return variables.ulm_lights_off; ]]]"
+                        icon: mdi:lightbulb-multiple-off
+                        variables:
+                          color: "yellow"
+                          x_confirmation_text: "[[[ return variables.ulm_turn_off_ground_lights; ]]]"
+
+                      # Main Floor Covers
+                      - type: 'custom:button-card'
+                        template: card_scene_vertical
+                        entity: scene.main_floor_covers
+                        name: "[[[ return variables.ulm_covers; ]]]"
+                        label: "[[[ return variables.ulm_main; ]]]"
+                        icon: mdi:window-shutter
+                        variables:
+                          color: "purple"
+                          x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
+
+                      # Movie time
+                      - type: 'custom:button-card'
+                        template: card_scene_vertical
+                        entity: scene.movie_time
+                        name: "[[[ return variables.ulm_movie; ]]]"
+                        label: "[[[ return variables.ulm_scene; ]]]"
+                        icon: mdi:movie-filter
+                        variables:
+                          color: "blue"
+                          x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"
+
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Favorites                                                              #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_favorites; ]]]"
+
+                #Cards
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Living Room Light
+                      - type: tile
+                        entity: light.living_room
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Dining Light
+                      - type: tile
+                        entity: light.dining
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Living Room Climate
+                      - type: 'custom:button-card'
+                        template: card_ac_buttons
+                        variables:
+                          ulm_card_ac_entity: climate.living_room_template
+                          ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
+                          x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
+                        view_layout:
+                          grid-row-start: span 2  
+
+                      # Switcher
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_switcher
+                        variables:
+                          x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+                          ulm_card_switcher_icon: "mdi:waves"
+                          ulm_card_switcher_entity: switch.switcher_boiler
+                          ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
+                          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
+                          ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+                          ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
+                          ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+                        view_layout:
+                          grid-row-start: span 2
+
+                      # Back Yard Cover
+                      - type: tile
+                        entity: cover.back_yard
+                        features:
+                          - type: "cover-open-close"
+                        view_layout:
+                          grid-row-start: span 2  
+
+                      # Living Room TV
+                      - type: tile
+                        entity: media_player.lg_webos_tv_oled77cs6la
+
+                      # Basement TV
+                      - type: tile
+                        entity: media_player.samsung_8_series_65
+
+                      # Bedside Dima Light
+                      - type: tile
+                        entity: light.bedside_dima_bulb
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Bedside Galit Light
+                      - type: tile
+                        entity: light.bedside_galit_bulb
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Dimka PC
+                      - type: 'custom:button-card'
+                        template: card_pc
+                        entity: switch.dimka_hass_agent
+                        variables:
+                          x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
+                          ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
+                          ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
+                          ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
+                          ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
+                          ulm_card_pc_wake: 'script.dimka_wake'
+                          ulm_card_pc_sleep: 'script.dimka_sleep'
+                          ulm_card_pc_restart: 'script.dimka_restart'
+                          ulm_card_pc_shutdown: 'script.dimka_shutdown'
+
+                      # Red Alert
+                      - type: 'custom:button-card'
+                        template: card_red_alert
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px
+
+

@@ -1,0 +1,13 @@
+yellow_on:
+  state:
+    - styles:
+        icon:
+          - color: 'var(--yellow-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-yellow-color),0.2)'
+      value: "on"
+      id: "on"
+
+# Legacy
+yellow:
+  template: "yellow_on"
