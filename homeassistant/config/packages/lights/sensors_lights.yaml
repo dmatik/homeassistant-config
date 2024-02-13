@@ -224,3 +224,21 @@ template:
               {% endif %}
               {{ hour + ":" + min }}
           {% endif %}
+
+      # Kitchen Led Strip Time Left
+      - name: "kitchen_led_strip_time_left"
+        unique_id: kitchen_led_strip_time_left
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("timer.kitchen_strips", "idle") %}
+              off
+          {% else %}
+              {% set finishes_at = state_attr("timer.kitchen_strips","finishes_at") %}
+              {% set time_delta = as_datetime(finishes_at) - now() %}
+              {% set hour = (time_delta|string).split(':')[0] %}
+              {% set min = (time_delta|string).split(':')[1] %}
+              {% if (hour | int < 10) %}
+                {% set hour = "0" + hour %}
+              {% endif %}
+              {{ hour + ":" + min }}
+          {% endif %}
