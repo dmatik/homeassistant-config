@@ -14,7 +14,7 @@ template:
         state: >
           {% set count = namespace(value=0) %}
           {% for entity_id in state_attr('cover.all_covers','entity_id') %}
-            {% if (states(entity_id) == 'open' or states(entity_id) == 'opening' or states(entity_id) == 'closing') %}
+            {% if (states(entity_id) != 'closed') %}
               {% set count.value = count.value + 1 %}
             {% endif %}
           {% endfor %}
@@ -32,7 +32,7 @@ template:
         state: >
           {% set count = namespace(value=0) %}
           {% for entity_id in state_attr('cover.living_room_covers','entity_id') %}
-            {% if (states(entity_id) == 'open' or states(entity_id) == 'opening' or states(entity_id) == 'closing') %}
+            {% if (states(entity_id) != 'closed') %}
               {% set count.value = count.value + 1 %}
             {% endif %}
           {% endfor %}
@@ -50,7 +50,7 @@ template:
         state: >
           {% set count = namespace(value=0) %}
           {% for entity_id in state_attr('cover.kitchen_covers','entity_id') %}
-            {% if (states(entity_id) == 'open' or states(entity_id) == 'opening' or states(entity_id) == 'closing') %}
+            {% if (states(entity_id) != 'closed') %}
               {% set count.value = count.value + 1 %}
             {% endif %}
           {% endfor %}
@@ -67,7 +67,7 @@ template:
         state: >
           {% set count = namespace(value=0) %}
           {% for entity_id in state_attr('cover.bedroom_covers','entity_id') %}
-            {% if (states(entity_id) == 'open' or states(entity_id) == 'opening' or states(entity_id) == 'closing') %}
+            {% if (states(entity_id) != 'closed') %}
               {% set count.value = count.value + 1 %}
             {% endif %}
           {% endfor %}
@@ -84,7 +84,7 @@ template:
         state: >
           {% set count = namespace(value=0) %}
           {% for entity_id in state_attr('cover.ronen_room_covers','entity_id') %}
-            {% if (states(entity_id) == 'open' or states(entity_id) == 'opening' or states(entity_id) == 'closing') %}
+            {% if (states(entity_id) != 'closed') %}
               {% set count.value = count.value + 1 %}
             {% endif %}
           {% endfor %}
@@ -101,7 +101,7 @@ template:
         state: >
           {% set count = namespace(value=0) %}
           {% for entity_id in state_attr('cover.kfir_room_covers','entity_id') %}
-            {% if (states(entity_id) == 'open' or states(entity_id) == 'opening' or states(entity_id) == 'closing') %}
+            {% if (states(entity_id) != 'closed') %}
               {% set count.value = count.value + 1 %}
             {% endif %}
           {% endfor %}

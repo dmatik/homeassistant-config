@@ -392,9 +392,8 @@
   - platform: device
     domain: mqtt
     device_id: b85e0819c36f51c4458c7f7878097507
-    type: click
+    type: action
     subtype: single
-    discovery_id: 0x00158d00035f3679 click_single
   condition: []
   action:
   - service: light.toggle
@@ -410,9 +409,8 @@
   - platform: device
     domain: mqtt
     device_id: 53a0eb7493d10a17079db274f688b201
-    type: click
+    type: action
     subtype: single
-    discovery_id: 0x00158d0003243f56 click_single
   condition: []
   action:
   - service: light.toggle
@@ -584,7 +582,7 @@
     entity_id:
     - sun.sun
     attribute: elevation
-    below: 8
+    below: 10
     id: 'on'
   condition:
   - condition: state
@@ -1218,6 +1216,7 @@
           metadata: {}
           target:
             entity_id: scene.kids_morning_covers
+          enabled: false
     - conditions:
       - condition: trigger
         id:
@@ -1231,6 +1230,7 @@
         metadata: {}
         target:
           entity_id: scene.kids_day_covers
+        enabled: false
     - conditions:
       - condition: trigger
         id:
@@ -1244,6 +1244,7 @@
         metadata: {}
         target:
           entity_id: scene.kids_evening_covers
+        enabled: false
       - service: scene.turn_on
         metadata: {}
         target:
@@ -1261,4 +1262,36 @@
         metadata: {}
         target:
           entity_id: scene.kids_night_covers
+        enabled: false
+  mode: single
+- id: '1707128536780'
+  alias: Toggle Stairs Lights
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - light.stairs_basement
+    to: 'on'
+    from: 'off'
+  - platform: state
+    entity_id:
+    - light.stairs_basement
+    to: 'off'
+    from: 'on'
+  - platform: state
+    entity_id:
+    - light.stairs_floor_2
+    to: 'on'
+    from: 'off'
+  - platform: state
+    entity_id:
+    - light.stairs_floor_2
+    to: 'off'
+    from: 'on'
+  condition: []
+  action:
+  - type: toggle
+    device_id: fae8c7d1878d04dbd3f3dd3bef0794e9
+    entity_id: 1e247e9c72da93e2ee2da9b2bfd3a06c
+    domain: light
   mode: single
