@@ -4,8 +4,9 @@ switch:
     switches:
 
       switcher_boiler:
+          unique_id: switcher_boiler_switch
           friendly_name: Boiler
-          icon_template: mdi:shower
+          icon_template: mdi:waves
           #value_template: "{{ is_state('sensor.switcher_boiler_state', 'on') }}"
           value_template: "{{ is_state_attr('sensor.switcher_boiler', 'state', 'ON') }}"
           availability_template: "{{ is_state('sensor.switcher_boiler', 'OK') }}"
