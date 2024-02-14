@@ -11,6 +11,8 @@ Tiles:
   rgb-blue-color: '33,150,243' #'#2196f3'
   rgb-purple-color: '146,107,199' #'#926BC7'
   rgb-green-color: '76,175,80' #'#4caf50'
+  red-color: '#F54436'
+  rgb-red-color: "245, 68, 54" # Original HA red -> '244,67,54' #'#f44336'
 
   # Climate Colors
   rgb-climate-heat-color: '255,111,34'
@@ -31,8 +33,6 @@ Tiles:
 
       # Colors
       rgb-disabled-color: '189,189,189' #'#bdbdbd'
-      red-color: '#F54436'
-      rgb-red-color: "245, 68, 54" #'244,67,54' #'#f44336'
 
       # Popup
       popup-backdrop-filter: "blur(10px) brightness(100%)"
@@ -48,8 +48,6 @@ Tiles:
 
       # Colors
       rgb-disabled-color: '70,70,70' #'#464646'
-      red-color: '#F18B82'
-      rgb-red-color: "241, 139, 130" #'244,67,54' #'#f44336'
 
       # Popup
       popup-backdrop-filter: "blur(10px) contrast(50%)"
