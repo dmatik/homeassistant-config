@@ -35,7 +35,7 @@ chip_base:
       - display: flex
       - justify-content: center
       - align-items: center
-      - color: 'var(--grey-color)'
+      - color: 'var(--chip-icon-disabled-color)'
     label:
       - display: flex
       - justify-content: center

@@ -383,7 +383,7 @@ ac_curr_temp:
       - box-shadow: "none"
     custom_fields:
       curr_temp:
-        - color: 'var(--grey-color)'
+        - color: 'var(--primary-text-color)' #'var(--grey-color)'
         - background-color: 'rgba(var(--rgb-grey-color),0.2)'
         - border-radius: '50%'
         - display: flex

@@ -1,11 +1,13 @@
-Tiles:
+Tiles Material:
+
+  # Theme
+  ha-card-border-width: 0
 
   # Layout
   view-margins: "0px"
   grid-layout-margins: "-10px -2px 12px"
 
   # Colors
-  rgb-grey-color: '158,158,158' #'#9e9e9e'
   yellow-color: '#ffc107'
   rgb-yellow-color: '255,193,7' #'#ffc107'
   rgb-blue-color: '33,150,243' #'#2196f3'
@@ -31,11 +33,20 @@ Tiles:
   
     light:
 
-      # Colors
-      rgb-disabled-color: '189,189,189' #'#bdbdbd'
+      # Theme
+      ha-card-box-shadow: 'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px' #rgba(0,0,0,0.06) 0 0 10px
+      card-background-color: "#FAFAFA"
+      primary-background-color: "#F5F5F5"
+      secondary-background-color: "#F5F5F5"
 
       # Chips
-      chip-icon-disabled-color: '#646464'
+      chip-icon-disabled-color: '#787878'
+
+      # Colors
+      grey-color: "#C3C3C3"
+      rgb-grey-color: "195,195,195"
+      disabled-color: '#C8C8C8'
+      rgb-disabled-color: '200,200,200'
 
       # Popup
       popup-backdrop-filter: "blur(10px) brightness(100%)"
@@ -49,11 +60,22 @@ Tiles:
 
     dark:
 
-      # Colors
-      rgb-disabled-color: '70,70,70' #'#464646'
+      # Theme
+      ha-card-box-shadow: rgba(0,0,0,0.1) 0 1 10px
+      card-background-color: "#1C1E22"
+      primary-background-color: "#000000"
+      secondary-background-color: "#000000"
+      app-header-background-color: 'var(--card-background-color)'
+      app-header-text-color: 'var(--primary-text-color)'      
 
       # Chips
       chip-icon-disabled-color: 'var(--grey-color)'
+
+      # Colors
+      grey-color: '#787878' #'#9e9e9e'
+      rgb-grey-color: '120,120,120' 
+      disabled-color: '#464646'
+      rgb-disabled-color: '70,70,70' 
 
       # Popup
       popup-backdrop-filter: "blur(10px) contrast(50%)"
@@ -66,7 +88,7 @@ Tiles:
 
 
 # Card-Mod
-  card-mod-theme: "Tiles"
+  card-mod-theme: "Tiles Material"
 
   card-mod-more-info-yaml: |
     .: |
