@@ -21,6 +21,7 @@ homeassistant:
 
   allowlist_external_dirs:
     - /config/www
+    - /config
 
   packages: !include_dir_named packages/
 
@@ -78,7 +79,7 @@ lovelace:
 recorder:
   auto_purge: true
   purge_keep_days: 64
-  db_url: !secret synology_db_connection
+  #db_url: !secret synology_db_connection
 
   
 #Logger
