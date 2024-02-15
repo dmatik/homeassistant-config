@@ -1,13 +1,29 @@
 card_pc:
   variables:
     ulm_card_pc_entity: '[[[ return entity.entity_id ]]]'
-    x_ulm_card_pc_name: '[[[ return variables.x_ulm_card_pc_name ]]]'
+    #x_ulm_card_pc_name: '[[[ return variables.x_ulm_card_pc_name ]]]'
+    x_ulm_card_pc_name: |
+      [[[
+        if (variables.x_ulm_card_pc_name != null) {
+          return variables.x_ulm_card_pc_name;
+        } else {
+          return entity.attributes.friendly_name;
+        }
+      ]]]
   template:
     - 'icon_info_bg'
     - 'blue_on'
     - 'ulm_language_variables'
     - 'popup_pc'
-  name: '[[[ return variables.x_ulm_card_pc_name ]]]'
+  #name: '[[[ return variables.x_ulm_card_pc_name ]]]'
+  name: |
+    [[[
+      if (variables.x_ulm_card_pc_name != null) {
+        return variables.x_ulm_card_pc_name;
+      } else {
+        return entity.attributes.friendly_name;
+      }
+    ]]]  
   icon: 'mdi:desktop-classic'
   label: |-
     [[[

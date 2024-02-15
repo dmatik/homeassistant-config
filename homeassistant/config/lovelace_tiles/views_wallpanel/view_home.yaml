@@ -102,7 +102,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.living_room_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -112,7 +112,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.basement_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -462,7 +462,7 @@ cards:
                     template: 
                       - card_switcher
                     variables:
-                      x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+                      #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
                       ulm_card_switcher_icon: "mdi:waves"
                       ulm_card_switcher_entity: switch.switcher_boiler
                       ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script

@@ -178,7 +178,7 @@ cards:
                         variables:
                           ulm_card_ac_entity: climate.bedroom_template
                           ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
-                          x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
+                          #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                         view_layout:
                           grid-row-start: span 2
 

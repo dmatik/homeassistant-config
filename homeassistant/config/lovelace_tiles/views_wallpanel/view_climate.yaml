@@ -202,8 +202,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.living_room_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
-                      #ulm_card_ac_display_name: 'AC'
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                     view_layout:
                       grid-row-start: span 3                        
 
@@ -214,8 +213,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.bedroom_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
-                      #ulm_card_ac_display_name: 'AC'
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -235,8 +233,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.kfir_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
-                      #ulm_card_ac_display_name: 'AC'
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -255,8 +252,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.ronen_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
-                      #ulm_card_ac_display_name: 'AC'
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -266,8 +262,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.basement_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
-                      #ulm_card_ac_display_name: 'AC'
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                     view_layout:
                       grid-row-start: span 3
 

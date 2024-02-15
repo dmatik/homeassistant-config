@@ -2,7 +2,7 @@ card_switcher:
   template: 
     - ulm_language_variables
   variables:
-    x_ulm_card_switcher_name: ""
+    x_ulm_card_switcher_name: null
     ulm_card_switcher_icon: ""
     ulm_card_switcher_entity: ""
     ulm_card_switcher_timer_script: ""
@@ -33,7 +33,15 @@ card_switcher:
           ulm_card_switcher_timer_minutes: '[[[ return variables.ulm_card_switcher_timer_minutes ]]]'
           ulm_card_switcher_timer_script: '[[[ return variables.ulm_card_switcher_timer_script ]]]'
           ulm_card_switcher_auto_off: '[[[ return variables.ulm_card_switcher_auto_off ]]]'
-          x_ulm_card_switcher_name: '[[[ return variables.x_ulm_card_switcher_name ]]]'
+          #x_ulm_card_switcher_name: '[[[ return variables.x_ulm_card_switcher_name ]]]'
+          x_ulm_card_switcher_name: |
+            [[[
+              if (variables.x_ulm_card_switcher_name != null) {
+                return variables.x_ulm_card_switcher_name;
+              } else {
+                return states[variables.ulm_card_switcher_entity].attributes.friendly_name;
+              }
+            ]]]
           ulm_card_switcher_icon: '[[[ return variables.ulm_card_switcher_icon ]]]'
         type: "custom:button-card"
         template:
@@ -42,7 +50,15 @@ card_switcher:
           - "switcher"
           - "popup_switcher"
         entity: "[[[ return variables.ulm_card_switcher_entity ]]]"
-        name: "[[[ return variables.x_ulm_card_switcher_name ]]]"
+        #name: "[[[ return variables.x_ulm_card_switcher_name ]]]"
+        name: |
+          [[[
+            if (variables.x_ulm_card_switcher_name != null) {
+              return variables.x_ulm_card_switcher_name;
+            } else {
+              return states[variables.ulm_card_switcher_entity].attributes.friendly_name;
+            }
+          ]]]
     item2:
       card:
         type: "custom:button-card"

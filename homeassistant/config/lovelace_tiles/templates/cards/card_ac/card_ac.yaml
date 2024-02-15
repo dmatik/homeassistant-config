@@ -6,8 +6,7 @@ card_ac_buttons:
     ulm_card_ac_entity: climate.example
     ulm_card_ac_fan_mode_sensor: sensor.example
     #ulm_card_ac_curr_temp_sensor: sensor.example
-    x_ulm_card_ac_name: 'AC'
-    ulm_card_ac_display_name: ''
+    x_ulm_card_ac_name: null
   styles:
     card:
       - border-radius: "var(--ha-card-border-radius,12px);"
@@ -23,7 +22,15 @@ card_ac_buttons:
     item1:
       card:
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-        name: '[[[ return variables.x_ulm_card_ac_name ]]]'
+        #name: '[[[ return variables.x_ulm_card_ac_name ]]]'
+        name: |
+          [[[
+            if (variables.x_ulm_card_ac_name != null) {
+              return variables.x_ulm_card_ac_name;
+            } else {
+              return states[variables.ulm_card_ac_entity].attributes.friendly_name;
+            }
+          ]]]
         template:
           - ac_text_info
         variables:
@@ -108,8 +115,7 @@ card_ac_buttons_with_temp:
     ulm_card_ac_entity: climate.example
     ulm_card_ac_fan_mode_sensor: sensor.example
     #ulm_card_ac_curr_temp_sensor: sensor.example
-    x_ulm_card_ac_name: 'AC'
-    ulm_card_ac_display_name: ''
+    x_ulm_card_ac_name: null
   styles:
     card:
       - border-radius: "var(--ha-card-border-radius,12px);"
@@ -125,7 +131,15 @@ card_ac_buttons_with_temp:
     item1:
       card:
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-        name: '[[[ return variables.x_ulm_card_ac_name ]]]'
+        #name: '[[[ return variables.x_ulm_card_ac_name ]]]'
+        name: |
+          [[[
+            if (variables.x_ulm_card_ac_name != null) {
+              return variables.x_ulm_card_ac_name;
+            } else {
+              return states[variables.ulm_card_ac_entity].attributes.friendly_name;
+            }
+          ]]]        
         template:
           - ac_text_info
         variables:

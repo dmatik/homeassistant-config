@@ -119,7 +119,7 @@ cards:
                         template: card_pc
                         entity: switch.dimka_hass_agent
                         variables:
-                          x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
+                          #x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
                           ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
                           ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
                           ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
@@ -133,8 +133,8 @@ cards:
                       - type: 'custom:button-card'
                         template: card_printer
                         entity: sensor.mfc_j650dw_status
-                        variables:
-                          x_ulm_card_printer_name: "[[[ return variables.ulm_printer; ]]]"
+                        # variables:
+                        #   x_ulm_card_printer_name: "[[[ return variables.ulm_printer; ]]]"
                       
 
 

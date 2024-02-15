@@ -68,7 +68,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.bedroom_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -78,7 +78,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.kfir_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -88,7 +88,7 @@ cards:
                     variables:
                       ulm_card_ac_entity: climate.ronen_template
                       ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
-                      x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
+                      #x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
                     view_layout:
                       grid-row-start: span 3
 
@@ -380,7 +380,7 @@ cards:
                     template: 
                       - card_switcher
                     variables:
-                      x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+                      #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
                       ulm_card_switcher_icon: "mdi:waves"
                       ulm_card_switcher_entity: switch.switcher_boiler
                       ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script

@@ -4,6 +4,7 @@ switch:
     switches:
 
       dimka_hass_agent:
+          unique_id: dimka_hass_agent_switch
           friendly_name: "DIMKA"
           value_template: "{{ states('sensor.dimka_dummy') != 'unavailable' }}"
           icon_template: mdi:laptop

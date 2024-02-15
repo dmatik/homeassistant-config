@@ -150,7 +150,7 @@ cards:
                         variables:
                           ulm_card_ac_entity: climate.ronen_template
                           ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
-                          x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
+                          #x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
                         view_layout:
                           grid-row-start: span 2
 

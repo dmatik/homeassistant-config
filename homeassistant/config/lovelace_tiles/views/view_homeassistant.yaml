@@ -104,67 +104,84 @@ cards:
                     type: custom:layout-card
                     layout_type: grid
                     layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-columns: 1fr 1fr
                       grid-template-rows: auto
                       grid-gap: 0px 2px
                       mediaquery:
                         "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
+                          grid-template-columns: 1fr
                     cards:
 
-                      # Events
+
+                      # DB File Size
                       - type: 'custom:button-card'
                         template: card_graph
                         variables:
-                          x_ulm_card_graph_name: Events
-                          ulm_card_graph_entity: sensor.events_size
+                          x_ulm_card_graph_name: db
+                          ulm_card_graph_entity: sensor.home_assistant_v2_db_size
                           ulm_card_graph_icon: mdi:database
 
-                      # States
+                      # DB_WAL File Size
                       - type: 'custom:button-card'
                         template: card_graph
                         variables:
-                          x_ulm_card_graph_name: States
-                          ulm_card_graph_entity: sensor.states_size
+                          x_ulm_card_graph_name: db_wal
+                          ulm_card_graph_entity: sensor.home_assistant_v2_db_wal_size
                           ulm_card_graph_icon: mdi:database
 
-                      # State Attributes
-                      - type: 'custom:button-card'
-                        template: card_graph
-                        variables:
-                          x_ulm_card_graph_name: State Attributes
-                          ulm_card_graph_entity: sensor.state_attributes_size
-                          ulm_card_graph_icon: mdi:database
+                #       # Events
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: Events
+                #           ulm_card_graph_entity: sensor.events_size
+                #           ulm_card_graph_icon: mdi:database
 
-                      # Statistics
-                      - type: 'custom:button-card'
-                        template: card_graph
-                        variables:
-                          x_ulm_card_graph_name: Statistics
-                          ulm_card_graph_entity: sensor.statistics_size
-                          ulm_card_graph_icon: mdi:database
+                #       # States
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: States
+                #           ulm_card_graph_entity: sensor.states_size
+                #           ulm_card_graph_icon: mdi:database
 
-                      # Statistics Short Term
-                      - type: 'custom:button-card'
-                        template: card_graph
-                        variables:
-                          x_ulm_card_graph_name: Stats Short Term
-                          ulm_card_graph_entity: sensor.statistics_short_term_size
-                          ulm_card_graph_icon: mdi:database
+                #       # State Attributes
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: State Attributes
+                #           ulm_card_graph_entity: sensor.state_attributes_size
+                #           ulm_card_graph_icon: mdi:database
 
-                      # Full DB
-                      - type: 'custom:button-card'
-                        template: card_graph
-                        variables:
-                          x_ulm_card_graph_name: Full DB
-                          ulm_card_graph_entity: sensor.db_size
-                          ulm_card_graph_icon: mdi:database
+                #       # Statistics
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: Statistics
+                #           ulm_card_graph_entity: sensor.statistics_size
+                #           ulm_card_graph_icon: mdi:database
 
-                      # Full DB Calculated
-                      - type: 'custom:button-card'
-                        template: card_generic
-                        entity: sensor.db_size_calculated
-                        name: Calculated
+                #       # Statistics Short Term
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: Stats Short Term
+                #           ulm_card_graph_entity: sensor.statistics_short_term_size
+                #           ulm_card_graph_icon: mdi:database
+
+                #       # Full DB
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: Full DB
+                #           ulm_card_graph_entity: sensor.db_size
+                #           ulm_card_graph_icon: mdi:database
+
+                #       # Full DB Calculated
+                #       - type: 'custom:button-card'
+                #         template: card_generic
+                #         entity: sensor.db_size_calculated
+                #         name: Calculated
 
                 - type: custom:button-card
                   template: spacer
