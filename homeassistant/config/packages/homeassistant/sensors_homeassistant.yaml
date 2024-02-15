@@ -85,17 +85,17 @@ sensor:
 #                                                                          #
 ############################################################################
 
-  - platform: template
-    sensors:
-      db_size_calculated:
-        friendly_name: "DB Size Calculated"
-        icon_template: mdi:database
-        unit_of_measurement: MB
-        value_template: >-
-          {% set size = states("sensor.events_size")|float 
-                        + states("sensor.state_attributes_size")|float 
-                        + states("sensor.states_size")|float
-                        + states("sensor.statistics_short_term_size")|float
-                        + states("sensor.statistics_size")|float
-          %}
-          {{ size }}
+  # - platform: template
+  #   sensors:
+  #     db_size_calculated:
+  #       friendly_name: "DB Size Calculated"
+  #       icon_template: mdi:database
+  #       unit_of_measurement: MB
+  #       value_template: >-
+  #         {% set size = states("sensor.events_size")|float 
+  #                       + states("sensor.state_attributes_size")|float 
+  #                       + states("sensor.states_size")|float
+  #                       + states("sensor.statistics_short_term_size")|float
+  #                       + states("sensor.statistics_size")|float
+  #         %}
+  #         {{ size }}
