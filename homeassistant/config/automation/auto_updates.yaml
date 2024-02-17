@@ -37,7 +37,7 @@
           Home Assistant {{ states('sensor.docker_hub') }} is available.
           Current: {{ states('sensor.ha_current_version') }}.
 
-          [More](/lovelace/minimalist_homeassistant)
+          [More](/lovelace/tiles_homeassistant)
         title: "New Version"
         notification_id: "10001"
 
@@ -150,7 +150,7 @@
         message: |
           {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
 
-          [More](/lovelace/minimalist_tasmota)
+          [More](/lovelace/tiles_tasmota)
         title: "Tasmota device(s) outdated"
         notification_id: "10003"
 
@@ -202,7 +202,7 @@
 #           New version: {{ state_attr('update.zeg_dsm_update', 'latest_version') }}.
 #           Current: {{ state_attr('update.zeg_dsm_update', 'installed_version') }}.
 
-#           [More](/lovelace/minimalist_nas)
+#           [More](/lovelace/tiles_nas)
 #         title: "ZEG update available"
 #         notification_id: "10004"
 
@@ -254,7 +254,7 @@
 #           New version: {{ state_attr('update.blaze_dsm_update', 'latest_version') }}.
 #           Current: {{ state_attr('update.blaze_dsm_update', 'installed_version') }}.
 
-#           [More](/lovelace/minimalist_nas)
+#           [More](/lovelace/tiles_nas)
 #         title: "BLAZE update available"
 #         notification_id: "10005"
 
