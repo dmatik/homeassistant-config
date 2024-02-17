@@ -61,7 +61,7 @@ Tiles Material:
     dark:
 
       # Theme
-      ha-card-box-shadow: rgba(0,0,0,0.1) 0 1 10px
+      ha-card-box-shadow: 'inset rgba(240,240,240,0.03) 1px 1px 20px 1px'
       card-background-color: "#1C1E22"
       primary-background-color: "#000000"
       secondary-background-color: "#000000"

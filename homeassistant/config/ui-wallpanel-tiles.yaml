@@ -9,6 +9,9 @@ button_card_templates: !include_dir_merge_named lovelace_tiles/templates/
 
 sidebar:
   style: |
+    .sidebar-inner {
+      box-shadow: var(--ha-card-box-shadow);
+    }
     .digitalClock {
       text-align: center;
       padding-bottom: 1px;
