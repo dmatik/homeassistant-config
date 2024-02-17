@@ -93,7 +93,7 @@ scene:
     name: Bedroom Morning Covers
     entities:
       cover.bedroom_balcony:
-        current_position: 70
+        current_position: 40
         state: open
       cover.bedroom_window:
         current_position: 40
@@ -118,7 +118,7 @@ scene:
     name: Bedroom Night Covers
     entities:
       cover.bedroom_balcony:
-        current_position: 70
+        current_position: 40
         state: open
       cover.bedroom_window:
         state: closed
