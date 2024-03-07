@@ -115,6 +115,7 @@ ulm_language_variables_EN:
     ulm_guest_mirror: "Guest Mirror"
     ulm_kitchen_left: "Kitchen Left"
     ulm_kitchen_right: "Kitchen Right"
+    ulm_kitchen_up: "Kitchen Up"
     ulm_bathroom_toilet: "Bathroom Toilet"
     ulm_bathroom_tub: "Bathroom Tub"
     ulm_parents_bathroom_toilet: "Parents Toilet"

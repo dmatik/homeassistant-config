@@ -115,6 +115,7 @@ ulm_language_variables:
     ulm_guest_mirror: "אורחים מראה"
     ulm_kitchen_left: "מטבח שמאל"
     ulm_kitchen_right: "מטבח ימין"
+    ulm_kitchen_up: "מטבח למעלה"
     ulm_bathroom_toilet: "רחצה אסלה"
     ulm_bathroom_tub: "רחצה אמבט"
     ulm_parents_bathroom_toilet: "רחצה הור' אסלה"
