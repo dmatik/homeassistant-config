@@ -1,0 +1,110 @@
+blueprint:
+  name: Motion Lights Variant
+  description: Turn lights on when Motion detected, Turn them off when no Motion detected for selected amount of time.
+  domain: automation
+  input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+    light_to_be_off:
+      name: Light to be off 
+      selector:
+        entity:
+          domain: light
+    motion_timer_entity:
+      name: Timer Helper
+      selector:
+        entity:
+          domain: timer
+    sun_elevation_value:
+      name: Sun Elevation Threshold
+      default: 15
+      selector:
+        number:
+          min: -90
+          max: 90
+    light_target_on:
+      name: Lights to turn on
+      selector:
+        entity:
+          multiple: true
+          domain: light
+    light_target_off:
+      name: Lights to turn off
+      selector:
+        entity:
+          multiple: true
+          domain: light
+trigger:
+  # Motion on trigger for turning on the lights
+  - platform: state
+    entity_id: !input motion_entity
+    to: "on"
+    id: motion_on
+  # Motion off trigger for starting the timer
+  - platform: state
+    entity_id: !input motion_entity
+    to: "off"
+    id: motion_off
+  # Timer finished trigger for turning off the lights
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: !input motion_timer_entity
+    id: timer_finished
+  # Lights on trigger for starting the timer in case the lights turned on without motion detected
+  - platform: state
+    entity_id: !input light_target_off
+    to: "on"
+    id: lights_on
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - motion_on
+          - condition: state
+            entity_id: !input light_to_be_off
+            state: "off"
+          - condition: numeric_state
+            entity_id: sun.sun
+            attribute: elevation
+            below: !input sun_elevation_value
+        sequence:
+          - service: light.turn_on
+            entity_id: !input light_target_on
+          - service: timer.cancel
+            data: {}
+            target:
+              entity_id: !input motion_timer_entity
+      - conditions:
+          - condition: trigger
+            id:
+              - motion_off
+        sequence:
+          - service: timer.start
+            data: {}
+            target:
+              entity_id: !input motion_timer_entity
+      - conditions:
+          - condition: trigger
+            id:
+              - timer_finished
+        sequence:
+          - service: light.turn_off
+            entity_id: !input light_target_off
+      - conditions:
+          - condition: trigger
+            id:
+              - lights_on
+          - condition: state
+            entity_id: !input motion_entity
+            state: "off"
+        sequence:
+          - service: timer.start
+            data: {}
+            target:
+              entity_id: !input motion_timer_entity
+max_exceeded: silent
