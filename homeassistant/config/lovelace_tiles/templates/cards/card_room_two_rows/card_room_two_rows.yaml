@@ -1,5 +1,6 @@
 card_room_two_rows:
   template:
+    - 'two_rows_card'
     - 'ulm_language_variables'
   variables:
     ulm_card_room_two_rows_navigate_path: null
@@ -10,16 +11,6 @@ card_room_two_rows:
     ulm_card_room_two_rows_sensor: null
     ulm_card_room_two_rows_lights_on: null
   triggers_update: "all"
-  styles:
-    grid:
-      - grid-template-areas: "'item1' 'item2'"
-      - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content  min-content"
-      - row-gap: "12px"
-    card:
-      - border-radius: "var(--ha-card-border-radius,12px);"
-      - box-shadow: "var(--ha-card-box-shadow)"
-      - padding: "12px"
   custom_fields:
     item1:
       card:
@@ -41,9 +32,6 @@ card_room_two_rows:
         variables:
           ulm_card_room_two_rows_temp: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
           ulm_card_room_two_rows_sensor: '[[[ return variables.ulm_card_room_two_rows_sensor; ]]]'
-        styles:
-          card:
-            - padding: "0px"
         custom_fields:
           item1:
             card:
@@ -85,48 +73,6 @@ card_room_two_rows:
                     tap_action:
                       action: none
 
-      # card:
-      #   type: "custom:button-card"
-      #   template: "rooms_list_3_items"
-      #   variables:
-      #     ulm_card_room_two_rows_temp: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
-      #     ulm_card_room_two_rows_sensor: '[[[ return variables.ulm_card_room_two_rows_sensor; ]]]'
-      #   custom_fields:
-      #     item1:
-      #       card:
-      #         type: "custom:button-card"
-      #         template: 
-      #           - "widget_icon"
-      #           - "rooms_widget_light"
-      #           - "yellow_background_on"
-      #         variables:
-      #           ulm_widget_entity: "[[[ return variables.ulm_card_room_two_rows_light ]]]"
-      #         entity: "[[[ return variables.ulm_card_room_two_rows_light; ]]]"
-      #         icon: "mdi:lightbulb"
-      #     item2:
-      #       card:
-      #         type: "custom:button-card"
-      #         triggers_update: "all"
-      #         template: 
-      #           - "rooms_widget_sensor"
-      #           - "widget_icon"
-      #         variables:
-      #           ulm_widget_entity: "[[[ return variables.ulm_card_room_two_rows_sensor ]]]"
-      #         entity: "[[[ return variables.ulm_card_room_two_rows_sensor; ]]]"
-      #         tap_action:
-      #           action: none
-      #     item3:
-      #       card:
-      #         type: 'custom:button-card'
-      #         template: rooms_widget_temp
-      #         variables:
-      #           ulm_card_room_two_rows_temp: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
-      #           ulm_widget_entity: "[[[ return variables.ulm_card_room_two_rows_temp ]]]"
-      #         entity: '[[[ return variables.ulm_card_room_two_rows_temp; ]]]'
-      #         icon: 'mdi:temperature-celsius'
-      #         tap_action:
-      #           action: none
-
 
 room_list_2_items:
   styles:
@@ -141,20 +87,6 @@ room_list_2_items:
       - border-style: "none"
       - border-radius: "0px"
       - background: "none"
-
-# rooms_list_3_items:
-#   styles:
-#     grid:
-#       - grid-template-areas: "'item1 item2 item3'"
-#       - grid-template-columns: "1fr auto auto"
-#       - grid-template-rows: "1fr"
-#       - column-gap: "4px"
-#     card:
-#       - box-shadow: "none"
-#       - padding: "0px"
-#       - border-style: "none"
-#       - border-radius: "0px"
-#       - background: "none"
 
 
 room_info:
@@ -222,7 +154,10 @@ room_info:
     card:
       - border-radius: "0px"
       - box-shadow: "none"
-      - padding: "0px"
+      - padding-top: "12px"
+      - padding-bottom: "0px"
+      - padding-right: "12px"
+      - padding-left: "12px"
       - border-style: "none"
       - background: "none"
       - --mdc-ripple-press-opacity: 0.0
@@ -323,7 +258,7 @@ rooms_widget_sensor:
         icon:
           - color: "var(--yellow-color)"
         card:
-          - height: 22px
+          #- height: 22px
           - width: 20px
           - background-color: "none"        
     - id: "off"

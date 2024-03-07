@@ -1,20 +1,12 @@
 card_homeassistant:
+  template:
+    - two_rows_card
   variables:
     ulm_card_homeassistant_entity: 'binary_sensor.ha_update_available'
     ulm_card_homeassistant_curr_version: 'sensor.ha_current_version'
     ulm_card_homeassistant_latest_version: 'sensor.ha_available_version'
     ulm_card_homeassistant_update_script: 'script.update_homeassistant_container'
   triggers_update: "all"
-  styles:
-    grid:
-      - grid-template-areas: "'item1' 'item2'"
-      - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content  min-content"
-      - row-gap: "12px"
-    card:
-      - border-radius: "var(--ha-card-border-radius,12px)"
-      - box-shadow: "var(--ha-card-box-shadow)"
-      - padding: "0px"
   custom_fields:
     item1:
       card:

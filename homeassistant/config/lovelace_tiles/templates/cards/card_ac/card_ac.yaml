@@ -1,5 +1,6 @@
 card_ac_buttons:
-  template: 
+  template:
+    - two_rows_card
     - ulm_language_variables
   triggers_update: "all"
   variables:
@@ -7,22 +8,10 @@ card_ac_buttons:
     ulm_card_ac_fan_mode_sensor: sensor.example
     #ulm_card_ac_curr_temp_sensor: sensor.example
     x_ulm_card_ac_name: null
-  styles:
-    card:
-      - border-radius: "var(--ha-card-border-radius,12px);"
-      - box-shadow: "var(--ha-card-box-shadow)"
-      - padding: "0px"
-      - position: inherit
-    grid:
-      - grid-template-areas: '"item1" "item2"'
-      - grid-template-columns: 1fr
-      - grid-template-rows: min-content  min-content
-      - row-gap: 12px
   custom_fields:
     item1:
       card:
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-        #name: '[[[ return variables.x_ulm_card_ac_name ]]]'
         name: |
           [[[
             if (variables.x_ulm_card_ac_name != null) {
@@ -108,7 +97,8 @@ card_ac_buttons:
 
 
 card_ac_buttons_with_temp:
-  template: 
+  template:
+    - three_rows_card
     - ulm_language_variables
   triggers_update: "all"
   variables:
@@ -116,22 +106,21 @@ card_ac_buttons_with_temp:
     ulm_card_ac_fan_mode_sensor: sensor.example
     #ulm_card_ac_curr_temp_sensor: sensor.example
     x_ulm_card_ac_name: null
-  styles:
-    card:
-      - border-radius: "var(--ha-card-border-radius,12px);"
-      - box-shadow: "var(--ha-card-box-shadow)"
-      - padding: "0px"
-      - position: inherit
-    grid:
-      - grid-template-areas: '"item1" "item2" "item3"'
-      - grid-template-columns: 1fr
-      - grid-template-rows: min-content  min-content
-      - row-gap: 12px
+  # styles:
+  #   card:
+  #     - border-radius: "var(--ha-card-border-radius,12px);"
+  #     - box-shadow: "var(--ha-card-box-shadow)"
+  #     - padding: "0px"
+  #     - position: inherit
+  #   grid:
+  #     - grid-template-areas: '"item1" "item2" "item3"'
+  #     - grid-template-columns: 1fr
+  #     - grid-template-rows: min-content  min-content
+  #     - row-gap: 12px
   custom_fields:
     item1:
       card:
         entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-        #name: '[[[ return variables.x_ulm_card_ac_name ]]]'
         name: |
           [[[
             if (variables.x_ulm_card_ac_name != null) {
@@ -144,7 +133,6 @@ card_ac_buttons_with_temp:
           - ac_text_info
         variables:
           ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
-          #ulm_card_ac_name: '[[[ return variables.ulm_card_ac_name ]]]'
           ulm_card_ac_fan_mode_sensor: '[[[ return variables.ulm_card_ac_fan_mode_sensor ]]]'
           ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
         type: 'custom:button-card'

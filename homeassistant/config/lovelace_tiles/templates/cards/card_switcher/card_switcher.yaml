@@ -1,5 +1,6 @@
 card_switcher:
-  template: 
+  template:
+    - two_rows_card
     - ulm_language_variables
   variables:
     x_ulm_card_switcher_name: null
@@ -11,17 +12,6 @@ card_switcher:
     ulm_card_switcher_electric_current: ""
     ulm_card_switcher_auto_off: ""
   triggers_update: "all"
-  styles:
-    grid:
-      - grid-template-areas: "'item1' 'item2'"
-      - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content  min-content"
-      - row-gap: "12px"
-    card:
-      #- border-radius: "var(--border-radius)"
-      #- box-shadow: "var(--box-shadow)"
-      #- padding: "var(--card-padding)"
-      - padding: "0px"
   custom_fields:
     item1:
       card:
