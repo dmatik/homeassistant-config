@@ -286,7 +286,7 @@
   - service: notify.persistent_notification
     data:
       title: Printer
-      message: Black ink is {{ states('sensor.mfc_j650dw_cyan_ink_remaining') }}%.
+      message: Cyan ink is {{ states('sensor.mfc_j650dw_cyan_ink_remaining') }}%.
   mode: single
 - id: '1630056134351'
   alias: Printer Magenta Ink Low
@@ -300,7 +300,8 @@
   - service: notify.persistent_notification
     data:
       title: Printer
-      message: Black ink is {{ states('sensor.mfc_j650dw_magenta_ink_remaining') }}%.
+      message: Magenta ink is {{ states('sensor.mfc_j650dw_magenta_ink_remaining')
+        }}%.
   mode: single
 - id: '1630056151569'
   alias: Printer Yellow Ink Low
@@ -314,7 +315,7 @@
   - service: notify.persistent_notification
     data:
       title: Printer
-      message: Black ink is {{ states('sensor.mfc_j650dw_yellow_ink_remaining') }}%.
+      message: Yellow ink is {{ states('sensor.mfc_j650dw_yellow_ink_remaining') }}%.
   mode: single
 - id: '1630059227890'
   alias: Dima Arrived to Office
@@ -489,24 +490,6 @@
         ttl: 0
         priority: high
     enabled: true
-  mode: single
-- id: '1652706660044'
-  alias: Kitchen Wall Panel Battery Low
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.fully_device_info
-    attribute: batteryLevel
-    below: '20'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      title: Wall Panel
-      message: 'Battery low: {{ state_attr("sensor.fully_device_info", "batteryLevel")
-        }}%
-
-        '
   mode: single
 - id: '1680756525883'
   alias: Turn On Basement TV with WakeOnLan
@@ -1162,8 +1145,8 @@
     path: motion_lights.yaml
     input:
       motion_entity: binary_sensor.kitchen_motion_sensors
-      light_level_entity: sensor.kitchen_light_level
-      light_level_threshold_value: 3000
+      light_level_entity: sensor.kitchen_up_motion_sensor_illuminance_lux
+      light_level_threshold_value: 100
       motion_timer_entity: timer.kitchen_strips
       light_target_on:
       - light.kitchen_led_strip
@@ -1183,7 +1166,7 @@
     entity_id:
     - sun.sun
     attribute: elevation
-    below: 8
+    below: 10
     id: evening
   - platform: time
     at: '20:30:00'
@@ -1216,7 +1199,7 @@
           metadata: {}
           target:
             entity_id: scene.kids_morning_covers
-          enabled: false
+          enabled: true
     - conditions:
       - condition: trigger
         id:
@@ -1230,7 +1213,7 @@
         metadata: {}
         target:
           entity_id: scene.kids_day_covers
-        enabled: false
+        enabled: true
     - conditions:
       - condition: trigger
         id:
@@ -1244,7 +1227,7 @@
         metadata: {}
         target:
           entity_id: scene.kids_evening_covers
-        enabled: false
+        enabled: true
       - service: scene.turn_on
         metadata: {}
         target:
@@ -1262,7 +1245,7 @@
         metadata: {}
         target:
           entity_id: scene.kids_night_covers
-        enabled: false
+        enabled: true
   mode: single
 - id: '1707128536780'
   alias: Toggle Stairs Lights
@@ -1293,5 +1276,40 @@
   - type: toggle
     device_id: fae8c7d1878d04dbd3f3dd3bef0794e9
     entity_id: 1e247e9c72da93e2ee2da9b2bfd3a06c
+    domain: light
+  mode: single
+- id: '1708798710331'
+  alias: Kitchen Strips (Motion) Variant
+  description: ''
+  use_blueprint:
+    path: motion_lights_variant.yaml
+    input:
+      motion_entity: binary_sensor.kitchen_motion_sensors
+      light_to_be_off: light.kitchen
+      motion_timer_entity: timer.kitchen_strips
+      light_target_on:
+      - light.kitchen_led_strip
+      light_target_off:
+      - light.kitchen_led_strip
+      sun_elevation_value: 40
+- id: '1708895404769'
+  alias: Toggle Hallway Light
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - light.hallway_bedroom
+    to: 'on'
+    from: 'off'
+  - platform: state
+    entity_id:
+    - light.hallway_bedroom
+    to: 'off'
+    from: 'on'
+  condition: []
+  action:
+  - type: toggle
+    device_id: 60140bc0963b346adf64fbbd257fa596
+    entity_id: 5a1c67e22211aac3982a3ac30cea94d5
     domain: light
   mode: single
