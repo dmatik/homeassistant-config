@@ -10,7 +10,7 @@ chip_base:
     card:
       - box-shadow: "var(--ha-card-box-shadow)"
       - border-radius: '18px'
-      - height: '38px'
+      - height: '36px'
       - width: 'auto'
       - padding-left: '8px'
       - padding-right: '8px'
