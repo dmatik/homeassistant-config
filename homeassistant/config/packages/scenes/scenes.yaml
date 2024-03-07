@@ -27,13 +27,13 @@ scene:
         current_position: 90
         state: open
       cover.living_room_window:
-        current_position: 30
+        current_position: 34
         state: open
       cover.kitchen:
-        current_position: 30
+        current_position: 32
         state: open
       cover.entrance_window:
-        current_position: 30
+        current_position: 34
         state: open   
     icon: mdi:window-shutter
 
@@ -44,13 +44,13 @@ scene:
         current_position: 90
         state: open
       cover.living_room_window:
-        current_position: 30
+        current_position: 34
         state: open
       cover.kitchen:
-        current_position: 30
+        current_position: 32
         state: open
       cover.entrance_window:
-        current_position: 30
+        current_position: 34
         state: open        
     icon: mdi:window-shutter-open
 
@@ -61,13 +61,13 @@ scene:
         current_position: 90
         state: open
       cover.living_room_window:
-        current_position: 30
+        current_position: 34
         state: open
       cover.kitchen:
-        current_position: 30
+        current_position: 32
         state: open
       cover.entrance_window:
-        current_position: 30
+        current_position: 34
         state: open        
     icon: mdi:window-shutter-open
 
@@ -93,13 +93,13 @@ scene:
     name: Bedroom Morning Covers
     entities:
       cover.bedroom_balcony:
-        current_position: 40
+        current_position: 42
         state: open
       cover.bedroom_window:
-        current_position: 40
+        current_position: 42
         state: open
       cover.parents_makeup:
-        current_position: 30
+        current_position: 32
         state: open       
     icon: mdi:window-shutter-open
 
@@ -118,7 +118,7 @@ scene:
     name: Bedroom Night Covers
     entities:
       cover.bedroom_balcony:
-        current_position: 40
+        current_position: 42
         state: open
       cover.bedroom_window:
         state: closed
@@ -137,10 +137,10 @@ scene:
     name: Kids Evening Covers
     entities:
       cover.ronen_room:
-        current_position: 30
+        current_position: 34
         state: open
       cover.kfir_room:
-        current_position: 28
+        current_position: 32
         state: open     
     icon: mdi:window-shutter-open
 
@@ -157,10 +157,10 @@ scene:
     name: Kids Morning Covers
     entities:
       cover.ronen_room:
-        current_position: 30
+        current_position: 34
         state: open
       cover.kfir_room:
-        current_position: 28
+        current_position: 32
         state: open     
     icon: mdi:window-shutter-open
 
