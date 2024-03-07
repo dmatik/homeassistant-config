@@ -7,3 +7,4 @@ spacer:
       - height: '[[[ return variables.height ]]]'
       - width: '[[[ return variables.width ]]]'
       - border-style: "none"
+      - box-shadow: "none"
