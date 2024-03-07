@@ -194,6 +194,16 @@ cards:
                         variables:
                           light_level: sensor.kitchen_right_motion_sensor_illuminance
 
+                      # Kitchen Up
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_motion_sensor
+                        entity: binary_sensor.kitchen_up_motion_sensor_occupancy
+                        name: "[[[ return variables.ulm_kitchen_up; ]]]"
+                        show_last_changed: false
+                        variables:
+                          light_level: sensor.kitchen_up_motion_sensor_illuminance_lux
+
 
           ############################################################################
           #                                                                          #
@@ -326,6 +336,18 @@ cards:
                         show_last_changed: false
                         variables:
                           light_level: sensor.parents_bathroom_mirror_motion_sensor_illuminance
+
+                      # Parents Bathroom New Sensor
+                      - type: tile
+                        entity: binary_sensor.parents_bathroom_new_motion_sensor_occupancy
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - card_motion_sensor
+                      #   entity: binary_sensor.parents_bathroom_new_motion_sensor_occupancy
+                      #   name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
+                      #   show_last_changed: false
+                        # variables:
+                        #   light_level: sensor.parents_bathroom_mirror_motion_sensor_illuminance
 
 
                 - type: custom:button-card

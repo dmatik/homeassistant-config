@@ -418,45 +418,6 @@ cards:
                       grid-template-columns: 1fr 1fr
                 cards:
 
-                  # Living Room TV
-                  # - type: 'custom:button-card'
-                  #   template: 'card_tv'
-                  #   entity: media_player.lg_webos_tv_oled77cs6la
-                  #   variables:
-                  #     x_ulm_card_tv_name: "[[[ return variables.ulm_living_room_tv; ]]]"
-
-                  # Dimka PC
-                  # - type: 'custom:button-card'
-                  #   template: card_pc
-                  #   entity: switch.dimka_hass_agent
-                  #   variables:
-                  #     ulm_card_pc_name: Dimka PC
-                  #     ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
-                  #     ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
-                  #     ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
-                  #     ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
-                  #     ulm_card_pc_wake: 'script.dimka_wake'
-                  #     ulm_card_pc_sleep: 'script.dimka_sleep'
-                  #     ulm_card_pc_restart: 'script.dimka_restart'
-                  #     ulm_card_pc_shutdown: 'script.dimka_shutdown'
-
-                  # Printer
-                  # - type: 'custom:button-card'
-                  #   template: card_printer
-                  #   entity: sensor.mfc_j650dw_status
-                  #   variables:
-                  #     ulm_card_printer_name: Printer
-
-
-                  # WiFi
-                  # - type: 'custom:button-card'
-                  #   template: card_barcode
-                  #   name: Guest WiFi
-                  #   icon: mdi:wifi
-                  #   variables:
-                  #     ulm_card_barcode_title: 'Guest WiFi'
-                  #     ulm_card_barcode_image: '/local/images/wifi_guest.png'
-
                   # Switcher
                   - type: 'custom:button-card'
                     template: 

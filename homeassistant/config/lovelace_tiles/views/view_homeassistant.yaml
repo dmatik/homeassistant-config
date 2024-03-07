@@ -104,7 +104,7 @@ cards:
                     type: custom:layout-card
                     layout_type: grid
                     layout_options:
-                      grid-template-columns: 1fr 1fr
+                      grid-template-columns: 1fr
                       grid-template-rows: auto
                       grid-gap: 0px 2px
                       mediaquery:
@@ -121,13 +121,13 @@ cards:
                           ulm_card_graph_entity: sensor.home_assistant_v2_db_size
                           ulm_card_graph_icon: mdi:database
 
-                      # DB_WAL File Size
-                      - type: 'custom:button-card'
-                        template: card_graph
-                        variables:
-                          x_ulm_card_graph_name: db_wal
-                          ulm_card_graph_entity: sensor.home_assistant_v2_db_wal_size
-                          ulm_card_graph_icon: mdi:database
+                      # # DB_WAL File Size
+                      # - type: 'custom:button-card'
+                      #   template: card_graph
+                      #   variables:
+                      #     x_ulm_card_graph_name: db_wal
+                      #     ulm_card_graph_entity: sensor.home_assistant_v2_db_wal_size
+                      #     ulm_card_graph_icon: mdi:database
 
                 #       # Events
                 #       - type: 'custom:button-card'

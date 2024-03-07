@@ -114,7 +114,6 @@ cards:
 
 
 
-
           ############################################################################
           #                                                                          #
           #   Scenes                                                                 #
@@ -267,7 +266,7 @@ cards:
                           - card_switcher
                         variables:
                           #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
-                          ulm_card_switcher_icon: "mdi:waves"
+                          #ulm_card_switcher_icon: "mdi:waves"
                           ulm_card_switcher_entity: switch.switcher_boiler
                           ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
                           ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
