@@ -121,9 +121,3 @@ Tiles:
       }
     }
 
-  # Fixing the tile cards height in case of 2 rows span in layout
-  card-mod-card: |
-    ha-card {
-      height: fit-content !important;
-    }   
-
