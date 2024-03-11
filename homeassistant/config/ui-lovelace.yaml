@@ -26,7 +26,7 @@ views:
   - !include /config/lovelace_tiles/views/view_homeassistant.yaml
   - !include /config/lovelace_tiles/views/view_wallpanel.yaml
   - !include /config/lovelace_tiles/views/view_nas.yaml
-  - !include /config/lovelace_tiles/views/view_tasmota.yaml
+  #- !include /config/lovelace_tiles/views/view_tasmota.yaml
   - !include /config/lovelace_tiles/views/view_rpi.yaml
   - !include /config/lovelace_tiles/views/view_zigbee2mqtt.yaml
   - !include /config/lovelace_tiles/views/view_energy.yaml  
