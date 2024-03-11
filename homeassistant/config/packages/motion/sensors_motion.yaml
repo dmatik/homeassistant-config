@@ -91,3 +91,16 @@ template:
             {% endif %}
           {% endfor %}
           {{ count.value }}
+
+
+
+      ############################################################################
+      #                                                                          #
+      #   Dummy Light level sensor                                               #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Dummy Light Level Sensor"
+        unique_id: dummy_light_level_sensor
+        state: 0
+        unit_of_measurement: "lx"
