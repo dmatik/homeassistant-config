@@ -11,23 +11,20 @@ blueprint:
           domain:
             - switch
             - light
-  source_url: https://gist.github.com/matrix2669/bb539014fb5ca8e6279a41c1121be677
 variables:
   switches: !input switch
 trigger:
   - platform: state
     entity_id: !input switch
-condition:
-  #- "{{ trigger.to_state.context.parent_id == none }}"
-  - "{{ trigger.to_state.state == 'on' or trigger.to_state.state == 'off' }}"
+    not_from:
+      - unavailable
+      - unknown
+    not_to:
+      - unavailable
+      - unknown    
 action:
-  - service: >
-      {% if trigger.to_state.state == 'on' %} 
-        homeassistant.turn_on 
-      {% elif trigger.to_state.state == 'off' %}
-        homeassistant.turn_off
-      {% endif %}
+  - service: "homeassistant.turn_{{ trigger.to_state.state }}"
     target:
-      entity_id: !input switch
+      entity_id: "{{ switches | reject('is_state', trigger.to_state.state) | list }}"
 max_exceeded: silent
 mode: single
