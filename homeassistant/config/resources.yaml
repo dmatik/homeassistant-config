@@ -8,8 +8,8 @@
   type: module
 # - url: /hacsfiles/vertical-style-card/vertical-style-card.js
 #   type: js
-- url: /hacsfiles/bignumber-card/bignumber-card.js
-  type: js
+# - url: /hacsfiles/bignumber-card/bignumber-card.js
+#   type: js
 - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   type: module
 # - url: /hacsfiles/lovelace-gap-card/gap-card.js
@@ -28,8 +28,8 @@
 #   type: module
 - url: /hacsfiles/list-card/list-card.js
   type: js
-- url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
-  type: module
+# - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
+#   type: module
 # - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
 #   type: module
 # - url: /hacsfiles/lovelace-thermostat-card/main.js
@@ -54,8 +54,8 @@
   type: module
 # - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
 #   type: module
-- url: /hacsfiles/lovelace-hui-element/hui-element.js
-  type: module
+# - url: /hacsfiles/lovelace-hui-element/hui-element.js
+#   type: module
 # - url: /hacsfiles/scheduler-card/scheduler-card.js
 #   type: module
 - url: /hacsfiles/my-cards/my-cards.js
