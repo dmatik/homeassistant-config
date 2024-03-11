@@ -14,7 +14,7 @@ card_zigbee2mqtt:
         type: "custom:button-card"
         template:
           - "icon_info"
-          - "zigbee2mqtt_blue_on"
+          - "blue_on"
           - "ulm_language_variables_EN"
         icon: 'mdi:zigbee'
         tap_action:
@@ -47,12 +47,12 @@ card_zigbee2mqtt:
                 ulm_card_zigbee2mqtt_mqtt_base_topic: "[[[ return variables.ulm_card_zigbee2mqtt_mqtt_base_topic ]]]"
               name: 'Network Map'
 
-zigbee2mqtt_blue_on:
-  state:
-    - styles:
-        icon:
-          - color: 'var(--blue-color)'
-        img_cell:
-          - background-color: 'rgba(var(--rgb-blue-color),0.2)'
-      id: "online"
-      value: "online"
+# zigbee2mqtt_blue_on:
+#   state:
+#     - styles:
+#         icon:
+#           - color: 'var(--blue-color)'
+#         img_cell:
+#           - background-color: 'rgba(var(--rgb-blue-color),0.2)'
+#       id: "online"
+#       value: "online"

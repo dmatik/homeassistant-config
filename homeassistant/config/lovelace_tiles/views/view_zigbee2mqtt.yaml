@@ -76,10 +76,10 @@ cards:
                         template: card_zigbee2mqtt
                         variables:
                           ulm_card_zigbee2mqtt_name: 'Floor 2'
-                          ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_floor_2_bridge_state'
-                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_floor_2_version'
-                          ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_floor_2_restart'
-                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_floor_2_networkmap'
+                          ulm_card_zigbee2mqtt_bridge_state: 'binary_sensor.zigbee2mqtt_bridge_floor_2_connection_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_bridge_floor_2_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_floor_2_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_floor_2_network_map'
                           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/floor2'
 
                       # Zigbee2mqtt Living Room
@@ -87,10 +87,10 @@ cards:
                         template: card_zigbee2mqtt
                         variables:
                           ulm_card_zigbee2mqtt_name: 'Living Room'
-                          ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_living_room_bridge_state'
-                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_living_room_version'
-                          ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_living_room_restart'
-                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_living_room_networkmap'
+                          ulm_card_zigbee2mqtt_bridge_state: 'binary_sensor.zigbee2mqtt_bridge_living_room_connection_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_bridge_living_room_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_living_room_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_living_room_network_map'
                           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/living_room'
 
                       # Zigbee2mqtt Basement
@@ -98,10 +98,10 @@ cards:
                         template: card_zigbee2mqtt
                         variables:
                           ulm_card_zigbee2mqtt_name: 'Basement'
-                          ulm_card_zigbee2mqtt_bridge_state: 'sensor.zigbee2mqtt_basement_bridge_state'
-                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_basement_version'
-                          ulm_card_zigbee2mqtt_restart_script: 'script.zigbee2mqtt_basement_restart'
-                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_basement_networkmap'
+                          ulm_card_zigbee2mqtt_bridge_state: 'binary_sensor.zigbee2mqtt_bridge_basement_connection_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_bridge_basement_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_basement_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_basement_network_map'
                           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/basement'
 
                 - type: custom:button-card
