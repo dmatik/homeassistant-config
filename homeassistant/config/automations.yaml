@@ -155,19 +155,39 @@
         tag: redalert-all
   mode: single
 - id: '1630053607872'
-  alias: Galit Home
+  alias: Presense Home
   description: ''
   trigger:
   - platform: zone
     entity_id: person.galit
     zone: zone.home
     event: enter
+    id: galit
+  - platform: zone
+    entity_id: person.ronen
+    zone: zone.home
+    event: enter
+    id: ronen
   condition: []
   action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      title: Linka
-      message: Almost home
+  - if:
+    - condition: trigger
+      id:
+      - galit
+    then:
+    - service: notify.mobile_app_iphonedima
+      data:
+        message: Almost home
+        title: Galit
+  - if:
+    - condition: trigger
+      id:
+      - ronen
+    then:
+    - service: notify.mobile_app_iphonedima
+      data:
+        message: Almost home
+        title: Ronen
   mode: single
 - id: '1630054621160'
   alias: Nobody Home
@@ -323,7 +343,7 @@
   trigger:
   - platform: zone
     entity_id: person.dmatik
-    zone: zone.work
+    zone: zone.amdocs
     event: enter
   condition: []
   action:
@@ -340,7 +360,7 @@
   trigger:
   - platform: zone
     entity_id: person.dmatik
-    zone: zone.work
+    zone: zone.amdocs
     event: leave
   condition: []
   action:
@@ -1101,7 +1121,7 @@
     path: motion_lights.yaml
     input:
       motion_entity: binary_sensor.bathroom_motion_sensors
-      light_level_entity: sensor.bathroom_light_level
+      light_level_entity: sensor.dummy_light_level_sensor
       light_level_threshold_value: 1500
       motion_timer_entity: timer.bathroom_light
       light_target_on:
@@ -1117,7 +1137,7 @@
     path: motion_lights.yaml
     input:
       motion_entity: binary_sensor.guest_bathroom_motion_sensors
-      light_level_entity: sensor.guest_bathroom_light_level
+      light_level_entity: sensor.dummy_light_level_sensor
       motion_timer_entity: timer.guest_bathroom_light
       light_target_on:
       - light.guests_bathroom
@@ -1130,7 +1150,7 @@
     path: motion_lights.yaml
     input:
       motion_entity: binary_sensor.parents_bathroom_motion_sensors
-      light_level_entity: sensor.parents_bathroom_light_level
+      light_level_entity: sensor.dummy_light_level_sensor
       light_level_threshold_value: 1500
       motion_timer_entity: timer.parents_bathroom_light
       light_target_on:
@@ -1145,7 +1165,7 @@
     path: motion_lights.yaml
     input:
       motion_entity: binary_sensor.kitchen_motion_sensors
-      light_level_entity: sensor.kitchen_up_motion_sensor_illuminance_lux
+      light_level_entity: sensor.dummy_light_level_sensor
       light_level_threshold_value: 100
       motion_timer_entity: timer.kitchen_strips
       light_target_on:
@@ -1291,7 +1311,7 @@
       - light.kitchen_led_strip
       light_target_off:
       - light.kitchen_led_strip
-      sun_elevation_value: 40
+      sun_elevation_value: 90
 - id: '1708895404769'
   alias: Toggle Hallway Light
   description: ''
