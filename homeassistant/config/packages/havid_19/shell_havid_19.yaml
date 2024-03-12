@@ -1,3 +1,0 @@
-shell_command:
-
-  download_havid: "curl http://{{ip}}:{{port}}/{{system}}/statement -o /config/www/havid_{{system}}.jpg"
