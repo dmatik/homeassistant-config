@@ -70,25 +70,29 @@ card_energy_daily_graph:
 card_monthly_statistics:
   variables:
     ulm_card_monthly_statistics_name: ''
-    ulm_card_monthly_statistics_time: ''
+    ulm_card_monthly_statistics_time: null
     ulm_card_monthly_statistics_cost: ''
   template: card_generic
   name: "[[[ return variables.ulm_card_monthly_statistics_name; ]]]"
   icon: mdi:lightning-bolt
   label: |
     [[[
-      var sec_num = states[variables.ulm_card_monthly_statistics_time].state * 3600;
-      var hours   = Math.floor(sec_num / 3600);
-      var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-      var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
-
       var response = '';
-      if (hours > 0) { response += hours + 'h'; }
-      if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
-      if (seconds > 0) { response += ' ' + seconds + 's'; }
-      if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+      if (variables.ulm_card_monthly_statistics_time != null) {
+        var sec_num = states[variables.ulm_card_monthly_statistics_time].state * 3600;
+        var hours   = Math.floor(sec_num / 3600);
+        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+        var seconds = Math.floor(sec_num - (hours * 3600) - (minutes * 60));
 
-      response += ' • ' + parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + states[variables.ulm_card_monthly_statistics_cost].state;
+        if (hours > 0) { response += hours + 'h'; }
+        if (hours > 0 || minutes > 0) { response += ' ' + minutes + 'm'; }
+        if (seconds > 0) { response += ' ' + seconds + 's'; }
+        if (hours == 0 && minutes == 0 && seconds == 0) { response = '0s' }
+
+        response += ' • ';
+      }
+
+      response += parseFloat(entity.state).toFixed(2) + ' kWh' + ' • ₪ ' + parseFloat(states[variables.ulm_card_monthly_statistics_cost].state).toFixed(2);
 
       return response;
     ]]]

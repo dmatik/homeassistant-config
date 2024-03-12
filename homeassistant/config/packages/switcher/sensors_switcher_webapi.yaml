@@ -175,6 +175,14 @@ template:
               off
           {% endif %}
 
+      # Previous Month Energy
+      - name: "switcher_boiler_prev_month_energy"
+        unique_id: switcher_boiler_prev_month_energy
+        unit_of_measurement: kWh
+        device_class: "energy"
+        state: >-
+          {{ state_attr('sensor.switcher_boiler_monthly_energy', 'last_period') }}
+
 
 
 ############################################################################

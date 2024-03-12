@@ -141,6 +141,14 @@ template:
         device_class: monetary
         state: "{{ ( state_attr('sensor.bathroom_heater_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
 
+      # Bathroom Heater Previous Month Energy
+      - name: "bathroom_heater_prev_month_energy"
+        unique_id: bathroom_heater_prev_month_energy
+        unit_of_measurement: kWh
+        device_class: "energy"
+        state: >-
+          {{ state_attr('sensor.bathroom_heater_monthly_energy', 'last_period') }}
+
 
 
       ############################################################################
@@ -180,6 +188,16 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( state_attr('sensor.parents_bathroom_heater_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+
+      # Parents Bathroom Heater Previous Month Energy
+      - name: "parents_bathroom_heater_prev_month_energy"
+        unique_id: parents_bathroom_heater_prev_month_energy
+        unit_of_measurement: kWh
+        device_class: "energy"
+        state: >-
+          {{ state_attr('sensor.parents_bathroom_heater_monthly_energy', 'last_period') }}
+
+
 
 
       ############################################################################
