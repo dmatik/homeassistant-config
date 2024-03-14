@@ -77,7 +77,8 @@ scene:
       cover.living_room_window:
         state: closed
       cover.kitchen:
-        state: closed
+        current_position: 32
+        state: open
       cover.entrance_window:
         state: closed        
     icon: mdi:window-shutter
@@ -114,16 +115,32 @@ scene:
         state: open       
     icon: mdi:window-shutter-open
 
+  - id: 'bedroom_evening_covers'
+    name: Bedroom Evening Covers
+    entities:
+      cover.bedroom_balcony:
+        current_position: 30
+        state: open
+      cover.bedroom_window:
+        current_position: 42
+        state: open
+      cover.parents_makeup:
+        current_position: 32
+        state: open       
+    icon: mdi:window-shutter-open    
+
   - id: 'bedroom_night_covers'
     name: Bedroom Night Covers
     entities:
       cover.bedroom_balcony:
-        current_position: 42
+        current_position: 30
         state: open
       cover.bedroom_window:
-        state: closed
+        current_position: 42
+        state: open
       cover.parents_makeup:
-        state: closed       
+        current_position: 32
+        state: open     
     icon: mdi:window-shutter-open
 
 
@@ -148,9 +165,11 @@ scene:
     name: Kids Night Covers
     entities:
       cover.ronen_room:
-        state: closed
+        current_position: 34
+        state: open
       cover.kfir_room:
-        state: closed     
+        current_position: 32
+        state: open      
     icon: mdi:window-shutter
 
   - id: 'kids_morning_covers'
@@ -160,7 +179,7 @@ scene:
         current_position: 34
         state: open
       cover.kfir_room:
-        current_position: 32
+        current_position: 8
         state: open     
     icon: mdi:window-shutter-open
 

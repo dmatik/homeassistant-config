@@ -1251,7 +1251,7 @@
       - service: scene.turn_on
         metadata: {}
         target:
-          entity_id: scene.bedroom_night_covers
+          entity_id: scene.bedroom_evening_covers
     - conditions:
       - condition: trigger
         id:
@@ -1265,6 +1265,11 @@
         metadata: {}
         target:
           entity_id: scene.kids_night_covers
+        enabled: true
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.bedroom_night_covers
         enabled: true
   mode: single
 - id: '1707128536780'
