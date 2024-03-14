@@ -10,7 +10,7 @@ chip_base:
     card:
       - box-shadow: "var(--ha-card-box-shadow)"
       - border-radius: '18px'
-      - height: '36px'
+      - height: "var(--chip-card-height)"
       - width: 'auto'
       - padding-left: '8px'
       - padding-right: '8px'
@@ -45,10 +45,10 @@ chip_base:
       - font-size: '14px'
       - margin-left: '0px'
       - margin-top: '0px'
-      - width: 'auto'
+      #- width: 'auto'
       - padding-left: '2px'
       - padding-right: '2px'
-      - height: '36px'
+      #- height: '36px'
       #- color: "var(--secondary-text-color)"  
       - letter-spacing: '-0.2px'   
 
