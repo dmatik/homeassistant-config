@@ -2,7 +2,8 @@
 ### Card Title ###
 card_title:
   variables:
-    ulm_title_margin_top: "12px"
+    ulm_title_margin_top: "4px"
+    ulm_title_font_size: "20px"
   template:
     - 'ulm_language_variables'
   tap_action:
@@ -30,8 +31,10 @@ card_title:
       - grid-template-rows: "min-content"
     name:
       - justify-self: "start"
-      - font-weight: "bold"
       - font-size: "[[[ return variables.ulm_title_font_size; ]]]"
+      - font-weight: "400"
+      - letter-spacing: "0.1px"
+      - line-height: "32px"      
     label:
       - justify-self: "start"
       - font-weight: "bold"

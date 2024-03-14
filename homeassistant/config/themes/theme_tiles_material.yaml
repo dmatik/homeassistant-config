@@ -5,7 +5,7 @@ Tiles Material:
 
   # Layout
   view-margins: "0px"
-  grid-layout-margins: "-10px -2px 12px"
+  grid-layout-margins: "-10px -2px 0px"
 
   # Colors
   yellow-color: '#ffc107'
@@ -28,6 +28,7 @@ Tiles Material:
 
   # Chips
   chips-left-margin: "2px"
+  chip-card-height: "36px"
 
   modes:
   

@@ -2,7 +2,7 @@ Tiles:
 
   # Layout
   view-margins: "0px"
-  grid-layout-margins: "-10px -2px 12px"
+  grid-layout-margins: "-10px -2px 0px"
 
   # Colors
   rgb-grey-color: '158,158,158' #'#9e9e9e'
@@ -26,6 +26,7 @@ Tiles:
 
   # Chips
   chips-left-margin: "2px"
+  chip-card-height: "38px"
 
   modes:
   
