@@ -74,3 +74,9 @@
 #   type: module
 # - url: /hacsfiles/Bubble-Card/bubble-card.js
 #   type: module
+- url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+  type: module
+- url: /local/fonts/arimo.css
+  type: css
+# - url: https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800
+#   type: css  

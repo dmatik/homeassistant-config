@@ -295,6 +295,7 @@ ac_text_info:
       - padding-right: "12px"
       - padding-left: "12px"
       - border-style: "none"
+      - font-size: "12px"
   label: >-
     [[[
         if (entity.state =='off') {
@@ -346,7 +347,7 @@ ac_text_info:
           ulm_card_ac_entity: '[[[ return variables.ulm_card_ac_entity ]]]'
           ulm_card_ac_curr_temp_sensor: '[[[ return variables.ulm_card_ac_curr_temp_sensor ]]]'
         type: 'custom:button-card'
-  size: "20px"
+  #size: "20px"
 
 ac_curr_temp:
   triggers_update: "all"
@@ -369,6 +370,7 @@ ac_curr_temp:
       - --mdc-ripple-press-opacity: 0.0
       - background: "none"
       - box-shadow: "none"
+      - font-size: "12px"
     custom_fields:
       curr_temp:
         - color: 'var(--primary-text-color)' #'var(--grey-color)'
@@ -379,8 +381,8 @@ ac_curr_temp:
         - align-items: center
         - width: '40px'
         - height: '40px'      
-        - font-size: '16px'
-        - font-weight: '450'
+        - font-size: '17px'
+        - font-weight: '500'
         - letter-spacing: '-1px'
   custom_fields:
     curr_temp: |-

@@ -65,5 +65,6 @@ icon_info:
       - background: none
       - border-style: "none"
       #- text-transform: "capitalize"
+      - font-size: "12px"
       - position: inherit
       - --mdc-ripple-press-opacity: 0.0

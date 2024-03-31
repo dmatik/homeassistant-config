@@ -18,6 +18,7 @@ chip_base:
       - padding-bottom: '0px'
       #- --mdc-ripple-press-opacity: 0.0
       - margin: '0px'
+      - font-size: '8px'
     grid:
       - grid-template-areas: "'i l'"
       - grid-template-columns: 'max_content auto'
@@ -42,7 +43,7 @@ chip_base:
       - align-items: center
       - justify-self: 'center'
       - font-weight: 500
-      - font-size: '14px'
+      - font-size: '15px'
       - margin-left: '0px'
       - margin-top: '0px'
       #- width: 'auto'

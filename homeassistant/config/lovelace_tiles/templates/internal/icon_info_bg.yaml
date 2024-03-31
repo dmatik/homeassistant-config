@@ -59,4 +59,5 @@ icon_info_bg:
       - border-radius: "var(--ha-card-border-radius,12px)"
       - box-shadow: "var(--ha-card-box-shadow)"
       - padding: "12px"
+      - font-size: "12px"
       #- --mdc-ripple-press-opacity: 0.0
