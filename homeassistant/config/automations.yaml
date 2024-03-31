@@ -579,7 +579,7 @@
     entity_id:
     - sun.sun
     attribute: elevation
-    above: 8
+    above: 10
     id: 'off'
   - platform: numeric_state
     entity_id:
@@ -1173,7 +1173,7 @@
       light_target_off:
       - light.kitchen_led_strip
 - id: '1705640821118'
-  alias: Covers
+  alias: Kids Covers
   description: ''
   trigger:
   - platform: time
@@ -1201,34 +1201,20 @@
       - condition: trigger
         id:
         - morning
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
       sequence:
       - service: scene.turn_on
         metadata: {}
         target:
-          entity_id: scene.main_floor_morning_covers
-      - if:
-        - condition: state
-          entity_id: binary_sensor.workday_sensor
-          state: 'on'
-        then:
-        - service: scene.turn_on
-          metadata: {}
-          target:
-            entity_id: scene.bedroom_morning_covers
-        - service: scene.turn_on
-          metadata: {}
-          target:
-            entity_id: scene.kids_morning_covers
-          enabled: true
+          entity_id: scene.kids_morning_covers
+        enabled: true
     - conditions:
       - condition: trigger
         id:
         - day
       sequence:
-      - service: scene.turn_on
-        metadata: {}
-        target:
-          entity_id: scene.bedroom_day_covers
       - service: scene.turn_on
         metadata: {}
         target:
@@ -1242,16 +1228,8 @@
       - service: scene.turn_on
         metadata: {}
         target:
-          entity_id: scene.main_floor_evening_covers
-      - service: scene.turn_on
-        metadata: {}
-        target:
           entity_id: scene.kids_evening_covers
         enabled: true
-      - service: scene.turn_on
-        metadata: {}
-        target:
-          entity_id: scene.bedroom_evening_covers
     - conditions:
       - condition: trigger
         id:
@@ -1260,16 +1238,7 @@
       - service: scene.turn_on
         metadata: {}
         target:
-          entity_id: scene.main_floor_night_covers
-      - service: scene.turn_on
-        metadata: {}
-        target:
           entity_id: scene.kids_night_covers
-        enabled: true
-      - service: scene.turn_on
-        metadata: {}
-        target:
-          entity_id: scene.bedroom_night_covers
         enabled: true
   mode: single
 - id: '1707128536780'
@@ -1337,4 +1306,132 @@
     device_id: 60140bc0963b346adf64fbbd257fa596
     entity_id: 5a1c67e22211aac3982a3ac30cea94d5
     domain: light
+  mode: single
+- id: '1710787657414'
+  alias: Main Floor Covers
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:30:00
+    id: morning
+  - platform: time
+    at: 09:00:00
+    id: day
+  - platform: numeric_state
+    entity_id:
+    - sun.sun
+    attribute: elevation
+    below: 10
+    id: evening
+  - platform: time
+    at: '20:30:00'
+    id: night
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: 'off'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - morning
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.main_floor_morning_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - day
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.main_floor_day_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - evening
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.main_floor_evening_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - night
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.main_floor_night_covers
+  mode: single
+- id: '1710787940319'
+  alias: Bedroom Covers
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:30:00
+    id: morning
+  - platform: time
+    at: 09:00:00
+    id: day
+  - platform: numeric_state
+    entity_id:
+    - sun.sun
+    attribute: elevation
+    below: 10
+    id: evening
+  - platform: time
+    at: '20:30:00'
+    id: night
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: 'off'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - morning
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.bedroom_morning_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - day
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.bedroom_day_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - evening
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.bedroom_evening_covers
+    - conditions:
+      - condition: trigger
+        id:
+        - night
+      sequence:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.bedroom_night_covers
+        enabled: true
   mode: single
