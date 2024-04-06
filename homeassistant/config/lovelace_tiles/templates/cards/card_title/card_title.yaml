@@ -3,7 +3,7 @@
 card_title:
   variables:
     ulm_title_margin_top: "4px"
-    ulm_title_font_size: "20px"
+    ulm_title_font_size: "18px"
   template:
     - 'ulm_language_variables'
   tap_action:

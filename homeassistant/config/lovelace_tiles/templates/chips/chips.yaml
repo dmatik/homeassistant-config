@@ -10,7 +10,7 @@ chip_base:
     card:
       - box-shadow: "var(--ha-card-box-shadow)"
       - border-radius: '18px'
-      - height: "var(--chip-card-height)"
+      - height: "var(--chip-card-height)" # with border 38, without border 36
       - width: 'auto'
       - padding-left: '8px'
       - padding-right: '8px'
@@ -29,7 +29,7 @@ chip_base:
       - align-items: center    
       #- place-self: 'center'
       - width: '20px'
-      - height: "var(--chip-card-height)" #'36px'
+      - height: '36px'
       - padding-right: '0px'
       - padding-left: '0px'
     icon:
@@ -43,7 +43,7 @@ chip_base:
       - align-items: center
       #- justify-self: 'center'
       - font-weight: 500
-      - font-size: '15px'
+      - font-size: '14px'
       - margin-left: '0px'
       - margin-top: '0px'
       #- width: 'auto'
