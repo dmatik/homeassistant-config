@@ -1,0 +1,137 @@
+card_person_avi:
+  show_name: true
+  show_state: true
+  show_icon: false
+  show_entity_picture: true
+  entity: "[[[ return variables.ulm_card_person_entity; ]]]"
+  name: "[[[ return states[variables.ulm_card_person_entity].attributes.friendly_name ]]]"
+  icon: "mdi:face-man"
+  entity_picture: "[[[ return states[variables.ulm_card_person_entity].attributes.entity_picture ]]]"
+  tap_action:
+    action: more-info
+  custom_fields:            
+    btn:
+      card:
+        type: custom:button-card
+        template: person_buttons
+        variables:
+          ulm_card_person_battery_level_entity: "[[[ return variables.ulm_card_person_battery_level_entity; ]]]"
+          ulm_card_person_steps_entity: "[[[ return variables.ulm_card_person_steps_entity; ]]]"
+          ulm_card_person_geolocation_entity: "[[[ return variables.ulm_card_person_geolocation_entity; ]]]"
+  styles:
+    card:
+      - padding: 0px 0px 0px 0px
+      #- direction: ltr
+    grid:
+      - grid-template-areas: '"n btn" "s btn" "i btn"'
+      - grid-template-columns: 3fr min-content
+      - grid-template-rows: min-content min-content 1fr
+    img_cell:
+      - justify-content: start
+      - margin: 0px
+    entity_picture:
+      - align-self: start
+      - width: 70px
+      - height: 70px
+      - margin: 0 -10px -10px -10px
+      - border-radius: 500px
+    name:
+      - align-self: start
+      - justify-self: start
+      - background: none
+      - padding-left: 10px
+      - padding-right: 10px
+      - padding-top: 10px
+      - font-size: 16px
+      - font-weight: 500
+    state:
+      - align-self: start
+      - justify-self: start
+      - background: none
+      - padding-left: 10px
+      - padding-right: 10px
+      - margin-top: 0px
+      - margin-bottom: 8px
+      - font-size: 13px
+      - background: none
+      - opacity: '0.7'      
+    custom_fields:        
+      btn:
+        - align-self: center
+        - justify-self: end
+        - padding-right: 5px
+        - padding-left: 5px
+
+
+
+person_buttons:
+  custom_fields:
+    battery:
+      card:
+        type: custom:button-card
+        template: person_sensor_button
+        #icon: mdi:battery
+        entity: "[[[ return variables.ulm_card_person_battery_level_entity; ]]]"
+    steps: 
+      card:
+        type: custom:button-card
+        template: person_sensor_button
+        #icon: mdi:walk 
+        entity: "[[[ return variables.ulm_card_person_steps_entity; ]]]"
+    travel:
+      card:
+        type: custom:button-card
+        template: person_sensor_button
+        #icon: mdi:map
+        entity: "[[[ return variables.ulm_card_person_geolocation_entity; ]]]"
+  styles:
+    grid:
+      - grid-template-areas: '"battery" "steps" "travel"'
+      - grid-template-columns: min-content
+      - grid-template-rows: 1fr 1fr 1fr
+    card:
+      - place-self: center
+      - border-style: "none"
+    battery:
+      - padding: '0px'
+      - margin: '0px'
+    steps:
+      - padding: '0px'
+      - margin: '0px'
+    travel:
+      - padding: '0px'            
+      - margin: '0px'
+
+
+person_sensor_button:
+  triggers_update: 'all'
+  show_icon: 'true'
+  show_label: 'false'
+  show_name: 'false'
+  show_state: 'false'
+  styles:
+    card:
+      - border-radius: '50%'
+      - height: "36px"
+      - width: '36px'
+      - margin: '0px'
+      - padding: 0px
+      - border-style: "none"
+      - background: "none"
+    img_cell:
+      - display: flex
+      - justify-content: center
+      - align-items: center    
+      - width: '34px'
+      - height: '34px'
+      - padding: '0px'
+      - margin: '0px'
+      - background: "none"
+    icon:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - height: 16px
+      - width: 16px
+      - padding: '0px'
+      - margin: '0px'

@@ -132,6 +132,7 @@ ulm_language_variables:
     ulm_air_conditioning: "מיזוג אוויר"
     ulm_heating: "חימום"
     ulm_ground_floor: "קומת קרקע"
+    ulm_basement_floor: "קומת מרתף"
     ulm_motion: "תנועה"
 
     ulm_chip_back_icon: "mdi:arrow-right"

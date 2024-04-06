@@ -77,15 +77,15 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Motion Sensors On - Floor 2                                  #
+      #   Number of Motion Sensors On - Hallway                                  #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Motion Sensors On Floor 2"
-        unique_id: number_of_motion_sensors_on_floor_2
+      - name: "Number Of Motion Sensors On Hallway"
+        unique_id: number_of_motion_sensors_on_hallway
         state: >
           {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('binary_sensor.floor_2_motion_sensors','entity_id') %}
+          {% for entity_id in state_attr('binary_sensor.hallway_motion_sensors','entity_id') %}
             {% if (states(entity_id) == 'on') %}
               {% set count.value = count.value + 1 %}
             {% endif %}

@@ -1,0 +1,224 @@
+card_room_variant:
+  template:
+    - "ulm_language_variables"
+  show_name: true
+  show_state: false
+  show_icon: true
+  show_entity_picture: false
+  show_label: true
+  entity: "[[[ return variables.ulm_card_room_entity; ]]]"
+  name: "[[[ return variables.x_ulm_card_room_name; ]]]"
+  icon: "[[[ return variables.ulm_card_room_icon; ]]]"
+  label: >-
+    [[[
+      var lights_on = states[variables.ulm_card_room_lights_on].state;
+      if (lights_on == 0) {
+        lights_on = variables.ulm_off;
+      } else if (lights_on == 1) {
+        lights_on = variables.ulm_1_light;
+      } else {
+        lights_on = lights_on + variables.ulm_lights_on;
+      }
+
+      return lights_on;
+    ]]]  
+  tap_action:
+    action: "navigate"
+    navigation_path: "[[[ return variables.ulm_card_room_navigate_path; ]]]"
+  custom_fields:            
+    sensors:
+      card:
+        type: custom:button-card
+        template: room_sensors
+        variables:
+          ulm_card_room_temp: "[[[ return variables.ulm_card_room_temp; ]]]"
+          ulm_card_room_sensor: "[[[ return variables.ulm_card_room_sensor; ]]]"
+  styles:
+    card:
+      - padding: 0px 0px 0px 0px
+      #- direction: ltr
+    grid:
+      - grid-template-areas: '"n sensors" "l sensors" "i sensors"'
+      - grid-template-columns: 3fr min-content
+      - grid-template-rows: min-content min-content 1fr
+    img_cell:
+      #- background-color: 'rgba(var(--rgb-blue-color),0.2)'
+      - background-color: 'none'
+      - justify-self: start
+      - margin: 0px
+      #- border-radius: 50%
+      - margin: 0 0px 0px 0px
+      - width: 60px
+      - height: 60px
+      - padding-left: 8px
+      - padding-right: 8px
+    icon:
+      #- color: 'var(--blue-color)'
+      - color: 'rgba(var(--rgb-blue-color),0.3)'
+      - width: 60px
+      - height: 60px         
+      #- align-self: start
+    name:
+      - align-self: start
+      - justify-self: start
+      - background: none
+      - padding-left: 12px
+      - padding-right: 12px
+      - padding-top: 12px
+      - font-size: 16px
+      - font-weight: 500
+    label:
+      - align-self: start
+      - justify-self: start
+      - background: none
+      - padding-left: 12px
+      - padding-right: 12px
+      - margin-top: 0px
+      - margin-bottom: 4px
+      - font-size: 13px
+      - background: none
+      - opacity: '0.7'      
+    custom_fields:        
+      sensors:
+        - align-self: start
+        - justify-self: end
+        - padding-right: 5px
+        - padding-left: 5px
+
+
+
+room_sensors:
+  custom_fields:
+    sensor1:
+      card:
+        type: 'custom:button-card'
+        template: rooms_sensor_temp
+        variables:
+          ulm_card_room_temp: '[[[ return variables.ulm_card_room_temp; ]]]'
+        entity: '[[[ return variables.ulm_card_room_temp; ]]]'
+        icon: 'mdi:temperature-celsius'
+    sensor2: 
+      card:
+        type: "custom:button-card"
+        triggers_update: "all"
+        template: 
+          - "rooms_sensor_motion"
+          - "widget_icon"
+        entity: "[[[ return variables.ulm_card_room_sensor; ]]]"
+  styles:
+    grid:
+      - grid-template-areas: '"sensor1" "sensor2"'
+      - grid-template-columns: min-content
+      - grid-template-rows: min-content min-content
+    card:
+      - place-self: start
+      - border-style: "none"
+      - padding-top: 12px
+    sensor1:
+      - padding: '0px'
+      - margin: '0px'
+    sensor2:
+      - padding: '0px'
+      - margin: '0px'
+
+
+rooms_sensor_temp:
+  show_icon: false
+  show_name: false
+  show_label: true
+  size: 20px
+  tap_action:
+    action: more-info  
+  label: |-
+    [[[
+        if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+          return "";
+
+        var temperature = null;
+        if (entity.state == null) {
+          temperature = '--';
+        } else {
+          temperature = Number(entity.state).toFixed(1) + '°';
+        }
+        return temperature;
+    ]]]
+  styles:
+    card:
+      - box-shadow: none
+      - padding: 0px
+      - background: "none"
+      - place-self: center
+      - font-size: '18px'
+      - border-radius: "0px"
+      - border-style: "none"
+      - height: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+            else
+              return "28px";
+          ]]]
+      - width: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+            else
+              return "54px";
+          ]]]
+    grid:
+      - grid-template-areas: '"l"'
+    label:
+      - color: 'var(--secondary-text-color)'
+      - display: flex
+      - justify-content: center
+      - align-self: start
+
+
+rooms_sensor_motion:
+  triggers_update: "all"
+  tap_action:
+    action: none  
+  icon: >-
+    [[[
+      if (entity == null)
+        return null;
+
+      if (entity.state == "on")
+        return "mdi:run";
+      else
+        return "mdi:walk";
+    ]]]
+  styles:
+    card:
+      - background: "none"
+      - background-color: "none" 
+      - height: >-
+          [[[
+            if (entity == null)
+              return "0px";
+          ]]]
+      - width: >-
+          [[[
+            if (entity == null)
+              return "0px";
+          ]]]
+    img_cell:
+      - background-color: "none"
+    icon:
+      - align-self: start
+  state:
+    - id: "on"
+      value: "on"
+      styles:
+        icon:
+          - color: "var(--yellow-color)"
+        card:
+          - background-color: "none"     
+        img_cell:
+          - height: "28px"   
+    - id: "off"
+      value: "off"
+      styles:
+        card:
+          - height: 0px
+          - width: 0px

@@ -149,15 +149,15 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Floor 2                                          #
+      #   Number of Lights On - Hallway                                          #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Floor 2"
-        unique_id: number_of_lights_on_floor_2
+      - name: "Number Of Lights On Hallway"
+        unique_id: number_of_lights_on_hallway
         state: >
           {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('light.floor_2_lights','entity_id') %}
+          {% for entity_id in state_attr('light.hallway_lights','entity_id') %}
             {% if (states(entity_id) == 'on') %}
               {% set count.value = count.value + 1 %}
             {% endif %}

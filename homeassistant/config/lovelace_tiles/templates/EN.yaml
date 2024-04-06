@@ -132,6 +132,7 @@ ulm_language_variables_EN:
     ulm_air_conditioning: "Air Conditioning"
     ulm_heating: "Heating"
     ulm_ground_floor: "Ground Floor"
+    ulm_basement_floor: "Basement Floor"
     ulm_motion: "Motion"
 
     ulm_chip_back_icon: "mdi:arrow-left"

@@ -1,7 +1,7 @@
 Tiles Material:
 
   # Fonts
-  primary-font-family: "Arimo"
+  primary-font-family: "Arimo, system-ui"
   paper-font-common-base_-_font-family: "var(--primary-font-family)"
   paper-font-common-code_-_font-family: "var(--primary-font-family)"
   paper-font-body1_-_font-family: "var(--primary-font-family)"
@@ -13,6 +13,7 @@ Tiles Material:
     
   # Theme
   ha-card-border-width: 0
+  restore-card-border-shadow: "var(--ha-card-box-shadow)"
 
   # Layout
   view-margins: "0px"
@@ -39,7 +40,6 @@ Tiles Material:
 
   # Chips
   chips-left-margin: "2px"
-  chip-card-height: "36px"
 
   modes:
   
@@ -53,6 +53,7 @@ Tiles Material:
 
       # Chips
       chip-icon-disabled-color: '#787878'
+      chip-card-height: "36px"
 
       # Colors
       grey-color: "#C3C3C3"
@@ -78,10 +79,11 @@ Tiles Material:
       primary-background-color: "#000000"
       secondary-background-color: "#000000"
       app-header-background-color: 'var(--card-background-color)'
-      app-header-text-color: 'var(--primary-text-color)'      
+      app-header-text-color: 'var(--primary-text-color)'
 
       # Chips
       chip-icon-disabled-color: 'var(--grey-color)'
+      chip-card-height: "36px"
 
       # Colors
       grey-color: '#787878' #'#9e9e9e'
@@ -112,6 +114,9 @@ Tiles Material:
       ha-dialog {
         direction: rtl !important;
       }
+      ha-dialog > div:focus {
+        outline: none;
+      }
     $: |
       .mdc-dialog__scrim {
         backdrop-filter: var(--popup-backdrop-filter);
@@ -132,7 +137,6 @@ Tiles Material:
           border-radius: 0px !important;
         }
       }
-
 
   card-mod-view-yaml: |
     "*:first-child$": |

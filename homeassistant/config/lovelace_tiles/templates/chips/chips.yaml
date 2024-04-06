@@ -29,7 +29,7 @@ chip_base:
       - align-items: center    
       #- place-self: 'center'
       - width: '20px'
-      - height: '36px'
+      - height: "var(--chip-card-height)" #'36px'
       - padding-right: '0px'
       - padding-left: '0px'
     icon:
@@ -41,7 +41,7 @@ chip_base:
       - display: flex
       - justify-content: center
       - align-items: center
-      - justify-self: 'center'
+      #- justify-self: 'center'
       - font-weight: 500
       - font-size: '15px'
       - margin-left: '0px'

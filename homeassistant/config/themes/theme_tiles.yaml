@@ -1,7 +1,7 @@
 Tiles:
 
   # Fonts
-  primary-font-family: "Arimo"
+  primary-font-family: "Arimo, system-ui"
   paper-font-common-base_-_font-family: "var(--primary-font-family)"
   paper-font-common-code_-_font-family: "var(--primary-font-family)"
   paper-font-body1_-_font-family: "var(--primary-font-family)"
@@ -90,6 +90,9 @@ Tiles:
       ha-dialog {
         direction: rtl !important;
       }
+      ha-dialog > div:focus {
+        outline: none;
+      }      
     $: |
       .mdc-dialog__scrim {
         backdrop-filter: var(--popup-backdrop-filter);
