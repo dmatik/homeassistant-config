@@ -61,6 +61,17 @@ cards:
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_persons_home
 
+                      # School Holiday Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_school_holidays'
+                          - 'chip_deep_orange'
+                          - 'popup_school_holidays'
+                        icon: 'mdi:school'
+                        variables:
+                          ulm_chip_icon_state_entity: binary_sensor.school_holiday
+
+
 
 
           ############################################################################
@@ -122,6 +133,53 @@ cards:
                       - type: tile
                         entity: person.kfir
                         show_entity_picture: true
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_school_holidays; ]]]"
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # School Holidays
+                      - type: 'custom:button-card'
+                        template: 'card_school_holidays'
+
 
 
                 - type: custom:button-card

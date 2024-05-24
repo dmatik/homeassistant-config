@@ -302,6 +302,74 @@ cards:
                         name: "[[[ return variables.ulm_parents_bathroom; ]]]"
 
 
+
+          ############################################################################
+          #                                                                          #
+          #   Temperature                                                            #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_temperature; ]]]"
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Living Room Temperature
+                      - type: tile
+                        entity: sensor.climate_living_room_temp
+
+                      # Kitchen Temperature
+                      - type: tile
+                        entity: sensor.kitchen_temperature_sensor_temperature
+
+                      # Bedroom Temperature
+                      - type: tile
+                        entity: sensor.climate_bedroom_temp
+
+                      # Ronen Room Temperature
+                      - type: tile
+                        entity: sensor.climate_ronen_temp
+
+                      # Kfir Room Temperature
+                      - type: tile
+                        entity: sensor.climate_kfir_temp
+
+                      # Basement Temperature
+                      - type: tile
+                        entity: sensor.climate_basement_temp
+
+                      # Work Room Temperature
+                      - type: tile
+                        entity: sensor.work_room_temperature_sensor_temperature                      
+
+
                 - type: custom:button-card
                   template: spacer
                   variables:

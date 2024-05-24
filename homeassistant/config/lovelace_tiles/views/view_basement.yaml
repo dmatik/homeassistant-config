@@ -178,6 +178,21 @@ cards:
                           #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                         view_layout:
                           grid-row-start: span 2
+
+                      # Groot PC
+                      - type: 'custom:button-card'
+                        template: card_pc
+                        entity: switch.groot_hass_agent
+                        variables:
+                          #x_ulm_card_pc_name: "[[[ return variables.ulm_groot_pc; ]]]"
+                          ulm_card_pc_memoryusage: 'sensor.groot_memoryusage'
+                          ulm_card_pc_cpuload: 'sensor.groot_cpuload'
+                          ulm_card_pc_storage_1: 'sensor.groot_disk_c_used_space'
+                          ulm_card_pc_storage_2: 'sensor.groot_disk_d_used_space'
+                          ulm_card_pc_wake: 'script.groot_wake'
+                          ulm_card_pc_sleep: 'script.groot_sleep'
+                          ulm_card_pc_restart: 'script.groot_restart'
+                          ulm_card_pc_shutdown: 'script.groot_shutdown'
                         
 
 

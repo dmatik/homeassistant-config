@@ -10,6 +10,10 @@
     - platform: state
       entity_id: binary_sensor.docker_hub_update_available
       to: 'on'
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
     - platform: time_pattern
       hours: '/2'
       minutes: 0

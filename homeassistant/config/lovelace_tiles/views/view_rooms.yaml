@@ -100,8 +100,6 @@ cards:
                 # - type: custom:button-card
                 #   template: spacer
 
-
-
           ############################################################################
           #                                                                          #
           #   Ground Floor                                                           #
@@ -162,8 +160,10 @@ cards:
                           x_ulm_card_room_name: "[[[ return variables.ulm_kitchen; ]]]"
                           ulm_card_room_icon: mdi:silverware-fork-knife
                           ulm_card_room_light: light.kitchen
+                          ulm_card_room_temp: sensor.kitchen_temperature_sensor_temperature
                           ulm_card_room_sensor: binary_sensor.kitchen_motion_sensors
                           ulm_card_room_lights_on: sensor.number_of_lights_on_kitchen
+                          ulm_card_room_light_level: sensor.kitchen_light_level_sensor_illuminance_lux
 
 
 
@@ -314,7 +314,7 @@ cards:
                           x_ulm_card_room_name: "[[[ return variables.ulm_work_room; ]]]"
                           ulm_card_room_icon: mdi:laptop
                           ulm_card_room_light: light.work_room
-                          #ulm_card_room_temp: sensor.work_room_temperature_sensor_temperature
+                          ulm_card_room_temp: sensor.work_room_temperature_sensor_temperature
                           ulm_card_room_lights_on: sensor.number_of_lights_on_work_room
 
 

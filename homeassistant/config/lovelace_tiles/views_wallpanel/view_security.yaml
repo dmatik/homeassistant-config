@@ -133,35 +133,43 @@ cards:
                       variables:
                         light_level: sensor.kitchen_right_motion_sensor_illuminance
 
-                    # Bathroom Toilet Sensor
-                    - type: 'custom:button-card'
-                      template: 
-                        - card_motion_sensor
-                      entity: binary_sensor.bathroom_toilet_motion_sensor_occupancy
-                      name: "[[[ return variables.ulm_bathroom_toilet; ]]]"
-                      show_last_changed: false
-                      variables:
-                        light_level: sensor.bathroom_toilet_motion_sensor_illuminance
+                    # # Bathroom Toilet Sensor
+                    # - type: 'custom:button-card'
+                    #   template: 
+                    #     - card_motion_sensor
+                    #   entity: binary_sensor.bathroom_toilet_motion_sensor_occupancy
+                    #   name: "[[[ return variables.ulm_bathroom_toilet; ]]]"
+                    #   show_last_changed: false
+                    #   variables:
+                    #     light_level: sensor.bathroom_toilet_motion_sensor_illuminance
 
-                    # Bathroom Bathtub Sensor
-                    - type: 'custom:button-card'
-                      template: 
-                        - card_motion_sensor
-                      entity: binary_sensor.bathroom_bathtub_motion_sensor_occupancy
-                      name: "[[[ return variables.ulm_bathroom_tub; ]]]"
-                      show_last_changed: false
-                      variables:
-                        light_level: sensor.bathroom_bathtub_motion_sensor_illuminance
+                    # # Bathroom Bathtub Sensor
+                    # - type: 'custom:button-card'
+                    #   template: 
+                    #     - card_motion_sensor
+                    #   entity: binary_sensor.bathroom_bathtub_motion_sensor_occupancy
+                    #   name: "[[[ return variables.ulm_bathroom_tub; ]]]"
+                    #   show_last_changed: false
+                    #   variables:
+                    #     light_level: sensor.bathroom_bathtub_motion_sensor_illuminance
 
-                    # Bathroom Mirror Sensor
-                    - type: 'custom:button-card'
-                      template: 
-                        - card_motion_sensor
-                      entity: binary_sensor.bathroom_mirror_motion_sensor_occupancy
-                      name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
-                      show_last_changed: false
-                      variables:
-                        light_level: sensor.bathroom_mirror_motion_sensor_illuminance
+                    # # Bathroom Mirror Sensor
+                    # - type: 'custom:button-card'
+                    #   template: 
+                    #     - card_motion_sensor
+                    #   entity: binary_sensor.bathroom_mirror_motion_sensor_occupancy
+                    #   name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
+                    #   show_last_changed: false
+                    #   variables:
+                    #     light_level: sensor.bathroom_mirror_motion_sensor_illuminance
+
+                    # Bathroom Right Sensor
+                    - type: tile
+                      entity: binary_sensor.bathroom_new_right_motion_sensor_occupancy
+
+                    # Bathroom Left Sensor
+                    - type: tile
+                      entity: binary_sensor.bathroom_new_left_motion_sensor_occupancy
 
                     # Parents Bathroom Left Sensor
                     - type: tile
@@ -170,3 +178,68 @@ cards:
                     # Parents Bathroom Right Sensor
                     - type: tile
                       entity: binary_sensor.parents_bathroom_new_right_motion_sensor_occupancy
+
+
+          ############################################################################
+          #                                                                          #
+          #   Right Column                                                           #
+          #                                                                          #
+          ############################################################################
+
+          - type: vertical-stack
+            cards:
+
+
+              ############################################################################
+              #                                                                          #
+              #   Cameras                                                                #
+              #                                                                          #
+              ############################################################################
+
+              # Title
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:button-card
+                    template: title
+                    name: "[[[ return variables.ulm_cameras; ]]]"
+                    variables:
+                      ulm_title_margin_top: "0px"
+
+              - type: "custom:mod-card"
+                style:
+                  .: |
+                    ha-card {
+                        margin: var(--grid-layout-margins) !important;
+                    }
+                card:
+
+                  # Cameras
+                  type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-template-columns: 1fr
+                    grid-template-rows: auto
+                    grid-gap: 0px 4px
+                    mediaquery:
+                      "(max-width: 450px)":
+                        grid-template-columns: 1fr
+                  cards:
+
+                      # Living Room
+                      - type: 'custom:button-card'
+                        template: 
+                          - "card_video_stream"
+                        variables:
+                          ulm_card_video_stream_entity: camera.living_room
+                          ulm_card_video_stream_url: reo_living_room_sub
+                          ulm_card_video_stream_title: 'סלון' #'[[[ return variables.ulm_living_room; ]]]'
+
+                      # Basement
+                      - type: 'custom:button-card'
+                        template: 
+                          - "card_video_stream"
+                        variables:
+                          ulm_card_video_stream_entity: camera.basement
+                          ulm_card_video_stream_url: reo_basement_sub
+                          ulm_card_video_stream_title: '[[[ return variables.ulm_basement; ]]]'

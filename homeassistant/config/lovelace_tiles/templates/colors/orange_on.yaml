@@ -1,0 +1,10 @@
+---
+orange_on:
+  state:
+    - styles:
+        icon:
+          - color: 'var(--orange-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-orange-color),0.2)'
+      value: "on"
+      id: "on"

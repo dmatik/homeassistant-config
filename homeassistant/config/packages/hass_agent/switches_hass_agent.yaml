@@ -12,3 +12,14 @@ switch:
               service: script.dimka_wake
           turn_off:
               service: script.dimka_suspend
+
+
+      groot_hass_agent:
+          unique_id: groot_hass_agent_switch
+          friendly_name: "GROOT"
+          value_template: "{{ states('sensor.groot_dummy') != 'unavailable' }}"
+          icon_template: mdi:laptop
+          turn_on:
+              service: script.groot_wake
+          turn_off:
+              service: script.groot_suspend

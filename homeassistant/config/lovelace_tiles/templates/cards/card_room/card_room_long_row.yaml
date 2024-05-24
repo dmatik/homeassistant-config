@@ -37,29 +37,29 @@ card_room_long_row:
               template: 
                 - "widget_icon"
                 - "rooms_widget_sensor_long_row"
-              #variables:
-                #ulm_widget_entity: "[[[ return variables.ulm_card_room_sensor ]]]"
               entity: "[[[ return variables.ulm_card_room_sensor; ]]]"
-              # tap_action:
-              #   action: none
           item2:
+            card:
+              type: 'custom:button-card'
+              template: rooms_widget_light_level_long_row
+              variables:
+                ulm_card_room_light_level: '[[[ return variables.ulm_card_room_light_level; ]]]'
+              entity: '[[[ return variables.ulm_card_room_light_level; ]]]'
+          item3:
             card:
               type: 'custom:button-card'
               template: rooms_widget_temp_long_row
               variables:
                 ulm_card_room_temp: '[[[ return variables.ulm_card_room_temp; ]]]'
-                #ulm_widget_entity: "[[[ return variables.ulm_card_room_temp ]]]"
               entity: '[[[ return variables.ulm_card_room_temp; ]]]'
-              icon: 'mdi:temperature-celsius'
-              # tap_action:
-              #   action: none
+           
 
 
 room_list_2_items_long_row:
   styles:
     grid:
-      - grid-template-areas: "'empty_item item1 item2'"
-      - grid-template-columns: "auto min-content min-content"
+      - grid-template-areas: "'empty_item item1 item2 item3'"
+      - grid-template-columns: "auto min-content min-content min-content"
       - grid-template-rows: "min-content"
       - column-gap: "0px"
     card:
@@ -69,6 +69,25 @@ room_list_2_items_long_row:
       - border-radius: "0px"
       - background: "none"
       #- height: "40px"
+    custom_fields:
+      item1:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - align-self: center
+        - justify-self: end
+      item2:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - align-self: center
+        - justify-self: end
+      item3:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - align-self: center
+        - justify-self: end
 
 
 room_info_long_row:
@@ -92,7 +111,7 @@ room_info_long_row:
     ]]]
   styles:
     icon:
-      - color: 'var(--blue-color)'
+      - color: 'rgb(255,255,255)' #'var(--blue-color)'
       - width: "24px"
       - height: "24px"
     label:
@@ -124,7 +143,7 @@ room_info_long_row:
       - margin-left: "12px"
       - margin-right: "12px"
     img_cell:
-      - background-color: 'rgba(var(--rgb-blue-color),0.2)'
+      - background-color: 'var(--blue-color)' #'rgba(var(--rgb-blue-color),0.2)'
       - border-radius: "50%"
       - place-self: "center"
       - width: "40px"
@@ -146,30 +165,28 @@ room_info_long_row:
   size: "20px"
 
 
-rooms_widget_temp_long_row:
+rooms_widget_sensor_value_long_row:
   show_icon: false
   show_name: false
   show_label: true
   size: 20px
   tap_action:
     action: more-info  
-  label: |-
-    [[[
-        if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
-          return "";
-
-        var temperature = null;
-        if (entity.state == null) {
-          temperature = '--';
-        } else {
-          temperature = Number(entity.state).toFixed(1) + '°';
-        }
-        return temperature;
-    ]]]
   styles:
     card:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - align-self: center
+      - justify-self: end    
       - box-shadow: none
-      - padding: 0px
+      - padding: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+            else
+              return "0px 6px";
+          ]]]      
       #- background-color: 'rgba(var(--color-theme),0)'
       - background: "none"
       - place-self: center
@@ -187,16 +204,56 @@ rooms_widget_temp_long_row:
           [[[
             if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
               return "0px";
-            else
-              return "54px";
           ]]]
     grid:
       - grid-template-areas: '"l"'
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "auto"      
     label:
       - color: 'var(--secondary-text-color)'
       - display: flex
       - justify-content: center
       - align-items: center
+      - align-self: center
+      - justify-self: end
+
+
+rooms_widget_temp_long_row:
+  template: rooms_widget_sensor_value_long_row
+  variables:
+    ulm_card_room_temp: '[[[ return variables.ulm_card_room_temp; ]]]'
+  label: |-
+    [[[
+        if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+          return "";
+
+        var temperature = null;
+        if (entity.state == null) {
+          temperature = '--';
+        } else {
+          temperature = Number(entity.state).toFixed(1) + '°';
+        }
+        return temperature;
+    ]]]
+
+
+rooms_widget_light_level_long_row:
+  template: rooms_widget_sensor_value_long_row
+  variables:
+    ulm_card_room_light_level: '[[[ return variables.ulm_card_room_light_level; ]]]'
+  label: |-
+    [[[
+        if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+          return "";
+
+        var light_level = null;
+        if (entity.state == null) {
+          light_level = '--';
+        } else {
+          light_level = Number(entity.state).toFixed(0) + ' lx';
+        }
+        return light_level;
+    ]]]
 
 
 rooms_widget_sensor_long_row:
@@ -225,9 +282,9 @@ rooms_widget_sensor_long_row:
           [[[
             if (entity == null)
               return "0px";
-          ]]]
+          ]]]             
     img_cell:
-      - background-color: "none"
+      - background-color: "none"     
   state:
     - id: "on"
       value: "on"
@@ -236,7 +293,7 @@ rooms_widget_sensor_long_row:
           - color: "var(--yellow-color)"
         card:
           #- height: 22px
-          - width: 20px
+          - width: 24px
           - background-color: "none"        
     - id: "off"
       value: "off"

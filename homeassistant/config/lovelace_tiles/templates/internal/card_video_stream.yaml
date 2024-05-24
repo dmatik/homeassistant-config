@@ -1,0 +1,76 @@
+card_video_stream:
+  template:
+    - ulm_language_variables
+  variables:
+    ulm_card_video_stream_url: ''
+    ulm_card_video_stream_title: ''
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+      - row-gap: "12px"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "6px"
+  custom_fields:
+    item1:
+      card:
+        # type: custom:frigate-card
+        # cameras:
+        #   - camera_entity: "[[[ return variables.ulm_card_video_stream_entity; ]]]"
+        #     live_provider: go2rtc
+        #     go2rtc:
+        #       modes:
+        #         - webrtc
+        #       stream: "[[[ return variables.ulm_card_video_stream_url; ]]]"
+        #       title: מרתף
+        #       frigate:
+        #         camera_name: מרתף שתיים
+        # live:
+        #   controls:
+        #     thumbnails:
+        #       mode: none
+        #     draggable: false
+        #     zoomable: false
+        #     title:
+        #       mode: popup-top-right     
+        # card_mod:
+        #   style: |
+        #     ha-card {
+        #       box-shadow: none;
+        #       border-radius: 10px;
+        #       border-style: none;
+        #     }                        
+
+        type: 'custom:webrtc-camera'
+        streams:
+          - url: "[[[ return variables.ulm_card_video_stream_url; ]]]"
+            media: video,audio
+            mode: webrtc
+        # entity: "[[[ return variables.ulm_card_video_stream; ]]]"
+        title: "[[[ return variables.ulm_card_video_stream_title; ]]]"
+        style: '.mode {display: none}'
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: none;
+              border-radius: 10px;
+              border-style: none;
+            }        
+
+        # type: picture-entity
+        # entity: "[[[ return variables.ulm_card_video_stream ]]]"
+        # camera_view: live
+        # name: 'Kitchen'
+        # show_name: false
+        # show_state: false
+        # card_mod:
+        #   style: |
+        #     ha-card {
+        #       box-shadow: none;
+        #       border-radius: 10px;
+        #       border-style: none;
+        #     }

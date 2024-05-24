@@ -440,30 +440,6 @@
       - light.bedside_dima_bulb
     data: {}
   mode: single
-- id: '1634030939721'
-  alias: Front Gate Action
-  description: ''
-  trigger:
-  - platform: event
-    event_type: shortcut_event
-    event_data:
-      actionName: front_gate
-  condition: []
-  action:
-  - service: script.open_parking_gate_74
-  mode: single
-- id: '1634031580769'
-  alias: Back Gate Action
-  description: ''
-  trigger:
-  - platform: event
-    event_type: shortcut_event
-    event_data:
-      actionName: back_gate
-  condition: []
-  action:
-  - service: script.open_parking_gate_72
-  mode: single
 - id: '1652336327236'
   alias: Red Alert Gan Yavne
   description: ''
@@ -1202,8 +1178,8 @@
         id:
         - morning
       - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'on'
+        entity_id: binary_sensor.school_holiday
+        state: 'off'
       sequence:
       - service: scene.turn_on
         metadata: {}
@@ -1241,37 +1217,6 @@
           entity_id: scene.kids_night_covers
         enabled: true
   mode: single
-- id: '1707128536780'
-  alias: Toggle Stairs Lights
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - light.stairs_basement
-    to: 'on'
-    from: 'off'
-  - platform: state
-    entity_id:
-    - light.stairs_basement
-    to: 'off'
-    from: 'on'
-  - platform: state
-    entity_id:
-    - light.stairs_floor_2
-    to: 'on'
-    from: 'off'
-  - platform: state
-    entity_id:
-    - light.stairs_floor_2
-    to: 'off'
-    from: 'on'
-  condition: []
-  action:
-  - type: toggle
-    device_id: fae8c7d1878d04dbd3f3dd3bef0794e9
-    entity_id: 1e247e9c72da93e2ee2da9b2bfd3a06c
-    domain: light
-  mode: single
 - id: '1708798710331'
   alias: Kitchen Strips (Motion) Variant
   description: ''
@@ -1286,27 +1231,8 @@
       light_target_off:
       - light.kitchen_led_strip
       sun_elevation_value: 90
-- id: '1708895404769'
-  alias: Toggle Hallway Light
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - light.hallway_bedroom
-    to: 'on'
-    from: 'off'
-  - platform: state
-    entity_id:
-    - light.hallway_bedroom
-    to: 'off'
-    from: 'on'
-  condition: []
-  action:
-  - type: toggle
-    device_id: 60140bc0963b346adf64fbbd257fa596
-    entity_id: 5a1c67e22211aac3982a3ac30cea94d5
-    domain: light
-  mode: single
+      light_level_entity: sensor.kitchen_light_level_sensor_illuminance_lux
+      light_level_threshold_value: 150
 - id: '1710787657414'
   alias: Main Floor Covers
   description: ''

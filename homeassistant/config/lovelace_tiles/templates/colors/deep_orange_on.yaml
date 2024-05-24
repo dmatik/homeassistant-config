@@ -1,0 +1,10 @@
+---
+deep_orange_on:
+  state:
+    - styles:
+        icon:
+          - color: 'var(--deep-orange-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-deep-orange-color),0.2)'
+      value: "on"
+      id: "on"

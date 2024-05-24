@@ -10,13 +10,13 @@ climate:
     name: Living Room Template
     unique_id: climate_living_room_template
 
-    modes:
+    hvac_modes:
       - "off" 
       - "heat_cool"
       - "cool"
       - "heat"
       - "fan_only"
-      - "dry"
+      #- "dry"
 
     min_temp: 16
     max_temp: 32
@@ -63,7 +63,7 @@ climate:
         data:
           hvac_mode: "{{ hvac_mode }}"
         target:
-          entity_id: climate.living_room
+          entity_id: climate.living_room        
 
 
 
@@ -77,10 +77,10 @@ climate:
     name: Basement Template
     unique_id: climate_basement_template
 
-    modes:
+    hvac_modes:
       - "auto"
       - "cool"
-      - "dry"
+      #- "dry"
       - "fan_only"
       - "heat"
       - "off"
@@ -156,10 +156,10 @@ climate:
     name: Bedroom Template
     unique_id: climate_bedroom_template
 
-    modes:
+    hvac_modes:
       - "auto"
       - "cool"
-      - "dry"
+      #- "dry"
       - "fan_only"
       - "heat"
       - "off"
@@ -235,10 +235,10 @@ climate:
     name: Ronen Template
     unique_id: climate_ronen_template
 
-    modes:
+    hvac_modes:
       - "auto"
       - "cool"
-      - "dry"
+      #- "dry"
       - "fan_only"
       - "heat"
       - "off"
@@ -314,10 +314,10 @@ climate:
     name: Kfir Template
     unique_id: climate_kfir_template
 
-    modes:
+    hvac_modes:
       - "auto"
       - "cool"
-      - "dry"
+      #- "dry"
       - "fan_only"
       - "heat"
       - "off"

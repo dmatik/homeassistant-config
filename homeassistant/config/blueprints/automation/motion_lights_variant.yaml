@@ -13,18 +13,31 @@ blueprint:
       selector:
         entity:
           domain: light
+    light_level_entity:
+      name: Light Level Sensor
+      selector:
+        entity:
+          domain: sensor
+    light_level_threshold_value:
+      name: Light Level Threshold
+      default: 100
+      selector:
+        number:
+          min: 0
+          max: 3000
+          unit_of_measurement: lx          
     motion_timer_entity:
       name: Timer Helper
       selector:
         entity:
           domain: timer
-    sun_elevation_value:
-      name: Sun Elevation Threshold
-      default: 15
-      selector:
-        number:
-          min: -90
-          max: 90
+    # sun_elevation_value:
+    #   name: Sun Elevation Threshold
+    #   default: 15
+    #   selector:
+    #     number:
+    #       min: -90
+    #       max: 90
     light_target_on:
       name: Lights to turn on
       selector:
@@ -68,10 +81,13 @@ action:
           - condition: state
             entity_id: !input light_to_be_off
             state: "off"
+          # - condition: numeric_state
+          #   entity_id: sun.sun
+          #   attribute: elevation
+          #   below: !input sun_elevation_value
           - condition: numeric_state
-            entity_id: sun.sun
-            attribute: elevation
-            below: !input sun_elevation_value
+            entity_id: !input light_level_entity
+            below: !input light_level_threshold_value            
         sequence:
           - service: light.turn_on
             entity_id: !input light_target_on

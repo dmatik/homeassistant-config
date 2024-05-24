@@ -1,0 +1,4 @@
+direction_rtl:
+  styles:
+    card:
+      - direction: "rtl"

@@ -12,13 +12,15 @@ template:
       - name: "Number Of Covers Open"
         unique_id: number_of_covers_open
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('cover.all_covers','entity_id') %}
-            {% if (states(entity_id) != 'closed') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("covers")) | rejectattr('state','eq','closed') | list | count }}
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('cover.all_covers','entity_id') %}
+        #     {% if (states(entity_id) != 'closed') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
 
       ############################################################################
@@ -30,13 +32,15 @@ template:
       - name: "Number Of Covers Open Living Room"
         unique_id: number_of_covers_open_living_room
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('cover.living_room_covers','entity_id') %}
-            {% if (states(entity_id) != 'closed') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('סלון')) | rejectattr('state','eq','closed') | list | count }}
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('cover.living_room_covers','entity_id') %}
+        #     {% if (states(entity_id) != 'closed') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
 
       ############################################################################
@@ -48,13 +52,15 @@ template:
       - name: "Number Of Covers Open Kitchen"
         unique_id: number_of_covers_open_kitchen
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('cover.kitchen_covers','entity_id') %}
-            {% if (states(entity_id) != 'closed') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('מטבח')) | rejectattr('state','eq','closed') | list | count }}        
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('cover.kitchen_covers','entity_id') %}
+        #     {% if (states(entity_id) != 'closed') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
       ############################################################################
       #                                                                          #
@@ -65,13 +71,15 @@ template:
       - name: "Number Of Covers Open Bedroom"
         unique_id: number_of_covers_open_bedroom
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('cover.bedroom_covers','entity_id') %}
-            {% if (states(entity_id) != 'closed') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('הורים')) | rejectattr('state','eq','closed') | list | count }}
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('cover.bedroom_covers','entity_id') %}
+        #     {% if (states(entity_id) != 'closed') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
       ############################################################################
       #                                                                          #
@@ -82,13 +90,15 @@ template:
       - name: "Number Of Covers Open Ronen Room"
         unique_id: number_of_covers_open_ronen_room
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('cover.ronen_room_covers','entity_id') %}
-            {% if (states(entity_id) != 'closed') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('חדר של רונן')) | rejectattr('state','eq','closed') | list | count }}
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('cover.ronen_room_covers','entity_id') %}
+        #     {% if (states(entity_id) != 'closed') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
       ############################################################################
       #                                                                          #
@@ -99,11 +109,13 @@ template:
       - name: "Number Of Covers Open Kfir Room"
         unique_id: number_of_covers_open_kfir_room
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('cover.kfir_room_covers','entity_id') %}
-            {% if (states(entity_id) != 'closed') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('חדר של כפיר')) | rejectattr('state','eq','closed') | list | count }}
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('cover.kfir_room_covers','entity_id') %}
+        #     {% if (states(entity_id) != 'closed') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 

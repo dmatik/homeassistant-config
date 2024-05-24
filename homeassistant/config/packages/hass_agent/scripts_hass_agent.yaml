@@ -1,5 +1,12 @@
 script:
 
+
+  ############################################################################
+  #                                                                          #
+  #   DIMKA                                                                  #
+  #                                                                          #
+  ############################################################################
+
   dimka_wake:
     alias: "DIMKA - Wake"
     sequence:
@@ -27,3 +34,39 @@ script:
       - service: button.press
         target:
           entity_id: button.dimka_shutdown     
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   GROOT                                                                  #
+  #                                                                          #
+  ############################################################################
+
+  groot_wake:
+    alias: "GROOT - Wake"
+    sequence:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret groot_mac
+
+  groot_sleep:
+    alias: "GROOT - Sleep"
+    sequence:
+      - service: button.press
+        target:
+          entity_id: button.groot_sleep
+
+  groot_restart:
+    alias: "GROOT - Restart"
+    sequence:
+      - service: button.press
+        target:
+          entity_id: button.groot_restart
+
+  groot_shutdown:
+    alias: "GROOT - Shutdown"
+    sequence:
+      - service: button.press
+        target:
+          entity_id: button.groot_shutdown               

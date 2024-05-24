@@ -79,4 +79,8 @@
 - url: /local/fonts/arimo.css
   type: css
 # - url: https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800
-#   type: css  
+#   type: css
+- url: /hacsfiles/timer-bar-card/timer-bar-card.js
+  type: module
+- url: /hacsfiles/frigate-hass-card/frigate-hass-card.js
+  type: module  

@@ -43,12 +43,12 @@ chip_base:
       - align-items: center
       #- justify-self: 'center'
       - font-weight: 500
-      - font-size: '14px'
+      - font-size: "var(--chip-card-font-size)" #'14px'
       - margin-left: '0px'
       - margin-top: '0px'
       #- width: 'auto'
-      - padding-left: '2px'
-      - padding-right: '2px'
+      - padding-left: '3px'
+      - padding-right: '3px'
       #- height: '36px'
       #- color: "var(--secondary-text-color)"  
       - letter-spacing: '-0.2px'   
@@ -197,6 +197,14 @@ chip_blue:
         icon:
           - color: 'var(--blue-color)'
 
+chip_deep_orange:
+  state:
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 0 || states[variables.ulm_chip_icon_state_entity].state == "on" ]]]'
+      styles:
+        icon:
+          - color: 'var(--deep-orange-color)'          
+
 chip_blue_no_state:
   styles:
     icon:
@@ -245,4 +253,15 @@ chip_air_polution_icons:
       if (states[variables.ulm_chip_icon_state_entity].state > variables.ulm_card_air_quality_yellow) {
         return 'mdi:emoticon-sad';
       }      
+    ]]]
+
+chip_school_holidays:
+  template:
+    - 'chip_base'
+  label: |-
+    [[[ 
+      if ( states['sensor.school_is_elementary_vacation'].state == 'True' )
+        return states['sensor.school_summary'].state;
+      else
+        return variables.ulm_school_regular; 
     ]]]

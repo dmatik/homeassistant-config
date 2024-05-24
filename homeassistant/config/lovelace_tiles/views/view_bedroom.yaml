@@ -266,6 +266,21 @@ cards:
                         variables:
                           ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
 
+                      # - type: custom:timer-bar-card
+                      #   entity: light.parents_bathroom_ceiling
+                      #   invert: true
+                      #   end_time:
+                      #     entity: timer.parents_bathroom_light
+                      #     attribute: finishes_at              
+                      #   mushroom:
+                      #     color: '#ffc107'
+                      #   tap_action:
+                      #     action: toggle
+                      #   double_tap_action:
+                      #     action: more-info
+                      #   hold_action:
+                      #     action: more-info
+
                       # Parents Bathroom Mirror Light
                       - type: 'custom:button-card'
                         template: 'card_light_simple'

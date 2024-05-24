@@ -13,10 +13,10 @@ group:
   #                                                                          #
   ############################################################################
 
-  all_person_entities:
-    name: All Persons Entities
-    entities:
-      - person.dmatik
-      - person.galit
-      - person.ronen
-      - person.kfir
+  # all_person_entities:
+  #   name: All Persons Entities
+  #   entities:
+  #     - person.dmatik
+  #     - person.galit
+  #     - person.ronen
+  #     - person.kfir

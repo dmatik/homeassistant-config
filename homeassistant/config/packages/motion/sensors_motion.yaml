@@ -12,13 +12,15 @@ template:
       - name: "Number Of Motion Sensors On"
         unique_id: number_of_motion_sensors_on
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('binary_sensor.all_motion_sensors','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("motion_sensors")) | selectattr('state','eq','on') | list | count }}
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('binary_sensor.all_motion_sensors','entity_id') %}
+        #     {% if (states(entity_id) == 'on') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
 
       ############################################################################
@@ -30,13 +32,15 @@ template:
       - name: "Number Of Motion Sensors On Living Room"
         unique_id: number_of_motion_sensors_on_living_room
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('binary_sensor.living_room_motion_sensors','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('סלון')) | selectattr('state','eq','on') | list | count }}
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('binary_sensor.living_room_motion_sensors','entity_id') %}
+        #     {% if (states(entity_id) == 'on') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
 
       ############################################################################
@@ -48,13 +52,15 @@ template:
       - name: "Number Of Motion Sensors On Kitchen"
         unique_id: number_of_motion_sensors_on_kitchen
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('binary_sensor.kitchen_motion_sensors','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('מטבח')) | selectattr('state','eq','on') | list | count }}        
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('binary_sensor.kitchen_motion_sensors','entity_id') %}
+        #     {% if (states(entity_id) == 'on') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
 
       ############################################################################
@@ -66,13 +72,15 @@ template:
       - name: "Number Of Motion Sensors On Bedroom"
         unique_id: number_of_motion_sensors_on_bedroom
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('binary_sensor.bedroom_motion_sensors','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('הורים')) | selectattr('state','eq','on') | list | count }}        
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('binary_sensor.bedroom_motion_sensors','entity_id') %}
+        #     {% if (states(entity_id) == 'on') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
 
       ############################################################################
@@ -84,13 +92,15 @@ template:
       - name: "Number Of Motion Sensors On Hallway"
         unique_id: number_of_motion_sensors_on_hallway
         state: >
-          {% set count = namespace(value=0) %}
-          {% for entity_id in state_attr('binary_sensor.hallway_motion_sensors','entity_id') %}
-            {% if (states(entity_id) == 'on') %}
-              {% set count.value = count.value + 1 %}
-            {% endif %}
-          {% endfor %}
-          {{ count.value }}
+          {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('מסדרון')) | selectattr('state','eq','on') | list | count }}        
+        # state: >
+        #   {% set count = namespace(value=0) %}
+        #   {% for entity_id in state_attr('binary_sensor.hallway_motion_sensors','entity_id') %}
+        #     {% if (states(entity_id) == 'on') %}
+        #       {% set count.value = count.value + 1 %}
+        #     {% endif %}
+        #   {% endfor %}
+        #   {{ count.value }}
 
 
 

@@ -73,55 +73,95 @@ cards:
                         grid-template-columns: 1fr 1fr
                   cards:
 
+
                     # Living Room Temperature
-                    - type: 'custom:button-card'
-                      template: card_graph
-                      variables:
-                        ulm_card_graph_color: "var(--blue-color)"
-                        x_ulm_card_graph_name: "[[[ return variables.ulm_living_room; ]]]"
-                        ulm_card_graph_entity: sensor.climate_living_room_temp
-                      view_layout:
-                        grid-row-start: span 2
+                    - type: tile
+                      entity: sensor.climate_living_room_temp
+
+                    # Kitchen Temperature
+                    - type: tile
+                      entity: sensor.kitchen_temperature_sensor_temperature
 
                     # Bedroom Temperature
-                    - type: 'custom:button-card'
-                      template: card_graph
-                      variables:
-                        ulm_card_graph_color: "var(--blue-color)"
-                        x_ulm_card_graph_name: "[[[ return variables.ulm_bedroom; ]]]"
-                        ulm_card_graph_entity: sensor.climate_bedroom_temp
-                      view_layout:
-                        grid-row-start: span 2
+                    - type: tile
+                      entity: sensor.climate_bedroom_temp
 
                     # Ronen Room Temperature
-                    - type: 'custom:button-card'
-                      template: card_graph
-                      variables:
-                        ulm_card_graph_color: "var(--blue-color)"
-                        x_ulm_card_graph_name: "[[[ return variables.ulm_ronen_room; ]]]"
-                        ulm_card_graph_entity: sensor.climate_ronen_temp
-                      view_layout:
-                        grid-row-start: span 2
+                    - type: tile
+                      entity: sensor.climate_ronen_temp
 
                     # Kfir Room Temperature
-                    - type: 'custom:button-card'
-                      template: card_graph
-                      variables:
-                        ulm_card_graph_color: "var(--blue-color)"
-                        x_ulm_card_graph_name: "[[[ return variables.ulm_kfir_room; ]]]"
-                        ulm_card_graph_entity: sensor.climate_kfir_temp
-                      view_layout:
-                        grid-row-start: span 2
+                    - type: tile
+                      entity: sensor.climate_kfir_temp
 
                     # Basement Temperature
-                    - type: 'custom:button-card'
-                      template: card_graph
-                      variables:
-                        ulm_card_graph_color: "var(--blue-color)"
-                        x_ulm_card_graph_name: "[[[ return variables.ulm_basement; ]]]"
-                        ulm_card_graph_entity: sensor.climate_basement_temp
-                      view_layout:
-                        grid-row-start: span 2                      
+                    - type: tile
+                      entity: sensor.climate_basement_temp
+
+                    # Work Room Temperature
+                    - type: tile
+                      entity: sensor.work_room_temperature_sensor_temperature
+
+
+                    # # Living Room Temperature
+                    # - type: 'custom:button-card'
+                    #   template: card_graph
+                    #   variables:
+                    #     ulm_card_graph_color: "var(--blue-color)"
+                    #     x_ulm_card_graph_name: "[[[ return variables.ulm_living_room; ]]]"
+                    #     ulm_card_graph_entity: sensor.climate_living_room_temp
+                    #   view_layout:
+                    #     grid-row-start: span 2
+
+                    # # Kitchen Temperature
+                    # - type: 'custom:button-card'
+                    #   template: card_graph
+                    #   variables:
+                    #     ulm_card_graph_color: "var(--blue-color)"
+                    #     x_ulm_card_graph_name: "[[[ return variables.ulm_kitchen; ]]]"
+                    #     ulm_card_graph_entity: sensor.work_room_temperature_sensor_temperature
+                    #   view_layout:
+                    #     grid-row-start: span 2
+
+                    # # Bedroom Temperature
+                    # - type: 'custom:button-card'
+                    #   template: card_graph
+                    #   variables:
+                    #     ulm_card_graph_color: "var(--blue-color)"
+                    #     x_ulm_card_graph_name: "[[[ return variables.ulm_bedroom; ]]]"
+                    #     ulm_card_graph_entity: sensor.climate_bedroom_temp
+                    #   view_layout:
+                    #     grid-row-start: span 2
+
+                    # # Ronen Room Temperature
+                    # - type: 'custom:button-card'
+                    #   template: card_graph
+                    #   variables:
+                    #     ulm_card_graph_color: "var(--blue-color)"
+                    #     x_ulm_card_graph_name: "[[[ return variables.ulm_ronen_room; ]]]"
+                    #     ulm_card_graph_entity: sensor.climate_ronen_temp
+                    #   view_layout:
+                    #     grid-row-start: span 2
+
+                    # # Kfir Room Temperature
+                    # - type: 'custom:button-card'
+                    #   template: card_graph
+                    #   variables:
+                    #     ulm_card_graph_color: "var(--blue-color)"
+                    #     x_ulm_card_graph_name: "[[[ return variables.ulm_kfir_room; ]]]"
+                    #     ulm_card_graph_entity: sensor.climate_kfir_temp
+                    #   view_layout:
+                    #     grid-row-start: span 2
+
+                    # # Basement Temperature
+                    # - type: 'custom:button-card'
+                    #   template: card_graph
+                    #   variables:
+                    #     ulm_card_graph_color: "var(--blue-color)"
+                    #     x_ulm_card_graph_name: "[[[ return variables.ulm_basement; ]]]"
+                    #     ulm_card_graph_entity: sensor.climate_basement_temp
+                    #   view_layout:
+                    #     grid-row-start: span 2                      
 
 
               ############################################################################

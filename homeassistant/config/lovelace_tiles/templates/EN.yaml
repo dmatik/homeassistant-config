@@ -138,3 +138,10 @@ ulm_language_variables_EN:
     ulm_chip_back_icon: "mdi:arrow-left"
     ulm_new_year_tree: "Елка"
 
+    ulm_cameras: "Cameras"
+
+    ulm_school_holidays: "Holidays"
+    ulm_school_regular: "Regular School Day"
+    ulm_school_elementary: "Elementary School"
+    ulm_school_high: "High School"
+

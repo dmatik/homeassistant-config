@@ -1,0 +1,20 @@
+card_school_holidays:
+  template:
+    - 'icon_info_bg'
+    - 'deep_orange_on'
+    - 'popup_school_holidays'
+    - 'ulm_language_variables'
+  entity: 'binary_sensor.school_holiday'
+  icon: 'mdi:school'
+  name: "[[[ return variables.ulm_school_holidays; ]]]"
+  label: |-
+    [[[ 
+      if ( states['sensor.school_is_elementary_vacation'].state == 'True' )
+        return states['sensor.school_summary'].state;
+      else
+        return variables.ulm_school_regular; 
+    ]]]
+  hold_action:
+    action: more-info
+  double_tap_action:
+    action: more-info

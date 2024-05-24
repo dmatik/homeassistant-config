@@ -112,6 +112,16 @@ cards:
                           ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
                           ulm_chip_navigate_path: /lovelace/tiles_motion
 
+                      # # School Holiday Chip
+                      # - type: 'custom:button-card'
+                      #   template:
+                      #     - 'chip_icon_state_new'
+                      #     - 'chip_deep_orange'
+                      #     - 'popup_school_holidays'
+                      #   icon: 'mdi:school'
+                      #   variables:
+                      #     ulm_chip_icon_state_entity: binary_sensor.school_holiday                       
+
 
 
           ############################################################################
@@ -230,6 +240,10 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
+                      # # School Holidays
+                      # - type: 'custom:button-card'
+                      #   template: 'card_school_holidays'
+
                       # Living Room Light
                       - type: tile
                         entity: light.living_room
@@ -326,6 +340,21 @@ cards:
                           ulm_card_pc_sleep: 'script.dimka_sleep'
                           ulm_card_pc_restart: 'script.dimka_restart'
                           ulm_card_pc_shutdown: 'script.dimka_shutdown'
+
+                      # Groot PC
+                      - type: 'custom:button-card'
+                        template: card_pc
+                        entity: switch.groot_hass_agent
+                        variables:
+                          #x_ulm_card_pc_name: "[[[ return variables.ulm_groot_pc; ]]]"
+                          ulm_card_pc_memoryusage: 'sensor.groot_memoryusage'
+                          ulm_card_pc_cpuload: 'sensor.groot_cpuload'
+                          ulm_card_pc_storage_1: 'sensor.groot_disk_c_used_space'
+                          ulm_card_pc_storage_2: 'sensor.groot_disk_d_used_space'
+                          ulm_card_pc_wake: 'script.groot_wake'
+                          ulm_card_pc_sleep: 'script.groot_sleep'
+                          ulm_card_pc_restart: 'script.groot_restart'
+                          ulm_card_pc_shutdown: 'script.groot_shutdown'
 
                       # Red Alert
                       - type: 'custom:button-card'

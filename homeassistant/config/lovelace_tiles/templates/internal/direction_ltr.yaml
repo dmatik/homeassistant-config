@@ -1,0 +1,4 @@
+direction_ltr:
+  styles:
+    card:
+      - direction: "ltr"

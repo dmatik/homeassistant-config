@@ -53,6 +53,17 @@ cards:
                     margin: var(--chips-left-margin)
                   cards:
 
+                      # Climate Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_climate'
+                          - 'chip_more_info_with_entity'
+                          - 'chip_paper_no_state'
+                        icon: 'mdi:thermometer'
+                        variables:
+                          ulm_chip_temperature_high: sensor.kitchen_temperature_sensor_temperature
+                          ulm_chip_more_info_entity: sensor.kitchen_temperature_sensor_temperature
+
                       # Lights Chip
                       - type: 'custom:button-card'
                         template:
@@ -79,6 +90,17 @@ cards:
                         icon: 'mdi:run'
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_kitchen
+
+                      # Light Level Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_more_info_with_entity'
+                          - 'chip_paper_no_state'
+                        icon: 'mdi:brightness-5'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.kitchen_light_level_sensor_illuminance_lux
+                          ulm_chip_more_info_entity: sensor.kitchen_light_level_sensor_illuminance_lux
 
 
 
@@ -180,6 +202,10 @@ cards:
                           - type: "cover-open-close"
                         view_layout:
                           grid-row-start: span 2 
+
+                      # Kitchen Light Sensor
+                      # - type: tile
+                      #   entity: sensor.kitchen_light_level_sensor_illuminance_lux
 
                       # Washing Machine
                       - type: 'custom:button-card'

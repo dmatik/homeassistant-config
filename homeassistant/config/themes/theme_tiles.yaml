@@ -24,6 +24,8 @@ Tiles:
   rgb-green-color: '76,175,80' #'#4caf50'
   red-color: '#F54436'
   rgb-red-color: "245, 68, 54" # Original HA red -> '244,67,54' #'#f44336'
+  rgb-orange-color: "255, 152, 0" #FF9800
+  rgb-deep-orange-color: "255, 111, 34" #FF6F22
 
   # Climate Colors
   rgb-climate-heat-color: '255,111,34'
@@ -38,6 +40,7 @@ Tiles:
   # Chips
   chips-left-margin: "2px"
   chip-card-height: "38px"
+  chip-card-font-size: "14px"
 
   modes:
   
