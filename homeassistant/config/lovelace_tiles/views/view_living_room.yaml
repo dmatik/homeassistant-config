@@ -146,7 +146,7 @@ cards:
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
-                          ulm_card_ac_entity: climate.living_room_template
+                          ulm_card_ac_entity: climate.living_room
                           ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
                           #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                         view_layout:
@@ -212,16 +212,20 @@ cards:
                       - type: tile
                         entity: media_player.lg_webos_tv_oled77cs6la
                           
-                      # Living Room Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.living_room_motion_sensor_occupancy
-                        name: "[[[ return variables.ulm_living_room; ]]]"
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.living_room_motion_sensor_illuminance_lux
-                        
+                      # # Living Room Sensor
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - card_motion_sensor
+                      #   entity: binary_sensor.living_room_motion_sensor_occupancy
+                      #   name: "[[[ return variables.ulm_living_room; ]]]"
+                      #   show_last_changed: false
+                      #   variables:
+                      #     light_level: sensor.living_room_motion_sensor_illuminance_lux
+
+                      # Living Room Camera Sensor
+                      - type: tile
+                        entity: binary_sensor.living_room_cell_motion_detection
+
                       # # New Year Tree Lights
                       # - type: 'custom:button-card'
                       #   template: 
@@ -370,26 +374,6 @@ cards:
                         variables:
                           ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
 
-                      # Guest Bathroom Right Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.guest_bathroom_right_motion_sensor_occupancy
-                        name: "[[[ return variables.ulm_guest_toilet; ]]]"
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
-
-                      # Guest Bathroom Left Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.guest_bathroom_left_motion_sensor_occupancy
-                        name: "[[[ return variables.ulm_guest_cabinet; ]]]"
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
-
                       # Guest Bathroom Mirror Sensor
                       - type: 'custom:button-card'
                         template: 
@@ -399,6 +383,10 @@ cards:
                         show_last_changed: false
                         variables:
                           light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
+
+                      # Guest Bathroom New Sensor
+                      - type: tile
+                        entity: binary_sensor.guest_bathroom_new_motion_sensor_occupancy  
 
                 - type: custom:button-card
                   template: spacer

@@ -148,7 +148,7 @@ cards:
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
-                          ulm_card_ac_entity: climate.kfir_template
+                          ulm_card_ac_entity: climate.kfir
                           ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
                           #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
                         view_layout:

@@ -3,7 +3,7 @@ button_card_templates: !include_dir_merge_named lovelace_tiles/templates/
 views:
   - !include /config/lovelace_tiles/views/view_home.yaml
   - !include /config/lovelace_tiles/views/view_rooms.yaml
-  - !include /config/lovelace_tiles/views/view_security.yaml  
+  - !include /config/lovelace_tiles/views/view_security.yaml
   - !include /config/lovelace_tiles/views/view_system.yaml
 
   # Chips

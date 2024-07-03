@@ -29,6 +29,7 @@ Tiles Material:
   rgb-red-color: "245, 68, 54" # Original HA red -> '244,67,54' #'#f44336'
   rgb-orange-color: "255, 152, 0" #FF9800
   rgb-deep-orange-color: "255, 111, 34" #FF6F22
+  rgb-teal-color: "0, 150, 136" #009688
 
   # Climate Colors
   rgb-climate-heat-color: '255,111,34'

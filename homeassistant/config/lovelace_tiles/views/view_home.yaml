@@ -268,7 +268,7 @@ cards:
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
-                          ulm_card_ac_entity: climate.living_room_template
+                          ulm_card_ac_entity: climate.living_room
                           ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
                           #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                         view_layout:
@@ -297,6 +297,18 @@ cards:
                           - type: "cover-open-close"
                         view_layout:
                           grid-row-start: span 2  
+
+                      # Vacuum Cleaner
+                      - type: 'custom:button-card'
+                        template: 
+                          - card_vacuum_cleaner
+                        variables:
+                          #ulm_card_vacuum_cleaner_icon: "mdi:waves"
+                          ulm_card_vacuum_cleaner_entity: vacuum.l20_ultra
+                          ulm_card_vacuum_cleaner_map: camera.l20_ultra_map
+                          ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state
+                        view_layout:
+                          grid-row-start: span 2
 
                       # Living Room TV
                       - type: tile

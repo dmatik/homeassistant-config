@@ -1,0 +1,9 @@
+template:
+
+    sensor:
+      # Translated State
+      - name: "vacuum_l20_ultra_translated_state"
+        unique_id: vacuum_l20_ultra_translated_state
+        icon: mdi:robot-vacuum
+        state: >-
+          {{ state_translated("vacuum.l20_ultra") }}

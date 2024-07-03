@@ -143,4 +143,6 @@ ulm_language_variables:
     ulm_school_holidays: "חופשות"
     ulm_school_regular: "יום לימודים רגיל"
     ulm_school_elementary: "בית הספר יסודי"
-    ulm_school_high: "בית הספר תיכון"    
+    ulm_school_high: "בית הספר תיכון"
+
+    ulm_vacuum_cleaner: "שואב אבק"

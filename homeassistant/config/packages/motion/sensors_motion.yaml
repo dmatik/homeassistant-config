@@ -102,6 +102,11 @@ template:
         #   {% endfor %}
         #   {{ count.value }}
 
+      - name: "Number Of Motion Sensors On Basement"
+        unique_id: number_of_motion_sensors_on_basement
+        state: >
+          {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('מרתף')) | selectattr('state','eq','on') | list | count }} 
+
 
 
       ############################################################################

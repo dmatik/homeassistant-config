@@ -1361,3 +1361,93 @@
           entity_id: scene.bedroom_night_covers
         enabled: true
   mode: single
+- id: '1718649447176'
+  alias: Kids AC Night Cooling variant
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00:00'
+    id: change_temp
+  - platform: time
+    at: 06:00:00
+    id: 'off'
+  condition: []
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - change_temp
+    - condition: state
+      entity_id: climate.ronen
+      state: cool
+    then:
+    - service: climate.set_temperature
+      metadata: {}
+      data:
+        temperature: 26
+        hvac_mode: cool
+      target:
+        entity_id: climate.ronen
+    - service: climate.set_fan_mode
+      metadata: {}
+      data:
+        fan_mode: low
+      target:
+        entity_id: climate.ronen
+    - service: switch.turn_on
+      metadata: {}
+      data: {}
+      target:
+        entity_id: switch.ronen_quiet
+  - if:
+    - condition: trigger
+      id:
+      - change_temp
+    - condition: state
+      entity_id: climate.kfir
+      state: cool
+    then:
+    - service: climate.set_temperature
+      metadata: {}
+      data:
+        temperature: 25
+        hvac_mode: cool
+      target:
+        entity_id: climate.kfir
+    - service: climate.set_fan_mode
+      metadata: {}
+      data:
+        fan_mode: low
+      target:
+        entity_id: climate.kfir
+    - service: switch.turn_on
+      metadata: {}
+      data: {}
+      target:
+        entity_id: switch.kfir_quiet
+  - if:
+    - condition: trigger
+      id:
+      - 'off'
+    - condition: state
+      entity_id: climate.ronen
+      state: cool
+    then:
+    - service: climate.turn_off
+      target:
+        entity_id:
+        - climate.ronen
+      data: {}
+  - if:
+    - condition: trigger
+      id:
+      - 'off'
+    - condition: state
+      entity_id: climate.kfir
+      state: cool
+    then:
+    - service: climate.turn_off
+      data: {}
+      target:
+        entity_id: climate.kfir
+  mode: single

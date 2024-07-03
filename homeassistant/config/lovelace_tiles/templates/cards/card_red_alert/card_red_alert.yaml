@@ -102,16 +102,16 @@ card_red_alert:
               feed_attribute: history
               columns:
                 - title: תאריך
-                  field: date
+                  field: alertDate
                   style:
                     - text-align: right
                     - width: 90px
                     - background-color: 'var(--card-background-color)'                    
-                - title: שעה
-                  field: time
+                - title: התרעה
+                  field: title
                   style:
                     - text-align: right
-                    - width: 56px
+                    - width: 120px
                     - background-color: 'var(--card-background-color)'
                     - padding-right: '10px'
                     - padding-left: '10px'                    

@@ -1,0 +1,123 @@
+card_vacuum_cleaner:
+  template:
+    - two_rows_card
+    - ulm_language_variables
+  variables:
+    x_ulm_card_vacuum_cleaner_name: null
+    ulm_card_vacuum_cleaner_translated_state: ""
+    ulm_card_vacuum_cleaner_icon: ""
+    ulm_card_vacuum_cleaner_entity: ""
+    ulm_card_vacuum_cleaner_map: ""
+  triggers_update: "all"
+  custom_fields:
+    item1:
+      card:
+        triggers_update: "all"
+        variables:
+          ulm_card_vacuum_cleaner_entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
+          x_ulm_card_vacuum_cleaner_name: |
+            [[[
+              if (variables.x_ulm_card_vacuum_cleaner_name != null) {
+                return variables.x_ulm_card_vacuum_cleaner_name;
+              } else {
+                return states[variables.ulm_card_vacuum_cleaner_entity].attributes.friendly_name;
+              }
+            ]]]
+          ulm_card_vacuum_cleaner_icon: '[[[ return variables.ulm_card_vacuum_cleaner_icon ]]]'
+          ulm_card_vacuum_cleaner_map: '[[[ return variables.ulm_card_vacuum_cleaner_map ]]]'
+          ulm_card_vacuum_cleaner_translated_state: '[[[ return variables.ulm_card_vacuum_cleaner_translated_state ]]]'
+        type: "custom:button-card"
+        template:
+          - "icon_info"
+          - "ulm_language_variables"
+          - "vacuum_cleaner"
+          #- "popup_vacuum_cleaner"
+        tap_action:
+          action: more-info          
+        entity: "[[[ return variables.ulm_card_vacuum_cleaner_entity ]]]"
+        name: |
+          [[[
+            if (variables.x_ulm_card_vacuum_cleaner_name != null) {
+              return variables.x_ulm_card_vacuum_cleaner_name;
+            } else {
+              return states[variables.ulm_card_vacuum_cleaner_entity].attributes.friendly_name;
+            }
+          ]]]
+    item2:
+      card:
+        type: "custom:button-card"
+        template: "list_3_items"
+        custom_fields:
+          item1:
+            card:
+              type: "custom:button-card"
+              template: "widget_icon"
+              entity: '[[[ return variables.ulm_card_vacuum_cleaner_entity ]]]'
+              tap_action:
+                action: "call-service"
+                service: |
+                  [[[
+                      if ( states[variables.ulm_card_vacuum_cleaner_entity].state == "cleaning" )
+                        return "vacuum.pause";
+                      else 
+                        return "vacuum.start";
+                  ]]]                  
+                service_data:
+                  entity_id: "[[[ return variables.ulm_card_vacuum_cleaner_entity ]]]"
+              icon: |
+                [[[
+                  if ( states[variables.ulm_card_vacuum_cleaner_entity].state == "cleaning" )
+                    return "mdi:pause";
+                  else 
+                    return "mdi:play";
+                ]]]
+          item2:
+            card:
+              type: "custom:button-card"
+              template: "widget_icon"
+              entity: '[[[ return variables.ulm_card_vacuum_cleaner_entity ]]]'
+              tap_action:
+                action: "call-service"
+                service: "vacuum.return_to_base"
+                service_data:
+                  entity_id: "[[[ return variables.ulm_card_vacuum_cleaner_entity ]]]"
+              icon: mdi:home-import-outline
+          item3:
+            card:
+              type: "custom:button-card"
+              template: 
+                - "widget_icon"
+                - "popup_vacuum_cleaner_map"
+              variables:
+                ulm_card_vacuum_cleaner_entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
+                x_ulm_card_vacuum_cleaner_name: |
+                  [[[
+                    if (variables.x_ulm_card_vacuum_cleaner_name != null) {
+                      return variables.x_ulm_card_vacuum_cleaner_name;
+                    } else {
+                      return states[variables.ulm_card_vacuum_cleaner_entity].attributes.friendly_name;
+                    }
+                  ]]]
+                ulm_card_vacuum_cleaner_map: '[[[ return variables.ulm_card_vacuum_cleaner_map ]]]'
+              entity: '[[[ return variables.ulm_card_vacuum_cleaner_entity ]]]'
+              icon: mdi:map
+
+
+vacuum_cleaner:
+  triggers_update: "all"
+  tap_action:
+    action: "more-info"
+  icon: "[[[ return variables.ulm_card_vacuum_cleaner_icon ]]]"
+  label: >-
+    [[[
+        return states[variables.ulm_card_vacuum_cleaner_translated_state].state;
+    ]]]
+  state:
+    - operator: "template"
+      value: "[[[ return entity.state == 'cleaning' || entity.state == 'returning'; ]]]"
+      styles:
+        icon:
+          - color: 'var(--teal-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-teal-color),0.2)'
+

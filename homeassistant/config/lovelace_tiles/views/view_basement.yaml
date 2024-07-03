@@ -73,6 +73,15 @@ cards:
                         variables:
                           ulm_chip_icon_state_entity: sensor.number_of_lights_on_basement
 
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_yellow'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_basement
+
 
 
           ############################################################################
@@ -173,7 +182,7 @@ cards:
                       - type: 'custom:button-card'
                         template: card_ac_buttons
                         variables:
-                          ulm_card_ac_entity: climate.basement_template
+                          ulm_card_ac_entity: climate.basement
                           ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
                           #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                         view_layout:
@@ -193,6 +202,10 @@ cards:
                           ulm_card_pc_sleep: 'script.groot_sleep'
                           ulm_card_pc_restart: 'script.groot_restart'
                           ulm_card_pc_shutdown: 'script.groot_shutdown'
+
+                      # Basement Camera
+                      - type: tile
+                        entity: binary_sensor.basement_cell_motion_detection
                         
 
 

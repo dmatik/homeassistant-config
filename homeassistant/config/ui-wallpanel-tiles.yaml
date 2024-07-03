@@ -14,12 +14,10 @@ sidebar:
     }
     .digitalClock {
       text-align: center;
-      padding-bottom: 1px;
-      padding-top: 20px;
       line-height: 30px!important;
       letter-spacing: 5px;
       color: var(--primary-text-color) !important;
-      font-size: 6.8vw!important;
+      font-size: 7.6vw!important;
       font-weight: 300!important;
       letter-spacing: -0.05vw!important;
       text-align: center;
@@ -35,7 +33,7 @@ sidebar:
       letter-spacing: -0.05vw;
     }
     .sidebarMenu li {
-      font-size: 22px !important;
+      font-size: 28px !important;
     }
   #title: "Sidebar title"
   digitalClock: true
@@ -62,26 +60,31 @@ sidebar:
       name: "מרתף" #"Basement"
       active: true
       #icon: mdi:home-floor-b
-    - action: navigate
-      navigation_path: "/lovelace-wallpanel-tiles/lights"
-      name: "תאורה" #"Lights"
-      active: true
-      #icon: mdi:lightbulb
-    - action: navigate
-      navigation_path: "/lovelace-wallpanel-tiles/climate"
-      name: "אקלים" #"Climate"
-      active: true
-      #icon: mdi:fan
-    - action: navigate
-      navigation_path: "/lovelace-wallpanel-tiles/covers"
-      name: "תריסים" #"Covers"
-      active: true
-      #icon: mdi:window-shutter
+    # - action: navigate
+    #   navigation_path: "/lovelace-wallpanel-tiles/lights"
+    #   name: "תאורה" #"Lights"
+    #   active: true
+    #   #icon: mdi:lightbulb
+    # - action: navigate
+    #   navigation_path: "/lovelace-wallpanel-tiles/climate"
+    #   name: "אקלים" #"Climate"
+    #   active: true
+    #   #icon: mdi:fan
+    # - action: navigate
+    #   navigation_path: "/lovelace-wallpanel-tiles/covers"
+    #   name: "תריסים" #"Covers"
+    #   active: true
+    #   #icon: mdi:window-shutter
     - action: navigate
       navigation_path: "/lovelace-wallpanel-tiles/security"
       name: "אבטחה" #"Security"
       active: true
       #icon: mdi:cctv
+    - action: navigate
+      navigation_path: "/lovelace-wallpanel-tiles/vacuum_cleaner"
+      name: "שואב אבק" #"Vacuum Cleaner"
+      active: true
+      #icon: mdi:robot-vacuum      
   bottomCard:
     type: vertical-stack
     cardOptions:
@@ -179,3 +182,4 @@ views:
     - !include /config/lovelace_tiles/views_wallpanel/view_climate.yaml
     - !include /config/lovelace_tiles/views_wallpanel/view_covers.yaml
     - !include /config/lovelace_tiles/views_wallpanel/view_security.yaml
+    - !include /config/lovelace_tiles/views_wallpanel/view_vacuum_cleaner.yaml

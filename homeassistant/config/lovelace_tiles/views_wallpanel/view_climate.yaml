@@ -263,7 +263,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_ac_buttons_with_temp
                       variables:
-                        ulm_card_ac_entity: climate.living_room_template
+                        ulm_card_ac_entity: climate.living_room
                         ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                       view_layout:
@@ -274,7 +274,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_ac_buttons_with_temp
                       variables:
-                        ulm_card_ac_entity: climate.bedroom_template
+                        ulm_card_ac_entity: climate.bedroom
                         ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                       view_layout:
@@ -294,7 +294,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_ac_buttons_with_temp
                       variables:
-                        ulm_card_ac_entity: climate.kfir_template
+                        ulm_card_ac_entity: climate.kfir
                         ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
                       view_layout:
@@ -313,7 +313,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_ac_buttons_with_temp
                       variables:
-                        ulm_card_ac_entity: climate.ronen_template
+                        ulm_card_ac_entity: climate.ronen
                         ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
                       view_layout:
@@ -323,7 +323,7 @@ cards:
                     - type: 'custom:button-card'
                       template: card_ac_buttons_with_temp
                       variables:
-                        ulm_card_ac_entity: climate.basement_template
+                        ulm_card_ac_entity: climate.basement
                         ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                       view_layout:

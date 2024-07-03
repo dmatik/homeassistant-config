@@ -98,35 +98,19 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
-                      # Living Room Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.living_room_motion_sensor_occupancy
-                        name: "[[[ return variables.ulm_living_room; ]]]"
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.living_room_motion_sensor_illuminance_lux
+                      # # Living Room Sensor
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - card_motion_sensor
+                      #   entity: binary_sensor.living_room_motion_sensor_occupancy
+                      #   name: "[[[ return variables.ulm_living_room; ]]]"
+                      #   show_last_changed: false
+                      #   variables:
+                      #     light_level: sensor.living_room_motion_sensor_illuminance_lux
 
-                      # Guest Bathroom Right Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.guest_bathroom_right_motion_sensor_occupancy
-                        name: "[[[ return variables.ulm_guest_toilet; ]]]"
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.guest_bathroom_right_motion_sensor_illuminance_lux
-
-                      # Guest Bathroom Left Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.guest_bathroom_left_motion_sensor_occupancy
-                        name: "[[[ return variables.ulm_guest_cabinet; ]]]"
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.guest_bathroom_left_motion_sensor_illuminance_lux
+                      # Living Room Camera Sensor
+                      - type: tile
+                        entity: binary_sensor.living_room_cell_motion_detection
 
                       # Guest Bathroom Mirror Sensor
                       - type: 'custom:button-card'
@@ -137,6 +121,10 @@ cards:
                         show_last_changed: false
                         variables:
                           light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
+
+                      # Guest Bathroom New Sensor
+                      - type: tile
+                        entity: binary_sensor.guest_bathroom_new_motion_sensor_occupancy                          
 
 
           ############################################################################
@@ -312,6 +300,47 @@ cards:
                       # Parents Bathroom Right Sensor
                       - type: tile
                         entity: binary_sensor.parents_bathroom_new_right_motion_sensor_occupancy
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Basement                                                               #
+          #                                                                          #
+          ############################################################################
+
+                # Title
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_basement; ]]]"
+
+
+                # Sensors
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Basement Camera
+                      - type: tile
+                        entity: binary_sensor.basement_cell_motion_detection
 
 
                 - type: custom:button-card

@@ -30,6 +30,7 @@ scene:
         current_position: 64
         state: open
       cover.kitchen:
+        current_position: 32
         state: open
       cover.entrance_window:
         current_position: 64
@@ -63,6 +64,7 @@ scene:
         current_position: 64
         state: open
       cover.kitchen:
+        current_position: 32
         state: open
       cover.entrance_window:
         current_position: 64
@@ -170,7 +172,7 @@ scene:
     name: Kids Morning Covers
     entities:
       cover.ronen_room:
-        current_position: 14
+        current_position: 34
         state: open
       cover.kfir_room:
         current_position: 10
@@ -201,9 +203,9 @@ scene:
     name: Kids Night Covers
     entities:
       cover.ronen_room:
-        current_position: 14
+        current_position: 34
         state: open
       cover.kfir_room:
-        current_position: 10
+        current_position: 32
         state: open      
     icon: mdi:window-shutter

@@ -84,3 +84,7 @@
   type: module
 - url: /hacsfiles/frigate-hass-card/frigate-hass-card.js
   type: module  
+- url: /hacsfiles/vacuum-card/vacuum-card.js
+  type: module  
+- url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+  type: module  
