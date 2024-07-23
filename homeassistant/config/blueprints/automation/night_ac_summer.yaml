@@ -1,0 +1,104 @@
+blueprint:
+  name: Night AC - Summer Time
+  description: Handle AC during the night in Summer.
+  domain: automation
+  input:
+    climate_entity:
+      name: Climate Entity
+      selector:
+        entity:
+          domain: climate  
+    target_temperature_value:
+      name: Target Temperature
+      default: 25
+      selector:
+        number:
+          min: 17
+          max: 32
+          unit_of_measurement: °C
+    quiet_mode_switch:
+      name: Quiet Mode Switch
+      selector:
+        entity:
+          multiple: false
+          domain: switch
+    start_time:
+      name: Start Time
+      selector:
+        time:
+    end_time:
+      name: End Time
+      selector:
+        time:  
+trigger:
+  - platform: numeric_state
+    entity_id: !input climate_entity
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    attribute: temperature
+    below: !input target_temperature_value
+    id: climate_on
+  - platform: time
+    at: !input start_time
+    id: climate_on
+  - platform: state
+    entity_id: !input climate_entity
+    to: cool
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    id: climate_on
+  - platform: time
+    at: !input end_time
+    id: climate_off    
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: climate_on
+          - condition: time
+            after: !input start_time
+            before: !input end_time
+          - condition: state
+            entity_id: !input climate_entity
+            state: cool
+          - condition: numeric_state
+            entity_id: !input climate_entity
+            attribute: temperature
+            below: !input target_temperature_value            
+        sequence:
+          - service: climate.set_temperature
+            metadata: {}
+            data:
+              temperature: !input target_temperature_value
+              hvac_mode: cool
+            target:
+              entity_id: !input climate_entity
+          - service: climate.set_fan_mode
+            metadata: {}
+            data:
+              fan_mode: low
+            target:
+              entity_id: !input climate_entity
+          - service: switch.turn_on
+            metadata: {}
+            data: {}
+            target:
+              entity_id: !input quiet_mode_switch
+      - conditions:
+          - condition: trigger
+            id: climate_off              
+          - condition: state
+            entity_id: !input climate_entity
+            state: cool
+        sequence:
+          - service: climate.turn_off
+            target:
+              entity_id: !input climate_entity
+            data: {}
+            
+max_exceeded: silent
