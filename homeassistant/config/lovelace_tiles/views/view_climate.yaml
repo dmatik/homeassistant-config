@@ -341,34 +341,68 @@ cards:
                           grid-template-columns: 1fr 1fr            
                     cards:
 
+                      # # Living Room Temperature
+                      # - type: tile
+                      #   entity: sensor.climate_living_room_temp
+
+                      # # Kitchen Temperature
+                      # - type: tile
+                      #   entity: sensor.kitchen_temperature_sensor_temperature
+
+                      # # Bedroom Temperature
+                      # - type: tile
+                      #   entity: sensor.climate_bedroom_temp
+
+                      # # Ronen Room Temperature
+                      # - type: tile
+                      #   entity: sensor.climate_ronen_temp
+
+                      # # Kfir Room Temperature
+                      # - type: tile
+                      #   entity: sensor.climate_kfir_temp
+
+                      # # Basement Temperature
+                      # - type: tile
+                      #   entity: sensor.climate_basement_temp
+
+                      # # Work Room Temperature
+                      # - type: tile
+                      #   entity: sensor.work_room_temperature_sensor_temperature                      
+
                       # Living Room Temperature
-                      - type: tile
+                      - type: sensor
                         entity: sensor.climate_living_room_temp
+                        graph: line
 
                       # Kitchen Temperature
-                      - type: tile
+                      - type: sensor
                         entity: sensor.kitchen_temperature_sensor_temperature
+                        graph: line
 
                       # Bedroom Temperature
-                      - type: tile
+                      - type: sensor
                         entity: sensor.climate_bedroom_temp
+                        graph: line
 
                       # Ronen Room Temperature
-                      - type: tile
+                      - type: sensor
                         entity: sensor.climate_ronen_temp
+                        graph: line
 
                       # Kfir Room Temperature
-                      - type: tile
+                      - type: sensor
                         entity: sensor.climate_kfir_temp
+                        graph: line
 
                       # Basement Temperature
-                      - type: tile
+                      - type: sensor
                         entity: sensor.climate_basement_temp
+                        graph: line
 
                       # Work Room Temperature
-                      - type: tile
-                        entity: sensor.work_room_temperature_sensor_temperature                      
-
+                      - type: sensor
+                        entity: sensor.work_room_temperature_sensor_temperature
+                        graph: line
 
                 - type: custom:button-card
                   template: spacer

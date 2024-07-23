@@ -113,13 +113,20 @@ cards:
                     cards:
 
 
+                      # # DB File Size
+                      # - type: 'custom:button-card'
+                      #   template: card_graph
+                      #   variables:
+                      #     x_ulm_card_graph_name: db
+                      #     ulm_card_graph_entity: sensor.home_assistant_v2_db_size
+                      #     ulm_card_graph_icon: mdi:database
+
                       # DB File Size
-                      - type: 'custom:button-card'
-                        template: card_graph
-                        variables:
-                          x_ulm_card_graph_name: db
-                          ulm_card_graph_entity: sensor.home_assistant_v2_db_size
-                          ulm_card_graph_icon: mdi:database
+                      - type: sensor
+                        name: DB File Size
+                        entity: sensor.home_assistant_v2_db_size
+                        icon: mdi:database
+                        graph: line
 
                       # # DB_WAL File Size
                       # - type: 'custom:button-card'
