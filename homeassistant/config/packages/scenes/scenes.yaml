@@ -92,12 +92,14 @@ scene:
     name: Main Floor Night Covers
     entities:
       cover.living_room_window:
-        state: closed
+        current_position: 34
+        state: open
       cover.kitchen:
         current_position: 32
         state: open
       cover.entrance_window:
-        state: closed        
+        current_position: 34
+        state: open       
     icon: mdi:window-shutter
 
 
