@@ -67,6 +67,7 @@ Tiles Material:
 
       # Popup
       popup-backdrop-filter: "blur(10px) brightness(100%)"
+      popup-card-style-background: '#F2F2F2'
 
       # Printer colors
       printer-black-color: 'rgba(150,150,150,1)'
@@ -96,6 +97,7 @@ Tiles Material:
 
       # Popup
       popup-backdrop-filter: "blur(10px) contrast(50%)"
+      popup-card-style-background: '#242424'
 
       # Printer colors
       printer-black-color: 'rgba(50,50,50,1)'

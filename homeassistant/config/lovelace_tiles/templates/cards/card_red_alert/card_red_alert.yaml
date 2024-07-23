@@ -106,21 +106,21 @@ card_red_alert:
                   style:
                     - text-align: right
                     - width: 90px
-                    - background-color: 'var(--card-background-color)'                    
+                    - background-color: 'var(--popup-card-style-background)' #'rgba(var(--rgb-disabled-color),0.2)' #'var(--card-background-color)'
                 - title: התרעה
                   field: title
                   style:
                     - text-align: right
-                    - width: 120px
-                    - background-color: 'var(--card-background-color)'
-                    - padding-right: '10px'
-                    - padding-left: '10px'                    
+                    #- width: 120px
+                    - background-color: 'var(--popup-card-style-background)' #'rgba(var(--rgb-disabled-color),0.2)' #'var(--card-background-color)'
+                    #- padding-right: '10px'
+                    #- padding-left: '10px'                    
                 - title: מיקום
                   field: data
                   style:
                     - text-align: right
-                    - background-color: 'var(--card-background-color)'
-                    - padding-right: '10px'
+                    - background-color: 'var(--popup-card-style-background)' #'rgba(var(--rgb-disabled-color),0.2)' #'var(--card-background-color)'
+                    #- padding-right: '10px'
 
 
             - type: "custom:button-card"
