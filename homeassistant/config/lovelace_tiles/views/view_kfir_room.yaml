@@ -1,170 +1,88 @@
 title: חדר של כפיר
 path: tiles_kfir_room
 visible: false
-panel: true
+type: sections
 subview: true
-cards:
+max_columns: 3
 
-  - type: vertical-stack
+badges:
+
+  # Climate Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_climate'
+      - 'chip_more_info_with_entity'
+      - 'chip_paper_no_state'
+    icon: 'mdi:thermometer'
+    variables:
+      ulm_chip_temperature_high: sensor.kfir_room_temperature_sensor_temperature
+      ulm_chip_more_info_entity: sensor.kfir_room_temperature_sensor_temperature
+
+  # Lights Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_yellow'
+    icon: 'mdi:lightbulb'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_lights_on_kfir_room
+
+  # Covers Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_purple'
+    icon: 'mdi:window-shutter'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_covers_open_kfir_room
+
+
+
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #  Kfir                                                                    #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: כפיר  
     cards:
 
+      # Kfir Room Light
+      - type: tile
+        entity: light.kfir_room
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
 
-############################################################################
-#                                                                          #
-#   View                                                                   #
-#                                                                          #
-############################################################################
+      # Kfir Led Strip
+      - type: tile
+        entity: light.kfir_led_strip
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
 
-      - type: "custom:mod-card"
-        style:
-          layout-card$:
-            grid-layout$: |
-              #root {
-                margin-left: var(--view-margins) !important;
-                margin-right: var(--view-margins) !important;
-                justify-content: center !important;
-              }
-        card:
-          type: custom:layout-card
-          layout_type: grid
-          layout_options:
-            grid-template-columns: 1fr
-            grid-template-rows: auto
-            mediaquery:
-              "(min-width: 800px)":
-                grid-template-columns: 780px
-          cards:
+      # Kfir Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.kfir
+          ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
 
-            - type: vertical-stack
-              cards:
-
-
-          ############################################################################
-          #                                                                          #
-          #   Chips                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
-
-                      # Climate Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_climate'
-                          - 'chip_more_info_with_entity'
-                          - 'chip_paper_no_state'
-                        icon: 'mdi:thermometer'
-                        variables:
-                          ulm_chip_temperature_high: sensor.climate_kfir_temp
-                          ulm_chip_more_info_entity: sensor.climate_kfir_temp
-
-                      # Lights Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_yellow'
-                        icon: 'mdi:lightbulb'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_kfir_room
-
-                      # Covers Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_purple'
-                        icon: 'mdi:window-shutter'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_covers_open_kfir_room
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Title                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_kfir_room; ]]]"
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # Kfir Room Light
-                      - type: tile
-                        entity: light.kfir_room
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
-
-                      # Kfir Led Strip
-                      - type: tile
-                        entity: light.kfir_led_strip
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
-
-                      # Kfir Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.kfir
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
-                          #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
-                        view_layout:
-                          grid-row-start: span 2
-
-                      # Kfir Room Cover
-                      - type: tile
-                        entity: cover.kfir_room
-                        features:
-                          - type: "cover-open-close"
-                        view_layout:
-                          grid-row-start: span 2 
-                        
-
-
-                - type: custom:button-card
-                  template: spacer
-                  variables:
-                    height: 100px
+      # Kfir Room Cover
+      - type: tile
+        entity: cover.kfir_room
+        features:
+          - type: "cover-open-close"

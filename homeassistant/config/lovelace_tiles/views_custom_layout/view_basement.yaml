@@ -1,0 +1,215 @@
+title: מרתף
+path: tiles_basement
+visible: false
+panel: true
+subview: true
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Chips                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: custom:layout-card
+                  layout_type: grid
+                  layout_options:
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    margin: var(--chips-left-margin)
+                  cards:
+
+                      # Climate Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_climate'
+                          - 'chip_more_info_with_entity'
+                          - 'chip_paper_no_state'
+                        icon: 'mdi:thermometer'
+                        variables:
+                          ulm_chip_temperature_high: sensor.basement_temperature_sensor_temperature
+                          ulm_chip_more_info_entity: sensor.basement_temperature_sensor_temperature
+
+                      # Lights Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_yellow'
+                        icon: 'mdi:lightbulb'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_basement
+
+                      # Motion Chip
+                      - type: 'custom:button-card'
+                        template:
+                          - 'chip_icon_label_state'
+                          - 'chip_yellow'
+                        icon: 'mdi:run'
+                        variables:
+                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_basement
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: "[[[ return variables.ulm_basement; ]]]"
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Basement Light
+                      - type: tile
+                        entity: light.basement
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Stairs Light
+                      - type: tile
+                        entity: light.stairs_ground_floor
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Basement 2 Light
+                      - type: tile
+                        entity: light.basement_2_light_1
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Basement 3 Light
+                      - type: tile
+                        entity: light.basement_2_light_2
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Basement Toys Light
+                      - type: tile
+                        entity: light.basement_toys
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+
+                      # Basement TV
+                      - type: tile
+                        entity: media_player.samsung_8_series_65
+
+                      # Basement Climate
+                      - type: 'custom:button-card'
+                        template: card_ac_buttons
+                        variables:
+                          ulm_card_ac_entity: climate.basement
+                          ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
+                          #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
+                        view_layout:
+                          grid-row-start: span 2
+
+                      # Groot PC
+                      - type: 'custom:button-card'
+                        template: card_pc
+                        entity: switch.groot_hass_agent
+                        variables:
+                          #x_ulm_card_pc_name: "[[[ return variables.ulm_groot_pc; ]]]"
+                          ulm_card_pc_memoryusage: 'sensor.groot_memoryusage'
+                          ulm_card_pc_cpuload: 'sensor.groot_cpuload'
+                          ulm_card_pc_storage_1: 'sensor.groot_disk_c_used_space'
+                          ulm_card_pc_storage_2: 'sensor.groot_disk_d_used_space'
+                          ulm_card_pc_wake: 'script.groot_wake'
+                          ulm_card_pc_sleep: 'script.groot_sleep'
+                          ulm_card_pc_restart: 'script.groot_restart'
+                          ulm_card_pc_shutdown: 'script.groot_shutdown'
+
+                      # Basement Camera
+                      - type: tile
+                        entity: binary_sensor.basement_cell_motion_detection
+                        
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

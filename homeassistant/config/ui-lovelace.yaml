@@ -5,6 +5,7 @@ views:
   - !include /config/lovelace_tiles/views/view_rooms.yaml
   - !include /config/lovelace_tiles/views/view_security.yaml
   - !include /config/lovelace_tiles/views/view_system.yaml
+  #- !include /config/lovelace_tiles/views/view_test.yaml
 
   # Chips
   - !include /config/lovelace_tiles/views/view_climate.yaml

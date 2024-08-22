@@ -1,305 +1,217 @@
 title: אקלים
 path: tiles_climate
 visible: false
-panel: true
+type: sections
 subview: true
-cards:
+max_columns: 3
 
-  - type: vertical-stack
+badges:
+
+  # Climate Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_climate'
+      #- 'chip_blue_no_state'
+    variables:
+      ulm_chip_temperature_low: sensor.lowest_temperature_home
+      ulm_chip_temperature_high: sensor.highest_temperature_home
+      ulm_chip_devices_on: sensor.number_of_climate_entities_on
+
+  # Air Quality Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_air_polution_colors'
+      - 'chip_air_polution_icons'
+      - 'popup_chip_air_quality'
+    variables:
+      ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
+      ulm_card_air_quality_green: 50
+      ulm_card_air_quality_yellow: 100
+
+
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #   Air Conditioning                                                       #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: מיזוג אוויר  
     cards:
 
+      # Living Room Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.living_room
+          ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2                     
 
-############################################################################
-#                                                                          #
-#   View                                                                   #
-#                                                                          #
-############################################################################
+      # Bedroom Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.bedroom
+          ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
 
-      - type: "custom:mod-card"
-        style:
-          layout-card$:
-            grid-layout$: |
-              #root {
-                margin-left: var(--view-margins) !important;
-                margin-right: var(--view-margins) !important;
-                justify-content: center !important;
-              }
-        card:
-          type: custom:layout-card
-          layout_type: grid
-          layout_options:
-            grid-template-columns: 1fr
-            grid-template-rows: auto
-            mediaquery:
-              "(min-width: 800px)":
-                grid-template-columns: 780px
-          cards:
+      # Ronen Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.ronen
+          ulm_card_ac_curr_temp_sensor: sensor.ronen_room_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+          
+      # Kfir Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.kfir
+          ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
 
-            - type: vertical-stack
-              cards:
-
-
-          ############################################################################
-          #                                                                          #
-          #   Chips                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
-
-                      # Climate Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_climate'
-                          #- 'chip_blue_no_state'
-                        variables:
-                          ulm_chip_temperature_low: sensor.lowest_temperature_home
-                          ulm_chip_temperature_high: sensor.highest_temperature_home
-                          ulm_chip_devices_on: sensor.number_of_climate_entities_on
-
-                      # Air Quality Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_air_polution_colors'
-                          - 'chip_air_polution_icons'
-                          - 'popup_chip_air_quality'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
-                          ulm_card_air_quality_green: 50
-                          ulm_card_air_quality_yellow: 100
+      # Basement Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.basement
+          ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
 
 
-          ############################################################################
-          #                                                                          #
-          #   Air Conditioning                                                       #
-          #                                                                          #
-          ############################################################################
+      # # Living Room AC
+      # - type: tile
+      #   entity: climate.living_room_template
+      #   features:
+      #     - type: "climate-hvac-modes"
+      #       hvac_modes:
+      #         - "off"
+      #         - cool
+      #         - heat
+      #   view_layout:
+      #     grid-row-start: span 2                       
 
-                - type: horizontal-stack
-                  cards:
+      # # Bedroom AC
+      # - type: tile
+      #   entity: climate.bedroom_template
+      #   features:
+      #     - type: "climate-hvac-modes"
+      #       hvac_modes:
+      #         - "off"
+      #         - cool
+      #         - heat
+      #   view_layout:
+      #     grid-row-start: span 2
 
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_air_conditioning; ]]]"
+      # # Ronen AC
+      # - type: tile
+      #   entity: climate.ronen_template
+      #   features:
+      #     - type: "climate-hvac-modes"
+      #       hvac_modes:
+      #         - "off"
+      #         - cool
+      #         - heat
+      #   view_layout:
+      #     grid-row-start: span 2
+                              
+      # # Kfir AC
+      # - type: tile
+      #   entity: climate.kfir_template
+      #   features:
+      #     - type: "climate-hvac-modes"
+      #       hvac_modes:
+      #         - "off"
+      #         - cool
+      #         - heat
+      #   view_layout:
+      #     grid-row-start: span 2
 
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # Living Room Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.living_room
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                          #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
-                        view_layout:
-                          grid-row-start: span 2                       
-
-                      # Bedroom Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.bedroom
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
-                          #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
-                        view_layout:
-                          grid-row-start: span 2
-
-                      # Ronen Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.ronen
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
-                          #x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
-                        view_layout:
-                          grid-row-start: span 2
-                          
-                      # Kfir Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.kfir
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
-                          #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
-                        view_layout:
-                          grid-row-start: span 2
-
-                      # Basement Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.basement
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
-                          #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
-                        view_layout:
-                          grid-row-start: span 2
-
-
-                      # # Living Room AC
-                      # - type: tile
-                      #   entity: climate.living_room_template
-                      #   features:
-                      #     - type: "climate-hvac-modes"
-                      #       hvac_modes:
-                      #         - "off"
-                      #         - cool
-                      #         - heat
-                      #   view_layout:
-                      #     grid-row-start: span 2                       
-
-                      # # Bedroom AC
-                      # - type: tile
-                      #   entity: climate.bedroom_template
-                      #   features:
-                      #     - type: "climate-hvac-modes"
-                      #       hvac_modes:
-                      #         - "off"
-                      #         - cool
-                      #         - heat
-                      #   view_layout:
-                      #     grid-row-start: span 2
-
-                      # # Ronen AC
-                      # - type: tile
-                      #   entity: climate.ronen_template
-                      #   features:
-                      #     - type: "climate-hvac-modes"
-                      #       hvac_modes:
-                      #         - "off"
-                      #         - cool
-                      #         - heat
-                      #   view_layout:
-                      #     grid-row-start: span 2
-                                             
-                      # # Kfir AC
-                      # - type: tile
-                      #   entity: climate.kfir_template
-                      #   features:
-                      #     - type: "climate-hvac-modes"
-                      #       hvac_modes:
-                      #         - "off"
-                      #         - cool
-                      #         - heat
-                      #   view_layout:
-                      #     grid-row-start: span 2
-
-                      # # Basement AC
-                      # - type: tile
-                      #   entity: climate.basement_template
-                      #   features:
-                      #     - type: "climate-hvac-modes"
-                      #       hvac_modes:
-                      #         - "off"
-                      #         - cool
-                      #         - heat
-                      #   view_layout:
-                      #     grid-row-start: span 2
+      # # Basement AC
+      # - type: tile
+      #   entity: climate.basement_template
+      #   features:
+      #     - type: "climate-hvac-modes"
+      #       hvac_modes:
+      #         - "off"
+      #         - cool
+      #         - heat
+      #   view_layout:
+      #     grid-row-start: span 2
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Heating                                                                #
-          #                                                                          #
-          ############################################################################
+  ############################################################################
+  #                                                                          #
+  #   Heating                                                                #
+  #                                                                          #
+  ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+  - type: grid
+    title: חימום  
+    cards:
 
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_heating; ]]]"
+      # Switcher
+      - type: 'custom:button-card'
+        template: 
+          - card_switcher
+        variables:
+          #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+          ulm_card_switcher_icon: "mdi:waves"
+          ulm_card_switcher_entity: switch.switcher_boiler
+          ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
+          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
+          ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+          ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
+          ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+          
+      # Bathroom Heater
+      - type: 'custom:button-card'
+        template: 
+          - "card_heater_with_timer"
+        variables:
+          ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
+          ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
+        entity: switch.bathroom_heater
+        #name: "[[[ return variables.ulm_bathroom; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1
 
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # Switcher
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_switcher
-                        variables:
-                          #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
-                          ulm_card_switcher_icon: "mdi:waves"
-                          ulm_card_switcher_entity: switch.switcher_boiler
-                          ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
-                          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
-                          ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
-                          ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
-                          ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
-                        view_layout:
-                          grid-row-start: span 2
-                          
-                      # Bathroom Heater
-                      - type: 'custom:button-card'
-                        template: 
-                          - "card_heater_with_timer"
-                        variables:
-                          ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
-                          ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
-                        entity: switch.bathroom_heater
-                        name: "[[[ return variables.ulm_bathroom; ]]]"
-
-                      # Parents Bathroom Heater
-                      - type: 'custom:button-card'
-                        template: 
-                          - "card_heater_with_timer"
-                        variables:
-                          ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
-                          ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
-                        entity: switch.parents_bathroom_heater
-                        name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+      # Parents Bathroom Heater
+      - type: 'custom:button-card'
+        template: 
+          - "card_heater_with_timer"
+        variables:
+          ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
+          ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
+        entity: switch.parents_bathroom_heater
+        #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1
 
 
 
@@ -309,102 +221,69 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+  - type: grid
+    title: טמפרטורה  
+    cards:
 
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_temperature; ]]]"
+      # # Living Room Temperature
+      # - type: tile
+      #   entity: sensor.living_room_temperature_sensor_temperature
 
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
+      # # Kitchen Temperature
+      # - type: tile
+      #   entity: sensor.kitchen_temperature_sensor_temperature
 
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
+      # # Bedroom Temperature
+      # - type: tile
+      #   entity: sensor.bedroom_temperature_sensor_temperature
 
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
+      # # Ronen Room Temperature
+      # - type: tile
+      #   entity: sensor.ronen_room_temperature_sensor_temperature
 
-                      # # Living Room Temperature
-                      # - type: tile
-                      #   entity: sensor.climate_living_room_temp
+      # # Kfir Room Temperature
+      # - type: tile
+      #   entity: sensor.kfir_room_temperature_sensor_temperature
 
-                      # # Kitchen Temperature
-                      # - type: tile
-                      #   entity: sensor.kitchen_temperature_sensor_temperature
+      # # Basement Temperature
+      # - type: tile
+      #   entity: sensor.basement_temperature_sensor_temperature
 
-                      # # Bedroom Temperature
-                      # - type: tile
-                      #   entity: sensor.climate_bedroom_temp
+      # # Work Room Temperature
+      # - type: tile
+      #   entity: sensor.work_room_temperature_sensor_temperature                      
 
-                      # # Ronen Room Temperature
-                      # - type: tile
-                      #   entity: sensor.climate_ronen_temp
+      # Living Room Temperature
+      - type: sensor
+        entity: sensor.living_room_temperature_sensor_temperature
+        graph: line
 
-                      # # Kfir Room Temperature
-                      # - type: tile
-                      #   entity: sensor.climate_kfir_temp
+      # Kitchen Temperature
+      - type: sensor
+        entity: sensor.kitchen_temperature_sensor_temperature
+        graph: line
 
-                      # # Basement Temperature
-                      # - type: tile
-                      #   entity: sensor.climate_basement_temp
+      # Bedroom Temperature
+      - type: sensor
+        entity: sensor.bedroom_temperature_sensor_temperature
+        graph: line
 
-                      # # Work Room Temperature
-                      # - type: tile
-                      #   entity: sensor.work_room_temperature_sensor_temperature                      
+      # Ronen Room Temperature
+      - type: sensor
+        entity: sensor.ronen_room_temperature_sensor_temperature
+        graph: line
 
-                      # Living Room Temperature
-                      - type: sensor
-                        entity: sensor.climate_living_room_temp
-                        graph: line
+      # Kfir Room Temperature
+      - type: sensor
+        entity: sensor.kfir_room_temperature_sensor_temperature
+        graph: line
 
-                      # Kitchen Temperature
-                      - type: sensor
-                        entity: sensor.kitchen_temperature_sensor_temperature
-                        graph: line
+      # Basement Temperature
+      - type: sensor
+        entity: sensor.basement_temperature_sensor_temperature
+        graph: line
 
-                      # Bedroom Temperature
-                      - type: sensor
-                        entity: sensor.climate_bedroom_temp
-                        graph: line
-
-                      # Ronen Room Temperature
-                      - type: sensor
-                        entity: sensor.climate_ronen_temp
-                        graph: line
-
-                      # Kfir Room Temperature
-                      - type: sensor
-                        entity: sensor.climate_kfir_temp
-                        graph: line
-
-                      # Basement Temperature
-                      - type: sensor
-                        entity: sensor.climate_basement_temp
-                        graph: line
-
-                      # Work Room Temperature
-                      - type: sensor
-                        entity: sensor.work_room_temperature_sensor_temperature
-                        graph: line
-
-                - type: custom:button-card
-                  template: spacer
-                  variables:
-                    height: 100px
+      # Work Room Temperature
+      - type: sensor
+        entity: sensor.work_room_temperature_sensor_temperature
+        graph: line

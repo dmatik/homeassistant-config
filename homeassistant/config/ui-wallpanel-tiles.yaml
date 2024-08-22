@@ -118,7 +118,7 @@ sidebar:
               icon: mdi:wifi
               variables:
                 ulm_card_barcode_title: 'Guest WiFi'
-                ulm_card_barcode_image: '/local/images/wifi_guest.png'
+                ulm_card_barcode_image: image.guest_wifi #'/local/images/wifi_guest.png'
               card_mod:
                 style: |
                   ha-card {

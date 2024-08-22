@@ -1,0 +1,196 @@
+title: Home Assistant
+path: tiles_homeassistant
+visible: false
+panel: true
+subview: true
+cards:
+
+  - type: vertical-stack
+    cards:
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Sensors and Buttons                                                    #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Home Assistant Version
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr
+                    cards:
+
+                      # HA Vesrsions
+                      - type: 'custom:button-card'
+                        template: card_homeassistant
+                        variables:
+                          ulm_card_homeassistant_entity: 'binary_sensor.docker_hub_update_available'
+                          ulm_card_homeassistant_curr_version: 'sensor.ha_current_version'
+                          ulm_card_homeassistant_latest_version: 'sensor.docker_hub'
+                          ulm_card_homeassistant_update_script: 'script.update_homeassistant_container'
+
+
+          ############################################################################
+          #                                                                          #
+          #   Database                                                               #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Home Assistant Database
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr
+                    cards:
+
+
+                      # # DB File Size
+                      # - type: 'custom:button-card'
+                      #   template: card_graph
+                      #   variables:
+                      #     x_ulm_card_graph_name: db
+                      #     ulm_card_graph_entity: sensor.home_assistant_v2_db_size
+                      #     ulm_card_graph_icon: mdi:database
+
+                      # DB File Size
+                      - type: sensor
+                        name: DB File Size
+                        entity: sensor.home_assistant_v2_db_size
+                        icon: mdi:database
+                        graph: line
+
+                      # # DB_WAL File Size
+                      # - type: 'custom:button-card'
+                      #   template: card_graph
+                      #   variables:
+                      #     x_ulm_card_graph_name: db_wal
+                      #     ulm_card_graph_entity: sensor.home_assistant_v2_db_wal_size
+                      #     ulm_card_graph_icon: mdi:database
+
+                #       # Events
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: Events
+                #           ulm_card_graph_entity: sensor.events_size
+                #           ulm_card_graph_icon: mdi:database
+
+                #       # States
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: States
+                #           ulm_card_graph_entity: sensor.states_size
+                #           ulm_card_graph_icon: mdi:database
+
+                #       # State Attributes
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: State Attributes
+                #           ulm_card_graph_entity: sensor.state_attributes_size
+                #           ulm_card_graph_icon: mdi:database
+
+                #       # Statistics
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: Statistics
+                #           ulm_card_graph_entity: sensor.statistics_size
+                #           ulm_card_graph_icon: mdi:database
+
+                #       # Statistics Short Term
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: Stats Short Term
+                #           ulm_card_graph_entity: sensor.statistics_short_term_size
+                #           ulm_card_graph_icon: mdi:database
+
+                #       # Full DB
+                #       - type: 'custom:button-card'
+                #         template: card_graph
+                #         variables:
+                #           x_ulm_card_graph_name: Full DB
+                #           ulm_card_graph_entity: sensor.db_size
+                #           ulm_card_graph_icon: mdi:database
+
+                #       # Full DB Calculated
+                #       - type: 'custom:button-card'
+                #         template: card_generic
+                #         entity: sensor.db_size_calculated
+                #         name: Calculated
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

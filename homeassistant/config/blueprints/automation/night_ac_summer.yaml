@@ -16,12 +16,12 @@ blueprint:
           min: 17
           max: 32
           unit_of_measurement: °C
-    quiet_mode_switch:
-      name: Quiet Mode Switch
-      selector:
-        entity:
-          multiple: false
-          domain: switch
+    # quiet_mode_switch:
+    #   name: Quiet Mode Switch
+    #   selector:
+    #     entity:
+    #       multiple: false
+    #       domain: switch
     start_time:
       name: Start Time
       selector:
@@ -84,21 +84,29 @@ action:
               fan_mode: low
             target:
               entity_id: !input climate_entity
-          - service: switch.turn_on
-            metadata: {}
-            data: {}
-            target:
-              entity_id: !input quiet_mode_switch
+          # - service: switch.turn_on
+          #   metadata: {}
+          #   data: {}
+          #   target:
+          #     entity_id: !input quiet_mode_switch
       - conditions:
           - condition: trigger
             id: climate_off              
           - condition: state
             entity_id: !input climate_entity
             state: cool
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: "on"            
         sequence:
           - service: climate.turn_off
             target:
               entity_id: !input climate_entity
             data: {}
+          # - service: switch.turn_off
+          #   metadata: {}
+          #   data: {}
+          #   target:
+          #     entity_id: !input quiet_mode_switch            
             
 max_exceeded: silent

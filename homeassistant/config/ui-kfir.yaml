@@ -1,0 +1,4 @@
+#background: var(--background-image)
+button_card_templates: !include_dir_merge_named lovelace_tiles/templates/
+views:
+  - !include /config/lovelace_tiles/views_kfir/view_kfir.yaml

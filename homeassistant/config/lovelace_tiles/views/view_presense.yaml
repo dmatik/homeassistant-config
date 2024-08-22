@@ -1,188 +1,80 @@
 title: נוכחות
 path: tiles_presense
 visible: false
-panel: true
+type: sections
 subview: true
-cards:
+max_columns: 3
 
-  - type: vertical-stack
+badges:
+
+  # Presense Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_blue'
+    icon: 'mdi:home'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_persons_home
+
+  # School Holiday Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_school_holidays'
+      - 'chip_deep_orange'
+      - 'popup_school_holidays'
+    icon: 'mdi:school'
+    variables:
+      ulm_chip_icon_state_entity: binary_sensor.school_holiday
+
+
+
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #   Presence                                                               #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: נוכחות  
     cards:
 
-############################################################################
-#                                                                          #
-#   View                                                                   #
-#                                                                          #
-############################################################################
+      # Dima
+      - type: tile
+        entity: person.dmatik
+        show_entity_picture: true
 
-      - type: "custom:mod-card"
-        style:
-          layout-card$:
-            grid-layout$: |
-              #root {
-                margin-left: var(--view-margins) !important;
-                margin-right: var(--view-margins) !important;
-                justify-content: center !important;
-              }
-        card:
-          type: custom:layout-card
-          layout_type: grid
-          layout_options:
-            grid-template-columns: 1fr
-            grid-template-rows: auto
-            mediaquery:
-              "(min-width: 800px)":
-                grid-template-columns: 780px
-          cards:
+      # Galit
+      - type: tile
+        entity: person.galit
+        show_entity_picture: true
 
-            - type: vertical-stack
-              cards:
+      # Ronen
+      - type: tile
+        entity: person.ronen
+        show_entity_picture: true
 
-
-          ############################################################################
-          #                                                                          #
-          #   Chips                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
-
-                      # Presense Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_blue'
-                        icon: 'mdi:home'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_persons_home
-
-                      # School Holiday Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_school_holidays'
-                          - 'chip_deep_orange'
-                          - 'popup_school_holidays'
-                        icon: 'mdi:school'
-                        variables:
-                          ulm_chip_icon_state_entity: binary_sensor.school_holiday
+      # Kfir
+      - type: tile
+        entity: person.kfir
+        show_entity_picture: true
 
 
 
+  ############################################################################
+  #                                                                          #
+  #   School Holidays                                                        #
+  #                                                                          #
+  ############################################################################
 
-          ############################################################################
-          #                                                                          #
-          #   Title                                                                  #
-          #                                                                          #
-          ############################################################################
+  - type: grid
+    title: חופשות  
+    cards:
 
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_presense; ]]]"
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # Dima
-                      - type: tile
-                        entity: person.dmatik
-                        show_entity_picture: true
-
-                      # Galit
-                      - type: tile
-                        entity: person.galit
-                        show_entity_picture: true
-
-                      # Ronen
-                      - type: tile
-                        entity: person.ronen
-                        show_entity_picture: true
-
-                      # Kfir
-                      - type: tile
-                        entity: person.kfir
-                        show_entity_picture: true
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Title                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_school_holidays; ]]]"
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # School Holidays
-                      - type: 'custom:button-card'
-                        template: 'card_school_holidays'
-
-
-
-                - type: custom:button-card
-                  template: spacer
-                  variables:
-                    height: 100px
+      # School Holidays
+      - type: 'custom:button-card'
+        template: 'card_school_holidays'
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1

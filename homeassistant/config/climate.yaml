@@ -1,0 +1,62 @@
+
+############################################################################
+#                                                                          #
+#   Bedroom AC                                                             #
+#                                                                          #
+############################################################################
+
+- platform: gree
+  name: Bedroom AC
+  host: 10.0.0.62
+  port: 7000
+  mac: '50:2c:c6:bf:44:1b'
+  target_temp_step: 1
+  temp_sensor: sensor.bedroom_temperature_sensor_temperature
+
+
+
+############################################################################
+#                                                                          #
+#   Kfir AC                                                                #
+#                                                                          #
+############################################################################
+
+- platform: gree
+  name: Kfir AC
+  host: 10.0.0.63
+  port: 7000
+  mac: '50:2c:c6:bf:43:38'
+  target_temp_step: 1
+  temp_sensor: sensor.kfir_room_temperature_sensor_temperature
+
+
+
+############################################################################
+#                                                                          #
+#   Ronen AC                                                               #
+#                                                                          #
+############################################################################
+
+- platform: gree
+  name: Ronen AC
+  host: 10.0.0.64
+  port: 7000
+  mac: '50:2c:c6:bf:43:1f'
+  target_temp_step: 1
+  temp_sensor: sensor.ronen_room_temperature_sensor_temperature
+
+
+
+############################################################################
+#                                                                          #
+#   Basement AC                                                            #
+#                                                                          #
+############################################################################
+
+- platform: gree
+  name: Basement AC
+  host: 10.0.0.65
+  port: 7000
+  mac: '50:2c:c6:a5:5d:38'
+  target_temp_step: 1
+  temp_sensor: sensor.basement_temperature_sensor_temperature

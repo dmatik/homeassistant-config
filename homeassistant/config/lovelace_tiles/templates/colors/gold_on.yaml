@@ -1,0 +1,12 @@
+---
+
+gold_on:
+  state:
+    - styles:
+        icon:
+          - color: 'var(--gold-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-gold-color),0.2)'
+      id: "on"
+      value: "on"
+

@@ -1,4 +1,35 @@
 card_vacuum_cleaner:
+  variables:
+    ulm_card_vacuum_cleaner_translated_state: ''
+    ulm_card_vacuum_cleaner_icon: ''
+    ulm_card_vacuum_cleaner_entity: ''
+    x_ulm_card_vacuum_cleaner_name: null
+    ulm_card_vacuum_cleaner_map: ''
+    x_ulm_card_vacuum_cleaner_title: |
+      [[[
+        if (variables.x_ulm_card_vacuum_cleaner_name != null) {
+          return variables.x_ulm_card_vacuum_cleaner_name;
+        } else {
+          return states[variables.ulm_card_vacuum_cleaner_entity].attributes.friendly_name;
+        }
+      ]]]
+  template:
+    - 'icon_info_bg'
+    - 'teal_on'
+    - 'ulm_language_variables_EN'
+    - "vacuum_cleaner"
+    - "popup_vacuum_cleaner_map"
+  entity: "[[[ return variables.ulm_card_vacuum_cleaner_entity ]]]"
+  name: |
+    [[[
+      if (variables.x_ulm_card_vacuum_cleaner_name != null) {
+        return variables.x_ulm_card_vacuum_cleaner_name;
+      } else {
+        return states[variables.ulm_card_vacuum_cleaner_entity].attributes.friendly_name;
+      }
+    ]]]
+
+card_vacuum_cleaner_buttons:
   template:
     - two_rows_card
     - ulm_language_variables
@@ -89,8 +120,8 @@ card_vacuum_cleaner:
                 - "widget_icon"
                 - "popup_vacuum_cleaner_map"
               variables:
-                ulm_card_vacuum_cleaner_entity: '[[[ return variables.ulm_card_switcher_entity ]]]'
-                x_ulm_card_vacuum_cleaner_name: |
+                ulm_card_vacuum_cleaner_entity: '[[[ return variables.ulm_card_vacuum_cleaner_entity ]]]'
+                x_ulm_card_vacuum_cleaner_title: |
                   [[[
                     if (variables.x_ulm_card_vacuum_cleaner_name != null) {
                       return variables.x_ulm_card_vacuum_cleaner_name;

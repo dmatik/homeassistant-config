@@ -1,0 +1,7 @@
+template:
+
+  - image:
+
+      - name: guest_wifi
+        unique_id: guest_wifi
+        url: !secret guest_wifi_image_url

@@ -86,13 +86,21 @@ card_ac_buttons:
                 item3:
                   card:
                     icon: 'mdi:power'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                     tap_action:
                       action: call-service
                       service: climate.turn_off
                       service_data:
                         entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    type: 'custom:button-card'
-                    template: widget_icon_transparent
+                    state:
+                      - value: "off"
+                        styles:
+                          icon:
+                            - color: 'rgb(255,255,255)'                          
+                          img_cell:
+                            - background-color: 'rgb(var(--rgb-grey-color))'                    
 
 
 
@@ -198,13 +206,21 @@ card_ac_buttons_with_temp:
                 item3:
                   card:
                     icon: 'mdi:power'
+                    type: 'custom:button-card'
+                    template: widget_icon_transparent
+                    entity: '[[[ return variables.ulm_card_ac_entity ]]]'
                     tap_action:
                       action: call-service
                       service: climate.turn_off
                       service_data:
                         entity_id: '[[[ return variables.ulm_card_ac_entity ]]]'
-                    type: 'custom:button-card'
-                    template: widget_icon_transparent
+                    state:
+                      - value: "off"
+                        styles:
+                          icon:
+                            - color: 'rgb(255,255,255)'                          
+                          img_cell:
+                            - background-color: 'rgb(var(--rgb-grey-color))'  
     item3:
       card:
         template: 'list_1_item'
@@ -290,10 +306,10 @@ ac_text_info:
       - position: inherit
       - --mdc-ripple-press-opacity: 0.0
       - background: "none"
-      - padding-top: "12px"
+      - padding-top: "0px"
       - padding-bottom: "0px"
-      - padding-right: "12px"
-      - padding-left: "12px"
+      - padding-right: "0px"
+      - padding-left: "0px"
       - border-style: "none"
       - font-size: "12px"
   label: >-
@@ -379,11 +395,12 @@ ac_curr_temp:
         - display: flex
         - justify-content: center
         - align-items: center
-        - width: '40px'
-        - height: '40px'      
-        - font-size: '16px'
+        - width: '36px'
+        - height: '36px'      
+        - font-size: '18px'
         - font-weight: '500'
         - letter-spacing: '-1px'
+        - line-height: '36px'
   custom_fields:
     curr_temp: |-
       [[[
@@ -391,7 +408,7 @@ ac_curr_temp:
           if (curr_temp == null || curr_temp == "unavailable" || curr_temp == "unknown") {
             var curr_temp = '--';
           } else {
-            curr_temp = Number(curr_temp).toFixed(1);
+            curr_temp = Number(curr_temp).toFixed(0);
           }
           return curr_temp + '°';
       ]]]

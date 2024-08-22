@@ -1,314 +1,209 @@
 title: הורים
 path: tiles_bedroom
 visible: false
-panel: true
+type: sections
 subview: true
-cards:
+max_columns: 3
 
-  - type: vertical-stack
+badges:
+
+  # Climate Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_climate'
+      - 'chip_more_info_with_entity'
+      - 'chip_paper_no_state'
+    icon: 'mdi:thermometer'
+    variables:
+      ulm_chip_temperature_high: sensor.bedroom_temperature_sensor_temperature
+      ulm_chip_more_info_entity: sensor.bedroom_temperature_sensor_temperature
+
+  # Lights Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_yellow'
+    icon: 'mdi:lightbulb'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_lights_on_bedroom
+
+  # Covers Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_purple'
+    icon: 'mdi:window-shutter'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_covers_open_bedroom
+
+  # Motion Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_yellow'
+    icon: 'mdi:run'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_bedroom
+
+
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #   Bedroom                                                                #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: הורים  
     cards:
 
 
-############################################################################
-#                                                                          #
-#   View                                                                   #
-#                                                                          #
-############################################################################
+      # Bedroom Light
+      - type: tile
+        entity: light.bedroom
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
 
-      - type: "custom:mod-card"
-        style:
-          layout-card$:
-            grid-layout$: |
-              #root {
-                margin-left: var(--view-margins) !important;
-                margin-right: var(--view-margins) !important;
-                justify-content: center !important;
-              }
-        card:
-          type: custom:layout-card
-          layout_type: grid
-          layout_options:
-            grid-template-columns: 1fr
-            grid-template-rows: auto
-            mediaquery:
-              "(min-width: 800px)":
-                grid-template-columns: 780px
-          cards:
+      # Bedroom Balcony Light
+      - type: tile
+        entity: light.bedroom_balcony
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
 
-            - type: vertical-stack
-              cards:
+      # Bedside Dima Light
+      - type: tile
+        entity: light.bedside_dima_bulb
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info                                                
 
+      # Bedside Galit Light
+      - type: tile
+        entity: light.bedside_galit_bulb
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info 
 
-          ############################################################################
-          #                                                                          #
-          #   Chips                                                                  #
-          #                                                                          #
-          ############################################################################
+      # Bedroom Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.bedroom
+          ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
+      # Bedroom Balcony Cover
+      - type: tile
+        entity: cover.bedroom_balcony
+        features:
+          - type: "cover-open-close"
 
-                      # Climate Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_climate'
-                          - 'chip_more_info_with_entity'
-                          - 'chip_paper_no_state'
-                        icon: 'mdi:thermometer'
-                        variables:
-                          ulm_chip_temperature_high: sensor.climate_bedroom_temp
-                          ulm_chip_more_info_entity: sensor.climate_bedroom_temp
+      # Bedroom Window Cover
+      - type: tile
+        entity: cover.bedroom_window
+        features:
+          - type: "cover-open-close"                        
 
-                      # Lights Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_yellow'
-                        icon: 'mdi:lightbulb'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_bedroom
-
-                      # Covers Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_purple'
-                        icon: 'mdi:window-shutter'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_covers_open_bedroom
-
-                      # Motion Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_yellow'
-                        icon: 'mdi:run'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_bedroom
+      # Bedroom Makup Cover
+      - type: tile
+        entity: cover.parents_makeup
+        features:
+          - type: "cover-open-close"
 
 
-          ############################################################################
-          #                                                                          #
-          #   Bedroom                                                                #
-          #                                                                          #
-          ############################################################################
-
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_bedroom; ]]]"
+      # Bedroom Radiator
+      # - type: 'custom:button-card'
+      #   template: card_power_outlet
+      #   variables:
+      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
+      #   entity: switch.bedroom_radiator
+      #   name: Radiator
+      #   icon: mdi:radiator
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
+  ############################################################################
+  #                                                                          #
+  #   Parents Bathroom                                                       #
+  #                                                                          #
+  ############################################################################
 
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
+  - type: grid
+    title: רחצה הורים
+    cards:
 
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
+      # Parents Bathroom Light
+      - type: 'custom:button-card'
+        template: 'card_light_simple'
+        entity: light.parents_bathroom_ceiling
+        #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+        variables:
+          ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
 
-                      # Bedroom Light
-                      - type: tile
-                        entity: light.bedroom
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
+      # - type: custom:timer-bar-card
+      #   entity: light.parents_bathroom_ceiling
+      #   invert: true
+      #   end_time:
+      #     entity: timer.parents_bathroom_light
+      #     attribute: finishes_at              
+      #   mushroom:
+      #     color: '#ffc107'
+      #   tap_action:
+      #     action: toggle
+      #   double_tap_action:
+      #     action: more-info
+      #   hold_action:
+      #     action: more-info
 
-                      # Bedroom Balcony Light
-                      - type: tile
-                        entity: light.bedroom_balcony
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
+      # Parents Bathroom Mirror Light
+      - type: 'custom:button-card'
+        template: 'card_light_simple'
+        entity: light.parents_bathroom_mirror
+        #name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
+        variables:
+          ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
 
-                      # Bedside Dima Light
-                      - type: tile
-                        entity: light.bedside_dima_bulb
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info                                                
+      # Parents Bathroom Heater
+      - type: 'custom:button-card'
+        template: 
+          - "card_heater_with_timer"
+        variables:
+          ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
+          ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
+        entity: switch.parents_bathroom_heater
+        #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1        
 
-                      # Bedside Galit Light
-                      - type: tile
-                        entity: light.bedside_galit_bulb
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info 
+      # Parents Bathroom Left Sensor
+      - type: tile
+        entity: binary_sensor.parents_bathroom_new_left_motion_sensor_occupancy
 
-                      # Bedroom Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.bedroom
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
-                          #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
-                        view_layout:
-                          grid-row-start: span 2
-
-                      # Bedroom Balcony Cover
-                      - type: tile
-                        entity: cover.bedroom_balcony
-                        features:
-                          - type: "cover-open-close"
-                        view_layout:
-                          grid-row-start: span 2 
-
-                      # Bedroom Window Cover
-                      - type: tile
-                        entity: cover.bedroom_window
-                        features:
-                          - type: "cover-open-close"
-                        view_layout:
-                          grid-row-start: span 2                           
-
-                      # Bedroom Makup Cover
-                      - type: tile
-                        entity: cover.parents_makeup
-                        features:
-                          - type: "cover-open-close"
-                        view_layout:
-                          grid-row-start: span 2
-
-
-                      # Bedroom Radiator
-                      # - type: 'custom:button-card'
-                      #   template: card_power_outlet
-                      #   variables:
-                      #     ulm_card_power_outlet_consumption_sensor: sensor.bedroom_radiator_energy_power 
-                      #   entity: switch.bedroom_radiator
-                      #   name: Radiator
-                      #   icon: mdi:radiator
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Parents Bathroom                                                       #
-          #                                                                          #
-          ############################################################################
-
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_parents_bathroom; ]]]"
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # Parents Bathroom Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.parents_bathroom_ceiling
-                        #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
-                        variables:
-                          ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
-
-                      # - type: custom:timer-bar-card
-                      #   entity: light.parents_bathroom_ceiling
-                      #   invert: true
-                      #   end_time:
-                      #     entity: timer.parents_bathroom_light
-                      #     attribute: finishes_at              
-                      #   mushroom:
-                      #     color: '#ffc107'
-                      #   tap_action:
-                      #     action: toggle
-                      #   double_tap_action:
-                      #     action: more-info
-                      #   hold_action:
-                      #     action: more-info
-
-                      # Parents Bathroom Mirror Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.parents_bathroom_mirror
-                        #name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
-                        variables:
-                          ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"                     
-
-                      # Parents Bathroom Heater
-                      - type: 'custom:button-card'
-                        template: 
-                          - "card_heater_with_timer"
-                        variables:
-                          ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
-                          ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
-                        entity: switch.parents_bathroom_heater
-                        name: "[[[ return variables.ulm_parents_bathroom; ]]]"
-
-                      # Parents Bathroom Left Sensor
-                      - type: tile
-                        entity: binary_sensor.parents_bathroom_new_left_motion_sensor_occupancy
-
-                      # Parents Bathroom Right Sensor
-                      - type: tile
-                        entity: binary_sensor.parents_bathroom_new_right_motion_sensor_occupancy
-                          
-
-                - type: custom:button-card
-                  template: spacer
-                  variables:
-                    height: 100px
+      # Parents Bathroom Right Sensor
+      - type: tile
+        entity: binary_sensor.parents_bathroom_new_right_motion_sensor_occupancy

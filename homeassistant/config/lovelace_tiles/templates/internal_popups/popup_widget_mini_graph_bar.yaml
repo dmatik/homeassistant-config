@@ -1,0 +1,84 @@
+popup_widget_mini_graph_bar:
+  variables:
+    mini_graph_name: ''
+    mini_graph_color: ''
+    mini_graph_entity: ''
+    mini_graph_attribute : ''
+    mini_graph_max: 100
+    mini_graph_min: 0
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    card:
+      - border-radius: "0px"
+      - background: "none"
+      - box-shadow: "none"
+      - padding: "0px"
+      - border-style: "none"
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:bar-card"
+        height: "28px"
+        positions:
+          name: "inside"
+          value: "inside"
+          icon: off
+          indicator: off
+          minmax: off
+        max: '[[[ return variables.mini_graph_max ]]]'
+        min: '[[[ return variables.mini_graph_min ]]]'
+        name: '[[[ return variables.mini_graph_name ]]]'
+        color: '[[[ return variables.mini_graph_color ]]]'
+        entity: "[[[ return variables.mini_graph_entity ]]]"
+        attribute: "[[[ return variables.mini_graph_attribute ]]]"
+        card_mod:
+          style: |
+            bar-card-currentbar{
+              border: 0.01rem solid var(--divider-color);
+            }
+            bar-card-backgroundbar{
+              display: none;
+            }
+            bar-card-name{
+              width: 8rem;
+              margin-left: 10px !important;
+              justify-content: start;
+              display: flex;
+              color: rgba(var(--primary-text-color),1);
+              padding-top: 2px;
+            }
+            bar-card-value{
+              width: 100%;
+              margin-left: 0px !important;
+              margin-right: 10px !important;
+              justify-content: end;
+              display: flex;
+              color: rgba(var(--primary-text-color),1);
+              padding-top: 2px;
+            }
+            bar-card-background{
+              margin: 4px 0px 4px 0px !important;
+              text-align: initial;
+            }
+            ha-card{
+              --bar-card-border-radius: 5px;
+              border-radius: 0px;
+              box-shadow: none;
+              background: none;
+              border-style: none;
+              direction: ltr;
+              padding-left: 14px;
+              padding-right: 14px;
+            }
+            #states{
+              padding-top: 0px;
+              padding-left: 2px;
+              padding-right: 2px;
+              padding-bottom: 0px;
+            }

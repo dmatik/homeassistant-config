@@ -10,9 +10,9 @@ list_2_items:
     card:
       - box-shadow: "none"
       - padding-top: "0px"
-      - padding-bottom: "12px"
-      - padding-right: "12px"
-      - padding-left: "12px"
+      - padding-bottom: "0px"
+      - padding-right: "0px"
+      - padding-left: "0px"
       - border-style: "none"
       - border-radius: "0px"
       - background: "none"

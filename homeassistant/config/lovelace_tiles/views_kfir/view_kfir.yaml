@@ -1,0 +1,88 @@
+title: כפיר
+path: tiles_kfir
+visible: true
+type: sections
+subview: false
+max_columns: 3
+
+badges:
+
+  # Climate Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_climate'
+      - 'chip_more_info_with_entity'
+      - 'chip_paper_no_state'
+    icon: 'mdi:thermometer'
+    variables:
+      ulm_chip_temperature_high: sensor.kfir_room_temperature_sensor_temperature
+      ulm_chip_more_info_entity: sensor.kfir_room_temperature_sensor_temperature
+
+  # Lights Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_yellow'
+    icon: 'mdi:lightbulb'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_lights_on_kfir_room
+
+  # Covers Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_purple'
+    icon: 'mdi:window-shutter'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_covers_open_kfir_room
+
+
+
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #  Kfir                                                                    #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: כפיר  
+    cards:
+
+      # Kfir Room Light
+      - type: tile
+        entity: light.kfir_room
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Kfir Led Strip
+      - type: tile
+        entity: light.kfir_led_strip
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Kfir Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.kfir
+          ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+
+      # Kfir Room Cover
+      - type: tile
+        entity: cover.kfir_room
+        features:
+          - type: "cover-open-close"

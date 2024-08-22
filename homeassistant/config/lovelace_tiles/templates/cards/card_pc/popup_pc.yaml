@@ -50,28 +50,28 @@ popup_pc:
                 cards:
 
                   - type: "custom:button-card"
-                    template: "widget_mini_graph_bar"
+                    template: "popup_widget_mini_graph_bar"
                     variables:
                       mini_graph_color: 'rgba(var(--rgb-purple-color),0.2)'
                       mini_graph_entity: '[[[ return variables.ulm_card_pc_memoryusage; ]]]'
                       mini_graph_name: 'RAM'
 
                   - type: "custom:button-card"
-                    template: "widget_mini_graph_bar"
+                    template: "popup_widget_mini_graph_bar"
                     variables:
                       mini_graph_color: 'rgba(var(--rgb-blue-color),0.2)'
                       mini_graph_entity: '[[[ return variables.ulm_card_pc_cpuload; ]]]'
                       mini_graph_name: 'CPU'
 
                   - type: "custom:button-card"
-                    template: "widget_mini_graph_bar"
+                    template: "popup_widget_mini_graph_bar"
                     variables:
                       mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
                       mini_graph_entity: '[[[ return variables.ulm_card_pc_storage_1; ]]]'
                       mini_graph_name: 'Disk C'
 
                   - type: "custom:button-card"
-                    template: "widget_mini_graph_bar"
+                    template: "popup_widget_mini_graph_bar"
                     variables:
                       mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
                       mini_graph_entity: '[[[ return variables.ulm_card_pc_storage_2; ]]]'

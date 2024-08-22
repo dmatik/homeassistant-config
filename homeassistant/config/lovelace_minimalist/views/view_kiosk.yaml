@@ -206,7 +206,7 @@ cards:
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.living_room
-                  ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
+                  ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
                   ulm_card_ac_name: 'Living Room'
                 view_layout:
                   grid-row-start: span 2
@@ -216,7 +216,7 @@ cards:
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.bedroom
-                  ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
+                  ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
                   ulm_card_ac_name: 'Bedroom'
                 view_layout:
                   grid-row-start: span 2
@@ -226,7 +226,7 @@ cards:
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.kfir
-                  ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
+                  ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature
                   ulm_card_ac_name: 'Kfir'
                 view_layout:
                   grid-row-start: span 2
@@ -236,7 +236,7 @@ cards:
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.ronen
-                  ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
+                  ulm_card_ac_curr_temp_sensor: sensor.ronen_room_temperature_sensor_temperature
                   ulm_card_ac_name: 'Ronen'
                 view_layout:
                   grid-row-start: span 2
@@ -246,7 +246,7 @@ cards:
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.basement
-                  ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
+                  ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
                   ulm_card_ac_name: 'Basement'
                 view_layout:
                   grid-row-start: span 2

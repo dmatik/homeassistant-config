@@ -39,28 +39,28 @@ popup_printer:
               cards:
 
                 - type: "custom:button-card"
-                  template: "widget_mini_graph_bar"
+                  template: "popup_widget_mini_graph_bar"
                   variables:
                     mini_graph_color: var(--printer-black-color)
                     mini_graph_entity: 'sensor.mfc_j650dw_black_ink_remaining'
                     mini_graph_name: 'Black'
 
                 - type: "custom:button-card"
-                  template: "widget_mini_graph_bar"
+                  template: "popup_widget_mini_graph_bar"
                   variables:
                     mini_graph_color: var(--printer-yellow-color)
                     mini_graph_entity: 'sensor.mfc_j650dw_yellow_ink_remaining'
                     mini_graph_name: 'Yellow'
 
                 - type: "custom:button-card"
-                  template: "widget_mini_graph_bar"
+                  template: "popup_widget_mini_graph_bar"
                   variables:
                     mini_graph_color: var(--printer-magenta-color)
                     mini_graph_entity: 'sensor.mfc_j650dw_magenta_ink_remaining'
                     mini_graph_name: 'Magenta'
 
                 - type: "custom:button-card"
-                  template: "widget_mini_graph_bar"
+                  template: "popup_widget_mini_graph_bar"
                   variables:
                     mini_graph_color: var(--printer-cyan-color)
                     mini_graph_entity: 'sensor.mfc_j650dw_cyan_ink_remaining'

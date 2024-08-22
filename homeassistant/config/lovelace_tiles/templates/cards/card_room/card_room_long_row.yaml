@@ -64,7 +64,7 @@ room_list_2_items_long_row:
       - column-gap: "0px"
     card:
       - box-shadow: "none"
-      - padding: "12px"
+      - padding: "0px"
       - border-style: "none"
       - border-radius: "0px"
       - background: "none"
@@ -92,6 +92,7 @@ room_list_2_items_long_row:
 
 room_info_long_row:
   template:
+    - "icon_base"
     - "ulm_language_variables"
   show_icon: true
   show_label: true
@@ -112,8 +113,8 @@ room_info_long_row:
   styles:
     icon:
       - color: 'rgb(255,255,255)' #'var(--blue-color)'
-      - width: "24px"
-      - height: "24px"
+      #- width: "22px"
+      #- height: "22px"
     label:
       - justify-self: "start"
       - align-self: "start"
@@ -124,30 +125,30 @@ room_info_long_row:
       - margin-right: "12px"
       - color: "var(--primary-text-color)"
       - letter-spacing: "0.4px"
-    name:
-      - align-self: "end"
-      - justify-self: "start"
-      - font-weight: "500"
-      - font-size: "14px"
-      - margin-left: "12px"
-      - margin-right: "12px"
-      - margin-top: "0px"
-      - height: "20px"
-      - letter-spacing: "0.1px"
-    state:
-      - justify-self: "start"
-      - align-self: "start"
-      - font-weight: "bolder"
-      - font-size: "12px"
-      - filter: "opacity(40%)"
-      - margin-left: "12px"
-      - margin-right: "12px"
+    # name:
+    #   - align-self: "end"
+    #   - justify-self: "start"
+    #   - font-weight: "500"
+    #   - font-size: "14px"
+    #   - margin-left: "12px"
+    #   - margin-right: "12px"
+    #   - margin-top: "0px"
+    #   - height: "20px"
+    #   - letter-spacing: "0.1px"
+    # state:
+    #   - justify-self: "start"
+    #   - align-self: "start"
+    #   - font-weight: "bolder"
+    #   - font-size: "12px"
+    #   - filter: "opacity(40%)"
+    #   - margin-left: "12px"
+    #   - margin-right: "12px"
     img_cell:
       - background-color: 'var(--blue-color)' #'rgba(var(--rgb-blue-color),0.2)'
-      - border-radius: "50%"
-      - place-self: "center"
-      - width: "40px"
-      - height: "40px"
+      # - border-radius: "50%"
+      # - place-self: "center"
+      # - width: "36px"
+      # - height: "36px"
     grid:
       - grid-template-areas: "'i n' 'i l'"
       - grid-template-columns: "min-content auto"
@@ -155,14 +156,11 @@ room_info_long_row:
     card:
       - border-radius: "0px"
       - box-shadow: "none"
-      - padding-top: "12px"
-      - padding-bottom: "12px"
-      - padding-right: "12px"
-      - padding-left: "12px"
+      - padding: "0px"
+      #- font-size: "12px"
       - border-style: "none"
       - background: "none"
       - --mdc-ripple-press-opacity: 0.0
-  size: "20px"
 
 
 rooms_widget_sensor_value_long_row:
@@ -198,7 +196,7 @@ rooms_widget_sensor_value_long_row:
             if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
               return "0px";
             else
-              return "40px";
+              return "36px";
           ]]]
       - width: >-
           [[[
@@ -284,7 +282,8 @@ rooms_widget_sensor_long_row:
               return "0px";
           ]]]             
     img_cell:
-      - background-color: "none"     
+      - background-color: "none"
+      - height: "36px"
   state:
     - id: "on"
       value: "on"

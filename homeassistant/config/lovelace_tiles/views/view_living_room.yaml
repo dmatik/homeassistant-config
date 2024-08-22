@@ -1,394 +1,265 @@
 title: סלון
 path: tiles_living_room
 visible: false
-panel: true
+type: sections
 subview: true
-cards:
+max_columns: 3
 
-  - type: vertical-stack
+badges:
+
+  # Climate Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_climate'
+      - 'chip_more_info_with_entity'
+      - 'chip_paper_no_state'
+    icon: 'mdi:thermometer'
+    variables:
+      ulm_chip_temperature_high: sensor.living_room_temperature_sensor_temperature
+      ulm_chip_more_info_entity: sensor.living_room_temperature_sensor_temperature
+
+  # Lights Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_yellow'
+    icon: 'mdi:lightbulb'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_lights_on_living_room
+
+  # Covers Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_purple'
+    icon: 'mdi:window-shutter'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_covers_open_living_room
+
+  # Motion Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_yellow'
+    icon: 'mdi:run'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_living_room
+
+
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #   Living Room                                                            #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: סלון  
     cards:
 
+      # Living Room Light
+      - type: tile
+        entity: light.living_room
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
 
-############################################################################
-#                                                                          #
-#   View                                                                   #
-#                                                                          #
-############################################################################
+      # Living Room Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.living_room
+          ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
+          #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+          
+      # Dining Light
+      - type: tile
+        entity: light.dining
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
 
-      - type: "custom:mod-card"
-        style:
-          layout-card$:
-            grid-layout$: |
-              #root {
-                margin-left: var(--view-margins) !important;
-                margin-right: var(--view-margins) !important;
-                justify-content: center !important;
-              }
-        card:
-          type: custom:layout-card
-          layout_type: grid
-          layout_options:
-            grid-template-columns: 1fr
-            grid-template-rows: auto
-            mediaquery:
-              "(min-width: 800px)":
-                grid-template-columns: 780px
-          cards:
+      # Back Yard Cover
+      - type: tile
+        entity: cover.back_yard
+        features:
+          - type: "cover-open-close"
+        view_layout:
+          grid-row-start: span 2 
 
-            - type: vertical-stack
-              cards:
+      # Living Room Window Cover
+      - type: tile
+        entity: cover.living_room_window
+        features:
+          - type: "cover-open-close"
+        view_layout:
+          grid-row-start: span 2 
 
+      # TV Wall Light
+      - type: tile
+        entity: light.living_room_tv_wall
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
 
-          ############################################################################
-          #                                                                          #
-          #   Chips                                                                  #
-          #                                                                          #
-          ############################################################################
+      # Stairs Light
+      - type: tile
+        entity: light.stairs_ground_floor
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+        
+      # Back Yard Light
+      - type: tile
+        entity: light.back_yard
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info 
 
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
+      # Living Room TV
+      - type: tile
+        entity: media_player.lg_webos_tv_oled77cs6la
+          
+      # # Living Room Sensor
+      # - type: 'custom:button-card'
+      #   template: 
+      #     - card_motion_sensor
+      #   entity: binary_sensor.living_room_motion_sensor_occupancy
+      #   name: "[[[ return variables.ulm_living_room; ]]]"
+      #   show_last_changed: false
+      #   variables:
+      #     light_level: sensor.living_room_motion_sensor_illuminance_lux
 
-                      # Climate Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_climate'
-                          - 'chip_more_info_with_entity'
-                          - 'chip_paper_no_state'
-                        icon: 'mdi:thermometer'
-                        variables:
-                          ulm_chip_temperature_high: sensor.climate_living_room_temp
-                          ulm_chip_more_info_entity: sensor.climate_living_room_temp
+      # Living Room Camera Sensor
+      - type: tile
+        entity: binary_sensor.living_room_cell_motion_detection
 
-                      # Lights Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_yellow'
-                        icon: 'mdi:lightbulb'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_lights_on_living_room
+      # # New Year Tree Lights
+      # - type: 'custom:button-card'
+      #   template: 
+      #     - card_ny_tree
+      #   entity: light.new_year_tree
+      #   icon: mdi:pine-tree
+      #   name: NY Tree
 
-                      # Covers Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_purple'
-                        icon: 'mdi:window-shutter'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_covers_open_living_room
-
-                      # Motion Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_yellow'
-                        icon: 'mdi:run'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_living_room
-
-
-          ############################################################################
-          #                                                                          #
-          #   Living Room                                                            #
-          #                                                                          #
-          ############################################################################
-
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_living_room; ]]]"
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # Living Room Light
-                      - type: tile
-                        entity: light.living_room
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
-
-                      # Living Room Climate
-                      - type: 'custom:button-card'
-                        template: card_ac_buttons
-                        variables:
-                          ulm_card_ac_entity: climate.living_room
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
-                          #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
-                        view_layout:
-                          grid-row-start: span 2 
-                          
-                      # Dining Light
-                      - type: tile
-                        entity: light.dining
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
-
-                      # Back Yard Cover
-                      - type: tile
-                        entity: cover.back_yard
-                        features:
-                          - type: "cover-open-close"
-                        view_layout:
-                          grid-row-start: span 2 
-
-                      # Living Room Window Cover
-                      - type: tile
-                        entity: cover.living_room_window
-                        features:
-                          - type: "cover-open-close"
-                        view_layout:
-                          grid-row-start: span 2 
-
-                      # TV Wall Light
-                      - type: tile
-                        entity: light.living_room_tv_wall
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
-
-                      # Stairs Light
-                      - type: tile
-                        entity: light.stairs_ground_floor
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
-                        
-                      # Back Yard Light
-                      - type: tile
-                        entity: light.back_yard
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info 
-
-                      # Living Room TV
-                      - type: tile
-                        entity: media_player.lg_webos_tv_oled77cs6la
-                          
-                      # # Living Room Sensor
-                      # - type: 'custom:button-card'
-                      #   template: 
-                      #     - card_motion_sensor
-                      #   entity: binary_sensor.living_room_motion_sensor_occupancy
-                      #   name: "[[[ return variables.ulm_living_room; ]]]"
-                      #   show_last_changed: false
-                      #   variables:
-                      #     light_level: sensor.living_room_motion_sensor_illuminance_lux
-
-                      # Living Room Camera Sensor
-                      - type: tile
-                        entity: binary_sensor.living_room_cell_motion_detection
-
-                      # # New Year Tree Lights
-                      # - type: 'custom:button-card'
-                      #   template: 
-                      #     - card_ny_tree
-                      #   entity: light.new_year_tree
-                      #   icon: mdi:pine-tree
-                      #   name: NY Tree
-
-                      # Ulanzi Clock
-                      - type: 'custom:button-card'
-                        template: card_ulanzi_clock
-                        entity: light.ulanzi_living_room_matrix
-                        variables:
-                          ulm_card_ulanzi_clock_entity: 'light.ulanzi_living_room_matrix'
-                          ulm_card_ulanzi_clock_name: 'Ulanzi Clock'
-                          ulm_card_ulanzi_clock_title: 'Living Room Ulanzi Clock'
-                          ulm_card_ulanzi_clock_current_app: 'sensor.ulanzi_living_room_current_app'
-                          ulm_card_ulanzi_clock_version: 'sensor.ulanzi_living_room_version'
-                          ulm_card_ulanzi_clock_battery: 'sensor.ulanzi_living_room_battery'
-                          ulm_card_ulanzi_clock_temperature: 'sensor.ulanzi_living_room_temperature'
-                          ulm_card_ulanzi_clock_wifi_strength: 'sensor.ulanzi_living_room_wifi_strength'
-                          ulm_card_ulanzi_clock_next_app: 'button.ulanzi_living_room_next_app'
-                          ulm_card_ulanzi_clock_previous_app: 'button.ulanzi_living_room_previous_app'
-                          ulm_card_ulanzi_clock_transition: 'switch.ulanzi_living_room_transition'
-                          ulm_card_ulanzi_clock_indicator_1: 'light.ulanzi_living_room_indicator_1'
-                          ulm_card_ulanzi_clock_indicator_2: 'light.ulanzi_living_room_indicator_2'
-                          ulm_card_ulanzi_clock_dismiss_notification: 'button.ulanzi_living_room_dismiss_notification'
+      # Ulanzi Clock
+      - type: 'custom:button-card'
+        template: card_ulanzi_clock
+        entity: light.ulanzi_living_room_matrix
+        variables:
+          ulm_card_ulanzi_clock_entity: 'light.ulanzi_living_room_matrix'
+          ulm_card_ulanzi_clock_name: 'Ulanzi Clock'
+          ulm_card_ulanzi_clock_title: 'Living Room Ulanzi Clock'
+          ulm_card_ulanzi_clock_current_app: 'sensor.ulanzi_living_room_current_app'
+          ulm_card_ulanzi_clock_version: 'sensor.ulanzi_living_room_version'
+          ulm_card_ulanzi_clock_battery: 'sensor.ulanzi_living_room_battery'
+          ulm_card_ulanzi_clock_temperature: 'sensor.ulanzi_living_room_temperature'
+          ulm_card_ulanzi_clock_wifi_strength: 'sensor.ulanzi_living_room_wifi_strength'
+          ulm_card_ulanzi_clock_next_app: 'button.ulanzi_living_room_next_app'
+          ulm_card_ulanzi_clock_previous_app: 'button.ulanzi_living_room_previous_app'
+          ulm_card_ulanzi_clock_transition: 'switch.ulanzi_living_room_transition'
+          ulm_card_ulanzi_clock_indicator_1: 'light.ulanzi_living_room_indicator_1'
+          ulm_card_ulanzi_clock_indicator_2: 'light.ulanzi_living_room_indicator_2'
+          ulm_card_ulanzi_clock_dismiss_notification: 'button.ulanzi_living_room_dismiss_notification'
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Entrance                                                               #
-          #                                                                          #
-          ############################################################################
+  ############################################################################
+  #                                                                          #
+  #   Entrance                                                               #
+  #                                                                          #
+  ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+  - type: grid
+    title: כניסה  
+    cards:
 
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_entrance; ]]]"
+      # Entrance Light
+      - type: tile
+        entity: light.entrance
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
 
+      # Front Yard Light
+      - type: tile
+        entity: light.front_yard
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info 
 
-
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # Entrance Light
-                      - type: tile
-                        entity: light.entrance
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info
-
-                      # Front Yard Light
-                      - type: tile
-                        entity: light.front_yard
-                        tap_action:
-                          action: toggle
-                        hold_action:
-                          action: more-info
-                        double_tap_action:
-                          action: more-info 
-
-                      # Entrance Window Cover
-                      - type: tile
-                        entity: cover.entrance_window
-                        features:
-                          - type: "cover-open-close"
-                        view_layout:
-                          grid-row-start: span 2 
+      # Entrance Window Cover
+      - type: tile
+        entity: cover.entrance_window
+        features:
+          - type: "cover-open-close"
+        view_layout:
+          grid-row-start: span 2 
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Guest Bathroom                                                         #
-          #                                                                          #
-          ############################################################################
+  ############################################################################
+  #                                                                          #
+  #   Guest Bathroom                                                         #
+  #                                                                          #
+  ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+  - type: grid
+    title: שירותי אורחים  
+    cards:
 
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_guest_bathroom; ]]]"
+      # Guests Bathroom Light
+      - type: 'custom:button-card'
+        template: 'card_light_simple'
+        entity: light.guests_bathroom
+        name: "[[[ return variables.ulm_guest_bathroom; ]]]"
+        variables:
+          ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
 
+      # Guest Bathroom Mirror Sensor
+      - type: 'custom:button-card'
+        template: 
+          - card_motion_sensor
+        entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
+        name: "[[[ return variables.ulm_guest_mirror; ]]]"
+        show_last_changed: false
+        variables:
+          light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
 
-
-          ############################################################################
-          #                                                                          #
-          #   Cards                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr 1fr            
-                    cards:
-
-                      # Guests Bathroom Light
-                      - type: 'custom:button-card'
-                        template: 'card_light_simple'
-                        entity: light.guests_bathroom
-                        name: "[[[ return variables.ulm_guest_bathroom; ]]]"
-                        variables:
-                          ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
-
-                      # Guest Bathroom Mirror Sensor
-                      - type: 'custom:button-card'
-                        template: 
-                          - card_motion_sensor
-                        entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
-                        name: "[[[ return variables.ulm_guest_mirror; ]]]"
-                        show_last_changed: false
-                        variables:
-                          light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
-
-                      # Guest Bathroom New Sensor
-                      - type: tile
-                        entity: binary_sensor.guest_bathroom_new_motion_sensor_occupancy  
-
-                - type: custom:button-card
-                  template: spacer
-                  variables:
-                    height: 100px
+      # Guest Bathroom New Sensor
+      - type: tile
+        entity: binary_sensor.guest_bathroom_new_motion_sensor_occupancy  

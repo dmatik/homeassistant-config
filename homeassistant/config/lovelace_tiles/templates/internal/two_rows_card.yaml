@@ -4,10 +4,23 @@ two_rows_card:
       - grid-template-areas: "'item1' 'item2'"
       - grid-template-columns: "1fr"
       - grid-template-rows: "min-content  1fr"
-      - row-gap: "12px"
+      - row-gap: "0px"
     card:
-      - padding: "0px"
-      - height: "100%"
+      - padding: '0px'
+      - height: '100%'
     custom_fields:
+      item1:
+        - align-content: 'center'
+        - height: '46px'
+        - padding-top: '9px'
+        - padding-bottom: '10px'
+        - padding-left: '9px'
+        - padding-right: '9px'
       item2:
-        - align-self: "end"
+        - align-self: 'end'
+        - align-content: 'end'
+        - height: '42px'
+        - padding-top: '0px'
+        - padding-bottom: '11px'
+        - padding-left: '11px'
+        - padding-right: '11px'

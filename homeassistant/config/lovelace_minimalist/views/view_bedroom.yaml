@@ -88,7 +88,7 @@ cards:
                       #     - 'chip_icon_label_state'
                       #   icon: 'mdi:thermometer'
                       #   variables:
-                      #     ulm_chip_icon_state_entity: sensor.climate_bedroom_temp
+                      #     ulm_chip_icon_state_entity: sensor.bedroom_temperature_sensor_temperature
 
                       # Climate Chip
                       - type: 'custom:button-card'
@@ -97,8 +97,8 @@ cards:
                           - 'chip_more_info_with_entity'
                         icon: 'mdi:thermometer'
                         variables:
-                          ulm_chip_temperature_high: sensor.climate_bedroom_temp
-                          ulm_chip_more_info_entity: sensor.climate_bedroom_temp
+                          ulm_chip_temperature_high: sensor.bedroom_temperature_sensor_temperature
+                          ulm_chip_more_info_entity: sensor.bedroom_temperature_sensor_temperature
 
                       # Lights Chip
                       - type: 'custom:button-card'
@@ -206,7 +206,7 @@ cards:
                         variables:
                           ulm_card_ac_entity: climate.bedroom_template
                           #ulm_card_ac_fan_mode_sensor: sensor.sensibo_bedroom_fan
-                          ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
+                          ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
                           x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                         view_layout:
                           grid-row-start: span 2

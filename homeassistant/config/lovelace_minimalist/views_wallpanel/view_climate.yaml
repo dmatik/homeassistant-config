@@ -71,13 +71,13 @@ cards:
                     variables:
                       ulm_card_graph_color: "var(--google-blue)"
                       ulm_card_graph_name: Living Room
-                      ulm_card_graph_entity: sensor.climate_living_room_temp
+                      ulm_card_graph_entity: sensor.living_room_temperature_sensor_temperature
                     view_layout:
                       grid-row-start: span 2
 
                   # - type: 'custom:button-card'
                   #   template: card_generic
-                  #   entity: sensor.climate_living_room_temp
+                  #   entity: sensor.living_room_temperature_sensor_temperature
                   #   name: Living Room
 
                   # Bedroom Temperature
@@ -86,7 +86,7 @@ cards:
                     variables:
                       ulm_card_graph_color: "var(--google-blue)"
                       ulm_card_graph_name: Bedroom
-                      ulm_card_graph_entity: sensor.climate_bedroom_temp
+                      ulm_card_graph_entity: sensor.bedroom_temperature_sensor_temperature
                     view_layout:
                       grid-row-start: span 2
 
@@ -96,7 +96,7 @@ cards:
                     variables:
                       ulm_card_graph_color: "var(--google-blue)"
                       ulm_card_graph_name: Kfir Room
-                      ulm_card_graph_entity: sensor.climate_kfir_temp
+                      ulm_card_graph_entity: sensor.kfir_room_temperature_sensor_temperature
                     view_layout:
                       grid-row-start: span 2
 
@@ -106,7 +106,7 @@ cards:
                     variables:
                       ulm_card_graph_color: "var(--google-blue)"
                       ulm_card_graph_name: Ronen Room
-                      ulm_card_graph_entity: sensor.climate_ronen_temp
+                      ulm_card_graph_entity: sensor.ronen_room_temperature_sensor_temperature
                     view_layout:
                       grid-row-start: span 2
 
@@ -116,7 +116,7 @@ cards:
                     variables:
                       ulm_card_graph_color: "var(--google-blue)"
                       ulm_card_graph_name: Basement
-                      ulm_card_graph_entity: sensor.climate_basement_temp
+                      ulm_card_graph_entity: sensor.basement_temperature_sensor_temperature
                     view_layout:
                       grid-row-start: span 2                      
 
@@ -206,7 +206,7 @@ cards:
                     template: card_ac_buttons_with_temp
                     variables:
                       ulm_card_ac_entity: climate.living_room_template
-                      ulm_card_ac_curr_temp_sensor: sensor.climate_living_room_temp
+                      ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
                       x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
@@ -218,7 +218,7 @@ cards:
                     template: card_ac_buttons_with_temp
                     variables:
                       ulm_card_ac_entity: climate.bedroom_template
-                      ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
+                      ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
                       x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
@@ -239,7 +239,7 @@ cards:
                     template: card_ac_buttons_with_temp
                     variables:
                       ulm_card_ac_entity: climate.kfir_template
-                      ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
+                      ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature
                       x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
@@ -259,7 +259,7 @@ cards:
                     template: card_ac_buttons_with_temp
                     variables:
                       ulm_card_ac_entity: climate.ronen_template
-                      ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
+                      ulm_card_ac_curr_temp_sensor: sensor.ronen_room_temperature_sensor_temperature
                       x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:
@@ -270,7 +270,7 @@ cards:
                     template: card_ac_buttons_with_temp
                     variables:
                       ulm_card_ac_entity: climate.basement_template
-                      ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
+                      ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
                       x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                       #ulm_card_ac_display_name: 'AC'
                     view_layout:

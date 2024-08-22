@@ -1,0 +1,141 @@
+title: מערכת
+icon: mdi:cog
+path: tiles_system
+panel: true
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Title                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: System
+
+
+          ############################################################################
+          #                                                                          #
+          #   Cards                                                                  #
+          #                                                                          #
+          ############################################################################
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Home Assistant
+                      - type: custom:button-card
+                        template: card_navigate
+                        variables:
+                          ulm_card_navigate_path: /lovelace/tiles_homeassistant
+                          ulm_card_navigate_title: Hass
+                          ulm_card_navigate_icon: mdi:home-assistant 
+
+                      # Wall Panel
+                      - type: custom:button-card
+                        template: card_navigate
+                        variables:
+                          ulm_card_navigate_path: /lovelace/tiles_wallpanel
+                          ulm_card_navigate_title: Wall Panel
+                          ulm_card_navigate_icon: mdi:view-dashboard 
+
+                      # NAS
+                      - type: custom:button-card
+                        template: card_navigate
+                        variables:
+                          ulm_card_navigate_path: /lovelace/tiles_nas
+                          ulm_card_navigate_title: NAS
+                          ulm_card_navigate_icon: mdi:nas
+
+                      # Tasmota
+                      # - type: custom:button-card
+                      #   template: card_navigate
+                      #   variables:
+                      #     ulm_card_navigate_path: /lovelace/tiles_tasmota
+                      #     ulm_card_navigate_title: Tasmota
+                      #     ulm_card_navigate_icon: mdi:chip
+
+                      # Zigbee2mqtt
+                      - type: custom:button-card
+                        template: card_navigate
+                        variables:
+                          ulm_card_navigate_path: /lovelace/tiles_zigbee2mqtt
+                          ulm_card_navigate_title: Zigbee2mqtt
+                          ulm_card_navigate_icon: mdi:zigbee
+
+                      # Rasbperry Pi
+                      - type: custom:button-card
+                        template: card_navigate
+                        variables:
+                          ulm_card_navigate_path: /lovelace/tiles_rpi
+                          ulm_card_navigate_title: Raspberry Pi
+                          ulm_card_navigate_icon: mdi:raspberry-pi
+
+                      # Energy
+                      - type: custom:button-card
+                        template: card_navigate
+                        variables:
+                          ulm_card_navigate_path: /lovelace/tiles_energy
+                          ulm_card_navigate_title: Energy
+                          ulm_card_navigate_icon: mdi:lightning-bolt
+
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

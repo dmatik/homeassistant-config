@@ -1,261 +1,171 @@
 title: Energy
 path: tiles_energy
 visible: false
-panel: true
+type: sections
 subview: true
-cards:
+max_columns: 3
 
-  - type: vertical-stack
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #   Electricity                                                            #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: Electricity
     cards:
 
+      # Daily
+      - type: 'custom:button-card'
+        template: card_energy_daily_graph
+        variables:
+          ulm_card_energy_name: Daily
+          ulm_card_energy_entity: sensor.iec_today_electric_consumption
+          ulm_card_energy_cost_entity: sensor.electricity_cost_today
+          ulm_card_energy_type: bar
+          ulm_card_energy_show_extrema: false
+          ulm_card_energy_show_average: false
+          ulm_card_energy_hours: 168
+        layout_options:
+          grid_columns: 4
+          grid_rows: 3
 
-############################################################################
-#                                                                          #
-#   View                                                                   #
-#                                                                          #
-############################################################################
+      # Current Month
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.iec_this_month_electric_consumption
+        variables:
+          ulm_card_monthly_statistics_name: Current Month
+          ulm_card_monthly_statistics_cost: sensor.electricity_cost_curr_month
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1          
 
-      - type: "custom:mod-card"
-        style:
-          layout-card$:
-            grid-layout$: |
-              #root {
-                margin-left: var(--view-margins) !important;
-                margin-right: var(--view-margins) !important;
-                justify-content: center !important;
-              }
-        card:
-          type: custom:layout-card
-          layout_type: grid
-          layout_options:
-            grid-template-columns: 1fr
-            grid-template-rows: auto
-            mediaquery:
-              "(min-width: 800px)":
-                grid-template-columns: 780px
-          cards:
+      # Current Bill
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.next_bill_electric_forecasted_usage
+        variables:
+          ulm_card_monthly_statistics_name: Current Bill
+          ulm_card_monthly_statistics_cost: sensor.next_bill_electric_forecasted_cost
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1
 
-            - type: vertical-stack
-              cards:
-
-
-          ############################################################################
-          #                                                                          #
-          #   Chips                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   General                                                                #
-          #                                                                          #
-          ############################################################################
-
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: Electricity
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr
-                    cards:
-
-                      # Daily
-                      - type: 'custom:button-card'
-                        template: card_energy_daily_graph
-                        variables:
-                          ulm_card_energy_name: Daily
-                          ulm_card_energy_entity: sensor.iec_today_electric_consumption
-                          ulm_card_energy_cost_entity: sensor.electricity_cost_today
-                          ulm_card_energy_type: bar
-                          ulm_card_energy_show_extrema: false
-                          ulm_card_energy_show_average: false
-                          ulm_card_energy_hours: 168
-                        view_layout:
-                          grid-row-start: span 3
-
-                      # Current Month
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.iec_this_month_electric_consumption
-                        variables:
-                          ulm_card_monthly_statistics_name: Current Month
-                          ulm_card_monthly_statistics_cost: sensor.electricity_cost_curr_month
-
-                      # Current Bill
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.next_bill_electric_forecasted_usage
-                        variables:
-                          ulm_card_monthly_statistics_name: Current Bill
-                          ulm_card_monthly_statistics_cost: sensor.next_bill_electric_forecasted_cost
-
-                      # Previous Bill
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.last_iec_bill_electric_usage_to_date
-                        variables:
-                          ulm_card_monthly_statistics_name: Previous Bill
-                          ulm_card_monthly_statistics_cost: sensor.last_iec_bill_electric_cost
+      # Previous Bill
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.last_iec_bill_electric_usage_to_date
+        variables:
+          ulm_card_monthly_statistics_name: Previous Bill
+          ulm_card_monthly_statistics_cost: sensor.last_iec_bill_electric_cost
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1          
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Boiler                                                                 #
-          #                                                                          #
-          ############################################################################
+  ############################################################################
+  #                                                                          #
+  #   Boiler                                                                 #
+  #                                                                          #
+  ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+  - type: grid
+    title: Boiler
+    cards:
 
-                    - type: custom:button-card
-                      template: title
-                      name: Boiler
+      # Daily
+      - type: 'custom:button-card'
+        template: card_energy_daily_graph
+        variables:
+          ulm_card_energy_name: Daily
+          ulm_card_energy_entity: sensor.switcher_boiler_daily_energy
+          ulm_card_energy_cost_entity: sensor.switcher_boiler_cost_today
+          ulm_card_energy_type: bar
+          ulm_card_energy_show_extrema: false
+          ulm_card_energy_show_average: false
+          ulm_card_energy_hours: 168
+        layout_options:
+          grid_columns: 4
+          grid_rows: 3
 
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
+      # Current Month
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.switcher_boiler_monthly_energy
+        variables:
+          ulm_card_monthly_statistics_name: Current Month
+          ulm_card_monthly_statistics_time: sensor.boiler_running_time_curr_month
+          ulm_card_monthly_statistics_cost: sensor.switcher_boiler_cost_curr_month
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1
 
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr
-                    cards:
-
-                      # Daily
-                      - type: 'custom:button-card'
-                        template: card_energy_daily_graph
-                        variables:
-                          ulm_card_energy_name: Daily
-                          ulm_card_energy_entity: sensor.switcher_boiler_daily_energy
-                          ulm_card_energy_cost_entity: sensor.switcher_boiler_cost_today
-                          ulm_card_energy_type: bar
-                          ulm_card_energy_show_extrema: false
-                          ulm_card_energy_show_average: false
-                          ulm_card_energy_hours: 168
-                        view_layout:
-                          grid-row-start: span 2
-
-                      # Current Month
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.switcher_boiler_monthly_energy
-                        variables:
-                          ulm_card_monthly_statistics_name: Current Month
-                          ulm_card_monthly_statistics_time: sensor.boiler_running_time_curr_month
-                          ulm_card_monthly_statistics_cost: sensor.switcher_boiler_cost_curr_month
-
-                      # Previous Month
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.switcher_boiler_prev_month_energy
-                        variables:
-                          ulm_card_monthly_statistics_name: Previous Month
-                          ulm_card_monthly_statistics_time: sensor.boiler_running_time_prev_month
-                          ulm_card_monthly_statistics_cost: sensor.switcher_boiler_cost_prev_month
+      # Previous Month
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.switcher_boiler_prev_month_energy
+        variables:
+          ulm_card_monthly_statistics_name: Previous Month
+          ulm_card_monthly_statistics_time: sensor.boiler_running_time_prev_month
+          ulm_card_monthly_statistics_cost: sensor.switcher_boiler_cost_prev_month
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1          
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Bathroom Heater                                                        #
-          #                                                                          #
-          ############################################################################
+  ############################################################################
+  #                                                                          #
+  #   Bathroom Heater                                                        #
+  #                                                                          #
+  ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+  - type: grid
+    title: Bathroom Heater
+    cards:
 
-                    - type: custom:button-card
-                      template: title
-                      name: Bathroom Heater
+      # Daily
+      - type: 'custom:button-card'
+        template: card_energy_daily_graph
+        variables:
+          ulm_card_energy_name: Daily
+          ulm_card_energy_entity: sensor.bathroom_heater_daily_energy
+          ulm_card_energy_cost_entity: sensor.bathroom_heater_cost_today
+          ulm_card_energy_type: bar
+          ulm_card_energy_show_extrema: false
+          ulm_card_energy_show_average: false
+          ulm_card_energy_hours: 168
+        layout_options:
+          grid_columns: 4
+          grid_rows: 3
 
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
+      # Current Month
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.bathroom_heater_monthly_energy
+        variables:
+          ulm_card_monthly_statistics_name: Current Month
+          ulm_card_monthly_statistics_time: sensor.bathroom_heater_running_time_curr_month
+          ulm_card_monthly_statistics_cost: sensor.bathroom_heater_cost_curr_month
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1
 
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr
-                    cards:
-
-                      # Daily
-                      - type: 'custom:button-card'
-                        template: card_energy_daily_graph
-                        variables:
-                          ulm_card_energy_name: Daily
-                          ulm_card_energy_entity: sensor.bathroom_heater_daily_energy
-                          ulm_card_energy_cost_entity: sensor.bathroom_heater_cost_today
-                          ulm_card_energy_type: bar
-                          ulm_card_energy_show_extrema: false
-                          ulm_card_energy_show_average: false
-                          ulm_card_energy_hours: 168
-                        view_layout:
-                          grid-row-start: span 2
-
-                      # Current Month
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.bathroom_heater_monthly_energy
-                        variables:
-                          ulm_card_monthly_statistics_name: Current Month
-                          ulm_card_monthly_statistics_time: sensor.bathroom_heater_running_time_curr_month
-                          ulm_card_monthly_statistics_cost: sensor.bathroom_heater_cost_curr_month
-
-                      # Previous Month
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.bathroom_heater_prev_month_energy
-                        variables:
-                          ulm_card_monthly_statistics_name: Previous Month
-                          ulm_card_monthly_statistics_time: sensor.bathroom_heater_running_time_prev_month
-                          ulm_card_monthly_statistics_cost: sensor.bathroom_heater_cost_prev_month
+      # Previous Month
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.bathroom_heater_prev_month_energy
+        variables:
+          ulm_card_monthly_statistics_name: Previous Month
+          ulm_card_monthly_statistics_time: sensor.bathroom_heater_running_time_prev_month
+          ulm_card_monthly_statistics_cost: sensor.bathroom_heater_cost_prev_month
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1          
 
 
 
@@ -265,67 +175,45 @@ cards:
           #                                                                          #
           ############################################################################
 
-                - type: horizontal-stack
-                  cards:
+  - type: grid
+    title: Parents Bathroom Heater
+    cards:
 
-                    - type: custom:button-card
-                      template: title
-                      name: Parents Bathroom Heater
+      # Daily
+      - type: 'custom:button-card'
+        template: card_energy_daily_graph
+        variables:
+          ulm_card_energy_name: Daily
+          ulm_card_energy_entity: sensor.parents_bathroom_heater_daily_energy
+          ulm_card_energy_cost_entity: sensor.parents_bathroom_heater_cost_today
+          ulm_card_energy_type: bar
+          ulm_card_energy_show_extrema: false
+          ulm_card_energy_show_average: false
+          ulm_card_energy_hours: 168
+        layout_options:
+          grid_columns: 4
+          grid_rows: 3
 
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
+      # Current Month
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.parents_bathroom_heater_monthly_energy
+        variables:
+          ulm_card_monthly_statistics_name: Current Month
+          ulm_card_monthly_statistics_time: sensor.parents_bathroom_heater_running_time_curr_month
+          ulm_card_monthly_statistics_cost: sensor.parents_bathroom_heater_cost_curr_month
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1          
 
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr
-                    cards:
-
-                      # Daily
-                      - type: 'custom:button-card'
-                        template: card_energy_daily_graph
-                        variables:
-                          ulm_card_energy_name: Daily
-                          ulm_card_energy_entity: sensor.parents_bathroom_heater_daily_energy
-                          ulm_card_energy_cost_entity: sensor.parents_bathroom_heater_cost_today
-                          ulm_card_energy_type: bar
-                          ulm_card_energy_show_extrema: false
-                          ulm_card_energy_show_average: false
-                          ulm_card_energy_hours: 168
-                        view_layout:
-                          grid-row-start: span 2
-
-                      # Current Month
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.parents_bathroom_heater_monthly_energy
-                        variables:
-                          ulm_card_monthly_statistics_name: Current Month
-                          ulm_card_monthly_statistics_time: sensor.parents_bathroom_heater_running_time_curr_month
-                          ulm_card_monthly_statistics_cost: sensor.parents_bathroom_heater_cost_curr_month
-
-                      # Previous Month
-                      - type: 'custom:button-card'
-                        template: card_monthly_statistics
-                        entity: sensor.parents_bathroom_heater_prev_month_energy
-                        variables:
-                          ulm_card_monthly_statistics_name: Previous Month
-                          ulm_card_monthly_statistics_time: sensor.parents_bathroom_heater_running_time_prev_month
-                          ulm_card_monthly_statistics_cost: sensor.parents_bathroom_heater_cost_prev_month
-
-
-
-                - type: custom:button-card
-                  template: spacer
-                  variables:
-                    height: 100px
+      # Previous Month
+      - type: 'custom:button-card'
+        template: card_monthly_statistics
+        entity: sensor.parents_bathroom_heater_prev_month_energy
+        variables:
+          ulm_card_monthly_statistics_name: Previous Month
+          ulm_card_monthly_statistics_time: sensor.parents_bathroom_heater_running_time_prev_month
+          ulm_card_monthly_statistics_cost: sensor.parents_bathroom_heater_cost_prev_month
+        layout_options:
+          grid_columns: 4
+          grid_rows: 1

@@ -47,7 +47,7 @@ popup_rpi:
 
                   # Memory
                   - type: "custom:button-card"
-                    template: "widget_mini_graph_bar"
+                    template: "popup_widget_mini_graph_bar"
                     variables:
                       mini_graph_color: 'rgba(var(--rgb-purple-color),0.2)'
                       mini_graph_entity: '[[[ return variables.ulm_card_rpi_memory; ]]]'
@@ -55,7 +55,7 @@ popup_rpi:
 
                   # CPU
                   - type: "custom:button-card"
-                    template: "widget_mini_graph_bar"
+                    template: "popup_widget_mini_graph_bar"
                     variables:
                       mini_graph_color: 'rgba(var(--rgb-blue-color),0.2)'
                       mini_graph_entity: '[[[ return variables.ulm_card_rpi_cpu; ]]]'
@@ -63,7 +63,7 @@ popup_rpi:
 
                   # Disk
                   - type: "custom:button-card"
-                    template: "widget_mini_graph_bar"
+                    template: "popup_widget_mini_graph_bar"
                     variables:
                       mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
                       mini_graph_entity: '[[[ return variables.ulm_card_rpi_disk; ]]]'

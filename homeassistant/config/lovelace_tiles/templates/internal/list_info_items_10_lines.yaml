@@ -13,8 +13,8 @@ list_info_items_10_lines:
     card:
       - box-shadow: "none"
       - padding-top: "0px"
-      - padding-bottom: "12px"
-      - padding-right: "12px"
-      - padding-left: "12px"
+      - padding-bottom: "0px"
+      - padding-right: "0px"
+      - padding-left: "0px"
       - border-style: "none"
       - background: "none"

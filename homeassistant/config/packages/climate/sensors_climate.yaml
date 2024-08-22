@@ -1,39 +1,39 @@
 template:
   - sensor:
-      - unique_id: climate_kfir_temp
-        name: "Kfir Room Temperature"
-        unit_of_measurement: "°C"
-        icon: mdi:thermometer
-        state: "{{ states('sensor.kfir_room_temperature_sensor_temperature') }}"
-        availability: "{{ is_number(states('sensor.kfir_room_temperature_sensor_temperature')) }}"
+      # - unique_id: climate_kfir_temp
+      #   name: "Kfir Room Temperature"
+      #   unit_of_measurement: "°C"
+      #   icon: mdi:thermometer
+      #   state: "{{ states('sensor.kfir_room_temperature_sensor_temperature') }}"
+      #   availability: "{{ is_number(states('sensor.kfir_room_temperature_sensor_temperature')) }}"
 
-      - unique_id: climate_ronen_temp
-        name: "Ronen Room Temperature"
-        unit_of_measurement: "°C"
-        icon: mdi:thermometer
-        state: "{{ states('sensor.ronen_room_temperature_sensor_temperature') }}"
-        availability: "{{ is_number(states('sensor.ronen_room_temperature_sensor_temperature')) }}"
+      # - unique_id: climate_ronen_temp
+      #   name: "Ronen Room Temperature"
+      #   unit_of_measurement: "°C"
+      #   icon: mdi:thermometer
+      #   state: "{{ states('sensor.ronen_room_temperature_sensor_temperature') }}"
+      #   availability: "{{ is_number(states('sensor.ronen_room_temperature_sensor_temperature')) }}"
 
-      - unique_id: climate_basement_temp
-        name: "Basement Temperature"
-        unit_of_measurement: "°C"
-        icon: mdi:thermometer
-        state: "{{ states('sensor.basement_temperature_sensor_temperature') }}"
-        availability: "{{ is_number(states('sensor.basement_temperature_sensor_temperature')) }}"
+      # - unique_id: climate_basement_temp
+      #   name: "Basement Temperature"
+      #   unit_of_measurement: "°C"
+      #   icon: mdi:thermometer
+      #   state: "{{ states('sensor.basement_temperature_sensor_temperature') }}"
+      #   availability: "{{ is_number(states('sensor.basement_temperature_sensor_temperature')) }}"
 
-      - unique_id: climate_bedroom_temp
-        name: "Bedroom Temperature"
-        unit_of_measurement: "°C"
-        icon: mdi:thermometer
-        state: "{{ states('sensor.bedroom_temperature_sensor_temperature') }}"
-        availability: "{{ is_number(states('sensor.bedroom_temperature_sensor_temperature')) }}"
+      # - unique_id: climate_bedroom_temp
+      #   name: "Bedroom Temperature"
+      #   unit_of_measurement: "°C"
+      #   icon: mdi:thermometer
+      #   state: "{{ states('sensor.bedroom_temperature_sensor_temperature') }}"
+      #   availability: "{{ is_number(states('sensor.bedroom_temperature_sensor_temperature')) }}"
 
-      - unique_id: climate_living_room_temp
-        name: "Living Room Temperature"
-        unit_of_measurement: "°C"
-        icon: mdi:thermometer
-        state: "{{ states('sensor.living_room_temperature_sensor_temperature') }}"
-        availability: "{{ is_number(states('sensor.living_room_temperature_sensor_temperature')) }}"
+      # - unique_id: climate_living_room_temp
+      #   name: "Living Room Temperature"
+      #   unit_of_measurement: "°C"
+      #   icon: mdi:thermometer
+      #   state: "{{ states('sensor.living_room_temperature_sensor_temperature') }}"
+      #   availability: "{{ is_number(states('sensor.living_room_temperature_sensor_temperature')) }}"
 
 
       ############################################################################

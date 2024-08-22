@@ -2,6 +2,20 @@ template:
 
   binary_sensor:
 
+    # Living Room RPI Running
+    - name: "rpi_living_room_running"
+      unique_id: rpi_living_room_running
+      icon: mdi:raspberry-pi
+      state: >-
+        {% if is_state("sensor.rpi_living_room_rpi_monitor_rpi_living_room", "unavailable") or 
+              is_state("sensor.rpi_living_room_rpi_monitor_rpi_living_room", "unknown") %}
+          off
+        {% else %}
+          {% set last_update_time = states('sensor.rpi_living_room_rpi_monitor_rpi_living_room') %}
+          {% set time_delta = now() - as_datetime(last_update_time) %}
+          {{  time_delta < as_timedelta("00:10:00") }}
+        {% endif %}
+
     # Floor 2 RPI Running
     - name: "rpi_floor2_running"
       unique_id: rpi_floor2_running
@@ -19,6 +33,19 @@ template:
 
 
   sensor:
+
+    # Living Room RPI Last Update Relative
+    - name: "rpi_living_room_last_update_relative"
+      unique_id: rpi_living_room_last_update_relative
+      icon: mdi:raspberry-pi
+      state: >-
+        {% if is_state("sensor.rpi_living_room_rpi_monitor_rpi_living_room", "unavailable") or 
+              is_state("sensor.rpi_living_room_rpi_monitor_rpi_living_room", "unknown") %}
+          off
+        {% else %}
+          {% set last_update_time = states('sensor.rpi_living_room_rpi_monitor_rpi_living_room') %}
+          {{  relative_time( as_datetime(last_update_time) ) }}
+        {% endif %}
 
     # Floor 2 RPI Last Update Relative
     - name: "rpi_floor2_last_update_relative"

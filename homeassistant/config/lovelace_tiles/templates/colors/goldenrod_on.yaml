@@ -1,0 +1,12 @@
+---
+
+goldenrod_on:
+  state:
+    - styles:
+        icon:
+          - color: 'var(--goldenrod-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-goldenrod-color),0.2)'
+      id: "on"
+      value: "on"
+

@@ -6,7 +6,7 @@ long_row_card:
       - grid-template-rows: "1fr"
       #- row-gap: "12px"
     card:
-      - padding: "0px"
+      - padding: "9px"
       #- height: "100%"
     custom_fields:
       item2:

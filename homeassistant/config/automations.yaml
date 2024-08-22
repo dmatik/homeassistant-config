@@ -555,13 +555,13 @@
     entity_id:
     - sun.sun
     attribute: elevation
-    above: 10
+    above: 8
     id: 'off'
   - platform: numeric_state
     entity_id:
     - sun.sun
     attribute: elevation
-    below: 10
+    below: 8
     id: 'on'
   condition:
   - condition: state
@@ -575,19 +575,19 @@
         id:
         - 'on'
       sequence:
-      - service: scene.turn_on
-        target:
+      - target:
           entity_id: scene.night_lights_on
         metadata: {}
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - 'off'
       sequence:
-      - service: scene.turn_on
-        target:
+      - target:
           entity_id: scene.night_lights_off
         metadata: {}
+        action: scene.turn_on
   mode: single
 - id: '1689147291665'
   alias: Kids AC Night Cooling
@@ -635,11 +635,11 @@
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: sensor.climate_living_room_temp
+    entity_id: sensor.living_room_temperature_sensor_temperature
     below: 26.5
     id: 'off'
   - platform: numeric_state
-    entity_id: sensor.climate_living_room_temp
+    entity_id: sensor.living_room_temperature_sensor_temperature
     above: 27.5
     id: 'on'
   condition: []
@@ -1162,7 +1162,7 @@
     entity_id:
     - sun.sun
     attribute: elevation
-    below: 10
+    below: 8
     id: evening
   - platform: time
     at: '20:30:00'
@@ -1181,41 +1181,41 @@
         entity_id: binary_sensor.school_holiday
         state: 'off'
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.kids_morning_covers
         enabled: true
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - day
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.kids_day_covers
         enabled: true
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - evening
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.kids_evening_covers
         enabled: true
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - night
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.kids_night_covers
         enabled: true
+        action: scene.turn_on
   mode: single
 - id: '1708798710331'
   alias: Kitchen Strips (Motion) Variant
@@ -1232,7 +1232,7 @@
       - light.kitchen_led_strip
       sun_elevation_value: 90
       light_level_entity: sensor.kitchen_light_level_sensor_illuminance_lux
-      light_level_threshold_value: 150
+      light_level_threshold_value: 100
 - id: '1710787657414'
   alias: Main Floor Covers
   description: ''
@@ -1247,7 +1247,7 @@
     entity_id:
     - sun.sun
     attribute: elevation
-    below: 10
+    below: 8
     id: evening
   - platform: time
     at: '20:30:00'
@@ -1263,37 +1263,37 @@
         id:
         - morning
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.main_floor_morning_covers
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - day
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.main_floor_day_covers
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - evening
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.main_floor_evening_covers
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - night
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.main_floor_night_covers
+        action: scene.turn_on
   mode: single
 - id: '1710787940319'
   alias: Bedroom Covers
@@ -1309,7 +1309,7 @@
     entity_id:
     - sun.sun
     attribute: elevation
-    below: 10
+    below: 8
     id: evening
   - platform: time
     at: '20:30:00'
@@ -1328,38 +1328,38 @@
         entity_id: binary_sensor.workday_sensor
         state: 'on'
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.bedroom_morning_covers
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - day
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.bedroom_day_covers
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - evening
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.bedroom_evening_covers
+        action: scene.turn_on
     - conditions:
       - condition: trigger
         id:
         - night
       sequence:
-      - service: scene.turn_on
-        metadata: {}
+      - metadata: {}
         target:
           entity_id: scene.bedroom_night_covers
         enabled: true
+        action: scene.turn_on
   mode: single
 - id: '1718649447176'
   alias: Kids AC Night Cooling variant
@@ -1460,7 +1460,7 @@
       climate_entity: climate.bedroom
       quiet_mode_switch: switch.bedroom_quiet
       start_time: 00:00:00
-      end_time: 06:30:00
+      end_time: 06:00:00
 - id: '1721724300646'
   alias: Kfir AC - Night - Summer
   description: ''
@@ -1481,3 +1481,28 @@
       quiet_mode_switch: switch.ronen_quiet
       start_time: '23:00:00'
       end_time: 06:30:00
+- id: '1722774100998'
+  alias: Home Motion Alert
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.number_of_motion_sensors_on
+    above: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: 'on'
+  action:
+  - service: notify.mobile_app_iphonedima
+    metadata: {}
+    data:
+      title: Alert
+      message: Motion at home
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1
+  mode: single

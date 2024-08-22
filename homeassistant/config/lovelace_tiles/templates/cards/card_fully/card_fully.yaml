@@ -1,17 +1,54 @@
+card_fully_tile:
+  variables:
+    ulm_card_fully_name: '[[[ return variables.ulm_card_fully_name ]]]'
+    ulm_card_fully_plugged_in_entity: ''
+    ulm_card_fully_battery_entity: ''
+    ulm_card_fully_current_page_entity: ''
+    ulm_card_fully_load_start_url_entity: ''
+    ulm_card_fully_disable_kiosk_command: ''
+    ulm_card_fully_restart_app_command: ''
+    ulm_card_fully_clear_cache_command: ''
+    ulm_card_fully_screen_entity: ''
+    ulm_card_fully_screenshot_image: ''
+    ulm_card_fully_camshot_image: ''
+  template:
+    - 'icon_info_bg'
+    - 'teal_on'
+    - 'ulm_language_variables_EN'
+    - 'popup_fully'
+  name: '[[[ return variables.ulm_card_fully_name ]]]'
+  icon: 'mdi:view-dashboard'
+  label: |-
+    [[[ 
+      var plugged;
+      if (states[variables.ulm_card_fully_plugged_in_entity].state == 'on') {
+        plugged = "Plugged";
+      } else {
+        plugged = "Unplugged";
+      }
+      return states[variables.ulm_card_fully_battery_entity].state + '% • ' + plugged;
+    ]]]
+
+
 card_fully:
   variables:
-    ulm_card_fully_entity: ''
+    #ulm_card_fully_rest_sensor_entity: ''
+    ulm_card_fully_current_page_entity: ''
+    ulm_card_fully_battery_entity: ''
+    ulm_card_fully_plugged_in_entity: ''
+    ulm_card_fully_screen_entity: ''
+    ulm_card_fully_load_start_url_entity: ''
     ulm_card_fully_name: ''
-    ulm_card_fully_reload_url_command: ''
+    #ulm_card_fully_reload_url_command: ''
     ulm_card_fully_disable_kiosk_command: ''
     ulm_card_fully_restart_app_command: ''
     ulm_card_fully_clear_cache_command: ''
     ulm_card_fully_screenshot_image: ''
-    ulm_card_fully_screenshot_command: ''
+    #ulm_card_fully_screenshot_command: ''
     ulm_card_fully_camshot_image: ''
-    ulm_card_fully_camshot_command: ''
-    ulm_card_fully_screen_on_command: ''
-    ulm_card_fully_screen_off_command: ''
+    #ulm_card_fully_camshot_command: ''
+    #ulm_card_fully_screen_on_command: ''
+    #ulm_card_fully_screen_off_command: ''
   triggers_update: "all"
   styles:
     grid:
@@ -35,9 +72,9 @@ card_fully:
         icon: 'mdi:view-dashboard'
         tap_action:
           action: "none"
-        entity: "[[[ return variables.ulm_card_fully_entity ]]]"
+        entity: "[[[ return variables.ulm_card_fully_current_page_entity ]]]"
         name: "[[[ return variables.ulm_card_fully_name ]]]"
-        label: '[[[ return states[variables.ulm_card_fully_entity].attributes.currentPageUrl ]]]'
+        label: '[[[ return states[variables.ulm_card_fully_current_page_entity].state ]]]'
     item2:
       card:
         type: "custom:button-card"
@@ -48,41 +85,18 @@ card_fully:
               type: "custom:button-card"
               template: "widget_text_info"
               custom_fields:
-                item1: 'App Version:'
-                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.version ]]]"
-          item2:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'WiFi Signal:'
-                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.wifiSignalLevel ]]]"
-          item3:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
                 item1: 'Battery:'
                 item2: |
                   [[[ 
                     var plugged;
-                    if (states[variables.ulm_card_fully_entity].attributes.plugged == true) {
+                    if (states[variables.ulm_card_fully_plugged_in_entity].state == 'on') {
                       plugged = "Plugged";
                     } else {
                       plugged = "Unplugged";
                     }
-                    return states[variables.ulm_card_fully_entity].attributes.batteryLevel + '% • ' + 
-                    states[variables.ulm_card_fully_entity].attributes.batteryTemperature + '°C • ' +
-                    plugged;
+                    return states[variables.ulm_card_fully_battery_entity].state + '% • ' + plugged;
                   ]]]
-          item4:
-            card:
-              type: "custom:button-card"
-              template: "widget_text_info"
-              custom_fields:
-                item1: 'IP:'
-                item2: "[[[ return states[variables.ulm_card_fully_entity].attributes.ip4 ]]]"
-          item5:
+          item2:
             card:
               type: "custom:button-card"
               template: "widget_text_info"
@@ -90,13 +104,13 @@ card_fully:
                 item1: 'Screen:'
                 item2: >-
                   [[[
-                    if (states[variables.ulm_card_fully_entity].attributes.screenOn == true) {
+                    if (states[variables.ulm_card_fully_screen_entity].state == 'on') {
                       return "On";
                     } else {
                       return "Off";
                     }
                   ]]]
-          item6:
+          item3:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -111,7 +125,9 @@ card_fully:
                     name: 'Reload URL'
                     tap_action:
                       action: "call-service"
-                      service: "[[[ return variables.ulm_card_fully_reload_url_command ]]]"
+                      service: "button.press"
+                      target:
+                        entity_id: "[[[ return variables.ulm_card_fully_load_start_url_entity ]]]"                      
                 item2:
                   card:
                     type: "custom:button-card"
@@ -120,7 +136,7 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_disable_kiosk_command ]]]"
-          item7:
+          item4:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -144,7 +160,7 @@ card_fully:
                     tap_action:
                       action: call-service
                       service: "[[[ return variables.ulm_card_fully_clear_cache_command ]]]"
-          item8:
+          item5:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -159,7 +175,9 @@ card_fully:
                     name: 'Screen On'
                     tap_action:
                       action: call-service
-                      service: "[[[ return variables.ulm_card_fully_screen_on_command ]]]"
+                      service: switch.turn_on
+                      target:
+                          entity_id: "[[[ return variables.ulm_card_fully_screen_entity ]]]"                       
                 item2:
                   card:
                     type: "custom:button-card"
@@ -167,8 +185,10 @@ card_fully:
                     name: 'Screen Off'
                     tap_action:
                       action: call-service
-                      service: "[[[ return variables.ulm_card_fully_screen_off_command ]]]"
-          item9:
+                      service: switch.turn_off
+                      target:
+                          entity_id: "[[[ return variables.ulm_card_fully_screen_entity ]]]" 
+          item6:
             card:
               type: "custom:button-card"
               template: "list_2_items"
@@ -179,25 +199,19 @@ card_fully:
                 item1:
                   card:
                     type: "custom:button-card"
-                    template: 
-                      - "widget_text"
-                      - "popup_fully_image"
-                    variables:
-                      ulm_card_fully_title: 'Screenshot'
-                      ulm_card_fully_image: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
-                      ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_screenshot_command ]]]"
+                    entity: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
+                    template: "widget_text"
                     name: 'Screenshot'
+                    tap_action:
+                      action: more-info                       
                 item2:
                   card:
                     type: "custom:button-card"
-                    template: 
-                      - "widget_text"
-                      - "popup_fully_image_auto"
-                    variables:
-                      ulm_card_fully_title: 'Camshot'
-                      ulm_card_fully_image: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
-                      #ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_camshot_command ]]]"
+                    entity: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
+                    template: "widget_text"
                     name: 'Camshot'
+                    tap_action:
+                      action: more-info                    
 
 
 

@@ -30,6 +30,12 @@ Tiles Material:
   rgb-orange-color: "255, 152, 0" #FF9800
   rgb-deep-orange-color: "255, 111, 34" #FF6F22
   rgb-teal-color: "0, 150, 136" #009688
+  crimson-color: '#DC143C'
+  rgb-crimson-color: "220, 20, 60"
+  gold-color: '#ffd700'
+  rgb-gold-color: "255, 215 ,0"
+  goldenrod-color: '#daa520'
+  rgb-goldenrod-color: "218 ,165 ,32"   
 
   # Climate Colors
   rgb-climate-heat-color: '255,111,34'
@@ -43,7 +49,7 @@ Tiles Material:
 
   # Chips
   chips-left-margin: "2px"
-  chip-card-height: "36px"
+  chip-card-height: "34px"
   chip-card-font-size: "14px"
 
   modes:

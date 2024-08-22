@@ -1,5 +1,0 @@
-shell_command:
-
-  fully_get_camshot: "curl {{api}} -o /config/www/fully_camshot.jpg"
-
-  fully_get_screenshot: "curl {{api}} -o /config/www/fully_screenshot.jpg"

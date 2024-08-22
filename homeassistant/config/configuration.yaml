@@ -55,8 +55,8 @@ scene: !include scenes.yaml
 #lovelace_gen:
 
 browser_mod:
-  disable:
-    - all
+  # disable:
+  #   - all
 
 lovelace:
   mode: yaml
@@ -75,6 +75,18 @@ lovelace:
     #   icon: mdi:view-dashboard
     #   show_in_sidebar: true
     #   filename: ui-minimalist.yaml
+    lovelace-ronen:
+      mode: yaml
+      title: Ronen
+      icon: mdi:view-dashboard
+      show_in_sidebar: false
+      filename: ui-ronen.yaml
+    lovelace-kfir:
+      mode: yaml
+      title: Kfir
+      icon: mdi:view-dashboard
+      show_in_sidebar: false
+      filename: ui-kfir.yaml        
 
 #Recorder
 recorder:
@@ -121,3 +133,5 @@ camera:
 #       - service: wake_on_lan.send_magic_packet
 #         data:
 #           mac: !secret basement_tv_mac
+
+climate: !include climate.yaml

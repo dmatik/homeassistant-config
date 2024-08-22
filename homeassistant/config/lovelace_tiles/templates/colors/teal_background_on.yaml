@@ -1,0 +1,9 @@
+teal_background_on:
+  state:
+    - styles:
+        icon:
+          - color: 'rgb(255,255,255)'
+        img_cell:
+          - background-color: 'var(--teal-color)'
+      value: "on"
+      id: "on"

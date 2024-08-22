@@ -14,7 +14,7 @@ card_zigbee2mqtt:
         type: "custom:button-card"
         template:
           - "icon_info"
-          - "blue_on"
+          - "yellow_on"
           - "ulm_language_variables_EN"
         icon: 'mdi:zigbee'
         tap_action:

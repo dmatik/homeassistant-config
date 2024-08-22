@@ -76,7 +76,7 @@ widget_mini_graph_bar:
             }
             #states{
               padding-top: 0px;
-              padding-left: 12px;
-              padding-right: 12px;
+              padding-left: 2px;
+              padding-right: 2px;
               padding-bottom: 0px;
             }

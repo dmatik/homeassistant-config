@@ -1,0 +1,104 @@
+title: Raspberry Pi
+path: tiles_rpi
+visible: false
+panel: true
+subview: true
+cards:
+
+  - type: vertical-stack
+    cards:
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   RPIs                                                                   #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Raspberry Pi
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr 1fr            
+                    cards:
+
+                      # Living Room
+                      - type: 'custom:button-card'
+                        entity: binary_sensor.rpi_living_room_running
+                        template: card_rpi
+                        variables:
+                          ulm_card_rpi_entity: 'binary_sensor.rpi_living_room_running'
+                          ulm_card_rpi_name: 'Living Room'
+                          ulm_card_rpi_sensor: 'sensor.rpi_living_room_rpi_monitor_rpi_living_room'
+                          ulm_card_rpi_memory: 'sensor.rpi_living_room_rpi_mem_used_rpi_living_room'
+                          ulm_card_rpi_cpu: 'sensor.rpi_living_room_rpi_cpu_use_rpi_living_room'
+                          ulm_card_rpi_disk: 'sensor.rpi_living_room_rpi_disk_used_rpi_living_room'
+                          ulm_card_rpi_last_update_relative: 'sensor.rpi_living_room_last_update_relative'
+
+                      # Floor 2
+                      - type: 'custom:button-card'
+                        entity: binary_sensor.rpi_floor2_running
+                        template: card_rpi
+                        variables:
+                          ulm_card_rpi_entity: 'binary_sensor.rpi_floor2_running'
+                          ulm_card_rpi_name: 'Floor 2'
+                          ulm_card_rpi_sensor: 'sensor.rpi_raspberrypi_rpi_monitor_raspberrypi'
+                          ulm_card_rpi_memory: 'sensor.rpi_raspberrypi_rpi_mem_used_raspberrypi'
+                          ulm_card_rpi_cpu: 'sensor.rpi_raspberrypi_rpi_cpu_use_raspberrypi'
+                          ulm_card_rpi_disk: 'sensor.rpi_raspberrypi_rpi_disk_used_raspberrypi'
+                          ulm_card_rpi_last_update_relative: 'sensor.rpi_floor2_last_update_relative'
+
+
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

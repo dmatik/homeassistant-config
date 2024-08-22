@@ -64,13 +64,14 @@ card_switcher:
                 service: "switch.toggle"
                 service_data:
                   entity_id: "[[[ return variables.ulm_card_switcher_entity ]]]"
-              icon: |
-                [[[
-                  if ( states[variables.ulm_card_switcher_entity].state == "on" )
-                    return "mdi:power-cycle";
-                  else 
-                    return "mdi:power-off";
-                ]]]
+              # icon: |
+              #   [[[
+              #     if ( states[variables.ulm_card_switcher_entity].state == "on" )
+              #       return "mdi:power-cycle";
+              #     else 
+              #       return "mdi:power-off";
+              #   ]]]
+              icon: 'mdi:power'
               state:
                 - value: "on"
                   styles:
@@ -78,6 +79,12 @@ card_switcher:
                       - color: 'rgb(255,255,255)'                          
                     img_cell:
                       - background-color: 'var(--red-color)'
+                - value: "off"
+                  styles:
+                    icon:
+                      - color: 'rgb(255,255,255)'                          
+                    img_cell:
+                      - background-color: 'rgb(var(--rgb-grey-color))'                       
           item2:
             card:
               template: 'list_2_items'

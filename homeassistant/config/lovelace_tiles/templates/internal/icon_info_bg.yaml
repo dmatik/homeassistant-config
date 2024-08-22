@@ -1,29 +1,31 @@
 ---
 ### Icon Info Bg ###
 icon_info_bg:
-  show_icon: true
-  show_label: true
-  show_name: true
-  name: "[[[ return entity.attributes.friendly_name; ]]]"
-  state:
-    - value: "unavailable"
-      styles:
-        card:
-          - filter: "opacity(70%)"
-        label:
-          - filter: "opacity(70%)"
-        name:
-          - filter: "opacity(70%)"
-        custom_fields:
-          notification:
-            - position: "absolute"
-            - left: "40px"
-            - top: "8px"
+  template:
+    - "icon_base"
+  # show_icon: true
+  # show_label: true
+  # show_name: true
+  # name: "[[[ return entity.attributes.friendly_name; ]]]"
+  # state:
+  #   - value: "unavailable"
+  #     styles:
+  #       card:
+  #         - filter: "opacity(70%)"
+  #       label:
+  #         - filter: "opacity(70%)"
+  #       name:
+  #         - filter: "opacity(70%)"
+  #       custom_fields:
+  #         notification:
+  #           - position: "absolute"
+  #           - left: "40px"
+  #           - top: "8px"
   styles:
-    icon:
-      - color: 'var(--grey-color)'
-      - width: "24px"
-      - height: "24px"
+    # icon:
+    #   - color: 'var(--grey-color)'
+    #   - width: "22px"
+    #   - height: "22px"
     label:
       - justify-self: "start"
       - align-self: "start"
@@ -34,30 +36,30 @@ icon_info_bg:
       - margin-right: "12px"
       - letter-spacing: "0.4px"
       - color: 'var(--primary-text-color)'
-    name:
-      - align-self: "end"
-      - justify-self: "start"
-      - font-weight: "500"
-      - font-size: "14px"
-      - line-height: "20px"
-      - margin-left: "12px"
-      - margin-right: "12px"
-      - margin-top: "0px"
-      - height: 20px
-      - letter-spacing: "0.1px"
-    img_cell:
-      - background-color: 'rgba(var(--rgb-grey-color),0.2)'
-      - border-radius: "50%"
-      - place-self: "center"
-      - width: "40px"
-      - height: "40px"
+    # name:
+    #   - align-self: "end"
+    #   - justify-self: "start"
+    #   - font-weight: "500"
+    #   - font-size: "14px"
+    #   - line-height: "20px"
+    #   - margin-left: "12px"
+    #   - margin-right: "12px"
+    #   - margin-top: "0px"
+    #   - height: 20px
+    #   - letter-spacing: "0.1px"
+    # img_cell:
+    #   - background-color: 'rgba(var(--rgb-grey-color),0.2)'
+    #   - border-radius: "50%"
+    #   - place-self: "center"
+    #   - width: "36px"
+    #   - height: "36px"
     grid:
       - grid-template-areas: "'i n' 'i l'"
       - grid-template-columns: "min-content auto"
       - grid-template-rows: "min-content min-content"
-    card:
-      - border-radius: "var(--ha-card-border-radius,12px)"
-      - box-shadow: "var(--ha-card-box-shadow)"
-      - padding: "12px"
-      - font-size: "12px"
-      #- --mdc-ripple-press-opacity: 0.0
+    # card:
+    #   - border-radius: "var(--ha-card-border-radius,12px)"
+    #   - box-shadow: "var(--ha-card-box-shadow)"
+    #   - padding: "9px"
+    #   - font-size: "12px"
+    #   #- --mdc-ripple-press-opacity: 0.0

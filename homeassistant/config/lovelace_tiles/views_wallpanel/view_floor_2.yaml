@@ -75,7 +75,7 @@ cards:
                       template: card_ac_buttons_with_temp
                       variables:
                         ulm_card_ac_entity: climate.bedroom
-                        ulm_card_ac_curr_temp_sensor: sensor.climate_bedroom_temp
+                        ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_bedroom; ]]]"
                       view_layout:
                         grid-row-start: span 3
@@ -85,7 +85,7 @@ cards:
                       template: card_ac_buttons_with_temp
                       variables:
                         ulm_card_ac_entity: climate.kfir
-                        ulm_card_ac_curr_temp_sensor: sensor.climate_kfir_temp
+                        ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_kfir; ]]]"
                       view_layout:
                         grid-row-start: span 3
@@ -95,7 +95,7 @@ cards:
                       template: card_ac_buttons_with_temp
                       variables:
                         ulm_card_ac_entity: climate.ronen
-                        ulm_card_ac_curr_temp_sensor: sensor.climate_ronen_temp
+                        ulm_card_ac_curr_temp_sensor: sensor.ronen_room_temperature_sensor_temperature
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_ronen; ]]]"
                       view_layout:
                         grid-row-start: span 3
@@ -411,7 +411,7 @@ cards:
                         ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
                         ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
                       entity: switch.bathroom_heater
-                      name: "[[[ return variables.ulm_bathroom; ]]]"
+                      #name: "[[[ return variables.ulm_bathroom; ]]]"
 
                     # Parents Bathroom Heater
                     - type: 'custom:button-card'
@@ -421,4 +421,4 @@ cards:
                         ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
                         ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
                       entity: switch.parents_bathroom_heater
-                      name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+                      #name: "[[[ return variables.ulm_parents_bathroom; ]]]"

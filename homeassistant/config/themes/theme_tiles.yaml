@@ -27,6 +27,13 @@ Tiles:
   rgb-orange-color: "255, 152, 0" #FF9800
   rgb-deep-orange-color: "255, 111, 34" #FF6F22
   rgb-teal-color: "0, 150, 136" #009688
+  crimson-color: '#DC143C'
+  rgb-crimson-color: "220, 20, 60"
+  gold-color: '#ffd700'
+  rgb-gold-color: "255, 215 ,0"
+  goldenrod-color: '#daa520'
+  rgb-goldenrod-color: "218 ,165 ,32"   
+
 
   # Climate Colors
   rgb-climate-heat-color: '255,111,34'
@@ -40,7 +47,7 @@ Tiles:
 
   # Chips
   chips-left-margin: "2px"
-  chip-card-height: "38px"
+  chip-card-height: "36px"
   chip-card-font-size: "14px"
 
   modes:
@@ -133,7 +140,15 @@ Tiles:
         margin-left: 0 !important;
         margin-right: 0 !important;
       }
-
+    hui-sections-view:
+      $: 
+        hui-view-badges $: |
+          @media (max-width: 450px) {
+            .badges {
+              justify-content: start !important;
+            }
+          }
+  
   # Fixing Sidebar profile right padding, in case of RTL
   card-mod-sidebar: |
     a.profile {
@@ -141,4 +156,4 @@ Tiles:
         padding-right: 4px !important;
       }
     }
-
+ 

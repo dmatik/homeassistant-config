@@ -1,0 +1,110 @@
+title: Zigbee2mqtt
+path: tiles_zigbee2mqtt
+visible: false
+panel: true
+subview: true
+cards:
+
+  - type: vertical-stack
+    cards:
+
+
+############################################################################
+#                                                                          #
+#   View                                                                   #
+#                                                                          #
+############################################################################
+
+      - type: "custom:mod-card"
+        style:
+          layout-card$:
+            grid-layout$: |
+              #root {
+                margin-left: var(--view-margins) !important;
+                margin-right: var(--view-margins) !important;
+                justify-content: center !important;
+              }
+        card:
+          type: custom:layout-card
+          layout_type: grid
+          layout_options:
+            grid-template-columns: 1fr
+            grid-template-rows: auto
+            mediaquery:
+              "(min-width: 800px)":
+                grid-template-columns: 780px
+          cards:
+
+            - type: vertical-stack
+              cards:
+
+
+          ############################################################################
+          #                                                                          #
+          #   Sensors and Buttons                                                    #
+          #                                                                          #
+          ############################################################################
+
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: title
+                      name: Zigbee2mqtt
+
+                - type: "custom:mod-card"
+                  style:
+                    .: |
+                      ha-card {
+                          margin: var(--grid-layout-margins) !important;
+                      }
+                  card:
+
+                    type: custom:layout-card
+                    layout_type: grid
+                    layout_options:
+                      grid-template-columns: 1fr 1fr
+                      grid-template-rows: auto
+                      grid-gap: 0px 2px
+                      mediaquery:
+                        "(max-width: 450px)":
+                          grid-template-columns: 1fr
+                    cards:
+
+                      # Zigbee2mqtt Floor 2
+                      - type: 'custom:button-card'
+                        template: card_zigbee2mqtt
+                        variables:
+                          ulm_card_zigbee2mqtt_name: 'Floor 2'
+                          ulm_card_zigbee2mqtt_bridge_state: 'binary_sensor.zigbee2mqtt_bridge_floor_2_connection_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_bridge_floor_2_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_floor_2_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_floor_2_network_map'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/floor2'
+
+                      # Zigbee2mqtt Living Room
+                      - type: 'custom:button-card'
+                        template: card_zigbee2mqtt
+                        variables:
+                          ulm_card_zigbee2mqtt_name: 'Living Room'
+                          ulm_card_zigbee2mqtt_bridge_state: 'binary_sensor.zigbee2mqtt_bridge_living_room_connection_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_bridge_living_room_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_living_room_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_living_room_network_map'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/living_room'
+
+                      # Zigbee2mqtt Basement
+                      - type: 'custom:button-card'
+                        template: card_zigbee2mqtt
+                        variables:
+                          ulm_card_zigbee2mqtt_name: 'Basement'
+                          ulm_card_zigbee2mqtt_bridge_state: 'binary_sensor.zigbee2mqtt_bridge_basement_connection_state'
+                          ulm_card_zigbee2mqtt_version: 'sensor.zigbee2mqtt_bridge_basement_version'
+                          ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_basement_restart'
+                          ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_basement_network_map'
+                          ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/basement'
+
+                - type: custom:button-card
+                  template: spacer
+                  variables:
+                    height: 100px

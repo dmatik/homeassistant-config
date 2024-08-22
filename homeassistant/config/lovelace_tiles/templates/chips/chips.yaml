@@ -10,7 +10,7 @@ chip_base:
     card:
       - box-shadow: "var(--ha-card-box-shadow)"
       - border-radius: '18px'
-      - height: "var(--chip-card-height)" # with border 38, without border 36
+      - height: "var(--chip-card-height)"
       - width: 'auto'
       - padding-left: '8px'
       - padding-right: '8px'
@@ -18,7 +18,7 @@ chip_base:
       - padding-bottom: '0px'
       #- --mdc-ripple-press-opacity: 0.0
       - margin: '0px'
-      - font-size: '8px'
+      - font-size: '12px'
     grid:
       - grid-template-areas: "'i l'"
       - grid-template-columns: 'max_content auto'
@@ -28,8 +28,8 @@ chip_base:
       - justify-content: center
       - align-items: center    
       #- place-self: 'center'
-      - width: '20px'
-      - height: '36px'
+      - width: '18px'
+      - height: '34px'
       - padding-right: '0px'
       - padding-left: '0px'
     icon:
@@ -37,18 +37,21 @@ chip_base:
       - justify-content: center
       - align-items: center
       - color: 'var(--chip-icon-disabled-color)'
+      - width: '18px'
+      - height: '18px'
     label:
       - display: flex
       - justify-content: center
       - align-items: center
       #- justify-self: 'center'
       - font-weight: 500
-      - font-size: "var(--chip-card-font-size)" #'14px'
+      - font-size: "var(--chip-card-font-size)"
+      #- font-family: "Roboto"
       - margin-left: '0px'
       - margin-top: '0px'
       #- width: 'auto'
-      - padding-left: '3px'
-      - padding-right: '3px'
+      - padding-left: '2px'
+      - padding-right: '4px'
       #- height: '36px'
       #- color: "var(--secondary-text-color)"  
       - letter-spacing: '-0.2px'   

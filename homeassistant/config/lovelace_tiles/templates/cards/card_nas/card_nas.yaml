@@ -6,7 +6,7 @@ card_nas:
     card:
       - border-radius: "var(--ha-card-border-radius,12px)"
       - box-shadow: "var(--ha-card-box-shadow)"
-      - padding: "0px"
+      - padding: "11px"
     grid:
       - grid-template-areas: "'item1' 'item2' 'item3' 'item4'"
       - grid-template-columns: "1fr"
@@ -58,6 +58,3 @@ card_nas:
           mini_graph_name: 'RAM'
           mini_graph_color: 'rgba(var(--rgb-purple-color),0.2)'
           mini_graph_entity: '[[[ return variables.ulm_card_nas_ram_entity ]]]'
-        styles:
-          card:
-            - padding-bottom: "12px"

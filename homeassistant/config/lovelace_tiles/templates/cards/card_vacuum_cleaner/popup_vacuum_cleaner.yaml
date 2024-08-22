@@ -60,7 +60,7 @@ popup_vacuum_cleaner_map:
     browser_mod:
       service: browser_mod.popup
       data:
-        title: '[[[ return variables.x_ulm_card_vacuum_cleaner_name ]]]'
+        title: '[[[ return variables.x_ulm_card_vacuum_cleaner_title ]]]'
         content:
 
           type: vertical-stack

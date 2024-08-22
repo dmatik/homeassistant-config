@@ -1,95 +1,59 @@
 title: Wall Panel
 path: tiles_wallpanel
 visible: false
-panel: true
+type: sections
 subview: true
-cards:
+max_columns: 3
 
-  - type: vertical-stack
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #   Fully                                                                  #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: Wall Panel
     cards:
 
+      # # Living Room Fully
+      # - type: 'custom:button-card'
+      #   template: card_fully
+      #   variables:
+      #     #ulm_card_fully_rest_sensor_entity: 'sensor.fully_living_room_device_info'
+      #     ulm_card_fully_current_page_entity: 'sensor.fully_living_room_current_page'
+      #     ulm_card_fully_battery_entity: 'sensor.fully_living_room_battery'
+      #     ulm_card_fully_plugged_in_entity: 'binary_sensor.fully_living_room_plugged_in'
+      #     ulm_card_fully_screen_entity: 'switch.fully_living_room_screen'
+      #     ulm_card_fully_load_start_url_entity: 'button.fully_living_room_load_start_url'
+      #     ulm_card_fully_name: 'Living Room Fully'
+      #     #ulm_card_fully_reload_url_command: 'rest_command.fully_living_room_load_url'
+      #     ulm_card_fully_disable_kiosk_command: 'rest_command.fully_living_room_disable_kiosk_mode'
+      #     ulm_card_fully_restart_app_command: 'rest_command.fully_living_room_restart_app'
+      #     ulm_card_fully_clear_cache_command: 'rest_command.fully_living_room_clear_cache'
+      #     ulm_card_fully_screenshot_image: 'image.fully_living_room_screenshot'
+      #     #ulm_card_fully_screenshot_command: 'script.fully_get_screenshot'
+      #     ulm_card_fully_camshot_image: 'camera.fully_living_room'
+      #     #ulm_card_fully_screen_on_command: 'rest_command.fully_living_room_screen_on'
+      #     #ulm_card_fully_screen_off_command: 'rest_command.fully_living_room_screen_off'
 
-############################################################################
-#                                                                          #
-#   View                                                                   #
-#                                                                          #
-############################################################################
-
-      - type: "custom:mod-card"
-        style:
-          layout-card$:
-            grid-layout$: |
-              #root {
-                margin-left: var(--view-margins) !important;
-                margin-right: var(--view-margins) !important;
-                justify-content: center !important;
-              }
-        card:
-          type: custom:layout-card
-          layout_type: grid
-          layout_options:
-            grid-template-columns: 1fr
-            grid-template-rows: auto
-            mediaquery:
-              "(min-width: 800px)":
-                grid-template-columns: 780px
-          cards:
-
-            - type: vertical-stack
-              cards:
-
-
-          ############################################################################
-          #                                                                          #
-          #   Fully                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: Wall Panel
-
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr
-                    cards:
-
-                      # Kitchen Fully
-                      - type: 'custom:button-card'
-                        template: card_fully
-                        variables:
-                          ulm_card_fully_entity: 'sensor.fully_device_info'
-                          ulm_card_fully_name: 'Kitchen Fully'
-                          ulm_card_fully_reload_url_command: 'rest_command.fully_load_url'
-                          ulm_card_fully_disable_kiosk_command: 'rest_command.fully_disable_kiosk_mode'
-                          ulm_card_fully_restart_app_command: 'rest_command.fully_restart_app'
-                          ulm_card_fully_clear_cache_command: 'rest_command.fully_clear_cache'
-                          ulm_card_fully_screenshot_image: '/local/fully_screenshot.jpg'
-                          ulm_card_fully_screenshot_command: 'script.fully_get_screenshot'
-                          ulm_card_fully_camshot_image: 'camera.fully_kitchen'
-                          ulm_card_fully_screen_on_command: 'rest_command.fully_screen_on'
-                          ulm_card_fully_screen_off_command: 'rest_command.fully_screen_off'
-
-
-
-                - type: custom:button-card
-                  template: spacer
-                  variables:
-                    height: 100px
+      # Living Room Fully
+      - type: 'custom:button-card'
+        template: card_fully_tile
+        entity: 'binary_sensor.fully_living_room_plugged_in'
+        variables:
+          ulm_card_fully_current_page_entity: 'sensor.fully_living_room_current_page'
+          ulm_card_fully_battery_entity: 'sensor.fully_living_room_battery'
+          ulm_card_fully_plugged_in_entity: 'binary_sensor.fully_living_room_plugged_in'
+          ulm_card_fully_screen_entity: 'switch.fully_living_room_screen'
+          ulm_card_fully_load_start_url_entity: 'button.fully_living_room_load_start_url'
+          ulm_card_fully_name: 'Living Room'
+          ulm_card_fully_disable_kiosk_command: 'rest_command.fully_living_room_disable_kiosk_mode'
+          ulm_card_fully_restart_app_command: 'rest_command.fully_living_room_restart_app'
+          ulm_card_fully_clear_cache_command: 'rest_command.fully_living_room_clear_cache'
+          ulm_card_fully_screenshot_image: 'image.fully_living_room_screenshot'
+          ulm_card_fully_camshot_image: 'camera.fully_living_room'
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1

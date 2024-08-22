@@ -1,116 +1,58 @@
 title: אבטחה
 icon: mdi:cctv
 path: tiles_security
-panel: true
-cards:
+type: sections
+subview: false
+max_columns: 3
 
-  - type: vertical-stack
+badges:
+
+  # Motion Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_navigate_only'
+      - 'chip_yellow'
+    icon: 'mdi:run'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+      ulm_chip_navigate_path: /lovelace/tiles_motion
+
+
+
+sections:
+
+  ############################################################################
+  #                                                                          #
+  #  Cameras                                                                 #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: מצלמות  
     cards:
 
 
-############################################################################
-#                                                                          #
-#   View                                                                   #
-#                                                                          #
-############################################################################
+      # Living Room
+      - type: 'custom:button-card'
+        template: 
+          - "card_video_stream"
+        variables:
+          ulm_card_video_stream_entity: camera.living_room
+          ulm_card_video_stream_url: reo_living_room_sub
+          ulm_card_video_stream_title: 'סלון' #'[[[ return variables.ulm_living_room; ]]]'
+        layout_options:
+          grid_columns: 4
+          grid_rows: 5
 
-      - type: "custom:mod-card"
-        style:
-          layout-card$:
-            grid-layout$: |
-              #root {
-                margin-left: var(--view-margins) !important;
-                margin-right: var(--view-margins) !important;
-                justify-content: center !important;
-              }
-        card:
-          type: custom:layout-card
-          layout_type: grid
-          layout_options:
-            grid-template-columns: 1fr
-            grid-template-rows: auto
-            mediaquery:
-              "(min-width: 800px)":
-                grid-template-columns: 780px
-          cards:
-
-            - type: vertical-stack
-              cards:
-
-          ############################################################################
-          #                                                                          #
-          #   Chips                                                                  #
-          #                                                                          #
-          ############################################################################
-
-                - type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-auto-flow: column
-                    grid-auto-columns: max-content
-                    margin: var(--chips-left-margin)
-                  cards:
-
-                      # Motion Chip
-                      - type: 'custom:button-card'
-                        template:
-                          - 'chip_icon_label_state'
-                          - 'chip_navigate_only'
-                          - 'chip_yellow'
-                        icon: 'mdi:run'
-                        variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
-                          ulm_chip_navigate_path: /lovelace/tiles_motion
-
-
-
-          ############################################################################
-          #                                                                          #
-          #   Cameras                                                                #
-          #                                                                          #
-          ############################################################################
-
-                - type: horizontal-stack
-                  cards:
-
-                    - type: custom:button-card
-                      template: title
-                      name: "[[[ return variables.ulm_cameras; ]]]"     
-
-                # Cameras
-                - type: "custom:mod-card"
-                  style:
-                    .: |
-                      ha-card {
-                          margin: var(--grid-layout-margins) !important;
-                      }
-                  card:
-
-                    type: custom:layout-card
-                    layout_type: grid
-                    layout_options:
-                      grid-template-columns: 1fr
-                      grid-template-rows: auto
-                      grid-gap: 0px 2px
-                      mediaquery:
-                        "(max-width: 450px)":
-                          grid-template-columns: 1fr           
-                    cards:
-
-                      # Living Room
-                      - type: 'custom:button-card'
-                        template: 
-                          - "card_video_stream"
-                        variables:
-                          ulm_card_video_stream_entity: camera.living_room
-                          ulm_card_video_stream_url: reo_living_room_sub
-                          ulm_card_video_stream_title: 'סלון' #'[[[ return variables.ulm_living_room; ]]]'
-
-                      # Basement
-                      - type: 'custom:button-card'
-                        template: 
-                          - "card_video_stream"
-                        variables:
-                          ulm_card_video_stream_entity: camera.basement
-                          ulm_card_video_stream_url: reo_basement_sub
-                          ulm_card_video_stream_title: '[[[ return variables.ulm_basement; ]]]'
+      # Basement
+      - type: 'custom:button-card'
+        template: 
+          - "card_video_stream"
+        variables:
+          ulm_card_video_stream_entity: camera.basement
+          ulm_card_video_stream_url: reo_basement_sub
+          ulm_card_video_stream_title: '[[[ return variables.ulm_basement; ]]]'
+        layout_options:
+          grid_columns: 4
+          grid_rows: 5          

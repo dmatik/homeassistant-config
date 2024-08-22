@@ -1,0 +1,12 @@
+---
+
+crimson_on:
+  state:
+    - styles:
+        icon:
+          - color: 'var(--crimson-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-crimson-color),0.2)'
+      id: "on"
+      value: "on"
+

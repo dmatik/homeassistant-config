@@ -6,7 +6,7 @@ card_rpi:
     ulm_card_rpi_last_update_relative: '[[[ return variables.ulm_card_rpi_last_update_relative ]]]'
   template:
     - 'icon_info_bg'
-    - 'blue_on'
+    - 'crimson_on'
     - "ulm_language_variables_EN"
     - 'popup_rpi'
   name: '[[[ return variables.ulm_card_rpi_name ]]]'

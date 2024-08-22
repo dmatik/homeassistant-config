@@ -69,7 +69,7 @@ cards:
                       template: card_ac_buttons_with_temp
                       variables:
                         ulm_card_ac_entity: climate.basement
-                        ulm_card_ac_curr_temp_sensor: sensor.climate_basement_temp
+                        ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
                         #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
                       view_layout:
                         grid-row-start: span 3

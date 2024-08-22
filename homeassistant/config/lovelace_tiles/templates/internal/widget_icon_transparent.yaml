@@ -19,7 +19,7 @@ widget_icon_transparent:
       - border-style: "none"
       - --mdc-ripple-press-opacity: 0.0
     img_cell:
-      - height: "40px"      
+      - height: "42px"      
     icon:
       - color: 'var(--primary-text-color)'
   size: "20px"
