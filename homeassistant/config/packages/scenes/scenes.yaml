@@ -113,10 +113,10 @@ scene:
     name: Bedroom Morning Covers
     entities:
       cover.bedroom_balcony:
-        current_position: 42
+        current_position: 36
         state: open
       cover.bedroom_window:
-        current_position: 42
+        current_position: 36
         state: open
       cover.parents_makeup:
         current_position: 32
@@ -138,10 +138,10 @@ scene:
     name: Bedroom Evening Covers
     entities:
       cover.bedroom_balcony:
-        current_position: 30
+        current_position: 20
         state: open
       cover.bedroom_window:
-        current_position: 42
+        current_position: 36
         state: open
       cover.parents_makeup:
         current_position: 32
@@ -152,10 +152,10 @@ scene:
     name: Bedroom Night Covers
     entities:
       cover.bedroom_balcony:
-        current_position: 30
+        current_position: 20
         state: open
       cover.bedroom_window:
-        current_position: 42
+        current_position: 36
         state: open
       cover.parents_makeup:
         current_position: 32

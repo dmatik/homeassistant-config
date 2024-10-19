@@ -2,6 +2,7 @@ Tiles:
 
   # Fonts
   primary-font-family: "Arimo, system-ui"
+  secondary-font-family: "Arimo, system-ui"
   paper-font-common-base_-_font-family: "var(--primary-font-family)"
   paper-font-common-code_-_font-family: "var(--primary-font-family)"
   paper-font-body1_-_font-family: "var(--primary-font-family)"
@@ -127,8 +128,7 @@ Tiles:
         }
       }
 
-
-  card-mod-view-yaml: |
+  card-mod-view-yaml: |  
     "*:first-child$": |
       #columns .column > * {
         padding-left: 5px;
@@ -148,6 +148,7 @@ Tiles:
               justify-content: start !important;
             }
           }
+                                              
   
   # Fixing Sidebar profile right padding, in case of RTL
   card-mod-sidebar: |
@@ -157,3 +158,26 @@ Tiles:
       }
     }
  
+
+  # Adjusting the font for Sections heading title and badges
+  card-mod-card-yaml: |
+    .: |    
+      ha-card .container .content p {
+        font-family: inherit !important;
+      }
+    .badges hui-heading-badge:nth-child(1) hui-entity-heading-badge $ ha-heading-badge $: |
+      .heading-badge {
+        font-family: inherit !important;
+      }
+    .badges hui-heading-badge:nth-child(2) hui-entity-heading-badge $ ha-heading-badge $: |
+      .heading-badge {
+        font-family: inherit !important;
+      }
+    .badges hui-heading-badge:nth-child(3) hui-entity-heading-badge $ ha-heading-badge $: |
+      .heading-badge {
+        font-family: inherit !important;
+      }
+    .badges hui-heading-badge:nth-child(4) hui-entity-heading-badge $ ha-heading-badge $: |
+      .heading-badge {
+        font-family: inherit !important;
+      }       

@@ -283,59 +283,63 @@
 - id: '1630056048064'
   alias: Printer Black Ink Low
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.mfc_j650dw_black_ink_remaining
+  triggers:
+  - entity_id:
+    - sensor.dcp_j1200w_black_ink_remaining
     below: '11'
-  condition: []
-  action:
-  - service: notify.persistent_notification
-    data:
+    trigger: numeric_state
+  conditions: []
+  actions:
+  - data:
       title: Printer
       message: Black ink is {{ states('sensor.mfc_j650dw_black_ink_remaining') }}%.
+    action: notify.persistent_notification
   mode: single
 - id: '1630056101296'
   alias: Printer Cyan Ink Low
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.mfc_j650dw_cyan_ink_remaining
+  triggers:
+  - entity_id:
+    - sensor.dcp_j1200w_cyan_ink_remaining
     below: '11'
-  condition: []
-  action:
-  - service: notify.persistent_notification
-    data:
+    trigger: numeric_state
+  conditions: []
+  actions:
+  - data:
       title: Printer
       message: Cyan ink is {{ states('sensor.mfc_j650dw_cyan_ink_remaining') }}%.
+    action: notify.persistent_notification
   mode: single
 - id: '1630056134351'
   alias: Printer Magenta Ink Low
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.mfc_j650dw_magenta_ink_remaining
+  triggers:
+  - entity_id:
+    - sensor.dcp_j1200w_magenta_ink_remaining
     below: '11'
-  condition: []
-  action:
-  - service: notify.persistent_notification
-    data:
+    trigger: numeric_state
+  conditions: []
+  actions:
+  - data:
       title: Printer
       message: Magenta ink is {{ states('sensor.mfc_j650dw_magenta_ink_remaining')
         }}%.
+    action: notify.persistent_notification
   mode: single
 - id: '1630056151569'
   alias: Printer Yellow Ink Low
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.mfc_j650dw_yellow_ink_remaining
+  triggers:
+  - entity_id:
+    - sensor.dcp_j1200w_yellow_ink_remaining
     below: '11'
-  condition: []
-  action:
-  - service: notify.persistent_notification
-    data:
+    trigger: numeric_state
+  conditions: []
+  actions:
+  - data:
       title: Printer
       message: Yellow ink is {{ states('sensor.mfc_j650dw_yellow_ink_remaining') }}%.
+    action: notify.persistent_notification
   mode: single
 - id: '1630059227890'
   alias: Dima Arrived to Office
@@ -540,35 +544,35 @@
 - id: '1689144825201'
   alias: Night Lights
   description: ''
-  trigger:
-  - platform: sun
-    event: sunset
+  triggers:
+  - event: sunset
     offset: -01:30:00
     id: 'on'
     enabled: false
-  - platform: sun
-    event: sunrise
+    trigger: sun
+  - event: sunrise
     offset: +01:00:00
     id: 'off'
     enabled: false
-  - platform: numeric_state
-    entity_id:
+    trigger: sun
+  - entity_id:
     - sun.sun
     attribute: elevation
     above: 8
     id: 'off'
-  - platform: numeric_state
-    entity_id:
+    trigger: numeric_state
+  - entity_id:
     - sun.sun
     attribute: elevation
     below: 8
     id: 'on'
-  condition:
+    trigger: numeric_state
+  conditions:
   - condition: state
     entity_id: input_boolean.vacation
     state: 'off'
-    enabled: false
-  action:
+    enabled: true
+  actions:
   - choose:
     - conditions:
       - condition: trigger
@@ -588,47 +592,6 @@
           entity_id: scene.night_lights_off
         metadata: {}
         action: scene.turn_on
-  mode: single
-- id: '1689147291665'
-  alias: Kids AC Night Cooling
-  description: ''
-  trigger:
-  - platform: time
-    at:
-    - '20:30:00'
-    - 02:00:00
-    id: 'on'
-  - platform: time
-    at:
-    - '23:00:00'
-    - 04:00:00
-    id: 'off'
-  condition:
-  - condition: state
-    entity_id: input_boolean.vacation
-    state: 'off'
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id:
-        - 'on'
-      sequence:
-      - service: scene.turn_on
-        data: {}
-        target:
-          entity_id: scene.night_kids_ac_cooling
-    - conditions:
-      - condition: trigger
-        id:
-        - 'off'
-      sequence:
-      - service: climate.turn_off
-        data: {}
-        target:
-          entity_id:
-          - climate.ronen
-          - climate.kfir
   mode: single
 - id: '1689234315907'
   alias: Main Floor Cooling
@@ -663,45 +626,6 @@
         data: {}
         target:
           entity_id: climate.living_room
-  mode: single
-- id: '1689702798760'
-  alias: Bedroom AC Night Cooling
-  description: ''
-  trigger:
-  - platform: time
-    at:
-    - '23:00:00'
-    id: 'on'
-  - platform: time
-    at:
-    - 06:00:00
-    id: 'off'
-  condition:
-  - condition: state
-    entity_id: input_boolean.vacation
-    state: 'off'
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id:
-        - 'on'
-      sequence:
-      - service: scene.turn_on
-        data: {}
-        target:
-          entity_id:
-          - scene.bedroom_ac_night_cooling
-    - conditions:
-      - condition: trigger
-        id:
-        - 'off'
-      sequence:
-      - service: climate.turn_off
-        data: {}
-        target:
-          entity_id:
-          - climate.bedroom
   mode: single
 - id: '1689872165826'
   alias: Bathroom Heater Auto OFF
@@ -1336,6 +1260,9 @@
       - condition: trigger
         id:
         - day
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
       sequence:
       - metadata: {}
         target:
@@ -1361,96 +1288,6 @@
         enabled: true
         action: scene.turn_on
   mode: single
-- id: '1718649447176'
-  alias: Kids AC Night Cooling variant
-  description: ''
-  trigger:
-  - platform: time
-    at: '23:00:00'
-    id: change_temp
-  - platform: time
-    at: 06:00:00
-    id: 'off'
-  condition: []
-  action:
-  - if:
-    - condition: trigger
-      id:
-      - change_temp
-    - condition: state
-      entity_id: climate.ronen
-      state: cool
-    then:
-    - service: climate.set_temperature
-      metadata: {}
-      data:
-        temperature: 25
-        hvac_mode: cool
-      target:
-        entity_id: climate.ronen
-    - service: climate.set_fan_mode
-      metadata: {}
-      data:
-        fan_mode: low
-      target:
-        entity_id: climate.ronen
-    - service: switch.turn_on
-      metadata: {}
-      data: {}
-      target:
-        entity_id: switch.ronen_quiet
-  - if:
-    - condition: trigger
-      id:
-      - change_temp
-    - condition: state
-      entity_id: climate.kfir
-      state: cool
-    then:
-    - service: climate.set_temperature
-      metadata: {}
-      data:
-        temperature: 25
-        hvac_mode: cool
-      target:
-        entity_id: climate.kfir
-    - service: climate.set_fan_mode
-      metadata: {}
-      data:
-        fan_mode: low
-      target:
-        entity_id: climate.kfir
-    - service: switch.turn_on
-      metadata: {}
-      data: {}
-      target:
-        entity_id: switch.kfir_quiet
-  - if:
-    - condition: trigger
-      id:
-      - 'off'
-    - condition: state
-      entity_id: climate.ronen
-      state: cool
-    then:
-    - service: climate.turn_off
-      target:
-        entity_id:
-        - climate.ronen
-      data: {}
-  - if:
-    - condition: trigger
-      id:
-      - 'off'
-    - condition: state
-      entity_id: climate.kfir
-      state: cool
-    then:
-    - service: climate.turn_off
-      data: {}
-      target:
-        entity_id: climate.kfir
-  mode: single
 - id: '1721665061066'
   alias: Bedroom AC - Night - Summer
   description: ''
@@ -1460,7 +1297,8 @@
       climate_entity: climate.bedroom
       quiet_mode_switch: switch.bedroom_quiet
       start_time: 00:00:00
-      end_time: 06:00:00
+      end_time: 04:00:00
+      target_temperature_value: 26
 - id: '1721724300646'
   alias: Kfir AC - Night - Summer
   description: ''
@@ -1470,7 +1308,8 @@
       climate_entity: climate.kfir
       quiet_mode_switch: switch.kfir_quiet
       start_time: '23:00:00'
-      end_time: 06:30:00
+      end_time: 04:00:00
+      target_temperature_value: 26
 - id: '1721724371404'
   alias: Ronen AC - Night - Summer
   description: ''
@@ -1480,7 +1319,8 @@
       climate_entity: climate.ronen
       quiet_mode_switch: switch.ronen_quiet
       start_time: '23:00:00'
-      end_time: 06:30:00
+      end_time: 04:00:00
+      target_temperature_value: 26
 - id: '1722774100998'
   alias: Home Motion Alert
   description: ''
@@ -1505,4 +1345,43 @@
             name: default
             critical: 1
             volume: 1
+  mode: single
+- id: '1728888526335'
+  alias: Vacation Lights
+  description: ''
+  triggers:
+  - entity_id:
+    - sun.sun
+    attribute: elevation
+    below: 8
+    id: 'on'
+    trigger: numeric_state
+  - trigger: time
+    at: 00:00:00
+    id: 'off'
+  conditions:
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: 'on'
+    enabled: true
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - 'on'
+      sequence:
+      - target:
+          entity_id: scene.vacation_lights_on
+        metadata: {}
+        action: scene.turn_on
+    - conditions:
+      - condition: trigger
+        id:
+        - 'off'
+      sequence:
+      - target:
+          entity_id: scene.vacation_lights_off
+        metadata: {}
+        action: scene.turn_on
   mode: single

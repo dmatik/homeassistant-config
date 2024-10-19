@@ -261,3 +261,239 @@
   metadata:
     climate.bedroom:
       entity_only: true
+- id: '1728888818467'
+  name: Vacation Lights ON
+  entities:
+    light.bedside_dima_bulb:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6993
+      min_mireds: 143
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - hs
+      color_mode: hs
+      brightness: 128
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      - 240
+      - 100
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      xy_color:
+      - 0.136
+      - 0.04
+      icon: mdi:lamp
+      friendly_name: דימה
+      supported_features: 40
+      state: 'on'
+    light.bedside_galit_bulb:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6993
+      min_mireds: 143
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - hs
+      color_mode: color_temp
+      brightness: 76
+      color_temp_kelvin: 4219
+      color_temp: 237
+      hs_color:
+      - 26.739
+      - 31.043
+      rgb_color:
+      - 255
+      - 211
+      - 175
+      xy_color:
+      - 0.408
+      - 0.362
+      icon: mdi:lamp
+      friendly_name: גלית
+      supported_features: 40
+      state: 'on'
+    light.ronen_led_strip:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      - colorloop
+      - stop_colorloop
+      supported_color_modes:
+      - xy
+      effect:
+      color_mode: xy
+      brightness: 76
+      hs_color:
+      - 122
+      - 82.353
+      rgb_color:
+      - 45
+      - 255
+      - 52
+      xy_color:
+      - 0.184
+      - 0.707
+      icon: mdi:led-strip-variant
+      friendly_name: פס לד רונן
+      supported_features: 44
+      state: 'on'
+    light.kfir_led_strip:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      - colorloop
+      - stop_colorloop
+      supported_color_modes:
+      - xy
+      effect:
+      color_mode: xy
+      brightness: 76
+      hs_color:
+      - 27.13
+      - 45.098
+      rgb_color:
+      - 255
+      - 192
+      - 140
+      xy_color:
+      - 0.455
+      - 0.374
+      icon: mdi:led-strip-variant
+      friendly_name: פס לד כפיר
+      supported_features: 44
+      state: 'on'
+    light.living_room:
+      supported_color_modes:
+      - onoff
+      color_mode: onoff
+      friendly_name: סלון
+      supported_features: 0
+      state: 'on'
+  icon: mdi:lightbulb-multiple
+  metadata:
+    light.bedside_dima_bulb:
+      entity_only: true
+    light.bedside_galit_bulb:
+      entity_only: true
+    light.ronen_led_strip:
+      entity_only: true
+    light.kfir_led_strip:
+      entity_only: true
+    light.living_room:
+      entity_only: true
+- id: '1728888931029'
+  name: Vacation Lights OFF
+  entities:
+    light.bedside_dima_bulb:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6993
+      min_mireds: 143
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - hs
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:lamp
+      friendly_name: דימה
+      supported_features: 40
+      state: 'off'
+    light.bedside_galit_bulb:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6993
+      min_mireds: 143
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - hs
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:lamp
+      friendly_name: גלית
+      supported_features: 40
+      state: 'off'
+    light.ronen_led_strip:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      - colorloop
+      - stop_colorloop
+      supported_color_modes:
+      - xy
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:led-strip-variant
+      friendly_name: פס לד רונן
+      supported_features: 44
+      state: 'off'
+    light.kfir_led_strip:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      - colorloop
+      - stop_colorloop
+      supported_color_modes:
+      - xy
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:led-strip-variant
+      friendly_name: פס לד כפיר
+      supported_features: 44
+      state: 'off'
+    light.living_room:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      friendly_name: סלון
+      supported_features: 0
+      state: 'off'
+  metadata:
+    light.bedside_dima_bulb:
+      entity_only: true
+    light.bedside_galit_bulb:
+      entity_only: true
+    light.ronen_led_strip:
+      entity_only: true
+    light.kfir_led_strip:
+      entity_only: true
+    light.living_room:
+      entity_only: true
+  icon: mdi:lightbulb-multiple-off

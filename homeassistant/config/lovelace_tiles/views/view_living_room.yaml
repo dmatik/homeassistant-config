@@ -248,17 +248,8 @@ sections:
           grid_rows: 1          
 
       # Guest Bathroom Mirror Sensor
-      - type: 'custom:button-card'
-        template: 
-          - card_motion_sensor
+      - type: tile
         entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
-        name: "[[[ return variables.ulm_guest_mirror; ]]]"
-        show_last_changed: false
-        variables:
-          light_level: sensor.guest_bathroom_mirror_motion_sensor_illuminance
-        layout_options:
-          grid_columns: 2
-          grid_rows: 1          
 
       # Guest Bathroom New Sensor
       - type: tile

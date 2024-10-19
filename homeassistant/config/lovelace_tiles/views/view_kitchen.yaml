@@ -104,31 +104,13 @@ sections:
         double_tap_action:
           action: more-info
 
-      # Kitchen Left
-      - type: 'custom:button-card'
-        template: 
-          - card_motion_sensor
-        entity: binary_sensor.kitchen_left_motion_sensor_occupancy
-        name: "[[[ return variables.ulm_kitchen_left; ]]]"
-        show_last_changed: false
-        variables:
-          light_level: sensor.kitchen_left_motion_sensor_illuminance
-        layout_options:
-          grid_columns: 2
-          grid_rows: 1           
-
       # Kitchen Right
-      - type: 'custom:button-card'
-        template: 
-          - card_motion_sensor
+      - type: tile
         entity: binary_sensor.kitchen_right_motion_sensor_occupancy
-        name: "[[[ return variables.ulm_kitchen_right; ]]]"
-        show_last_changed: false
-        variables:
-          light_level: sensor.kitchen_right_motion_sensor_illuminance
-        layout_options:
-          grid_columns: 2
-          grid_rows: 1           
+
+      # Kitchen Left
+      - type: tile
+        entity: binary_sensor.kitchen_left_motion_sensor_occupancy         
 
       # Kitchen Cover
       - type: tile

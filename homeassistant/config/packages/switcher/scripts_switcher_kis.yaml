@@ -1,0 +1,30 @@
+script:
+
+  ############################################################################
+  #                                                                          #
+  #   KIS Turn ON with timer from Input Select                               #
+  #                                                                          #
+  ############################################################################
+
+  switcher_kis_turn_on_timer_script:
+      alias: On with Timer
+      sequence:
+          - action: switcher_kis.turn_on_with_timer
+            data_template:
+              entity_id: switch.switcher_touch_d54f
+              timer_minutes: '{{ states("input_select.switcher_boiler_timer_minutes_input_select") }}'
+
+
+############################################################################
+#                                                                          #
+#   KIS Turn ON with timer from Input Number                               #
+#                                                                          #
+############################################################################
+
+# switcher_kis_turn_on_timer_input_number:
+#     alias: On with Timer
+#     sequence:
+#         - service: switcher_kis.turn_on_with_timer
+#           data_template:
+#             entity_id: switch.switcher_touch_d54f
+#             timer_minutes: '{{ states("input_number.switcher_timer_minutes") }}'

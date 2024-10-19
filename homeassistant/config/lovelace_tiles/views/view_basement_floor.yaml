@@ -1,0 +1,237 @@
+title: מרתף
+icon: mdi:home-floor-b
+path: tiles_basement_floor
+type: sections
+max_columns: 3
+
+badges:
+
+  # Climate Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_climate'
+      - 'chip_navigate_only'
+      #- 'chip_blue_no_state'
+    variables:
+      ulm_chip_temperature_low: sensor.lowest_temperature_home
+      ulm_chip_temperature_high: sensor.highest_temperature_home                     
+      ulm_chip_devices_on: sensor.number_of_climate_entities_on
+      ulm_chip_navigate_path: /lovelace/tiles_climate
+
+  # Presense Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_navigate_only'
+      - 'chip_blue'
+    icon: 'mdi:home'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_persons_home
+      ulm_chip_navigate_path: /lovelace/tiles_presense
+
+  # Lights Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_navigate_only'
+      - 'chip_yellow'
+    icon: 'mdi:lightbulb'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_lights_on
+      ulm_chip_navigate_path: /lovelace/tiles_lights
+
+  # Covers Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_navigate_only'
+      - 'chip_purple'
+    icon: 'mdi:window-shutter'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_covers_open
+      ulm_chip_navigate_path: /lovelace/tiles_covers
+
+  # Motion Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_icon_label_state'
+      - 'chip_navigate_only'
+      - 'chip_yellow'
+    icon: 'mdi:run'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+      ulm_chip_navigate_path: /lovelace/tiles_motion
+
+
+sections:
+
+
+  ############################################################################
+  #                                                                          #
+  #   Basement                                                               #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    #title: מרתף
+    cards:
+
+      # Title
+      - type: heading            
+        heading: מרתף
+        heading_style: title
+        layout_options:
+          grid_columns: full
+          grid_rows: 1
+        icon: mdi:home-floor-b
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/tiles_basement        
+        badges:
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.number_of_motion_sensors_on_basement
+            icon: mdi:run
+            color: yellow
+            visibility:
+              - condition: numeric_state
+                entity: sensor.number_of_motion_sensors_on_basement
+                above: 0        
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.number_of_lights_on_basement
+            color: yellow
+            icon: mdi:lightbulb
+            visibility:
+              - condition: numeric_state
+                entity: sensor.number_of_lights_on_basement
+                above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.basement_temperature_sensor_temperature
+            color: 'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info
+
+      # Basement Light
+      - type: tile
+        entity: light.basement
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info  
+
+      # Basement Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.basement
+          ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature  
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+
+      # Groot PC
+      - type: 'custom:button-card'
+        template: card_pc
+        entity: switch.groot_hass_agent
+        variables:
+          ulm_card_pc_memoryusage: 'sensor.groot_memoryusage'
+          ulm_card_pc_cpuload: 'sensor.groot_cpuload'
+          ulm_card_pc_storage_1: 'sensor.groot_disk_c_used_space'
+          ulm_card_pc_storage_2: 'sensor.groot_disk_d_used_space'
+          ulm_card_pc_wake: 'script.groot_wake'
+          ulm_card_pc_sleep: 'script.groot_sleep'
+          ulm_card_pc_restart: 'script.groot_restart'
+          ulm_card_pc_shutdown: 'script.groot_shutdown'   
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Work Room                                                              #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    #title: חדר עבודה
+    cards:
+
+      # Title
+      - type: heading           
+        heading: חדר עבודה
+        heading_style: title
+        layout_options:
+          grid_columns: full
+          grid_rows: 1
+        icon: mdi:laptop
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/tiles_work_room        
+        badges:
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.number_of_lights_on_work_room
+            color: yellow
+            icon: mdi:lightbulb
+            visibility:
+              - condition: numeric_state
+                entity: sensor.number_of_lights_on_work_room
+                above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.work_room_temperature_sensor_temperature
+            color: 'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info
+
+      # Work Room Light
+      - type: tile
+        entity: light.work_room
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Dimka PC
+      - type: 'custom:button-card'
+        template: card_pc
+        entity: switch.dimka_hass_agent
+        variables:
+          ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
+          ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
+          ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
+          ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
+          ulm_card_pc_wake: 'script.dimka_wake'
+          ulm_card_pc_sleep: 'script.dimka_sleep'
+          ulm_card_pc_restart: 'script.dimka_restart'
+          ulm_card_pc_shutdown: 'script.dimka_shutdown'
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
+          
+      # Printer
+      - type: 'custom:button-card'
+        template: card_printer
+        entity: sensor.dcp_j1200w_status
+        variables:
+          ulm_card_printer_black_ink_remaining: 'sensor.dcp_j1200w_black_ink_remaining'
+          ulm_card_printer_yellow_ink_remaining: 'sensor.dcp_j1200w_yellow_ink_remaining'
+          ulm_card_printer_magenta_ink_remaining: 'sensor.dcp_j1200w_magenta_ink_remaining'
+          ulm_card_printer_cyan_ink_remaining: 'sensor.dcp_j1200w_cyan_ink_remaining'
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1
+    

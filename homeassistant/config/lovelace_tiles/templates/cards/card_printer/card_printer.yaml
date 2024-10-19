@@ -2,6 +2,10 @@ card_printer:
   variables:
     ulm_card_printer_entity: '[[[ return entity.entity_id ]]]'
     #x_ulm_card_printer_name: '[[[ return variables.x_ulm_card_printer_name ]]]'
+    ulm_card_printer_black_ink_remaining: '[[[ return variables.ulm_card_printer_black_ink_remaining ]]]'
+    ulm_card_printer_yellow_ink_remaining: '[[[ return variables.ulm_card_printer_yellow_ink_remaining ]]]'
+    ulm_card_printer_magenta_ink_remaining: '[[[ return variables.ulm_card_printer_magenta_ink_remaining ]]]'
+    ulm_card_printer_cyan_ink_remaining: '[[[ return variables.ulm_card_printer_cyan_ink_remaining ]]]'    
     x_ulm_card_printer_name: |
       [[[
         if (variables.x_ulm_card_printer_name != null) {
@@ -48,6 +52,12 @@ card_printer:
           - color: 'var(--blue-color)'
         img_cell:
           - background-color: 'rgba(var(--rgb-blue-color),0.2)'
+    - value: "printing"
+      styles:
+        icon:
+          - color: 'var(--blue-color)'
+        img_cell:
+          - background-color: 'rgba(var(--rgb-blue-color),0.2)'          
     - value: "ink low"
       styles:
         icon:

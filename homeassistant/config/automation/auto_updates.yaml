@@ -65,51 +65,51 @@
 #                                                                          #
 ############################################################################
 
-- id: hacs_updates_notification
-  alias: HACS Updates Notification
-  trigger:
-    - platform: state
-      entity_id: sensor.hacs
-    - platform: time_pattern
-      hours: '/2'
-      minutes: 0
-      seconds: 0
-  condition:
-    - condition: template
-      value_template: "{{ states('sensor.hacs') != 'unknown'}}"
-    - condition: template
-      value_template: "{{ (states('sensor.hacs') | float) != 0}}"
-  action:
-    #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonedima
-      data_template:
-        title: Updates pending in HACS
-        message: >-
-          {% for repo in state_attr('sensor.hacs', 'repositories') %}
-            {{ repo.display_name }}: {{ repo["installed_version"] }} -> {{ repo["available_version"] }}
-          {% endfor %}
-    - service: persistent_notification.create
-      data:
-        message: >-
-          {% for repo in state_attr('sensor.hacs', 'repositories') %}
-            {{ repo.display_name }}: {{ repo["installed_version"] }} -> {{ repo["available_version"] }}
-          {% endfor %}
+# - id: hacs_updates_notification
+#   alias: HACS Updates Notification
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hacs
+#     - platform: time_pattern
+#       hours: '/2'
+#       minutes: 0
+#       seconds: 0
+#   condition:
+#     - condition: template
+#       value_template: "{{ states('sensor.hacs') != 'unknown'}}"
+#     - condition: template
+#       value_template: "{{ (states('sensor.hacs') | float) != 0}}"
+#   action:
+#     #- service: notify.dimatelegram
+#     - service: notify.mobile_app_iphonedima
+#       data_template:
+#         title: Updates pending in HACS
+#         message: >-
+#           {% for repo in state_attr('sensor.hacs', 'repositories') %}
+#             {{ repo.display_name }}: {{ repo["installed_version"] }} -> {{ repo["available_version"] }}
+#           {% endfor %}
+#     - service: persistent_notification.create
+#       data:
+#         message: >-
+#           {% for repo in state_attr('sensor.hacs', 'repositories') %}
+#             {{ repo.display_name }}: {{ repo["installed_version"] }} -> {{ repo["available_version"] }}
+#           {% endfor %}
 
-          [HACS](/hacs)
-        title: "Updates pending in HACS"
-        notification_id: "10002"
+#           [HACS](/hacs)
+#         title: "Updates pending in HACS"
+#         notification_id: "10002"
 
 
-- id: hacs_updates_notification_dismiss
-  alias: HACS Updates Notification Dismiss
-  trigger:
-    - platform: state
-      entity_id: sensor.hacs
-      to: '0'
-  action:
-    service: persistent_notification.dismiss
-    data:
-      notification_id: "10002"
+# - id: hacs_updates_notification_dismiss
+#   alias: HACS Updates Notification Dismiss
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hacs
+#       to: '0'
+#   action:
+#     service: persistent_notification.dismiss
+#     data:
+#       notification_id: "10002"
 
 
 
@@ -119,56 +119,56 @@
 #                                                                          #
 ############################################################################
 
-- id: Tasmota_updates_notification
-  alias: Tasmota Updates Notification
-  trigger:
-    - platform: state
-      entity_id: sensor.number_of_tasmota_versions_old
-      not_to: '0'
-    - platform: time_pattern
-      hours: '/2'
-      minutes: 0
-      seconds: 0
-  condition:
-    - condition: template
-      value_template: "{{ states('sensor.tasmota_latest') != 'unknown' }}"
-    - condition: template
-      value_template: "{{ states('sensor.tasmota_latest') != 'unavailable' }}"
-    - condition: template
-      value_template: "{{ states('sensor.tasmota_latest') != 'latest' }}"
-    - condition: template
-      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"
-    - condition: template
-      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unavailable' }}"   
-    - condition: template
-      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != '0' }}"
-  action:
-    #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonedima
-      data_template:
-        title: "Tasmota device(s) outdated"
-        message: |
-          {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
-    - service: persistent_notification.create
-      data:
-        message: |
-          {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
+# - id: Tasmota_updates_notification
+#   alias: Tasmota Updates Notification
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.number_of_tasmota_versions_old
+#       not_to: '0'
+#     - platform: time_pattern
+#       hours: '/2'
+#       minutes: 0
+#       seconds: 0
+#   condition:
+#     - condition: template
+#       value_template: "{{ states('sensor.tasmota_latest') != 'unknown' }}"
+#     - condition: template
+#       value_template: "{{ states('sensor.tasmota_latest') != 'unavailable' }}"
+#     - condition: template
+#       value_template: "{{ states('sensor.tasmota_latest') != 'latest' }}"
+#     - condition: template
+#       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"
+#     - condition: template
+#       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unavailable' }}"   
+#     - condition: template
+#       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != '0' }}"
+#   action:
+#     #- service: notify.dimatelegram
+#     - service: notify.mobile_app_iphonedima
+#       data_template:
+#         title: "Tasmota device(s) outdated"
+#         message: |
+#           {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
+#     - service: persistent_notification.create
+#       data:
+#         message: |
+#           {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
 
-          [More](/lovelace/tiles_tasmota)
-        title: "Tasmota device(s) outdated"
-        notification_id: "10003"
+#           [More](/lovelace/tiles_tasmota)
+#         title: "Tasmota device(s) outdated"
+#         notification_id: "10003"
 
 
-- id: tasmota_updates_notification_dismiss
-  alias: Tasmota Updates Notification Dismiss
-  trigger:
-    - platform: state
-      entity_id: sensor.number_of_tasmota_versions_old
-      to: '0'
-  action:
-    service: persistent_notification.dismiss
-    data:
-      notification_id: "10003"
+# - id: tasmota_updates_notification_dismiss
+#   alias: Tasmota Updates Notification Dismiss
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.number_of_tasmota_versions_old
+#       to: '0'
+#   action:
+#     service: persistent_notification.dismiss
+#     data:
+#       notification_id: "10003"
 
 
 

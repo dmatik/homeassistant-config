@@ -2,25 +2,6 @@ sensor:
 
 ############################################################################
 #                                                                          #
-#   Switcher WebAPI                                                        #
-#                                                                          #
-############################################################################
-
-  - platform: rest
-    resource: !secret switcher_boiler_get_state
-    name: Switcher Boiler
-    json_attributes:
-      - state
-      - time_left
-      - auto_off
-      - power_consumption
-      - electric_current
-    value_template: 'OK'
-
-
-
-############################################################################
-#                                                                          #
 #   Boiler Statistics                                                      #
 #                                                                          #
 ############################################################################
@@ -28,7 +9,7 @@ sensor:
   # Running Time Today
   - platform: history_stats
     name: boiler_running_time_today 
-    entity_id: switch.switcher_boiler
+    entity_id: switch.switcher_touch_d54f
     state: "on"
     type: time
     start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
@@ -37,7 +18,7 @@ sensor:
   # Running Time Yesterday
   - platform: history_stats
     name: boiler_running_time_yesterday 
-    entity_id: switch.switcher_boiler
+    entity_id: switch.switcher_touch_d54f
     state: "on"
     type: time
     end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
@@ -47,7 +28,7 @@ sensor:
   # Running Time Current Month
   - platform: history_stats
     name: boiler_running_time_curr_month
-    entity_id: switch.switcher_boiler
+    entity_id: switch.switcher_touch_d54f
     state: "on"
     type: time
     start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
@@ -56,7 +37,7 @@ sensor:
   # Running Time Previous Month
   - platform: history_stats
     name: boiler_running_time_prev_month
-    entity_id: switch.switcher_boiler
+    entity_id: switch.switcher_touch_d54f
     state: "on"
     type: time
     start: |
@@ -78,7 +59,7 @@ sensor:
   - platform: integration
     name: switcher_boiler_energy
     unique_id: switcher_boiler_energy
-    source: sensor.switcher_boiler_power_consumption
+    source: sensor.switcher_touch_d54f_power
     unit_prefix: k
     round: 2
     method: left
@@ -87,93 +68,12 @@ sensor:
 
 template:
 
+    sensor:
 ############################################################################
 #                                                                          #
 #   Boiler Sensors                                                         #
 #                                                                          #
 ############################################################################
-
-    sensor:
-      # Time Left
-      - name: "switcher_boiler_time_left"
-        unique_id: switcher_boiler_time_left
-        icon: mdi:timelapse
-        state: >-
-          {% if is_state("sensor.switcher_boiler_state", "off") %}
-              off
-          {% else %}
-              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
-              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
-              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
-              {% set min_int = min|int %}
-              {% set hour_int = hour|int %}
-              {% if hour_int == 0 and min_int == 0 %}
-                  < 1 min
-              {% elif hour_int == 0 %}
-                  {{ min_int }} min
-              {% else %}
-                  {{ hour_int }}h {{ min_int }}m
-              {% endif %}
-          {% endif %}
-
-      # Time Left Short
-      - name: "switcher_boiler_time_left_short"
-        unique_id: switcher_boiler_time_left_short
-        icon: mdi:timelapse
-        state: >-
-          {% if is_state("sensor.switcher_boiler_state", "off") %}
-              off
-          {% else %}
-              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
-              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
-              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
-              {% set min_int = min|int %}
-              {% set hour_int = hour|int %}
-              {{hour + ':' + min}}
-          {% endif %}
-
-      # Auto Off
-      - name: "switcher_boiler_auto_off_time"
-        unique_id: switcher_boiler_auto_off_time
-        icon: mdi:av-timer
-        state: >-
-          {% if is_state("sensor.switcher_boiler_state", "off") %}
-              off
-          {% else %}
-              {% set hour = state_attr("sensor.switcher_boiler","time_left").split(':')[0] %}
-              {% set min = state_attr("sensor.switcher_boiler","time_left").split(':')[1] %}
-              {% set sec = state_attr("sensor.switcher_boiler","time_left").split(':')[2] %}
-              {% set seconds = hour | int *3600 + min | int * 60 + sec | int * 1  %}
-              {{ ( now().timestamp() + seconds ) | timestamp_custom("%H:%M") }}
-          {% endif %}
-
-      # Electric Current
-      - name: "switcher_boiler_electric_current"
-        unique_id: switcher_boiler_electric_current
-        icon: mdi:flash-circle
-        unit_of_measurement: A
-        state: >-
-          {{ state_attr('sensor.switcher_boiler', 'electric_current') }}
-
-      # Power Consumption
-      - name: "switcher_boiler_power_consumption"
-        unique_id: switcher_boiler_power_consumption
-        icon: mdi:flash-circle
-        unit_of_measurement: W
-        device_class: "power"
-        state: >-
-          {{ state_attr('sensor.switcher_boiler', 'power_consumption') }}
-
-      # State
-      - name: "switcher_boiler_state"
-        unique_id: switcher_boiler_state
-        icon: mdi:shower
-        state: >-
-          {% if is_state_attr('sensor.switcher_boiler', 'state', 'ON') %}
-              on
-          {% else %}
-              off
-          {% endif %}
 
       # Previous Month Energy
       - name: "switcher_boiler_prev_month_energy"

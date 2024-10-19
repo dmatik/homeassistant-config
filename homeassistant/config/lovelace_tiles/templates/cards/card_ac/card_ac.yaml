@@ -406,7 +406,7 @@ ac_curr_temp:
       [[[
           var curr_temp = states[variables.ulm_card_ac_curr_temp_sensor].state;
           if (curr_temp == null || curr_temp == "unavailable" || curr_temp == "unknown") {
-            var curr_temp = '--';
+            return '--';
           } else {
             curr_temp = Number(curr_temp).toFixed(0);
           }

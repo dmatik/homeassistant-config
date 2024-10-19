@@ -1,0 +1,75 @@
+card_temp_humidity:
+  variables:    
+    ulm_card_temp_entity: ''
+    ulm_card_humidity_entity: ''
+    ulm_card_energy_hours: 48
+    ulm_card_energy_show_extrema: false
+    ulm_card_energy_show_average: false
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius,12px)"
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - padding: "0px"
+      - direction: "ltr"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:mini-graph-card"
+        group: true
+        name: "[[[ return variables.ulm_card_temp_name; ]]]"
+        entities: 
+          - entity: "[[[ return variables.ulm_card_temp_entity; ]]]"
+            name: Temperature
+            show_state: true
+            show_graph: true
+            color: orange
+          - entity: "[[[ return variables.ulm_card_humidity_entity; ]]]"
+            name: Humidity
+            show_state: true
+            show_graph: true
+            color: blue
+        show:
+          name: true
+          icon: false
+          legend: false
+          labels: false
+          #state: true
+          graph: 'line'
+          fill: true
+          extrema: "[[[ return variables.ulm_card_energy_show_extrema; ]]]"
+          average: "[[[ return variables.ulm_card_energy_show_average; ]]]"
+        hours_to_show: "[[[ return variables.ulm_card_energy_hours; ]]]"
+        points_per_hour: 2
+        group_by: 'date'
+        aggregate_func: max
+        #bar_spacing: 2
+        font_size: 70
+        tap_action:
+          action: more-info
+        card_mod:
+          style: |
+            ha-card {
+              border-style: none;
+              border-radius: 0px;
+              background: none;
+              div {
+                padding: 0px 0px 0px;
+              }
+            }
+            .states {
+              padding-top: 0px !important;
+              padding-right: 8px !important;
+              padding-left: 8px !important;
+              padding-bottom: 8px !important;
+            }
+            .header {
+              padding-top: 8px !important;
+              padding-right: 8px !important;
+              padding-left: 8px !important;
+              padding-bottom: 0px !important;
+            }            

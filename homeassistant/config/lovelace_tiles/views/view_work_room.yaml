@@ -72,9 +72,12 @@ sections:
       # Printer
       - type: 'custom:button-card'
         template: card_printer
-        entity: sensor.mfc_j650dw_status
-        # variables:
-        #   x_ulm_card_printer_name: "[[[ return variables.ulm_printer; ]]]"
+        entity: sensor.dcp_j1200w_status
+        variables:
+          ulm_card_printer_black_ink_remaining: 'sensor.dcp_j1200w_black_ink_remaining'
+          ulm_card_printer_yellow_ink_remaining: 'sensor.dcp_j1200w_yellow_ink_remaining'
+          ulm_card_printer_magenta_ink_remaining: 'sensor.dcp_j1200w_magenta_ink_remaining'
+          ulm_card_printer_cyan_ink_remaining: 'sensor.dcp_j1200w_cyan_ink_remaining'
         layout_options:
           grid_columns: 2
-          grid_rows: 1        
+          grid_rows: 1      

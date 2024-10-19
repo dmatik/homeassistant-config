@@ -1,0 +1,378 @@
+card_title_sensors:
+  template:
+    #- 'long_row_card'
+    - 'ulm_language_variables'
+  variables:
+    ulm_card_title_navigate_path: null
+    x_ulm_card_title_name: null
+    ulm_card_title_icon: null
+    ulm_card_title_light: null
+    ulm_card_title_temp: null
+    ulm_card_title_sensor: null
+    ulm_card_title_lights_on: null
+  triggers_update: "all"
+  styles:
+    grid:
+      - grid-template-areas: "'item1 item2'"
+      - grid-template-columns: "1fr auto"
+      - grid-template-rows: "1fr"
+    card:
+      #- padding: "9px"
+      - border-radius: "0px"
+      - box-shadow: "none"
+      - padding: "30px 4px 0px 4px"
+      #- font-size: "12px"
+      - border-style: "none"
+      - background: "none"
+      - --mdc-ripple-press-opacity: 0.0
+    custom_fields:
+      item2:
+        - align-self: "end"  
+  custom_fields:
+    item1:
+      card:
+        type: "custom:button-card"
+        triggers_update: "all"
+        template:
+          - "title_info_long_row"
+        variables:
+          ulm_card_title_lights_on: "[[[ return variables.ulm_card_title_lights_on; ]]]"
+        name: "[[[ return variables.x_ulm_card_title_name; ]]]"
+        icon: "[[[ return variables.ulm_card_title_icon; ]]]"
+        tap_action:
+          action: "navigate"
+          navigation_path: "[[[ return variables.ulm_card_title_navigate_path; ]]]"
+    item2:
+      card:
+        template: 'title_list_items_long_row'
+        type: 'custom:button-card'
+        custom_fields:
+          item1:
+            card:
+              type: 'custom:button-card'
+              template: 
+                - "title_widget_lights_long_row"
+              variables:
+                ulm_card_title_lights_on: '[[[ return variables.ulm_card_title_lights_on; ]]]'
+              entity: '[[[ return variables.ulm_card_title_lights_on; ]]]'         
+          item2:
+            card:
+              type: "custom:button-card"
+              triggers_update: "all"
+              template: 
+                - "widget_icon"
+                - "title_widget_sensor_long_row"
+              entity: "[[[ return variables.ulm_card_title_sensor; ]]]"
+          item3:
+            card:
+              type: 'custom:button-card'
+              template: title_widget_light_level_long_row
+              variables:
+                ulm_card_title_light_level: '[[[ return variables.ulm_card_title_light_level; ]]]'
+              entity: '[[[ return variables.ulm_card_title_light_level; ]]]'
+          item4:
+            card:
+              type: 'custom:button-card'
+              template: title_widget_temp_long_row
+              variables:
+                ulm_card_title_temp: '[[[ return variables.ulm_card_title_temp; ]]]'
+              entity: '[[[ return variables.ulm_card_title_temp; ]]]'
+           
+
+
+title_list_items_long_row:
+  styles:
+    grid:
+      - grid-template-areas: "'empty_item item1 item2 item3 item4'"
+      - grid-template-columns: "auto min-content min-content min-content"
+      - grid-template-rows: "min-content"
+      - column-gap: "0px"
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+      - border-style: "none"
+      - border-radius: "0px"
+      - background: "none"
+      #- height: "40px"
+    custom_fields:
+      item1:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - align-self: center
+        - justify-self: end
+      item2:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - align-self: center
+        - justify-self: end
+      item3:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - align-self: center
+        - justify-self: end
+      item4:
+        - display: flex
+        - justify-content: center
+        - align-items: center
+        - align-self: center
+        - justify-self: end        
+
+
+title_info_long_row:
+  template:
+    - "icon_base"
+    - "ulm_language_variables"
+  show_icon: true
+  show_label: false
+  show_name: true
+  styles:
+    icon:
+      - color: 'var(--blue-color)'
+      - width: "18px"
+      - height: "18px"
+    img_cell:
+      - background: "none"
+      - border-radius: "0px"
+      - width: "18px"
+      - height: "18px"
+    grid:
+      - grid-template-areas: "'i n'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "0px"
+      - box-shadow: "none"
+      - padding: "0px"
+      #- font-size: "12px"
+      - border-style: "none"
+      - background: "none"
+      - --mdc-ripple-press-opacity: 0.0
+    name:
+      - margin-left: "8px"
+      - margin-right: "8px"
+
+
+title_widget_sensor_value_long_row:
+  show_icon: false
+  show_name: false
+  show_label: true
+  size: 20px
+  tap_action:
+    action: more-info  
+  styles:
+    card:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - align-self: center
+      - justify-self: end    
+      - box-shadow: none
+      - padding: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+            else
+              return "0px 6px";
+          ]]]      
+      #- background-color: 'rgba(var(--color-theme),0)'
+      - background: "none"
+      - place-self: center
+      - font-size: '14px'
+      - border-radius: "0px"
+      - border-style: "none"
+      - height: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+            else
+              return "24px";
+          ]]]
+      - width: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+          ]]]
+    grid:
+      - grid-template-areas: '"l"'
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "auto"      
+    label:
+      - color: 'var(--secondary-text-color)'
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - align-self: center
+      - justify-self: end
+
+title_widget_sensor_value_icon_long_row:
+  show_icon: true
+  show_name: false
+  show_label: true
+  size: 20px
+  tap_action:
+    action: more-info  
+  styles:
+    card:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - align-self: center
+      - justify-self: end    
+      - box-shadow: none
+      - padding: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+            else
+              return "0px 6px";
+          ]]]      
+      #- background-color: 'rgba(var(--color-theme),0)'
+      - background: "none"
+      - place-self: center
+      - font-size: '14px'
+      - border-radius: "0px"
+      - border-style: "none"
+      - height: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+            else
+              return "24px";
+          ]]]
+      - width: >-
+          [[[
+            if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+              return "0px";
+          ]]]
+    grid:
+      - grid-template-areas: '"i l"'
+      - grid-template-columns: "1fr min-content"
+      - grid-template-rows: "auto"      
+    label:
+      - color: 'var(--secondary-text-color)'
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - align-self: center
+      - justify-self: end
+    icon:
+      - height: 14px
+      - width: 14px
+    img_cell:
+      - height: 14px
+      - width: 14px
+      - padding-left: 4px
+      - padding-right: 4px
+
+title_widget_lights_long_row:
+  template: 
+    - "title_widget_sensor_value_icon_long_row"
+    - "ulm_language_variables"
+  # variables:
+  #   ulm_card_title_lights_on: '[[[ return variables.ulm_card_title_lights_on; ]]]'
+  entity: '[[[ return variables.ulm_card_title_lights_on; ]]]'
+  icon: "mdi:lightbulb"
+  label: |-
+    [[[
+        if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+          return "";
+
+        var lights_on = entity.state;
+        if (lights_on == 0) {
+          lights_on = variables.ulm_off;
+        } else if (lights_on == 1) {
+          lights_on = variables.ulm_1_light;
+        } else {
+          lights_on = lights_on + variables.ulm_lights_on;
+        }
+
+        return lights_on;
+    ]]]
+
+title_widget_temp_long_row:
+  template: title_widget_sensor_value_long_row
+  # variables:
+  #   ulm_card_room_temp: '[[[ return variables.ulm_card_title_temp; ]]]'
+  label: |-
+    [[[
+        if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+          return "";
+
+        var temperature = null;
+        if (entity.state == null) {
+          temperature = '--';
+        } else {
+          temperature = Number(entity.state).toFixed(1) + '°';
+        }
+        return temperature;
+    ]]]
+
+
+title_widget_light_level_long_row:
+  template: title_widget_sensor_value_long_row
+  # variables:
+  #   ulm_card_title_light_level: '[[[ return variables.ulm_card_title_light_level; ]]]'
+  label: |-
+    [[[
+        if (entity == null || entity.state == "unavailable" || entity.state == "unknown")
+          return "";
+
+        var light_level = null;
+        if (entity.state == null) {
+          light_level = '--';
+        } else {
+          light_level = Number(entity.state).toFixed(0) + ' lx';
+        }
+        return light_level;
+    ]]]
+
+
+title_widget_sensor_long_row:
+  triggers_update: "all"
+  tap_action:
+    action: none  
+  icon: >-
+    [[[
+      if (entity == null)
+        return null;
+
+      if (entity.state == "on")
+        return "mdi:run";
+      else
+        return "mdi:walk";
+    ]]]
+  styles:
+    card:
+      - background: "none"
+      - height: >-
+          [[[
+            if (entity == null)
+              return "0px";
+          ]]]
+      - width: >-
+          [[[
+            if (entity == null)
+              return "0px";
+          ]]]             
+    img_cell:
+      - background-color: "none"
+      - height: "24px"
+  state:
+    - id: "on"
+      value: "on"
+      styles:
+        icon:
+          - color: "var(--yellow-color)"
+        card:
+          #- height: 22px
+          - width: 14px
+          - background-color: "none"        
+    - id: "off"
+      value: "off"
+      styles:
+        card:
+          - height: 0px
+          - width: 0px

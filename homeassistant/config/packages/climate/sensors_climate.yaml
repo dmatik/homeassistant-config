@@ -68,6 +68,7 @@ template:
         name: "Lowest Temperature Home"
         unit_of_measurement: "°C"
         icon: mdi:thermometer
+        state_class: measurement
         state: >
           {% set temp_list = expand(label_entities("temperature")) | map(attribute='state') | list | sort %}
           {{ temp_list[0] }}
@@ -80,6 +81,7 @@ template:
         name: "Highest Temperature Home"
         unit_of_measurement: "°C"
         icon: mdi:thermometer
+        state_class: measurement
         state: >
           {% set temp_list = expand(label_entities("temperature")) | map(attribute='state') | list | sort %}
           {{ temp_list[-1] }}

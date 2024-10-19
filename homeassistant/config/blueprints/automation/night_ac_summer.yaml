@@ -81,7 +81,7 @@ action:
           - service: climate.set_fan_mode
             metadata: {}
             data:
-              fan_mode: low
+              fan_mode: Low
             target:
               entity_id: !input climate_entity
           # - service: switch.turn_on
