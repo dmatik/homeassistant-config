@@ -1,20 +1,40 @@
 card_video_stream:
   template:
     - ulm_language_variables
-  variables:
-    ulm_card_video_stream_url: ''
-    ulm_card_video_stream_title: ''
   triggers_update: "all"
+  show_name: true
+  show_icon: false
+  entity: "[[[ return variables.ulm_card_video_stream_entity; ]]]"
+  name: >
+    [[[
+      if (variables.ulm_card_video_stream_title != null) {
+        return variables.ulm_card_video_stream_title;
+      } else {
+        return entity.attributes.friendly_name;
+      }
+    ]]]   
   styles:
     grid:
-      - grid-template-areas: "'item1'"
+      - grid-template-areas: "'n' 'item1'"
       - grid-template-columns: "1fr"
-      - grid-template-rows: "min-content"
-      - row-gap: "12px"
+      - grid-template-rows: "1fr min-content"
+      - row-gap: "9px"
     card:
       - border-radius: "var(--ha-card-border-radius,12px)"
       - box-shadow: "var(--ha-card-box-shadow)"
-      - padding: "6px"
+      - padding: "9px"
+      - font-size: "12px"
+    name:
+      - align-self: "end"
+      - justify-self: "start"
+      - font-weight: "500"
+      - font-size: "14px"
+      - line-height: "20px"
+      - margin-left: "12px"
+      - margin-right: "12px"
+      - margin-top: "0px"
+      - height: 20px
+      - letter-spacing: "0.1px"
   custom_fields:
     item1:
       card:
@@ -45,32 +65,31 @@ card_video_stream:
         #       border-style: none;
         #     }                        
 
-        type: 'custom:webrtc-camera'
-        streams:
-          - url: "[[[ return variables.ulm_card_video_stream_url; ]]]"
-            media: video,audio
-            mode: webrtc
-        # entity: "[[[ return variables.ulm_card_video_stream; ]]]"
-        title: "[[[ return variables.ulm_card_video_stream_title; ]]]"
-        style: '.mode {display: none}'
-        card_mod:
-          style: |
-            ha-card {
-              box-shadow: none;
-              border-radius: 10px;
-              border-style: none;
-            }        
-
-        # type: picture-entity
-        # entity: "[[[ return variables.ulm_card_video_stream ]]]"
-        # camera_view: live
-        # name: 'Kitchen'
-        # show_name: false
-        # show_state: false
+        # type: 'custom:webrtc-camera'
+        # streams:
+        #   - url: "[[[ return variables.ulm_card_video_stream_url; ]]]"
+        #     media: video,audio
+        #     mode: webrtc
+        # # entity: "[[[ return variables.ulm_card_video_stream; ]]]"
+        # title: "[[[ return variables.ulm_card_video_stream_title; ]]]"
+        # style: '.mode {display: none}'
         # card_mod:
         #   style: |
         #     ha-card {
         #       box-shadow: none;
         #       border-radius: 10px;
         #       border-style: none;
-        #     }
+        #     }        
+
+        type: picture-entity
+        entity: "[[[ return variables.ulm_card_video_stream_entity ]]]"
+        camera_view: live      
+        show_name: false
+        show_state: false
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: none;
+              border-radius: 10px;
+              border-style: none;
+            }

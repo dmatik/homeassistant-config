@@ -12,7 +12,7 @@ chip_base:
       - border-radius: '18px'
       - height: "var(--chip-card-height)"
       - width: 'auto'
-      - padding-left: '8px'
+      - padding-left: '12px'
       - padding-right: '8px'
       - padding-top: '0px'
       - padding-bottom: '0px'
@@ -23,6 +23,7 @@ chip_base:
       - grid-template-areas: "'i l'"
       - grid-template-columns: 'max_content auto'
       - grid-template-rows: 'min-content'
+      - grid-gap: '0 8px'
     img_cell:
       - display: flex
       - justify-content: center
@@ -44,17 +45,19 @@ chip_base:
       - justify-content: center
       - align-items: center
       #- justify-self: 'center'
+      - font-style: 'normal'
       - font-weight: 500
+      - line-height: '16px'
       - font-size: "var(--chip-card-font-size)"
       #- font-family: "Roboto"
       - margin-left: '0px'
       - margin-top: '0px'
       #- width: 'auto'
-      - padding-left: '2px'
-      - padding-right: '4px'
+      - padding-left: '0px'
+      - padding-right: '0px'
       #- height: '36px'
       #- color: "var(--secondary-text-color)"  
-      - letter-spacing: '-0.2px'   
+      - letter-spacing: '0.1px'   
 
 chip_menu:
   template: 
@@ -139,7 +142,7 @@ chip_climate:
         var temp_high = states[variables.ulm_chip_temperature_high].state;
 
         if (temp_high == null || temp_high == "unavailable" || temp_high == "unknown") {
-          var temp_high = '--';
+          var temp_high = "--";
         } else {
           temp_high = Number(temp_high).toFixed(1);
         }
@@ -149,12 +152,12 @@ chip_climate:
           temp_low = states[variables.ulm_chip_temperature_low].state;
 
           if (temp_low == null || temp_low == "unavailable" || temp_low == "unknown") {
-            var temp_low = '--';
+            temp_low = "--";
           } else {
             temp_low = Number(temp_low).toFixed(1);
           }
         }
-        if (temp_low == null || temp_low == '--' || temp_high - temp_low < 0.5) {
+        if (temp_low == null || temp_low === "--" || temp_high - temp_low < 0.5) {
           state = temp_high + "°";
         } else {
           state = temp_low + "-" + temp_high + "°";
@@ -199,6 +202,14 @@ chip_blue:
       styles:
         icon:
           - color: 'var(--blue-color)'
+
+chip_red:
+  state:
+    - operator: "template"
+      value: '[[[ return states[variables.ulm_chip_icon_state_entity].state > 0 || states[variables.ulm_chip_icon_state_entity].state == "on" ]]]'
+      styles:
+        icon:
+          - color: 'var(--red-color)'
 
 chip_deep_orange:
   state:
@@ -261,10 +272,50 @@ chip_air_polution_icons:
 chip_school_holidays:
   template:
     - 'chip_base'
-  label: |-
+    - 'chip_deep_orange'
+    - 'popup_school_holidays'
+  icon: 'mdi:school'    
+  label: |
     [[[ 
       if ( states['sensor.school_is_elementary_vacation'].state == 'True' )
         return states['sensor.school_summary'].state;
       else
         return variables.ulm_school_regular; 
     ]]]
+
+# chip_red_alert:
+#   template:
+#     - 'chip_icon_state_new'
+#     - 'popup_red_alert'
+#     - 'chip_red'
+#   icon: 'mdi:radio-tower'  
+
+chip_red_alert:
+  template:
+    - 'chip_base'
+    - 'popup_red_alert'
+    - 'chip_red'
+  icon: 'mdi:radio-tower'
+  label: |
+      [[[
+        var state = "";
+        if (variables.ulm_chip_icon_state_entity == null 
+            || states[variables.ulm_chip_icon_state_entity].state == "off") {
+          state = variables.ulm_off;
+        } else if (variables.ulm_chip_red_alert_option_1_entity != null && states[variables.ulm_chip_red_alert_option_1_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_1_name;
+        } else if (variables.ulm_chip_red_alert_option_2_entity != null && states[variables.ulm_chip_red_alert_option_2_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_2_name;
+        } else if (variables.ulm_chip_red_alert_option_3_entity != null && states[variables.ulm_chip_red_alert_option_3_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option3_name;
+        } else if (variables.ulm_chip_red_alert_option_4_entity != null && states[variables.ulm_chip_red_alert_option_4_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_4_name;
+        } else if (variables.ulm_chip_red_alert_option_5_entity != null && states[variables.ulm_chip_red_alert_option_5_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_5_name;
+        } else if (variables.ulm_chip_red_alert_option_6_entity != null && states[variables.ulm_chip_red_alert_option_6_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_6_name;                                                  
+        } else {
+          state = variables.ulm_red_alert_alarm;
+        }
+        return state;
+      ]]]  

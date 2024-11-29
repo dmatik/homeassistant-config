@@ -122,7 +122,7 @@ ulm_language_variables:
 
     ulm_favorites: "מועדפים"
     ulm_scenes: "תרחישים"
-    ulm_presense: "נוכחות"
+    ulm_presence: "נוכחות"
     ulm_rooms: "חדרים"
     ulm_climate: "אקלים"
     ulm_devices: "מכשירים"

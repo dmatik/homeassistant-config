@@ -11,7 +11,7 @@ views:
 
   # Chips
   - !include /config/lovelace_tiles/views/view_climate.yaml
-  - !include /config/lovelace_tiles/views/view_presense.yaml
+  - !include /config/lovelace_tiles/views/view_presence.yaml
   - !include /config/lovelace_tiles/views/view_lights.yaml
   - !include /config/lovelace_tiles/views/view_covers.yaml
   - !include /config/lovelace_tiles/views/view_motion.yaml

@@ -177,7 +177,7 @@ scene:
         current_position: 34
         state: open
       cover.kfir_room:
-        current_position: 10
+        current_position: 32
         state: open     
     icon: mdi:window-shutter-open
 

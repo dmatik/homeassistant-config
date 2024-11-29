@@ -107,9 +107,15 @@ card_switcher:
                       ulm_widget_entity: "[[[ return variables.ulm_card_switcher_entity ]]]"
                     tap_action:
                       action: "call-service"
-                      service: "script.turn_on"
-                      service_data:
-                        entity_id: "[[[ return variables.ulm_card_switcher_timer_script ]]]"
+                      service: "[[[ return variables.ulm_card_switcher_timer_service ]]]"
+                      data:
+                        timer_minutes: "[[[ return states[variables.ulm_card_switcher_timer_minutes].state ]]]"
+                      target:
+                        entity_id: "[[[ return variables.ulm_card_switcher_entity ]]]"
+                      # action: "call-service"
+                      # service: "script.turn_on"
+                      # service_data:
+                      #   entity_id: "[[[ return variables.ulm_card_switcher_timer_script ]]]"
                     icon: "mdi:timer-outline"
                 item2:
                   card:

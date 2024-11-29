@@ -10,10 +10,8 @@ badges:
   # Motion Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_icon_label_state'
+      - 'chip_two_rows_motion'
       - 'chip_navigate_only'
-      - 'chip_yellow'
-    icon: 'mdi:run'
     variables:
       ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
       ulm_chip_navigate_path: /lovelace/tiles_motion
@@ -38,21 +36,19 @@ sections:
         template: 
           - "card_video_stream"
         variables:
-          ulm_card_video_stream_entity: camera.living_room
-          ulm_card_video_stream_url: reo_living_room_sub
-          ulm_card_video_stream_title: 'סלון' #'[[[ return variables.ulm_living_room; ]]]'
-        layout_options:
-          grid_columns: 4
-          grid_rows: 5
+          ulm_card_video_stream_entity: camera.living_room_profile001_substream
+          #ulm_card_video_stream_url: reo_living_room_sub
+          #ulm_card_video_stream_title: 'סלון' #'[[[ return variables.ulm_living_room; ]]]'
+        grid_options:
+          columns: full
 
       # Basement
       - type: 'custom:button-card'
         template: 
           - "card_video_stream"
         variables:
-          ulm_card_video_stream_entity: camera.basement
-          ulm_card_video_stream_url: reo_basement_sub
-          ulm_card_video_stream_title: '[[[ return variables.ulm_basement; ]]]'
-        layout_options:
-          grid_columns: 4
-          grid_rows: 5          
+          ulm_card_video_stream_entity: camera.basement_profile001_substream
+          #ulm_card_video_stream_url: reo_basement_sub
+          #ulm_card_video_stream_title: 'מרתף' #'[[[ return variables.ulm_basement; ]]]'
+        grid_options:
+          columns: full

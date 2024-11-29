@@ -167,9 +167,10 @@
         state: "off"
   actions:
     - action: switcher_kis.turn_on_with_timer
-      data_template:
+      data:
+        timer_minutes: 15
+      target:
         entity_id: switch.switcher_touch_d54f
-        timer_minutes: '15'
     # - service: rest_command.switcher_turn_on_timer
     #   data_template:
     #     switcher_web_api_ip: !secret switcher_web_api_ip
@@ -202,9 +203,10 @@
         state: "off"
   actions:
     - action: switcher_kis.turn_on_with_timer
-      data_template:
+      data:
+        timer_minutes: 30
+      target:
         entity_id: switch.switcher_touch_d54f
-        timer_minutes: '30'
     # - service: rest_command.switcher_turn_on_timer
     #   data_template:
     #     switcher_web_api_ip: !secret switcher_web_api_ip
@@ -237,9 +239,10 @@
         state: "off"
   actions:
     - action: switcher_kis.turn_on_with_timer
-      data_template:
+      data:
+        timer_minutes: 45
+      target:
         entity_id: switch.switcher_touch_d54f
-        timer_minutes: '45'
     # - service: rest_command.switcher_turn_on_timer
     #   data_template:
     #     switcher_web_api_ip: !secret switcher_web_api_ip
@@ -272,9 +275,10 @@
         state: "off"
   actions:
     - action: switcher_kis.turn_on_with_timer
-      data_template:
+      data:
+        timer_minutes: 60
+      target:
         entity_id: switch.switcher_touch_d54f
-        timer_minutes: '60'
     # - service: rest_command.switcher_turn_on_timer
     #   data_template:
     #     switcher_web_api_ip: !secret switcher_web_api_ip

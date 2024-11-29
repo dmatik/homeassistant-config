@@ -51,26 +51,20 @@
 - id: '1630053159448'
   alias: Red Alert Qiryat Gat
   description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.redalert_qiryat_gat
+  triggers:
+  - entity_id: binary_sensor.redalert_qiryat_gat
     to: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
+    trigger: state
+  conditions: []
+  actions:
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        קריית גת
+      message: 'קריית גת
 
         '
       data:
         tag: redalert-qiryat-gat
+    action: notify.mobile_app_iphonedima
   mode: single
 - id: '1630053201927'
   alias: Red Alert Qiryat Gat Clear
@@ -90,21 +84,20 @@
 - id: '1630053311360'
   alias: Red Alert All
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - sensor.redalert
     attribute: current
-  condition:
+    trigger: state
+  conditions:
   - condition: state
     entity_id: binary_sensor.redalert_test
     state: 'off'
   - condition: state
     entity_id: binary_sensor.redalert_all
     state: 'on'
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
+  actions:
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
       message: "{% if (state_attr('sensor.redalert', 'alert') == true) -%}\n  {% if
         state_attr(\"sensor.redalert\", \"current\")[\"desc\"] != \"\" -%}\n  {{state_attr(\"sensor.redalert\",
@@ -114,16 +107,10 @@
       data:
         tag: redalert-all
     enabled: false
-  - service: notify.dimatelegram
-    data:
+    action: notify.mobile_app_iphonedima
+  - data:
       title: '*{{ state_attr("sensor.redalert", "current")["title"] }}*'
       message: '{% if (state_attr(''sensor.redalert'', ''alert'') == true) -%}
-
-        {% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        *{{state_attr("sensor.redalert", "current")["desc"]}}*
-
-        {%- endif %}
 
         {% for l in state_attr(''sensor.redalert'', ''current'')[''data''] -%}
 
@@ -138,6 +125,7 @@
         {%- endif %}
 
         '
+    action: notify.dimatelegram
   mode: single
 - id: '1630053381000'
   alias: Red Alert All Clear
@@ -447,23 +435,16 @@
 - id: '1652336327236'
   alias: Red Alert Gan Yavne
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.redalert_gan_yavne
     to: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
+    trigger: state
+  conditions: []
+  actions:
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        גן יבנה
+      message: 'גן יבנה
 
         '
       data:
@@ -473,16 +454,10 @@
             name: default
             critical: 1
             volume: 1
-  - service: notify.mobile_app_galitphone
-    data:
+    action: notify.mobile_app_iphonedima
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        גן יבנה
+      message: 'גן יבנה
 
         '
       data:
@@ -490,6 +465,7 @@
         ttl: 0
         priority: high
     enabled: true
+    action: notify.mobile_app_galitphone
   mode: single
 - id: '1680756525883'
   alias: Turn On Basement TV with WakeOnLan
@@ -744,42 +720,30 @@
 - id: '1699248159943'
   alias: Red Alert Shtulim
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.redalert_shtulim
     to: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
+    trigger: state
+  conditions: []
+  actions:
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        שתולים
+      message: 'שתולים
 
         '
       data:
         tag: redalert-shtulim
-  - service: notify.mobile_app_galitphone
-    data:
+    action: notify.mobile_app_iphonedima
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        שתולים
+      message: 'שתולים
 
         '
       data:
         tag: redalert-shtulim
     enabled: true
+    action: notify.mobile_app_galitphone
   mode: single
 - id: '1699248227759'
   alias: Red Alert Shtulim Clear
@@ -810,42 +774,30 @@
 - id: '1699248446778'
   alias: Red Alert Hatsor
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.redalert_hatsor
     to: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
+    trigger: state
+  conditions: []
+  actions:
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        חצור
+      message: 'חצור
 
         '
       data:
         tag: redalert-hatsor
-  - service: notify.mobile_app_galitphone
-    data:
+    action: notify.mobile_app_iphonedima
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        חצור
+      message: 'חצור
 
         '
       data:
         tag: redalert-hatsor
     enabled: true
+    action: notify.mobile_app_galitphone
   mode: single
 - id: '1699248492044'
   alias: Red Alert Hatsor Clear
@@ -876,42 +828,30 @@
 - id: '1699248553557'
   alias: Red Alert Bitsron
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.redalert_bitsron
     to: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
+    trigger: state
+  conditions: []
+  actions:
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        ביצרון
+      message: 'ביצרון
 
         '
       data:
         tag: redalert-bitsron
-  - service: notify.mobile_app_galitphone
-    data:
+    action: notify.mobile_app_iphonedima
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        ביצרון
+      message: 'ביצרון
 
         '
       data:
         tag: redalert-bitsron
     enabled: true
+    action: notify.mobile_app_galitphone
   mode: single
 - id: '1699248594979'
   alias: Red Alert Bitsron Clear
@@ -942,42 +882,30 @@
 - id: '1699248658108'
   alias: Red Alert Ashdod
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.redalert_ashdod
     to: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
+    trigger: state
+  conditions: []
+  actions:
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        אשדוד
+      message: 'אשדוד
 
         '
       data:
         tag: redalert-ashdod
-  - service: notify.mobile_app_galitphone
-    data:
+    action: notify.mobile_app_iphonedima
+  - data:
       title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: '{% if state_attr("sensor.redalert", "current")["desc"] != "" -%}
-
-        {{state_attr("sensor.redalert", "current")["desc"]}}
-
-        {%- endif %}
-
-        אשדוד
+      message: 'אשדוד
 
         '
       data:
         tag: redalert-ashdod
     enabled: true
+    action: notify.mobile_app_galitphone
   mode: single
 - id: '1699248701741'
   alias: Red Alert Ashdod Clear
@@ -1384,4 +1312,44 @@
           entity_id: scene.vacation_lights_off
         metadata: {}
         action: scene.turn_on
+  mode: single
+- id: '1731361706441'
+  alias: Covers open
+  description: Open cover to fix the percentage position
+  triggers:
+  - trigger: time
+    at: 08:55:00
+  conditions:
+  - condition: time
+    weekday:
+    - mon
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: 'off'
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.covers_open
+  mode: single
+- id: '1732720358886'
+  alias: Wallpanel Reload URL
+  description: ''
+  triggers:
+  - trigger: time
+    at: 03:00:00
+  conditions: []
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.fully_living_room_screen
+  - action: rest_command.fully_living_room_clear_cache
+    data: {}
+  - action: button.press
+    metadata: {}
+    data: {}
+    target:
+      entity_id: button.fully_living_room_load_start_url
   mode: single

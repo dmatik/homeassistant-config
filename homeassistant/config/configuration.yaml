@@ -93,7 +93,9 @@ recorder:
   auto_purge: true
   purge_keep_days: 64
   #db_url: !secret synology_db_connection
-
+  exclude:
+    entities:
+      - sensor.redalert_history
   
 #Logger
 logger:

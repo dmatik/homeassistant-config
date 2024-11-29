@@ -1,0 +1,21 @@
+blueprint:
+  name: Counter Label Area
+  description: Counts entitles with specific Label and in specific Area.
+  domain: template
+  input:
+    label:
+      name: Label
+      default: ""
+    area:
+      name: Area
+      default: ""
+    state:
+      name: State
+      default: ""         
+variables:
+  label_string: !input label
+  area_string: !input area
+  state_string: !input state
+sensor:
+  state: >
+    {{ expand(label_entities(label_string)) | | selectattr('entity_id', 'in', area_entities(area_string)) | selectattr('state','eq',state_string) | list | count }}

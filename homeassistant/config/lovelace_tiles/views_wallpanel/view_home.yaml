@@ -436,14 +436,14 @@ cards:
                 action: more-info
 
             # Holidays
-            - type: tile
-              entity: switch.holidays
-              tap_action:
-                action: toggle
-              hold_action:
-                action: more-info
-              double_tap_action:
-                action: more-info
+            # - type: tile
+            #   entity: switch.holidays
+            #   tap_action:
+            #     action: toggle
+            #   hold_action:
+            #     action: more-info
+            #   double_tap_action:
+            #     action: more-info
 
 
 
@@ -482,11 +482,12 @@ cards:
                 #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
                 ulm_card_switcher_icon: "mdi:waves"
                 ulm_card_switcher_entity: switch.switcher_touch_d54f
-                ulm_card_switcher_timer_script: script.switcher_kis_turn_on_timer_script
+                #ulm_card_switcher_timer_script: script.switcher_kis_turn_on_timer_script
+                ulm_card_switcher_timer_service: switcher_kis.turn_on_with_timer
                 ulm_card_switcher_time_left: sensor.switcher_touch_d54f_remaining_time
                 ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
                 ulm_card_switcher_electric_current: sensor.switcher_touch_d54f_current
-                ulm_card_switcher_auto_off: sensor.switcher_kis_auto_off_time
+                #ulm_card_switcher_auto_off: sensor.switcher_kis_auto_off_time
               view_layout:
                 grid-row-start: span 2 
                 

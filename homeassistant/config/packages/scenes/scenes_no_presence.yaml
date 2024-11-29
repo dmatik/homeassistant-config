@@ -1,7 +1,7 @@
 scene:
 
-  - id: 'no_presense_basement'
-    name: 'No Presense Basement'
+  - id: 'no_presence_basement'
+    name: 'No Presence Basement'
     entities:
       climate.basement:
         state: 'off'

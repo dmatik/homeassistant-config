@@ -1,0 +1,261 @@
+chip_two_rows_base:
+  template: 
+    - ulm_language_variables
+  triggers_update: 'all'
+  show_icon: 'true'
+  show_name: 'false'
+  show_label: 'true'
+  size: '100%'
+  styles:
+    card:
+      - box-shadow: "var(--ha-card-box-shadow)"
+      - border-radius: '18px'
+      - height: "var(--chip-card-height)"
+      - width: 'auto'
+      - padding-left: '12px'
+      - padding-right: '8px'
+      - padding-top: '0px'
+      - padding-bottom: '0px'
+      #- --mdc-ripple-press-opacity: 0.0
+      - margin: '0px'
+      - font-size: '12px'    
+    grid:
+      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-columns: 'max_content auto'
+      - grid-template-rows: 'min-content min-content'
+      - grid-gap: '0 8px'
+    img_cell:
+      - display: flex
+      - justify-content: center
+      - align-items: center    
+      #- place-self: 'center'
+      - width: '18px'
+      - height: '34px'
+      - padding-right: '0px'
+      - padding-left: '0px'
+    icon:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - color: 'var(--chip-icon-disabled-color)'
+      - width: '18px'
+      - height: '18px'
+    name:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - justify-self: "start"
+      #- justify-self: 'center'
+      - font-style: 'normal'
+      - font-weight: 500
+      - line-height: '16px'
+      - font-size: "var(--chip-card-two-rows-name-font-size)"
+      #- font-family: "Roboto"
+      - margin-left: '0px'
+      - margin-top: '0px'
+      #- width: 'auto'
+      - padding-left: '0px'
+      - padding-right: '0px'
+      - padding-top: '4px'
+      #- height: '36px'
+      - color: "var(--secondary-text-color)"  
+      - letter-spacing: '0.1px'
+      - height: '10px'
+    label:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - justify-self: "start"
+      #- justify-self: 'center'
+      - font-style: 'normal'
+      - font-weight: 500
+      - line-height: '16px'
+      - font-size: "var(--chip-card-two-rows-font-size)"
+      #- font-family: "Roboto"
+      - margin-left: '0px'
+      - margin-top: '0px'
+      #- width: 'auto'
+      - padding-left: '0px'
+      - padding-right: '0px'
+      - padding-bottom: '4px'
+      #- height: '36px'
+      #- color: "var(--secondary-text-color)"  
+      - letter-spacing: '0.1px'
+      - height: '16px'
+     
+
+chip_two_rows_lights:
+  template:
+    - 'chip_two_rows_base'
+    - 'chip_yellow'
+  icon: 'mdi:lightbulb'
+  name: "[[[ return variables.ulm_lights; ]]]"
+  label: |
+      [[[
+        var state = "";
+        if (variables.ulm_chip_icon_state_entity == null 
+            || !states[variables.ulm_chip_icon_state_entity].state
+            || states[variables.ulm_chip_icon_state_entity].state == "unknown"
+            || states[variables.ulm_chip_icon_state_entity].state == 0) {
+          state = variables.ulm_off;
+        } else if (states[variables.ulm_chip_icon_state_entity].state == 1) {
+          state = "1 " + variables.ulm_on;
+        } else {
+          state = states[variables.ulm_chip_icon_state_entity].state + " " + variables.ulm_on_multiple;
+        }
+        return state;
+      ]]]
+
+chip_two_rows_covers:
+  template:
+    - 'chip_two_rows_base'
+    - 'chip_purple'
+  icon: 'mdi:window-shutter'
+  name: "[[[ return variables.ulm_covers; ]]]"
+  label: |
+      [[[
+        var state = "";
+        if (variables.ulm_chip_icon_state_entity == null 
+            || !states[variables.ulm_chip_icon_state_entity].state
+            || states[variables.ulm_chip_icon_state_entity].state == "unknown"
+            || states[variables.ulm_chip_icon_state_entity].state == 0) {
+          state = variables.ulm_closed;
+        } else if (states[variables.ulm_chip_icon_state_entity].state == 1) {
+          state = "1 " + variables.ulm_open;
+        } else {
+          state = states[variables.ulm_chip_icon_state_entity].state + " " + variables.ulm_open_multiple;
+        }
+        return state;
+      ]]]
+
+chip_two_rows_presense:
+  template:
+    - 'chip_two_rows_base'
+    - 'chip_blue'
+  icon: 'mdi:home'
+  name: "[[[ return variables.ulm_presence; ]]]"
+  label: |
+      [[[
+        var state = "";
+        if (variables.ulm_chip_icon_state_entity == null 
+            || !states[variables.ulm_chip_icon_state_entity].state
+            || states[variables.ulm_chip_icon_state_entity].state == "unknown"
+            || states[variables.ulm_chip_icon_state_entity].state == 0) {
+          state = variables.ulm_away;
+        } else {
+          state = states[variables.ulm_chip_icon_state_entity].state + " " + variables.ulm_home;
+        }
+        return state;
+      ]]]
+
+chip_two_rows_motion:
+  template:
+    - 'chip_two_rows_base'
+    - 'chip_yellow'
+  icon: 'mdi:run'
+  name: "[[[ return variables.ulm_motion; ]]]"
+  label: |
+      [[[
+        var state = "";
+        if (variables.ulm_chip_icon_state_entity == null 
+            || !states[variables.ulm_chip_icon_state_entity].state
+            || states[variables.ulm_chip_icon_state_entity].state == "unknown"
+            || states[variables.ulm_chip_icon_state_entity].state == 0) {
+          state = variables.ulm_clear;
+        } else if (states[variables.ulm_chip_icon_state_entity].state == 1) {
+          state = "1 " + variables.ulm_detected;
+        } else {
+          state = states[variables.ulm_chip_icon_state_entity].state + " " + variables.ulm_detected_multiple;
+        }
+        return state;
+      ]]]     
+
+chip_two_rows_climate:
+  template:
+    - 'chip_two_rows_base'
+  icon: "mdi:fan"
+  name: "[[[ return variables.ulm_climate; ]]]"
+  state:
+    - operator: "template"
+      value: '[[[ return variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0 ]]]'
+      styles:
+        icon:
+          - color: 'var(--blue-color)'  
+  label: |
+      [[[
+        var state = "";
+        var temp_high = states[variables.ulm_chip_temperature_high].state;
+
+        if (temp_high == null || temp_high == "unavailable" || temp_high == "unknown") {
+          var temp_high = "--";
+        } else {
+          temp_high = Number(temp_high).toFixed(1);
+        }
+
+        var temp_low = null;
+        if(variables.ulm_chip_temperature_low != null) {
+          temp_low = states[variables.ulm_chip_temperature_low].state;
+
+          if (temp_low == null || temp_low == "unavailable" || temp_low == "unknown") {
+            temp_low = "--";
+          } else {
+            temp_low = Number(temp_low).toFixed(1);
+          }
+        }
+        if (temp_low == null || temp_low === "--" || temp_high - temp_low < 0.5) {
+          state = temp_high + "°";
+        } else {
+          state = temp_low + "-" + temp_high + "°";
+        }
+        if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
+          state += " • " + states[variables.ulm_chip_devices_on].state;
+        }
+        return state;
+      ]]]
+
+chip_two_rows_red_alert:
+  template:
+    - 'chip_two_rows_base'
+    - 'popup_red_alert'
+    - 'chip_red'
+  icon: 'mdi:radio-tower'
+  name: "[[[ return variables.ulm_red_alert; ]]]"
+  label: |
+      [[[
+        var state = "";
+        if (variables.ulm_chip_icon_state_entity == null
+            || states[variables.ulm_chip_icon_state_entity].state == "unknown"
+            || states[variables.ulm_chip_icon_state_entity].state == "off") {
+          state = variables.ulm_off;
+        } else if (variables.ulm_chip_red_alert_option_1_entity != null && states[variables.ulm_chip_red_alert_option_1_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_1_name;
+        } else if (variables.ulm_chip_red_alert_option_2_entity != null && states[variables.ulm_chip_red_alert_option_2_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_2_name;
+        } else if (variables.ulm_chip_red_alert_option_3_entity != null && states[variables.ulm_chip_red_alert_option_3_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option3_name;
+        } else if (variables.ulm_chip_red_alert_option_4_entity != null && states[variables.ulm_chip_red_alert_option_4_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_4_name;
+        } else if (variables.ulm_chip_red_alert_option_5_entity != null && states[variables.ulm_chip_red_alert_option_5_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_5_name;
+        } else if (variables.ulm_chip_red_alert_option_6_entity != null && states[variables.ulm_chip_red_alert_option_6_entity].state == true) {
+          state = variables.ulm_chip_red_alert_option_6_name;                                                  
+        } else {
+          state = variables.ulm_red_alert_alarm;
+        }
+        return state;
+      ]]]
+
+chip_two_rows_school_holidays:
+  template:
+    - 'chip_two_rows_base'
+    - 'chip_deep_orange'
+    - 'popup_school_holidays'
+  icon: 'mdi:school'
+  name: "חופשות"
+  label: |
+      [[[ 
+        if ( states['sensor.school_is_elementary_vacation'].state == 'True' )
+          return states['sensor.school_summary'].state;
+        else
+          return variables.ulm_school_regular; 
+      ]]]

@@ -87,4 +87,6 @@
 - url: /hacsfiles/vacuum-card/vacuum-card.js
   type: module  
 - url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+  type: module
+- url: /hacsfiles/lovelace-global-mod/global-mod.js
   type: module  

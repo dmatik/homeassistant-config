@@ -18,33 +18,6 @@ badges:
       ulm_chip_temperature_high: sensor.kitchen_temperature_sensor_temperature
       ulm_chip_more_info_entity: sensor.kitchen_temperature_sensor_temperature
 
-  # Lights Chip
-  - type: 'custom:button-card'
-    template:
-      - 'chip_icon_label_state'
-      - 'chip_yellow'
-    icon: 'mdi:lightbulb'
-    variables:
-      ulm_chip_icon_state_entity: sensor.number_of_lights_on_kitchen
-
-  # Covers Chip
-  - type: 'custom:button-card'
-    template:
-      - 'chip_icon_label_state'
-      - 'chip_purple'
-    icon: 'mdi:window-shutter'
-    variables:
-      ulm_chip_icon_state_entity: sensor.number_of_covers_open_kitchen
-
-  # Motion Chip
-  - type: 'custom:button-card'
-    template:
-      - 'chip_icon_label_state'
-      - 'chip_yellow'
-    icon: 'mdi:run'
-    variables:
-      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_kitchen
-
   # Light Level Chip
   - type: 'custom:button-card'
     template:
@@ -55,6 +28,28 @@ badges:
     variables:
       ulm_chip_icon_state_entity: sensor.kitchen_light_level_sensor_illuminance_lux
       ulm_chip_more_info_entity: sensor.kitchen_light_level_sensor_illuminance_lux
+
+  # Lights Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_lights'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_lights_on_kitchen
+
+  # Covers Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_covers'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_covers_open_kitchen
+
+  # Motion Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_motion'
+    variables:
+      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_kitchen
+
 
 
 

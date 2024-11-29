@@ -49,7 +49,9 @@ Tiles:
   # Chips
   chips-left-margin: "2px"
   chip-card-height: "36px"
-  chip-card-font-size: "14px"
+  chip-card-font-size: "12px"
+  chip-card-two-rows-font-size: "12px"
+  chip-card-two-rows-name-font-size: "10px"
 
   modes:
   
@@ -59,7 +61,7 @@ Tiles:
       rgb-disabled-color: '189,189,189' #'#bdbdbd'
 
       # Chips
-      chip-icon-disabled-color: '#646464'
+      chip-icon-disabled-color: 'var(--state-inactive-color)' #'#646464'
 
       # Popup
       popup-backdrop-filter: "blur(10px) brightness(100%)"
@@ -78,7 +80,7 @@ Tiles:
       rgb-disabled-color: '70,70,70' #'#464646'
 
       # Chips
-      chip-icon-disabled-color: 'var(--grey-color)'
+      chip-icon-disabled-color: 'var(--state-inactive-color)' #'var(--grey-color)'
 
       # Popup
       popup-backdrop-filter: "blur(10px) contrast(50%)"
@@ -140,15 +142,15 @@ Tiles:
         margin-left: 0 !important;
         margin-right: 0 !important;
       }
-    hui-sections-view:
-      $: 
-        hui-view-badges $: |
-          @media (max-width: 450px) {
-            .badges {
-              justify-content: start !important;
-            }
-          }
-                                              
+    //hui-sections-view:
+    //  $: 
+    //    hui-view-badges $: |
+    //      @media (max-width: 450px) {
+    //        .badges {
+    //          justify-content: start !important;
+    //        }
+    //      }
+                                            
   
   # Fixing Sidebar profile right padding, in case of RTL
   card-mod-sidebar: |
@@ -180,4 +182,4 @@ Tiles:
     .badges hui-heading-badge:nth-child(4) hui-entity-heading-badge $ ha-heading-badge $: |
       .heading-badge {
         font-family: inherit !important;
-      }       
+      }                

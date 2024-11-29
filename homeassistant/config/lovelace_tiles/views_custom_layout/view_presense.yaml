@@ -85,7 +85,7 @@ cards:
 
                     - type: custom:button-card
                       template: title
-                      name: "[[[ return variables.ulm_presense; ]]]"
+                      name: "[[[ return variables.ulm_presence; ]]]"
 
 
 

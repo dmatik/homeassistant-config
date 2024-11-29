@@ -10,11 +10,10 @@ badges:
   # Climate Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_climate'
-      #- 'chip_blue_no_state'
+      - 'chip_two_rows_climate'
     variables:
       ulm_chip_temperature_low: sensor.lowest_temperature_home
-      ulm_chip_temperature_high: sensor.highest_temperature_home
+      ulm_chip_temperature_high: sensor.highest_temperature_home                     
       ulm_chip_devices_on: sensor.number_of_climate_entities_on
 
   # Air Quality Chip
@@ -177,12 +176,13 @@ sections:
         variables:
           #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
           ulm_card_switcher_icon: "mdi:waves"
-          ulm_card_switcher_entity: switch.switcher_boiler
-          ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
-          ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
+          ulm_card_switcher_entity: switch.switcher_touch_d54f
+          #ulm_card_switcher_timer_script: script.switcher_kis_turn_on_timer_script
+          ulm_card_switcher_timer_service: switcher_kis.turn_on_with_timer
+          ulm_card_switcher_time_left: sensor.switcher_touch_d54f_remaining_time
           ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
-          ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
-          ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+          ulm_card_switcher_electric_current: sensor.switcher_touch_d54f_current
+          #ulm_card_switcher_auto_off: sensor.switcher_kis_auto_off_time
         layout_options:
           grid_columns: 2
           grid_rows: 2

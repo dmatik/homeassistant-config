@@ -10,9 +10,7 @@ badges:
   # Presense Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_icon_label_state'
-      - 'chip_blue'
-    icon: 'mdi:home'
+      - 'chip_two_rows_presense'
     variables:
       ulm_chip_icon_state_entity: sensor.number_of_persons_home
 
@@ -20,9 +18,6 @@ badges:
   - type: 'custom:button-card'
     template:
       - 'chip_school_holidays'
-      - 'chip_deep_orange'
-      - 'popup_school_holidays'
-    icon: 'mdi:school'
     variables:
       ulm_chip_icon_state_entity: binary_sensor.school_holiday
 

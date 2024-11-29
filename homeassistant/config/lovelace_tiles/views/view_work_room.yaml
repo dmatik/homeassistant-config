@@ -21,9 +21,7 @@ badges:
   # Lights Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_icon_label_state'
-      - 'chip_yellow'
-    icon: 'mdi:lightbulb'
+      - 'chip_two_rows_lights'
     variables:
       ulm_chip_icon_state_entity: sensor.number_of_lights_on_work_room
 

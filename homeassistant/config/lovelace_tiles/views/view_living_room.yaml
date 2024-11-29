@@ -21,27 +21,21 @@ badges:
   # Lights Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_icon_label_state'
-      - 'chip_yellow'
-    icon: 'mdi:lightbulb'
+      - 'chip_two_rows_lights'
     variables:
       ulm_chip_icon_state_entity: sensor.number_of_lights_on_living_room
 
   # Covers Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_icon_label_state'
-      - 'chip_purple'
-    icon: 'mdi:window-shutter'
+      - 'chip_two_rows_covers'
     variables:
       ulm_chip_icon_state_entity: sensor.number_of_covers_open_living_room
 
   # Motion Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_icon_label_state'
-      - 'chip_yellow'
-    icon: 'mdi:run'
+      - 'chip_two_rows_motion'
     variables:
       ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_living_room
 

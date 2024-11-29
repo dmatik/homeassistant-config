@@ -8,9 +8,11 @@ ulm_language_variables:
     ulm_title_font_size: "1.2rem"
 
     ulm_on: "מופעל"
+    ulm_on_multiple: "מופעלים"
     ulm_off: "כבוי"
     ulm_lights_off: "כיבוי אורות"
     ulm_open: "פתוח"
+    ulm_open_multiple: "פתוחים"
     ulm_closed: "סגור"
     ulm_opening: "פותח"
     ulm_closing: "סוגר"    
@@ -31,6 +33,7 @@ ulm_language_variables:
     ulm_popups_color: "Color"
     ulm_popups_power: "Power"
     ulm_detected: "זוהה"
+    ulm_detected_multiple: "זוהו"
     ulm_clear: "נקי"
     ulm_home: "בבית"
     ulm_away: "לא בבית"
@@ -87,6 +90,7 @@ ulm_language_variables:
     ulm_living_room_window: "חלון סלון"
     ulm_dimka_pc: 'מחשב ממ"ד'
     ulm_red_alert: "צבע אדום"
+    ulm_red_alert_alarm: "אזעקה"
     ulm_living_room_tv: "טלויזיה סלון"
     ulm_basement_tv: "טלויזיה מרתף"
     ulm_ground: "קרקע"
@@ -123,7 +127,7 @@ ulm_language_variables:
 
     ulm_favorites: "מועדפים"
     ulm_scenes: "תרחישים"
-    ulm_presense: "נוכחות"
+    ulm_presence: "נוכחות"
     ulm_rooms: "חדרים"
     ulm_climate: "אקלים"
     ulm_devices: "מכשירים"

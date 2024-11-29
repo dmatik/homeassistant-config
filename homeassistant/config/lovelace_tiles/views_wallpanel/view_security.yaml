@@ -205,15 +205,15 @@ cards:
                         template: 
                           - "card_video_stream"
                         variables:
-                          ulm_card_video_stream_entity: camera.living_room
-                          ulm_card_video_stream_url: reo_living_room_sub
-                          ulm_card_video_stream_title: 'סלון' #'[[[ return variables.ulm_living_room; ]]]'
+                          ulm_card_video_stream_entity: camera.living_room_profile001_substream
+                          #ulm_card_video_stream_url: reo_living_room_sub
+                          #ulm_card_video_stream_title: 'סלון' #'[[[ return variables.ulm_living_room; ]]]'
 
                       # Basement
                       - type: 'custom:button-card'
                         template: 
                           - "card_video_stream"
                         variables:
-                          ulm_card_video_stream_entity: camera.basement
-                          ulm_card_video_stream_url: reo_basement_sub
-                          ulm_card_video_stream_title: '[[[ return variables.ulm_basement; ]]]'
+                          ulm_card_video_stream_entity: camera.basement_profile001_substream
+                          #ulm_card_video_stream_url: reo_basement_sub
+                          #ulm_card_video_stream_title: 'מרתף' #'[[[ return variables.ulm_basement; ]]]'                        

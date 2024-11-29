@@ -10,9 +10,7 @@ badges:
   # Covers Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_icon_label_state'
-      - 'chip_purple'
-    icon: 'mdi:window-shutter'
+      - 'chip_two_rows_covers'
     variables:
       ulm_chip_icon_state_entity: sensor.number_of_covers_open
 

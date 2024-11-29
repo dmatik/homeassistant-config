@@ -1,0 +1,17 @@
+blueprint:
+  name: Counter Label
+  description: Counts entitles with specific Label
+  domain: template
+  input:
+    label:
+      name: Label
+      default: ""
+    state:
+      name: State
+      default: ""    
+variables:
+  label_string: !input label
+  state_string: !input state
+sensor:
+  state: >
+    {{ expand(label_entities(label_string)) | selectattr('state','eq',state_string) | list | count }}
