@@ -2,219 +2,158 @@ title: Basement
 path: basement
 visible: false
 icon: mdi:home-floor-b
-panel: true
+type: panel
     
 cards:
 
-  - type: vertical-stack
+  - type: horizontal-stack
     cards:
- 
-############################################################################
-#                                                                          #
-#   Content                                                                #
-#                                                                          #
-############################################################################
 
-      - type: custom:layout-card
-        layout_type: grid
+      - type: custom:button-card
+        template: card_blank
 
-        layout_options:
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 4px
-        
+
+      ############################################################################
+      #                                                                          #
+      #   Left Column                                                            #
+      #                                                                          #
+      ############################################################################
+
+      - type: vertical-stack
         cards:
 
+          # Climate
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_climate; ]]]"
+            variables:
+              ulm_title_margin_top: "0px"
 
-          ############################################################################
-          #                                                                          #
-          #   Left Column                                                            #
-          #                                                                          #
-          ############################################################################
-
-          - type: vertical-stack
+          - type: grid
+            square: false
+            columns: 2
             cards:
 
-            # Climate
-              - type: horizontal-stack
-                cards:
-
-                  - type: custom:button-card
-                    template: title
-                    name: "[[[ return variables.ulm_climate; ]]]"
-                    variables:
-                      ulm_title_margin_top: "0px"
-
-              - type: "custom:mod-card"
-                style:
-                  .: |
-                    ha-card {
-                        margin: var(--grid-layout-margins) !important;
-                    }
-                card:
-
-                  type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 4px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
-
-                    # Basement Climate
-                    - type: 'custom:button-card'
-                      template: card_ac_buttons_with_temp
-                      variables:
-                        ulm_card_ac_entity: climate.basement
-                        ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
-                        #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
-                      view_layout:
-                        grid-row-start: span 3
+              # Basement Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons_with_temp
+                variables:
+                  ulm_card_ac_entity: climate.basement
+                  ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
+                  #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
 
 
-              # Devices
-              - type: horizontal-stack
-                cards:
+          # Devices
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_devices; ]]]"
 
-                  - type: custom:button-card
-                    template: title
-                    name: "[[[ return variables.ulm_devices; ]]]"
-
-              - type: "custom:mod-card"
-                style:
-                  .: |
-                    ha-card {
-                        margin: var(--grid-layout-margins) !important;
-                    }
-                card:
-
-                  type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 4px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
-
-                    # Basement TV
-                    - type: tile
-                      entity: media_player.samsung_8_series_65
-
-                    # Dimka PC
-                    - type: 'custom:button-card'
-                      template: card_pc
-                      entity: switch.dimka_hass_agent
-                      variables:
-                        #x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
-                        ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
-                        ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
-                        ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
-                        ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
-                        ulm_card_pc_wake: 'script.dimka_wake'
-                        ulm_card_pc_sleep: 'script.dimka_sleep'
-                        ulm_card_pc_restart: 'script.dimka_restart'
-                        ulm_card_pc_shutdown: 'script.dimka_shutdown'
-
-                    # Printer
-                    - type: 'custom:button-card'
-                      template: card_printer
-                      entity: sensor.mfc_j650dw_status
-                      # variables:
-                      #   x_ulm_card_printer_name: "[[[ return variables.ulm_printer; ]]]"
-
-
-                      
-
-          ############################################################################
-          #                                                                          #
-          #   Right Column                                                           #
-          #                                                                          #
-          ############################################################################
-
-          - type: vertical-stack
+          - type: grid
+            square: false
+            columns: 2
             cards:
 
-              # Lights
-              - type: horizontal-stack
-                cards:
+              # Basement TV
+              - type: tile
+                entity: media_player.samsung_8_series_65
 
-                  - type: custom:button-card
-                    template: title
-                    name: "[[[ return variables.ulm_lights; ]]]"
-                    variables:
-                      ulm_title_margin_top: "0px"                    
+              # Dimka PC
+              - type: 'custom:button-card'
+                template: card_pc
+                entity: switch.dimka_hass_agent
+                variables:
+                  #x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
+                  ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
+                  ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
+                  ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
+                  ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
+                  ulm_card_pc_wake: 'script.dimka_wake'
+                  ulm_card_pc_sleep: 'script.dimka_sleep'
+                  ulm_card_pc_restart: 'script.dimka_restart'
+                  ulm_card_pc_shutdown: 'script.dimka_shutdown'
 
-              - type: "custom:mod-card"
-                style:
-                  .: |
-                    ha-card {
-                        margin: var(--grid-layout-margins) !important;
-                    }
-                card:
+              # Printer
+              - type: 'custom:button-card'
+                template: card_printer
+                entity: sensor.mfc_j650dw_status
+                # variables:
+                #   x_ulm_card_printer_name: "[[[ return variables.ulm_printer; ]]]"
 
-                  type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 4px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr
-                  cards:
 
-                    # Basement Light
-                    - type: tile
-                      entity: light.basement
-                      tap_action:
-                        action: toggle
-                      hold_action:
-                        action: more-info
-                      double_tap_action:
-                        action: more-info
+      - type: custom:button-card
+        template: card_blank                      
 
-                    # Basement 2 Light
-                    - type: tile
-                      entity: light.basement_2_light_1
-                      tap_action:
-                        action: toggle
-                      hold_action:
-                        action: more-info
-                      double_tap_action:
-                        action: more-info
+      ############################################################################
+      #                                                                          #
+      #   Right Column                                                           #
+      #                                                                          #
+      ############################################################################
 
-                    # Basement 3 Light
-                    - type: tile
-                      entity: light.basement_2_light_2
-                      tap_action:
-                        action: toggle
-                      hold_action:
-                        action: more-info
-                      double_tap_action:
-                        action: more-info
+      - type: vertical-stack
+        cards:
 
-                    # Basement Toys Light
-                    - type: tile
-                      entity: light.basement_toys
-                      tap_action:
-                        action: toggle
-                      hold_action:
-                        action: more-info
-                      double_tap_action:
-                        action: more-info
+          # Lights
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_lights; ]]]"
+            variables:
+              ulm_title_margin_top: "0px"                    
 
-                    # Work Room Light
-                    - type: tile
-                      entity: light.work_room
-                      tap_action:
-                        action: toggle
-                      hold_action:
-                        action: more-info
-                      double_tap_action:
-                        action: more-info
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+
+              # Basement Light
+              - type: tile
+                entity: light.basement
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+
+              # Basement 2 Light
+              - type: tile
+                entity: light.basement_2_light_1
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+
+              # Basement 3 Light
+              - type: tile
+                entity: light.basement_2_light_2
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+
+              # Basement Toys Light
+              - type: tile
+                entity: light.basement_toys
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+
+              # Work Room Light
+              - type: tile
+                entity: light.work_room
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+
+
+      - type: custom:button-card
+        template: card_blank                    

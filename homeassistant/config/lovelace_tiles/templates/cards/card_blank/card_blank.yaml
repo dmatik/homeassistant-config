@@ -1,0 +1,6 @@
+card_blank:
+
+  color_type: blank-card
+  styles:
+    card:
+      - width: 8px

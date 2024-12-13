@@ -116,6 +116,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( states('sensor.bathroom_heater_daily_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Bathroom Heater Yesterday Cost
       - name: "bathroom_heater_cost_yesterday"
@@ -124,6 +125,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( state_attr('sensor.bathroom_heater_daily_energy', 'last_period') | float(0) *states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Bathroom Heater Curr Month Cost
       - name: "bathroom_heater_cost_curr_month"
@@ -132,6 +134,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( states('sensor.bathroom_heater_monthly_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Bathroom Heater Previous Month Cost
       - name: "bathroom_heater_cost_prev_month"
@@ -140,6 +143,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( state_attr('sensor.bathroom_heater_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Bathroom Heater Previous Month Energy
       - name: "bathroom_heater_prev_month_energy"
@@ -164,6 +168,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( states('sensor.parents_bathroom_heater_daily_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Parents Bathroom Heater Yesterday Cost
       - name: "parents_bathroom_heater_cost_yesterday"
@@ -172,6 +177,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( state_attr('sensor.parents_bathroom_heater_daily_energy', 'last_period') | float(0) *states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Parents Bathroom Heater Curr Month Cost
       - name: "parents_bathroom_heater_cost_curr_month"
@@ -180,6 +186,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( states('sensor.parents_bathroom_heater_monthly_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Parents Bathroom Heater Previous Month Cost
       - name: "parents_bathroom_heater_cost_prev_month"
@@ -188,6 +195,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( state_attr('sensor.parents_bathroom_heater_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Parents Bathroom Heater Previous Month Energy
       - name: "parents_bathroom_heater_prev_month_energy"

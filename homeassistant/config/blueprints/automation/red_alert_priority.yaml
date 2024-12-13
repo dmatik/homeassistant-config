@@ -1,0 +1,81 @@
+blueprint:
+  name: Red Alert Priority
+  description: Red Alert Priority
+  domain: automation
+  input:
+    alert_binary_sensor:
+      name: Alert Binary Sensor
+      selector:
+        entity:
+          multiple: false
+          domain: binary_sensor
+    notification_tag:
+      name: Notification Tag
+      default: ""
+    alert_location:
+      name: Alert Location
+      default: ""
+
+variables:
+  alert_location: !input alert_location      
+
+trigger:
+  - entity_id: !input alert_binary_sensor
+    to: "on"
+    trigger: state
+    id: alert_on
+  - entity_id: !input alert_binary_sensor
+    to: "off"
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    from: "on"
+    trigger: state
+    id: alert_off
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: alert_on
+        sequence:
+          - data:
+              title: "{{ state_attr(\"sensor.redalert\", \"current\")[\"title\"] }}"
+              message: |
+                {{alert_location}}
+              data:
+                tag: !input notification_tag
+                push:
+                  sound:
+                    name: default
+                    critical: 1
+                    volume: 1                
+            action: notify.mobile_app_iphonedima
+          - data:
+              title: "{{ state_attr(\"sensor.redalert\", \"current\")[\"title\"] }}"
+              message: |
+                {{alert_location}}
+              data:
+                tag: !input notification_tag
+                ttl: 0
+                priority: high                               
+            enabled: true
+            action: notify.mobile_app_galitphone
+      - conditions:
+          - condition: trigger
+            id: alert_off
+        sequence:
+          - data:
+              message: clear_notification
+              data:
+                tag: !input notification_tag
+            action: notify.mobile_app_iphonedima
+            enabled: false
+          - data:
+              message: clear_notification
+              data:
+                tag: !input notification_tag
+            action: notify.mobile_app_galitphone
+            enabled: false
+mode: single

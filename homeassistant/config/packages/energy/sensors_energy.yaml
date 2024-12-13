@@ -7,10 +7,11 @@ template:
         unique_id: electricity_current_price
         icon: mdi:cash
         unit_of_measurement: "ILS/kWh"
-        #state: 0.625
-        state: >-
-          {% set price = states('sensor.iec_kwh_tariff')|float * 1 %}
-          {{ price }}
+        state: 0.625
+        #state: >-
+        #  {% set price = states('sensor.iec_kwh_tariff')|float * 1 %}
+        #  {{ price }}
+        #availability: "{{ has_value('sensor.iec_kwh_tariff') }}"
 
 
       ############################################################################
@@ -19,26 +20,29 @@ template:
       #                                                                          #
       ############################################################################
 
-      # Today Cost
-      - name: "electricity_cost_today"
-        unique_id: electricity_cost_today
-        unit_of_measurement: "₪"
-        state_class: total
-        device_class: monetary
-        state: "{{ ( states('sensor.iec_today_electric_consumption') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+      # # Today Cost
+      # - name: "electricity_cost_today"
+      #   unique_id: electricity_cost_today
+      #   unit_of_measurement: "₪"
+      #   state_class: total
+      #   device_class: monetary
+      #   state: "{{ ( states('sensor.iec_today_electric_consumption') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+      #   availability: "{{ has_value('sensor.electricity_current_price') }}"
 
-      # Yesterday Cost
-      - name: "electricity_cost_yesterday"
-        unique_id: electricity_cost_yesterday
-        unit_of_measurement: "₪"
-        state_class: total
-        device_class: monetary
-        state: "{{ ( states('sensor.iec_yesterday_electric_consumption') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+      # # Yesterday Cost
+      # - name: "electricity_cost_yesterday"
+      #   unique_id: electricity_cost_yesterday
+      #   unit_of_measurement: "₪"
+      #   state_class: total
+      #   device_class: monetary
+      #   state: "{{ ( states('sensor.iec_yesterday_electric_consumption') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+      #   availability: "{{ has_value('sensor.electricity_current_price') }}"
 
-      # Curr Month Cost
-      - name: "electricity_cost_curr_month"
-        unique_id: electricity_cost_curr_month
-        unit_of_measurement: "₪"
-        state_class: total
-        device_class: monetary
-        state: "{{ ( states('sensor.iec_this_month_electric_consumption') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+      # # Curr Month Cost
+      # - name: "electricity_cost_curr_month"
+      #   unique_id: electricity_cost_curr_month
+      #   unit_of_measurement: "₪"
+      #   state_class: total
+      #   device_class: monetary
+      #   state: "{{ ( states('sensor.iec_this_month_electric_consumption') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+      #   availability: "{{ has_value('sensor.electricity_current_price') }}"

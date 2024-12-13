@@ -13,57 +13,57 @@ sections:
   #                                                                          #
   ############################################################################
 
-  - type: grid
-    title: Electricity
-    cards:
+  # - type: grid
+  #   title: Electricity
+  #   cards:
 
-      # Daily
-      - type: 'custom:button-card'
-        template: card_energy_daily_graph
-        variables:
-          ulm_card_energy_name: Daily
-          ulm_card_energy_entity: sensor.iec_today_electric_consumption
-          ulm_card_energy_cost_entity: sensor.electricity_cost_today
-          ulm_card_energy_type: bar
-          ulm_card_energy_show_extrema: false
-          ulm_card_energy_show_average: false
-          ulm_card_energy_hours: 168
-        layout_options:
-          grid_columns: 4
-          grid_rows: 3
+  #     # Daily
+  #     - type: 'custom:button-card'
+  #       template: card_energy_daily_graph
+  #       variables:
+  #         ulm_card_energy_name: Daily
+  #         ulm_card_energy_entity: sensor.iec_today_electric_consumption
+  #         ulm_card_energy_cost_entity: sensor.electricity_cost_today
+  #         ulm_card_energy_type: bar
+  #         ulm_card_energy_show_extrema: false
+  #         ulm_card_energy_show_average: false
+  #         ulm_card_energy_hours: 168
+  #       layout_options:
+  #         grid_columns: 4
+  #         grid_rows: 3
 
-      # Current Month
-      - type: 'custom:button-card'
-        template: card_monthly_statistics
-        entity: sensor.iec_this_month_electric_consumption
-        variables:
-          ulm_card_monthly_statistics_name: Current Month
-          ulm_card_monthly_statistics_cost: sensor.electricity_cost_curr_month
-        layout_options:
-          grid_columns: 4
-          grid_rows: 1          
+  #     # Current Month
+  #     - type: 'custom:button-card'
+  #       template: card_monthly_statistics
+  #       entity: sensor.iec_this_month_electric_consumption
+  #       variables:
+  #         ulm_card_monthly_statistics_name: Current Month
+  #         ulm_card_monthly_statistics_cost: sensor.electricity_cost_curr_month
+  #       layout_options:
+  #         grid_columns: 4
+  #         grid_rows: 1          
 
-      # Current Bill
-      - type: 'custom:button-card'
-        template: card_monthly_statistics
-        entity: sensor.next_bill_electric_forecasted_usage
-        variables:
-          ulm_card_monthly_statistics_name: Current Bill
-          ulm_card_monthly_statistics_cost: sensor.next_bill_electric_forecasted_cost
-        layout_options:
-          grid_columns: 4
-          grid_rows: 1
+  #     # Current Bill
+  #     - type: 'custom:button-card'
+  #       template: card_monthly_statistics
+  #       entity: sensor.next_bill_electric_forecasted_usage
+  #       variables:
+  #         ulm_card_monthly_statistics_name: Current Bill
+  #         ulm_card_monthly_statistics_cost: sensor.next_bill_electric_forecasted_cost
+  #       layout_options:
+  #         grid_columns: 4
+  #         grid_rows: 1
 
-      # Previous Bill
-      - type: 'custom:button-card'
-        template: card_monthly_statistics
-        entity: sensor.last_iec_bill_electric_usage_to_date
-        variables:
-          ulm_card_monthly_statistics_name: Previous Bill
-          ulm_card_monthly_statistics_cost: sensor.last_iec_bill_electric_cost
-        layout_options:
-          grid_columns: 4
-          grid_rows: 1          
+  #     # Previous Bill
+  #     - type: 'custom:button-card'
+  #       template: card_monthly_statistics
+  #       entity: sensor.last_iec_bill_electric_usage_to_date
+  #       variables:
+  #         ulm_card_monthly_statistics_name: Previous Bill
+  #         ulm_card_monthly_statistics_cost: sensor.last_iec_bill_electric_cost
+  #       layout_options:
+  #         grid_columns: 4
+  #         grid_rows: 1          
 
 
 

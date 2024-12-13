@@ -506,12 +506,6 @@
       friendly_name: חלון סלון
       supported_features: 15
       state: open
-    cover.entrance_window:
-      current_position: 100
-      device_class: shutter
-      friendly_name: חלון כניסה
-      supported_features: 15
-      state: open
     cover.kitchen:
       current_position: 100
       device_class: shutter
@@ -521,8 +515,6 @@
   icon: mdi:window-shutter-open
   metadata:
     cover.living_room_window:
-      entity_only: true
-    cover.entrance_window:
       entity_only: true
     cover.kitchen:
       entity_only: true

@@ -82,7 +82,7 @@ cards:
                           - 'chip_purple'
                         icon: 'mdi:window-shutter'
                         variables:
-                          ulm_chip_icon_state_entity: sensor.number_of_covers_open
+                          ulm_chip_icon_state_entity: sensor.covers_open_counter
                           ulm_chip_navigate_path: /lovelace/tiles_covers
 
                       # Motion Chip

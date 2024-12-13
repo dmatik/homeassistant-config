@@ -48,100 +48,6 @@
         data:
           title: Battery Low
           message: 'Low battery warning for: {{sensors}}'
-- id: '1630053159448'
-  alias: Red Alert Qiryat Gat
-  description: ''
-  triggers:
-  - entity_id: binary_sensor.redalert_qiryat_gat
-    to: 'on'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'קריית גת
-
-        '
-      data:
-        tag: redalert-qiryat-gat
-    action: notify.mobile_app_iphonedima
-  mode: single
-- id: '1630053201927'
-  alias: Red Alert Qiryat Gat Clear
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.redalert_qiryat_gat
-    to: 'off'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-qiryat-gat
-  mode: single
-- id: '1630053311360'
-  alias: Red Alert All
-  description: ''
-  triggers:
-  - entity_id:
-    - sensor.redalert
-    attribute: current
-    trigger: state
-  conditions:
-  - condition: state
-    entity_id: binary_sensor.redalert_test
-    state: 'off'
-  - condition: state
-    entity_id: binary_sensor.redalert_all
-    state: 'on'
-  actions:
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: "{% if (state_attr('sensor.redalert', 'alert') == true) -%}\n  {% if
-        state_attr(\"sensor.redalert\", \"current\")[\"desc\"] != \"\" -%}\n  {{state_attr(\"sensor.redalert\",
-        \"current\")[\"desc\"]}}\n  {%- endif %}\n  {% for l in state_attr('sensor.redalert',
-        'current')['data'] -%}\n  {{l + \"\\n\"}}\n  {%- endfor %}\n{%- else %}\n
-        \ אין התרעות כרגע\n{%- endif %}\n"
-      data:
-        tag: redalert-all
-    enabled: false
-    action: notify.mobile_app_iphonedima
-  - data:
-      title: '*{{ state_attr("sensor.redalert", "current")["title"] }}*'
-      message: '{% if (state_attr(''sensor.redalert'', ''alert'') == true) -%}
-
-        {% for l in state_attr(''sensor.redalert'', ''current'')[''data''] -%}
-
-        {{l+"\n"}}
-
-        {%- endfor %}
-
-        {% else %}
-
-        אין התרעות כרגע
-
-        {%- endif %}
-
-        '
-    action: notify.dimatelegram
-  mode: single
-- id: '1630053381000'
-  alias: Red Alert All Clear
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.redalert_all
-    to: 'off'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-all
-  mode: single
 - id: '1630053607872'
   alias: Presense Home
   description: ''
@@ -432,41 +338,6 @@
       - light.bedside_dima_bulb
     data: {}
   mode: single
-- id: '1652336327236'
-  alias: Red Alert Gan Yavne
-  description: ''
-  triggers:
-  - entity_id:
-    - binary_sensor.redalert_gan_yavne
-    to: 'on'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'גן יבנה
-
-        '
-      data:
-        tag: redalert-gan-yavne
-        push:
-          sound:
-            name: default
-            critical: 1
-            volume: 1
-    action: notify.mobile_app_iphonedima
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'גן יבנה
-
-        '
-      data:
-        tag: redalert-gan-yavne
-        ttl: 0
-        priority: high
-    enabled: true
-    action: notify.mobile_app_galitphone
-  mode: single
 - id: '1680756525883'
   alias: Turn On Basement TV with WakeOnLan
   description: ''
@@ -479,32 +350,6 @@
     data:
       broadcast_port: 9
       mac: C0:48:E6:4D:38:15
-  mode: single
-- id: '1681297657863'
-  alias: Red Alert Gan Yavne Clear
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.redalert_gan_yavne
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-    from: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-gan-yavne
-  - service: notify.mobile_app_galitphone
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-gan-yavne
   mode: single
 - id: '1682970537081'
   alias: Ulanzi Weather App
@@ -717,222 +562,6 @@
       - light.stairs_basement
       - light.stairs_ground_floor
       - light.stairs_floor_2
-- id: '1699248159943'
-  alias: Red Alert Shtulim
-  description: ''
-  triggers:
-  - entity_id:
-    - binary_sensor.redalert_shtulim
-    to: 'on'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'שתולים
-
-        '
-      data:
-        tag: redalert-shtulim
-    action: notify.mobile_app_iphonedima
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'שתולים
-
-        '
-      data:
-        tag: redalert-shtulim
-    enabled: true
-    action: notify.mobile_app_galitphone
-  mode: single
-- id: '1699248227759'
-  alias: Red Alert Shtulim Clear
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.redalert_shtulim
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-    from: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-shtulim
-  - service: notify.mobile_app_galitphone
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-shtulim
-  mode: single
-- id: '1699248446778'
-  alias: Red Alert Hatsor
-  description: ''
-  triggers:
-  - entity_id:
-    - binary_sensor.redalert_hatsor
-    to: 'on'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'חצור
-
-        '
-      data:
-        tag: redalert-hatsor
-    action: notify.mobile_app_iphonedima
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'חצור
-
-        '
-      data:
-        tag: redalert-hatsor
-    enabled: true
-    action: notify.mobile_app_galitphone
-  mode: single
-- id: '1699248492044'
-  alias: Red Alert Hatsor Clear
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.redalert_hatsor
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-    from: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-hatsor
-  - service: notify.mobile_app_galitphone
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-hatsor
-  mode: single
-- id: '1699248553557'
-  alias: Red Alert Bitsron
-  description: ''
-  triggers:
-  - entity_id:
-    - binary_sensor.redalert_bitsron
-    to: 'on'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'ביצרון
-
-        '
-      data:
-        tag: redalert-bitsron
-    action: notify.mobile_app_iphonedima
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'ביצרון
-
-        '
-      data:
-        tag: redalert-bitsron
-    enabled: true
-    action: notify.mobile_app_galitphone
-  mode: single
-- id: '1699248594979'
-  alias: Red Alert Bitsron Clear
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.redalert_bitsron
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-    from: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-bitsron
-  - service: notify.mobile_app_galitphone
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-bitsron
-  mode: single
-- id: '1699248658108'
-  alias: Red Alert Ashdod
-  description: ''
-  triggers:
-  - entity_id:
-    - binary_sensor.redalert_ashdod
-    to: 'on'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'אשדוד
-
-        '
-      data:
-        tag: redalert-ashdod
-    action: notify.mobile_app_iphonedima
-  - data:
-      title: '{{ state_attr("sensor.redalert", "current")["title"] }}'
-      message: 'אשדוד
-
-        '
-      data:
-        tag: redalert-ashdod
-    enabled: true
-    action: notify.mobile_app_galitphone
-  mode: single
-- id: '1699248701741'
-  alias: Red Alert Ashdod Clear
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.redalert_ashdod
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-    from: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-ashdod
-  - service: notify.mobile_app_galitphone
-    data:
-      message: clear_notification
-      data:
-        tag: redalert-ashdod
-  mode: single
 - id: '1699608927236'
   alias: Sync Hallway Switches
   description: ''
@@ -1351,5 +980,60 @@
     metadata: {}
     data: {}
     target:
-      entity_id: button.fully_living_room_load_start_url
+      entity_id:
+      - button.fully_living_room_restart_browser
   mode: single
+- id: '1732977878964'
+  alias: Red Alert Ashdod
+  description: ''
+  use_blueprint:
+    path: red_alert.yaml
+    input:
+      alert_binary_sensor: binary_sensor.redalert_ashdod
+      notification_tag: redalert-ashdod
+      alert_location: אשדוד
+- id: '1732981629719'
+  alias: Red Alert Bitsron
+  description: ''
+  use_blueprint:
+    path: red_alert.yaml
+    input:
+      alert_binary_sensor: binary_sensor.redalert_bitsron
+      notification_tag: redalert-bitsron
+      alert_location: ביצרון
+- id: '1732981794240'
+  alias: Red Alert Hatsor
+  description: ''
+  use_blueprint:
+    path: red_alert.yaml
+    input:
+      alert_binary_sensor: binary_sensor.redalert_hatsor
+      notification_tag: redalert-hatsor
+      alert_location: חצור
+- id: '1732981895713'
+  alias: Red Alert Shtulim
+  description: ''
+  use_blueprint:
+    path: red_alert.yaml
+    input:
+      alert_binary_sensor: binary_sensor.redalert_shtulim
+      notification_tag: redalert-shtulim
+      alert_location: שתולים
+- id: '1732982402224'
+  alias: Red Alert Qiryat Gat
+  description: ''
+  use_blueprint:
+    path: red_alert.yaml
+    input:
+      alert_binary_sensor: binary_sensor.redalert_qiryat_gat
+      notification_tag: redalert-qiryat-gat
+      alert_location: קרית גת
+- id: '1732982822156'
+  alias: Red Alert Gan Yavne
+  description: ''
+  use_blueprint:
+    path: red_alert_priority.yaml
+    input:
+      alert_binary_sensor: binary_sensor.redalert_gan_yavne
+      notification_tag: redalert-gan-yavne
+      alert_location: גן יבנה

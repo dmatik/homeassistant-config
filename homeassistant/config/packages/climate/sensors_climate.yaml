@@ -87,7 +87,43 @@ template:
           {{ temp_list[-1] }}
         availability: >
           {% set temp_list = expand(label_entities("temperature")) | map(attribute='state') | list | sort %}
-          {{ is_number(temp_list[-1]) }}          
+          {{ is_number(temp_list[-1]) }}
+
+      # Highest and Lowest Temperature Home - Text
+      - unique_id: highest_lowest_temperature_home_text
+        name: "Highest Lowest Temperature Home Text"
+        icon: mdi:fan
+        state: >
+          {% set high_temp = states("sensor.highest_temperature_home") %}
+
+          {% if (high_temp == null or high_temp == "unavailable" or high_temp == "unknown") %}
+            {% set high_temp = "--" %}
+          {% else %}
+            {% set high_temp = high_temp|round(1) %}
+          {% endif %}
+
+          {% set low_temp = states("sensor.lowest_temperature_home") %}
+
+          {% if (low_temp == null or low_temp == "unavailable" or low_temp == "unknown") %}
+            {% set low_temp = "--" %}
+          {% else %}
+            {% set low_temp = low_temp|round(1) %}
+          {% endif %}
+
+          {% if (low_temp == "--" or high_temp == "--") %}
+            {% set state = "--" %}     
+          {% elif (high_temp - low_temp < 0.5) %}
+            {% set state = high_temp|string + "°" %}
+          {% else %}
+            {% set state = low_temp|string + "-" + high_temp|string + "°" %}
+          {% endif %}
+
+          {% set climates = states("sensor.number_of_climate_entities_on")|int %}
+          {% if (climates > 0) %}
+            {% set state = state + " • " + climates|string %}
+          {% endif %}
+
+          {{state}}      
 
 
 

@@ -115,17 +115,17 @@ chip_icon_label_state:
         }
         return state;
       ]]]
-  state:
-    - operator: "template"
-      value: |
-        [[[ return variables.ulm_chip_icon_state_entity == null 
-                    || states[variables.ulm_chip_icon_state_entity].state == 0
-                    || states[variables.ulm_chip_icon_state_entity].state == "unavailable"
-                    || states[variables.ulm_chip_icon_state_entity].state == "unknown";
-        ]]]
-      styles:
-        label:
-          - display: 'none'
+  # state:
+  #   - operator: "template"
+  #     value: |
+  #       [[[ return variables.ulm_chip_icon_state_entity == null 
+  #                   || states[variables.ulm_chip_icon_state_entity].state == 0
+  #                   || states[variables.ulm_chip_icon_state_entity].state == "unavailable"
+  #                   || states[variables.ulm_chip_icon_state_entity].state == "unknown";
+  #       ]]]
+  #     styles:
+  #       label:
+  #         - display: 'none'
 
 chip_climate:
   template:
@@ -302,17 +302,17 @@ chip_red_alert:
         if (variables.ulm_chip_icon_state_entity == null 
             || states[variables.ulm_chip_icon_state_entity].state == "off") {
           state = variables.ulm_off;
-        } else if (variables.ulm_chip_red_alert_option_1_entity != null && states[variables.ulm_chip_red_alert_option_1_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_1_entity != null && states[variables.ulm_chip_red_alert_option_1_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_1_name;
-        } else if (variables.ulm_chip_red_alert_option_2_entity != null && states[variables.ulm_chip_red_alert_option_2_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_2_entity != null && states[variables.ulm_chip_red_alert_option_2_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_2_name;
-        } else if (variables.ulm_chip_red_alert_option_3_entity != null && states[variables.ulm_chip_red_alert_option_3_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_3_entity != null && states[variables.ulm_chip_red_alert_option_3_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option3_name;
-        } else if (variables.ulm_chip_red_alert_option_4_entity != null && states[variables.ulm_chip_red_alert_option_4_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_4_entity != null && states[variables.ulm_chip_red_alert_option_4_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_4_name;
-        } else if (variables.ulm_chip_red_alert_option_5_entity != null && states[variables.ulm_chip_red_alert_option_5_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_5_entity != null && states[variables.ulm_chip_red_alert_option_5_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_5_name;
-        } else if (variables.ulm_chip_red_alert_option_6_entity != null && states[variables.ulm_chip_red_alert_option_6_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_6_entity != null && states[variables.ulm_chip_red_alert_option_6_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_6_name;                                                  
         } else {
           state = variables.ulm_red_alert_alarm;

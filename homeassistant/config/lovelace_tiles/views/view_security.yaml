@@ -13,7 +13,7 @@ badges:
       - 'chip_two_rows_motion'
       - 'chip_navigate_only'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+      ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
       ulm_chip_navigate_path: /lovelace/tiles_motion
 
 

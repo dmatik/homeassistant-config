@@ -5,20 +5,21 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On                                                    #
+      #   Lights ON Counter and State                                            #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On"
-        unique_id: number_of_lights_on
+      # Counter
+      - name: "Lights ON Counter"
+        unique_id: lights_on_counter
         state: >
           {{ expand(label_entities("lights")) | selectattr('state','eq','on') | list | count }}
 
-      # Full text sensor to use with built in badge (sections)
-      - name: "Number Of Lights On Text"
-        unique_id: number_of_lights_on_text
+      # State
+      - name: "Lights state"
+        unique_id: lights_state
         state: >
-          {% set counter = states('sensor.number_of_lights_on') | int %}
+          {% set counter = states('sensor.lights_on_counter') | int %}
           {% if (counter == 1) %}
             1 מופעל
           {% elif (counter > 0) %}
@@ -31,25 +32,39 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Living Room                                      #
+      #   Lights ON Counter and State - Living Room                              #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Living Room"
-        unique_id: number_of_lights_on_living_room
+      # Counter
+      - name: "Lights ON Counter Living Room"
+        unique_id: lights_on_counter_living_room
         state: >
           {{ expand(label_entities("lights")) | selectattr('entity_id', 'in', area_entities('סלון')) | selectattr('state','eq','on') | list | count }}
 
+      # State
+      - name: "Lights state Living Room"
+        unique_id: lights_state_living_room
+        state: >
+          {% set counter = states('sensor.lights_on_counter_living_room') | int %}
+          {% if (counter == 1) %}
+            1 מופעל
+          {% elif (counter > 0) %}
+            {{ counter }} מופעלים
+          {% else %}
+            off
+          {% endif %}
+
 
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Kitchen                                          #
+      #   Lights ON Counter - Kitchen                                            #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Kitchen"
-        unique_id: number_of_lights_on_kitchen
+      - name: "Lights ON Counter Kitchen"
+        unique_id: lights_on_counter_kitchen
         state: >
           {{ expand(label_entities("lights")) | selectattr('entity_id', 'in', area_entities('מטבח')) | selectattr('state','eq','on') | list | count }}
 
@@ -57,12 +72,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Bedroom                                          #
+      #   Lights ON Counter - Bedroom                                            #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Bedroom"
-        unique_id: number_of_lights_on_bedroom
+      - name: "Lights ON Counter Bedroom"
+        unique_id: lights_on_counter_bedroom
         state: >
           {{ expand(label_entities("lights")) | selectattr('entity_id', 'in', area_entities('הורים')) | selectattr('state','eq','on') | list | count }}
 
@@ -70,12 +85,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Work Room                                        #
+      #   Lights ON Counter - Work Room                                          #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Work Room"
-        unique_id: number_of_lights_on_work_room
+      - name: "Lights ON Counter Work Room"
+        unique_id: lights_on_counter_work_room
         state: >
           {{ expand(label_entities("lights")) | selectattr('entity_id', 'in', area_entities('חדר עבודה')) | selectattr('state','eq','on') | list | count }}
 
@@ -83,12 +98,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Kfir Room                                        #
+      #   Lights ON Counter - Kfir Room                                          #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Kfir Room"
-        unique_id: number_of_lights_on_kfir_room
+      - name: "Lights ON Counter Kfir Room"
+        unique_id: lights_on_counter_kfir_room
         state: >
           {{ expand(label_entities("lights")) | selectattr('entity_id', 'in', area_entities('חדר של כפיר')) | selectattr('state','eq','on') | list | count }}
 
@@ -96,12 +111,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Ronen Room                                       #
+      #   Lights ON Counter - Ronen Room                                         #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Ronen Room"
-        unique_id: number_of_lights_on_ronen_room
+      - name: "Lights ON Counter Ronen Room"
+        unique_id: lights_on_counter_ronen_room
         state: >
           {{ expand(label_entities("lights")) | selectattr('entity_id', 'in', area_entities('חדר של רונן')) | selectattr('state','eq','on') | list | count }}
 
@@ -109,12 +124,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Basement                                         #
+      #   Lights ON Counter - Basement                                           #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Basement"
-        unique_id: number_of_lights_on_basement
+      - name: "Lights ON Counter Basement"
+        unique_id: lights_on_counter_on_basement
         state: >
           {{ expand(label_entities("lights")) | selectattr('entity_id', 'in', area_entities('מרתף')) | selectattr('state','eq','on') | list | count }}
 
@@ -122,12 +137,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Lights On - Hallway                                          #
+      #   Lights ON Counter - Hallway                                            #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Lights On Hallway"
-        unique_id: number_of_lights_on_hallway
+      - name: "Lights ON Counter Hallway"
+        unique_id: lights_on_counter_hallway
         state: >
           {{ expand(label_entities("lights")) | selectattr('entity_id', 'in', area_entities('מסדרון')) | selectattr('state','eq','on') | list | count }}
 

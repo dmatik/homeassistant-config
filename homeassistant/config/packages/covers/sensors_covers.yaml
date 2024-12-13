@@ -5,12 +5,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Covers Open                                                  #
+      #   Covers Open Counter                                                    #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Covers Open"
-        unique_id: number_of_covers_open
+      - name: "Covers Open Counter"
+        unique_id: covers_open_counter
         state: >
           {{ expand(label_entities("covers")) | rejectattr('state','eq','closed') | list | count }}
 
@@ -18,12 +18,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Covers Open - Living Room                                    #
+      #   Covers Open Counter - Living Room                                      #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Covers Open Living Room"
-        unique_id: number_of_covers_open_living_room
+      - name: "Covers Open Counter Living Room"
+        unique_id: covers_open_counter_living_room
         state: >
           {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('סלון')) | rejectattr('state','eq','closed') | list | count }}
 
@@ -31,12 +31,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Covers Open - Kitchen                                        #
+      #   Covers Open Counter - Kitchen                                          #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Covers Open Kitchen"
-        unique_id: number_of_covers_open_kitchen
+      - name: "Covers Open Counter Kitchen"
+        unique_id: covers_open_counter_kitchen
         state: >
           {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('מטבח')) | rejectattr('state','eq','closed') | list | count }}        
 
@@ -44,12 +44,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Covers Open - Bedroom                                        #
+      #   Covers Open Counter - Bedroom                                          #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Covers Open Bedroom"
-        unique_id: number_of_covers_open_bedroom
+      - name: "Covers Open Counter Bedroom"
+        unique_id: covers_open_counter_bedroom
         state: >
           {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('הורים')) | rejectattr('state','eq','closed') | list | count }}
 
@@ -57,12 +57,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Covers Open - Ronen Room                                     #
+      #   Covers Open Counter - Ronen Room                                       #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Covers Open Ronen Room"
-        unique_id: number_of_covers_open_ronen_room
+      - name: "Covers Open Counter Ronen Room"
+        unique_id: covers_open_counter_ronen_room
         state: >
           {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('חדר של רונן')) | rejectattr('state','eq','closed') | list | count }}
 
@@ -70,12 +70,12 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Covers Open - Kfir Room                                      #
+      #   Covers Open Counter - Kfir Room                                        #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Covers Open Kfir Room"
-        unique_id: number_of_covers_open_kfir_room
+      - name: "Covers Open Counter Kfir Room"
+        unique_id: covers_open_counter_kfir_room
         state: >
           {{ expand(label_entities("covers")) | selectattr('entity_id', 'in', area_entities('חדר של כפיר')) | rejectattr('state','eq','closed') | list | count }}
 

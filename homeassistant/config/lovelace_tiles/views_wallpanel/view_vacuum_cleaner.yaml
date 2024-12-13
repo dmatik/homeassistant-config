@@ -2,353 +2,330 @@ title: Vacuum Cleaner
 path: vacuum_cleaner
 visible: false
 icon: mdi:robot-vacuum
-panel: true
+type: panel
     
 cards:
 
-  - type: vertical-stack
+  - type: horizontal-stack
     cards:
 
+      - type: custom:button-card
+        template: card_blank
+
 
       ############################################################################
       #                                                                          #
-      #   Content                                                                #
+      #   Left Column                                                            #
       #                                                                          #
       ############################################################################
 
-      - type: custom:layout-card
-        layout_type: grid
-
-        layout_options:
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 4px
-        
+      - type: vertical-stack
         cards:
 
 
           ############################################################################
           #                                                                          #
-          #   Left Column                                                            #
+          #   Vacuum Cleaner                                                         #
           #                                                                          #
           ############################################################################
 
-          - type: vertical-stack
+          # Title
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_vacuum_cleaner; ]]]"
+            variables:
+              ulm_title_margin_top: "0px"
+
+          - type: grid
+            square: false
+            columns: 1
             cards:
 
+              - type: custom:xiaomi-vacuum-map-card
+                preset_name: Current Map
+                map_source:
+                  camera: camera.l20_ultra_map
+                calibration_source:
+                  camera: true
+                entity: vacuum.l20_ultra
+                vacuum_platform: Tasshack/dreame-vacuum
+                map_locked: true
+                two_finger_pan: false
+                map_modes: []
 
-              ############################################################################
-              #                                                                          #
-              #   Motion                                                                 #
-              #                                                                          #
-              ############################################################################
+                tiles:
+                  - tile_id: battery_level
+                    entity: vacuum.l20_ultra
+                    label: Battery
+                    attribute: battery_level
+                    icon_source: vacuum.l20_ultra.attributes.battery_icon
+                    unit: '%'
+                  - tile_id: cleaned_area
+                    attribute: cleaned_area
+                    label: Cleaned area
+                    icon: mdi:ruler-square
+                    unit: m²
+                    entity: vacuum.l20_ultra
+                    precision: 0
+                    translations: {}
+                  - tile_id: cleaning_time
+                    attribute: cleaning_time
+                    label: Cleaning time
+                    icon: mdi:timer-sand
+                    unit: min
+                    entity: vacuum.l20_ultra
+                    precision: 0
+                    translations: {}
+                  - tile_id: current_map
+                    label: Current map
+                    icon: mdi:map
+                    entity: select.l20_ultra_selected_map
+                    translations: {} 
+                  - tile_id: state
+                    label: State
+                    icon: mdi:robot-vacuum
+                    entity: sensor.l20_ultra_state
+                    translations: {}                     
 
-              # Title
-              - type: horizontal-stack
-                cards:
+                additional_presets:             
+                  - preset_name: Main Floor
+                    map_source:
+                      camera: camera.l20_ultra_map_1
+                    calibration_source:
+                      camera: true
+                    entity: vacuum.l20_ultra
+                    vacuum_platform: Tasshack/dreame-vacuum
+                    map_locked: true
+                    tiles: []
+                    map_modes:
+                      - template: vacuum_clean_segment
+                        predefined_selections:
+                          # Kitchen
+                          - id: '2'
+                            outline:
+                              - - -800
+                                - 1100
+                              - - 1650
+                                - 1100
+                              - - 1650
+                                - 6050
+                              - - -800
+                                - 6050
+                          # Entrance
+                          - id: '3'
+                            outline:
+                              - - 4550
+                                - 2600
+                              - - 7300
+                                - 2600
+                              - - 7300
+                                - 5300
+                              - - 4550
+                                - 5300
+                          # Dining
+                          - id: '4'
+                            outline:
+                              - - 3400
+                                - -1500
+                              - - 7300
+                                - -1500
+                              - - 7300
+                                - 3500
+                              - - 3400
+                                - 3500
+                          # Guest Bathroom
+                          - id: '5'
+                            outline:
+                              - - 5100
+                                - 5450
+                              - - 7150
+                                - 5450
+                              - - 7150
+                                - 6650
+                              - - 5100
+                                - 6650
+                          # Living Room
+                          - id: '6'
+                            outline:
+                              - - -750
+                                - -4250
+                              - - 5050
+                                - -4250
+                              - - 5050
+                                - 2800
+                              - - -750
+                                - 2800
 
-                  - type: custom:button-card
-                    template: title
-                    name: "[[[ return variables.ulm_vacuum_cleaner; ]]]"
-                    variables:
-                      ulm_title_margin_top: "0px"
+                      - template: vacuum_clean_zone
 
-              - type: "custom:mod-card"
-                style:
-                  .: |
-                    ha-card {
-                        margin: var(--grid-layout-margins) !important;
-                    }
-                card:
+                  - preset_name: Floor 2
+                    map_source:
+                      camera: camera.l20_ultra_map_2
+                    calibration_source:
+                      camera: true
+                    entity: vacuum.l20_ultra
+                    vacuum_platform: Tasshack/dreame-vacuum
+                    map_locked: true
+                    tiles: []
+                    map_modes:
+                      - template: vacuum_clean_segment
+                        predefined_selections:
+                          # Ronen
+                          - id: '1'
+                            outline:
+                              - - 1150
+                                - 400
+                              - - 3800
+                                - 400
+                              - - 3800
+                                - 4200
+                              - - 1150
+                                - 4200
+                          # Kfir
+                          - id: '2'
+                            outline:
+                              - - -4350
+                                - 600
+                              - - -1350
+                                - 600
+                              - - -1350
+                                - 4150
+                              - - -4350
+                                - 4150
+                          # Parents Bathroom
+                          - id: '4'
+                            outline:
+                              - - -4300
+                                - -2650
+                              - - -1800
+                                - -2650
+                              - - -1800
+                                - 550
+                              - - -4300
+                                - 550
+                          # Bedroom
+                          - id: '6'
+                            outline:
+                              - - -4300
+                                - -6500
+                              - - 1350
+                                - -6500
+                              - - 1350
+                                - -1200
+                              - - -4300
+                                - -1200
+                          # Bathroom
+                          - id: '8'
+                            outline:
+                              - - 500
+                                - -4000
+                              - - 3800
+                                - -4000
+                              - - 3800
+                                - 350
+                              - - 500
+                                - 350
+                          # Hallway
+                          - id: '10'
+                            outline:
+                              - - -2200
+                                - -2100
+                              - - 2100
+                                - -2100
+                              - - 2100
+                                - 700
+                              - - -2200
+                                - 700
 
-                  # Vacuum Cleaner
-                  type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 4px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr
-                  cards:
+                      - template: vacuum_clean_zone
 
-                    - type: custom:xiaomi-vacuum-map-card
-                      preset_name: Current Map
-                      map_source:
-                        camera: camera.l20_ultra_map
-                      calibration_source:
-                        camera: true
-                      entity: vacuum.l20_ultra
-                      vacuum_platform: Tasshack/dreame-vacuum
-                      map_locked: true
-                      two_finger_pan: false
-                      map_modes: []
+                  - preset_name: Basement
+                    map_source:
+                      camera: camera.l20_ultra_map_3
+                    calibration_source:
+                      camera: true
+                    entity: vacuum.l20_ultra
+                    vacuum_platform: Tasshack/dreame-vacuum
+                    map_locked: true
+                    tiles: []
+                    map_modes:
+                      - template: vacuum_clean_segment
+                        predefined_selections:
+                          # Work Room
+                          - id: '1'
+                            outline:
+                              - - -6600
+                                - -450
+                              - - -2050
+                                - -450
+                              - - -2050
+                                - 3450
+                              - - -6600
+                                - 3450
+                          # Basement Storage
+                          - id: '2'
+                            outline:
+                              - - -1950
+                                - 3700
+                              - - 2650
+                                - 3700
+                              - - 2650
+                                - 6450
+                              - - -1950
+                                - 6450
+                          # Basement TV
+                          - id: '3'
+                            outline:
+                              - - -150
+                                - -3750
+                              - - 2950
+                                - -3750
+                              - - 2950
+                                - 1150
+                              - - -150
+                                - 1150
+                          # Basement Toys
+                          - id: '4'
+                            outline:
+                              - - -3250
+                                - -3750
+                              - - -150
+                                - -3750
+                              - - -150
+                                - 1150
+                              - - -3250
+                                - 1150
+                          # Basement PC
+                          - id: '5'
+                            outline:
+                              - - -3900
+                                - 1150
+                              - - 2950
+                                - 1150
+                              - - 2950
+                                - 5450
+                              - - -3900
+                                - 5450
 
-                      tiles:
-                        - tile_id: battery_level
-                          entity: vacuum.l20_ultra
-                          label: Battery
-                          attribute: battery_level
-                          icon_source: vacuum.l20_ultra.attributes.battery_icon
-                          unit: '%'
-                        - tile_id: cleaned_area
-                          attribute: cleaned_area
-                          label: Cleaned area
-                          icon: mdi:ruler-square
-                          unit: m²
-                          entity: vacuum.l20_ultra
-                          precision: 0
-                          translations: {}
-                        - tile_id: cleaning_time
-                          attribute: cleaning_time
-                          label: Cleaning time
-                          icon: mdi:timer-sand
-                          unit: min
-                          entity: vacuum.l20_ultra
-                          precision: 0
-                          translations: {}
-                        - tile_id: current_map
-                          label: Current map
-                          icon: mdi:map
-                          entity: select.l20_ultra_selected_map
-                          translations: {} 
-                        - tile_id: state
-                          label: State
-                          icon: mdi:robot-vacuum
-                          entity: sensor.l20_ultra_state
-                          translations: {}                     
-
-                      additional_presets:             
-                        - preset_name: Main Floor
-                          map_source:
-                            camera: camera.l20_ultra_map_1
-                          calibration_source:
-                            camera: true
-                          entity: vacuum.l20_ultra
-                          vacuum_platform: Tasshack/dreame-vacuum
-                          map_locked: true
-                          tiles: []
-                          map_modes:
-                            - template: vacuum_clean_segment
-                              predefined_selections:
-                                # Kitchen
-                                - id: '2'
-                                  outline:
-                                    - - -800
-                                      - 1100
-                                    - - 1650
-                                      - 1100
-                                    - - 1650
-                                      - 6050
-                                    - - -800
-                                      - 6050
-                                # Entrance
-                                - id: '3'
-                                  outline:
-                                    - - 4550
-                                      - 2600
-                                    - - 7300
-                                      - 2600
-                                    - - 7300
-                                      - 5300
-                                    - - 4550
-                                      - 5300
-                                # Dining
-                                - id: '4'
-                                  outline:
-                                    - - 3400
-                                      - -1500
-                                    - - 7300
-                                      - -1500
-                                    - - 7300
-                                      - 3500
-                                    - - 3400
-                                      - 3500
-                                # Guest Bathroom
-                                - id: '5'
-                                  outline:
-                                    - - 5100
-                                      - 5450
-                                    - - 7150
-                                      - 5450
-                                    - - 7150
-                                      - 6650
-                                    - - 5100
-                                      - 6650
-                                # Living Room
-                                - id: '6'
-                                  outline:
-                                    - - -750
-                                      - -4250
-                                    - - 5050
-                                      - -4250
-                                    - - 5050
-                                      - 2800
-                                    - - -750
-                                      - 2800
-
-                            - template: vacuum_clean_zone
-
-                        - preset_name: Floor 2
-                          map_source:
-                            camera: camera.l20_ultra_map_2
-                          calibration_source:
-                            camera: true
-                          entity: vacuum.l20_ultra
-                          vacuum_platform: Tasshack/dreame-vacuum
-                          map_locked: true
-                          tiles: []
-                          map_modes:
-                            - template: vacuum_clean_segment
-                              predefined_selections:
-                                # Ronen
-                                - id: '1'
-                                  outline:
-                                    - - 1150
-                                      - 400
-                                    - - 3800
-                                      - 400
-                                    - - 3800
-                                      - 4200
-                                    - - 1150
-                                      - 4200
-                                # Kfir
-                                - id: '2'
-                                  outline:
-                                    - - -4350
-                                      - 600
-                                    - - -1350
-                                      - 600
-                                    - - -1350
-                                      - 4150
-                                    - - -4350
-                                      - 4150
-                                # Parents Bathroom
-                                - id: '4'
-                                  outline:
-                                    - - -4300
-                                      - -2650
-                                    - - -1800
-                                      - -2650
-                                    - - -1800
-                                      - 550
-                                    - - -4300
-                                      - 550
-                                # Bedroom
-                                - id: '6'
-                                  outline:
-                                    - - -4300
-                                      - -6500
-                                    - - 1350
-                                      - -6500
-                                    - - 1350
-                                      - -1200
-                                    - - -4300
-                                      - -1200
-                                # Bathroom
-                                - id: '8'
-                                  outline:
-                                    - - 500
-                                      - -4000
-                                    - - 3800
-                                      - -4000
-                                    - - 3800
-                                      - 350
-                                    - - 500
-                                      - 350
-                                # Hallway
-                                - id: '10'
-                                  outline:
-                                    - - -2200
-                                      - -2100
-                                    - - 2100
-                                      - -2100
-                                    - - 2100
-                                      - 700
-                                    - - -2200
-                                      - 700
-
-                            - template: vacuum_clean_zone
-
-                        - preset_name: Basement
-                          map_source:
-                            camera: camera.l20_ultra_map_3
-                          calibration_source:
-                            camera: true
-                          entity: vacuum.l20_ultra
-                          vacuum_platform: Tasshack/dreame-vacuum
-                          map_locked: true
-                          tiles: []
-                          map_modes:
-                            - template: vacuum_clean_segment
-                              predefined_selections:
-                                # Work Room
-                                - id: '1'
-                                  outline:
-                                    - - -6600
-                                      - -450
-                                    - - -2050
-                                      - -450
-                                    - - -2050
-                                      - 3450
-                                    - - -6600
-                                      - 3450
-                                # Basement Storage
-                                - id: '2'
-                                  outline:
-                                    - - -1950
-                                      - 3700
-                                    - - 2650
-                                      - 3700
-                                    - - 2650
-                                      - 6450
-                                    - - -1950
-                                      - 6450
-                                # Basement TV
-                                - id: '3'
-                                  outline:
-                                    - - -150
-                                      - -3750
-                                    - - 2950
-                                      - -3750
-                                    - - 2950
-                                      - 1150
-                                    - - -150
-                                      - 1150
-                                # Basement Toys
-                                - id: '4'
-                                  outline:
-                                    - - -3250
-                                      - -3750
-                                    - - -150
-                                      - -3750
-                                    - - -150
-                                      - 1150
-                                    - - -3250
-                                      - 1150
-                                # Basement PC
-                                - id: '5'
-                                  outline:
-                                    - - -3900
-                                      - 1150
-                                    - - 2950
-                                      - 1150
-                                    - - 2950
-                                      - 5450
-                                    - - -3900
-                                      - 5450
-
-                            - template: vacuum_clean_zone 
+                      - template: vacuum_clean_zone 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Right Column                                                           #
-          #                                                                          #
-          ############################################################################
+      - type: custom:button-card
+        template: card_blank
 
-          # - type: vertical-stack
-          #   cards:
+      ############################################################################
+      #                                                                          #
+      #   Right Column                                                           #
+      #                                                                          #
+      ############################################################################
+
+      - type: vertical-stack
+        cards:
+
+          - type: custom:button-card
+            template: card_blank            
+
+      - type: custom:button-card
+        template: card_blank
 
 

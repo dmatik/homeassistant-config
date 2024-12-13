@@ -5,105 +5,77 @@ template:
 
       ############################################################################
       #                                                                          #
-      #   Number of Motion Sensors On                                            #
+      #   Motion Sensors Detected Counter                                        #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Motion Sensors On"
-        unique_id: number_of_motion_sensors_on
+      - name: "Motion Sensors Detected Counter"
+        unique_id: motion_sensors_detected_counter
         state: >
           {{ expand(label_entities("motion_sensors")) | selectattr('state','eq','on') | list | count }}
-        # state: >
-        #   {% set count = namespace(value=0) %}
-        #   {% for entity_id in state_attr('binary_sensor.all_motion_sensors','entity_id') %}
-        #     {% if (states(entity_id) == 'on') %}
-        #       {% set count.value = count.value + 1 %}
-        #     {% endif %}
-        #   {% endfor %}
-        #   {{ count.value }}
+
 
 
       ############################################################################
       #                                                                          #
-      #   Number of Motion Sensors On - Living Room                              #
+      #   Motion Sensors Detected Counter - Living Room                          #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Motion Sensors On Living Room"
-        unique_id: number_of_motion_sensors_on_living_room
+      - name: "Motion Sensors Detected Counter Living Room"
+        unique_id: motion_sensors_detected_counter_living_room
         state: >
           {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('סלון')) | selectattr('state','eq','on') | list | count }}
-        # state: >
-        #   {% set count = namespace(value=0) %}
-        #   {% for entity_id in state_attr('binary_sensor.living_room_motion_sensors','entity_id') %}
-        #     {% if (states(entity_id) == 'on') %}
-        #       {% set count.value = count.value + 1 %}
-        #     {% endif %}
-        #   {% endfor %}
-        #   {{ count.value }}
+
 
 
       ############################################################################
       #                                                                          #
-      #   Number of Motion Sensors On - Kitchen                                  #
+      #   Motion Sensors Detected Counter - Kitchen                              #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Motion Sensors On Kitchen"
-        unique_id: number_of_motion_sensors_on_kitchen
+      - name: "Motion Sensors Detected Counter Kitchen"
+        unique_id: motion_sensors_detected_counter_kitchen
         state: >
           {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('מטבח')) | selectattr('state','eq','on') | list | count }}        
-        # state: >
-        #   {% set count = namespace(value=0) %}
-        #   {% for entity_id in state_attr('binary_sensor.kitchen_motion_sensors','entity_id') %}
-        #     {% if (states(entity_id) == 'on') %}
-        #       {% set count.value = count.value + 1 %}
-        #     {% endif %}
-        #   {% endfor %}
-        #   {{ count.value }}
+
 
 
       ############################################################################
       #                                                                          #
-      #   Number of Motion Sensors On - Bedroom                                  #
+      #   Motion Sensors Detected Counter - Bedroom                              #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Motion Sensors On Bedroom"
-        unique_id: number_of_motion_sensors_on_bedroom
+      - name: "Motion Sensors Detected Counter Bedroom"
+        unique_id: motion_sensors_detected_counter_bedroom
         state: >
           {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('הורים')) | selectattr('state','eq','on') | list | count }}        
-        # state: >
-        #   {% set count = namespace(value=0) %}
-        #   {% for entity_id in state_attr('binary_sensor.bedroom_motion_sensors','entity_id') %}
-        #     {% if (states(entity_id) == 'on') %}
-        #       {% set count.value = count.value + 1 %}
-        #     {% endif %}
-        #   {% endfor %}
-        #   {{ count.value }}
+
 
 
       ############################################################################
       #                                                                          #
-      #   Number of Motion Sensors On - Hallway                                  #
+      #   Motion Sensors Detected Counter - Hallway                              #
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Motion Sensors On Hallway"
-        unique_id: number_of_motion_sensors_on_hallway
+      - name: "Motion Sensors Detected Counter Hallway"
+        unique_id: motion_sensors_detected_counter_hallway
         state: >
           {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('מסדרון')) | selectattr('state','eq','on') | list | count }}        
-        # state: >
-        #   {% set count = namespace(value=0) %}
-        #   {% for entity_id in state_attr('binary_sensor.hallway_motion_sensors','entity_id') %}
-        #     {% if (states(entity_id) == 'on') %}
-        #       {% set count.value = count.value + 1 %}
-        #     {% endif %}
-        #   {% endfor %}
-        #   {{ count.value }}
 
-      - name: "Number Of Motion Sensors On Basement"
-        unique_id: number_of_motion_sensors_on_basement
+
+
+      ############################################################################
+      #                                                                          #
+      #   Motion Sensors Detected Counter - Basement                             #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Motion Sensors Detected Counter Basement"
+        unique_id: motion_sensors_detected_counter_basement
         state: >
           {{ expand(label_entities("motion_sensors")) | selectattr('entity_id', 'in', area_entities('מרתף')) | selectattr('state','eq','on') | list | count }} 
 

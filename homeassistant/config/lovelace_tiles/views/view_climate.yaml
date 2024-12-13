@@ -11,10 +11,13 @@ badges:
   - type: 'custom:button-card'
     template:
       - 'chip_two_rows_climate'
+      - 'chip_navigate_only'
     variables:
-      ulm_chip_temperature_low: sensor.lowest_temperature_home
-      ulm_chip_temperature_high: sensor.highest_temperature_home                     
-      ulm_chip_devices_on: sensor.number_of_climate_entities_on
+      #ulm_chip_temperature_low: sensor.lowest_temperature_home
+      #ulm_chip_temperature_high: sensor.highest_temperature_home
+      ulm_chip_temperature: sensor.highest_lowest_temperature_home_text  
+      ulm_chip_icon_state_entity: sensor.number_of_climate_entities_on
+      ulm_chip_navigate_path: /lovelace/tiles_climate  
 
   # Air Quality Chip
   - type: 'custom:button-card'

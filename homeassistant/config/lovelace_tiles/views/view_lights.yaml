@@ -12,7 +12,7 @@ badges:
     template:
       - 'chip_two_rows_lights'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_lights_on
+      ulm_chip_icon_state_entity: sensor.lights_on_counter
 
 
 sections:

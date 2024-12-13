@@ -25,7 +25,8 @@ sensor:
   - platform: rest
     resource: http://10.0.0.30:49000/current 
     name: redalert
-    value_template: 'OK'
+    unique_id: redalert
+    value_template: "{{ value_json.alert }}"
     json_attributes:
       - alert
       - current
@@ -43,6 +44,7 @@ sensor:
   - platform: rest
     resource: http://10.0.0.30:49000/history
     name: redalert_history
+    unique_id: redalert_history
     value_template: 'OK'
     json_attributes:
       - "history"
@@ -57,14 +59,45 @@ sensor:
 #                                                                          #
 ############################################################################
 
-  - platform: template
-    sensors:
-      redalert_history_count:
-        friendly_name: "Red Alert History Count"
-        value_template: >-
-          {% set count = namespace(value=0) %}
-          {% for alarm in state_attr('sensor.redalert_history', 'history') %}
-            {% set count.value = count.value + 1 %}
-          {% endfor %}
-          {{ count.value }}
+  # - platform: template
+  #   sensors:
+  #     redalert_history_count:
+  #       friendly_name: "Red Alert History Count"
+  #       value_template: >-
+  #         {% set count = namespace(value=0) %}
+  #         {% for alarm in state_attr('sensor.redalert_history', 'history') %}
+  #           {% set count.value = count.value + 1 %}
+  #         {% endfor %}
+  #         {{ count.value }}
 
+template:
+
+  sensor:
+
+    ############################################################################
+    #                                                                          #
+    #   Redalert History Count                                                 #
+    #                                                                          #
+    ############################################################################
+
+    - name: "redalert_history_count"
+      unique_id: redalert_history_count
+      state: >
+        {% set count = namespace(value=0) %}
+        {% for alarm in state_attr('sensor.redalert_history', 'history') %}
+          {% set count.value = count.value + 1 %}
+        {% endfor %}
+        {{ count.value }}
+
+
+
+    ############################################################################
+    #                                                                          #
+    #   Redalert Current                                                       #
+    #                                                                          #
+    ############################################################################
+
+    - name: "redalert_current_json"
+      unique_id: redalert_current_json
+      state: >
+        {{ state_attr('sensor.redalert', 'current') }}

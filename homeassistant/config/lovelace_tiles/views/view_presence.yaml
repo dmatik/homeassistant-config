@@ -1,5 +1,5 @@
 title: נוכחות
-path: tiles_presense
+path: tiles_presence
 visible: false
 type: sections
 subview: true
@@ -10,9 +10,9 @@ badges:
   # Presense Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_two_rows_presense'
+      - 'chip_two_rows_presence'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_persons_home
+      ulm_chip_icon_state_entity: sensor.persons_home_counter
 
   # School Holiday Chip
   - type: 'custom:button-card'

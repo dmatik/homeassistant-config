@@ -98,6 +98,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( states('sensor.switcher_boiler_daily_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Boiler Yesterday Cost
       - name: "switcher_boiler_cost_yesterday"
@@ -106,6 +107,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( state_attr('sensor.switcher_boiler_daily_energy', 'last_period') | float(0) *states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Boiler Curr Month Cost
       - name: "switcher_boiler_cost_curr_month"
@@ -114,6 +116,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( states('sensor.switcher_boiler_monthly_energy') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
 
       # Boiler Previous Month Cost
       - name: "switcher_boiler_cost_prev_month"
@@ -122,6 +125,7 @@ template:
         state_class: total
         device_class: monetary
         state: "{{ ( state_attr('sensor.switcher_boiler_monthly_energy', 'last_period') | float(0) * states('sensor.electricity_current_price') | float(0) ) | round(2) }}"
+        availability: "{{ has_value('sensor.electricity_current_price') }}"
  
 
 

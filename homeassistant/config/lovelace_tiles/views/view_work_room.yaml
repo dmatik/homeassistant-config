@@ -7,15 +7,15 @@ max_columns: 3
 
 badges:
 
-  # Climate Chip
+  # Temperature Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_climate'
+      - 'chip_icon_label_state'
       - 'chip_more_info_with_entity'
       - 'chip_paper_no_state'
     icon: 'mdi:thermometer'
     variables:
-      ulm_chip_temperature_high: sensor.work_room_temperature_sensor_temperature
+      ulm_chip_icon_state_entity: sensor.work_room_temperature_sensor_temperature
       ulm_chip_more_info_entity: sensor.work_room_temperature_sensor_temperature
 
   # Lights Chip
@@ -23,7 +23,7 @@ badges:
     template:
       - 'chip_two_rows_lights'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_lights_on_work_room
+      ulm_chip_icon_state_entity: sensor.lights_on_counter_work_room
 
 
 

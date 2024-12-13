@@ -12,10 +12,11 @@ badges:
       - 'chip_two_rows_climate'
       - 'chip_navigate_only'
     variables:
-      ulm_chip_temperature_low: sensor.lowest_temperature_home
-      ulm_chip_temperature_high: sensor.highest_temperature_home                     
-      ulm_chip_devices_on: sensor.number_of_climate_entities_on
-      ulm_chip_navigate_path: /lovelace/tiles_climate
+      #ulm_chip_temperature_low: sensor.lowest_temperature_home
+      #ulm_chip_temperature_high: sensor.highest_temperature_home
+      ulm_chip_temperature: sensor.highest_lowest_temperature_home_text  
+      ulm_chip_icon_state_entity: sensor.number_of_climate_entities_on
+      ulm_chip_navigate_path: /lovelace/tiles_climate  
 
   # # Presense Chip
   # - type: 'custom:button-card'
@@ -28,14 +29,14 @@ badges:
   #     ulm_chip_icon_state_entity: sensor.number_of_persons_home
   #     ulm_chip_navigate_path: /lovelace/tiles_presense
 
-  # Presense Chip
+  # Presence Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_two_rows_presense'
+      - 'chip_two_rows_presence'
       - 'chip_navigate_only'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_persons_home
-      ulm_chip_navigate_path: /lovelace/tiles_presense
+      ulm_chip_icon_state_entity: sensor.persons_home_counter
+      ulm_chip_navigate_path: /lovelace/tiles_presence
 
   # # Lights Chip
   # - type: 'custom:button-card'
@@ -45,7 +46,7 @@ badges:
   #     - 'chip_yellow'
   #   icon: 'mdi:lightbulb'
   #   variables:
-  #     ulm_chip_icon_state_entity: sensor.number_of_lights_on
+  #     ulm_chip_icon_state_entity: sensor.lights_on_counter
   #     ulm_chip_navigate_path: /lovelace/tiles_lights
 
   # Lights Chip
@@ -54,7 +55,7 @@ badges:
       - 'chip_two_rows_lights'
       - 'chip_navigate_only'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_lights_on
+      ulm_chip_icon_state_entity: sensor.lights_on_counter
       ulm_chip_navigate_path: /lovelace/tiles_lights
 
   # # Covers Chip
@@ -65,7 +66,7 @@ badges:
   #     - 'chip_purple'
   #   icon: 'mdi:window-shutter'
   #   variables:
-  #     ulm_chip_icon_state_entity: sensor.number_of_covers_open
+  #     ulm_chip_icon_state_entity: sensor.covers_open_counter
   #     ulm_chip_navigate_path: /lovelace/tiles_covers
 
   # Covers Chip
@@ -74,7 +75,7 @@ badges:
       - 'chip_two_rows_covers'
       - 'chip_navigate_only'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_covers_open
+      ulm_chip_icon_state_entity: sensor.covers_open_counter
       ulm_chip_navigate_path: /lovelace/tiles_covers
 
   # # Motion Chip
@@ -85,7 +86,7 @@ badges:
   #     - 'chip_yellow'
   #   icon: 'mdi:run'
   #   variables:
-  #     ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+  #     ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
   #     ulm_chip_navigate_path: /lovelace/tiles_motion
 
   # Motion Chip
@@ -94,7 +95,7 @@ badges:
       - 'chip_two_rows_motion'
       - 'chip_navigate_only'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on
+      ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
       ulm_chip_navigate_path: /lovelace/tiles_motion
 
 
@@ -118,31 +119,31 @@ sections:
         layout_options:
           grid_columns: full
           grid_rows: 1
-        icon: mdi:home-floor-b
+        #icon: mdi:home-floor-b
         tap_action:
           action: navigate
           navigation_path: /lovelace/tiles_basement        
         badges:
-          - type: entity
-            show_state: true
-            show_icon: true
-            entity: sensor.number_of_motion_sensors_on_basement
-            icon: mdi:run
-            color: yellow
-            visibility:
-              - condition: numeric_state
-                entity: sensor.number_of_motion_sensors_on_basement
-                above: 0        
-          - type: entity
-            show_state: true
-            show_icon: true
-            entity: sensor.number_of_lights_on_basement
-            color: yellow
-            icon: mdi:lightbulb
-            visibility:
-              - condition: numeric_state
-                entity: sensor.number_of_lights_on_basement
-                above: 0
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.motion_sensors_detected_counter_basement
+          #   icon: mdi:run
+          #   color: yellow
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.motion_sensors_detected_counter_basement
+          #       above: 0        
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.lights_on_counter_basement
+          #   color: yellow
+          #   icon: mdi:lightbulb
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.lights_on_counter_basement
+          #       above: 0
           - type: entity
             show_state: true
             show_icon: true
@@ -214,21 +215,21 @@ sections:
         layout_options:
           grid_columns: full
           grid_rows: 1
-        icon: mdi:laptop
+        #icon: mdi:laptop
         tap_action:
           action: navigate
           navigation_path: /lovelace/tiles_work_room        
         badges:
-          - type: entity
-            show_state: true
-            show_icon: true
-            entity: sensor.number_of_lights_on_work_room
-            color: yellow
-            icon: mdi:lightbulb
-            visibility:
-              - condition: numeric_state
-                entity: sensor.number_of_lights_on_work_room
-                above: 0
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.lights_on_counter_work_room
+          #   color: yellow
+          #   icon: mdi:lightbulb
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.lights_on_counter_work_room
+          #       above: 0
           - type: entity
             show_state: true
             show_icon: true

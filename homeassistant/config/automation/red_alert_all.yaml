@@ -1,0 +1,40 @@
+- alias: Red Alert All YAML
+  id: red_alert_all_yaml
+  description: ""
+  variables:
+    alert_title: |
+      {% if (state_attr("sensor.redalert", "current") and state_attr("sensor.redalert", "current") is not none) %}
+        {{ state_attr("sensor.redalert", "current")["title"] }}
+      {% endif %}
+    alert_data: |
+      {% if (state_attr("sensor.redalert", "current") and state_attr("sensor.redalert", "current") is not none) %}
+        {{ state_attr("sensor.redalert", "current")["data"] }}
+      {% endif %}
+  triggers:
+    - entity_id:
+        - sensor.redalert
+      attribute: current
+      trigger: state
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.redalert_test
+      state: "off"
+    - condition: state
+      entity_id: binary_sensor.redalert_all
+      state: "on"
+  actions:
+    - data:
+        title: |
+          {% if (alert_title and alert_title is not none) %}
+            *{{ alert_title }}*
+          {%- endif %}
+        message: |
+          {% if (alert_data and alert_data is not none) %}
+            {% for l in alert_data -%}
+              {{l+"\n"}}
+            {%- endfor %}
+          {% else %}
+            אין התרעות כרגע
+          {% endif %}
+      action: notify.dimatelegram
+  mode: parallel

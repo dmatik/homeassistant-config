@@ -9,15 +9,7 @@ template:
       #                                                                          #
       ############################################################################
 
-      - name: "Number Of Persons Home"
-        unique_id: number_of_persons_home
+      - name: "Persons Home Counter"
+        unique_id: persons_home_counter
         state: >
           {{ expand(label_entities("persons")) | selectattr('state','eq','home') | list | count }}        
-        # state: >
-        #   {% set count = namespace(value=0) %}
-        #   {% for entity_id in state_attr('group.all_person_entities','entity_id') %}
-        #     {% if (states(entity_id) == 'home') %}
-        #       {% set count.value = count.value + 1 %}
-        #     {% endif %}
-        #   {% endfor %}
-        #   {{ count.value }}

@@ -2,237 +2,163 @@ title: Covers
 path: covers
 visible: false
 icon: mdi:window-shutter
-panel: true
+type: panel
     
 cards:
 
-  - type: vertical-stack
+  - type: horizontal-stack
     cards:
 
+      - type: custom:button-card
+        template: card_blank
 
-############################################################################
-#                                                                          #
-#   Content                                                                #
-#                                                                          #
-############################################################################
 
-      - type: custom:layout-card
-        layout_type: grid
+      ############################################################################
+      #                                                                          #
+      #   Left Column                                                            #
+      #                                                                          #
+      ############################################################################
 
-        layout_options:
-          grid-template-columns: 1fr
-          grid-template-rows: auto
-          grid-gap: 0px 4px
-        
+      - type: vertical-stack
         cards:
 
 
           ############################################################################
           #                                                                          #
-          #   Left Column                                                            #
+          #   Scenes                                                                 #
           #                                                                          #
           ############################################################################
 
-          - type: vertical-stack
+          # Title
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_scenes; ]]]"
+            variables:
+              ulm_title_margin_top: "0px"
+
+          - type: grid
+            square: false
+            columns: 8
             cards:
 
+              # Main Floor Covers
+              - type: 'custom:button-card'
+                template: card_scene_vertical
+                entity: scene.main_floor_covers
+                name: "[[[ return variables.ulm_covers; ]]]"
+                label: "[[[ return variables.ulm_main; ]]]"
+                icon: mdi:window-shutter
+                variables:
+                  color: "purple"
+                  x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
 
-              ############################################################################
-              #                                                                          #
-              #   Scenes                                                                 #
-              #                                                                          #
-              ############################################################################
-
-              # Title
-              - type: horizontal-stack
-                cards:
-
-                  - type: custom:button-card
-                    template: title
-                    name: "[[[ return variables.ulm_scenes; ]]]"
-                    variables:
-                      ulm_title_margin_top: "0px"
-
-              - type: "custom:mod-card"
-                style:
-                  .: |
-                    ha-card {
-                        margin: var(--grid-layout-margins) !important;
-                    }
-                card:
-
-                  type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 4px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
-                  cards:
-
-                    # Main Floor Covers
-                    - type: 'custom:button-card'
-                      template: card_scene_vertical
-                      entity: scene.main_floor_covers
-                      name: "[[[ return variables.ulm_covers; ]]]"
-                      label: "[[[ return variables.ulm_main; ]]]"
-                      icon: mdi:window-shutter
-                      variables:
-                        color: "purple"
-                        x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
-
-                    # Movie time
-                    - type: 'custom:button-card'
-                      template: card_scene_vertical
-                      entity: scene.movie_time
-                      name: "[[[ return variables.ulm_movie; ]]]"
-                      label: "[[[ return variables.ulm_scene; ]]]"
-                      icon: mdi:movie-filter
-                      variables:
-                        color: "blue"
-                        x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"
+              # Movie time
+              - type: 'custom:button-card'
+                template: card_scene_vertical
+                entity: scene.movie_time
+                name: "[[[ return variables.ulm_movie; ]]]"
+                label: "[[[ return variables.ulm_scene; ]]]"
+                icon: mdi:movie-filter
+                variables:
+                  color: "blue"
+                  x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"
 
 
 
-              ############################################################################
-              #                                                                          #
-              #   Floor 0                                                                #
-              #                                                                          #
-              ############################################################################
+          ############################################################################
+          #                                                                          #
+          #   Floor 0                                                                #
+          #                                                                          #
+          ############################################################################
 
-              # Title
-              - type: horizontal-stack
-                cards:
+          # Title
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_ground_floor; ]]]"
 
-                  - type: custom:button-card
-                    template: title
-                    name: "[[[ return variables.ulm_ground_floor; ]]]"
+          - type: grid
+            square: false
+            columns: 4
+            cards:
 
-              - type: "custom:mod-card"
-                style:
-                  .: |
-                    ha-card {
-                        margin: var(--grid-layout-margins) !important;
-                    }
-                card:
+              # Back Yard Cover
+              - type: tile
+                entity: cover.back_yard
+                features:
+                  - type: "cover-open-close"
+                view_layout:
+                  grid-row-start: span 2  
 
-                  # Covers
-                  type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 4px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr 1fr 1fr
-                  cards:
+              # Living Room Window Cover
+              - type: tile
+                entity: cover.living_room_window
+                features:
+                  - type: "cover-open-close"
+                view_layout:
+                  grid-row-start: span 2  
 
-                    # Back Yard Cover
-                    - type: tile
-                      entity: cover.back_yard
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2  
+              # Entrance Window Cover
+              - type: tile
+                entity: cover.entrance_window
+                features:
+                  - type: "cover-open-close"
+                view_layout:
+                  grid-row-start: span 2 
 
-                    # Living Room Window Cover
-                    - type: tile
-                      entity: cover.living_room_window
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2  
-
-                    # Entrance Window Cover
-                    - type: tile
-                      entity: cover.entrance_window
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2 
-
-                    # Kitchen Cover
-                    - type: tile
-                      entity: cover.kitchen
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2 
+              # Kitchen Cover
+              - type: tile
+                entity: cover.kitchen
+                features:
+                  - type: "cover-open-close"
+                view_layout:
+                  grid-row-start: span 2 
 
 
-              ############################################################################
-              #                                                                          #
-              #   Floor 2                                                                #
-              #                                                                          #
-              ############################################################################
+          ############################################################################
+          #                                                                          #
+          #   Floor 2                                                                #
+          #                                                                          #
+          ############################################################################
 
-              # Title
-              - type: horizontal-stack
-                cards:
+          # Title
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_floor_2; ]]]"
 
-                  - type: custom:button-card
-                    template: title
-                    name: "[[[ return variables.ulm_floor_2; ]]]"
+          - type: grid
+            square: false
+            columns: 4
+            cards:
 
-              - type: "custom:mod-card"
-                style:
-                  .: |
-                    ha-card {
-                        margin: var(--grid-layout-margins) !important;
-                    }
-                card:
+              # Bedroom Balcony Cover
+              - type: tile
+                entity: cover.bedroom_balcony
+                features:
+                  - type: "cover-open-close"
 
-                  # Covers
-                  type: custom:layout-card
-                  layout_type: grid
-                  layout_options:
-                    grid-template-columns: 1fr 1fr 1fr 1fr
-                    grid-template-rows: auto
-                    grid-gap: 0px 4px
-                    mediaquery:
-                      "(max-width: 450px)":
-                        grid-template-columns: 1fr 1fr 1fr 1fr
-                  cards:
+              # Bedroom Window Cover
+              - type: tile
+                entity: cover.bedroom_window
+                features:
+                  - type: "cover-open-close"
 
-                    # Bedroom Balcony Cover
-                    - type: tile
-                      entity: cover.bedroom_balcony
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2 
+              # Bedroom Makup Cover
+              - type: tile
+                entity: cover.parents_makeup
+                features:
+                  - type: "cover-open-close"
 
-                    # Bedroom Window Cover
-                    - type: tile
-                      entity: cover.bedroom_window
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2                           
+              # Ronen Room Cover
+              - type: tile
+                entity: cover.ronen_room
+                features:
+                  - type: "cover-open-close"
 
-                    # Bedroom Makup Cover
-                    - type: tile
-                      entity: cover.parents_makeup
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2                            
+              # Kfir Room Cover
+              - type: tile
+                entity: cover.kfir_room
+                features:
+                  - type: "cover-open-close"
 
-                    # Ronen Room Cover
-                    - type: tile
-                      entity: cover.ronen_room
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2  
-
-                    # Kfir Room Cover
-                    - type: tile
-                      entity: cover.kfir_room
-                      features:
-                        - type: "cover-open-close"
-                      view_layout:
-                        grid-row-start: span 2 
+      - type: custom:button-card
+        template: card_blank

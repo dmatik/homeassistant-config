@@ -128,7 +128,7 @@ chip_two_rows_covers:
         return state;
       ]]]
 
-chip_two_rows_presense:
+chip_two_rows_presence:
   template:
     - 'chip_two_rows_base'
     - 'chip_blue'
@@ -173,45 +173,47 @@ chip_two_rows_motion:
 chip_two_rows_climate:
   template:
     - 'chip_two_rows_base'
+    - 'chip_blue'
   icon: "mdi:fan"
   name: "[[[ return variables.ulm_climate; ]]]"
-  state:
-    - operator: "template"
-      value: '[[[ return variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0 ]]]'
-      styles:
-        icon:
-          - color: 'var(--blue-color)'  
-  label: |
-      [[[
-        var state = "";
-        var temp_high = states[variables.ulm_chip_temperature_high].state;
+  # state:
+  #   - operator: "template"
+  #     value: '[[[ return variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0 ]]]'
+  #     styles:
+  #       icon:
+  #         - color: 'var(--blue-color)'  
+  label: "[[[ return states[variables.ulm_chip_temperature].state; ]]]"
+  # label: |
+  #     [[[
+  #       var state = "";
+  #       var temp_high = states[variables.ulm_chip_temperature_high].state;
 
-        if (temp_high == null || temp_high == "unavailable" || temp_high == "unknown") {
-          var temp_high = "--";
-        } else {
-          temp_high = Number(temp_high).toFixed(1);
-        }
+  #       if (temp_high == null || temp_high == "unavailable" || temp_high == "unknown") {
+  #         var temp_high = "--";
+  #       } else {
+  #         temp_high = Number(temp_high).toFixed(1);
+  #       }
 
-        var temp_low = null;
-        if(variables.ulm_chip_temperature_low != null) {
-          temp_low = states[variables.ulm_chip_temperature_low].state;
+  #       var temp_low = null;
+  #       if(variables.ulm_chip_temperature_low != null) {
+  #         temp_low = states[variables.ulm_chip_temperature_low].state;
 
-          if (temp_low == null || temp_low == "unavailable" || temp_low == "unknown") {
-            temp_low = "--";
-          } else {
-            temp_low = Number(temp_low).toFixed(1);
-          }
-        }
-        if (temp_low == null || temp_low === "--" || temp_high - temp_low < 0.5) {
-          state = temp_high + "°";
-        } else {
-          state = temp_low + "-" + temp_high + "°";
-        }
-        if (variables.ulm_chip_devices_on != null && states[variables.ulm_chip_devices_on].state > 0) {
-          state += " • " + states[variables.ulm_chip_devices_on].state;
-        }
-        return state;
-      ]]]
+  #         if (temp_low == null || temp_low == "unavailable" || temp_low == "unknown") {
+  #           temp_low = "--";
+  #         } else {
+  #           temp_low = Number(temp_low).toFixed(1);
+  #         }
+  #       }
+  #       if (temp_low == null || temp_low === "--" || temp_high - temp_low < 0.5) {
+  #         state = temp_high + "°";
+  #       } else {
+  #         state = temp_low + "-" + temp_high + "°";
+  #       }
+  #       if (variables.ulm_chip_icon_state_entity != null && states[variables.ulm_chip_icon_state_entity].state > 0) {
+  #         state += " • " + states[variables.ulm_chip_icon_state_entity].state;
+  #       }
+  #       return state;
+  #     ]]]
 
 chip_two_rows_red_alert:
   template:
@@ -227,17 +229,17 @@ chip_two_rows_red_alert:
             || states[variables.ulm_chip_icon_state_entity].state == "unknown"
             || states[variables.ulm_chip_icon_state_entity].state == "off") {
           state = variables.ulm_off;
-        } else if (variables.ulm_chip_red_alert_option_1_entity != null && states[variables.ulm_chip_red_alert_option_1_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_1_entity != null && states[variables.ulm_chip_red_alert_option_1_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_1_name;
-        } else if (variables.ulm_chip_red_alert_option_2_entity != null && states[variables.ulm_chip_red_alert_option_2_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_2_entity != null && states[variables.ulm_chip_red_alert_option_2_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_2_name;
-        } else if (variables.ulm_chip_red_alert_option_3_entity != null && states[variables.ulm_chip_red_alert_option_3_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_3_entity != null && states[variables.ulm_chip_red_alert_option_3_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option3_name;
-        } else if (variables.ulm_chip_red_alert_option_4_entity != null && states[variables.ulm_chip_red_alert_option_4_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_4_entity != null && states[variables.ulm_chip_red_alert_option_4_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_4_name;
-        } else if (variables.ulm_chip_red_alert_option_5_entity != null && states[variables.ulm_chip_red_alert_option_5_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_5_entity != null && states[variables.ulm_chip_red_alert_option_5_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_5_name;
-        } else if (variables.ulm_chip_red_alert_option_6_entity != null && states[variables.ulm_chip_red_alert_option_6_entity].state == true) {
+        } else if (variables.ulm_chip_red_alert_option_6_entity != null && states[variables.ulm_chip_red_alert_option_6_entity].state == 'on') {
           state = variables.ulm_chip_red_alert_option_6_name;                                                  
         } else {
           state = variables.ulm_red_alert_alarm;

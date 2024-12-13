@@ -153,7 +153,7 @@ sidebar:
                 - 'chip_yellow'
               icon: 'mdi:lightbulb'
               variables:
-                ulm_chip_icon_state_entity: sensor.number_of_lights_on
+                ulm_chip_icon_state_entity: sensor.lights_on_counter
                 ulm_chip_navigate_path: /lovelace-wallpanel-tiles/lights
             # Covers Chip
             - type: 'custom:button-card'
@@ -163,7 +163,7 @@ sidebar:
                 - 'chip_purple'
               icon: 'mdi:window-shutter'
               variables:
-                ulm_chip_icon_state_entity: sensor.number_of_covers_open
+                ulm_chip_icon_state_entity: sensor.covers_open_counter
                 ulm_chip_navigate_path: /lovelace-wallpanel-tiles/covers
     cardStyle: |
       :host {

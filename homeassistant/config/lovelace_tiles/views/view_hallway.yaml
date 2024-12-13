@@ -12,14 +12,14 @@ badges:
     template:
       - 'chip_two_rows_lights'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_lights_on_hallway
+      ulm_chip_icon_state_entity: sensor.lights_on_counter_hallway
 
   # Motion Chip
   - type: 'custom:button-card'
     template:
       - 'chip_two_rows_motion'
     variables:
-      ulm_chip_icon_state_entity: sensor.number_of_motion_sensors_on_hallway
+      ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter_hallway
 
 
 
