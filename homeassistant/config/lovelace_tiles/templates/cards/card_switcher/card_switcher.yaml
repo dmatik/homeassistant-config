@@ -23,6 +23,7 @@ card_switcher:
           ulm_card_switcher_timer_minutes: '[[[ return variables.ulm_card_switcher_timer_minutes ]]]'
           ulm_card_switcher_timer_script: '[[[ return variables.ulm_card_switcher_timer_script ]]]'
           ulm_card_switcher_auto_off: '[[[ return variables.ulm_card_switcher_auto_off ]]]'
+          ulm_card_switcher_timer_service: '[[[ return variables.ulm_card_switcher_timer_service ]]]'
           #x_ulm_card_switcher_name: '[[[ return variables.x_ulm_card_switcher_name ]]]'
           x_ulm_card_switcher_name: |
             [[[
