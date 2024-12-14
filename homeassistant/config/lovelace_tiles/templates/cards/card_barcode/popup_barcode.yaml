@@ -25,12 +25,9 @@ popup_barcode:
             #                                                                          #
             ############################################################################
 
-            - type: custom:layout-card
-              layout_type: grid
-              layout_options:
-                grid-template-columns: 1fr
-                grid-template-rows: auto
-                grid-gap: 0px 4px
+            - type: grid
+              square: false
+              columns: 1
               cards:
 
                 - type: 'custom:button-card'

@@ -37,13 +37,10 @@ popup_switcher:
             #                                                                          #
             ############################################################################
 
-            - type: custom:layout-card
-              layout_type: grid
-              layout_options:
-                grid-template-columns: 1fr
-                grid-template-rows: auto
-                grid-gap: 0px 4px
-              cards:
+            - type: grid
+              square: false
+              columns: 1
+              cards:              
 
                 # Daily
                 - type: "custom:button-card"
@@ -59,12 +56,9 @@ popup_switcher:
                     ulm_card_popup_energy_cost_prev: sensor.switcher_boiler_cost_yesterday
 
 
-            - type: custom:layout-card
-              layout_type: grid
-              layout_options:
-                grid-template-columns: 1fr
-                grid-template-rows: auto
-                grid-gap: 0px 4px
+            - type: grid
+              square: false
+              columns: 1
               cards:
 
                 # Monthly
@@ -92,12 +86,9 @@ popup_switcher:
             #                                                                          #
             ############################################################################
 
-            - type: custom:layout-card
-              layout_type: grid
-              layout_options:
-                grid-template-columns: 1fr 1fr 1fr
-                grid-template-rows: auto
-                grid-gap: 0px 4px
+            - type: grid
+              square: false
+              columns: 3
               cards:
 
                 - type: "custom:button-card"
