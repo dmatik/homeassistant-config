@@ -10,31 +10,40 @@ popup_barcode:
         title: "[[[ return variables.ulm_card_barcode_title ]]]"
         content:
 
-          type: vertical-stack
+          type: horizontal-stack
           cards:
 
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 10px
+            - type: custom:button-card
+              template: card_blank
 
-                
-            ############################################################################
-            #                                                                          #
-            #   Image                                                                  #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 1
+            - type: vertical-stack
               cards:
 
-                - type: 'custom:button-card'
-                  template:
-                    - "popup_card_style"
-                    - "card_image"
-                  variables: 
-                    ulm_card_image: "[[[ return variables.ulm_card_barcode_image ]]]"
+                - type: "custom:button-card"
+                  template: spacer
+                  variables:
+                    height: 10px
+
+                    
+                ############################################################################
+                #                                                                          #
+                #   Image                                                                  #
+                #                                                                          #
+                ############################################################################
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                    - type: 'custom:button-card'
+                      template:
+                        - "popup_card_style"
+                        - "card_image"
+                      variables: 
+                        ulm_card_image: "[[[ return variables.ulm_card_barcode_image ]]]"
+
+            - type: custom:button-card
+              template: card_blank
 
 

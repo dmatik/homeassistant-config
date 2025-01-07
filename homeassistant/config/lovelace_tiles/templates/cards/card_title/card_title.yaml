@@ -2,8 +2,8 @@
 ### Card Title ###
 card_title:
   variables:
-    ulm_title_margin_top: "4px"
-    ulm_title_font_size: "18px"
+    ulm_title_margin_top: "16px"
+    ulm_title_font_size: "16px"
   template:
     - 'ulm_language_variables'
   tap_action:
@@ -16,7 +16,7 @@ card_title:
     card:
       - background-color: "rgba(0,0,0,0)"
       - box-shadow: "none"
-      - height: "auto"
+      - height: "24px"
       - width: "auto"
       - margin-top: "[[[ return variables.ulm_title_margin_top; ]]]"
       - margin-left: "12px"
@@ -34,7 +34,7 @@ card_title:
       - font-size: "[[[ return variables.ulm_title_font_size; ]]]"
       - font-weight: "400"
       - letter-spacing: "0.1px"
-      - line-height: "32px"      
+      - line-height: "24px"      
     label:
       - justify-self: "start"
       - font-weight: "bold"

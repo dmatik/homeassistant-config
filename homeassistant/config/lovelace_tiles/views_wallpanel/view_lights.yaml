@@ -1,10 +1,35 @@
-title: Lights
-path: lights
+title: תאורה
+path: tiles_lights
 visible: false
-icon: mdi:lightbulb
-type: panel
-    
+type: masonry
+subview: true
+
+badges:
+
+  # Back Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_back_new'
+    label: "למסך הבית"
+    variables:
+      ulm_chip_navigate_path: /lovelace-wallpanel-tiles/home
+
+  # Lights Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_lights'
+    variables:
+      ulm_chip_icon_state_entity: sensor.lights_on_counter
+
+
 cards:
+
+
+  ############################################################################
+  #                                                                          #
+  #   First Column                                                           #
+  #                                                                          #
+  ############################################################################
 
   - type: horizontal-stack
     cards:
@@ -12,32 +37,18 @@ cards:
       - type: custom:button-card
         template: card_blank
 
-
-      ############################################################################
-      #                                                                          #
-      #   Left Column                                                            #
-      #                                                                          #
-      ############################################################################
-
       - type: vertical-stack
         cards:
 
-          ############################################################################
-          #                                                                          #
-          #   Floor 0                                                                #
-          #                                                                          #
-          ############################################################################
-
-          # Title
+          # Living Room
           - type: custom:button-card
             template: title
-            name: "[[[ return variables.ulm_ground_floor; ]]]"
-            variables:
-              ulm_title_margin_top: "0px"
+            name: "[[[ return variables.ulm_living_room; ]]]"
 
           - type: grid
+            #title: סלון
             square: false
-            columns: 4
+            columns: 2
             cards:
 
               # Living Room Light
@@ -97,6 +108,9 @@ cards:
                 #name: "[[[ return variables.ulm_guest_bathroom; ]]]"
                 variables:
                   ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
+                layout_options:
+                  grid_columns: 2
+                  grid_rows: 1          
 
               # Front Yard Light
               - type: tile
@@ -117,6 +131,19 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info 
+
+
+
+          # Kitchen
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_kitchen; ]]]"
+
+          - type: grid
+            #title: מטבח
+            square: false
+            columns: 2
+            cards:
 
               # Kitchen Light
               - type: tile
@@ -149,22 +176,35 @@ cards:
                 double_tap_action:
                   action: more-info
 
+      - type: custom:button-card
+        template: card_blank
 
 
-          ############################################################################
-          #                                                                          #
-          #   Floor 2                                                                #
-          #                                                                          #
-          ############################################################################
 
-          # Title
+  ############################################################################
+  #                                                                          #
+  #   Second Column                                                          #
+  #                                                                          #
+  ############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: card_blank
+
+      - type: vertical-stack
+        cards:
+
+          # Floor 2
           - type: custom:button-card
             template: title
             name: "[[[ return variables.ulm_floor_2; ]]]"
 
           - type: grid
+            #title: קומה 2
             square: false
-            columns: 4
+            columns: 2
             cards:
 
               # Hallway Light
@@ -200,6 +240,18 @@ cards:
                 #name: "[[[ return variables.ulm_laundry; ]]]"
                 variables:
                   ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+
+
+          # Bedroom
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_bedroom; ]]]"
+
+          - type: grid
+            #title: הורים
+            square: false
+            columns: 2
+            cards:
 
               # Bedroom Light
               - type: tile
@@ -247,7 +299,7 @@ cards:
                 entity: light.parents_bathroom_ceiling
                 #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
                 variables:
-                  ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+                  ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"        
 
               # Parents Bathroom Mirror Light
               - type: 'custom:button-card'
@@ -255,7 +307,18 @@ cards:
                 entity: light.parents_bathroom_mirror
                 #name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
                 variables:
-                  ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+                  ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"         
+
+          # Ronen Room
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_ronen_room; ]]]"
+
+          - type: grid
+            #title: רונן
+            square: false
+            columns: 2
+            cards:
 
               # Ronen Room Light
               - type: tile
@@ -277,6 +340,17 @@ cards:
                 double_tap_action:
                   action: more-info
 
+          # Kfir Room
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_kfir_room; ]]]"
+
+          - type: grid
+            #title: כפיר
+            square: false
+            columns: 2
+            cards:
+
               # Kfir Room Light
               - type: tile
                 entity: light.kfir_room
@@ -295,23 +369,37 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info                          
+                  action: more-info
+
+      - type: custom:button-card
+        template: card_blank                  
 
 
-          ############################################################################
-          #                                                                          #
-          #   Basement                                                               #
-          #                                                                          #
-          ############################################################################
 
-          # Title
+  ############################################################################
+  #                                                                          #
+  #   Third Column                                                           #
+  #                                                                          #
+  ############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: card_blank
+
+      - type: vertical-stack
+        cards:
+
+          # Basement
           - type: custom:button-card
             template: title
             name: "[[[ return variables.ulm_basement; ]]]"
 
           - type: grid
+            #title: מרתף
             square: false
-            columns: 4
+            columns: 2
             cards:
 
               # Basement Light
@@ -354,6 +442,17 @@ cards:
                 double_tap_action:
                   action: more-info
 
+          # Work Room
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_work_room; ]]]"
+
+          - type: grid
+            #title: חדר עבודה
+            square: false
+            columns: 2
+            cards:
+
               # Work Room Light
               - type: tile
                 entity: light.work_room
@@ -366,3 +465,4 @@ cards:
 
       - type: custom:button-card
         template: card_blank                  
+

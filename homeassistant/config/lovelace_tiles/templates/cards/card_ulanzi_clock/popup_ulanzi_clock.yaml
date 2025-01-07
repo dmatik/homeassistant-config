@@ -5,239 +5,238 @@ popup_ulanzi_clock:
     browser_mod:
       service: browser_mod.popup
       data:
-        # card_mod:
-        #   style:
-        #     ha-dialog$: |
-        #       .mdc-dialog__scrim {
-        #         backdrop-filter: blur(3px);
-        #         -webkit-backdrop-filter: blur(3px);
-        #       }
-        #     ha-header-bar$: |
-        #       .mdc-top-app-bar {
-        #         background: var(--header-background-color) !important;
-        #       }
         title: '[[[ return variables.ulm_card_ulanzi_clock_title; ]]]'
         content:
 
-          type: vertical-stack
+          type: horizontal-stack
           cards:
 
-            ############################################################################
-            #                                                                          #
-            #   Header                                                                 #
-            #                                                                          #
-            ############################################################################
+            - type: custom:button-card
+              template: card_blank
 
-            - type: "custom:button-card"
-              template: 
-                - 'popup_header_ha_style'
-                - 'popup_header_ulanzi_name'
-              variables:
-                ulm_card_ulanzi_clock_current_app: '[[[ return variables.ulm_card_ulanzi_clock_current_app ]]]'
-              triggers_update: all
-              entity: '[[[ return variables.ulm_card_ulanzi_clock_entity ]]]'
-
-
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 20px
-
-
-            ############################################################################
-            #                                                                          #
-            #   Sensors                                                                #
-            #                                                                          #
-            ############################################################################
-
-
-            - type: grid
-              square: false
-              columns: 1
+            - type: vertical-stack
               cards:
 
-                # Current App
+                ############################################################################
+                #                                                                          #
+                #   Header                                                                 #
+                #                                                                          #
+                ############################################################################
+
                 - type: "custom:button-card"
                   template: 
-                    - 'popup_text_info'
-                    - 'popup_text_info_item2'
+                    - 'popup_header_ha_style'
+                    - 'popup_header_ulanzi_name'
                   variables:
-                    ulm_card_item2: "[[[ return variables.ulm_card_ulanzi_clock_current_app ]]]"
-                  custom_fields:
-                    item1: 'Current App:'
-
-                # Battery
-                - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'Battery:'
-                    item2: "[[[ return states[variables.ulm_card_ulanzi_clock_battery].state + '%' ]]]"
-
-                # Version
-                - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'Version:'
-                    item2: "[[[ return states[variables.ulm_card_ulanzi_clock_version].state ]]]"
-
-                # Temperature
-                - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'Temperature:'
-                    item2: "[[[ return states[variables.ulm_card_ulanzi_clock_temperature].state + ' °C' ]]]"
-
-                # WiFi Strength
-                - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'WiFi Strength:'
-                    item2: "[[[ return states[variables.ulm_card_ulanzi_clock_wifi_strength].state + ' dB']]]"
-
-
-            - type: "custom:button-card"
-              template: spacer
-              # variables:
-              #   height: 40px
-
-
-
-            ############################################################################
-            #                                                                          #
-            #   Buttons                                                                #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 3
-              cards:
-
-                # Previous App
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:arrow-left-bold
-                  name: 'Previous App'
-                  tap_action:
-                    action: call-service
-                    service: button.press
-                    service_data:
-                      entity_id: '[[[ return variables.ulm_card_ulanzi_clock_previous_app; ]]]'
-
-                # Next App
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:arrow-right-bold
-                  name: 'Next App'
-                  tap_action:
-                    action: call-service
-                    service: button.press
-                    service_data:
-                      entity_id: '[[[ return variables.ulm_card_ulanzi_clock_next_app; ]]]'
-
-                # Transition
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  entity: '[[[ return variables.ulm_card_ulanzi_clock_transition ]]]'
-                  icon: mdi:swap-horizontal-bold
-                  name: Transition
-                  tap_action:
-                    action: call-service
-                    service: switch.toggle
-                    service_data:
-                      entity_id: '[[[ return variables.ulm_card_ulanzi_clock_transition ]]]'
-                  state:
-                    - value: 'on'
-                      styles:
-                        img_cell:
-                          - background-color: 'rgba(var(--color-theme), 0.2)'                      
-
-                # Indicator 1
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  entity: '[[[ return variables.ulm_card_ulanzi_clock_indicator_1 ]]]'
-                  icon: mdi:arrow-top-right-thick
-                  name: Indicator 1
-                  tap_action:
-                    action: call-service
-                    service: light.toggle
-                    service_data:
-                      entity_id: '[[[ return variables.ulm_card_ulanzi_clock_indicator_1 ]]]'
-                  state:
-                    - value: 'on'
-                      styles:
-                        img_cell:
-                          - background-color: 'rgba(var(--color-theme), 0.2)'
-
-                # Indicator 2
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  entity: '[[[ return variables.ulm_card_ulanzi_clock_indicator_2 ]]]'
-                  icon: mdi:arrow-bottom-right-thick
-                  name: Indicator 1
-                  tap_action:
-                    action: call-service
-                    service: light.toggle
-                    service_data:
-                      entity_id: '[[[ return variables.ulm_card_ulanzi_clock_indicator_2 ]]]'
-                  state:
-                    - value: 'on'
-                      styles:
-                        img_cell:
-                          - background-color: 'rgba(var(--color-theme), 0.2)'  
-
-                # Dismiss Notification
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:bell-off
-                  name: 'Dismiss'
-                  tap_action:
-                    action: call-service
-                    service: button.press
-                    service_data:
-                      entity_id: '[[[ return variables.ulm_card_ulanzi_clock_dismiss_notification; ]]]'
-
-            - type: "custom:button-card"
-              template: spacer
-              # variables:
-              #   height: 40px
-
-
-
-            ############################################################################
-            #                                                                          #
-            #   Footer                                                                 #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 1
-              cards:
-
-                # - type: "custom:button-card"
-                #   template: "popup_button_back"
-
-                - type: "custom:button-card"
-                  template: 
-                    - 'blue_on'
-                    - 'popup_button_power_ha_style'
+                    ulm_card_ulanzi_clock_current_app: '[[[ return variables.ulm_card_ulanzi_clock_current_app ]]]'
+                  triggers_update: all
                   entity: '[[[ return variables.ulm_card_ulanzi_clock_entity ]]]'
-                  name: Matrix
-                  icon: mdi:lightbulb
 
+
+                - type: "custom:button-card"
+                  template: spacer
+                  variables:
+                    height: 20px
+
+
+                ############################################################################
+                #                                                                          #
+                #   Sensors                                                                #
+                #                                                                          #
+                ############################################################################
+
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                    # Current App
+                    - type: "custom:button-card"
+                      template: 
+                        - 'popup_text_info'
+                        - 'popup_text_info_item2'
+                      variables:
+                        ulm_card_item2: "[[[ return variables.ulm_card_ulanzi_clock_current_app ]]]"
+                      custom_fields:
+                        item1: 'Current App:'
+
+                    # Battery
+                    - type: "custom:button-card"
+                      template: "popup_text_info"
+                      custom_fields:
+                        item1: 'Battery:'
+                        item2: "[[[ return states[variables.ulm_card_ulanzi_clock_battery].state + '%' ]]]"
+
+                    # Version
+                    - type: "custom:button-card"
+                      template: "popup_text_info"
+                      custom_fields:
+                        item1: 'Version:'
+                        item2: "[[[ return states[variables.ulm_card_ulanzi_clock_version].state ]]]"
+
+                    # Temperature
+                    - type: "custom:button-card"
+                      template: "popup_text_info"
+                      custom_fields:
+                        item1: 'Temperature:'
+                        item2: "[[[ return states[variables.ulm_card_ulanzi_clock_temperature].state + ' °C' ]]]"
+
+                    # WiFi Strength
+                    - type: "custom:button-card"
+                      template: "popup_text_info"
+                      custom_fields:
+                        item1: 'WiFi Strength:'
+                        item2: "[[[ return states[variables.ulm_card_ulanzi_clock_wifi_strength].state + ' dB']]]"
+
+
+                - type: "custom:button-card"
+                  template: spacer
+                  # variables:
+                  #   height: 40px
+
+
+
+                ############################################################################
+                #                                                                          #
+                #   Buttons                                                                #
+                #                                                                          #
+                ############################################################################
+
+                - type: grid
+                  square: false
+                  columns: 3
+                  cards:
+
+                    # Previous App
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:arrow-left-bold
+                      name: 'Previous App'
+                      tap_action:
+                        action: call-service
+                        service: button.press
+                        service_data:
+                          entity_id: '[[[ return variables.ulm_card_ulanzi_clock_previous_app; ]]]'
+
+                    # Next App
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:arrow-right-bold
+                      name: 'Next App'
+                      tap_action:
+                        action: call-service
+                        service: button.press
+                        service_data:
+                          entity_id: '[[[ return variables.ulm_card_ulanzi_clock_next_app; ]]]'
+
+                    # Transition
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      entity: '[[[ return variables.ulm_card_ulanzi_clock_transition ]]]'
+                      icon: mdi:swap-horizontal-bold
+                      name: Transition
+                      tap_action:
+                        action: call-service
+                        service: switch.toggle
+                        service_data:
+                          entity_id: '[[[ return variables.ulm_card_ulanzi_clock_transition ]]]'
+                      state:
+                        - value: 'on'
+                          styles:
+                            img_cell:
+                              - background-color: 'rgba(var(--color-theme), 0.2)'                      
+
+                    # Indicator 1
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      entity: '[[[ return variables.ulm_card_ulanzi_clock_indicator_1 ]]]'
+                      icon: mdi:arrow-top-right-thick
+                      name: Indicator 1
+                      tap_action:
+                        action: call-service
+                        service: light.toggle
+                        service_data:
+                          entity_id: '[[[ return variables.ulm_card_ulanzi_clock_indicator_1 ]]]'
+                      state:
+                        - value: 'on'
+                          styles:
+                            img_cell:
+                              - background-color: 'rgba(var(--color-theme), 0.2)'
+
+                    # Indicator 2
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      entity: '[[[ return variables.ulm_card_ulanzi_clock_indicator_2 ]]]'
+                      icon: mdi:arrow-bottom-right-thick
+                      name: Indicator 1
+                      tap_action:
+                        action: call-service
+                        service: light.toggle
+                        service_data:
+                          entity_id: '[[[ return variables.ulm_card_ulanzi_clock_indicator_2 ]]]'
+                      state:
+                        - value: 'on'
+                          styles:
+                            img_cell:
+                              - background-color: 'rgba(var(--color-theme), 0.2)'  
+
+                    # Dismiss Notification
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:bell-off
+                      name: 'Dismiss'
+                      tap_action:
+                        action: call-service
+                        service: button.press
+                        service_data:
+                          entity_id: '[[[ return variables.ulm_card_ulanzi_clock_dismiss_notification; ]]]'
+
+                - type: "custom:button-card"
+                  template: spacer
+                  # variables:
+                  #   height: 40px
+
+
+
+                ############################################################################
+                #                                                                          #
+                #   Footer                                                                 #
+                #                                                                          #
+                ############################################################################
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                    # - type: "custom:button-card"
+                    #   template: "popup_button_back"
+
+                    - type: "custom:button-card"
+                      template: 
+                        - 'blue_on'
+                        - 'popup_button_power_ha_style'
+                      entity: '[[[ return variables.ulm_card_ulanzi_clock_entity ]]]'
+                      name: Matrix
+                      icon: mdi:lightbulb
+
+
+            - type: custom:button-card
+              template: card_blank
+              
 
 popup_header_ulanzi_name:
   name: |-

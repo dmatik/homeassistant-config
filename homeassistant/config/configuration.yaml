@@ -137,3 +137,4 @@ camera:
 #           mac: !secret basement_tv_mac
 
 climate: !include climate.yaml
+

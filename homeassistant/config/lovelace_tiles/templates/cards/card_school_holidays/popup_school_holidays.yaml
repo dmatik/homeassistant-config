@@ -8,100 +8,110 @@ popup_school_holidays:
         content:
 
 
-          type: vertical-stack
+          type: horizontal-stack
           cards:
 
-            ############################################################################
-            #                                                                          #
-            #   Header                                                                 #
-            #                                                                          #
-            ############################################################################
+            - type: custom:button-card
+              template: card_blank
 
-            - type: "custom:button-card"
-              template: 
-                - 'popup_header_ha_style'
-              triggers_update: all
-              entity: sensor.school_summary
-
-
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 20px
-
-            ############################################################################
-            #                                                                          #
-            #   Sensors                                                                #
-            #                                                                          #
-            ############################################################################
-
-
-            - type: grid
-              square: false
-              columns: 1
+            - type: vertical-stack
               cards:
 
-                # Elementary School
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_text_info"
-                    - "direction_rtl"
-                  custom_fields:
-                    item1: "[[[ return variables.ulm_school_elementary + ':' ]]]"
-                    item2: |-
-                      [[[ 
-                        if ( states['sensor.school_is_elementary_vacation'].state == 'True' )
-                          return states['sensor.school_summary'].state;
-                        else
-                          return variables.ulm_school_regular; 
-                      ]]]
-
-                # High School
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_text_info"
-                    - "direction_rtl"
-                  custom_fields:
-                    item1: "[[[ return variables.ulm_school_high + ':' ]]]"
-                    item2: |-
-                      [[[ 
-                        if ( states['sensor.school_is_high_vacation'].state == 'True' )
-                          return states['sensor.school_summary'].state;
-                        else
-                          return variables.ulm_school_regular; 
-                      ]]]
-
-
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 20px
-                
-
-            ############################################################################
-            #                                                                          #
-            #   Buttons                                                                #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 1
-              cards:
+                ############################################################################
+                #                                                                          #
+                #   Header                                                                 #
+                #                                                                          #
+                ############################################################################
 
                 - type: "custom:button-card"
                   template: 
-                    #- "red_on"
-                    - "deep_orange_background_on"
-                    - "popup_button_ha_style"
-                  entity: 'input_boolean.school_mode'
-                  name: 'School Mode'
-                  tap_action:
-                    action: 'call-service'
-                    service: 'input_boolean.toggle'
-                    service_data:
-                      entity_id: 'input_boolean.school_mode'
+                    - 'popup_header_ha_style'
+                  triggers_update: all
+                  entity: sensor.school_summary
 
 
-            - type: "custom:button-card"
-              template: spacer
+                - type: "custom:button-card"
+                  template: spacer
+                  variables:
+                    height: 20px
+
+                ############################################################################
+                #                                                                          #
+                #   Sensors                                                                #
+                #                                                                          #
+                ############################################################################
+
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                    # Elementary School
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_text_info"
+                        - "direction_rtl"
+                      custom_fields:
+                        item1: "[[[ return variables.ulm_school_elementary + ':' ]]]"
+                        item2: |-
+                          [[[ 
+                            if ( states['sensor.school_is_elementary_vacation'].state == 'True' )
+                              return states['sensor.school_summary'].state;
+                            else
+                              return variables.ulm_school_regular; 
+                          ]]]
+
+                    # High School
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_text_info"
+                        - "direction_rtl"
+                      custom_fields:
+                        item1: "[[[ return variables.ulm_school_high + ':' ]]]"
+                        item2: |-
+                          [[[ 
+                            if ( states['sensor.school_is_high_vacation'].state == 'True' )
+                              return states['sensor.school_summary'].state;
+                            else
+                              return variables.ulm_school_regular; 
+                          ]]]
+
+
+                - type: "custom:button-card"
+                  template: spacer
+                  variables:
+                    height: 20px
+                    
+
+                ############################################################################
+                #                                                                          #
+                #   Buttons                                                                #
+                #                                                                          #
+                ############################################################################
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                    - type: "custom:button-card"
+                      template: 
+                        #- "red_on"
+                        - "deep_orange_background_on"
+                        - "popup_button_ha_style"
+                      entity: 'input_boolean.school_mode'
+                      name: 'School Mode'
+                      tap_action:
+                        action: 'call-service'
+                        service: 'input_boolean.toggle'
+                        service_data:
+                          entity_id: 'input_boolean.school_mode'
+
+
+                - type: "custom:button-card"
+                  template: spacer
+
+
+            - type: custom:button-card
+              template: card_blank

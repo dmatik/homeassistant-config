@@ -8,163 +8,173 @@ popup_fully:
         content:
 
 
-          type: vertical-stack
+          type: horizontal-stack
           cards:
 
-            ############################################################################
-            #                                                                          #
-            #   Header                                                                 #
-            #                                                                          #
-            ############################################################################
+            - type: custom:button-card
+              template: card_blank
 
-            - type: "custom:button-card"
-              template: 
-                - 'popup_header_ha_style'
-              triggers_update: all
-              entity: '[[[ return variables.ulm_card_fully_plugged_in_entity ]]]'
-              name: |-
-                [[[ 
-                  var plugged;
-                  if (states[variables.ulm_card_fully_plugged_in_entity].state == 'on') {
-                    plugged = "Plugged";
-                  } else {
-                    plugged = "Unplugged";
-                  }
-                  return states[variables.ulm_card_fully_battery_entity].state + '% • ' + plugged;
-                ]]]
-
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 20px
-
-
-            ############################################################################
-            #                                                                          #
-            #   Sensors                                                                #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 1
+            - type: vertical-stack
               cards:
 
-                # # Battery
-                # - type: "custom:button-card"
-                #   template: "widget_mini_graph_bar"
-                #   variables:
-                #     mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
-                #     mini_graph_entity: '[[[ return variables.ulm_card_fully_battery_entity; ]]]'
-                #     mini_graph_name: 'Battery'
+                ############################################################################
+                #                                                                          #
+                #   Header                                                                 #
+                #                                                                          #
+                ############################################################################
 
-                # Current Page
                 - type: "custom:button-card"
                   template: 
-                    - "popup_text_info_2_rows"
-                  custom_fields:
-                    item1: "Current Page:"
-                    item2: '[[[ return states[variables.ulm_card_fully_current_page_entity].state ]]]'
+                    - 'popup_header_ha_style'
+                  triggers_update: all
+                  entity: '[[[ return variables.ulm_card_fully_plugged_in_entity ]]]'
+                  name: |-
+                    [[[ 
+                      var plugged;
+                      if (states[variables.ulm_card_fully_plugged_in_entity].state == 'on') {
+                        plugged = "Plugged";
+                      } else {
+                        plugged = "Unplugged";
+                      }
+                      return states[variables.ulm_card_fully_battery_entity].state + '% • ' + plugged;
+                    ]]]
 
-
-            - type: "custom:button-card"
-              template: spacer
-
-
-
-            ############################################################################
-            #                                                                          #
-            #   Buttons                                                                #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 3
-              cards:
-
-                # Reload URL
                 - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:reload
-                  name: 'Reload URL'
-                  tap_action:
-                    action: "call-service"
-                    service: "button.press"
-                    target:
-                      entity_id: "[[[ return variables.ulm_card_fully_load_start_url_entity ]]]"
+                  template: spacer
+                  variables:
+                    height: 20px
 
-                # Disable Kiosk
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:page-layout-sidebar-right
-                  name: 'Disable Kiosk'
-                  tap_action:
-                    action: call-service
-                    service: "[[[ return variables.ulm_card_fully_disable_kiosk_command ]]]"
 
-                # Restart App
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:restart
-                  name: 'Restart App'
-                  tap_action:
-                    action: call-service
-                    service: "[[[ return variables.ulm_card_fully_restart_app_command ]]]"
+                ############################################################################
+                #                                                                          #
+                #   Sensors                                                                #
+                #                                                                          #
+                ############################################################################
 
-                # Clear Cache
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:broom
-                  name: 'Clear Cache'
-                  tap_action:
-                    action: call-service
-                    service: "[[[ return variables.ulm_card_fully_clear_cache_command ]]]"
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
 
-                # Screenshot
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:monitor-screenshot
-                  name: 'Screenshot'
-                  entity: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
-                  tap_action:
-                    action: more-info
+                    # # Battery
+                    # - type: "custom:button-card"
+                    #   template: "widget_mini_graph_bar"
+                    #   variables:
+                    #     mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
+                    #     mini_graph_entity: '[[[ return variables.ulm_card_fully_battery_entity; ]]]'
+                    #     mini_graph_name: 'Battery'
 
-                # Camera
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:cctv
-                  name: 'Camera'
-                  entity: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
-                  tap_action:
-                    action: more-info
+                    # Current Page
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_text_info_2_rows"
+                      custom_fields:
+                        item1: "Current Page:"
+                        item2: '[[[ return states[variables.ulm_card_fully_current_page_entity].state ]]]'
 
-                # Screen On/Off
+
                 - type: "custom:button-card"
-                  template:
-                    - "teal_background_on"
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: "mdi:tablet-dashboard"
-                  name: 'Screen On/Off'
-                  entity: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
-                  tap_action:
-                    action: 'call-service'
-                    service: 'switch.toggle'
-                    service_data:
-                      entity_id: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
+                  template: spacer
+
+
+
+                ############################################################################
+                #                                                                          #
+                #   Buttons                                                                #
+                #                                                                          #
+                ############################################################################
+
+                - type: grid
+                  square: false
+                  columns: 3
+                  cards:
+
+                    # Reload URL
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:reload
+                      name: 'Reload URL'
+                      tap_action:
+                        action: "call-service"
+                        service: "button.press"
+                        target:
+                          entity_id: "[[[ return variables.ulm_card_fully_load_start_url_entity ]]]"
+
+                    # Disable Kiosk
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:page-layout-sidebar-right
+                      name: 'Disable Kiosk'
+                      tap_action:
+                        action: call-service
+                        service: "[[[ return variables.ulm_card_fully_disable_kiosk_command ]]]"
+
+                    # Restart App
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:restart
+                      name: 'Restart App'
+                      tap_action:
+                        action: call-service
+                        service: "[[[ return variables.ulm_card_fully_restart_app_command ]]]"
+
+                    # Clear Cache
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:broom
+                      name: 'Clear Cache'
+                      tap_action:
+                        action: call-service
+                        service: "[[[ return variables.ulm_card_fully_clear_cache_command ]]]"
+
+                    # Screenshot
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:monitor-screenshot
+                      name: 'Screenshot'
+                      entity: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
+                      tap_action:
+                        action: more-info
+
+                    # Camera
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:cctv
+                      name: 'Camera'
+                      entity: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
+                      tap_action:
+                        action: more-info
+
+                    # Screen On/Off
+                    - type: "custom:button-card"
+                      template:
+                        - "teal_background_on"
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: "mdi:tablet-dashboard"
+                      name: 'Screen On/Off'
+                      entity: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
+                      tap_action:
+                        action: 'call-service'
+                        service: 'switch.toggle'
+                        service_data:
+                          entity_id: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
+
+
+            - type: custom:button-card
+              template: card_blank
 
 
 

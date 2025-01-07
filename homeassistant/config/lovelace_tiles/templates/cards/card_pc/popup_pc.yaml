@@ -7,136 +7,145 @@ popup_pc:
         title: '[[[ return variables.x_ulm_card_pc_name; ]]]'
         content:
 
-          type: vertical-stack
+          type: horizontal-stack
           cards:
 
-            ############################################################################
-            #                                                                          #
-            #   Header                                                                 #
-            #                                                                          #
-            ############################################################################
+            - type: custom:button-card
+              template: card_blank
 
-            - type: "custom:button-card"
-              template: 
-                - 'popup_header_ha_style'
-              triggers_update: all
-              entity: '[[[ return variables.ulm_card_pc_entity ]]]'
-
-
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 20px
-
-                
-            ############################################################################
-            #                                                                          #
-            #   Sensors                                                                #
-            #                                                                          #
-            ############################################################################
-
-            - type: conditional
-              conditions:
-                - entity: '[[[ return variables.ulm_card_pc_entity ]]]'
-                  state: "on"
-              card:
-
-                type: grid
-                square: false
-                columns: 1
-                cards:                
-
-                  - type: "custom:button-card"
-                    template: "popup_widget_mini_graph_bar"
-                    variables:
-                      mini_graph_color: 'rgba(var(--rgb-purple-color),0.2)'
-                      mini_graph_entity: '[[[ return variables.ulm_card_pc_memoryusage; ]]]'
-                      mini_graph_name: 'RAM'
-
-                  - type: "custom:button-card"
-                    template: "popup_widget_mini_graph_bar"
-                    variables:
-                      mini_graph_color: 'rgba(var(--rgb-blue-color),0.2)'
-                      mini_graph_entity: '[[[ return variables.ulm_card_pc_cpuload; ]]]'
-                      mini_graph_name: 'CPU'
-
-                  - type: "custom:button-card"
-                    template: "popup_widget_mini_graph_bar"
-                    variables:
-                      mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
-                      mini_graph_entity: '[[[ return variables.ulm_card_pc_storage_1; ]]]'
-                      mini_graph_name: 'Disk C'
-
-                  - type: "custom:button-card"
-                    template: "popup_widget_mini_graph_bar"
-                    variables:
-                      mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
-                      mini_graph_entity: '[[[ return variables.ulm_card_pc_storage_2; ]]]'
-                      mini_graph_name: 'Disk D'
-
-
-            - type: "custom:button-card"
-              template: spacer
-              # variables:
-              #   height: 40px
-
-
-
-            ############################################################################
-            #                                                                          #
-            #   Buttons                                                                #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 4
+            - type: vertical-stack
               cards:
 
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:lan-connect
-                  name: 'Wake'
-                  tap_action:
-                    action: call-service
-                    service: '[[[ return variables.ulm_card_pc_wake; ]]]'
+                ############################################################################
+                #                                                                          #
+                #   Header                                                                 #
+                #                                                                          #
+                ############################################################################
 
                 - type: "custom:button-card"
                   template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:sleep
-                  name: 'Sleep'
-                  tap_action:
-                    action: call-service
-                    service: '[[[ return variables.ulm_card_pc_sleep; ]]]'
+                    - 'popup_header_ha_style'
+                  triggers_update: all
+                  entity: '[[[ return variables.ulm_card_pc_entity ]]]'
+
 
                 - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:restart
-                  name: 'Restart'
-                  tap_action:
-                    action: call-service
-                    service: '[[[ return variables.ulm_card_pc_restart; ]]]'
+                  template: spacer
+                  variables:
+                    height: 20px
+
+                    
+                ############################################################################
+                #                                                                          #
+                #   Sensors                                                                #
+                #                                                                          #
+                ############################################################################
+
+                - type: conditional
+                  conditions:
+                    - entity: '[[[ return variables.ulm_card_pc_entity ]]]'
+                      state: "on"
+                  card:
+
+                    type: grid
+                    square: false
+                    columns: 1
+                    cards:                
+
+                      - type: "custom:button-card"
+                        template: "popup_widget_mini_graph_bar"
+                        variables:
+                          mini_graph_color: 'rgba(var(--rgb-purple-color),0.2)'
+                          mini_graph_entity: '[[[ return variables.ulm_card_pc_memoryusage; ]]]'
+                          mini_graph_name: 'RAM'
+
+                      - type: "custom:button-card"
+                        template: "popup_widget_mini_graph_bar"
+                        variables:
+                          mini_graph_color: 'rgba(var(--rgb-blue-color),0.2)'
+                          mini_graph_entity: '[[[ return variables.ulm_card_pc_cpuload; ]]]'
+                          mini_graph_name: 'CPU'
+
+                      - type: "custom:button-card"
+                        template: "popup_widget_mini_graph_bar"
+                        variables:
+                          mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
+                          mini_graph_entity: '[[[ return variables.ulm_card_pc_storage_1; ]]]'
+                          mini_graph_name: 'Disk C'
+
+                      - type: "custom:button-card"
+                        template: "popup_widget_mini_graph_bar"
+                        variables:
+                          mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
+                          mini_graph_entity: '[[[ return variables.ulm_card_pc_storage_2; ]]]'
+                          mini_graph_name: 'Disk D'
+
 
                 - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:power
-                  name: 'Shutdown'
-                  tap_action:
-                    action: call-service
-                    service: '[[[ return variables.ulm_card_pc_shutdown; ]]]'
+                  template: spacer
+                  # variables:
+                  #   height: 40px
 
-            - type: "custom:button-card"
-              template: spacer
-              # variables:
-              #   height: 20px
+
+
+                ############################################################################
+                #                                                                          #
+                #   Buttons                                                                #
+                #                                                                          #
+                ############################################################################
+
+                - type: grid
+                  square: false
+                  columns: 4
+                  cards:
+
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:lan-connect
+                      name: 'Wake'
+                      tap_action:
+                        action: call-service
+                        service: '[[[ return variables.ulm_card_pc_wake; ]]]'
+
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:sleep
+                      name: 'Sleep'
+                      tap_action:
+                        action: call-service
+                        service: '[[[ return variables.ulm_card_pc_sleep; ]]]'
+
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:restart
+                      name: 'Restart'
+                      tap_action:
+                        action: call-service
+                        service: '[[[ return variables.ulm_card_pc_restart; ]]]'
+
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:power
+                      name: 'Shutdown'
+                      tap_action:
+                        action: call-service
+                        service: '[[[ return variables.ulm_card_pc_shutdown; ]]]'
+
+                - type: "custom:button-card"
+                  template: spacer
+                  # variables:
+                  #   height: 20px
+
+            - type: custom:button-card
+              template: card_blank
 
 
 

@@ -712,7 +712,7 @@
       light_target_off:
       - light.kitchen_led_strip
       sun_elevation_value: 90
-      light_level_entity: sensor.kitchen_light_level_sensor_illuminance_lux
+      light_level_entity: sensor.kitchen_light_level_sensor_illuminance
       light_level_threshold_value: 100
 - id: '1710787657414'
   alias: Main Floor Covers

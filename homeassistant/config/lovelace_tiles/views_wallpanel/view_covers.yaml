@@ -1,10 +1,34 @@
-title: Covers
-path: covers
+title: תריסים
+path: tiles_covers
 visible: false
-icon: mdi:window-shutter
-type: panel
-    
+type: masonry
+subview: true
+
+badges:
+
+  # Back Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_back_new'
+    label: "למסך הבית"
+    variables:
+      ulm_chip_navigate_path: /lovelace-wallpanel-tiles/home
+
+  # Covers Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_covers'
+    variables:
+      ulm_chip_icon_state_entity: sensor.covers_open_counter
+
+
 cards:
+
+  ############################################################################
+  #                                                                          #
+  #   First Column                                                           #
+  #                                                                          #
+  ############################################################################
 
   - type: horizontal-stack
     cards:
@@ -12,33 +36,18 @@ cards:
       - type: custom:button-card
         template: card_blank
 
-
-      ############################################################################
-      #                                                                          #
-      #   Left Column                                                            #
-      #                                                                          #
-      ############################################################################
-
       - type: vertical-stack
         cards:
 
-
-          ############################################################################
-          #                                                                          #
-          #   Scenes                                                                 #
-          #                                                                          #
-          ############################################################################
-
-          # Title
+          # Scenes
           - type: custom:button-card
             template: title
             name: "[[[ return variables.ulm_scenes; ]]]"
-            variables:
-              ulm_title_margin_top: "0px"
 
           - type: grid
+            #title: תרחישים
             square: false
-            columns: 8
+            columns: 4
             cards:
 
               # Main Floor Covers
@@ -50,7 +59,7 @@ cards:
                 icon: mdi:window-shutter
                 variables:
                   color: "purple"
-                  x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
+                  x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"         
 
               # Movie time
               - type: 'custom:button-card'
@@ -65,69 +74,70 @@ cards:
 
 
 
-          ############################################################################
-          #                                                                          #
-          #   Floor 0                                                                #
-          #                                                                          #
-          ############################################################################
-
-          # Title
+          # Main Floor
           - type: custom:button-card
             template: title
             name: "[[[ return variables.ulm_ground_floor; ]]]"
 
           - type: grid
+            #title: קומת קרקע
             square: false
-            columns: 4
+            columns: 2
             cards:
 
               # Back Yard Cover
               - type: tile
                 entity: cover.back_yard
                 features:
-                  - type: "cover-open-close"
-                view_layout:
-                  grid-row-start: span 2  
+                  - type: "cover-open-close" 
 
               # Living Room Window Cover
               - type: tile
                 entity: cover.living_room_window
                 features:
-                  - type: "cover-open-close"
-                view_layout:
-                  grid-row-start: span 2  
+                  - type: "cover-open-close" 
 
               # Entrance Window Cover
               - type: tile
                 entity: cover.entrance_window
                 features:
                   - type: "cover-open-close"
-                view_layout:
-                  grid-row-start: span 2 
 
               # Kitchen Cover
               - type: tile
                 entity: cover.kitchen
                 features:
                   - type: "cover-open-close"
-                view_layout:
-                  grid-row-start: span 2 
+
+      - type: custom:button-card
+        template: card_blank
 
 
-          ############################################################################
-          #                                                                          #
-          #   Floor 2                                                                #
-          #                                                                          #
-          ############################################################################
 
-          # Title
+  ############################################################################
+  #                                                                          #
+  #   Second Column                                                          #
+  #                                                                          #
+  ############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: card_blank
+
+      - type: vertical-stack
+        cards:
+
+          # Floor 2
           - type: custom:button-card
             template: title
             name: "[[[ return variables.ulm_floor_2; ]]]"
 
           - type: grid
+            #title: קומה 2
             square: false
-            columns: 4
+            columns: 2
             cards:
 
               # Bedroom Balcony Cover
@@ -140,25 +150,25 @@ cards:
               - type: tile
                 entity: cover.bedroom_window
                 features:
-                  - type: "cover-open-close"
+                  - type: "cover-open-close"                           
 
               # Bedroom Makup Cover
               - type: tile
                 entity: cover.parents_makeup
                 features:
-                  - type: "cover-open-close"
+                  - type: "cover-open-close"                          
 
               # Ronen Room Cover
               - type: tile
                 entity: cover.ronen_room
                 features:
-                  - type: "cover-open-close"
+                  - type: "cover-open-close" 
 
               # Kfir Room Cover
               - type: tile
                 entity: cover.kfir_room
                 features:
-                  - type: "cover-open-close"
+                  - type: "cover-open-close" 
 
       - type: custom:button-card
-        template: card_blank
+        template: card_blank                  

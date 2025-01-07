@@ -7,112 +7,116 @@ popup_rpi:
         title: '[[[ return variables.ulm_card_rpi_name; ]]]'
         content:
 
-          type: vertical-stack
+          type: horizontal-stack
           cards:
 
-            - type: "custom:button-card"
-              template: 
-                - 'popup_header_ha_style'
-                - 'ulm_language_variables'
-              triggers_update: all
-              entity: '[[[ return variables.ulm_card_rpi_entity ]]]'
-              name: |-
-                [[[
-                  if ( entity.state == 'on' ) {
-                    return 'Running';
-                  } else {
-                    return 'Stopped';
-                  }
-                ]]]      
+            - type: custom:button-card
+              template: card_blank
 
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 20px
-
-                
-            ############################################################################
-            #                                                                          #
-            #   Bar Sensors                                                            #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 1
+            - type: vertical-stack
               cards:
 
-                  # Memory
-                  - type: "custom:button-card"
-                    template: "popup_widget_mini_graph_bar"
-                    variables:
-                      mini_graph_color: 'rgba(var(--rgb-purple-color),0.2)'
-                      mini_graph_entity: '[[[ return variables.ulm_card_rpi_memory; ]]]'
-                      mini_graph_name: 'Memory'
+                - type: "custom:button-card"
+                  template: 
+                    - 'popup_header_ha_style'
+                    - 'ulm_language_variables'
+                  triggers_update: all
+                  entity: '[[[ return variables.ulm_card_rpi_entity ]]]'
+                  name: |-
+                    [[[
+                      if ( entity.state == 'on' ) {
+                        return 'Running';
+                      } else {
+                        return 'Stopped';
+                      }
+                    ]]]      
 
-                  # CPU
-                  - type: "custom:button-card"
-                    template: "popup_widget_mini_graph_bar"
-                    variables:
-                      mini_graph_color: 'rgba(var(--rgb-blue-color),0.2)'
-                      mini_graph_entity: '[[[ return variables.ulm_card_rpi_cpu; ]]]'
-                      mini_graph_name: 'CPU'
+                - type: "custom:button-card"
+                  template: spacer
+                  variables:
+                    height: 20px
 
-                  # Disk
-                  - type: "custom:button-card"
-                    template: "popup_widget_mini_graph_bar"
-                    variables:
-                      mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
-                      mini_graph_entity: '[[[ return variables.ulm_card_rpi_disk; ]]]'
-                      mini_graph_name: 'Disk'
+                    
+                ############################################################################
+                #                                                                          #
+                #   Bar Sensors                                                            #
+                #                                                                          #
+                ############################################################################
 
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
 
+                      # Memory
+                      - type: "custom:button-card"
+                        template: "popup_widget_mini_graph_bar"
+                        variables:
+                          mini_graph_color: 'rgba(var(--rgb-purple-color),0.2)'
+                          mini_graph_entity: '[[[ return variables.ulm_card_rpi_memory; ]]]'
+                          mini_graph_name: 'Memory'
 
-            ############################################################################
-            #                                                                          #
-            #   Sensors                                                                #
-            #                                                                          #
-            ############################################################################
+                      # CPU
+                      - type: "custom:button-card"
+                        template: "popup_widget_mini_graph_bar"
+                        variables:
+                          mini_graph_color: 'rgba(var(--rgb-blue-color),0.2)'
+                          mini_graph_entity: '[[[ return variables.ulm_card_rpi_cpu; ]]]'
+                          mini_graph_name: 'CPU'
 
-            - type: grid
-              square: false
-              columns: 1
-              cards:
-
-                  # Last Update
-                  - type: "custom:button-card"
-                    template: "popup_text_info"
-                    custom_fields:
-                      item1: 'Last Update:'
-                      item2: "[[[ return states[variables.ulm_card_rpi_last_update_relative].state ]]]"
-
-                  # Up Time
-                  - type: "custom:button-card"
-                    template: "popup_text_info"
-                    custom_fields:
-                      item1: 'Up Time:'
-                      item2: "[[[ return states[variables.ulm_card_rpi_sensor].attributes.up_time ]]]"
-
-                  # CPU Temperature
-                  - type: "custom:button-card"
-                    template: "popup_text_info"
-                    custom_fields:
-                      item1: 'CPU Temperature:'
-                      item2: "[[[ return states[variables.ulm_card_rpi_sensor].attributes.temp_cpu_c + '°C'; ]]]"
-
-                  # GPU Temperature
-                  - type: "custom:button-card"
-                    template: "popup_text_info"
-                    custom_fields:
-                      item1: 'GPU Temperature:'
-                      item2: "[[[ return states[variables.ulm_card_rpi_sensor].attributes.temp_gpu_c + '°C'; ]]]"
+                      # Disk
+                      - type: "custom:button-card"
+                        template: "popup_widget_mini_graph_bar"
+                        variables:
+                          mini_graph_color: 'rgba(var(--rgb-green-color),0.2)'
+                          mini_graph_entity: '[[[ return variables.ulm_card_rpi_disk; ]]]'
+                          mini_graph_name: 'Disk'
 
 
 
+                ############################################################################
+                #                                                                          #
+                #   Sensors                                                                #
+                #                                                                          #
+                ############################################################################
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                      # Last Update
+                      - type: "custom:button-card"
+                        template: "popup_text_info"
+                        custom_fields:
+                          item1: 'Last Update:'
+                          item2: "[[[ return states[variables.ulm_card_rpi_last_update_relative].state ]]]"
+
+                      # Up Time
+                      - type: "custom:button-card"
+                        template: "popup_text_info"
+                        custom_fields:
+                          item1: 'Up Time:'
+                          item2: "[[[ return states[variables.ulm_card_rpi_sensor].attributes.up_time ]]]"
+
+                      # CPU Temperature
+                      - type: "custom:button-card"
+                        template: "popup_text_info"
+                        custom_fields:
+                          item1: 'CPU Temperature:'
+                          item2: "[[[ return states[variables.ulm_card_rpi_sensor].attributes.temp_cpu_c + '°C'; ]]]"
+
+                      # GPU Temperature
+                      - type: "custom:button-card"
+                        template: "popup_text_info"
+                        custom_fields:
+                          item1: 'GPU Temperature:'
+                          item2: "[[[ return states[variables.ulm_card_rpi_sensor].attributes.temp_gpu_c + '°C'; ]]]"
+
+                - type: "custom:button-card"
+                  template: spacer
 
 
-            - type: "custom:button-card"
-              template: spacer
-
-
+            - type: custom:button-card
+              template: card_blank
 

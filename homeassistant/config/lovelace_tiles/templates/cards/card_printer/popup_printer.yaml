@@ -7,62 +7,71 @@ popup_printer:
         title: '[[[ return variables.x_ulm_card_printer_name; ]]]'
         content:
 
-          type: vertical-stack
+          type: horizontal-stack
           cards:
 
+            - type: custom:button-card
+              template: card_blank
 
-            - type: "custom:button-card"
-              template: 
-                - 'popup_header_ha_style'
-              triggers_update: all
-              entity: '[[[ return variables.ulm_card_printer_entity ]]]'
-
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 20px
-
-
-            ############################################################################
-            #                                                                          #
-            #   Sensors                                                                #
-            #                                                                          #
-            ############################################################################
-
-
-            - type: grid
-              square: false
-              columns: 1
+            - type: vertical-stack
               cards:
 
-                - type: "custom:button-card"
-                  template: "popup_widget_mini_graph_bar"
-                  variables:
-                    mini_graph_color: var(--printer-black-color)
-                    mini_graph_entity: '[[[ return variables.ulm_card_printer_black_ink_remaining ]]]'
-                    mini_graph_name: 'Black'
 
                 - type: "custom:button-card"
-                  template: "popup_widget_mini_graph_bar"
-                  variables:
-                    mini_graph_color: var(--printer-yellow-color)
-                    mini_graph_entity: '[[[ return variables.ulm_card_printer_yellow_ink_remaining ]]]'
-                    mini_graph_name: 'Yellow'
+                  template: 
+                    - 'popup_header_ha_style'
+                  triggers_update: all
+                  entity: '[[[ return variables.ulm_card_printer_entity ]]]'
 
                 - type: "custom:button-card"
-                  template: "popup_widget_mini_graph_bar"
+                  template: spacer
                   variables:
-                    mini_graph_color: var(--printer-magenta-color)
-                    mini_graph_entity: '[[[ return variables.ulm_card_printer_magenta_ink_remaining ]]]'
-                    mini_graph_name: 'Magenta'
+                    height: 20px
+
+
+                ############################################################################
+                #                                                                          #
+                #   Sensors                                                                #
+                #                                                                          #
+                ############################################################################
+
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                    - type: "custom:button-card"
+                      template: "popup_widget_mini_graph_bar"
+                      variables:
+                        mini_graph_color: var(--printer-black-color)
+                        mini_graph_entity: '[[[ return variables.ulm_card_printer_black_ink_remaining ]]]'
+                        mini_graph_name: 'Black'
+
+                    - type: "custom:button-card"
+                      template: "popup_widget_mini_graph_bar"
+                      variables:
+                        mini_graph_color: var(--printer-yellow-color)
+                        mini_graph_entity: '[[[ return variables.ulm_card_printer_yellow_ink_remaining ]]]'
+                        mini_graph_name: 'Yellow'
+
+                    - type: "custom:button-card"
+                      template: "popup_widget_mini_graph_bar"
+                      variables:
+                        mini_graph_color: var(--printer-magenta-color)
+                        mini_graph_entity: '[[[ return variables.ulm_card_printer_magenta_ink_remaining ]]]'
+                        mini_graph_name: 'Magenta'
+
+                    - type: "custom:button-card"
+                      template: "popup_widget_mini_graph_bar"
+                      variables:
+                        mini_graph_color: var(--printer-cyan-color)
+                        mini_graph_entity: '[[[ return variables.ulm_card_printer_cyan_ink_remaining ]]]'
+                        mini_graph_name: 'Cyan'
 
                 - type: "custom:button-card"
-                  template: "popup_widget_mini_graph_bar"
-                  variables:
-                    mini_graph_color: var(--printer-cyan-color)
-                    mini_graph_entity: '[[[ return variables.ulm_card_printer_cyan_ink_remaining ]]]'
-                    mini_graph_name: 'Cyan'
+                  template: spacer
 
-            - type: "custom:button-card"
-              template: spacer
-         
+            - type: custom:button-card
+              template: card_blank
+            

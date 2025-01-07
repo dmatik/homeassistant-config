@@ -74,10 +74,16 @@ chip_back_new:
   template: 
     - 'chip_base'
     - 'chip_navigate_only'
+  # styles:
+  #   grid:
+  #     - grid-template-areas: "'i'"
+  #     - grid-template-columns: 'max_content'
+  #     - grid-template-rows: 'min-content'
+  #     - grid-gap: '0 0px'
+  #   card:
+  #     - padding-left: '8px'
+  #     - padding-right: '8px'      
   icon: "[[[ return variables.ulm_chip_back_icon; ]]]"
-  # tap_action:
-  #   action: "url"
-  #   url_path: "javascript:window.history.back();"
 
 chip_icon_only_new:
   template:

@@ -1,10 +1,34 @@
 title: Security
-path: security
+path: tiles_security
 visible: false
 icon: mdi:cctv
-type: panel
-    
+type: masonry
+subview: true
+
+badges:
+
+  # Back Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_back_new'
+    label: "למסך הבית"
+    variables:
+      ulm_chip_navigate_path: /lovelace-wallpanel-tiles/home
+      
+  # Motion Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_motion'
+    variables:
+      ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
+
 cards:
+
+  ############################################################################
+  #                                                                          #
+  #   First Column                                                           #
+  #                                                                          #
+  ############################################################################
 
   - type: horizontal-stack
     cards:
@@ -12,44 +36,19 @@ cards:
       - type: custom:button-card
         template: card_blank
 
-
-      ############################################################################
-      #                                                                          #
-      #   Left Column                                                            #
-      #                                                                          #
-      ############################################################################
-
       - type: vertical-stack
         cards:
 
-
-          ############################################################################
-          #                                                                          #
-          #   Motion                                                                 #
-          #                                                                          #
-          ############################################################################
-
-          # Title
+          # Motion
           - type: custom:button-card
             template: title
             name: "[[[ return variables.ulm_motion; ]]]"
-            variables:
-              ulm_title_margin_top: "0px"
 
           - type: grid
+            #title: תנועה
             square: false
             columns: 2
             cards:
-
-              # # Living Room Sensor
-              # - type: 'custom:button-card'
-              #   template: 
-              #     - card_motion_sensor
-              #   entity: binary_sensor.living_room_motion_sensor_occupancy
-              #   name: "[[[ return variables.ulm_living_room; ]]]"
-              #   show_last_changed: false
-              #   variables:
-              #     light_level: sensor.living_room_motion_sensor_illuminance_lux
 
               # Living Room Camera Sensor
               - type: tile
@@ -71,36 +70,6 @@ cards:
               - type: tile
                 entity: binary_sensor.kitchen_left_motion_sensor_occupancy
 
-              # # Bathroom Toilet Sensor
-              # - type: 'custom:button-card'
-              #   template: 
-              #     - card_motion_sensor
-              #   entity: binary_sensor.bathroom_toilet_motion_sensor_occupancy
-              #   name: "[[[ return variables.ulm_bathroom_toilet; ]]]"
-              #   show_last_changed: false
-              #   variables:
-              #     light_level: sensor.bathroom_toilet_motion_sensor_illuminance
-
-              # # Bathroom Bathtub Sensor
-              # - type: 'custom:button-card'
-              #   template: 
-              #     - card_motion_sensor
-              #   entity: binary_sensor.bathroom_bathtub_motion_sensor_occupancy
-              #   name: "[[[ return variables.ulm_bathroom_tub; ]]]"
-              #   show_last_changed: false
-              #   variables:
-              #     light_level: sensor.bathroom_bathtub_motion_sensor_illuminance
-
-              # # Bathroom Mirror Sensor
-              # - type: 'custom:button-card'
-              #   template: 
-              #     - card_motion_sensor
-              #   entity: binary_sensor.bathroom_mirror_motion_sensor_occupancy
-              #   name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
-              #   show_last_changed: false
-              #   variables:
-              #     light_level: sensor.bathroom_mirror_motion_sensor_illuminance
-
               # Bathroom Right Sensor
               - type: tile
                 entity: binary_sensor.bathroom_new_right_motion_sensor_occupancy
@@ -121,33 +90,34 @@ cards:
               - type: tile
                 entity: binary_sensor.basement_cell_motion_detection
 
+
       - type: custom:button-card
         template: card_blank
 
-      ############################################################################
-      #                                                                          #
-      #   Right Column                                                           #
-      #                                                                          #
-      ############################################################################
+
+
+  ############################################################################
+  #                                                                          #
+  #   Second Column                                                          #
+  #                                                                          #
+  ############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: card_blank
 
       - type: vertical-stack
         cards:
 
-
-          ############################################################################
-          #                                                                          #
-          #   Cameras                                                                #
-          #                                                                          #
-          ############################################################################
-
-          # Title
+          # Cameras
           - type: custom:button-card
             template: title
             name: "[[[ return variables.ulm_cameras; ]]]"
-            variables:
-              ulm_title_margin_top: "0px"
 
           - type: grid
+            #title: מצלמות
             square: false
             columns: 1
             cards:

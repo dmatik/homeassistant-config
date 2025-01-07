@@ -33,8 +33,9 @@ card_zigbee2mqtt:
               template: "widget_text"
               name: 'Restart'
               tap_action:
-                action: call-service
-                service: "[[[ return variables.ulm_card_zigbee2mqtt_restart_script ]]]"
+                action: button.press
+                target: 
+                  entity_id: "[[[ return variables.ulm_card_zigbee2mqtt_restart_script ]]]"
           item2:
             card:
               type: "custom:button-card"

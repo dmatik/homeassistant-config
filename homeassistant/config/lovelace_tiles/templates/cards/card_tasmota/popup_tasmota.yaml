@@ -7,121 +7,133 @@ popup_tasmota:
         title: '[[[ return variables.ulm_card_tasmota_name; ]]]'
         content:
 
-          type: vertical-stack
+          type: horizontal-stack
           cards:
 
-            - type: "custom:button-card"
-              template: 
-                - 'popup_header_ha_style'
-              triggers_update: all
-              entity: '[[[ return variables.ulm_card_tasmota_entity ]]]'
+            - type: custom:button-card
+              template: card_blank
 
-
-            - type: "custom:button-card"
-              template: spacer
-              variables:
-                height: 20px
-
-            ############################################################################
-            #                                                                          #
-            #   Sensors                                                                #
-            #                                                                          #
-            ############################################################################
-
-
-            - type: grid
-              square: false
-              columns: 1
+            - type: vertical-stack
               cards:
 
-                # Version
-                - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'Version:'
-                    item2: "[[[ return states[variables.ulm_card_tasmota_version].state.split('(')[0] ]]]"
-
-                # Last Restart
-                - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'Last Restart:'
-                    item2: |
-                      [[[
-                        var local_date = new Date(states[variables.ulm_card_tasmota_last_restart].state);
-                        var year = local_date.getFullYear();
-                        var month = local_date.getMonth();
-                        var day = local_date.getDate();
-                        var hours = "";
-                        if (local_date.getHours() < 10)
-                          hours = "0" + local_date.getHours();
-                        else
-                          hours = local_date.getHours();
-                        var minutes = "";
-                        if (local_date.getMinutes() < 10)
-                          minutes = "0" + local_date.getMinutes();
-                        else
-                          minutes = local_date.getMinutes();
-                        const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-                        return day + ' ' + months[month] + ', ' + year + ' • ' + hours + ':' + minutes;
-                      ]]]
-
-                # Up Time
                 - type: "custom:button-card"
                   template: 
-                    - "popup_text_info"
-                    - "popup_tasmota_uptime"
+                    - 'popup_header_ha_style'
+                  triggers_update: all
+                  entity: '[[[ return variables.ulm_card_tasmota_entity ]]]'
+
+
+                - type: "custom:button-card"
+                  template: spacer
                   variables:
-                    ulm_card_tasmota_last_restart: "[[[ return variables.ulm_card_tasmota_last_restart ]]]"
-                  custom_fields:
-                    item1: 'Up Time:'
+                    height: 20px
 
-                # WiFi
+                ############################################################################
+                #                                                                          #
+                #   Sensors                                                                #
+                #                                                                          #
+                ############################################################################
+
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                    # Version
+                    - type: "custom:button-card"
+                      template: "popup_text_info"
+                      custom_fields:
+                        item1: 'Version:'
+                        item2: "[[[ return states[variables.ulm_card_tasmota_version].state.split('(')[0] ]]]"
+
+                    # Last Restart
+                    - type: "custom:button-card"
+                      template: "popup_text_info"
+                      custom_fields:
+                        item1: 'Last Restart:'
+                        item2: |
+                          [[[
+                            var local_date = new Date(states[variables.ulm_card_tasmota_last_restart].state);
+                            var year = local_date.getFullYear();
+                            var month = local_date.getMonth();
+                            var day = local_date.getDate();
+                            var hours = "";
+                            if (local_date.getHours() < 10)
+                              hours = "0" + local_date.getHours();
+                            else
+                              hours = local_date.getHours();
+                            var minutes = "";
+                            if (local_date.getMinutes() < 10)
+                              minutes = "0" + local_date.getMinutes();
+                            else
+                              minutes = local_date.getMinutes();
+                            const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                            return day + ' ' + months[month] + ', ' + year + ' • ' + hours + ':' + minutes;
+                          ]]]
+
+                    # Up Time
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_text_info"
+                        - "popup_tasmota_uptime"
+                      variables:
+                        ulm_card_tasmota_last_restart: "[[[ return variables.ulm_card_tasmota_last_restart ]]]"
+                      custom_fields:
+                        item1: 'Up Time:'
+
+                    # WiFi
+                    - type: "custom:button-card"
+                      template: "popup_text_info"
+                      custom_fields:
+                        item1: 'WiFi:'
+                        item2: "[[[ return states[variables.ulm_card_tasmota_wi_fi_quality].state + '%' ]]]"
+
+                    # IP
+                    - type: "custom:button-card"
+                      template: "popup_text_info"
+                      custom_fields:
+                        item1: 'IP:'
+                        item2: "[[[ return states[variables.ulm_card_tasmota_ip].state ]]]"
+
+
                 - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'WiFi:'
-                    item2: "[[[ return states[variables.ulm_card_tasmota_wi_fi_quality].state + '%' ]]]"
+                  template: spacer
 
-                # IP
+
+
+                ############################################################################
+                #                                                                          #
+                #   Footer                                                                 #
+                #                                                                          #
+                ############################################################################
+
+                - type: grid
+                  square: false
+                  columns: 1
+                  cards:
+
+                    # Open Web Page
+                    - type: "custom:button-card"
+                      template: 
+                        - "popup_button_ha_style"
+                        - "ulm_language_variables"
+                      icon: mdi:open-in-new
+                      name: Web Page
+                      tap_action: 
+                        action: url
+                        url_path: "[[[ return 'http://' + states[variables.ulm_card_tasmota_ip].state + '/' ]]]"
+
                 - type: "custom:button-card"
-                  template: "popup_text_info"
-                  custom_fields:
-                    item1: 'IP:'
-                    item2: "[[[ return states[variables.ulm_card_tasmota_ip].state ]]]"
+                  template: spacer
+                  # variables:
+                  #   height: 20px
 
 
-            - type: "custom:button-card"
-              template: spacer
+            - type: custom:button-card
+              template: card_blank
 
 
-
-            ############################################################################
-            #                                                                          #
-            #   Footer                                                                 #
-            #                                                                          #
-            ############################################################################
-
-            - type: grid
-              square: false
-              columns: 1
-              cards:
-
-                # Open Web Page
-                - type: "custom:button-card"
-                  template: 
-                    - "popup_button_ha_style"
-                    - "ulm_language_variables"
-                  icon: mdi:open-in-new
-                  name: Web Page
-                  tap_action: 
-                    action: url
-                    url_path: "[[[ return 'http://' + states[variables.ulm_card_tasmota_ip].state + '/' ]]]"
-
-            - type: "custom:button-card"
-              template: spacer
-              # variables:
-              #   height: 20px
 
 
 popup_tasmota_with_power:

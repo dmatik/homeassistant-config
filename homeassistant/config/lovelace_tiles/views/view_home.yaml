@@ -289,21 +289,21 @@ sections:
         double_tap_action:
           action: more-info
 
-      # Living Room Climate
-      - type: 'custom:button-card'
-        template: card_ac_buttons
-        variables:
-          ulm_card_ac_entity: climate.living_room
-          ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
-        layout_options:
-          grid_columns: 2
-          grid_rows: 2
+      # Switcher
+      - type: custom:switcher-boiler-card
+        entity: switch.switcher_touch_d54f
+        icon: ""
+        time_left: sensor.switcher_touch_d54f_remaining_time
+        sensor_1: sensor.switcher_touch_d54f_current
+        grid_options:
+          columns: 6
+          rows: 2            
 
       # Back Yard Cover
       - type: tile
         entity: cover.back_yard
-        # features:
-        #   - type: "cover-open-close"
+        features:
+          - type: "cover-open-close"
 
       # Back Yard Light
       - type: tile
@@ -328,15 +328,26 @@ sections:
           grid_columns: 2
           grid_rows: 1
 
+      # Living Room Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.living_room
+          ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+
       # Holidays
-      # - type: tile
-      #   entity: switch.holidays
-      #   tap_action:
-      #     action: toggle
-      #   hold_action:
-      #     action: more-info
-      #   double_tap_action:
-      #     action: more-info
+      - type: tile
+        entity: switch.holidays
+        color: green
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info            
 
       # # Red Alert
       # - type: 'custom:button-card'
@@ -416,7 +427,7 @@ sections:
           - type: entity
             show_state: true
             show_icon: true
-            entity: sensor.kitchen_light_level_sensor_illuminance_lux
+            entity: sensor.kitchen_light_level_sensor_illuminance
             color: 'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
