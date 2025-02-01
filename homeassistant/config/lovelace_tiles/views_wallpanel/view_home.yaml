@@ -120,25 +120,38 @@ cards:
             columns: 2
             cards:
 
-              # WiFi
-              - type: 'custom:button-card'
-                template: card_barcode
-                name: Guest WiFi
-                icon: mdi:wifi
-                variables:
-                  ulm_card_barcode_title: 'Guest WiFi'
-                  ulm_card_barcode_image: image.guest_wifi #'/local/images/wifi_guest.png'
+              - type: vertical-stack 
+                cards:
+                
+                  # WiFi
+                  - type: 'custom:button-card'
+                    template: card_barcode
+                    name: Guest WiFi
+                    icon: mdi:wifi
+                    variables:
+                      ulm_card_barcode_title: 'Guest WiFi'
+                      ulm_card_barcode_image: image.guest_wifi #'/local/images/wifi_guest.png'
 
-              # Holidays
-              - type: tile
-                entity: switch.holidays
-                color: green
-                tap_action:
-                  action: toggle
-                hold_action:
-                  action: more-info
-                double_tap_action:
-                  action: more-info                  
+                  # # Holidays
+                  # - type: tile
+                  #   entity: switch.holidays
+                  #   color: green
+                  #   tap_action:
+                  #     action: toggle
+                  #   hold_action:
+                  #     action: more-info
+                  #   double_tap_action:
+                  #     action: more-info
+
+              # Vacuum Cleaner
+              - type: 'custom:button-card'
+                template: 
+                  - card_vacuum_cleaner
+                variables:
+                  #ulm_card_vacuum_cleaner_icon: "mdi:waves"
+                  ulm_card_vacuum_cleaner_entity: vacuum.l20_ultra
+                  ulm_card_vacuum_cleaner_map: camera.l20_ultra_map
+                  ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state                                 
 
             # Presence
           - type: custom:button-card
@@ -150,25 +163,25 @@ cards:
             square: false
             columns: 2
             cards:
-                # Dima
-                - type: tile
-                  entity: person.dmatik
-                  show_entity_picture: true
+              # Dima
+              - type: tile
+                entity: person.dmatik
+                show_entity_picture: true
 
-                # Galit
-                - type: tile
-                  entity: person.galit
-                  show_entity_picture: true
+              # Galit
+              - type: tile
+                entity: person.galit
+                show_entity_picture: true
 
-                # Ronen
-                - type: tile
-                  entity: person.ronen
-                  show_entity_picture: true
+              # Ronen
+              - type: tile
+                entity: person.ronen
+                show_entity_picture: true
 
-                # Kfir
-                - type: tile
-                  entity: person.kfir
-                  show_entity_picture: true
+              # Kfir
+              - type: tile
+                entity: person.kfir
+                show_entity_picture: true
 
       - type: custom:button-card
         template: card_blank
@@ -201,58 +214,58 @@ cards:
             columns: 2
             cards:
 
-                # Living Room Climate
-                - type: 'custom:button-card'
-                  template: card_ac_buttons
-                  variables:
-                    ulm_card_ac_entity: climate.living_room
-                    ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
+              # Living Room Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons
+                variables:
+                  ulm_card_ac_entity: climate.living_room
+                  ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
 
-                # Bedroom Climate
-                - type: 'custom:button-card'
-                  template: card_ac_buttons
-                  variables:
-                    ulm_card_ac_entity: climate.bedroom
-                    ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
+              # Bedroom Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons
+                variables:
+                  ulm_card_ac_entity: climate.bedroom
+                  ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
 
-                # Ronen Climate
-                - type: 'custom:button-card'
-                  template: card_ac_buttons
-                  variables:
-                    ulm_card_ac_entity: climate.ronen
-                    ulm_card_ac_curr_temp_sensor: sensor.ronen_room_temperature_sensor_temperature
+              # Ronen Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons
+                variables:
+                  ulm_card_ac_entity: climate.ronen
+                  ulm_card_ac_curr_temp_sensor: sensor.ronen_room_temperature_sensor_temperature
 
-                # Kfir Climate
-                - type: 'custom:button-card'
-                  template: card_ac_buttons
-                  variables:
-                    ulm_card_ac_entity: climate.kfir
-                    ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature   
+              # Kfir Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons
+                variables:
+                  ulm_card_ac_entity: climate.kfir
+                  ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature   
 
-                # Basement Climate
-                - type: 'custom:button-card'
-                  template: card_ac_buttons
-                  variables:
-                    ulm_card_ac_entity: climate.basement
-                    ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
+              # Basement Climate
+              - type: 'custom:button-card'
+                template: card_ac_buttons
+                variables:
+                  ulm_card_ac_entity: climate.basement
+                  ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
 
-                # Back Yard Cover
-                - type: tile
-                  entity: cover.back_yard
-                  features:
-                    - type: "cover-open-close"
+              # Back Yard Cover
+              - type: tile
+                entity: cover.back_yard
+                features:
+                  - type: "cover-open-close"
 
-                # Kitchen Cover
-                - type: tile
-                  entity: cover.living_room_window
-                  features:
-                    - type: "cover-open-close"                    
+              # Kitchen Cover
+              - type: tile
+                entity: cover.living_room_window
+                features:
+                  - type: "cover-open-close"                    
 
-                # Kitchen Cover
-                - type: tile
-                  entity: cover.kitchen
-                  features:
-                    - type: "cover-open-close"
+              # Kitchen Cover
+              - type: tile
+                entity: cover.kitchen
+                features:
+                  - type: "cover-open-close"
 
 
           # Scenes
@@ -266,49 +279,49 @@ cards:
             columns: 4
             cards:
 
-                # Basement Lights OFF scene
-                - type: 'custom:button-card'
-                  template: card_scene_vertical
-                  entity: scene.basement_lights_off
-                  name: "[[[ return variables.ulm_basement; ]]]"
-                  label: "[[[ return variables.ulm_lights_off; ]]]"
-                  icon: mdi:lightbulb-multiple-off
-                  variables:
-                    color: "yellow"
-                    x_confirmation_text: "[[[ return variables.ulm_turn_off_basment_lights; ]]]"
+              # Basement Lights OFF scene
+              - type: 'custom:button-card'
+                template: card_scene_vertical
+                entity: scene.basement_lights_off
+                name: "[[[ return variables.ulm_basement; ]]]"
+                label: "[[[ return variables.ulm_lights_off; ]]]"
+                icon: mdi:lightbulb-multiple-off
+                variables:
+                  color: "yellow"
+                  x_confirmation_text: "[[[ return variables.ulm_turn_off_basment_lights; ]]]"
 
-                # Main Floor Lights OFF scene
-                - type: 'custom:button-card'
-                  template: card_scene_vertical
-                  entity: scene.ground_floor_lights_off
-                  name: "[[[ return variables.ulm_ground; ]]]"
-                  label: "[[[ return variables.ulm_lights_off; ]]]"
-                  icon: mdi:lightbulb-multiple-off
-                  variables:
-                    color: "yellow"
-                    x_confirmation_text: "[[[ return variables.ulm_turn_off_ground_lights; ]]]"
+              # Main Floor Lights OFF scene
+              - type: 'custom:button-card'
+                template: card_scene_vertical
+                entity: scene.ground_floor_lights_off
+                name: "[[[ return variables.ulm_ground; ]]]"
+                label: "[[[ return variables.ulm_lights_off; ]]]"
+                icon: mdi:lightbulb-multiple-off
+                variables:
+                  color: "yellow"
+                  x_confirmation_text: "[[[ return variables.ulm_turn_off_ground_lights; ]]]"
 
-                # Main Floor Covers
-                - type: 'custom:button-card'
-                  template: card_scene_vertical
-                  entity: scene.main_floor_covers
-                  name: "[[[ return variables.ulm_covers; ]]]"
-                  label: "[[[ return variables.ulm_main; ]]]"
-                  icon: mdi:window-shutter
-                  variables:
-                    color: "purple"
-                    x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
+              # Main Floor Covers
+              - type: 'custom:button-card'
+                template: card_scene_vertical
+                entity: scene.main_floor_covers
+                name: "[[[ return variables.ulm_covers; ]]]"
+                label: "[[[ return variables.ulm_main; ]]]"
+                icon: mdi:window-shutter
+                variables:
+                  color: "purple"
+                  x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
 
-                # Movie time
-                - type: 'custom:button-card'
-                  template: card_scene_vertical
-                  entity: scene.movie_time
-                  name: "[[[ return variables.ulm_movie; ]]]"
-                  label: "[[[ return variables.ulm_scene; ]]]"
-                  icon: mdi:movie-filter
-                  variables:
-                    color: "blue"
-                    x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"
+              # Movie time
+              - type: 'custom:button-card'
+                template: card_scene_vertical
+                entity: scene.movie_time
+                name: "[[[ return variables.ulm_movie; ]]]"
+                label: "[[[ return variables.ulm_scene; ]]]"
+                icon: mdi:movie-filter
+                variables:
+                  color: "blue"
+                  x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"
 
 
 
@@ -343,144 +356,144 @@ cards:
             columns: 2
             cards:
 
-                # Living Room Light
-                - type: tile
-                  entity: light.living_room
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info
+              # Living Room Light
+              - type: tile
+                entity: light.living_room
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
 
-                # Dining Light
-                - type: tile
-                  entity: light.dining
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info
+              # Dining Light
+              - type: tile
+                entity: light.dining
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
 
-                # TV Wall Light
-                - type: tile
-                  entity: light.living_room_tv_wall
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info
+              # TV Wall Light
+              - type: tile
+                entity: light.living_room_tv_wall
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
 
-                # Entrance Light
-                - type: tile
-                  entity: light.entrance
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info                        
+              # Entrance Light
+              - type: tile
+                entity: light.entrance
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info                        
 
-                # Guests Bathroom Light
-                - type: 'custom:button-card'
-                  template: 'card_light_simple'
-                  entity: light.guests_bathroom
-                  #name: "[[[ return variables.ulm_guest_bathroom; ]]]"
-                  variables:
-                    ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
+              # Guests Bathroom Light
+              - type: 'custom:button-card'
+                template: 'card_light_simple'
+                entity: light.guests_bathroom
+                #name: "[[[ return variables.ulm_guest_bathroom; ]]]"
+                variables:
+                  ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
 
-                # Kitchen Led Strip
-                - type: 'custom:button-card'
-                  template: 'card_light_simple'
-                  entity: light.kitchen_led_strip
-                  icon: 'mdi:led-strip-variant'
-                  name: "[[[ return variables.ulm_kitchen_strip; ]]]"
-                  variables:
-                    ulm_card_light_enable_color: true
-                    ulm_card_light_enable_popup: false
-                    ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
+              # Kitchen Led Strip
+              - type: 'custom:button-card'
+                template: 'card_light_simple'
+                entity: light.kitchen_led_strip
+                icon: 'mdi:led-strip-variant'
+                name: "[[[ return variables.ulm_kitchen_strip; ]]]"
+                variables:
+                  ulm_card_light_enable_color: true
+                  ulm_card_light_enable_popup: false
+                  ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
 
-                # Kitchen Bar Light
-                - type: tile
-                  entity: light.kitchen_bar
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info
+              # Kitchen Bar Light
+              - type: tile
+                entity: light.kitchen_bar
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
 
-                # Back Yard Light
-                - type: tile
-                  entity: light.back_yard
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info 
+              # Back Yard Light
+              - type: tile
+                entity: light.back_yard
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
 
-                # Stairs Light
-                - type: tile
-                  entity: light.stairs_ground_floor
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info
+              # Stairs Light
+              - type: tile
+                entity: light.stairs_ground_floor
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
 
-                # Hallway Light
-                - type: tile
-                  entity: light.hallway_stairs
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info 
+              # Hallway Light
+              - type: tile
+                entity: light.hallway_stairs
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
 
-                # Bedside Dima Light
-                - type: tile
-                  entity: light.bedside_dima_bulb
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info                                                
+              # Bedside Dima Light
+              - type: tile
+                entity: light.bedside_dima_bulb
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info                                                
 
-                # Bedside Galit Light
-                - type: tile
-                  entity: light.bedside_galit_bulb
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info 
-                    
-                # Basement Light
-                - type: tile
-                  entity: light.basement
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info
-              
-                # Work Room Light
-                - type: tile
-                  entity: light.work_room
-                  tap_action:
-                    action: toggle
-                  hold_action:
-                    action: more-info
-                  double_tap_action:
-                    action: more-info
+              # Bedside Galit Light
+              - type: tile
+                entity: light.bedside_galit_bulb
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
+                  
+              # Basement Light
+              - type: tile
+                entity: light.basement
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+            
+              # Work Room Light
+              - type: tile
+                entity: light.work_room
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
 
 
 
@@ -495,35 +508,38 @@ cards:
             columns: 2
             cards:
 
-                # Bathroom Heater
-                - type: 'custom:button-card'
-                  template: 
-                    - "card_heater_with_timer"
-                  variables:
-                    ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
-                    ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
-                  entity: switch.bathroom_heater
-                  name: "[[[ return variables.ulm_bathroom; ]]]"
+              # Switcher
+              - type: custom:switcher-boiler-card
+                entity: switch.switcher_touch_d54f
+                icon: ""
+                time_left: sensor.switcher_kis_remaining_time_alt
+                sensor_1: sensor.switcher_touch_d54f_current
+                grid_options:
+                  columns: 6
+                  rows: 2  
 
-                # Parents Bathroom Heater
-                - type: 'custom:button-card'
-                  template: 
-                    - "card_heater_with_timer"
-                  variables:
-                    ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
-                    ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
-                  entity: switch.parents_bathroom_heater
-                  name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+              - type: vertical-stack
+                cards:
 
-                # Switcher
-                - type: custom:switcher-boiler-card
-                  entity: switch.switcher_touch_d54f
-                  icon: ""
-                  time_left: sensor.switcher_touch_d54f_remaining_time
-                  sensor_1: sensor.switcher_touch_d54f_current
-                  grid_options:
-                    columns: 6
-                    rows: 2  
+                  # Bathroom Heater
+                  - type: 'custom:button-card'
+                    template: 
+                      - "card_heater_with_timer"
+                    variables:
+                      ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
+                      ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
+                    entity: switch.bathroom_heater
+                    name: "[[[ return variables.ulm_bathroom; ]]]"
+
+                  # Parents Bathroom Heater
+                  - type: 'custom:button-card'
+                    template: 
+                      - "card_heater_with_timer"
+                    variables:
+                      ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
+                      ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
+                    entity: switch.parents_bathroom_heater
+                    name: "[[[ return variables.ulm_parents_bathroom; ]]]"
 
 
 

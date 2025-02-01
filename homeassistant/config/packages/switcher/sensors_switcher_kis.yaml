@@ -1,27 +1,37 @@
 template:
 
     sensor:
-    #   # Time Left
-    #   - name: "switcher_kis_time_left"
-    #     unique_id: switcher_kis_time_left
-    #     icon: mdi:timelapse
-    #     state: >-
-    #       {% if is_state("switch.switcher_touch_d54f", "off") %}
-    #           off
-    #       {% else %}
-    #           {% set hour = states("sensor.switcher_touch_d54f_remaining_time").split(':')[0] %}
-    #           {% set min = states("sensor.switcher_touch_d54f_remaining_time").split(':')[1] %}
-    #           {% set sec = states("sensor.switcher_touch_d54f_remaining_time").split(':')[2] %}
-    #           {% set min_int = min|int %}
-    #           {% set hour_int = hour|int %}
-    #           {% if hour_int == 0 and min_int == 0 %}
-    #               < 1 min
-    #           {% elif hour_int == 0 %}
-    #               {{ min_int }} min
-    #           {% else %}
-    #               {{ hour_int }}h {{ min_int }}m
-    #           {% endif %}
-    #       {% endif %}
+      # Remaining Time Alt
+      - name: "switcher_kis_remaining_time_alt"
+        unique_id: switcher_kis_remaining_time_alt
+        icon: mdi:timelapse
+        state: >-
+          {% if is_state("switch.switcher_touch_d54f", "off") or is_state("sensor.switcher_touch_d54f_remaining_time", "00:00:00") %}
+              off
+          {% else %}
+              {% set hour = states("sensor.switcher_touch_d54f_remaining_time").split(':')[0] %}
+              {% set min = states("sensor.switcher_touch_d54f_remaining_time").split(':')[1] %}
+              {% set sec = states("sensor.switcher_touch_d54f_remaining_time").split(':')[2] %}
+              {% set sec_int = sec|int %}
+              {% set min_int = min|int %}
+              {% set hour_int = hour|int %}
+
+              {% if min_int > 0 %}
+                {% set min_int = min_int + 1 %}
+              {% endif %}
+              {% if min_int == 60 %}
+                {% set min_int = 0 %}
+                {% set hour_int = hour_int + 1 %}
+              {% endif %}
+
+              {% if hour_int == 0 and min_int == 0 %}
+                  {{ sec_int }} שניות
+              {% elif hour_int == 0 %}
+                  {{ min_int }} דקות
+              {% else %}
+                  {{hour_int}}:{{min_int}}
+              {% endif %}
+          {% endif %}
 
     #   # Time Left Short
     #   - name: "switcher_kis_time_left_short"

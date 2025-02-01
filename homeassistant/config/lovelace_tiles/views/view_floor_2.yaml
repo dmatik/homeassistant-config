@@ -184,7 +184,7 @@ sections:
       - type: custom:switcher-boiler-card
         entity: switch.switcher_touch_d54f
         icon: ""
-        time_left: sensor.switcher_touch_d54f_remaining_time
+        time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
         grid_options:
           columns: 6

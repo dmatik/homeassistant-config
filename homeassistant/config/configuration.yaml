@@ -91,7 +91,7 @@ lovelace:
 #Recorder
 recorder:
   auto_purge: true
-  purge_keep_days: 64
+  purge_keep_days: 10
   #db_url: !secret synology_db_connection
   exclude:
     entities:

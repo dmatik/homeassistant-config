@@ -39,13 +39,13 @@ widget_mini_graph_bar:
         attribute: "[[[ return variables.mini_graph_attribute ]]]"
         card_mod:
           style: |
-            bar-card-currentbar{
+            bar-card-currentbar {
               border: 0.01rem solid var(--divider-color);
             }
-            bar-card-backgroundbar{
+            bar-card-backgroundbar {
               display: none;
             }
-            bar-card-name{
+            bar-card-name {
               width: 8rem;
               margin-left: 10px !important;
               justify-content: start;
@@ -53,7 +53,7 @@ widget_mini_graph_bar:
               color: rgba(var(--primary-text-color),1);
               padding-top: 2px;
             }
-            bar-card-value{
+            bar-card-value {
               width: 100%;
               margin-left: 0px !important;
               margin-right: 10px !important;
@@ -62,11 +62,11 @@ widget_mini_graph_bar:
               color: rgba(var(--primary-text-color),1);
               padding-top: 2px;
             }
-            bar-card-background{
+            bar-card-background {
               margin: 4px 0 4px 0 !important;
               text-align: initial;
             }
-            ha-card{
+            ha-card {
               --bar-card-border-radius: 5px;
               border-radius: 0px;
               box-shadow: none;
@@ -74,7 +74,7 @@ widget_mini_graph_bar:
               border-style: none;
               direction: ltr;
             }
-            #states{
+            #states {
               padding-top: 0px;
               padding-left: 2px;
               padding-right: 2px;
