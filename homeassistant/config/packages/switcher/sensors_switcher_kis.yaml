@@ -29,7 +29,7 @@ template:
               {% elif hour_int == 0 %}
                   {{ min_int }} דקות
               {% else %}
-                  {{hour_int}}:{{min_int}}
+                  {{'%02d' % hour_int}}:{{'%02d' % min_int}}
               {% endif %}
           {% endif %}
 
