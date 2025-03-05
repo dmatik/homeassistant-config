@@ -132,6 +132,10 @@ sections:
       # Living Room TV
       - type: tile
         entity: media_player.lg_webos_tv_oled77cs6la
+
+      # Apple TV Living Room
+      - type: tile
+        entity: media_player.apple_tv_living_room
           
       # # Living Room Sensor
       # - type: 'custom:button-card'

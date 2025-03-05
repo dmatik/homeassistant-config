@@ -171,6 +171,12 @@ popup_fully:
                         service: 'switch.toggle'
                         service_data:
                           entity_id: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
+                      double_tap_action:
+                        action: 'more-info'
+                        entity: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
+                      hold_action:
+                        action: 'more-info'
+                        entity: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
 
 
             - type: custom:button-card

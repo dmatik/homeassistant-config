@@ -56,21 +56,32 @@ sections:
           action: more-info 
 
       # Switcher
-      - type: 'custom:button-card'
-        template: 
-          - card_switcher
-        variables:
-          #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
-          ulm_card_switcher_icon: "mdi:waves"
-          ulm_card_switcher_entity: switch.switcher_touch_d54f
-          ulm_card_switcher_timer_script: script.switcher_kis_turn_on_timer_script
-          ulm_card_switcher_time_left: sensor.switcher_touch_d54f_remaining_time
-          ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
-          ulm_card_switcher_electric_current: sensor.switcher_touch_d54f_current
-          ulm_card_switcher_auto_off: sensor.switcher_kis_auto_off_time
-        layout_options:
-          grid_columns: 2
-          grid_rows: 2  
+      - type: custom:switcher-boiler-card
+        entity: switch.switcher_touch_d54f
+        icon: ""
+        icon_sensor: sensor.boiler_temperature
+        time_left: sensor.switcher_kis_remaining_time_alt
+        sensor_1: sensor.switcher_touch_d54f_current
+        grid_options:
+          columns: 6
+          rows: 2   
+          
+      # # Switcher
+      # - type: 'custom:button-card'
+      #   template: 
+      #     - card_switcher
+      #   variables:
+      #     #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+      #     ulm_card_switcher_icon: "mdi:waves"
+      #     ulm_card_switcher_entity: switch.switcher_touch_d54f
+      #     ulm_card_switcher_timer_script: script.switcher_kis_turn_on_timer_script
+      #     ulm_card_switcher_time_left: sensor.switcher_touch_d54f_remaining_time
+      #     ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+      #     ulm_card_switcher_electric_current: sensor.switcher_touch_d54f_current
+      #     ulm_card_switcher_auto_off: sensor.switcher_kis_auto_off_time
+      #   layout_options:
+      #     grid_columns: 2
+      #     grid_rows: 2  
 
 
 

@@ -77,6 +77,15 @@ sections:
     title: Boiler
     cards:
 
+      # Boiler Temperature with Current
+      - type: history-graph
+        entities:
+          - entity: sensor.boiler_temperature
+            name: מים
+          - entity: sensor.switcher_touch_d54f_current
+            name: חשמל
+
+
       # Daily
       - type: 'custom:button-card'
         template: card_energy_daily_graph

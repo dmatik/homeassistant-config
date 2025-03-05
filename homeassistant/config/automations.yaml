@@ -102,78 +102,6 @@
       title: Home
       message: Nobody home
   mode: single
-- id: '1630055051716'
-  alias: Kids Radiator ON Notification
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: switch.kids_radiator
-    from: 'off'
-    to: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      title: Kids Radiator
-      message: 'On'
-      data:
-        actions:
-        - action: KIDS_RADIATOR_OFF
-          title: 'Off'
-  mode: single
-- id: '1630055310744'
-  alias: Kids Radiator OFF Notification
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: switch.kids_radiator
-    from: 'on'
-    to: 'off'
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
-      title: Kids Radiator
-      message: 'Off'
-      data:
-        actions:
-        - action: KIDS_RADIATOR_ON
-          title: 'On'
-  mode: single
-- id: '1630055491352'
-  alias: Kids Radiator OFF Action
-  description: ''
-  trigger:
-  - platform: event
-    event_type: mobile_app_notification_action
-    event_data:
-      action: KIDS_RADIATOR_OFF
-  condition:
-  - condition: state
-    entity_id: switch.kids_radiator
-    state: 'on'
-  action:
-  - service: switch.turn_off
-    target:
-      entity_id: switch.kids_radiator
-  mode: single
-- id: '1630055553920'
-  alias: Kids Radiator ON Action
-  description: ''
-  trigger:
-  - platform: event
-    event_type: mobile_app_notification_action
-    event_data:
-      action: KIDS_RADIATOR_ON
-  condition:
-  - condition: state
-    entity_id: switch.kids_radiator
-    state: 'off'
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.kids_radiator
-  mode: single
 - id: '1630056048064'
   alias: Printer Black Ink Low
   description: ''
@@ -846,7 +774,7 @@
         action: scene.turn_on
   mode: single
 - id: '1721665061066'
-  alias: Bedroom AC - Night - Summer
+  alias: Bedroom Air Conditioner - Night - Summer
   description: ''
   use_blueprint:
     path: night_ac_summer.yaml
@@ -857,7 +785,7 @@
       end_time: 04:00:00
       target_temperature_value: 26
 - id: '1721724300646'
-  alias: Kfir AC - Night - Summer
+  alias: Kfir Air Conditioner - Night - Summer
   description: ''
   use_blueprint:
     path: night_ac_summer.yaml
@@ -868,7 +796,7 @@
       end_time: 04:00:00
       target_temperature_value: 26
 - id: '1721724371404'
-  alias: Ronen AC - Night - Summer
+  alias: Ronen Air Conditioner - Night - Summer
   description: ''
   use_blueprint:
     path: night_ac_summer.yaml
@@ -1037,3 +965,83 @@
       alert_binary_sensor: binary_sensor.redalert_gan_yavne
       notification_tag: redalert-gan-yavne
       alert_location: גן יבנה
+- id: '1740674905242'
+  alias: Kfir Air Conditioner - Night - Winter
+  description: ''
+  use_blueprint:
+    path: night_ac_winter.yaml
+    input:
+      climate_entity: climate.kfir
+      start_time: '22:00:00'
+      end_time: '23:50:00'
+      target_temperature_value: 23
+- id: '1740674971826'
+  alias: Ronen Air Conditioner - Night - Winter
+  description: ''
+  use_blueprint:
+    path: night_ac_winter.yaml
+    input:
+      climate_entity: climate.ronen
+      start_time: '22:00:00'
+      end_time: '23:50:00'
+      target_temperature_value: 23
+- id: '1740675051121'
+  alias: Bedroom Air Conditioner - Night - Winter
+  description: ''
+  use_blueprint:
+    path: night_ac_winter.yaml
+    input:
+      climate_entity: climate.bedroom
+      start_time: '22:00:00'
+      end_time: 01:00:00
+- id: '1741098236238'
+  alias: Boiler Water Heat
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.boiler_temperature
+    below: 45
+    id: boiler_on
+  - trigger: numeric_state
+    entity_id:
+    - sensor.boiler_temperature
+    id: boiler_off
+    above: 60
+  conditions:
+  - condition: time
+    after: '12:00:00'
+    before: 08:00:00
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - boiler_off
+      sequence:
+      - delay:
+          hours: 0
+          minutes: 2
+          seconds: 0
+          milliseconds: 0
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.switcher_touch_d54f
+    - conditions:
+      - condition: trigger
+        id:
+        - boiler_on
+      sequence:
+      - delay:
+          hours: 0
+          minutes: 2
+          seconds: 0
+          milliseconds: 0
+      - action: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.switcher_touch_d54f
+  mode: single

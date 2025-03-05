@@ -196,6 +196,14 @@ sections:
           grid_columns: 2
           grid_rows: 1
 
+      # Basement TV
+      - type: tile
+        entity: media_player.samsung_8_series_65     
+
+      # Apple TV Basement
+      - type: tile
+        entity: media_player.apple_tv_basement
+
 
 
   ############################################################################

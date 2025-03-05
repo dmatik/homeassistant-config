@@ -100,6 +100,10 @@ sections:
       - type: tile
         entity: media_player.samsung_8_series_65
 
+      # Apple TV Basement
+      - type: tile
+        entity: media_player.apple_tv_basement        
+
       # Basement Climate
       - type: 'custom:button-card'
         template: card_ac_buttons

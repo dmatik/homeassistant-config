@@ -7,7 +7,7 @@ template:
         icon: mdi:timelapse
         state: >-
           {% if is_state("switch.switcher_touch_d54f", "off") or is_state("sensor.switcher_touch_d54f_remaining_time", "00:00:00") %}
-              off
+              --
           {% else %}
               {% set hour = states("sensor.switcher_touch_d54f_remaining_time").split(':')[0] %}
               {% set min = states("sensor.switcher_touch_d54f_remaining_time").split(':')[1] %}

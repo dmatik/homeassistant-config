@@ -161,6 +161,7 @@ cards:
               - type: custom:switcher-boiler-card
                 entity: switch.switcher_touch_d54f
                 icon: ""
+                icon_sensor: sensor.boiler_temperature
                 time_left: sensor.switcher_kis_remaining_time_alt
                 sensor_1: sensor.switcher_touch_d54f_current
                 grid_options:

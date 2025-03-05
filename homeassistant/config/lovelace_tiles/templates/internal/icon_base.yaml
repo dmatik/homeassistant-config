@@ -20,8 +20,8 @@ icon_base:
   styles:
     icon:
       - color: 'var(--grey-color)'
-      - width: "22px"
-      - height: "22px"
+      - width: "24px"
+      - height: "24px"
     name:
       - align-self: "end"
       - justify-self: "start"
