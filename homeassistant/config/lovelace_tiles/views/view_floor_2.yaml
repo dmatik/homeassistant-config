@@ -185,6 +185,7 @@ sections:
         entity: switch.switcher_touch_d54f
         icon: ""
         icon_sensor: sensor.boiler_temperature
+        color_thresholds: true
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
         grid_options:
@@ -350,12 +351,16 @@ sections:
       # Bedroom Balcony Cover
       - type: tile
         entity: cover.bedroom_balcony
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"
 
       # Bedroom Window Cover
       - type: tile
         entity: cover.bedroom_window
+        icon_tap_action:
+          action: more-info
         # features:
         #   - type: "cover-open-close"
 
@@ -452,6 +457,8 @@ sections:
       # Ronen Room Cover
       - type: tile
         entity: cover.ronen_room
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"   
 
@@ -547,6 +554,8 @@ sections:
       # Kfir Room Cover
       - type: tile
         entity: cover.kfir_room
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"
 

@@ -1045,3 +1045,138 @@
         target:
           entity_id: switch.switcher_touch_d54f
   mode: single
+- id: '1741256712419'
+  alias: Boiler Heating Schedule
+  description: ''
+  use_blueprint:
+    path: boiler_heat_schedule.yaml
+    input:
+      boiler_entity: switch.switcher_touch_d54f
+      water_temp_entity: sensor.boiler_temperature
+      time_on_1: 03:30:00
+      time_on_2: '17:00:00'
+      timer_minutes_1: 150
+      timer_minutes_2: 120
+      low_temp_threshold_value: 50
+      weekday_1:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+- id: '1741263588984'
+  alias: Boiler Heat Schedule - Evening
+  description: ''
+  triggers:
+  - trigger: time
+    at: '17:00:00'
+    id: boiler_on
+  - trigger: time
+    at: '19:00:00'
+    id: boiler_off
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - boiler_on
+      sequence:
+      - action: climate.set_temperature
+        metadata: {}
+        data:
+          temperature: 60
+        target:
+          entity_id: climate.switcher_boiler
+      - action: climate.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: climate.switcher_boiler
+    - conditions:
+      - condition: trigger
+        id:
+        - boiler_off
+      sequence:
+      - action: climate.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: climate.switcher_boiler
+  mode: single
+- id: '1741264257716'
+  alias: Boiler Heat Schedule - Morning
+  description: ''
+  triggers:
+  - trigger: time
+    at: 03:00:00
+    id: boiler_on
+  - trigger: time
+    at: 07:00:00
+    id: boiler_off
+  conditions:
+  - condition: time
+    weekday:
+    - fri
+    - thu
+    - wed
+    - tue
+    - mon
+    - sun
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - boiler_on
+      sequence:
+      - action: climate.set_temperature
+        metadata: {}
+        data:
+          temperature: 60
+        target:
+          entity_id: climate.switcher_boiler
+      - action: climate.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: climate.switcher_boiler
+    - conditions:
+      - condition: trigger
+        id:
+        - boiler_off
+      sequence:
+      - action: climate.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: climate.switcher_boiler
+  mode: single
+- id: '1741272347618'
+  alias: Boiler Thermostat Schedule - Evening
+  description: ''
+  use_blueprint:
+    path: boiler_heat_schedule_thermo.yaml
+    input:
+      thermostat_entity: climate.switcher_boiler
+      time_on: '18:00:00'
+      time_off: '20:00:00'
+      water_temp_entity: sensor.boiler_temperature
+- id: '1741272746027'
+  alias: Boiler Thermostat Schedule - Morning
+  description: ''
+  use_blueprint:
+    path: boiler_heat_schedule_thermo.yaml
+    input:
+      thermostat_entity: climate.switcher_boiler
+      time_on: 03:30:00
+      time_off: 06:30:00
+      weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+      water_temp_entity: sensor.boiler_temperature

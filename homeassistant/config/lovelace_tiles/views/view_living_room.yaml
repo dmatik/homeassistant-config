@@ -86,6 +86,8 @@ sections:
       # Back Yard Cover
       - type: tile
         entity: cover.back_yard
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"
         view_layout:
@@ -94,6 +96,8 @@ sections:
       # Living Room Window Cover
       - type: tile
         entity: cover.living_room_window
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"
         view_layout:
@@ -132,10 +136,14 @@ sections:
       # Living Room TV
       - type: tile
         entity: media_player.lg_webos_tv_oled77cs6la
+        icon_tap_action:
+          action: more-info
 
       # Apple TV Living Room
       - type: tile
         entity: media_player.apple_tv_living_room
+        icon_tap_action:
+          action: more-info
           
       # # Living Room Sensor
       # - type: 'custom:button-card'
@@ -150,6 +158,8 @@ sections:
       # Living Room Camera Sensor
       - type: tile
         entity: binary_sensor.living_room_cell_motion_detection
+        icon_tap_action:
+          action: more-info
 
       # # New Year Tree Lights
       # - type: 'custom:button-card'
@@ -217,6 +227,8 @@ sections:
       # Entrance Window Cover
       - type: tile
         entity: cover.entrance_window
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"
         view_layout:
@@ -248,7 +260,11 @@ sections:
       # Guest Bathroom Mirror Sensor
       - type: tile
         entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
+        icon_tap_action:
+          action: more-info
 
       # Guest Bathroom New Sensor
       - type: tile
-        entity: binary_sensor.guest_bathroom_new_motion_sensor_occupancy  
+        entity: binary_sensor.guest_bathroom_new_motion_sensor_occupancy
+        icon_tap_action:
+          action: more-info

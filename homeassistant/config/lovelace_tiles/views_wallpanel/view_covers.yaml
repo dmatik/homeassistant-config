@@ -88,24 +88,32 @@ cards:
               # Back Yard Cover
               - type: tile
                 entity: cover.back_yard
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close" 
 
               # Living Room Window Cover
               - type: tile
                 entity: cover.living_room_window
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close" 
 
               # Entrance Window Cover
               - type: tile
                 entity: cover.entrance_window
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close"
 
               # Kitchen Cover
               - type: tile
                 entity: cover.kitchen
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close"
 
@@ -143,30 +151,40 @@ cards:
               # Bedroom Balcony Cover
               - type: tile
                 entity: cover.bedroom_balcony
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close"
 
               # Bedroom Window Cover
               - type: tile
                 entity: cover.bedroom_window
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close"                           
 
               # Bedroom Makup Cover
               - type: tile
                 entity: cover.parents_makeup
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close"                          
 
               # Ronen Room Cover
               - type: tile
                 entity: cover.ronen_room
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close" 
 
               # Kfir Room Cover
               - type: tile
                 entity: cover.kfir_room
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close" 
 

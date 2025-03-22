@@ -198,11 +198,15 @@ sections:
 
       # Basement TV
       - type: tile
-        entity: media_player.samsung_8_series_65     
+        entity: media_player.samsung_8_series_65
+        icon_tap_action:
+          action: more-info
 
       # Apple TV Basement
       - type: tile
         entity: media_player.apple_tv_basement
+        icon_tap_action:
+          action: more-info
 
 
 

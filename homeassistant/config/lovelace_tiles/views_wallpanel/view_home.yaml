@@ -61,6 +61,15 @@ badges:
     variables:
       ulm_chip_icon_state_entity: binary_sensor.school_holiday
 
+  # Boiler Water Temperature
+  - type: entity
+    show_name: false
+    show_state: true
+    show_icon: true
+    color: green
+    icon: mdi:water-boiler
+    entity: sensor.boiler_temperature
+    
   # Red Alert Chip
   - type: 'custom:button-card'
     template:
@@ -252,18 +261,24 @@ cards:
               # Back Yard Cover
               - type: tile
                 entity: cover.back_yard
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close"
 
               # Kitchen Cover
               - type: tile
                 entity: cover.living_room_window
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close"                    
 
               # Kitchen Cover
               - type: tile
                 entity: cover.kitchen
+                icon_tap_action:
+                  action: more-info
                 features:
                   - type: "cover-open-close"
 
@@ -513,6 +528,7 @@ cards:
                 entity: switch.switcher_touch_d54f
                 icon: ""
                 icon_sensor: sensor.boiler_temperature
+                color_thresholds: true
                 time_left: sensor.switcher_kis_remaining_time_alt
                 sensor_1: sensor.switcher_touch_d54f_current
                 grid_options:

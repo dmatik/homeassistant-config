@@ -4,6 +4,10 @@ path: tiles_home
 type: sections
 max_columns: 3
 
+header:
+  layout: center
+  badges_position: bottom
+
 badges:
 
   # Climate Chip
@@ -98,6 +102,15 @@ badges:
       ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
       ulm_chip_navigate_path: /lovelace/tiles_motion
 
+  # Boiler Water Temperature
+  - type: entity
+    show_name: false
+    show_state: true
+    show_icon: true
+    color: green
+    icon: mdi:water-boiler
+    entity: sensor.boiler_temperature
+    
   # Red Alert Chip
   - type: 'custom:button-card'
     template:
@@ -302,6 +315,8 @@ sections:
       # Back Yard Cover
       - type: tile
         entity: cover.back_yard
+        icon_tap_action:
+          action: more-info
         # features:
         #   - type: "cover-open-close"
 
@@ -310,6 +325,7 @@ sections:
         entity: switch.switcher_touch_d54f
         icon: ""
         icon_sensor: sensor.boiler_temperature
+        color_thresholds: true
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
         grid_options:
@@ -450,6 +466,8 @@ sections:
       # Kitchen Cover
       - type: tile
         entity: cover.kitchen
+        icon_tap_action:
+          action: more-info
         # features:
         #   - type: "cover-open-close" 
 

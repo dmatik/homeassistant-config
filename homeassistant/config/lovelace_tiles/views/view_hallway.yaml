@@ -60,6 +60,7 @@ sections:
         entity: switch.switcher_touch_d54f
         icon: ""
         icon_sensor: sensor.boiler_temperature
+        color_thresholds: true
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
         grid_options:
@@ -174,7 +175,11 @@ sections:
       # Bathroom Right Sensor
       - type: tile
         entity: binary_sensor.bathroom_new_right_motion_sensor_occupancy
+        icon_tap_action:
+          action: more-info
 
       # Bathroom Left Sensor
       - type: tile
         entity: binary_sensor.bathroom_new_left_motion_sensor_occupancy
+        icon_tap_action:
+          action: more-info

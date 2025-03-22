@@ -102,14 +102,20 @@ sections:
       # Kitchen Right
       - type: tile
         entity: binary_sensor.kitchen_right_motion_sensor_occupancy
+        icon_tap_action:
+          action: more-info
 
       # Kitchen Left
       - type: tile
-        entity: binary_sensor.kitchen_left_motion_sensor_occupancy         
+        entity: binary_sensor.kitchen_left_motion_sensor_occupancy
+        icon_tap_action:
+          action: more-info
 
       # Kitchen Cover
       - type: tile
         entity: cover.kitchen
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"
 

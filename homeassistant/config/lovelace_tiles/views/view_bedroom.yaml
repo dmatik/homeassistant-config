@@ -107,18 +107,24 @@ sections:
       # Bedroom Balcony Cover
       - type: tile
         entity: cover.bedroom_balcony
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"
 
       # Bedroom Window Cover
       - type: tile
         entity: cover.bedroom_window
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"                        
 
       # Bedroom Makup Cover
       - type: tile
         entity: cover.parents_makeup
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"
 
@@ -197,7 +203,11 @@ sections:
       # Parents Bathroom Left Sensor
       - type: tile
         entity: binary_sensor.parents_bathroom_new_left_motion_sensor_occupancy
+        icon_tap_action:
+          action: more-info
 
       # Parents Bathroom Right Sensor
       - type: tile
         entity: binary_sensor.parents_bathroom_new_right_motion_sensor_occupancy
+        icon_tap_action:
+          action: more-info

@@ -80,5 +80,7 @@ sections:
       # Ronen Room Cover
       - type: tile
         entity: cover.ronen_room
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"                        

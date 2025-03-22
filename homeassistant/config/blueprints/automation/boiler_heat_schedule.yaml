@@ -1,0 +1,150 @@
+blueprint:
+  name: Boiler Heat Schedule
+  description: Switcher boiler water heating schedule
+  domain: automation
+  input:
+    boiler_entity:
+      name: Switcher Boiler Entity
+      selector:
+        entity:
+          domain: switch
+    water_temp_entity:
+      name: Water Temperature Entity
+      selector:
+        entity:
+          domain: sensor
+    low_temp_threshold_value:
+      name: Low Temperature Threshold
+      default: 45
+      selector:
+        number:
+          min: 0
+          max: 70
+          unit_of_measurement: "°C"
+    high_temp_threshold_value:
+      name: High Temperature Threshold
+      default: 60
+      selector:
+        number:
+          min: 0
+          max: 70
+          unit_of_measurement: "°C"
+
+    time_on_1:
+      name: Time ON 1
+      selector:
+        time:
+    timer_minutes_1:
+      name: Timer 1
+      default: 60
+      selector:
+        number:
+          min: 1
+          max: 150
+          unit_of_measurement: min
+    weekday_1:
+      name: Days of the week for Schedule 1
+      default: [sun, mon, tue, wed, thu, fri, sat]
+      selector:
+        select:
+          options:
+          - label: Sunday
+            value: sun          
+          - label: Monday
+            value: mon
+          - label: Tuesday
+            value: tue
+          - label: Wednesday
+            value: wed
+          - label: Thursday
+            value: thu
+          - label: Friday
+            value: fri
+          - label: Saturday
+            value: sat
+          custom_value: false
+          multiple: true
+
+    time_on_2:
+      name: Time ON 2
+      selector:
+        time:
+    timer_minutes_2:
+      name: Timer 2
+      default: 60
+      selector:
+        number:
+          min: 1
+          max: 150
+          unit_of_measurement: min
+    weekday_2:
+      name: Days of the week for Schedule 2
+      default: [sun, mon, tue, wed, thu, fri, sat]
+      selector:
+        select:
+          options:
+          - label: Sunday
+            value: sun          
+          - label: Monday
+            value: mon
+          - label: Tuesday
+            value: tue
+          - label: Wednesday
+            value: wed
+          - label: Thursday
+            value: thu
+          - label: Friday
+            value: fri
+          - label: Saturday
+            value: sat
+          custom_value: false
+          multiple: true          
+
+trigger:
+  - platform: time
+    at: !input time_on_1
+    id: boiler_on_1
+  - platform: time
+    at: !input time_on_2
+    id: boiler_on_2
+  - platform: numeric_state
+    entity_id: !input water_temp_entity
+    above: 60
+    id: boiler_off
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: boiler_on_1
+          - condition: time
+            weekday: !input weekday_1            
+          - condition: numeric_state
+            entity_id: !input water_temp_entity
+            below: !input low_temp_threshold_value           
+        sequence:
+          - action: switcher_kis.turn_on_with_timer
+            target:
+              entity_id: !input boiler_entity
+            data:
+              timer_minutes: !input timer_minutes_1
+      - conditions:
+          - condition: trigger
+            id: boiler_on_2
+          - condition: time
+            weekday: !input weekday_2            
+          - condition: numeric_state
+            entity_id: !input water_temp_entity
+            below: !input low_temp_threshold_value            
+        sequence:
+          - action: switcher_kis.turn_on_with_timer
+            target:
+              entity_id: !input boiler_entity
+            data:
+              timer_minutes: !input timer_minutes_2
+      - conditions:
+          - condition: trigger
+            id: boiler_off
+        sequence:
+          - action: switch.turn_off
+            entity_id: !input boiler_entity

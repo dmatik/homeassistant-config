@@ -80,5 +80,7 @@ sections:
       # Kfir Room Cover
       - type: tile
         entity: cover.kfir_room
+        icon_tap_action:
+          action: more-info
         features:
           - type: "cover-open-close"

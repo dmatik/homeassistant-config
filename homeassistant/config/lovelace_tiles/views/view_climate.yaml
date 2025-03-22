@@ -19,6 +19,25 @@ badges:
       ulm_chip_icon_state_entity: sensor.number_of_climate_entities_on
       ulm_chip_navigate_path: /lovelace/tiles_climate  
 
+  # Boiler Water Temperature
+  - type: entity
+    show_name: false
+    show_state: true
+    show_icon: true
+    color: green
+    icon: mdi:water-boiler
+    entity: sensor.boiler_temperature
+
+  # Boiler Switcher Thermostat
+  - type: entity
+    show_name: true
+    show_state: true
+    show_icon: true
+    entity: climate.switcher_boiler
+    state_content:
+      - state
+      - temperature    
+
   # Air Quality Chip
   - type: 'custom:button-card'
     template:
@@ -195,6 +214,7 @@ sections:
         entity: switch.switcher_touch_d54f
         icon: ""
         icon_sensor: sensor.boiler_temperature
+        color_thresholds: true
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
         grid_options:

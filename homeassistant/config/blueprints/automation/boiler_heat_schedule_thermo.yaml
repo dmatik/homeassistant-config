@@ -1,0 +1,100 @@
+blueprint:
+  name: Boiler Heat Schedule with Thermostat
+  description: Switcher boiler water heating schedule using Generic Thermostat
+  domain: automation
+  input:
+    thermostat_entity:
+      name: Generic Thermostat Entity
+      selector:
+        entity:
+          domain: climate
+    water_temp_entity:
+      name: Water Temperature Entity
+      selector:
+        entity:
+          domain: sensor          
+    time_on:
+      name: Time ON
+      selector:
+        time:
+    time_off:
+      name: Time OFF
+      selector:
+        time:
+    target_temp_value:
+      name: Target Temperature
+      default: 60
+      selector:
+        number:
+          min: 0
+          max: 70
+          unit_of_measurement: "°C"
+    threshold_temp_value:
+      name: Threshold Temperature
+      default: 50
+      selector:
+        number:
+          min: 0
+          max: 70
+          unit_of_measurement: "°C"              
+    weekday:
+      name: Days of the week for Schedule
+      default: [sun, mon, tue, wed, thu, fri, sat]
+      selector:
+        select:
+          options:
+          - label: Sunday
+            value: sun          
+          - label: Monday
+            value: mon
+          - label: Tuesday
+            value: tue
+          - label: Wednesday
+            value: wed
+          - label: Thursday
+            value: thu
+          - label: Friday
+            value: fri
+          - label: Saturday
+            value: sat
+          custom_value: false
+          multiple: true
+
+trigger:
+  - platform: time
+    at: !input time_on
+    id: boiler_on
+  - platform: time
+    at: !input time_off
+    id: boiler_off
+
+conditions:
+  - condition: time
+    weekday: !input weekday
+
+action:
+  - choose:
+
+      - conditions:
+          - condition: trigger
+            id: boiler_on
+          - condition: numeric_state
+            entity_id: !input water_temp_entity
+            below: !input threshold_temp_value              
+        sequence:
+          - action: climate.set_temperature
+            data:
+              temperature: !input target_temp_value
+            target:
+              entity_id: !input thermostat_entity        
+          - action: climate.turn_on
+            target:
+              entity_id: !input thermostat_entity
+
+      - conditions:
+          - condition: trigger
+            id: boiler_off
+        sequence:
+          - action: climate.turn_off
+            target:
+              entity_id: !input thermostat_entity              
