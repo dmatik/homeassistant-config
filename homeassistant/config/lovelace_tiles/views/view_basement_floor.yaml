@@ -148,14 +148,14 @@ sections:
             show_state: true
             show_icon: true
             entity: sensor.basement_temperature_sensor_humidity
-            color: 'var(--paper-item-icon-color)'
+            color: purple #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info                
           - type: entity
             show_state: true
             show_icon: true
             entity: sensor.basement_temperature_sensor_temperature
-            color: 'var(--paper-item-icon-color)'
+            color: red #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
 
@@ -246,14 +246,14 @@ sections:
             show_state: true
             show_icon: true
             entity: sensor.work_room_temperature_sensor_humidity
-            color: 'var(--paper-item-icon-color)'
+            color: purple #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
           - type: entity
             show_state: true
             show_icon: true
             entity: sensor.work_room_temperature_sensor_temperature
-            color: 'var(--paper-item-icon-color)'
+            color: red #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
 

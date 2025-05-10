@@ -8,15 +8,13 @@ max_columns: 3
 badges:
 
   # Temperature Chip
-  - type: 'custom:button-card'
-    template:
-      - 'chip_icon_label_state'
-      - 'chip_more_info_with_entity'
-      - 'chip_paper_no_state'
-    icon: 'mdi:thermometer'
-    variables:
-      ulm_chip_icon_state_entity: sensor.kitchen_temperature_sensor_temperature
-      ulm_chip_more_info_entity: sensor.kitchen_temperature_sensor_temperature      
+  - type: entity
+    show_name: false
+    show_state: true
+    show_icon: true
+    icon: mdi:thermometer
+    color: red
+    entity: sensor.kitchen_temperature_sensor_temperature
 
   # Light Level Chip
   - type: 'custom:button-card'

@@ -186,6 +186,8 @@ sections:
         icon: ""
         icon_sensor: sensor.boiler_temperature
         color_thresholds: true
+        cold_threshold: 35
+        hot_threshold: 55
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
         grid_options:
@@ -274,14 +276,14 @@ sections:
             show_state: true
             show_icon: true
             entity: sensor.bedroom_temperature_sensor_humidity
-            color: 'var(--paper-item-icon-color)'
+            color: purple #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info                
           - type: entity
             show_state: true
             show_icon: true
             entity: sensor.bedroom_temperature_sensor_temperature
-            color: 'var(--paper-item-icon-color)'
+            color: red #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
 
@@ -412,14 +414,14 @@ sections:
             show_state: true
             show_icon: true
             entity: sensor.ronen_room_temperature_sensor_humidity
-            color: 'var(--paper-item-icon-color)'
+            color: purple #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info                
           - type: entity
             show_state: true
             show_icon: true
             entity: sensor.ronen_room_temperature_sensor_temperature
-            color: 'var(--paper-item-icon-color)'
+            color: red #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
 
@@ -510,14 +512,14 @@ sections:
             show_state: true
             show_icon: true
             entity: sensor.kfir_room_temperature_sensor_humidity
-            color: 'var(--paper-item-icon-color)'
+            color: purple #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info                
           - type: entity
             show_state: true
             show_icon: true
             entity: sensor.kfir_room_temperature_sensor_temperature
-            color: 'var(--paper-item-icon-color)'
+            color: red #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
 

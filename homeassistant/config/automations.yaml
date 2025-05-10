@@ -783,7 +783,7 @@
       quiet_mode_switch: switch.bedroom_quiet
       start_time: 00:00:00
       end_time: 04:00:00
-      target_temperature_value: 26
+      target_temperature_value: 25
 - id: '1721724300646'
   alias: Kfir Air Conditioner - Night - Summer
   description: ''
@@ -794,7 +794,7 @@
       quiet_mode_switch: switch.kfir_quiet
       start_time: '23:00:00'
       end_time: 04:00:00
-      target_temperature_value: 26
+      target_temperature_value: 25
 - id: '1721724371404'
   alias: Ronen Air Conditioner - Night - Summer
   description: ''
@@ -805,7 +805,7 @@
       quiet_mode_switch: switch.ronen_quiet
       start_time: '23:00:00'
       end_time: 04:00:00
-      target_temperature_value: 26
+      target_temperature_value: 25
 - id: '1722774100998'
   alias: Home Motion Alert
   description: ''

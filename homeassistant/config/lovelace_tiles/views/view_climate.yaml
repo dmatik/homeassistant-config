@@ -5,6 +5,11 @@ type: sections
 subview: true
 max_columns: 3
 
+header:
+  layout: center
+  badges_position: bottom
+  badges_wrap: scroll
+  
 badges:
 
   # Climate Chip
@@ -215,6 +220,8 @@ sections:
         icon: ""
         icon_sensor: sensor.boiler_temperature
         color_thresholds: true
+        cold_threshold: 35
+        hot_threshold: 55     
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
         grid_options:

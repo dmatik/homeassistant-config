@@ -3,10 +3,12 @@ icon: mdi:home
 path: tiles_home
 type: sections
 max_columns: 3
+dense_section_placement: false
 
 header:
   layout: center
   badges_position: bottom
+  badges_wrap: scroll
 
 badges:
 
@@ -204,6 +206,44 @@ sections:
 
 
 
+  ############################################################################
+  #                                                                          #
+  #   Favorites                                                              #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    title: מועדפים  
+    cards:
+
+      # Switcher
+      - type: custom:switcher-boiler-card
+        entity: switch.switcher_touch_d54f
+        icon: ""
+        icon_sensor: sensor.boiler_temperature
+        color_thresholds: true
+        cold_threshold: 35
+        hot_threshold: 55
+        time_left: sensor.switcher_kis_remaining_time_alt
+        sensor_1: sensor.switcher_touch_d54f_current
+        grid_options:
+          columns: 6
+          rows: 2
+
+      # Vacuum Cleaner
+      - type: 'custom:button-card'
+        template: 
+          - card_vacuum_cleaner_buttons
+        variables:
+          #ulm_card_vacuum_cleaner_icon: "mdi:waves"
+          ulm_card_vacuum_cleaner_entity: vacuum.l20_ultra
+          ulm_card_vacuum_cleaner_map: camera.l20_ultra_map
+          ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
+
+
 
   ############################################################################
   #                                                                          #
@@ -261,14 +301,14 @@ sections:
             show_state: true
             show_icon: true
             entity: sensor.living_room_temperature_sensor_humidity
-            color: 'var(--paper-item-icon-color)'
+            color: purple #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info                
           - type: entity
             show_state: true
             show_icon: true
             entity: sensor.living_room_temperature_sensor_temperature
-            color: 'var(--paper-item-icon-color)'
+            color: red #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
 
@@ -318,19 +358,7 @@ sections:
         icon_tap_action:
           action: more-info
         # features:
-        #   - type: "cover-open-close"
-
-      # Switcher
-      - type: custom:switcher-boiler-card
-        entity: switch.switcher_touch_d54f
-        icon: ""
-        icon_sensor: sensor.boiler_temperature
-        color_thresholds: true
-        time_left: sensor.switcher_kis_remaining_time_alt
-        sensor_1: sensor.switcher_touch_d54f_current
-        grid_options:
-          columns: 6
-          rows: 2            
+        #   - type: "cover-open-close"           
 
       # Back Yard Light
       - type: tile
@@ -445,21 +473,21 @@ sections:
             show_state: true
             show_icon: true
             entity: sensor.kitchen_light_level_sensor_illuminance
-            color: 'var(--paper-item-icon-color)'
+            color: yellow #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info
           - type: entity
             show_state: true
             show_icon: true
             entity: sensor.kitchen_temperature_sensor_humidity
-            color: 'var(--paper-item-icon-color)'
+            color: purple #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info                
           - type: entity
             show_state: true
             show_icon: true
             entity: sensor.kitchen_temperature_sensor_temperature
-            color: 'var(--paper-item-icon-color)'
+            color: red #'var(--paper-item-icon-color)'
             tap_action:
               action: more-info  
 
@@ -503,4 +531,660 @@ sections:
           ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
         layout_options:
           grid_columns: 2
-          grid_rows: 1     
+          grid_rows: 1
+
+
+  ############################################################################
+  #                                                                          #
+  #   Hallway                                                                #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    #title: קומה 2
+    cards:
+
+      # Title
+      - type: heading          
+        heading: מסדרון
+        heading_style: title
+        layout_options:
+          grid_columns: full
+          grid_rows: 1
+        #icon: mdi:door-open
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/tiles_hallway        
+        # badges:
+        #   - type: entity
+        #     show_state: true
+        #     show_icon: true
+        #     entity: sensor.motion_sensors_detected_counter_hallway
+        #     icon: mdi:run
+        #     color: yellow
+        #     visibility:
+        #       - condition: numeric_state
+        #         entity: sensor.motion_sensors_detected_counter_hallway
+        #         above: 0        
+        #   - type: entity
+        #     show_state: true
+        #     show_icon: true
+        #     entity: sensor.lights_on_counter_hallway
+        #     color: yellow
+        #     icon: mdi:lightbulb
+        #     visibility:
+        #       - condition: numeric_state
+        #         entity: sensor.lights_on_counter_hallway
+        #         above: 0  
+
+      # - type: 'custom:button-card'
+      #   template: 
+      #     - card_switcher
+      #   variables:
+      #     #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+      #     ulm_card_switcher_icon: "mdi:waves"
+      #     ulm_card_switcher_entity: switch.switcher_boiler
+      #     ulm_card_switcher_timer_script: script.switcher_boiler_turn_on_timer_script
+      #     ulm_card_switcher_time_left: sensor.switcher_boiler_time_left_short
+      #     ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+      #     ulm_card_switcher_electric_current: sensor.switcher_boiler_electric_current
+      #     ulm_card_switcher_auto_off: sensor.switcher_boiler_auto_off_time
+      #   layout_options:
+      #     grid_columns: 2
+      #     grid_rows: 2
+
+      # # Switcher
+      # - type: 'custom:button-card'
+      #   template: 
+      #     - card_switcher
+      #   variables:
+      #     #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
+      #     ulm_card_switcher_icon: "mdi:waves"
+      #     ulm_card_switcher_entity: switch.switcher_touch_d54f
+      #     #ulm_card_switcher_timer_script: script.switcher_kis_turn_on_timer_script
+      #     ulm_card_switcher_timer_service: switcher_kis.turn_on_with_timer
+      #     ulm_card_switcher_time_left: sensor.switcher_touch_d54f_remaining_time
+      #     ulm_card_switcher_timer_minutes: input_select.switcher_boiler_timer_minutes_input_select
+      #     ulm_card_switcher_electric_current: sensor.switcher_touch_d54f_current
+      #     #ulm_card_switcher_auto_off: sensor.switcher_kis_auto_off_time
+      #   layout_options:
+      #     grid_columns: 2
+      #     grid_rows: 2
+
+      # Switcher
+      - type: custom:switcher-boiler-card
+        entity: switch.switcher_touch_d54f
+        icon: ""
+        icon_sensor: sensor.boiler_temperature
+        color_thresholds: true
+        cold_threshold: 35
+        hot_threshold: 55
+        time_left: sensor.switcher_kis_remaining_time_alt
+        sensor_1: sensor.switcher_touch_d54f_current
+        grid_options:
+          columns: 6
+          rows: 2  
+
+      # Bathroom Light
+      - type: 'custom:button-card'
+        template: 'card_light_simple'
+        entity: light.bathroom_ceiling
+        #name: "[[[ return variables.ulm_bathroom; ]]]"
+        variables:
+          ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1            
+
+      # Bathroom Heater
+      - type: 'custom:button-card'
+        template: 
+          - "card_heater_with_timer"
+        variables:
+          ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
+          ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
+        entity: switch.bathroom_heater
+        #name: "[[[ return variables.ulm_bathroom; ]]]"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Bedroom                                                                #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    #title: הורים 
+    cards:
+
+      # Title
+      - type: heading           
+        heading: הורים
+        heading_style: title
+        layout_options:
+          grid_columns: full
+          grid_rows: 1
+        #icon: mdi:bed-empty
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/tiles_bedroom        
+        badges:
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.motion_sensors_detected_counter_bedroom
+          #   icon: mdi:run
+          #   color: yellow
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.motion_sensors_detected_counter_bedroom
+          #       above: 0
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.covers_open_counter_bedroom
+          #   color: purple
+          #   icon: mdi:window-shutter
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.covers_open_counter_bedroom
+          #       above: 0
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.lights_on_counter_bedroom
+          #   color: yellow
+          #   icon: mdi:lightbulb
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.lights_on_counter_bedroom
+          #       above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.bedroom_temperature_sensor_humidity
+            color: purple #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info                
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.bedroom_temperature_sensor_temperature
+            color: red #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info
+
+
+      # Bedroom Light
+      - type: tile
+        entity: light.bedroom
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Parents Bathroom Light
+      - type: 'custom:button-card'
+        template: 'card_light_simple'
+        entity: light.parents_bathroom_ceiling
+        variables:
+          ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
+
+      # Bedroom Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.bedroom
+          ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+
+      # Bedside Dima Light
+      - type: tile
+        entity: light.bedside_dima_bulb
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info                                                
+
+      # Bedside Galit Light
+      - type: tile
+        entity: light.bedside_galit_bulb
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info 
+
+      # Parents Bathroom Heater
+      - type: 'custom:button-card'
+        template: 
+          - "card_heater_with_timer"
+        variables:
+          ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
+          ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
+        entity: switch.parents_bathroom_heater
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1
+
+      # Bedroom Balcony Cover
+      - type: tile
+        entity: cover.bedroom_balcony
+        icon_tap_action:
+          action: more-info
+        features:
+          - type: "cover-open-close"
+
+      # Bedroom Window Cover
+      - type: tile
+        entity: cover.bedroom_window
+        icon_tap_action:
+          action: more-info
+        # features:
+        #   - type: "cover-open-close"
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Ronen's Room                                                           #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    #title: רונן 
+    cards:
+
+      # Title
+      - type: heading            
+        heading: רונן
+        heading_style: title
+        layout_options:
+          grid_columns: full
+          grid_rows: 1
+        #icon: mdi:soccer
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/tiles_ronen_room        
+        badges:
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.covers_open_counter_ronen_room
+          #   color: purple
+          #   icon: mdi:window-shutter
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.covers_open_counter_ronen_room
+          #       above: 0        
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.lights_on_counter_ronen_room
+          #   color: yellow
+          #   icon: mdi:lightbulb
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.lights_on_counter_ronen_room
+          #       above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.ronen_room_temperature_sensor_humidity
+            color: purple #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info                
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.ronen_room_temperature_sensor_temperature
+            color: red #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info
+
+
+      # Ronen Room Light
+      - type: tile
+        entity: light.ronen_room
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info 
+
+      # Ronen Led Strip
+      - type: tile
+        entity: light.ronen_led_strip
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Ronen Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.ronen
+          ulm_card_ac_curr_temp_sensor: sensor.ronen_room_temperature_sensor_temperature
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+
+      # Ronen Room Cover
+      - type: tile
+        entity: cover.ronen_room
+        icon_tap_action:
+          action: more-info
+        features:
+          - type: "cover-open-close"   
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Kfir's Room                                                            #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    #title: כפיר 
+    cards:
+
+      # Title
+      - type: heading            
+        heading: כפיר
+        heading_style: title
+        layout_options:
+          grid_columns: full
+          grid_rows: 1
+        #icon: mdi:soccer
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/tiles_kfir_room        
+        badges:
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.covers_open_counter_kfir_room
+          #   color: purple
+          #   icon: mdi:window-shutter
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.covers_open_counter_kfir_room
+          #       above: 0         
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.lights_on_counter_kfir_room
+          #   color: yellow
+          #   icon: mdi:lightbulb
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.lights_on_counter_kfir_room
+          #       above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.kfir_room_temperature_sensor_humidity
+            color: purple #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info                
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.kfir_room_temperature_sensor_temperature
+            color: red #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info
+
+      # Kfir Room Light
+      - type: tile
+        entity: light.kfir_room
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Kfir Led Strip
+      - type: tile
+        entity: light.kfir_led_strip
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Kfir Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.kfir
+          ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+
+      # Kfir Room Cover
+      - type: tile
+        entity: cover.kfir_room
+        icon_tap_action:
+          action: more-info
+        features:
+          - type: "cover-open-close"
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Basement                                                               #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    #title: מרתף
+    cards:
+
+      # Title
+      - type: heading            
+        heading: מרתף
+        heading_style: title
+        layout_options:
+          grid_columns: full
+          grid_rows: 1
+        #icon: mdi:home-floor-b
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/tiles_basement        
+        badges:
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.motion_sensors_detected_counter_basement
+          #   icon: mdi:run
+          #   color: yellow
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.motion_sensors_detected_counter_basement
+          #       above: 0        
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.lights_on_counter_basement
+          #   color: yellow
+          #   icon: mdi:lightbulb
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.lights_on_counter_basement
+          #       above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.basement_temperature_sensor_humidity
+            color: purple #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info                
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.basement_temperature_sensor_temperature
+            color: red #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info
+
+      # Basement Light
+      - type: tile
+        entity: light.basement
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info  
+
+      # Basement Climate
+      - type: 'custom:button-card'
+        template: card_ac_buttons
+        variables:
+          ulm_card_ac_entity: climate.basement
+          ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature  
+        layout_options:
+          grid_columns: 2
+          grid_rows: 2
+
+      # Groot PC
+      - type: 'custom:button-card'
+        template: card_pc
+        entity: switch.groot_hass_agent
+        variables:
+          ulm_card_pc_memoryusage: 'sensor.groot_memoryusage'
+          ulm_card_pc_cpuload: 'sensor.groot_cpuload'
+          ulm_card_pc_storage_1: 'sensor.groot_disk_c_used_space'
+          ulm_card_pc_storage_2: 'sensor.groot_disk_d_used_space'
+          ulm_card_pc_wake: 'script.groot_wake'
+          ulm_card_pc_sleep: 'script.groot_sleep'
+          ulm_card_pc_restart: 'script.groot_restart'
+          ulm_card_pc_shutdown: 'script.groot_shutdown'   
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1
+
+      # Basement TV
+      - type: tile
+        entity: media_player.samsung_8_series_65
+        icon_tap_action:
+          action: more-info
+
+      # Apple TV Basement
+      - type: tile
+        entity: media_player.apple_tv_basement
+        icon_tap_action:
+          action: more-info
+
+
+
+  ############################################################################
+  #                                                                          #
+  #   Work Room                                                              #
+  #                                                                          #
+  ############################################################################
+
+  - type: grid
+    #title: חדר עבודה
+    cards:
+
+      # Title
+      - type: heading           
+        heading: חדר עבודה
+        heading_style: title
+        layout_options:
+          grid_columns: full
+          grid_rows: 1
+        #icon: mdi:laptop
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/tiles_work_room        
+        badges:
+          # - type: entity
+          #   show_state: true
+          #   show_icon: true
+          #   entity: sensor.lights_on_counter_work_room
+          #   color: yellow
+          #   icon: mdi:lightbulb
+          #   visibility:
+          #     - condition: numeric_state
+          #       entity: sensor.lights_on_counter_work_room
+          #       above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.work_room_temperature_sensor_humidity
+            color: purple #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.work_room_temperature_sensor_temperature
+            color: red #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info
+
+      # Work Room Light
+      - type: tile
+        entity: light.work_room
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Dimka PC
+      - type: 'custom:button-card'
+        template: card_pc
+        entity: switch.dimka_hass_agent
+        variables:
+          ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
+          ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
+          ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
+          ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
+          ulm_card_pc_wake: 'script.dimka_wake'
+          ulm_card_pc_sleep: 'script.dimka_sleep'
+          ulm_card_pc_restart: 'script.dimka_restart'
+          ulm_card_pc_shutdown: 'script.dimka_shutdown'
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1          
+          
+      # Printer
+      - type: 'custom:button-card'
+        template: card_printer
+        entity: sensor.dcp_j1200w_status
+        variables:
+          ulm_card_printer_black_ink_remaining: 'sensor.dcp_j1200w_black_ink_remaining'
+          ulm_card_printer_yellow_ink_remaining: 'sensor.dcp_j1200w_yellow_ink_remaining'
+          ulm_card_printer_magenta_ink_remaining: 'sensor.dcp_j1200w_magenta_ink_remaining'
+          ulm_card_printer_cyan_ink_remaining: 'sensor.dcp_j1200w_cyan_ink_remaining'
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1
