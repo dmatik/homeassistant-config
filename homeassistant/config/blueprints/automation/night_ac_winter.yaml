@@ -75,7 +75,7 @@ action:
           - service: climate.set_fan_mode
             metadata: {}
             data:
-              fan_mode: Low
+              fan_mode: low
             target:
               entity_id: !input climate_entity
       - conditions:

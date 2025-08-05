@@ -18,14 +18,14 @@ badges:
       ulm_chip_icon_state_entity: sensor.number_of_climate_entities_on
       ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_climate  
 
-  # # Presense Chip
-  # - type: 'custom:button-card'
-  #   template:
-  #     - 'chip_two_rows_presence'
-  #     - 'chip_navigate_only'
-  #   variables:
-  #     ulm_chip_icon_state_entity: sensor.persons_home_counter
-  #     ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_presence
+  # Presence Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_presence'
+      - 'chip_navigate_only'
+    variables:
+      ulm_chip_icon_state_entity: sensor.persons_home_counter
+      ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_presence
 
   # Lights Chip
   - type: 'custom:button-card'
@@ -71,23 +71,23 @@ badges:
     entity: sensor.boiler_temperature
     
   # Red Alert Chip
-  - type: 'custom:button-card'
-    template:
-      - 'chip_red_alert'
-    variables:
-      ulm_chip_icon_state_entity: binary_sensor.redalert_all
-      ulm_chip_red_alert_option_1_entity: binary_sensor.redalert_qiryat_gat
-      ulm_chip_red_alert_option_1_name: "קרית גת"
-      ulm_chip_red_alert_option_2_entity: binary_sensor.redalert_gan_yavne
-      ulm_chip_red_alert_option_2_name: "גן יבנה"
-      ulm_chip_red_alert_option_3_entity: binary_sensor.redalert_bitsron
-      ulm_chip_red_alert_option_3_name: "ביצרון"
-      ulm_chip_red_alert_option_4_entity: binary_sensor.redalert_shtulim
-      ulm_chip_red_alert_option_4_name: "שתולים"
-      ulm_chip_red_alert_option_5_entity: binary_sensor.redalert_hatsor
-      ulm_chip_red_alert_option_5_name: "חצור"
-      ulm_chip_red_alert_option_6_entity: binary_sensor.redalert_ashdod
-      ulm_chip_red_alert_option_6_name: "אשדוד"
+  # - type: 'custom:button-card'
+  #   template:
+  #     - 'chip_red_alert'
+  #   variables:
+  #     ulm_chip_icon_state_entity: binary_sensor.redalert_all
+  #     ulm_chip_red_alert_option_1_entity: binary_sensor.redalert_qiryat_gat
+  #     ulm_chip_red_alert_option_1_name: "קרית גת"
+  #     ulm_chip_red_alert_option_2_entity: binary_sensor.redalert_gan_yavne
+  #     ulm_chip_red_alert_option_2_name: "גן יבנה"
+  #     ulm_chip_red_alert_option_3_entity: binary_sensor.redalert_bitsron
+  #     ulm_chip_red_alert_option_3_name: "ביצרון"
+  #     ulm_chip_red_alert_option_4_entity: binary_sensor.redalert_shtulim
+  #     ulm_chip_red_alert_option_4_name: "שתולים"
+  #     ulm_chip_red_alert_option_5_entity: binary_sensor.redalert_hatsor
+  #     ulm_chip_red_alert_option_5_name: "חצור"
+  #     ulm_chip_red_alert_option_6_entity: binary_sensor.redalert_ashdod
+  #     ulm_chip_red_alert_option_6_name: "אשדוד"
 
 cards:
   
@@ -120,8 +120,9 @@ cards:
             entity: weather.met_home
             forecast_type: daily
             name: "גן יבנה"            
-            show_current: true
+            show_current: false
             show_forecast: true
+            forecast_slots: 7             
 
           - type: grid
             #title: נוכחות
@@ -162,35 +163,60 @@ cards:
                   ulm_card_vacuum_cleaner_map: camera.l20_ultra_map
                   ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state                                 
 
-            # Presence
-          - type: custom:button-card
-            template: title
-            name: "[[[ return variables.ulm_presence; ]]]"
+          #   # Presence
+          # - type: custom:button-card
+          #   template: title
+          #   name: "[[[ return variables.ulm_presence; ]]]"
 
+          # - type: grid
+          #   #title: נוכחות
+          #   square: false
+          #   columns: 2
+          #   cards:
+          #     # Dima
+          #     - type: tile
+          #       entity: person.dmatik
+          #       show_entity_picture: true
+
+          #     # Galit
+          #     - type: tile
+          #       entity: person.galit
+          #       show_entity_picture: true
+
+          #     # Ronen
+          #     - type: tile
+          #       entity: person.ronen
+          #       show_entity_picture: true
+
+          #     # Kfir
+          #     - type: tile
+          #       entity: person.kfir
+          #       show_entity_picture: true
+
+
+          # Calendar
           - type: grid
-            #title: נוכחות
             square: false
-            columns: 2
+            columns: 1
             cards:
-              # Dima
-              - type: tile
-                entity: person.dmatik
-                show_entity_picture: true
-
-              # Galit
-              - type: tile
-                entity: person.galit
-                show_entity_picture: true
-
-              # Ronen
-              - type: tile
-                entity: person.ronen
-                show_entity_picture: true
-
-              # Kfir
-              - type: tile
-                entity: person.kfir
-                show_entity_picture: true
+            - type: custom:calendar-card-pro 
+              entities:
+                - calendar.family
+              days_to_show: 14
+              compact_days_to_show: 14
+              compact_events_to_show: 5
+              vertical_line_width: 0px
+              day_spacing: 6px
+              event_spacing: 6px
+              day_font_size: 18px
+              show_month: false
+              event_background_opacity: 0
+              time_24h: true
+              time_font_size: 14px
+              time_icon_size: 16px
+              show_location: false
+              day_separator_width: 1px
+                             
 
       - type: custom:button-card
         template: card_blank
@@ -533,6 +559,7 @@ cards:
                 hot_threshold: 55
                 time_left: sensor.switcher_kis_remaining_time_alt
                 sensor_1: sensor.switcher_touch_d54f_current
+                temp_resolution: 0
                 grid_options:
                   columns: 6
                   rows: 2  

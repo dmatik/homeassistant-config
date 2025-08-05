@@ -51,56 +51,85 @@
 - id: '1630053607872'
   alias: Presense Home
   description: ''
-  trigger:
-  - platform: zone
-    entity_id: person.galit
+  triggers:
+  - entity_id: person.galit
     zone: zone.home
     event: enter
     id: galit
-  - platform: zone
-    entity_id: person.ronen
+    trigger: zone
+    alias: גלית בבית
+  - entity_id: person.ronen
     zone: zone.home
     event: enter
     id: ronen
-  condition: []
-  action:
+    trigger: zone
+    alias: רונן בבית
+  - entity_id: person.kfir
+    zone: zone.home
+    event: enter
+    id: kfir
+    trigger: zone
+    alias: כפיר בבית
+  conditions: []
+  actions:
   - if:
     - condition: trigger
       id:
       - galit
     then:
-    - service: notify.mobile_app_iphonedima
-      data:
+    - data:
         message: Almost home
         title: Galit
+      action: notify.mobile_app_iphonedima
+    alias: גלית בבית
   - if:
     - condition: trigger
       id:
       - ronen
     then:
-    - service: notify.mobile_app_iphonedima
-      data:
+    - data:
         message: Almost home
         title: Ronen
+      action: notify.mobile_app_iphonedima
+    alias: רונן בבית
+  - alias: כפיר בבית
+    if:
+    - condition: trigger
+      id:
+      - kfir
+    then:
+    - data:
+        message: Almost home
+        title: Kfir
+      action: notify.mobile_app_iphonedima
   mode: single
 - id: '1630054621160'
   alias: Nobody Home
   description: ''
-  trigger:
-  - platform: state
-    entity_id: group.home_residents
+  triggers:
+  - entity_id: group.home_residents
     from: home
     to: not_home
     for:
       hours: 0
       minutes: 20
       seconds: 0
-  condition: []
-  action:
-  - service: notify.mobile_app_iphonedima
-    data:
+    trigger: state
+    enabled: false
+  - trigger: state
+    entity_id:
+    - sensor.persons_home_counter
+    to: '0'
+    for:
+      hours: 0
+      minutes: 20
+      seconds: 0
+  conditions: []
+  actions:
+  - data:
       title: Home
       message: Nobody home
+    action: notify.mobile_app_iphonedima
   mode: single
 - id: '1630056048064'
   alias: Printer Black Ink Low
@@ -784,6 +813,7 @@
       start_time: 00:00:00
       end_time: 04:00:00
       target_temperature_value: 25
+      workday_sensor_entity: binary_sensor.workday_sensor
 - id: '1721724300646'
   alias: Kfir Air Conditioner - Night - Summer
   description: ''
@@ -794,7 +824,7 @@
       quiet_mode_switch: switch.kfir_quiet
       start_time: '23:00:00'
       end_time: 04:00:00
-      target_temperature_value: 25
+      target_temperature_value: 24
 - id: '1721724371404'
   alias: Ronen Air Conditioner - Night - Summer
   description: ''
@@ -1180,3 +1210,12 @@
       - thu
       - fri
       water_temp_entity: sensor.boiler_temperature
+- id: '1750044664843'
+  alias: Red Alert All Israel
+  description: ''
+  use_blueprint:
+    path: red_alert_priority.yaml
+    input:
+      alert_binary_sensor: binary_sensor.redalert_all_israel
+      notification_tag: redalert-all-israel
+      alert_location: ברחבי הארץ

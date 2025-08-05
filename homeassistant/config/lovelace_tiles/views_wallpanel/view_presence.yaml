@@ -1,0 +1,81 @@
+title: נוכחות
+path: tiles_presence
+visible: false
+type: masonry
+subview: true
+
+badges:
+
+  # Back Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_back_new'
+    label: "למסך הבית"
+    variables:
+      ulm_chip_navigate_path: /lovelace-wallpanel-tiles/home
+      
+  # Presense Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_presence'
+    variables:
+      ulm_chip_icon_state_entity: sensor.persons_home_counter
+
+  # School Holiday Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_school_holidays'
+    variables:
+      ulm_chip_icon_state_entity: binary_sensor.school_holiday
+
+
+cards:
+
+  ############################################################################
+  #                                                                          #
+  #   First Column                                                           #
+  #                                                                          #
+  ############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: card_blank
+
+      - type: vertical-stack
+        cards:
+
+          # Main Floor
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.presence; ]]]"
+
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+
+              # Dima
+              - type: tile
+                entity: person.dmatik
+                show_entity_picture: true
+
+              # Galit
+              - type: tile
+                entity: person.galit
+                show_entity_picture: true
+
+              # Ronen
+              - type: tile
+                entity: person.ronen
+                show_entity_picture: true
+
+              # Kfir
+              - type: tile
+                entity: person.kfir
+                show_entity_picture: true
+
+              - type: custom:button-card
+                template: card_blank
+

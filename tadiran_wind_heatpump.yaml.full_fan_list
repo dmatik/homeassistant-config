@@ -53,10 +53,20 @@ entities:
           mapping:
             - dps_val: auto
               value: auto
+            - dps_val: sleep
+              value: sleep
+            - dps_val: mute
+              value: quiet
             - dps_val: low
               value: low
+            - dps_val: health
+              value: health
             - dps_val: middle
               value: medium
+            - dps_val: natural
+              value: natural
+            - dps_val: strong
+              value: strong
             - dps_val: high
               value: high
         - id: 101

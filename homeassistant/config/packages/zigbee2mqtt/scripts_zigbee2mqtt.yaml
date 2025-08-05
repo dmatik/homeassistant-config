@@ -1,0 +1,52 @@
+script:
+
+############################################################################
+#                                                                          #
+#   Update Zigbee2mqtt Containers                                          #
+#                                                                          #
+############################################################################
+
+  # Living Room
+  update_z2m_living_room_container:
+    alias: "Update Zigbee2mqtt Living Room Container"
+    sequence:
+      - service: rest_command.update_z2m_living_room_container
+
+  # Floor 2
+  update_z2m_floor_2_container:
+    alias: "Update Zigbee2mqtt Floor 2 Container"
+    sequence:
+      - service: rest_command.update_z2m_floor_2_container
+
+  # Basement
+  update_z2m_basement_container:
+    alias: "Update Zigbee2mqtt Basement Container"
+    sequence:
+      - service: rest_command.update_z2m_basement_container       
+
+
+  # # Zigbee2mqtt Floor 2 Restart
+  # zigbee2mqtt_floor_2_restart:
+  #   alias: 'Zigbee2mqtt Floor 2 Restart'
+  #   sequence:
+  #     - service: mqtt.publish
+  #       data:
+  #         topic: z2m/floor2/bridge/request/restart
+
+
+  # # Zigbee2mqtt Living Room Restart
+  # zigbee2mqtt_living_room_restart:
+  #   alias: 'Zigbee2mqtt Living Room Restart'
+  #   sequence:
+  #     - service: mqtt.publish
+  #       data:
+  #         topic: z2m/living_room/bridge/request/restart
+
+
+  # # Zigbee2mqtt Basement Restart
+  # zigbee2mqtt_basement_restart:
+  #   alias: 'Zigbee2mqtt Basement Restart'
+  #   sequence:
+  #     - service: mqtt.publish
+  #       data:
+  #         topic: z2m/basement/bridge/request/restart

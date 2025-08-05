@@ -47,6 +47,21 @@ binary_sensor:
 
 ############################################################################
 #                                                                          #
+#   Redalert All Israel                                                     #
+#                                                                          #
+############################################################################
+
+      redalert_all_israel:
+        friendly_name: "Redalert All Israel"
+        value_template: >-
+          {{ state_attr('sensor.redalert', 'alert') == true and 
+                    'ברחבי הארץ' in state_attr('sensor.redalert', 'current')['data'] }}
+
+
+
+
+############################################################################
+#                                                                          #
 #   Redalert Bitsron                                                       #
 #                                                                          #
 ############################################################################

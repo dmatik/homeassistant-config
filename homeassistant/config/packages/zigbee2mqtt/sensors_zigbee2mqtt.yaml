@@ -1,0 +1,12 @@
+############################################################################
+#                                                                          #
+#   Latest Zigbee2mqtt Firmware                                            #
+#                                                                          #
+############################################################################
+
+command_line:
+
+  - sensor:
+      name: "Zigbee2mqtt Latest"
+      command: /config/zigbee2mqtt_version.sh
+      scan_interval: 600

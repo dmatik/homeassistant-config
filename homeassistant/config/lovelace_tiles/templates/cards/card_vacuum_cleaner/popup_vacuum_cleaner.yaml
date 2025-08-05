@@ -266,6 +266,61 @@ popup_vacuum_cleaner_map:
 
                 - preset_name: Basement
                   map_source:
+                    camera: camera.l20_ultra_map_4
+                  calibration_source:
+                    camera: true
+                  entity: vacuum.l20_ultra
+                  vacuum_platform: Tasshack/dreame-vacuum
+                  map_locked: true
+                  tiles: []
+                  map_modes:
+                    - template: vacuum_clean_segment
+                      predefined_selections:
+                        - id: "1"
+                          outline:
+                            - - -10000
+                              - 1000
+                            - - -250
+                              - 1000
+                            - - -250
+                              - 5350
+                            - - -10000
+                              - 5350
+                        - id: "2"
+                          outline:
+                            - - -150
+                              - -3200
+                            - - 5200
+                              - -3200
+                            - - 5200
+                              - 2150
+                            - - -150
+                              - 2150
+                        - id: "3"
+                          outline:
+                            - - -1400
+                              - -4300
+                            - - 3250
+                              - -4300
+                            - - 3250
+                              - 200
+                            - - -1400
+                              - 200
+                        - id: "4"
+                          outline:
+                            - - -5750
+                              - -1050
+                            - - 1750
+                              - -1050
+                            - - 1750
+                              - 3800
+                            - - -5750
+                              - 3800
+
+                    - template: vacuum_clean_zone                      
+
+                - preset_name: Mamad
+                  map_source:
                     camera: camera.l20_ultra_map_3
                   calibration_source:
                     camera: true
@@ -276,64 +331,16 @@ popup_vacuum_cleaner_map:
                   map_modes:
                     - template: vacuum_clean_segment
                       predefined_selections:
-                        # Work Room
-                        - id: '1'
+                        - id: "1"
                           outline:
-                            - - -6600
-                              - -450
-                            - - -2050
-                              - -450
-                            - - -2050
-                              - 3450
-                            - - -6600
-                              - 3450
-                        # Basement Storage
-                        - id: '2'
-                          outline:
-                            - - -1950
-                              - 3700
-                            - - 2650
-                              - 3700
-                            - - 2650
-                              - 6450
-                            - - -1950
-                              - 6450
-                        # Basement TV
-                        - id: '3'
-                          outline:
-                            - - -150
-                              - -3750
-                            - - 2950
-                              - -3750
-                            - - 2950
-                              - 1150
-                            - - -150
-                              - 1150
-                        # Basement Toys
-                        - id: '4'
-                          outline:
-                            - - -3250
-                              - -3750
-                            - - -150
-                              - -3750
-                            - - -150
-                              - 1150
-                            - - -3250
-                              - 1150
-                        # Basement PC
-                        - id: '5'
-                          outline:
-                            - - -3900
-                              - 1150
-                            - - 2950
-                              - 1150
-                            - - 2950
-                              - 5450
-                            - - -3900
-                              - 5450
+                            - - -1500
+                              - -2050
+                            - - 1400
+                              - -2050
+                            - - 1400
+                              - 2200
+                            - - -1500
+                              - 2200
 
-                    - template: vacuum_clean_zone                      
-
-
-
+                    - template: vacuum_clean_zone  
                 

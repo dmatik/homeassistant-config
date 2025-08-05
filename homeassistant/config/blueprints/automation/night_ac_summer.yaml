@@ -16,12 +16,6 @@ blueprint:
           min: 17
           max: 32
           unit_of_measurement: °C
-    # quiet_mode_switch:
-    #   name: Quiet Mode Switch
-    #   selector:
-    #     entity:
-    #       multiple: false
-    #       domain: switch
     start_time:
       name: Start Time
       selector:
@@ -29,7 +23,16 @@ blueprint:
     end_time:
       name: End Time
       selector:
-        time:  
+        time:
+    workday_sensor_entity:
+      name: (Optional) Workday Sensor Entity
+      description: Optional workday binary sensor
+      default: null
+      selector:
+        entity:
+          domain: binary_sensor
+variables:
+  workday_sensor_var: !input workday_sensor_entity          
 trigger:
   - platform: numeric_state
     entity_id: !input climate_entity
@@ -81,32 +84,26 @@ action:
           - service: climate.set_fan_mode
             metadata: {}
             data:
-              fan_mode: Low
+              fan_mode: low
             target:
               entity_id: !input climate_entity
-          # - service: switch.turn_on
-          #   metadata: {}
-          #   data: {}
-          #   target:
-          #     entity_id: !input quiet_mode_switch
       - conditions:
           - condition: trigger
             id: climate_off              
           - condition: state
             entity_id: !input climate_entity
             state: cool
-          - condition: state
-            entity_id: binary_sensor.workday_sensor
-            state: "on"            
+          # - condition: state
+          #   entity_id: binary_sensor.workday_sensor
+          #   state: "on"
+          - condition: template
+            value_template: >
+              {{ (workday_sensor_var is not defined or workday_sensor_var == None) 
+                or is_state(workday_sensor_var, 'on') }}
         sequence:
           - service: climate.turn_off
             target:
               entity_id: !input climate_entity
-            data: {}
-          # - service: switch.turn_off
-          #   metadata: {}
-          #   data: {}
-          #   target:
-          #     entity_id: !input quiet_mode_switch            
+            data: {}          
             
 max_exceeded: silent

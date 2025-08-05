@@ -94,3 +94,7 @@
   type: module  
 - url: /hacsfiles/switcher-boiler-card/switcher-boiler-card.js
   type: module    
+- url: /hacsfiles/calendar-card-pro/calendar-card-pro.js
+  type: module  
+- url: /hacsfiles/lovelace-entity-progress-card/entity-progress-card.js
+  type: module

@@ -156,15 +156,6 @@ Tiles:
     //        }
     //      }
                                             
-  
-  # Fixing Sidebar profile right padding, in case of RTL
-  # card-mod-sidebar: |
-  #   a.profile {
-  #     paper-icon-item {
-  #       padding-right: 4px !important;
-  #     }
-  #   }
- 
 
   # Adjusting the font for Sections heading title and badges
   # card-mod-card-yaml: |

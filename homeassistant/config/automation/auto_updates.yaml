@@ -24,17 +24,17 @@
       state: 'on'
   action:
     #- service: notify.dimatelegram
-    - service: notify.mobile_app_iphonedima
-      data_template:
-        title: "New Version"
-        message: |
-          Home Assistant {{ states('sensor.docker_hub') }} is available.
-          Current: {{ states('sensor.ha_current_version') }}.
-        data:
-          actions:
-            - action: "URI"
-              title: "Release Notes"
-              uri: "https://www.home-assistant.io/latest-release-notes/"
+    # - service: notify.mobile_app_iphonedima
+    #   data_template:
+    #     title: "New Version"
+    #     message: |
+    #       Home Assistant {{ states('sensor.docker_hub') }} is available.
+    #       Current: {{ states('sensor.ha_current_version') }}.
+    #     data:
+    #       actions:
+    #         - action: "URI"
+    #           title: "Release Notes"
+    #           uri: "https://www.home-assistant.io/latest-release-notes/"
     - service: persistent_notification.create
       data:
         message: |
@@ -56,6 +56,92 @@
     service: persistent_notification.dismiss
     data:
       notification_id: "10001"
+
+
+
+############################################################################
+#                                                                          #
+#   Zigbee2mqtt Update Available Notification                              #
+#                                                                          #
+############################################################################
+
+- id: z2m_update_notification
+  alias: Zigbee2mqtt Update Available Notification
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.z2m_living_room_update_available
+      to: 'on'
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
+    - platform: state
+      entity_id: binary_sensor.z2m_floor_2_update_available
+      to: 'on'
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
+    - platform: state
+      entity_id: binary_sensor.z2m_basement_update_available
+      to: 'on'
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0                
+    - platform: time_pattern
+      hours: '/2'
+      minutes: 0
+      seconds: 0
+  condition:
+    - condition: state
+      entity_id: binary_sensor.z2m_living_room_update_available
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.z2m_floor_2_update_available
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.z2m_basement_update_available
+      state: 'on'            
+  action:
+    #- service: notify.dimatelegram
+    # - service: notify.mobile_app_iphonedima
+    #   data_template:
+    #     title: "New Version"
+    #     message: |
+    #       Home Assistant {{ states('sensor.docker_hub') }} is available.
+    #       Current: {{ states('sensor.ha_current_version') }}.
+    #     data:
+    #       actions:
+    #         - action: "URI"
+    #           title: "Release Notes"
+    #           uri: "https://www.home-assistant.io/latest-release-notes/"
+    - service: persistent_notification.create
+      data:
+        message: |
+          Zigbee2mqtt {{ states('sensor.zigbee2mqtt_latest') }} is available.
+
+          [More](/lovelace/tiles_zigbee2mqtt)
+        title: "New Version"
+        notification_id: "10006"
+
+
+- id: z2m_update_notification_dismiss
+  alias: Zigbee2mqtt Update Available Notification Dismiss
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.z2m_living_room_update_available
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.z2m_floor_2_update_available
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.z2m_basement_update_available
+      to: 'off'            
+  action:
+    service: persistent_notification.dismiss
+    data:
+      notification_id: "10006"
 
 
 

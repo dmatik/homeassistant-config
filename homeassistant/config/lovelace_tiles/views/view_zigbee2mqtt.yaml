@@ -28,9 +28,11 @@ sections:
           ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_floor_2_restart'
           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_floor_2_network_map'
           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/floor2'
+          ulm_card_zigbee2mqtt_update_script: 'script.update_z2m_floor_2_container'
+          ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_floor_2_update_available'
         layout_options:
           grid_columns: 4
-          grid_rows: 2
+          grid_rows: 3
 
       # Zigbee2mqtt Living Room
       - type: 'custom:button-card'
@@ -42,9 +44,11 @@ sections:
           ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_living_room_restart'
           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_living_room_network_map'
           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/living_room'
+          ulm_card_zigbee2mqtt_update_script: 'script.update_z2m_living_room_container'
+          ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_living_room_update_available'
         layout_options:
           grid_columns: 4
-          grid_rows: 2
+          grid_rows: 3
 
       # Zigbee2mqtt Basement
       - type: 'custom:button-card'
@@ -56,6 +60,8 @@ sections:
           ulm_card_zigbee2mqtt_restart_script: 'button.zigbee2mqtt_bridge_basement_restart'
           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_basement_network_map'
           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/basement'
+          ulm_card_zigbee2mqtt_update_script: 'script.update_z2m_basement_container'
+          ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_basement_update_available'
         layout_options:
           grid_columns: 4
-          grid_rows: 2
+          grid_rows: 3

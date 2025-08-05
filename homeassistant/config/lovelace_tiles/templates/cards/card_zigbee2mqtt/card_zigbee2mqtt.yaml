@@ -1,6 +1,6 @@
 card_zigbee2mqtt:
   template:
-    - two_rows_card
+    - three_rows_card
   variables:
     ulm_card_zigbee2mqtt_bridge_state: ''
     ulm_card_zigbee2mqtt_version: ''
@@ -47,13 +47,48 @@ card_zigbee2mqtt:
                 ulm_card_zigbee2mqtt_networkmap: "[[[ return variables.ulm_card_zigbee2mqtt_networkmap ]]]"
                 ulm_card_zigbee2mqtt_mqtt_base_topic: "[[[ return variables.ulm_card_zigbee2mqtt_mqtt_base_topic ]]]"
               name: 'Network Map'
+    item3:
+      card:
+        type: "custom:button-card"
+        template: "list_2_items"
+        custom_fields:              
+          item1:
+            card:
+              type: "custom:button-card"
+              template: 
+                - "widget_text"
+                - "zigbee2mqtt_update_available"
+              variables:
+                ulm_card_zigbee2mqtt_update_available: "[[[ return variables.ulm_card_zigbee2mqtt_update_available ]]]"                
+              name: 'Latest Release'
+              entity: "[[[ return variables.ulm_card_zigbee2mqtt_update_available ]]]"
+              tap_action: 
+                action: url
+                url_path: https://github.com/Koenkk/zigbee2mqtt/releases/latest
+          item2:
+            card:
+              type: "custom:button-card"
+              template: "widget_text"
+              name: 'Update'
+              tap_action:
+                action: |
+                  [[[
+                    if ( states[variables.ulm_card_zigbee2mqtt_update_script].state == "on" ) {
+                      return "none";
+                    } else {
+                      return "call-service";
+                    }
+                  ]]]    
+                service: "[[[ return variables.ulm_card_zigbee2mqtt_update_script ]]]"   
 
-# zigbee2mqtt_blue_on:
-#   state:
-#     - styles:
-#         icon:
-#           - color: 'var(--blue-color)'
-#         img_cell:
-#           - background-color: 'rgba(var(--rgb-blue-color),0.2)'
-#       id: "online"
-#       value: "online"
+zigbee2mqtt_update_available:
+  state:
+    - id: "on"
+      value: "on"
+      name: |
+        [[[ 
+          return "New: " + states['sensor.zigbee2mqtt_latest'].state;
+        ]]]
+      styles:
+        name:
+          - color: 'red'    

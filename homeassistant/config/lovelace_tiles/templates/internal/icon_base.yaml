@@ -22,6 +22,7 @@ icon_base:
       - color: 'var(--grey-color)'
       - width: "24px"
       - height: "24px"
+      - line-height: "0px"
     name:
       - align-self: "end"
       - justify-self: "start"

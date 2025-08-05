@@ -41,15 +41,15 @@ sensor:
 #                                                                          #
 ############################################################################
 
-  - platform: rest
-    resource: http://10.0.0.30:49000/history
-    name: redalert_history
-    unique_id: redalert_history
-    value_template: 'OK'
-    json_attributes:
-      - "history"
-    scan_interval: 120
-    timeout: 30
+  # - platform: rest
+  #   resource: http://10.0.0.30:49000/history
+  #   name: redalert_history
+  #   unique_id: redalert_history
+  #   value_template: 'OK'
+  #   json_attributes:
+  #     - "history"
+  #   scan_interval: 120
+  #   timeout: 30
 
 
 
@@ -80,14 +80,14 @@ template:
     #                                                                          #
     ############################################################################
 
-    - name: "redalert_history_count"
-      unique_id: redalert_history_count
-      state: >
-        {% set count = namespace(value=0) %}
-        {% for alarm in state_attr('sensor.redalert_history', 'history') %}
-          {% set count.value = count.value + 1 %}
-        {% endfor %}
-        {{ count.value }}
+    # - name: "redalert_history_count"
+    #   unique_id: redalert_history_count
+    #   state: >
+    #     {% set count = namespace(value=0) %}
+    #     {% for alarm in state_attr('sensor.redalert_history', 'history') %}
+    #       {% set count.value = count.value + 1 %}
+    #     {% endfor %}
+    #     {{ count.value }}
 
 
 
@@ -97,7 +97,7 @@ template:
     #                                                                          #
     ############################################################################
 
-    - name: "redalert_current_json"
-      unique_id: redalert_current_json
-      state: >
-        {{ state_attr('sensor.redalert', 'current') }}
+    # - name: "redalert_current_json"
+    #   unique_id: redalert_current_json
+    #   state: >
+    #     {{ state_attr('sensor.redalert', 'current') }}

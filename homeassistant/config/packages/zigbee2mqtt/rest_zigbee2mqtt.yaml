@@ -1,0 +1,22 @@
+rest_command:
+
+  # Living Room
+  update_z2m_living_room_container:
+    url: !secret update_z2m_living_room_portainer_webhook
+    method: "POST"
+    verify_ssl: false
+    timeout: 300
+
+  # Floor 2
+  update_z2m_floor_2_container:
+    url: !secret update_z2m_floor_2_portainer_webhook
+    method: "POST"
+    verify_ssl: false
+    timeout: 300
+
+  # Basement
+  update_z2m_basement_container:
+    url: !secret update_z2m_basement_portainer_webhook
+    method: "POST"
+    verify_ssl: false
+    timeout: 300    

@@ -104,33 +104,33 @@ badges:
       ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
       ulm_chip_navigate_path: /lovelace/tiles_motion
 
-  # Boiler Water Temperature
-  - type: entity
-    show_name: false
-    show_state: true
-    show_icon: true
-    color: green
-    icon: mdi:water-boiler
-    entity: sensor.boiler_temperature
+  # # Boiler Water Temperature
+  # - type: entity
+  #   show_name: false
+  #   show_state: true
+  #   show_icon: true
+  #   color: green
+  #   icon: mdi:water-boiler
+  #   entity: sensor.boiler_temperature
     
   # Red Alert Chip
-  - type: 'custom:button-card'
-    template:
-      - 'chip_red_alert'
-    variables:
-      ulm_chip_icon_state_entity: binary_sensor.redalert_all
-      ulm_chip_red_alert_option_1_entity: binary_sensor.redalert_qiryat_gat
-      ulm_chip_red_alert_option_1_name: "קרית גת"
-      ulm_chip_red_alert_option_2_entity: binary_sensor.redalert_gan_yavne
-      ulm_chip_red_alert_option_2_name: "גן יבנה"
-      ulm_chip_red_alert_option_3_entity: binary_sensor.redalert_bitsron
-      ulm_chip_red_alert_option_3_name: "ביצרון"
-      ulm_chip_red_alert_option_4_entity: binary_sensor.redalert_shtulim
-      ulm_chip_red_alert_option_4_name: "שתולים"
-      ulm_chip_red_alert_option_5_entity: binary_sensor.redalert_hatsor
-      ulm_chip_red_alert_option_5_name: "חצור"
-      ulm_chip_red_alert_option_6_entity: binary_sensor.redalert_ashdod
-      ulm_chip_red_alert_option_6_name: "אשדוד"
+  # - type: 'custom:button-card'
+  #   template:
+  #     - 'chip_red_alert'
+  #   variables:
+  #     ulm_chip_icon_state_entity: binary_sensor.redalert_all
+  #     ulm_chip_red_alert_option_1_entity: binary_sensor.redalert_qiryat_gat
+  #     ulm_chip_red_alert_option_1_name: "קרית גת"
+  #     ulm_chip_red_alert_option_2_entity: binary_sensor.redalert_gan_yavne
+  #     ulm_chip_red_alert_option_2_name: "גן יבנה"
+  #     ulm_chip_red_alert_option_3_entity: binary_sensor.redalert_bitsron
+  #     ulm_chip_red_alert_option_3_name: "ביצרון"
+  #     ulm_chip_red_alert_option_4_entity: binary_sensor.redalert_shtulim
+  #     ulm_chip_red_alert_option_4_name: "שתולים"
+  #     ulm_chip_red_alert_option_5_entity: binary_sensor.redalert_hatsor
+  #     ulm_chip_red_alert_option_5_name: "חצור"
+  #     ulm_chip_red_alert_option_6_entity: binary_sensor.redalert_ashdod
+  #     ulm_chip_red_alert_option_6_name: "אשדוד"
 
 
 
@@ -226,6 +226,7 @@ sections:
         hot_threshold: 55
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
+        temp_resolution: 0
         grid_options:
           columns: 6
           rows: 2
@@ -621,6 +622,7 @@ sections:
         hot_threshold: 55
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
+        temp_resolution: 0
         grid_options:
           columns: 6
           rows: 2  

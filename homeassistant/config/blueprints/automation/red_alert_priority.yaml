@@ -18,6 +18,10 @@ blueprint:
 
 variables:
   alert_location: !input alert_location      
+  alert_title: |
+    {% if (state_attr("sensor.redalert", "current") and state_attr("sensor.redalert", "current") is not none) %}
+      {{ state_attr("sensor.redalert", "current")["title"] }}
+    {% endif %}  
 
 trigger:
   - entity_id: !input alert_binary_sensor
@@ -41,7 +45,7 @@ action:
             id: alert_on
         sequence:
           - data:
-              title: "{{ state_attr(\"sensor.redalert\", \"current\")[\"title\"] }}"
+              title: "{{alert_title}}"
               message: |
                 {{alert_location}}
               data:
@@ -53,7 +57,7 @@ action:
                     volume: 1                
             action: notify.mobile_app_iphonedima
           - data:
-              title: "{{ state_attr(\"sensor.redalert\", \"current\")[\"title\"] }}"
+              title: "{{alert_title}}"
               message: |
                 {{alert_location}}
               data:
@@ -62,6 +66,14 @@ action:
                 priority: high                               
             enabled: true
             action: notify.mobile_app_galitphone
+          - data:
+              title: |
+                {% if (alert_title and alert_title is not none) %}
+                  *{{alert_title}}*
+                {%- endif %}
+              message: |
+                {{alert_location}}
+            action: notify.dimatelegram
       - conditions:
           - condition: trigger
             id: alert_off

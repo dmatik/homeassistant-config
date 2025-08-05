@@ -1,0 +1,29 @@
+binary_sensor:
+
+  - platform: template
+    sensors:
+
+
+############################################################################
+#                                                                          #
+#   Zigbee2mqtt Available                                                  #
+#                                                                          #
+############################################################################
+
+      # Living Room
+      z2m_living_room_update_available:
+        friendly_name: "Zigbee2mqtt Living Room Update Available"
+        value_template: >-
+          {{ not is_state( "sensor.zigbee2mqtt_latest", "unavailable" ) and not is_state( "sensor.zigbee2mqtt_latest", states("sensor.zigbee2mqtt_bridge_living_room_version") ) }}
+
+      # Floor 2
+      z2m_floor_2_update_available:
+        friendly_name: "Zigbee2mqtt Floor 2 Update Available"
+        value_template: >-
+          {{ not is_state( "sensor.zigbee2mqtt_latest", "unavailable" ) and not is_state( "sensor.zigbee2mqtt_latest", states("sensor.zigbee2mqtt_bridge_floor_2_version") ) }}          
+
+      # Basement
+      z2m_basement_update_available:
+        friendly_name: "Zigbee2mqtt Basement Update Available"
+        value_template: >-
+          {{ not is_state( "sensor.zigbee2mqtt_latest", "unavailable" ) and not is_state( "sensor.zigbee2mqtt_latest", states("sensor.zigbee2mqtt_bridge_basement_version") ) }}             

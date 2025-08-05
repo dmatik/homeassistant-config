@@ -190,6 +190,7 @@ sections:
         hot_threshold: 55
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
+        temp_resolution: 0
         grid_options:
           columns: 6
           rows: 2  
