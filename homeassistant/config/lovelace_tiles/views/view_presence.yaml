@@ -14,12 +14,12 @@ badges:
     variables:
       ulm_chip_icon_state_entity: sensor.persons_home_counter
 
-  # School Holiday Chip
+  # School Day Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_school_holidays'
+      - 'chip_school_day'
     variables:
-      ulm_chip_icon_state_entity: binary_sensor.school_holiday
+      ulm_chip_icon_state_entity: binary_sensor.school_day
 
 
 
@@ -59,7 +59,7 @@ sections:
 
   ############################################################################
   #                                                                          #
-  #   School Holidays                                                        #
+  #   Vacations and Holidays                                                 #
   #                                                                          #
   ############################################################################
 
@@ -67,9 +67,20 @@ sections:
     title: חופשות  
     cards:
 
-      # School Holidays
+      # School Day
       - type: 'custom:button-card'
-        template: 'card_school_holidays'
+        template: 'card_school_day'
         layout_options:
           grid_columns: 2
           grid_rows: 1
+
+      # Vacation
+      - type: 'tile'
+        entity: 'input_boolean.vacation'
+        name: 'חופשה'
+        tap_action:
+          action: 'more-info'
+        icon_tap_action:
+          action: 'more-info'
+        color: 'accent'
+        

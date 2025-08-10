@@ -589,51 +589,73 @@
 - id: '1705640821118'
   alias: Kids Covers
   description: ''
-  trigger:
-  - platform: time
-    at: 06:30:00
+  triggers:
+  - at: 06:30:00
     id: morning
-  - platform: time
-    at: 09:00:00
+    trigger: time
+  - at: 09:00:00
     id: day
-  - platform: numeric_state
-    entity_id:
+    trigger: time
+  - at: '12:00:00'
+    id: day_holiday
+    trigger: time
+  - entity_id:
     - sun.sun
     attribute: elevation
     below: 8
     id: evening
-  - platform: time
-    at: '20:30:00'
+    trigger: numeric_state
+  - at: '20:30:00'
     id: night
-  condition:
+    trigger: time
+  conditions:
   - condition: state
     entity_id: input_boolean.vacation
     state: 'off'
-  action:
+  actions:
   - choose:
     - conditions:
       - condition: trigger
         id:
         - morning
       - condition: state
-        entity_id: binary_sensor.school_holiday
-        state: 'off'
+        state: 'on'
+        entity_id: binary_sensor.school_day
       sequence:
       - metadata: {}
         target:
           entity_id: scene.kids_morning_covers
         enabled: true
         action: scene.turn_on
+        data: {}
     - conditions:
       - condition: trigger
         id:
         - day
+      - condition: state
+        state: 'on'
+        entity_id: binary_sensor.school_day
       sequence:
       - metadata: {}
         target:
           entity_id: scene.kids_day_covers
         enabled: true
         action: scene.turn_on
+        data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - day_holiday
+      - condition: state
+        entity_id: binary_sensor.school_day
+        state: 'off'
+      sequence:
+      - metadata: {}
+        target:
+          entity_id: scene.kids_day_covers
+        enabled: true
+        action: scene.turn_on
+        data: {}
     - conditions:
       - condition: trigger
         id:
@@ -644,6 +666,7 @@
           entity_id: scene.kids_evening_covers
         enabled: true
         action: scene.turn_on
+        data: {}
     - conditions:
       - condition: trigger
         id:
@@ -654,6 +677,7 @@
           entity_id: scene.kids_night_covers
         enabled: true
         action: scene.turn_on
+        data: {}
   mode: single
 - id: '1708798710331'
   alias: Kitchen Strips (Motion) Variant

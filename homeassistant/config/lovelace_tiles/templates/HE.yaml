@@ -144,6 +144,7 @@ ulm_language_variables:
 
     ulm_cameras: "מצלמות"
 
+    ulm_school_day: "לימודים"
     ulm_school_holidays: "חופשות"
     ulm_school_regular: "יום לימודים רגיל"
     ulm_school_elementary: "בית הספר יסודי"

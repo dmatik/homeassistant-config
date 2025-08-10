@@ -54,12 +54,12 @@ badges:
       ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
       ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_security
 
-  # School Holiday Chip
+  # School Day Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_school_holidays'
+      - 'chip_school_day'
     variables:
-      ulm_chip_icon_state_entity: binary_sensor.school_holiday
+      ulm_chip_icon_state_entity: binary_sensor.school_day
 
   # Boiler Water Temperature
   - type: entity

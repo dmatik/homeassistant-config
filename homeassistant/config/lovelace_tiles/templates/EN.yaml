@@ -144,6 +144,7 @@ ulm_language_variables_EN:
 
     ulm_cameras: "Cameras"
 
+    ulm_school_day: "School Day"
     ulm_school_holidays: "Holidays"
     ulm_school_regular: "Regular School Day"
     ulm_school_elementary: "Elementary School"

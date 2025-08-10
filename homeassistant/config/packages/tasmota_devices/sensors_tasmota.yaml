@@ -1,0 +1,37 @@
+############################################################################
+#                                                                          #
+#   Latest Tasmota Firmware                                                #
+#                                                                          #
+############################################################################
+
+command_line:
+
+  - sensor:
+      name: "Tasmota Latest"
+      command: /config/tasmota_version.sh
+      scan_interval: 600
+
+
+template:
+
+  - sensor:
+
+      ############################################################################
+      #                                                                          #
+      #   Number of Tasmota Versions old                                         #
+      #                                                                          #
+      ############################################################################
+
+      - name: "Number Of Tasmota Versions Old"
+        unique_id: number_of_tasmota_versions_old
+        state: >
+          {% if ( states('sensor.tasmota_latest') == 'unavailable' and states('sensor.tasmota_latest') != 'unknown' or states('sensor.tasmota_latest') == 'latest' ) %}
+            0
+          {% else %}
+            {{ expand(label_entities("tasmota_firmware_version")) | 
+                rejectattr('state','eq',states('sensor.tasmota_latest').split('v')[1]+'(release-tasmota)') |
+                rejectattr('state','eq','unavailable') |
+                rejectattr('state','eq','unknown') |
+                list | count 
+            }}          
+          {% endif %}

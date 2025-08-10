@@ -145,6 +145,65 @@
 
 
 
+###########################################################################
+#                                                                         #
+#  Tasmota Updates Notification                                           #
+#                                                                         #
+###########################################################################
+
+- id: Tasmota_updates_notification
+  alias: Tasmota Updates Notification
+  trigger:
+    - platform: state
+      entity_id: sensor.number_of_tasmota_versions_old
+      not_to: '0'
+    - platform: time_pattern
+      hours: '/2'
+      minutes: 0
+      seconds: 0
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.tasmota_latest') != 'unknown' }}"
+    - condition: template
+      value_template: "{{ states('sensor.tasmota_latest') != 'unavailable' }}"
+    - condition: template
+      value_template: "{{ states('sensor.tasmota_latest') != 'latest' }}"
+    - condition: template
+      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"
+    - condition: template
+      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unavailable' }}"   
+    - condition: template
+      value_template: "{{ states('sensor.number_of_tasmota_versions_old') != '0' }}"
+  action:
+    #- service: notify.dimatelegram
+    # - service: notify.mobile_app_iphonedima
+    #   data_template:
+    #     title: "Tasmota device(s) outdated"
+    #     message: |
+    #       {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
+    - service: persistent_notification.create
+      data:
+        message: |
+          {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
+
+          [More](/config/integrations/integration/tasmota)
+        title: "Tasmota device(s) outdated"
+        notification_id: "10003"
+
+
+- id: tasmota_updates_notification_dismiss
+  alias: Tasmota Updates Notification Dismiss
+  trigger:
+    - platform: state
+      entity_id: sensor.number_of_tasmota_versions_old
+      to: '0'
+  action:
+    service: persistent_notification.dismiss
+    data:
+      notification_id: "10003"
+
+
+
 ############################################################################
 #                                                                          #
 #   HACS Updates Notification                                              #
@@ -196,65 +255,6 @@
 #     service: persistent_notification.dismiss
 #     data:
 #       notification_id: "10002"
-
-
-
-############################################################################
-#                                                                          #
-#   Tasmota Updates Notification                                           #
-#                                                                          #
-############################################################################
-
-# - id: Tasmota_updates_notification
-#   alias: Tasmota Updates Notification
-#   trigger:
-#     - platform: state
-#       entity_id: sensor.number_of_tasmota_versions_old
-#       not_to: '0'
-#     - platform: time_pattern
-#       hours: '/2'
-#       minutes: 0
-#       seconds: 0
-#   condition:
-#     - condition: template
-#       value_template: "{{ states('sensor.tasmota_latest') != 'unknown' }}"
-#     - condition: template
-#       value_template: "{{ states('sensor.tasmota_latest') != 'unavailable' }}"
-#     - condition: template
-#       value_template: "{{ states('sensor.tasmota_latest') != 'latest' }}"
-#     - condition: template
-#       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unknown' }}"
-#     - condition: template
-#       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != 'unavailable' }}"   
-#     - condition: template
-#       value_template: "{{ states('sensor.number_of_tasmota_versions_old') != '0' }}"
-#   action:
-#     #- service: notify.dimatelegram
-#     - service: notify.mobile_app_iphonedima
-#       data_template:
-#         title: "Tasmota device(s) outdated"
-#         message: |
-#           {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
-#     - service: persistent_notification.create
-#       data:
-#         message: |
-#           {{ states('sensor.number_of_tasmota_versions_old') }} Tasmota device(s) outdated.
-
-#           [More](/lovelace/tiles_tasmota)
-#         title: "Tasmota device(s) outdated"
-#         notification_id: "10003"
-
-
-# - id: tasmota_updates_notification_dismiss
-#   alias: Tasmota Updates Notification Dismiss
-#   trigger:
-#     - platform: state
-#       entity_id: sensor.number_of_tasmota_versions_old
-#       to: '0'
-#   action:
-#     service: persistent_notification.dismiss
-#     data:
-#       notification_id: "10003"
 
 
 

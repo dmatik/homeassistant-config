@@ -21,12 +21,12 @@ badges:
     variables:
       ulm_chip_icon_state_entity: sensor.persons_home_counter
 
-  # School Holiday Chip
+  # School Day Chip
   - type: 'custom:button-card'
     template:
-      - 'chip_school_holidays'
+      - 'chip_school_day'
     variables:
-      ulm_chip_icon_state_entity: binary_sensor.school_holiday
+      ulm_chip_icon_state_entity: binary_sensor.school_day
 
 
 cards:
@@ -46,7 +46,12 @@ cards:
       - type: vertical-stack
         cards:
 
-          # Main Floor
+          ############################################################################
+          #                                                                          #
+          #   Presence                                                               #
+          #                                                                          #
+          ############################################################################
+
           - type: custom:button-card
             template: title
             name: "[[[ return variables.presence; ]]]"
@@ -78,4 +83,35 @@ cards:
 
               - type: custom:button-card
                 template: card_blank
+
+
+
+          ############################################################################
+          #                                                                          #
+          #   Vacations and Holidays                                                 #
+          #                                                                          #
+          ############################################################################
+
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_school_holidays; ]]]"
+
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+
+              # School Day
+              - type: 'custom:button-card'
+                template: 'card_school_day'
+
+              # Vacation
+              - type: 'tile'
+                entity: 'input_boolean.vacation'
+                name: 'חופשה'
+                tap_action:
+                  action: 'more-info'
+                icon_tap_action:
+                  action: 'more-info'
+                color: 'accent'                
 

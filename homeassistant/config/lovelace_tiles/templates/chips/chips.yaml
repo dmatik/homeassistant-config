@@ -275,15 +275,15 @@ chip_air_polution_icons:
       }      
     ]]]
 
-chip_school_holidays:
+chip_school_day:
   template:
     - 'chip_base'
     - 'chip_deep_orange'
-    - 'popup_school_holidays'
+    - 'popup_school_day'
   icon: 'mdi:school'    
   label: |
     [[[ 
-      if ( states['sensor.school_is_elementary_vacation'].state == 'True' )
+      if ( states['binary_sensor.elementary_vacation'].state == 'on' )
         return states['sensor.school_summary'].state;
       else
         return variables.ulm_school_regular; 

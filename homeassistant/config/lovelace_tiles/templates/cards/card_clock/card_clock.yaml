@@ -30,7 +30,7 @@ card_clock:
       [[[ return states['sensor.my_date_hebrew'].state ]]]
     school: >
       [[[ 
-        if (states['binary_sensor.school_holiday'].state == 'on')
+        if (states['binary_sensor.school_day'].state == 'off')
           return states['sensor.school_summary'].state + ' ' + `<ha-icon icon='mdi:school' style='width: 22px; height: 22px; color: var(--deep-orange-color);'></ha-icon>`;
         else
           return 'יום לימודים' + ' ' + `<ha-icon icon='mdi:school' style='width: 22px; height: 22px;'></ha-icon>`;   
