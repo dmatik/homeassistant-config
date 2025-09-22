@@ -266,12 +266,19 @@
   entities:
     light.bedside_dima_bulb:
       min_color_temp_kelvin: 2000
-      max_color_temp_kelvin: 6993
-      min_mireds: 143
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
       max_mireds: 500
+      effect_list:
+      - Solid
+      - Wake up
+      - Cycle up
+      - Cycle down
+      - Random
       supported_color_modes:
       - color_temp
       - hs
+      effect: Solid
       color_mode: hs
       brightness: 128
       color_temp_kelvin:
@@ -288,16 +295,23 @@
       - 0.04
       icon: mdi:lamp
       friendly_name: דימה
-      supported_features: 40
+      supported_features: 36
       state: 'on'
     light.bedside_galit_bulb:
       min_color_temp_kelvin: 2000
-      max_color_temp_kelvin: 6993
-      min_mireds: 143
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
       max_mireds: 500
+      effect_list:
+      - Solid
+      - Wake up
+      - Cycle up
+      - Cycle down
+      - Random
       supported_color_modes:
       - color_temp
       - hs
+      effect: Solid
       color_mode: color_temp
       brightness: 76
       color_temp_kelvin: 4219
@@ -308,13 +322,13 @@
       rgb_color:
       - 255
       - 211
-      - 175
+      - 176
       xy_color:
-      - 0.408
-      - 0.362
+      - 0.407
+      - 0.361
       icon: mdi:lamp
       friendly_name: גלית
-      supported_features: 40
+      supported_features: 36
       state: 'on'
     light.ronen_led_strip:
       effect_list:
@@ -330,7 +344,7 @@
       - xy
       effect:
       color_mode: xy
-      brightness: 76
+      brightness: 38
       hs_color:
       - 122
       - 82.353
@@ -359,17 +373,17 @@
       - xy
       effect:
       color_mode: xy
-      brightness: 76
+      brightness: 38
       hs_color:
-      - 27.13
-      - 45.098
+      - 177.5
+      - 84.706
       rgb_color:
+      - 39
       - 255
-      - 192
-      - 140
+      - 246
       xy_color:
-      - 0.455
-      - 0.374
+      - 0.157
+      - 0.356
       icon: mdi:led-strip-variant
       friendly_name: פס לד כפיר
       supported_features: 44
@@ -378,6 +392,7 @@
       supported_color_modes:
       - onoff
       color_mode: onoff
+      icon: mdi:lightbulb
       friendly_name: סלון
       supported_features: 0
       state: 'on'

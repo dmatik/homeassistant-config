@@ -137,13 +137,13 @@ cards:
       - type: vertical-stack
         cards:
 
-          # Floor 2
+          # Bedroom
           - type: custom:button-card
             template: title
-            name: "[[[ return variables.ulm_floor_2; ]]]"
+            name: "[[[ return variables.ulm_bedroom; ]]]"
 
           - type: grid
-            #title: קומה 2
+            #title: הורים
             square: false
             columns: 2
             cards:
@@ -172,6 +172,18 @@ cards:
                 features:
                   - type: "cover-open-close"                          
 
+
+          # Kids
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_kids; ]]]"
+
+          - type: grid
+            #title: ילדים
+            square: false
+            columns: 2
+            cards:
+
               # Ronen Room Cover
               - type: tile
                 entity: cover.ronen_room
@@ -187,6 +199,7 @@ cards:
                   action: more-info
                 features:
                   - type: "cover-open-close" 
+
 
       - type: custom:button-card
         template: card_blank                  

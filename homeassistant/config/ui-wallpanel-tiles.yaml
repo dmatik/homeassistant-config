@@ -183,4 +183,5 @@ views:
     - !include /config/lovelace_tiles/views_wallpanel/view_covers.yaml
     - !include /config/lovelace_tiles/views_wallpanel/view_security.yaml
     - !include /config/lovelace_tiles/views_wallpanel/view_presence.yaml
+    - !include /config/lovelace_tiles/views_wallpanel/view_media.yaml
     #- !include /config/lovelace_tiles/views_wallpanel/view_vacuum_cleaner.yaml

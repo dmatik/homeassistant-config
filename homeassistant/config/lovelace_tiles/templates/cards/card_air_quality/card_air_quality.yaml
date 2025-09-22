@@ -216,13 +216,14 @@ card_air_quality_graph_only:
         points_per_hour: 1
         group_by: 'hour'
         bar_spacing: 2
+        color_thresholds_transition: 'hard'
         color_thresholds:
           - value: 0
-            color: 'var(--green-color)'
+            color: '#4caf50' #'var(--green-color)'
           - value: "[[[ return variables.ulm_card_air_quality_green; ]]]"
-            color: 'var(--yellow-color)'
+            color: '#ffc107' #'var(--yellow-color)'
           - value: "[[[ return variables.ulm_card_air_quality_yellow; ]]]"
-            color: 'var(--red-color)'
+            color: '#F54436' #'var(--red-color)'
         tap_action:
           action: more-info
         card_mod:

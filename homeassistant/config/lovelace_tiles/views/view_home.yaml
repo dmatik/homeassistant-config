@@ -84,6 +84,15 @@ badges:
       ulm_chip_icon_state_entity: sensor.covers_open_counter
       ulm_chip_navigate_path: /lovelace/tiles_covers
 
+  # Media Devices Chip
+  - type: 'custom:button-card'
+    template:
+      - 'chip_two_rows_media'
+      - 'chip_navigate_only'
+    variables:
+      ulm_chip_icon_state_entity: sensor.media_devices_on_counter
+      ulm_chip_navigate_path: /lovelace/tiles_media
+
   # # Motion Chip
   # - type: 'custom:button-card'
   #   template:

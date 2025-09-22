@@ -34,6 +34,15 @@ trigger:
     attribute: temperature
     above: !input target_temperature_value
     id: climate_on
+  - platform: state
+    entity_id: !input climate_entity
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    attribute: fan_mode
+    not_to: low
+    id: climate_on    
   - platform: time
     at: !input start_time
     id: climate_on
@@ -60,10 +69,16 @@ action:
           - condition: state
             entity_id: !input climate_entity
             state: heat
-          - condition: numeric_state
-            entity_id: !input climate_entity
-            attribute: temperature
-            above: !input target_temperature_value            
+          - or:
+              - condition: numeric_state
+                entity_id: !input climate_entity
+                attribute: temperature
+                above: !input target_temperature_value
+              - not:
+                  - condition: state
+                    entity_id: !input climate_entity
+                    attribute: fan_mode
+                    state: low                
         sequence:
           - service: climate.set_temperature
             metadata: {}

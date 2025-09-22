@@ -81,6 +81,8 @@ ulm_language_variables_EN:
     ulm_bedroom_balcony: "Balcony"
     ulm_bedroom_window: "Window"
     ulm_balcony: "Balcony"
+    ulm_media: "Media"
+    ulm_kids: "Kids"
     
     ulm_boiler: "Boiler"
     ulm_kfir: "Kfir"

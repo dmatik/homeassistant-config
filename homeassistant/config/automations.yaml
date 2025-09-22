@@ -835,7 +835,7 @@
       climate_entity: climate.bedroom
       quiet_mode_switch: switch.bedroom_quiet
       start_time: 00:00:00
-      end_time: 04:00:00
+      end_time: 05:00:00
       target_temperature_value: 25
       workday_sensor_entity: binary_sensor.workday_sensor
 - id: '1721724300646'
@@ -847,7 +847,7 @@
       climate_entity: climate.kfir
       quiet_mode_switch: switch.kfir_quiet
       start_time: '23:00:00'
-      end_time: 04:00:00
+      end_time: 03:00:00
       target_temperature_value: 24
 - id: '1721724371404'
   alias: Ronen Air Conditioner - Night - Summer
@@ -858,7 +858,7 @@
       climate_entity: climate.ronen
       quiet_mode_switch: switch.ronen_quiet
       start_time: '23:00:00'
-      end_time: 04:00:00
+      end_time: 03:00:00
       target_temperature_value: 25
 - id: '1722774100998'
   alias: Home Motion Alert

@@ -81,6 +81,8 @@ ulm_language_variables:
     ulm_bedroom_balcony: "הורים מרפסת"
     ulm_bedroom_window: "הורים חלון"
     ulm_balcony: "מרפסת"
+    ulm_media: "מדיה"
+    ulm_kids: "ילדים"
 
     ulm_boiler: "דוד שמש"
     ulm_kfir: "כפיר"

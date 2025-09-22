@@ -1,0 +1,22 @@
+template:
+
+  - sensor:
+
+
+      ############################################################################
+      #                                                                          #
+      #   Media Devices ON Counter and State                                     #
+      #                                                                          #
+      ############################################################################
+
+      # Counter
+      - name: "Media Devices ON Counter"
+        unique_id: media_devices_on_counter
+        state: >
+          {{ expand(label_entities("media")) | 
+            rejectattr('state','eq','off') | 
+            rejectattr('state','eq','unavailable') |
+            rejectattr('state','eq','unknown') | 
+            list | count 
+          }}
+

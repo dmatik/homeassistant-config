@@ -138,5 +138,6 @@ camera:
 #         data:
 #           mac: !secret basement_tv_mac
 
-climate: !include climate.yaml
+gree: !include gree.yaml
 
+homekit: !include homekit.yaml

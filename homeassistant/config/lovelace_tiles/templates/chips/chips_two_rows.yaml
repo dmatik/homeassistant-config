@@ -106,6 +106,28 @@ chip_two_rows_lights:
         return state;
       ]]]
 
+chip_two_rows_media:
+  template:
+    - 'chip_two_rows_base'
+    - 'chip_blue'
+  icon: 'mdi:movie'
+  name: "[[[ return variables.ulm_media; ]]]"
+  label: |
+      [[[
+        var state = "";
+        if (variables.ulm_chip_icon_state_entity == null 
+            || !states[variables.ulm_chip_icon_state_entity].state
+            || states[variables.ulm_chip_icon_state_entity].state == "unknown"
+            || states[variables.ulm_chip_icon_state_entity].state == 0) {
+          state = variables.ulm_off;
+        } else if (states[variables.ulm_chip_icon_state_entity].state == 1) {
+          state = "1 " + variables.ulm_on;
+        } else {
+          state = states[variables.ulm_chip_icon_state_entity].state + " " + variables.ulm_on_multiple;
+        }
+        return state;
+      ]]]
+
 chip_two_rows_covers:
   template:
     - 'chip_two_rows_base'

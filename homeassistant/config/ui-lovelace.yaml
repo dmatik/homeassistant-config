@@ -15,6 +15,7 @@ views:
   - !include /config/lovelace_tiles/views/view_lights.yaml
   - !include /config/lovelace_tiles/views/view_covers.yaml
   - !include /config/lovelace_tiles/views/view_motion.yaml
+  - !include /config/lovelace_tiles/views/view_media.yaml
 
   # Rooms
   - !include /config/lovelace_tiles/views/view_living_room.yaml
