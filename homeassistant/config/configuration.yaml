@@ -102,7 +102,8 @@ recorder:
 #Logger
 logger:
   default: info
-  # logs:
+  logs:
+    custom_components.dreame_vacuum: warning
   #   custom_components.hacs: debug
   #   hacs: debug
   #   queueman: debug
@@ -138,6 +139,6 @@ camera:
 #         data:
 #           mac: !secret basement_tv_mac
 
-gree: !include gree.yaml
+#gree: !include gree.yaml
 
 homekit: !include homekit.yaml

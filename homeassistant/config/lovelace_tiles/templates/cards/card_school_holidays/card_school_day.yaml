@@ -4,7 +4,7 @@ card_school_day:
     - 'deep_orange_on'
     - 'popup_school_day'
     - 'ulm_language_variables'
-  entity: 'binary_sensor.school_day'
+  entity: 'binary_sensor.school_vacation'
   icon: 'mdi:school'
   name: "[[[ return variables.ulm_school_day; ]]]"
   label: |-

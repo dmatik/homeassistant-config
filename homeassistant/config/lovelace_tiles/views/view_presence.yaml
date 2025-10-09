@@ -19,7 +19,7 @@ badges:
     template:
       - 'chip_school_day'
     variables:
-      ulm_chip_icon_state_entity: binary_sensor.school_day
+      ulm_chip_icon_state_entity: binary_sensor.school_vacation
 
 
 

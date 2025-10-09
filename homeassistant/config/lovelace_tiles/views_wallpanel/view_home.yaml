@@ -68,7 +68,7 @@ badges:
     template:
       - 'chip_school_day'
     variables:
-      ulm_chip_icon_state_entity: binary_sensor.school_day
+      ulm_chip_icon_state_entity: binary_sensor.school_vacation
 
   # Boiler Water Temperature
   - type: entity
@@ -138,29 +138,15 @@ cards:
             square: false
             columns: 2
             cards:
-
-              - type: vertical-stack 
-                cards:
                 
-                  # WiFi
-                  - type: 'custom:button-card'
-                    template: card_barcode
-                    name: Guest WiFi
-                    icon: mdi:wifi
-                    variables:
-                      ulm_card_barcode_title: 'Guest WiFi'
-                      ulm_card_barcode_image: image.guest_wifi #'/local/images/wifi_guest.png'
-
-                  # # Holidays
-                  # - type: tile
-                  #   entity: switch.holidays
-                  #   color: green
-                  #   tap_action:
-                  #     action: toggle
-                  #   hold_action:
-                  #     action: more-info
-                  #   double_tap_action:
-                  #     action: more-info
+              # WiFi
+              - type: 'custom:button-card'
+                template: card_barcode
+                name: Guest WiFi
+                icon: mdi:wifi
+                variables:
+                  ulm_card_barcode_title: 'Guest WiFi'
+                  ulm_card_barcode_image: image.guest_wifi #'/local/images/wifi_guest.png'
 
               # Vacuum Cleaner
               - type: 'custom:button-card'
@@ -544,6 +530,17 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+
+              # Holidays
+              - type: tile
+                entity: light.holidays
+                #color: green
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info                  
 
 
 

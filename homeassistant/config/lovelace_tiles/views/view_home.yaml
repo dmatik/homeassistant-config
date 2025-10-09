@@ -251,7 +251,18 @@ sections:
           ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state
         layout_options:
           grid_columns: 2
-          grid_rows: 1          
+          grid_rows: 2
+
+      # Holidays
+      - type: tile
+        entity: light.holidays
+        #color: green
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info            
 
 
 
