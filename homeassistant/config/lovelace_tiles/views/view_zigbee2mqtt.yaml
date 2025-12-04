@@ -29,7 +29,8 @@ sections:
           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_floor_2_network_map'
           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/floor2'
           ulm_card_zigbee2mqtt_update_script: 'script.update_z2m_floor_2_container'
-          ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_floor_2_update_available'
+          #ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_floor_2_update_available'
+          ulm_card_zigbee2mqtt_update_available: 'update.zigbee2mqtt_bridge_floor_2'
         layout_options:
           grid_columns: 4
           grid_rows: 3
@@ -45,7 +46,8 @@ sections:
           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_living_room_network_map'
           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/living_room'
           ulm_card_zigbee2mqtt_update_script: 'script.update_z2m_living_room_container'
-          ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_living_room_update_available'
+          #ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_living_room_update_available'
+          ulm_card_zigbee2mqtt_update_available: 'update.zigbee2mqtt_bridge_living_room'
         layout_options:
           grid_columns: 4
           grid_rows: 3
@@ -61,7 +63,8 @@ sections:
           ulm_card_zigbee2mqtt_networkmap: 'sensor.zigbee2mqtt_bridge_basement_network_map'
           ulm_card_zigbee2mqtt_mqtt_base_topic: 'z2m/basement'
           ulm_card_zigbee2mqtt_update_script: 'script.update_z2m_basement_container'
-          ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_basement_update_available'
+          #ulm_card_zigbee2mqtt_update_available: 'binary_sensor.z2m_basement_update_available'
+          ulm_card_zigbee2mqtt_update_available: 'update.zigbee2mqtt_bridge_basement'
         layout_options:
           grid_columns: 4
           grid_rows: 3

@@ -4,6 +4,11 @@ path: tiles_basement_floor
 type: sections
 max_columns: 3
 
+header:
+  layout: center
+  badges_position: bottom
+  badges_wrap: scroll
+  
 badges:
 
   # Climate Chip

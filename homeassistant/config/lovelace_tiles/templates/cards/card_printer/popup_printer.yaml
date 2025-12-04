@@ -4,7 +4,14 @@ popup_printer:
     browser_mod:
       service: browser_mod.popup
       data:
-        title: '[[[ return variables.x_ulm_card_printer_name; ]]]'
+        title: |
+          [[[
+            if (variables.x_ulm_card_printer_name != null) {
+              return variables.x_ulm_card_printer_name;
+            } else {
+              return entity.attributes.friendly_name;
+            }
+          ]]]        
         content:
 
           type: horizontal-stack

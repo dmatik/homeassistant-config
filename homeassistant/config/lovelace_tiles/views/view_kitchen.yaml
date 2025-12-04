@@ -5,6 +5,11 @@ type: sections
 subview: true
 max_columns: 3
 
+header:
+  layout: center
+  badges_position: bottom
+  badges_wrap: scroll
+  
 badges:
 
   # Temperature Chip
@@ -12,20 +17,17 @@ badges:
     show_name: false
     show_state: true
     show_icon: true
-    icon: mdi:thermometer
+    #icon: mdi:thermometer
     color: red
     entity: sensor.kitchen_temperature_sensor_temperature
 
   # Light Level Chip
-  - type: 'custom:button-card'
-    template:
-      - 'chip_icon_label_state'
-      - 'chip_more_info_with_entity'
-      - 'chip_paper_no_state'
-    icon: 'mdi:brightness-5'
-    variables:
-      ulm_chip_icon_state_entity: sensor.kitchen_light_level_sensor_illuminance
-      ulm_chip_more_info_entity: sensor.kitchen_light_level_sensor_illuminance
+  - type: entity
+    show_name: false
+    show_state: true
+    show_icon: true
+    color: yellow
+    entity: sensor.kitchen_light_level_sensor_illuminance
 
   # Lights Chip
   - type: 'custom:button-card'

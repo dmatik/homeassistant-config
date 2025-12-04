@@ -1,116 +1,100 @@
-binary_sensor:
+template:
 
-  - platform: template
-    sensors:
+  binary_sensor:
 
+    ############################################################################
+    #                                                                          #
+    #   Redalert All                                                           #
+    #                                                                          #
+    ############################################################################
 
-############################################################################
-#                                                                          #
-#   Redalert All                                                           #
-#                                                                          #
-############################################################################
+    - default_entity_id: binary_sensor.redalert_all
+      name: "Redalert All"
+      state: >-
+        {{ state_attr('sensor.redalert', 'alert') == true }}  
 
-      redalert_all:
-        friendly_name: "Redalert All"
-        value_template: >-
-          {{ state_attr('sensor.redalert', 'alert') == true }}
-
-
-
-############################################################################
-#                                                                          #
-#   Redalert Qiryat Gat                                                    #
-#                                                                          #
-############################################################################
-
-      redalert_qiryat_gat:
-        friendly_name: "Redalert Qiryat Gat"
-        value_template: >-
+    ############################################################################
+    #                                                                          #
+    #   Redalert Qiryat Gat                                                    #
+    #                                                                          #
+    ############################################################################
+    
+    - default_entity_id: binary_sensor.redalert_qiryat_gat
+      name: "Redalert Qiryat Gat"
+      state: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'קריית גת, כרמי גת' in state_attr('sensor.redalert', 'current')['data'] }}
 
-
-
-############################################################################
-#                                                                          #
-#   Redalert Gan Yavne                                                     #
-#                                                                          #
-############################################################################
-
-      redalert_gan_yavne:
-        friendly_name: "Redalert Gan Yavne"
-        value_template: >-
+    ############################################################################
+    #                                                                          #
+    #   Redalert Gan Yavne                                                     #
+    #                                                                          #
+    ############################################################################
+    
+    - default_entity_id: binary_sensor.redalert_gan_yavne
+      name: "Redalert Gan Yavne"
+      state: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'גן יבנה' in state_attr('sensor.redalert', 'current')['data'] }}
 
 
-
-############################################################################
-#                                                                          #
-#   Redalert All Israel                                                     #
-#                                                                          #
-############################################################################
-
-      redalert_all_israel:
-        friendly_name: "Redalert All Israel"
-        value_template: >-
+    ############################################################################
+    #                                                                          #
+    #   Redalert All Israel                                                    #
+    #                                                                          #
+    ############################################################################
+    
+    - default_entity_id: binary_sensor.redalert_all_israel
+      name: "Redalert All Israel"
+      state: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'ברחבי הארץ' in state_attr('sensor.redalert', 'current')['data'] }}
 
-
-
-
-############################################################################
-#                                                                          #
-#   Redalert Bitsron                                                       #
-#                                                                          #
-############################################################################
-
-      redalert_bitsron:
-        friendly_name: "Redalert Bitsron"
-        value_template: >-
+    ############################################################################
+    #                                                                          #
+    #   Redalert Bitsron                                                       #
+    #                                                                          #
+    ############################################################################
+    
+    - default_entity_id: binary_sensor.redalert_bitsron
+      name: "Redalert Bitsron"
+      state: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'ביצרון' in state_attr('sensor.redalert', 'current')['data'] }}
 
-
-
-############################################################################
-#                                                                          #
-#   Redalert Shtulim                                                        #
-#                                                                          #
-############################################################################
-
-      redalert_shtulim:
-        friendly_name: "Redalert Shtulim"
-        value_template: >-
+    ############################################################################
+    #                                                                          #
+    #   Redalert Shtulim                                                       #
+    #                                                                          #
+    ############################################################################
+    
+    - default_entity_id: binary_sensor.redalert_shtulim
+      name: "Redalert Shtulim"
+      state: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'שתולים' in state_attr('sensor.redalert', 'current')['data'] }}
 
-
-
-############################################################################
-#                                                                          #
-#   Redalert Hatsor                                                        #
-#                                                                          #
-############################################################################
-
-      redalert_hatsor:
-        friendly_name: "Redalert Hatsor"
-        value_template: >-
+    ############################################################################
+    #                                                                          #
+    #   Redalert Hatsor                                                        #
+    #                                                                          #
+    ############################################################################
+    
+    - default_entity_id: binary_sensor.redalert_hatsor
+      name: "Redalert Hatsor"
+      state: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'חצור' in state_attr('sensor.redalert', 'current')['data'] }}
 
-
-
-############################################################################
-#                                                                          #
-#   Redalert Ashdod                                                        #
-#                                                                          #
-############################################################################
-
-      redalert_ashdod:
-        friendly_name: "Redalert Ashdod"
-        value_template: >-
+    ############################################################################
+    #                                                                          #
+    #   Redalert Ashdod                                                        #
+    #                                                                          #
+    ############################################################################
+    
+    - default_entity_id: binary_sensor.redalert_ashdod
+      name: "Redalert Ashdod"
+      state: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     ('אשדוד - א,ב,ד,ה' in state_attr('sensor.redalert', 'current')['data'] or
                      'אשדוד - איזור תעשייה צפוני' in state_attr('sensor.redalert', 'current')['data'] or
@@ -118,16 +102,14 @@ binary_sensor:
                      'אשדוד - ח,ט,י,יג,יד,טז' in state_attr('sensor.redalert', 'current')['data'] or
                      'אשדוד -יא,יב,טו,יז,מרינה,סיט' in state_attr('sensor.redalert', 'current')['data'] ) }}
 
-
-
-############################################################################
-#                                                                          #
-#   Redalert Test                                                          #
-#                                                                          #
-############################################################################
-
-      redalert_test:
-        friendly_name: "Redalert Test"
-        value_template: >-
+    ############################################################################
+    #                                                                          #
+    #   Redalert Test                                                          #
+    #                                                                          #
+    ############################################################################
+    
+    - default_entity_id: binary_sensor.redalert_test
+      name: "Redalert Test"
+      state: >-
           {{ state_attr('sensor.redalert', 'alert') == true and 
                     'בדיקה' in state_attr('sensor.redalert', 'current')['data'] }}

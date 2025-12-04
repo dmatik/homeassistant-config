@@ -5,6 +5,11 @@ type: sections
 subview: true
 max_columns: 3
 
+header:
+  layout: center
+  badges_position: bottom
+  badges_wrap: scroll
+  
 badges:
 
   # Temperature Chip
@@ -12,9 +17,17 @@ badges:
     show_name: false
     show_state: true
     show_icon: true
-    icon: mdi:thermometer
+    #icon: mdi:thermometer
     color: red
     entity: sensor.living_room_temperature_sensor_temperature
+
+  # Light Level Chip
+  - type: entity
+    show_name: false
+    show_state: true
+    show_icon: true
+    color: yellow
+    entity: sensor.living_room_light_level_sensor_illuminance
 
   # Lights Chip
   - type: 'custom:button-card'

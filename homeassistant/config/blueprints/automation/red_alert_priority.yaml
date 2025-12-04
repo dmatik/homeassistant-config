@@ -73,7 +73,8 @@ action:
                 {%- endif %}
               message: |
                 {{alert_location}}
-            action: notify.dimatelegram
+              parse_mode: markdown
+            action: telegram_bot.send_message
       - conditions:
           - condition: trigger
             id: alert_off

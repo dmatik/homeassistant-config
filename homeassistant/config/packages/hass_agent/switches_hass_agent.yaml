@@ -1,25 +1,45 @@
-switch:
+template:
+  - switch:
 
-  - platform: template
-    switches:
+      - name: dimka_hass_agent
+        unique_id: dimka_hass_agent_switch_new
+        state: "{{ states('sensor.dimka_dummy') != 'unavailable' }}"
+        turn_on:
+          action: script.dimka_wake
+        turn_off:
+          action: script.dimka_sleep
 
-      dimka_hass_agent:
-          unique_id: dimka_hass_agent_switch
-          friendly_name: "DIMKA"
-          value_template: "{{ states('sensor.dimka_dummy') != 'unavailable' }}"
-          icon_template: mdi:laptop
-          turn_on:
-              service: script.dimka_wake
-          turn_off:
-              service: script.dimka_suspend
+      - name: groot_hass_agent
+        unique_id: groot_hass_agent_switch_new
+        state: "{{ states('sensor.groot_dummy') != 'unavailable' }}"
+        turn_on:
+          action: script.groot_wake
+        turn_off:
+          action: script.groot_sleep          
 
 
-      groot_hass_agent:
-          unique_id: groot_hass_agent_switch
-          friendly_name: "GROOT"
-          value_template: "{{ states('sensor.groot_dummy') != 'unavailable' }}"
-          icon_template: mdi:laptop
-          turn_on:
-              service: script.groot_wake
-          turn_off:
-              service: script.groot_suspend
+# switch:
+
+#   - platform: template
+#     switches:
+
+#       dimka_hass_agent:
+#           unique_id: dimka_hass_agent_switch
+#           friendly_name: "DIMKA"
+#           value_template: "{{ states('sensor.dimka_dummy') != 'unavailable' }}"
+#           icon_template: mdi:laptop
+#           turn_on:
+#               service: script.dimka_wake
+#           turn_off:
+#               service: script.dimka_sleep
+
+
+#       groot_hass_agent:
+#           unique_id: groot_hass_agent_switch
+#           friendly_name: "GROOT"
+#           value_template: "{{ states('sensor.groot_dummy') != 'unavailable' }}"
+#           icon_template: mdi:laptop
+#           turn_on:
+#               service: script.groot_wake
+#           turn_off:
+#               service: script.groot_sleep

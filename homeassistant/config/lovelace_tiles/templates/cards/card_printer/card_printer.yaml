@@ -6,14 +6,16 @@ card_printer:
     ulm_card_printer_yellow_ink_remaining: '[[[ return variables.ulm_card_printer_yellow_ink_remaining ]]]'
     ulm_card_printer_magenta_ink_remaining: '[[[ return variables.ulm_card_printer_magenta_ink_remaining ]]]'
     ulm_card_printer_cyan_ink_remaining: '[[[ return variables.ulm_card_printer_cyan_ink_remaining ]]]'    
-    x_ulm_card_printer_name: |
-      [[[
-        if (variables.x_ulm_card_printer_name != null) {
-          return variables.x_ulm_card_printer_name;
-        } else {
-          return entity.attributes.friendly_name;
-        }
-      ]]]    
+    # x_ulm_card_printer_name:
+    #   value: |
+    #     [[[
+    #       if (variables.x_ulm_card_printer_name != null) {
+    #         return variables.x_ulm_card_printer_name;
+    #       } else {
+    #         return entity.attributes.friendly_name;
+    #       }
+    #     ]]]
+    #   force_eval: true
   template:
     - 'icon_info_bg'
     - 'ulm_language_variables'

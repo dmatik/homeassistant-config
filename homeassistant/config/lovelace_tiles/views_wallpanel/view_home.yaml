@@ -510,7 +510,27 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info 
-                  
+
+              # Ronen Room Light
+              - type: tile
+                entity: light.ronen_room
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
+
+              # Kfir Room Light
+              - type: tile
+                entity: light.kfir_room
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info                  
+
               # Basement Light
               - type: tile
                 entity: light.basement
@@ -531,16 +551,16 @@ cards:
                 double_tap_action:
                   action: more-info
 
-              # Holidays
-              - type: tile
-                entity: light.holidays
-                #color: green
-                tap_action:
-                  action: toggle
-                hold_action:
-                  action: more-info
-                double_tap_action:
-                  action: more-info                  
+              # # Holidays
+              # - type: tile
+              #   entity: light.holidays
+              #   #color: green
+              #   tap_action:
+              #     action: toggle
+              #   hold_action:
+              #     action: more-info
+              #   double_tap_action:
+              #     action: more-info                  
 
 
 

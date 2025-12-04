@@ -43,11 +43,14 @@
         - sensor.ipadkfir_battery_level
         - sensor.galitphone_battery_level
         - sensor.iphoneronen_battery_level
+        - sensor.ipadminironen_battery_level
+        - sensor.iphonedima_watch_battery
+        - sensor.iphonekfir_battery_level
       actions:
-      - service: notify.persistent_notification
-        data:
+      - data:
           title: Battery Low
           message: 'Low battery warning for: {{sensors}}'
+        action: notify.persistent_notification
 - id: '1630053607872'
   alias: Presense Home
   description: ''
@@ -345,6 +348,9 @@
     below: 8
     id: 'on'
     trigger: numeric_state
+  - trigger: time
+    at: 00:30:00
+    id: night_off
   conditions:
   - condition: state
     entity_id: input_boolean.vacation
@@ -370,6 +376,18 @@
           entity_id: scene.night_lights_off
         metadata: {}
         action: scene.turn_on
+    - conditions:
+      - condition: trigger
+        id:
+        - night_off
+      sequence:
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.bedside_galit_bulb
+          - light.bedside_dima_bulb
   mode: single
 - id: '1689234315907'
   alias: Main Floor Cooling
@@ -1217,6 +1235,7 @@
       time_on: '18:00:00'
       time_off: '20:00:00'
       water_temp_entity: sensor.boiler_temperature
+      target_temp_value: 65
 - id: '1741272746027'
   alias: Boiler Thermostat Schedule - Morning
   description: ''
@@ -1224,8 +1243,8 @@
     path: boiler_heat_schedule_thermo.yaml
     input:
       thermostat_entity: climate.switcher_boiler
-      time_on: 03:30:00
-      time_off: 06:30:00
+      time_on: 04:00:00
+      time_off: 07:00:00
       weekday:
       - sun
       - mon
@@ -1234,6 +1253,7 @@
       - thu
       - fri
       water_temp_entity: sensor.boiler_temperature
+      target_temp_value: 65
 - id: '1750044664843'
   alias: Red Alert All Israel
   description: ''
@@ -1243,3 +1263,78 @@
       alert_binary_sensor: binary_sensor.redalert_all_israel
       notification_tag: redalert-all-israel
       alert_location: ברחבי הארץ
+- id: '1761279107662'
+  alias: Morning Lights
+  description: ''
+  triggers:
+  - trigger: time
+    at: 06:35:00
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    id: 'on'
+  - trigger: time
+    at: 07:55:00
+    id: 'off'
+  - trigger: numeric_state
+    entity_id:
+    - sensor.living_room_light_level_sensor_illuminance
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    above: 25
+    id: 'off'
+    enabled: false
+  conditions:
+  - condition: time
+    after: 06:30:00
+    before: 08:00:00
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - 'on'
+      - condition: numeric_state
+        entity_id: sensor.living_room_light_level_sensor_illuminance
+        below: 15
+      sequence:
+      - action: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.dining
+    - conditions:
+      - condition: trigger
+        id:
+        - 'off'
+      sequence:
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.dining
+          - light.living_room
+          - light.back_yard
+  mode: single
+- id: '1762786494803'
+  alias: Home Assistant Backup
+  description: ''
+  triggers:
+  - trigger: time
+    at: 03:00:00
+    weekday:
+    - sun
+  conditions: []
+  actions:
+  - action: backup.create_automatic
+    metadata: {}
+    data: {}
+  mode: single

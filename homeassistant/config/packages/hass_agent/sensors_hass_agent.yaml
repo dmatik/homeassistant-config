@@ -1,8 +1,6 @@
-sensor:
+template:
 
-  - platform: template
-    sensors:
-
+  - sensor:
 
       ############################################################################
       #                                                                          #
@@ -10,18 +8,18 @@ sensor:
       #                                                                          #
       ############################################################################
 
-      dimka_disk_c_used_space:
-        friendly_name: "Dimka Disk C Usage"
-        icon_template: mdi:harddisk
+      - name: dimka_disk_c_used_space
+        unique_id: dimka_disk_c_used_space
+        icon: mdi:harddisk
         unit_of_measurement: "%"
-        value_template: >-
+        state: >
           {{ state_attr('sensor.dimka_storage_c', 'UsedSpacePercentage') }}
 
-      dimka_disk_d_used_space:
-        friendly_name: "Dimka Disk d Usage"
-        icon_template: mdi:harddisk
+      - name: dimka_disk_d_used_space
+        unique_id: dimka_disk_d_used_space
+        icon: mdi:harddisk
         unit_of_measurement: "%"
-        value_template: >-
+        state: >
           {{ state_attr('sensor.dimka_storage_d', 'UsedSpacePercentage') }}
 
 
@@ -32,16 +30,68 @@ sensor:
       #                                                                          #
       ############################################################################
 
-      groot_disk_c_used_space:
-        friendly_name: "GROOT Disk C Usage"
-        icon_template: mdi:harddisk
+      - name: groot_disk_c_used_space
+        unique_id: groot_disk_c_used_space
+        icon: mdi:harddisk
         unit_of_measurement: "%"
-        value_template: >-
+        state: >
           {{ state_attr('sensor.groot_storage_c', 'UsedSpacePercentage') }}
 
-      groot_disk_d_used_space:
-        friendly_name: "GROOT Disk d Usage"
-        icon_template: mdi:harddisk
+      - name: groot_disk_d_used_space
+        unique_id: groot_disk_d_used_space
+        icon: mdi:harddisk
         unit_of_measurement: "%"
-        value_template: >-
+        state: >
           {{ state_attr('sensor.groot_storage_d', 'UsedSpacePercentage') }}
+
+
+
+
+
+# sensor:
+
+#   - platform: template
+#     sensors:
+
+
+#       ############################################################################
+#       #                                                                          #
+#       #   DIMKA                                                                  #
+#       #                                                                          #
+#       ############################################################################
+
+#       dimka_disk_c_used_space:
+#         friendly_name: "Dimka Disk C Usage"
+#         icon_template: mdi:harddisk
+#         unit_of_measurement: "%"
+#         value_template: >-
+#           {{ state_attr('sensor.dimka_storage_c', 'UsedSpacePercentage') }}
+
+#       dimka_disk_d_used_space:
+#         friendly_name: "Dimka Disk d Usage"
+#         icon_template: mdi:harddisk
+#         unit_of_measurement: "%"
+#         value_template: >-
+#           {{ state_attr('sensor.dimka_storage_d', 'UsedSpacePercentage') }}
+
+
+
+#       ############################################################################
+#       #                                                                          #
+#       #   GROOT                                                                  #
+#       #                                                                          #
+#       ############################################################################
+
+#       groot_disk_c_used_space:
+#         friendly_name: "GROOT Disk C Usage"
+#         icon_template: mdi:harddisk
+#         unit_of_measurement: "%"
+#         value_template: >-
+#           {{ state_attr('sensor.groot_storage_c', 'UsedSpacePercentage') }}
+
+#       groot_disk_d_used_space:
+#         friendly_name: "GROOT Disk d Usage"
+#         icon_template: mdi:harddisk
+#         unit_of_measurement: "%"
+#         value_template: >-
+#           {{ state_attr('sensor.groot_storage_d', 'UsedSpacePercentage') }}

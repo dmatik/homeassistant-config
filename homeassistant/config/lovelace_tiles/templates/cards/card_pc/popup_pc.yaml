@@ -4,7 +4,14 @@ popup_pc:
     browser_mod:
       service: browser_mod.popup
       data:
-        title: '[[[ return variables.x_ulm_card_pc_name; ]]]'
+        title: |
+          [[[
+            if (variables.x_ulm_card_pc_name != null) {
+              return variables.x_ulm_card_pc_name;
+            } else {
+              return entity.attributes.friendly_name;
+            }
+          ]]]         
         content:
 
           type: horizontal-stack

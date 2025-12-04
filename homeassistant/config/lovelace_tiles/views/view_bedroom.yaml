@@ -5,6 +5,11 @@ type: sections
 subview: true
 max_columns: 3
 
+header:
+  layout: center
+  badges_position: bottom
+  badges_wrap: scroll
+  
 badges:
 
   # Temperature Chip

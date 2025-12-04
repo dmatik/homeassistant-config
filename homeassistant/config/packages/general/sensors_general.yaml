@@ -5,31 +5,30 @@ sensor:
       - 'time'
       - 'date'
 
-  - platform: template
-    sensors:
 
-      my_date:
-        friendly_name: "Date"
-        icon_template: mdi:calendar
-        value_template: >-
-          {{ as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%a, %b %d") }}
+template:
 
+  sensor:
 
-      my_date_hebrew:
-        friendly_name: "Date"
-        icon_template: mdi:calendar
-        value_template: >-
-          {% set weekdays = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"] %}
-          {% set months = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"] %}
-          {% set week_day = weekdays[as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%w") | int] %}
-          {% set month = months[as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%m") | int - 1] %}
-          {% set day = as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%d") | int %}
-          {{ week_day }}, {{ day }} ב{{ month }}
+    - default_entity_id: sensor.my_date
+      icon: mdi:calendar
+      name: Date
+      state: >-
+        {{ as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%a, %b %d") }}
 
+    - default_entity_id: sensor.my_date_hebrew
+      icon: mdi:calendar
+      name: Date
+      state: >-
+        {% set weekdays = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"] %}
+        {% set months = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"] %}
+        {% set week_day = weekdays[as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%w") | int] %}
+        {% set month = months[as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%m") | int - 1] %}
+        {% set day = as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) | timestamp_custom("%d") | int %}
+        {{ week_day }}, {{ day }} ב{{ month }}
 
-      outside_temperature:
-        friendly_name: "Outside Temperature"
-        unit_of_measurement: "°C"
-        icon_template: mdi:thermometer
-        value_template: >-
-          {{ state_attr('weather.met_home', 'temperature') }}
+    - default_entity_id: sensor.outside_temperature
+      icon: mdi:thermometer
+      name: Outside Temperature
+      state: >-
+        {{ state_attr('weather.met_home', 'temperature') }}

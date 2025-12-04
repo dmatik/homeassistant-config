@@ -243,7 +243,7 @@ sections:
       # Vacuum Cleaner
       - type: 'custom:button-card'
         template: 
-          - card_vacuum_cleaner_buttons
+          - card_vacuum_cleaner
         variables:
           #ulm_card_vacuum_cleaner_icon: "mdi:waves"
           ulm_card_vacuum_cleaner_entity: vacuum.l20_ultra
@@ -251,18 +251,23 @@ sections:
           ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state
         layout_options:
           grid_columns: 2
-          grid_rows: 2
+          grid_rows: 1
 
-      # Holidays
+      # Tami 4 Water Boil
       - type: tile
-        entity: light.holidays
-        #color: green
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
-        double_tap_action:
-          action: more-info            
+        entity: button.br_mym_boil_water
+        hide_state: true
+
+      # # Holidays
+      # - type: tile
+      #   entity: light.holidays
+      #   #color: green
+      #   tap_action:
+      #     action: toggle
+      #   hold_action:
+      #     action: more-info
+      #   double_tap_action:
+      #     action: more-info            
 
 
 
@@ -318,6 +323,13 @@ sections:
           #     - condition: numeric_state
           #       entity: sensor.lights_on_counter_living_room
           #       above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.living_room_light_level_sensor_illuminance
+            color: yellow #'var(--paper-item-icon-color)'
+            tap_action:
+              action: more-info          
           - type: entity
             show_state: true
             show_icon: true

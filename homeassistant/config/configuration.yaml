@@ -122,10 +122,10 @@ logger:
 #     allowed_chat_ids:
 #       - !secret telegram_bot_chat_id_1
   
-notify:
-  - name: DimaTelegram
-    platform: telegram
-    chat_id: !secret telegram_bot_chat_id_1
+# notify:
+#   - name: DimaTelegram
+#     platform: telegram
+#     chat_id: !secret telegram_bot_chat_id_1
 
 
 wake_on_lan:

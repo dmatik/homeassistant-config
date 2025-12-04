@@ -70,9 +70,9 @@ sensor:
   #         {% endfor %}
   #         {{ count.value }}
 
-template:
+# template:
 
-  sensor:
+#   sensor:
 
     ############################################################################
     #                                                                          #
