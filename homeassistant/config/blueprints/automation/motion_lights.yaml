@@ -40,23 +40,23 @@ blueprint:
           domain: light
 trigger:
   # Motion on trigger for turning on the lights
-  - platform: state
+  - trigger: state
     entity_id: !input motion_entity
     to: "on"
     id: motion_on
   # Motion off trigger for starting the timer
-  - platform: state
+  - trigger: state
     entity_id: !input motion_entity
     to: "off"
     id: motion_off
   # Timer finished trigger for turning off the lights
-  - platform: event
+  - trigger: event
     event_type: timer.finished
     event_data:
       entity_id: !input motion_timer_entity
     id: timer_finished
   # Lights on trigger for starting the timer in case the lights turned on without motion detected
-  - platform: state
+  - trigger: state
     entity_id: !input light_target_off
     to: "on"
     id: lights_on

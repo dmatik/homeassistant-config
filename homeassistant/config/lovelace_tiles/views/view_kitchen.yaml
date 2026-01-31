@@ -131,4 +131,10 @@ sections:
           x_ulm_card_washing_machine_name: "[[[ return variables.ulm_washing_machine; ]]]"
         layout_options:
           grid_columns: 2
-          grid_rows: 1          
+          grid_rows: 1     
+
+      # Tami 4 Water Boil
+      - type: tile
+        entity: button.br_mym_boil_water
+        hide_state: true  
+        color: red

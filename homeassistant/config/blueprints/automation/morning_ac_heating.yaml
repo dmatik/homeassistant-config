@@ -1,6 +1,6 @@
 blueprint:
-  name: Night AC - Winter Time
-  description: Handle AC during the night in Winter.
+  name: Morning AC - Heating
+  description: Handle AC in morning for Heating.
   domain: automation
   input:
     climate_entity:
@@ -16,6 +16,14 @@ blueprint:
           min: 17
           max: 32
           unit_of_measurement: °C
+    threashold_temperature_value:
+      name: Threshold Temperature
+      default: 20
+      selector:
+        number:
+          min: 17
+          max: 32
+          unit_of_measurement: °C          
     start_time:
       name: Start Time
       selector:
@@ -24,61 +32,46 @@ blueprint:
       name: End Time
       selector:
         time:  
+    work_school_day_sensor_entity:
+      name: (Optional) Work/School Day Sensor Entity
+      description: Optional work/school day binary sensor
+      default: null
+      selector:
+        entity:
+          domain: binary_sensor
+
+variables:
+  work_school_day_sensor_var: !input work_school_day_sensor_entity
+
 trigger:
-  - trigger: numeric_state
-    entity_id: !input climate_entity
-    for:
-      hours: 0
-      minutes: 2
-      seconds: 0
-    attribute: temperature
-    above: !input target_temperature_value
-    id: climate_on
-  - trigger: state
-    entity_id: !input climate_entity
-    for:
-      hours: 0
-      minutes: 2
-      seconds: 0
-    attribute: fan_mode
-    not_to: low
-    id: climate_on    
   - trigger: time
     at: !input start_time
     id: climate_on
-  - trigger: state
-    entity_id: !input climate_entity
-    to: heat
-    for:
-      hours: 0
-      minutes: 2
-      seconds: 0
-    id: climate_on
   - trigger: time
     at: !input end_time
-    id: climate_off    
+    id: climate_off
+
+conditions:
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: "off"
 
 action:
   - choose:
       - conditions:
           - condition: trigger
             id: climate_on
-          - condition: time
-            after: !input start_time
-            before: !input end_time
+          - condition: template
+            value_template: >
+              {{ (work_school_day_sensor_var is not defined or work_school_day_sensor_var == None) 
+                or is_state(work_school_day_sensor_var, 'on') }}            
           - condition: state
             entity_id: !input climate_entity
-            state: heat
-          - or:
-              - condition: numeric_state
-                entity_id: !input climate_entity
-                attribute: temperature
-                above: !input target_temperature_value
-              - not:
-                  - condition: state
-                    entity_id: !input climate_entity
-                    attribute: fan_mode
-                    state: low                
+            state: 'off'
+          - condition: numeric_state
+            entity_id: !input climate_entity
+            attribute: current_temperature
+            below: !input threashold_temperature_value
         sequence:
           - service: climate.set_temperature
             metadata: {}
@@ -90,18 +83,19 @@ action:
           - service: climate.set_fan_mode
             metadata: {}
             data:
-              fan_mode: low
+              fan_mode: auto
             target:
               entity_id: !input climate_entity
+          - service: climate.turn_on
+            target:
+              entity_id: !input climate_entity
+            data: {}                
       - conditions:
           - condition: trigger
             id: climate_off              
           - condition: state
             entity_id: !input climate_entity
-            state: heat
-          # - condition: state
-          #   entity_id: binary_sensor.workday_sensor
-          #   state: "on"            
+            state: heat          
         sequence:
           - service: climate.turn_off
             target:

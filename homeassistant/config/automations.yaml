@@ -1,14 +1,3 @@
-- id: '1616736935086'
-  alias: Morning Living Room AC
-  description: Morning Living Room AC
-  use_blueprint:
-    path: on_off_schedule_state_persistence.yaml
-    input:
-      off_time: '8:00:00'
-      on_time: '6:00:00'
-      automation_target:
-        entity_id: climate.living_room
-      trigger_at_homeassistant_startup: false
 - id: '1630042564509'
   alias: Havid
   description: ''
@@ -962,26 +951,45 @@
       entity_id: scene.covers_open
   mode: single
 - id: '1732720358886'
-  alias: Wallpanel Reload URL
+  alias: Wallpanel Fully Restart
   description: ''
   triggers:
   - trigger: time
-    at: 03:00:00
+    at: 05:00:00
   conditions: []
   actions:
-  - action: switch.turn_on
+  - type: turn_on
+    device_id: c4e9d62198a73a1595be222a253c9ad3
+    entity_id: 7c11c943b63805f396cd37a7ad7cedfa
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - device_id: c4e9d62198a73a1595be222a253c9ad3
+    domain: button
+    entity_id: 6531e451777b47112c299aea533e6d73
+    type: press
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - action: rest_command.fully_living_room_restart_app
     metadata: {}
     data: {}
-    target:
-      entity_id: switch.fully_living_room_screen
-  - action: rest_command.fully_living_room_clear_cache
-    data: {}
-  - action: button.press
-    metadata: {}
-    data: {}
-    target:
-      entity_id:
-      - button.fully_living_room_restart_browser
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+    enabled: false
+  - type: turn_off
+    device_id: c4e9d62198a73a1595be222a253c9ad3
+    entity_id: 7c11c943b63805f396cd37a7ad7cedfa
+    domain: switch
+    enabled: false
   mode: single
 - id: '1732977878964'
   alias: Red Alert Ashdod
@@ -1236,6 +1244,9 @@
       time_off: '20:00:00'
       water_temp_entity: sensor.boiler_temperature
       target_temp_value: 65
+      time_on_entity: input_datetime.boiler_evening_on
+      time_off_entity: input_datetime.boiler_evening_off
+      threshold_temp_value: 70
 - id: '1741272746027'
   alias: Boiler Thermostat Schedule - Morning
   description: ''
@@ -1243,8 +1254,8 @@
     path: boiler_heat_schedule_thermo.yaml
     input:
       thermostat_entity: climate.switcher_boiler
-      time_on: 04:00:00
-      time_off: 07:00:00
+      time_on: 03:30:00
+      time_off: 07:30:00
       weekday:
       - sun
       - mon
@@ -1254,6 +1265,8 @@
       - fri
       water_temp_entity: sensor.boiler_temperature
       target_temp_value: 65
+      time_on_entity: input_datetime.boiler_morning_on
+      time_off_entity: input_datetime.boiler_morning_off
 - id: '1750044664843'
   alias: Red Alert All Israel
   description: ''
@@ -1338,3 +1351,75 @@
     metadata: {}
     data: {}
   mode: single
+- id: '1767424621686'
+  alias: Turn On Living Room TV with WakeOnLan
+  description: ''
+  triggers:
+  - device_id: 724b73bc6aab8bf110bf3eb11790f6df
+    domain: webostv
+    type: webostv.turn_on
+    metadata: {}
+    trigger: device
+  conditions: []
+  actions:
+  - action: wake_on_lan.send_magic_packet
+    metadata: {}
+    data:
+      broadcast_port: 9
+      mac: 7c:64:6c:10:e5:f2
+  mode: single
+- id: '1768897592842'
+  alias: Living Room AC - Morning Heating
+  description: ''
+  use_blueprint:
+    path: morning_ac_heating.yaml
+    input:
+      climate_entity: climate.living_room
+      start_time: 06:30:00
+      end_time: 07:45:00
+      target_temperature_value: 23
+      weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+      threashold_temperature_value: 21
+      work_school_day_sensor_entity: binary_sensor.school_day
+- id: '1768897791780'
+  alias: Kfir AC - Morning Heating
+  description: ''
+  use_blueprint:
+    path: morning_ac_heating.yaml
+    input:
+      climate_entity: climate.kfir
+      start_time: 06:15:00
+      end_time: 07:00:00
+      weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+      work_school_day_sensor_entity: binary_sensor.school_day
+      threashold_temperature_value: 21
+- id: '1768897823044'
+  alias: Ronen AC - Morning Heating
+  description: ''
+  use_blueprint:
+    path: morning_ac_heating.yaml
+    input:
+      climate_entity: climate.ronen
+      start_time: 06:15:00
+      end_time: 07:00:00
+      weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+      work_school_day_sensor_entity: binary_sensor.school_day
+      threashold_temperature_value: 21

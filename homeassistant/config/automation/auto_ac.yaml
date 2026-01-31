@@ -7,27 +7,27 @@
 - alias: 'Kfir AC Notification'
   initial_state: 'true'
   trigger:
-    - platform: state
+    - trigger: state
       entity_id: climate.kfir
       from: "off"
       to: "cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.kfir
       from: "off"
       to: "heat"
-    - platform: state
+    - trigger: state
       entity_id: climate.kfir
       from: "off"
       to: "heat_cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.kfir
       from: "cool"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.kfir
       from: "heat"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.kfir
       from: "heat_cool"
       to: "off"
@@ -57,27 +57,27 @@
 - alias: 'Ronen AC Notification'
   initial_state: 'true'
   trigger:
-    - platform: state
+    - trigger: state
       entity_id: climate.ronen
       from: "off"
       to: "cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.ronen
       from: "off"
       to: "heat"
-    - platform: state
+    - trigger: state
       entity_id: climate.ronen
       from: "off"
       to: "heat_cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.ronen
       from: "cool"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.ronen
       from: "heat"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.ronen
       from: "heat_cool"
       to: "off"
@@ -107,27 +107,27 @@
 - alias: 'Basement AC Notification'
   initial_state: 'true'
   trigger:
-    - platform: state
+    - trigger: state
       entity_id: climate.basement
       from: "off"
       to: "cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.basement
       from: "off"
       to: "heat"
-    - platform: state
+    - trigger: state
       entity_id: climate.basement
       from: "off"
       to: "heat_cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.basement
       from: "cool"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.basement
       from: "heat"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.basement
       from: "heat_cool"
       to: "off"
@@ -157,27 +157,27 @@
 - alias: 'Bedroom AC Notification'
   initial_state: 'true'
   trigger:
-    - platform: state
+    - trigger: state
       entity_id: climate.bedroom
       from: "off"
       to: "cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.bedroom
       from: "off"
       to: "heat"
-    - platform: state
+    - trigger: state
       entity_id: climate.bedroom
       from: "off"
       to: "heat_cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.bedroom
       from: "cool"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.bedroom
       from: "heat"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.bedroom
       from: "heat_cool"
       to: "off"
@@ -207,27 +207,27 @@
 - alias: 'Living Room AC Notification'
   initial_state: 'true'
   trigger:
-    - platform: state
+    - trigger: state
       entity_id: climate.living_room
       from: "off"
       to: "cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.living_room
       from: "off"
       to: "heat"
-    - platform: state
+    - trigger: state
       entity_id: climate.living_room
       from: "off"
       to: "heat_cool"
-    - platform: state
+    - trigger: state
       entity_id: climate.living_room
       from: "cool"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.living_room
       from: "heat"
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: climate.living_room
       from: "heat_cool"
       to: "off"

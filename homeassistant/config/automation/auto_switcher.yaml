@@ -21,7 +21,7 @@
 - alias: 'Switcher Boiler ON Notification'
   initial_state: 'true'
   trigger:
-    - platform: state
+    - trigger: state
       entity_id: switch.switcher_touch_d54f
       from: "off"
       to: "on"
@@ -74,7 +74,7 @@
 - alias: Action Switcher Boiler Off
   initial_state: 'true'
   trigger:
-    - platform: event
+    - trigger: event
       event_type: mobile_app_notification_action
       event_data:
         action: "SWITCHER_BOILER_OFF"
@@ -100,7 +100,7 @@
 - alias: 'Switcher Boiler OFF Notification'
   initial_state: 'true'
   trigger:
-    - platform: state
+    - trigger: state
       entity_id: switch.switcher_touch_d54f
       from: "on"
       to: "off"
@@ -155,7 +155,7 @@
 - alias: Action Switcher Boiler On 15 Min
   initial_state: 'true'
   trigger:
-    - platform: event
+    - trigger: event
       event_type: mobile_app_notification_action
       event_data:
         action: "SWITCHER_BOILER_ON_15"
@@ -191,7 +191,7 @@
 - alias: Action Switcher Boiler On 30 Min
   initial_state: 'true'
   trigger:
-    - platform: event
+    - trigger: event
       event_type: mobile_app_notification_action
       event_data:
         action: "SWITCHER_BOILER_ON_30"
@@ -227,7 +227,7 @@
 - alias: Action Switcher Boiler On 45 Min
   initial_state: 'true'
   trigger:
-    - platform: event
+    - trigger: event
       event_type: mobile_app_notification_action
       event_data:
         action: "SWITCHER_BOILER_ON_45"
@@ -263,7 +263,7 @@
 - alias: Action Switcher Boiler On 60 Min
   initial_state: 'true'
   trigger:
-    - platform: event
+    - trigger: event
       event_type: mobile_app_notification_action
       event_data:
         action: "SWITCHER_BOILER_ON_60"

@@ -48,7 +48,7 @@ cards:
           - type: grid
             #title: סלון
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Living Room Light
@@ -60,6 +60,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
               # Dining Light
               - type: tile
@@ -70,6 +75,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # TV Wall Light
               - type: tile
@@ -80,6 +90,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Stairs Light
               - type: tile
@@ -90,6 +105,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Entrance Light
               - type: tile
@@ -99,18 +119,27 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info                        
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                                       
 
               # Guests Bathroom Light
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
                 entity: light.guests_bathroom
-                #name: "[[[ return variables.ulm_guest_bathroom; ]]]"
-                variables:
-                  ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
-                layout_options:
-                  grid_columns: 2
-                  grid_rows: 1          
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2          
 
               # Front Yard Light
               - type: tile
@@ -121,6 +150,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
               # Back Yard Light
               - type: tile
@@ -131,6 +165,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
 
 
@@ -142,7 +181,7 @@ cards:
           - type: grid
             #title: מטבח
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Kitchen Light
@@ -154,17 +193,26 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
               # Kitchen Led Strip
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
                 entity: light.kitchen_led_strip
-                icon: 'mdi:led-strip-variant'
-                name: "[[[ return variables.ulm_kitchen_strip; ]]]"
-                variables:
-                  ulm_card_light_enable_color: true
-                  ulm_card_light_enable_popup: false
-                  ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2
 
               # Kitchen Bar Light
               - type: tile
@@ -175,6 +223,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
       - type: custom:button-card
         template: card_blank
@@ -204,7 +257,7 @@ cards:
           - type: grid
             #title: קומה 2
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Hallway Light
@@ -216,30 +269,56 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
               # Bathroom Light
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
                 entity: light.bathroom_ceiling
-                #name: "[[[ return variables.ulm_bathroom; ]]]"
-                variables:
-                  ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Bathroom Mirror Light
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
                 entity: light.bathroom_mirror
-                #name: "[[[ return variables.ulm_bathroom_mirror; ]]]"
-                variables:
-                  ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                    
 
               # Laundry Light
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
                 entity: light.laundry
-                #name: "[[[ return variables.ulm_laundry; ]]]"
-                variables:
-                  ulm_card_light_counter_sensor: "sensor.bathroom_light_time_left"
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
 
           # Bedroom
@@ -250,7 +329,7 @@ cards:
           - type: grid
             #title: הורים
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Bedroom Light
@@ -262,6 +341,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                    
 
               # Bedroom Balcony Light
               - type: tile
@@ -272,6 +356,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                    
 
               # Bedside Dima Light
               - type: tile
@@ -281,7 +370,12 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info                                                
+                  action: more-info  
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                                                                  
 
               # Bedside Galit Light
               - type: tile
@@ -292,22 +386,41 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                    
 
               # Parents Bathroom Light
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
                 entity: light.parents_bathroom_ceiling
-                #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
-                variables:
-                  ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"        
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                       
 
               # Parents Bathroom Mirror Light
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
                 entity: light.parents_bathroom_mirror
-                #name: "[[[ return variables.ulm_parents_bathroom_mirror; ]]]"
-                variables:
-                  ulm_card_light_counter_sensor: "sensor.parents_bathroom_light_time_left"         
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
           # Ronen Room
           - type: custom:button-card
@@ -317,7 +430,7 @@ cards:
           - type: grid
             #title: רונן
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Ronen Room Light
@@ -329,6 +442,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info 
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Ronen Led Strip
               - type: tile
@@ -339,6 +457,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
           # Kfir Room
           - type: custom:button-card
@@ -348,7 +471,7 @@ cards:
           - type: grid
             #title: כפיר
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Kfir Room Light
@@ -360,6 +483,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Kfir Led Strip
               - type: tile
@@ -370,6 +498,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
       - type: custom:button-card
         template: card_blank                  
@@ -399,7 +532,7 @@ cards:
           - type: grid
             #title: מרתף
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Basement Light
@@ -411,6 +544,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Basement 2 Light
               - type: tile
@@ -421,6 +559,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Basement 3 Light
               - type: tile
@@ -431,6 +574,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Basement Toys Light
               - type: tile
@@ -441,6 +589,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
           # Work Room
           - type: custom:button-card
@@ -450,7 +603,7 @@ cards:
           - type: grid
             #title: חדר עבודה
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Work Room Light
@@ -462,6 +615,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
       - type: custom:button-card
         template: card_blank                  

@@ -47,7 +47,7 @@ cards:
           - type: grid
             #title: תנועה
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Living Room Camera Sensor
@@ -55,60 +55,110 @@ cards:
                 entity: binary_sensor.living_room_cell_motion_detection
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Guest Bathroom Mirror Sensor
               - type: tile
                 entity: binary_sensor.guest_bathroom_mirror_motion_sensor_occupancy
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Guest Bathroom New Sensor
               - type: tile
                 entity: binary_sensor.guest_bathroom_new_motion_sensor_occupancy
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Kitchen Right
               - type: tile
                 entity: binary_sensor.kitchen_right_motion_sensor_occupancy
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Kitchen Left
               - type: tile
                 entity: binary_sensor.kitchen_left_motion_sensor_occupancy
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Bathroom Right Sensor
               - type: tile
                 entity: binary_sensor.bathroom_new_right_motion_sensor_occupancy
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Bathroom Left Sensor
               - type: tile
                 entity: binary_sensor.bathroom_new_left_motion_sensor_occupancy
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Parents Bathroom Left Sensor
               - type: tile
                 entity: binary_sensor.parents_bathroom_new_left_motion_sensor_occupancy
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Parents Bathroom Right Sensor
               - type: tile
                 entity: binary_sensor.parents_bathroom_new_right_motion_sensor_occupancy
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Basement Camera
               - type: tile
                 entity: binary_sensor.basement_cell_motion_detection
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
 
       - type: custom:button-card

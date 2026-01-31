@@ -14,7 +14,7 @@ blueprint:
 variables:
   switches: !input switch
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: !input switch
     not_from:
       - unavailable

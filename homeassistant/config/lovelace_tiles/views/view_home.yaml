@@ -240,34 +240,82 @@ sections:
           columns: 6
           rows: 2
 
-      # Vacuum Cleaner
-      - type: 'custom:button-card'
-        template: 
-          - card_vacuum_cleaner
-        variables:
-          #ulm_card_vacuum_cleaner_icon: "mdi:waves"
-          ulm_card_vacuum_cleaner_entity: vacuum.l20_ultra
-          ulm_card_vacuum_cleaner_map: camera.l20_ultra_map
-          ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state
-        layout_options:
-          grid_columns: 2
-          grid_rows: 1
+      # Back Yard Cover
+      - type: tile
+        entity: cover.back_yard
+        icon_tap_action:
+          action: more-info
+        features:
+          - type: "cover-open-close" 
+
+      # # Vacuum Cleaner
+      # - type: 'custom:button-card'
+      #   template: 
+      #     - card_vacuum_cleaner
+      #   variables:
+      #     #ulm_card_vacuum_cleaner_icon: "mdi:waves"
+      #     ulm_card_vacuum_cleaner_entity: vacuum.l20_ultra
+      #     ulm_card_vacuum_cleaner_map: camera.l20_ultra_map
+      #     ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state
+      #   layout_options:
+      #     grid_columns: 2
+      #     grid_rows: 1
+
+      # Dining Light
+      - type: tile
+        entity: light.dining
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # TV Wall Light
+      - type: tile
+        entity: light.living_room_tv_wall
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+
+      # Kitchen Light
+      - type: tile
+        entity: light.kitchen
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info          
 
       # Tami 4 Water Boil
       - type: tile
         entity: button.br_mym_boil_water
-        hide_state: true
+        hide_state: true  
+        color: 'var(--red-color)'
 
-      # # Holidays
-      # - type: tile
-      #   entity: light.holidays
-      #   #color: green
-      #   tap_action:
-      #     action: toggle
-      #   hold_action:
-      #     action: more-info
-      #   double_tap_action:
-      #     action: more-info            
+      # Bedside Dima Light
+      - type: tile
+        entity: light.bedside_dima_bulb
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info                                                
+
+      # Bedside Galit Light
+      - type: tile
+        entity: light.bedside_galit_bulb
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info       
 
 
 

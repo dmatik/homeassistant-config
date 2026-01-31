@@ -101,13 +101,13 @@ blueprint:
           multiple: true          
 
 trigger:
-  - platform: time
+  - trigger: time
     at: !input time_on_1
     id: boiler_on_1
-  - platform: time
+  - trigger: time
     at: !input time_on_2
     id: boiler_on_2
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: !input water_temp_entity
     above: 60
     id: boiler_off

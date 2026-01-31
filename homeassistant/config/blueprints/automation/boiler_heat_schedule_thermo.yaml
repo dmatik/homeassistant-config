@@ -13,14 +13,24 @@ blueprint:
       selector:
         entity:
           domain: sensor          
-    time_on:
-      name: Time ON
+    # time_on:
+    #   name: Time ON
+    #   selector:
+    #     time:
+    # time_off:
+    #   name: Time OFF
+    #   selector:
+    #     time:
+    time_on_entity:
+      name: Time ON Helper
       selector:
-        time:
-    time_off:
-      name: Time OFF
+        entity:
+          domain: input_datetime
+    time_off_entity:
+      name: Time OFF Helper
       selector:
-        time:
+        entity:
+          domain: input_datetime          
     target_temp_value:
       name: Target Temperature
       default: 60
@@ -58,19 +68,31 @@ blueprint:
           - label: Saturday
             value: sat
           custom_value: false
-          multiple: true
+          multiple: true       
 
 trigger:
-  - platform: time
-    at: !input time_on
+
+  # Start Time
+  - trigger: time
+    at: !input time_on_entity
     id: boiler_on
-  - platform: time
-    at: !input time_off
+
+  # End Time
+  - trigger: time
+    at: !input time_off_entity
     id: boiler_off
+
+  # HA Startup - in case of outages
+  - trigger: homeassistant
+    event: start
+    id: boiler_on
 
 conditions:
   - condition: time
     weekday: !input weekday
+  - condition: state
+    entity_id: input_boolean.vacation
+    state: "off"    
 
 action:
   - choose:
@@ -78,9 +100,12 @@ action:
       - conditions:
           - condition: trigger
             id: boiler_on
+          - condition: time
+            after: !input time_on_entity
+            before: !input time_off_entity
           - condition: numeric_state
             entity_id: !input water_temp_entity
-            below: !input threshold_temp_value              
+            below: !input threshold_temp_value
         sequence:
           - action: climate.set_temperature
             data:
@@ -94,6 +119,9 @@ action:
       - conditions:
           - condition: trigger
             id: boiler_off
+          - condition: state
+            entity_id: !input thermostat_entity
+            state: "heat"
         sequence:
           - action: climate.turn_off
             target:

@@ -1,7 +1,7 @@
 - alias: 'HA Startup'
   initial_state: 'true'
   trigger:
-    - platform: homeassistant
+    - trigger: homeassistant
       event: start
   action:
 

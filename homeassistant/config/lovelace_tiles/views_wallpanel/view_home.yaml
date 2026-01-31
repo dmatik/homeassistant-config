@@ -70,14 +70,14 @@ badges:
     variables:
       ulm_chip_icon_state_entity: binary_sensor.school_vacation
 
-  # Boiler Water Temperature
-  - type: entity
-    show_name: false
-    show_state: true
-    show_icon: true
-    color: green
-    icon: mdi:water-boiler
-    entity: sensor.boiler_temperature
+  # # Boiler Water Temperature
+  # - type: entity
+  #   show_name: false
+  #   show_state: true
+  #   show_icon: true
+  #   color: green
+  #   icon: mdi:water-boiler
+  #   entity: sensor.boiler_temperature
     
   # Red Alert Chip
   # - type: 'custom:button-card'
@@ -120,18 +120,36 @@ cards:
             template: title
             name: "כללי"
 
+          # # Clock
+          # - type: custom:button-card
+          #   template: card_clock
+
           # Clock
-          - type: custom:button-card
-            template: card_clock
+          - type: custom:digital-clock
+            padding: 8px 0
+            firstLineFormat: HH:mm
+            secondLineFormat: DDDD
+            firstLineLayout:
+              #textAlign: center
+              lineHeight: 1em
+              fontSize: 3.8em
+              fontWeight: 500
+              color: var(--primary-text-color)
+            secondLineLayout:
+              #textAlign: center
+              lineHeight: 1em
+              fontSize: 1.6em
+              fontWeight: 400
+              color: var(--secondary-text-color)
 
           # Weather
           - type: weather-forecast
-            entity: weather.met_home
+            entity: weather.openweathermap #weather.met_home
             forecast_type: daily
-            name: "גן יבנה"            
-            show_current: false
+            #name: "גן יבנה"            
+            show_current: true
             show_forecast: true
-            forecast_slots: 7             
+            forecast_slots: 5            
 
           - type: grid
             #title: נוכחות
@@ -140,13 +158,19 @@ cards:
             cards:
                 
               # WiFi
-              - type: 'custom:button-card'
-                template: card_barcode
-                name: Guest WiFi
-                icon: mdi:wifi
-                variables:
-                  ulm_card_barcode_title: 'Guest WiFi'
-                  ulm_card_barcode_image: image.guest_wifi #'/local/images/wifi_guest.png'
+              # - type: 'custom:button-card'
+              #   template: card_barcode
+              #   name: Guest WiFi
+              #   icon: mdi:wifi
+              #   variables:
+              #     ulm_card_barcode_title: 'Guest WiFi'
+              #     ulm_card_barcode_image: image.guest_wifi #'/local/images/wifi_guest.png'
+              - type: tile
+                entity: image.guest_wifi
+                hide_state: true
+                vertical: false
+                icon_tap_action:
+                  action: more-info                  
 
               # Vacuum Cleaner
               - type: 'custom:button-card'
@@ -199,7 +223,7 @@ cards:
                 - calendar.family
               days_to_show: 14
               compact_days_to_show: 14
-              compact_events_to_show: 5
+              compact_events_to_show: 4
               vertical_line_width: 0px
               day_spacing: 6px
               event_spacing: 6px
@@ -287,13 +311,13 @@ cards:
                 features:
                   - type: "cover-open-close"
 
-              # Kitchen Cover
+              # Living Room Window Cover
               - type: tile
                 entity: cover.living_room_window
                 icon_tap_action:
                   action: more-info
                 features:
-                  - type: "cover-open-close"                    
+                  - type: "cover-open-close"                                     
 
               # Kitchen Cover
               - type: tile
@@ -301,7 +325,7 @@ cards:
                 icon_tap_action:
                   action: more-info
                 features:
-                  - type: "cover-open-close"
+                  - type: "cover-open-close"                  
 
 
           # Scenes
@@ -389,7 +413,7 @@ cards:
           - type: grid
             #title: תאורה
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Living Room Light
@@ -401,6 +425,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2
 
               # Dining Light
               - type: tile
@@ -411,6 +440,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
               # TV Wall Light
               - type: tile
@@ -421,6 +455,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
               # Entrance Light
               - type: tile
@@ -430,26 +469,63 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info                        
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                  
 
               # Guests Bathroom Light
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
+                name: "שר' אורחים"
                 entity: light.guests_bathroom
-                #name: "[[[ return variables.ulm_guest_bathroom; ]]]"
-                variables:
-                  ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2  
+
+              # # Guests Bathroom Light
+              # - type: 'custom:button-card'
+              #   template: 'card_light_simple'
+              #   entity: light.guests_bathroom
+              #   #name: "[[[ return variables.ulm_guest_bathroom; ]]]"
+              #   variables:
+              #     ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
 
               # Kitchen Led Strip
-              - type: 'custom:button-card'
-                template: 'card_light_simple'
+              - type: tile
+                name: "לד מטבח"
                 entity: light.kitchen_led_strip
-                icon: 'mdi:led-strip-variant'
-                name: "[[[ return variables.ulm_kitchen_strip; ]]]"
-                variables:
-                  ulm_card_light_enable_color: true
-                  ulm_card_light_enable_popup: false
-                  ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2  
+
+              # # Kitchen Led Strip
+              # - type: 'custom:button-card'
+              #   template: 'card_light_simple'
+              #   entity: light.kitchen_led_strip
+              #   icon: 'mdi:led-strip-variant'
+              #   name: "[[[ return variables.ulm_kitchen_strip; ]]]"
+              #   variables:
+              #     ulm_card_light_enable_color: true
+              #     ulm_card_light_enable_popup: false
+              #     ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
 
               # Kitchen Bar Light
               - type: tile
@@ -460,6 +536,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Back Yard Light
               - type: tile
@@ -469,17 +550,12 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info 
-
-              # Stairs Light
-              - type: tile
-                entity: light.stairs_ground_floor
-                tap_action:
-                  action: toggle
-                hold_action:
                   action: more-info
-                double_tap_action:
-                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Hallway Light
               - type: tile
@@ -489,7 +565,27 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info 
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                                                   
+
+              # Bedroom Light
+              - type: tile
+                entity: light.bedroom
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2    
 
               # Bedside Dima Light
               - type: tile
@@ -499,7 +595,12 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info                                                
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                                                               
 
               # Bedside Galit Light
               - type: tile
@@ -509,7 +610,12 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info 
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Ronen Room Light
               - type: tile
@@ -519,7 +625,27 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info 
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2      
+
+              # # Ronen Led Strip
+              # - type: tile
+              #   entity: light.ronen_led_strip
+              #   tap_action:
+              #     action: toggle
+              #   hold_action:
+              #     action: more-info
+              #   double_tap_action:
+              #     action: more-info
+              #   hide_state: true
+              #   vertical: true
+              #   grid_options:
+              #     columns: 3
+              #     rows: 2                                  
 
               # Kfir Room Light
               - type: tile
@@ -529,7 +655,42 @@ cards:
                 hold_action:
                   action: more-info
                 double_tap_action:
-                  action: more-info                  
+                  action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2        
+
+              # # Kfir Led Strip
+              # - type: tile
+              #   entity: light.kfir_led_strip
+              #   tap_action:
+              #     action: toggle
+              #   hold_action:
+              #     action: more-info
+              #   double_tap_action:
+              #     action: more-info
+              #   hide_state: true
+              #   vertical: true
+              #   grid_options:
+              #     columns: 3
+              #     rows: 2                                
+
+              # # Stairs Light
+              # - type: tile
+              #   entity: light.stairs_ground_floor
+              #   tap_action:
+              #     action: toggle
+              #   hold_action:
+              #     action: more-info
+              #   double_tap_action:
+              #     action: more-info
+              #   hide_state: true
+              #   vertical: true
+              #   grid_options:
+              #     columns: 3
+              #     rows: 2  
 
               # Basement Light
               - type: tile
@@ -540,6 +701,11 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
             
               # Work Room Light
               - type: tile
@@ -550,17 +716,27 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                hide_state: true
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # # Holidays
               # - type: tile
               #   entity: light.holidays
-              #   #color: green
+              #   color: green
               #   tap_action:
               #     action: toggle
               #   hold_action:
               #     action: more-info
               #   double_tap_action:
-              #     action: more-info                  
+              #     action: more-info
+              #   hide_state: true
+              #   vertical: true
+              #   grid_options:
+              #     columns: 3
+              #     rows: 2                   
 
 
 
@@ -575,44 +751,93 @@ cards:
             columns: 2
             cards:
 
-              # Switcher
-              - type: custom:switcher-boiler-card
-                entity: switch.switcher_touch_d54f
-                icon: ""
-                icon_sensor: sensor.boiler_temperature
-                color_thresholds: true
-                cold_threshold: 35
-                hot_threshold: 55
-                time_left: sensor.switcher_kis_remaining_time_alt
-                sensor_1: sensor.switcher_touch_d54f_current
-                temp_resolution: 0
-                grid_options:
-                  columns: 6
-                  rows: 2  
-
               - type: vertical-stack
                 cards:
 
-                  # Bathroom Heater
-                  - type: 'custom:button-card'
-                    template: 
-                      - "card_heater_with_timer"
-                    variables:
-                      ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
-                      ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
-                    entity: switch.bathroom_heater
-                    name: "[[[ return variables.ulm_bathroom; ]]]"
+                  # Switcher
+                  - type: custom:switcher-boiler-card
+                    entity: switch.switcher_touch_d54f
+                    icon: ""
+                    icon_sensor: sensor.boiler_temperature
+                    color_thresholds: true
+                    cold_threshold: 35
+                    hot_threshold: 55
+                    time_left: sensor.switcher_kis_remaining_time_alt
+                    sensor_1: sensor.switcher_touch_d54f_current
+                    temp_resolution: 0
+                    grid_options:
+                      columns: 6
+                      rows: 2  
 
-                  # Parents Bathroom Heater
-                  - type: 'custom:button-card'
-                    template: 
-                      - "card_heater_with_timer"
-                    variables:
-                      ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
-                      ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
-                    entity: switch.parents_bathroom_heater
-                    name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+                  - type: horizontal-stack
+                    cards:
 
+                      # # Bathroom Heater
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - "card_heater_with_timer"
+                      #   variables:
+                      #     ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
+                      #     ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
+                      #   entity: switch.bathroom_heater
+                      #   name: "[[[ return variables.ulm_bathroom; ]]]"
+
+                      # Bathroom Heater
+                      - type: tile
+                        entity: switch.bathroom_heater
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+                        hide_state: true
+                        vertical: true
+                        color: red
+                        grid_options:
+                          columns: 3
+                          rows: 2 
+
+                      # # Parents Bathroom Heater
+                      # - type: 'custom:button-card'
+                      #   template: 
+                      #     - "card_heater_with_timer"
+                      #   variables:
+                      #     ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
+                      #     ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
+                      #   entity: switch.parents_bathroom_heater
+                      #   name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+
+                      # Parents Bathroom Heater
+                      - type: tile
+                        entity: switch.parents_bathroom_heater
+                        name: "רח' הורים"
+                        tap_action:
+                          action: toggle
+                        hold_action:
+                          action: more-info
+                        double_tap_action:
+                          action: more-info
+                        hide_state: true
+                        vertical: true
+                        color: red
+                        grid_options:
+                          columns: 3
+                          rows: 2        
+                              
+              # Boiler Temperature
+              - type: gauge
+                entity: sensor.boiler_temperature
+                max: 90
+                min: 10
+                severity:
+                  green: 35
+                  yellow: 35
+                  red: 55
+                needle: true
+                grid_options:
+                  columns: 6
+                  rows: auto   
 
 
       - type: custom:button-card

@@ -23,7 +23,7 @@ blueprint:
           entity:
             domain: scene
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: !input presense_entity
     to: "off"
     for:

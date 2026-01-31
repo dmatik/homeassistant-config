@@ -34,7 +34,7 @@ blueprint:
 variables:
   workday_sensor_var: !input workday_sensor_entity          
 trigger:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: !input climate_entity
     for:
       hours: 0
@@ -43,7 +43,7 @@ trigger:
     attribute: temperature
     below: !input target_temperature_value
     id: climate_on
-  - platform: state
+  - trigger: state
     entity_id: !input climate_entity
     for:
       hours: 0
@@ -52,10 +52,10 @@ trigger:
     attribute: fan_mode
     not_to: low
     id: climate_on    
-  - platform: time
+  - trigger: time
     at: !input start_time
     id: climate_on
-  - platform: state
+  - trigger: state
     entity_id: !input climate_entity
     to: cool
     for:
@@ -63,7 +63,7 @@ trigger:
       minutes: 2
       seconds: 0
     id: climate_on
-  - platform: time
+  - trigger: time
     at: !input end_time
     id: climate_off    
 

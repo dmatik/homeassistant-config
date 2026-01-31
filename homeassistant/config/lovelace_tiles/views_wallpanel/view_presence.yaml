@@ -58,28 +58,48 @@ cards:
 
           - type: grid
             square: false
-            columns: 2
+            columns: 4
             cards:
 
               # Dima
               - type: tile
                 entity: person.dmatik
                 show_entity_picture: true
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                 
 
               # Galit
               - type: tile
                 entity: person.galit
                 show_entity_picture: true
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                 
 
               # Ronen
               - type: tile
                 entity: person.ronen
                 show_entity_picture: true
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                 
 
               # Kfir
               - type: tile
                 entity: person.kfir
                 show_entity_picture: true
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                 
 
               - type: custom:button-card
                 template: card_blank

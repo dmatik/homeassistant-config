@@ -56,12 +56,22 @@ cards:
                 entity: media_player.lg_webos_tv_oled77cs6la
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Apple TV Living Room
               - type: tile
                 entity: media_player.apple_tv_living_room
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
 
           # Basement
@@ -80,12 +90,22 @@ cards:
                 entity: media_player.samsung_8_series_65
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Apple TV Basement
               - type: tile
                 entity: media_player.apple_tv_basement
                 icon_tap_action:
                   action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2                   
 
               # Groot PC
               - type: 'custom:button-card'

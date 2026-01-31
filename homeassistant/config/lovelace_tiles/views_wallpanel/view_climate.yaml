@@ -137,37 +137,91 @@ cards:
             columns: 2
             cards:
 
-              # Bathroom Heater
-              - type: 'custom:button-card'
-                template: 
-                  - "card_heater_with_timer"
-                variables:
-                  ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
-                  ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
-                entity: switch.bathroom_heater
-                #name: "[[[ return variables.ulm_bathroom; ]]]"
-
-              # Parents Bathroom Heater
-              - type: 'custom:button-card'
-                template: 
-                  - "card_heater_with_timer"
-                variables:
-                  ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
-                  ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
-                entity: switch.parents_bathroom_heater
-                #name: "[[[ return variables.ulm_parents_bathroom; ]]]"
-
               # Switcher
               - type: custom:switcher-boiler-card
                 entity: switch.switcher_touch_d54f
                 icon: ""
                 icon_sensor: sensor.boiler_temperature
                 color_thresholds: true
+                cold_threshold: 35
+                hot_threshold: 55
                 time_left: sensor.switcher_kis_remaining_time_alt
                 sensor_1: sensor.switcher_touch_d54f_current
+                temp_resolution: 0
                 grid_options:
                   columns: 6
                   rows: 2  
+
+              - type: horizontal-stack
+                cards:
+
+                  # # Bathroom Heater
+                  # - type: 'custom:button-card'
+                  #   template: 
+                  #     - "card_heater_with_timer"
+                  #   variables:
+                  #     ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
+                  #     ulm_card_heater_counter_sensor: sensor.bathroom_heater_time_left
+                  #   entity: switch.bathroom_heater
+                  #   name: "[[[ return variables.ulm_bathroom; ]]]"
+
+                  # Bathroom Heater
+                  - type: tile
+                    entity: switch.bathroom_heater
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+                    hide_state: true
+                    vertical: true
+                    grid_options:
+                      columns: 3
+                      rows: 2 
+
+                  # # Parents Bathroom Heater
+                  # - type: 'custom:button-card'
+                  #   template: 
+                  #     - "card_heater_with_timer"
+                  #   variables:
+                  #     ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
+                  #     ulm_card_heater_counter_sensor: sensor.parents_bathroom_heater_time_left
+                  #   entity: switch.parents_bathroom_heater
+                  #   name: "[[[ return variables.ulm_parents_bathroom; ]]]"
+
+                  # Parents Bathroom Heater
+                  - type: tile
+                    entity: switch.parents_bathroom_heater
+                    tap_action:
+                      action: toggle
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+                    hide_state: true
+                    vertical: true
+                    grid_options:
+                      columns: 3
+                      rows: 2   
+
+          # Boiler Schedule Morning
+          - type: entities
+            entities:
+              - entity: input_datetime.boiler_morning_on
+                name: הדלקה
+              - entity: input_datetime.boiler_morning_off
+                name: כיבוי
+            title: דוד חשמלי בוקר
+
+          # Boiler Schedule Evening
+          - type: entities
+            entities:
+              - entity: input_datetime.boiler_evening_on
+                name: הדלקה
+              - entity: input_datetime.boiler_evening_off
+                name: כיבוי
+            title: דוד חשמלי ערב                  
 
       - type: custom:button-card
         template: card_blank

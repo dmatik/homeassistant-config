@@ -255,13 +255,29 @@ sections:
           grid_columns: 2
           grid_rows: 1
 
+      # Boiler Schedule Morning
+      - type: entities
+        entities:
+          - entity: input_datetime.boiler_morning_on
+            name: הדלקה
+          - entity: input_datetime.boiler_morning_off
+            name: כיבוי
+        title: דוד חשמלי בוקר
 
+      # Boiler Schedule Evening
+      - type: entities
+        entities:
+          - entity: input_datetime.boiler_evening_on
+            name: הדלקה
+          - entity: input_datetime.boiler_evening_off
+            name: כיבוי
+        title: דוד חשמלי ערב
 
-          ############################################################################
-          #                                                                          #
-          #   Temperature                                                            #
-          #                                                                          #
-          ############################################################################
+  ############################################################################
+  #                                                                          #
+  #   Temperature                                                            #
+  #                                                                          #
+  ############################################################################
 
   - type: grid
     title: טמפרטורה  
