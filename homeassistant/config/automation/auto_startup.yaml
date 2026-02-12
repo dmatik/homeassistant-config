@@ -35,9 +35,9 @@
 
     # Fully Load URL
     #- service: rest_command.fully_living_room_load_url
-    - service: button.press
-      target:
-        entity_id: button.fully_living_room_load_start_url 
+    # - service: button.press
+    #   target:
+    #     entity_id: button.fully_living_room_load_start_url 
 
     # Force Publish HA Birth Message
     # - service: mqtt.publish

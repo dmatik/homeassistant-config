@@ -59,9 +59,17 @@ browser_mod:
   #   - all
 
 lovelace:
-  mode: yaml
+  #mode: yaml
+  resource_mode: yaml
   resources: !include /config/resources.yaml
   dashboards:
+    lovelace:
+      mode: yaml
+      filename: ui-lovelace.yaml
+      title: "הבית"
+      icon: mdi:home
+      show_in_sidebar: true
+      require_admin: false  
     lovelace-wallpanel-tiles:
       mode: yaml
       filename: ui-wallpanel-tiles.yaml
@@ -69,23 +77,19 @@ lovelace:
       icon: mdi:view-dashboard
       show_in_sidebar: false
       require_admin: false
-    # lovelace-minimalist:
-    #   mode: yaml
-    #   title: Minimalist
-    #   icon: mdi:view-dashboard
-    #   show_in_sidebar: true
-    #   filename: ui-minimalist.yaml
     lovelace-ronen:
       mode: yaml
       title: Ronen
       icon: mdi:view-dashboard
       show_in_sidebar: false
+      require_admin: false
       filename: ui-ronen.yaml
     lovelace-kfir:
       mode: yaml
       title: Kfir
       icon: mdi:view-dashboard
       show_in_sidebar: false
+      require_admin: false
       filename: ui-kfir.yaml        
 
 #Recorder

@@ -958,19 +958,17 @@
     at: 05:00:00
   conditions: []
   actions:
-  - type: turn_on
-    device_id: c4e9d62198a73a1595be222a253c9ad3
-    entity_id: 7c11c943b63805f396cd37a7ad7cedfa
-    domain: switch
+  - action: rest_command.fully_living_room_screen_on
+    metadata: {}
+    data: {}
   - delay:
       hours: 0
       minutes: 0
       seconds: 10
       milliseconds: 0
-  - device_id: c4e9d62198a73a1595be222a253c9ad3
-    domain: button
-    entity_id: 6531e451777b47112c299aea533e6d73
-    type: press
+  - action: rest_command.fully_living_room_clear_cache
+    metadata: {}
+    data: {}
   - delay:
       hours: 0
       minutes: 0
@@ -984,12 +982,10 @@
       minutes: 2
       seconds: 0
       milliseconds: 0
-    enabled: false
-  - type: turn_off
-    device_id: c4e9d62198a73a1595be222a253c9ad3
-    entity_id: 7c11c943b63805f396cd37a7ad7cedfa
-    domain: switch
-    enabled: false
+    enabled: true
+  - action: rest_command.fully_living_room_screen_off
+    metadata: {}
+    data: {}
   mode: single
 - id: '1732977878964'
   alias: Red Alert Ashdod
@@ -1243,7 +1239,7 @@
       time_on: '18:00:00'
       time_off: '20:00:00'
       water_temp_entity: sensor.boiler_temperature
-      target_temp_value: 65
+      target_temp_value: 60
       time_on_entity: input_datetime.boiler_evening_on
       time_off_entity: input_datetime.boiler_evening_off
       threshold_temp_value: 70
@@ -1264,7 +1260,7 @@
       - thu
       - fri
       water_temp_entity: sensor.boiler_temperature
-      target_temp_value: 65
+      target_temp_value: 60
       time_on_entity: input_datetime.boiler_morning_on
       time_off_entity: input_datetime.boiler_morning_off
 - id: '1750044664843'
@@ -1315,7 +1311,7 @@
         - 'on'
       - condition: numeric_state
         entity_id: sensor.living_room_light_level_sensor_illuminance
-        below: 15
+        below: 20
       sequence:
       - action: light.turn_on
         metadata: {}
