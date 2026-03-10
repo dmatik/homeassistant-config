@@ -4,19 +4,18 @@ popup_chip_air_quality:
     browser_mod:
       service: browser_mod.popup
       data:
+        adaptive: true
+        adaptive_allow_mode_change: true
+        adaptive_force_bottom_sheet: false
         title: "Air Quality"
         content:
-        
           type: horizontal-stack
           cards:
-
             - type: custom:button-card
               template: card_blank
 
             - type: vertical-stack
               cards:
-
-
                 ############################################################################
                 #                                                                          #
                 #   Header                                                                 #
@@ -24,21 +23,16 @@ popup_chip_air_quality:
                 ############################################################################
 
                 - type: "custom:button-card"
-                  template: 
-                    - 'popup_header_ha_style'
+                  template:
+                    - "popup_header_ha_style"
                   triggers_update: all
                   entity: sensor.waqi_ashdod_yshrl_dod
-
-
 
                 - type: "custom:button-card"
                   template: spacer
                   variables:
                     height: 20px
 
-
-
-                    
                 ############################################################################
                 #                                                                          #
                 #   Air Quality                                                            #
@@ -48,18 +42,17 @@ popup_chip_air_quality:
                 - type: grid
                   square: false
                   columns: 1
-                  cards:  
-
+                  cards:
                     # Air Quality
-                    - type: 'custom:button-card'
-                      template: 
+                    - type: "custom:button-card"
+                      template:
                         - "popup_card_style"
                         - "card_air_quality_graph_only"
                       variables:
                         ulm_card_graph_color: "var(--google-blue)"
                         ulm_card_air_quality_name: Air Quality
                         ulm_card_air_quality_entity: sensor.waqi_ashdod_yshrl_dod
-                        ulm_card_air_quality_url: 'https://aqicn.org/city/ashdod/'
+                        ulm_card_air_quality_url: "https://aqicn.org/city/ashdod/"
                         ulm_card_air_quality_type: bar
                         ulm_card_air_quality_show_extrema: true
                         ulm_card_air_quality_show_average: true
@@ -68,4 +61,4 @@ popup_chip_air_quality:
                         ulm_card_air_quality_hours: 48
 
             - type: custom:button-card
-              template: card_blank                        
+              template: card_blank

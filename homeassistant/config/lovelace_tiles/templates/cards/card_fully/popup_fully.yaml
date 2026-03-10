@@ -4,19 +4,18 @@ popup_fully:
     browser_mod:
       service: browser_mod.popup
       data:
+        adaptive: true
+        adaptive_allow_mode_change: true
+        adaptive_force_bottom_sheet: false
         title: "[[[ return variables.ulm_card_fully_name; ]]]"
         content:
-
-
           type: horizontal-stack
           cards:
-
             - type: custom:button-card
               template: card_blank
 
             - type: vertical-stack
               cards:
-
                 ############################################################################
                 #                                                                          #
                 #   Header                                                                 #
@@ -24,10 +23,10 @@ popup_fully:
                 ############################################################################
 
                 - type: "custom:button-card"
-                  template: 
-                    - 'popup_header_ha_style'
+                  template:
+                    - "popup_header_ha_style"
                   triggers_update: all
-                  entity: '[[[ return variables.ulm_card_fully_plugged_in_entity ]]]'
+                  entity: "[[[ return variables.ulm_card_fully_plugged_in_entity ]]]"
                   name: |-
                     [[[ 
                       var plugged;
@@ -44,7 +43,6 @@ popup_fully:
                   variables:
                     height: 20px
 
-
                 ############################################################################
                 #                                                                          #
                 #   Sensors                                                                #
@@ -55,7 +53,6 @@ popup_fully:
                   square: false
                   columns: 1
                   cards:
-
                     # # Battery
                     # - type: "custom:button-card"
                     #   template: "widget_mini_graph_bar"
@@ -66,17 +63,14 @@ popup_fully:
 
                     # Current Page
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_text_info_2_rows"
                       custom_fields:
                         item1: "Current Page:"
-                        item2: '[[[ return states[variables.ulm_card_fully_current_page_entity].state ]]]'
-
+                        item2: "[[[ return states[variables.ulm_card_fully_current_page_entity].state ]]]"
 
                 - type: "custom:button-card"
                   template: spacer
-
-
 
                 ############################################################################
                 #                                                                          #
@@ -88,14 +82,13 @@ popup_fully:
                   square: false
                   columns: 3
                   cards:
-
                     # Reload URL
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_button_ha_style"
                         - "ulm_language_variables"
                       icon: mdi:reload
-                      name: 'Reload URL'
+                      name: "Reload URL"
                       tap_action:
                         action: "call-service"
                         service: "button.press"
@@ -104,55 +97,55 @@ popup_fully:
 
                     # Disable Kiosk
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_button_ha_style"
                         - "ulm_language_variables"
                       icon: mdi:page-layout-sidebar-right
-                      name: 'Disable Kiosk'
+                      name: "Disable Kiosk"
                       tap_action:
                         action: call-service
                         service: "[[[ return variables.ulm_card_fully_disable_kiosk_command ]]]"
 
                     # Restart App
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_button_ha_style"
                         - "ulm_language_variables"
                       icon: mdi:restart
-                      name: 'Restart App'
+                      name: "Restart App"
                       tap_action:
                         action: call-service
                         service: "[[[ return variables.ulm_card_fully_restart_app_command ]]]"
 
                     # Clear Cache
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_button_ha_style"
                         - "ulm_language_variables"
                       icon: mdi:broom
-                      name: 'Clear Cache'
+                      name: "Clear Cache"
                       tap_action:
                         action: call-service
                         service: "[[[ return variables.ulm_card_fully_clear_cache_command ]]]"
 
                     # Screenshot
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_button_ha_style"
                         - "ulm_language_variables"
                       icon: mdi:monitor-screenshot
-                      name: 'Screenshot'
+                      name: "Screenshot"
                       entity: "[[[ return variables.ulm_card_fully_screenshot_image ]]]"
                       tap_action:
                         action: more-info
 
                     # Camera
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_button_ha_style"
                         - "ulm_language_variables"
                       icon: mdi:cctv
-                      name: 'Camera'
+                      name: "Camera"
                       entity: "[[[ return variables.ulm_card_fully_camshot_image ]]]"
                       tap_action:
                         action: more-info
@@ -164,32 +157,28 @@ popup_fully:
                         - "popup_button_ha_style"
                         - "ulm_language_variables"
                       icon: "mdi:tablet-dashboard"
-                      name: 'Screen On/Off'
+                      name: "Screen On/Off"
                       entity: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
                       tap_action:
-                        action: 'call-service'
-                        service: 'switch.toggle'
+                        action: "call-service"
+                        service: "switch.toggle"
                         service_data:
                           entity_id: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
                       double_tap_action:
-                        action: 'more-info'
+                        action: "more-info"
                         entity: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
                       hold_action:
-                        action: 'more-info'
+                        action: "more-info"
                         entity: "[[[ return variables.ulm_card_fully_screen_entity; ]]]"
-
 
             - type: custom:button-card
               template: card_blank
 
-
-
-
 popup_fully_image:
   variables:
-    ulm_card_fully_title: ''
-    ulm_card_fully_image: ''
-    ulm_card_fully_refresh_command: ''
+    ulm_card_fully_title: ""
+    ulm_card_fully_image: ""
+    ulm_card_fully_refresh_command: ""
   tap_action:
     action: fire-dom-event
     browser_mod:
@@ -197,15 +186,12 @@ popup_fully_image:
       data:
         title: "[[[ return variables.ulm_card_fully_title ]]]"
         content:
-
           type: vertical-stack
           cards:
-
             - type: "custom:button-card"
               template: spacer
               variables:
                 height: 20px
-
 
             ############################################################################
             #                                                                          #
@@ -220,16 +206,13 @@ popup_fully_image:
                 grid-template-rows: auto
                 grid-gap: 0px 4px
               cards:
-
-                - type: 'custom:button-card'
-                  template: 
+                - type: "custom:button-card"
+                  template:
                     - "popup_card_style"
                     - "card_fully_image"
                   variables:
                     ulm_card_fully_image: "[[[ return variables.ulm_card_fully_image ]]]"
                     ulm_card_fully_refresh_command: "[[[ return variables.ulm_card_fully_refresh_command ]]]"
-
-
 
             ############################################################################
             #                                                                          #
@@ -244,10 +227,9 @@ popup_fully_image:
                 grid-template-rows: auto
                 grid-gap: 0px 4px
               cards:
-
                 # Refresh
                 - type: "custom:button-card"
-                  template: 
+                  template:
                     - "popup_button_ha_style"
                     - "ulm_language_variables"
                   icon: mdi:refresh
@@ -261,12 +243,10 @@ popup_fully_image:
               # variables:
               #   height: 20px
 
-
-
 popup_fully_image_auto:
   variables:
-    ulm_card_fully_title: ''
-    ulm_card_fully_image: ''
+    ulm_card_fully_title: ""
+    ulm_card_fully_image: ""
   tap_action:
     action: fire-dom-event
     browser_mod:
@@ -274,17 +254,13 @@ popup_fully_image_auto:
       data:
         title: "[[[ return variables.ulm_card_fully_title ]]]"
         content:
-
           type: vertical-stack
           cards:
-
             - type: "custom:button-card"
               template: spacer
               variables:
                 height: 20px
 
-
-                
             ############################################################################
             #                                                                          #
             #   Image                                                                  #
@@ -298,11 +274,9 @@ popup_fully_image_auto:
                 grid-template-rows: auto
                 grid-gap: 0px 4px
               cards:
-
-                - type: 'custom:button-card'
-                  template: 
+                - type: "custom:button-card"
+                  template:
                     - "popup_card_style"
                     - "card_fully_image_auto"
                   variables:
                     ulm_card_fully_image: "[[[ return variables.ulm_card_fully_image ]]]"
-

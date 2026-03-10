@@ -4,19 +4,18 @@ popup_school_day:
     browser_mod:
       service: browser_mod.popup
       data:
+        adaptive: true
+        adaptive_allow_mode_change: true
+        adaptive_force_bottom_sheet: false
         title: "[[[ return variables.ulm_school_day; ]]]"
         content:
-
-
           type: horizontal-stack
           cards:
-
             - type: custom:button-card
               template: card_blank
 
             - type: vertical-stack
               cards:
-
                 ############################################################################
                 #                                                                          #
                 #   Header                                                                 #
@@ -24,11 +23,10 @@ popup_school_day:
                 ############################################################################
 
                 - type: "custom:button-card"
-                  template: 
-                    - 'popup_header_ha_style'
+                  template:
+                    - "popup_header_ha_style"
                   triggers_update: all
                   entity: sensor.school_summary
-
 
                 - type: "custom:button-card"
                   template: spacer
@@ -41,15 +39,13 @@ popup_school_day:
                 #                                                                          #
                 ############################################################################
 
-
                 - type: grid
                   square: false
                   columns: 1
                   cards:
-
                     # Elementary School
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_text_info"
                         - "direction_rtl"
                         - "popup_school_elementary_info"
@@ -57,10 +53,9 @@ popup_school_day:
                       custom_fields:
                         item1: "[[[ return variables.ulm_school_elementary + ':' ]]]"
 
-
                     # High School
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_text_info"
                         - "direction_rtl"
                         - "popup_school_high_info"
@@ -68,10 +63,9 @@ popup_school_day:
                       custom_fields:
                         item1: "[[[ return variables.ulm_school_high + ':' ]]]"
 
-
                     # School Day sensor
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_text_info"
                         - "direction_rtl"
                         - "popup_school_day_sensor_info"
@@ -80,19 +74,17 @@ popup_school_day:
 
                     # School Vacation sensor
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         - "popup_text_info"
                         - "direction_rtl"
                         - "popup_school_vacation_sensor_info"
                       custom_fields:
                         item1: "חיישן חופשות: "
 
-
                 - type: "custom:button-card"
                   template: spacer
                   variables:
                     height: 20px
-                    
 
                 ############################################################################
                 #                                                                          #
@@ -104,28 +96,24 @@ popup_school_day:
                   square: false
                   columns: 1
                   cards:
-
                     - type: "custom:button-card"
-                      template: 
+                      template:
                         #- "red_on"
                         - "deep_orange_background_on"
                         - "popup_button_ha_style"
-                      entity: 'input_boolean.school_mode'
-                      name: 'School Mode'
+                      entity: "input_boolean.school_mode"
+                      name: "School Mode"
                       tap_action:
-                        action: 'call-service'
-                        service: 'input_boolean.toggle'
+                        action: "call-service"
+                        service: "input_boolean.toggle"
                         service_data:
-                          entity_id: 'input_boolean.school_mode'
-
+                          entity_id: "input_boolean.school_mode"
 
                 - type: "custom:button-card"
                   template: spacer
 
-
             - type: custom:button-card
               template: card_blank
-
 
 popup_school_elementary_info:
   custom_fields:
@@ -165,4 +153,4 @@ popup_school_vacation_sensor_info:
           return 'חופש';
         else
           return 'לא';
-      ]]]       
+      ]]]

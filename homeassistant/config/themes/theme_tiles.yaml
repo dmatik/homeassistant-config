@@ -1,4 +1,7 @@
 Tiles:
+  # Popups & Bottom Sheets
+  ha-bottom-sheet-height: "100%"
+  ha-bottom-sheet-max-height: "calc(100dvh - max(0px, 48px))"
 
   # Fonts
   primary-font-family: "Arimo, system-ui"
@@ -16,40 +19,39 @@ Tiles:
   mdc-typography-body1-font-family: "var(--primary-font-family)"
   md-list-item-supporting-text-font: "var(--primary-font-family)"
   mdc-typography-button-font-family: "var(--primary-font-family)"
-  
+
   # Layout
   view-margins: "0px"
   grid-layout-margins: "-10px -2px 0px"
 
   # Colors
-  rgb-grey-color: '158,158,158' #'#9e9e9e'
-  yellow-color: '#ffc107'
-  rgb-yellow-color: '255,193,7' #'#ffc107'
-  rgb-blue-color: '33,150,243' #'#2196f3'
-  rgb-purple-color: '146,107,199' #'#926BC7'
-  rgb-green-color: '76,175,80' #'#4caf50'
-  red-color: '#F54436'
+  rgb-grey-color: "158,158,158" #'#9e9e9e'
+  yellow-color: "#ffc107"
+  rgb-yellow-color: "255,193,7" #'#ffc107'
+  rgb-blue-color: "33,150,243" #'#2196f3'
+  rgb-purple-color: "146,107,199" #'#926BC7'
+  rgb-green-color: "76,175,80" #'#4caf50'
+  red-color: "#F54436"
   rgb-red-color: "245, 68, 54" # Original HA red -> '244,67,54' #'#f44336'
   rgb-orange-color: "255, 152, 0" #FF9800
   rgb-deep-orange-color: "255, 111, 34" #FF6F22
   rgb-teal-color: "0, 150, 136" #009688
-  crimson-color: '#DC143C'
+  crimson-color: "#DC143C"
   rgb-crimson-color: "220, 20, 60"
-  gold-color: '#ffd700'
+  gold-color: "#ffd700"
   rgb-gold-color: "255, 215 ,0"
-  goldenrod-color: '#daa520'
-  rgb-goldenrod-color: "218 ,165 ,32"   
-
+  goldenrod-color: "#daa520"
+  rgb-goldenrod-color: "218 ,165 ,32"
 
   # Climate Colors
-  rgb-climate-heat-color: '255,111,34'
-  rgb-climate-cool-color: '33,150,243'
-  rgb-climate-auto-color: '255,111,34'
-  rgb-climate-fan-only-color: '0,188,212'
-  rgb-climate-dry-color: '255,152,0'
+  rgb-climate-heat-color: "255,111,34"
+  rgb-climate-cool-color: "33,150,243"
+  rgb-climate-auto-color: "255,111,34"
+  rgb-climate-fan-only-color: "0,188,212"
+  rgb-climate-dry-color: "255,152,0"
 
   # Control Button
-  control-button-border-radius: '10px'
+  control-button-border-radius: "10px"
 
   # Chips
   chips-left-margin: "2px"
@@ -59,46 +61,41 @@ Tiles:
   chip-card-two-rows-name-font-size: "10px"
 
   modes:
-  
     light:
-
       # Colors
-      rgb-disabled-color: '189,189,189' #'#bdbdbd'
+      rgb-disabled-color: "189,189,189" #'#bdbdbd'
 
       # Chips
-      chip-icon-disabled-color: 'var(--state-inactive-color)' #'#646464'
+      chip-icon-disabled-color: "var(--state-inactive-color)" #'#646464'
 
       # Popup
       popup-backdrop-filter: "blur(10px) brightness(100%)"
-      popup-card-style-background: '#F2F2F2'
+      popup-card-style-background: "#F2F2F2"
 
       # Printer colors
-      printer-black-color: 'rgba(150,150,150,1)'
-      printer-yellow-color: 'rgba(250,255,0,0.2)'
-      printer-magenta-color: 'rgba(248,0,255,0.2)'
-      printer-cyan-color: 'rgba(0,255,255,0.2)'  
-
+      printer-black-color: "rgba(150,150,150,1)"
+      printer-yellow-color: "rgba(250,255,0,0.2)"
+      printer-magenta-color: "rgba(248,0,255,0.2)"
+      printer-cyan-color: "rgba(0,255,255,0.2)"
 
     dark:
-
       # Colors
-      rgb-disabled-color: '70,70,70' #'#464646'
+      rgb-disabled-color: "70,70,70" #'#464646'
 
       # Chips
-      chip-icon-disabled-color: 'var(--state-inactive-color)' #'var(--grey-color)'
+      chip-icon-disabled-color: "var(--state-inactive-color)" #'var(--grey-color)'
 
       # Popup
       popup-backdrop-filter: "blur(10px) contrast(50%)"
-      popup-card-style-background: '#242424'
+      popup-card-style-background: "#242424"
 
       # Printer colors
-      printer-black-color: 'rgba(50,50,50,1)'
-      printer-yellow-color: 'rgba(250,255,0,0.2)'
-      printer-magenta-color: 'rgba(248,0,255,0.2)'
-      printer-cyan-color: 'rgba(0,255,255,0.2)'      
+      printer-black-color: "rgba(50,50,50,1)"
+      printer-yellow-color: "rgba(250,255,0,0.2)"
+      printer-magenta-color: "rgba(248,0,255,0.2)"
+      printer-cyan-color: "rgba(0,255,255,0.2)"
 
-
-# Card-Mod
+  # Card-Mod
   card-mod-theme: "Tiles"
 
   card-mod-more-info-yaml: |
@@ -135,31 +132,30 @@ Tiles:
         }
       }
 
-  card-mod-view-yaml: |  
-    "*:first-child$": |
-      #columns .column > * {
-        padding-left: 5px;
-        padding-right: 5px;
-        padding-bottom: 5px;
-      }
-    grid-layout$: |
-      #root {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }     
-    //hui-sections-view:
-    //  $: 
-    //    hui-view-badges $: |
-    //      @media (max-width: 450px) {
-    //        .badges {
-    //          justify-content: start !important;
-    //        }
-    //      }
-                                            
+  # card-mod-view-yaml: |
+  #   "*:first-child$": |
+  #     #columns .column > * {
+  #       padding-left: 5px;
+  #       padding-right: 5px;
+  #       padding-bottom: 5px;
+  #     }
+  #   grid-layout$: |
+  #     #root {
+  #       margin-left: 0 !important;
+  #       margin-right: 0 !important;
+  #     }
+  #   //hui-sections-view:
+  #   //  $:
+  #   //    hui-view-badges $: |
+  #   //      @media (max-width: 450px) {
+  #   //        .badges {
+  #   //          justify-content: start !important;
+  #   //        }
+  #   //      }
 
   # Adjusting the font for Sections heading title and badges
   # card-mod-card-yaml: |
-  #   .: |    
+  #   .: |
   #     ha-card .container .content p {
   #       font-family: inherit !important;
   #     }
@@ -178,4 +174,4 @@ Tiles:
   #   .badges hui-heading-badge:nth-child(4) hui-entity-heading-badge $ ha-heading-badge $: |
   #     .heading-badge {
   #       font-family: inherit !important;
-  #     }                
+  #     }

@@ -1,30 +1,29 @@
 popup_barcode:
   variables:
-    ulm_card_barcode_title: ''
-    ulm_card_barcode_image: ''
+    ulm_card_barcode_title: ""
+    ulm_card_barcode_image: ""
   tap_action:
     action: fire-dom-event
     browser_mod:
       service: browser_mod.popup
       data:
+        adaptive: true
+        adaptive_allow_mode_change: true
+        adaptive_force_bottom_sheet: false
         title: "[[[ return variables.ulm_card_barcode_title ]]]"
         content:
-
           type: horizontal-stack
           cards:
-
             - type: custom:button-card
               template: card_blank
 
             - type: vertical-stack
               cards:
-
                 - type: "custom:button-card"
                   template: spacer
                   variables:
                     height: 10px
 
-                    
                 ############################################################################
                 #                                                                          #
                 #   Image                                                                  #
@@ -35,15 +34,12 @@ popup_barcode:
                   square: false
                   columns: 1
                   cards:
-
-                    - type: 'custom:button-card'
+                    - type: "custom:button-card"
                       template:
                         - "popup_card_style"
                         - "card_image"
-                      variables: 
+                      variables:
                         ulm_card_image: "[[[ return variables.ulm_card_barcode_image ]]]"
 
             - type: custom:button-card
               template: card_blank
-
-

@@ -1381,7 +1381,7 @@
       - wed
       - thu
       - fri
-      threashold_temperature_value: 21
+      threashold_temperature_value: 20
       work_school_day_sensor_entity: binary_sensor.school_day
 - id: '1768897791780'
   alias: Kfir AC - Morning Heating
@@ -1400,7 +1400,7 @@
       - thu
       - fri
       work_school_day_sensor_entity: binary_sensor.school_day
-      threashold_temperature_value: 21
+      threashold_temperature_value: 20
 - id: '1768897823044'
   alias: Ronen AC - Morning Heating
   description: ''
@@ -1418,4 +1418,4 @@
       - thu
       - fri
       work_school_day_sensor_entity: binary_sensor.school_day
-      threashold_temperature_value: 21
+      threashold_temperature_value: 20
