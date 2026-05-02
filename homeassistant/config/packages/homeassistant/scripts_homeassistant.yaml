@@ -1,13 +1,12 @@
 script:
-
-############################################################################
-#                                                                          #
-#   Update Home Assistant Container                                        #
-#                                                                          #
-############################################################################
+  ############################################################################
+  #                                                                          #
+  #   Update Home Assistant Container                                        #
+  #                                                                          #
+  ############################################################################
 
   update_homeassistant_container:
-    alias: "Update Home Assitant Container"
+    alias: "Update Home Assistant Container"
     sequence:
-      #- service: shell_command.update_homeassistant_container
-      - service: rest_command.update_homeassistant_container
+      - service: shell_command.update_homeassistant_container
+      #- service: rest_command.update_homeassistant_container

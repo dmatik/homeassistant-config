@@ -1070,199 +1070,6 @@
       climate_entity: climate.bedroom
       start_time: '22:00:00'
       end_time: 01:00:00
-- id: '1741098236238'
-  alias: Boiler Water Heat
-  description: ''
-  triggers:
-  - trigger: numeric_state
-    entity_id:
-    - sensor.boiler_temperature
-    below: 45
-    id: boiler_on
-  - trigger: numeric_state
-    entity_id:
-    - sensor.boiler_temperature
-    id: boiler_off
-    above: 60
-  conditions:
-  - condition: time
-    after: '12:00:00'
-    before: 08:00:00
-  actions:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id:
-        - boiler_off
-      sequence:
-      - delay:
-          hours: 0
-          minutes: 2
-          seconds: 0
-          milliseconds: 0
-      - action: switch.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.switcher_touch_d54f
-    - conditions:
-      - condition: trigger
-        id:
-        - boiler_on
-      sequence:
-      - delay:
-          hours: 0
-          minutes: 2
-          seconds: 0
-          milliseconds: 0
-      - action: switch.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.switcher_touch_d54f
-  mode: single
-- id: '1741256712419'
-  alias: Boiler Heating Schedule
-  description: ''
-  use_blueprint:
-    path: boiler_heat_schedule.yaml
-    input:
-      boiler_entity: switch.switcher_touch_d54f
-      water_temp_entity: sensor.boiler_temperature
-      time_on_1: 03:30:00
-      time_on_2: '17:00:00'
-      timer_minutes_1: 150
-      timer_minutes_2: 120
-      low_temp_threshold_value: 50
-      weekday_1:
-      - sun
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-- id: '1741263588984'
-  alias: Boiler Heat Schedule - Evening
-  description: ''
-  triggers:
-  - trigger: time
-    at: '17:00:00'
-    id: boiler_on
-  - trigger: time
-    at: '19:00:00'
-    id: boiler_off
-  conditions: []
-  actions:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id:
-        - boiler_on
-      sequence:
-      - action: climate.set_temperature
-        metadata: {}
-        data:
-          temperature: 60
-        target:
-          entity_id: climate.switcher_boiler
-      - action: climate.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id: climate.switcher_boiler
-    - conditions:
-      - condition: trigger
-        id:
-        - boiler_off
-      sequence:
-      - action: climate.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: climate.switcher_boiler
-  mode: single
-- id: '1741264257716'
-  alias: Boiler Heat Schedule - Morning
-  description: ''
-  triggers:
-  - trigger: time
-    at: 03:00:00
-    id: boiler_on
-  - trigger: time
-    at: 07:00:00
-    id: boiler_off
-  conditions:
-  - condition: time
-    weekday:
-    - fri
-    - thu
-    - wed
-    - tue
-    - mon
-    - sun
-  actions:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id:
-        - boiler_on
-      sequence:
-      - action: climate.set_temperature
-        metadata: {}
-        data:
-          temperature: 60
-        target:
-          entity_id: climate.switcher_boiler
-      - action: climate.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id: climate.switcher_boiler
-    - conditions:
-      - condition: trigger
-        id:
-        - boiler_off
-      sequence:
-      - action: climate.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: climate.switcher_boiler
-  mode: single
-- id: '1741272347618'
-  alias: Boiler Thermostat Schedule - Evening
-  description: ''
-  use_blueprint:
-    path: boiler_heat_schedule_thermo.yaml
-    input:
-      thermostat_entity: climate.switcher_boiler
-      time_on: '18:00:00'
-      time_off: '20:00:00'
-      water_temp_entity: sensor.boiler_temperature
-      target_temp_value: 60
-      time_on_entity: input_datetime.boiler_evening_on
-      time_off_entity: input_datetime.boiler_evening_off
-      threshold_temp_value: 70
-- id: '1741272746027'
-  alias: Boiler Thermostat Schedule - Morning
-  description: ''
-  use_blueprint:
-    path: boiler_heat_schedule_thermo.yaml
-    input:
-      thermostat_entity: climate.switcher_boiler
-      time_on: 03:30:00
-      time_off: 07:30:00
-      weekday:
-      - sun
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-      water_temp_entity: sensor.boiler_temperature
-      target_temp_value: 60
-      time_on_entity: input_datetime.boiler_morning_on
-      time_off_entity: input_datetime.boiler_morning_off
 - id: '1750044664843'
   alias: Red Alert All Israel
   description: ''
@@ -1419,3 +1226,42 @@
       - fri
       work_school_day_sensor_entity: binary_sensor.school_day
       threashold_temperature_value: 20
+- id: '1774539333087'
+  alias: Boiler Heat Schedule New - Morning
+  description: ''
+  use_blueprint:
+    path: boiler_heat_schedule_new.yaml
+    input:
+      boiler_entity: switch.switcher_touch_d54f
+      water_temp_entity: sensor.boiler_temperature
+      time_on_entity: input_datetime.boiler_morning_on
+      time_off_entity: input_datetime.boiler_morning_off
+      target_temp_value: 63
+      threshold_temp_value: 55
+      weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+- id: '1774539420009'
+  alias: Boiler Heat Schedule New - Evening
+  description: ''
+  use_blueprint:
+    path: boiler_heat_schedule_new.yaml
+    input:
+      boiler_entity: switch.switcher_touch_d54f
+      water_temp_entity: sensor.boiler_temperature
+      time_on_entity: input_datetime.boiler_evening_on
+      time_off_entity: input_datetime.boiler_evening_off
+      target_temp_value: 63
+      threshold_temp_value: 55
+      weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+      - sat

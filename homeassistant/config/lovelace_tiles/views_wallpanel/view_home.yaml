@@ -5,68 +5,67 @@ icon: mdi:home
 type: masonry
 
 badges:
-
   # Climate Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_climate'
-      - 'chip_navigate_only'
+      - "chip_two_rows_climate"
+      - "chip_navigate_only"
     variables:
       #ulm_chip_temperature_low: sensor.lowest_temperature_home
       #ulm_chip_temperature_high: sensor.highest_temperature_home
-      ulm_chip_temperature: sensor.highest_lowest_temperature_home_text  
+      ulm_chip_temperature: sensor.highest_lowest_temperature_home_text
       ulm_chip_icon_state_entity: sensor.number_of_climate_entities_on
-      ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_climate  
+      ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_climate
 
   # Presence Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_presence'
-      - 'chip_navigate_only'
+      - "chip_two_rows_presence"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.persons_home_counter
       ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_presence
 
   # Lights Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_lights'
-      - 'chip_navigate_only'
+      - "chip_two_rows_lights"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.lights_on_counter
       ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_lights
 
   # Covers Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_covers'
-      - 'chip_navigate_only'
+      - "chip_two_rows_covers"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.covers_open_counter
       ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_covers
 
   # Media Devices Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_media'
-      - 'chip_navigate_only'
+      - "chip_two_rows_media"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.media_devices_on_counter
       ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_media
 
   # Motion Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_motion'
-      - 'chip_navigate_only'
+      - "chip_two_rows_motion"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
       ulm_chip_navigate_path: /lovelace-wallpanel-tiles/tiles_security
 
   # School Day Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_school_day'
+      - "chip_school_day"
     variables:
       ulm_chip_icon_state_entity: binary_sensor.school_vacation
 
@@ -78,7 +77,7 @@ badges:
   #   color: green
   #   icon: mdi:water-boiler
   #   entity: sensor.boiler_temperature
-    
+
   # Red Alert Chip
   # - type: 'custom:button-card'
   #   template:
@@ -99,7 +98,6 @@ badges:
   #     ulm_chip_red_alert_option_6_name: "אשדוד"
 
 cards:
-  
   ############################################################################
   #                                                                          #
   #   First Column                                                           #
@@ -108,14 +106,12 @@ cards:
 
   - type: horizontal-stack
     cards:
-
       - type: custom:button-card
         template: card_blank
 
-      - type: vertical-stack 
+      - type: vertical-stack
         cards:
-
-            # General
+          # General
           - type: custom:button-card
             template: title
             name: "כללי"
@@ -146,17 +142,16 @@ cards:
           - type: weather-forecast
             entity: weather.openweathermap #weather.met_home
             forecast_type: daily
-            #name: "גן יבנה"            
+            #name: "גן יבנה"
             show_current: true
             show_forecast: true
-            forecast_slots: 5            
+            forecast_slots: 5
 
           - type: grid
             #title: נוכחות
             square: false
             columns: 2
             cards:
-                
               # WiFi
               # - type: 'custom:button-card'
               #   template: card_barcode
@@ -170,17 +165,17 @@ cards:
                 hide_state: true
                 vertical: false
                 icon_tap_action:
-                  action: more-info                  
+                  action: more-info
 
               # Vacuum Cleaner
-              - type: 'custom:button-card'
-                template: 
+              - type: "custom:button-card"
+                template:
                   - card_vacuum_cleaner
                 variables:
                   #ulm_card_vacuum_cleaner_icon: "mdi:waves"
                   ulm_card_vacuum_cleaner_entity: vacuum.l20_ultra
                   ulm_card_vacuum_cleaner_map: camera.l20_ultra_map
-                  ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state                                 
+                  ulm_card_vacuum_cleaner_translated_state: sensor.vacuum_l20_ultra_translated_state
 
           #   # Presence
           # - type: custom:button-card
@@ -212,35 +207,33 @@ cards:
           #       entity: person.kfir
           #       show_entity_picture: true
 
-
           # Calendar
           - type: grid
             square: false
             columns: 1
             cards:
-            - type: custom:calendar-card-pro 
-              entities:
-                - calendar.family
-              days_to_show: 14
-              compact_days_to_show: 14
-              compact_events_to_show: 4
-              vertical_line_width: 0px
-              day_spacing: 6px
-              event_spacing: 6px
-              day_font_size: 18px
-              show_month: false
-              event_background_opacity: 0
-              time_24h: true
-              time_font_size: 14px
-              time_icon_size: 16px
-              show_location: false
-              day_separator_width: 1px
-                             
+              - type: custom:calendar-card-pro
+                entities:
+                  - calendar.family
+                days_to_show: 14
+                compact_days_to_show: 14
+                compact_events_to_show: 4
+                vertical_line_width: 5px
+                date_vertical_alignment: top
+                day_spacing: 10px
+                event_spacing: 6px
+                weekday_font_size: 16px
+                day_font_size: 24px
+                show_month: false
+                event_background_opacity: 0
+                time_24h: true
+                time_font_size: 14px
+                time_icon_size: 16px
+                show_location: false
+                #day_separator_width: 1px
 
       - type: custom:button-card
         template: card_blank
-
-
 
   ############################################################################
   #                                                                          #
@@ -250,54 +243,51 @@ cards:
 
   - type: horizontal-stack
     cards:
-
       - type: custom:button-card
         template: card_blank
 
       - type: vertical-stack
         cards:
-
           # Climate
           - type: custom:button-card
             template: title
-            name: "[[[ return variables.ulm_climate; ]]]"           
+            name: "[[[ return variables.ulm_climate; ]]]"
 
           - type: grid
             #title: אקלים
             square: false
             columns: 2
             cards:
-
               # Living Room Climate
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.living_room
                   ulm_card_ac_curr_temp_sensor: sensor.living_room_temperature_sensor_temperature
 
               # Bedroom Climate
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.bedroom
                   ulm_card_ac_curr_temp_sensor: sensor.bedroom_temperature_sensor_temperature
 
               # Ronen Climate
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.ronen
                   ulm_card_ac_curr_temp_sensor: sensor.ronen_room_temperature_sensor_temperature
 
               # Kfir Climate
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.kfir
-                  ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature   
+                  ulm_card_ac_curr_temp_sensor: sensor.kfir_room_temperature_sensor_temperature
 
               # Basement Climate
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_ac_buttons
                 variables:
                   ulm_card_ac_entity: climate.basement
@@ -317,7 +307,7 @@ cards:
                 icon_tap_action:
                   action: more-info
                 features:
-                  - type: "cover-open-close"                                     
+                  - type: "cover-open-close"
 
               # Kitchen Cover
               - type: tile
@@ -325,8 +315,7 @@ cards:
                 icon_tap_action:
                   action: more-info
                 features:
-                  - type: "cover-open-close"                  
-
+                  - type: "cover-open-close"
 
           # Scenes
           - type: custom:button-card
@@ -338,9 +327,8 @@ cards:
             square: false
             columns: 4
             cards:
-
               # Basement Lights OFF scene
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_scene_vertical
                 entity: scene.basement_lights_off
                 name: "[[[ return variables.ulm_basement; ]]]"
@@ -351,7 +339,7 @@ cards:
                   x_confirmation_text: "[[[ return variables.ulm_turn_off_basment_lights; ]]]"
 
               # Main Floor Lights OFF scene
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_scene_vertical
                 entity: scene.ground_floor_lights_off
                 name: "[[[ return variables.ulm_ground; ]]]"
@@ -362,7 +350,7 @@ cards:
                   x_confirmation_text: "[[[ return variables.ulm_turn_off_ground_lights; ]]]"
 
               # Main Floor Covers
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_scene_vertical
                 entity: scene.main_floor_covers
                 name: "[[[ return variables.ulm_covers; ]]]"
@@ -373,7 +361,7 @@ cards:
                   x_confirmation_text: "[[[ return variables.ulm_main_floor_covers; ]]]"
 
               # Movie time
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_scene_vertical
                 entity: scene.movie_time
                 name: "[[[ return variables.ulm_movie; ]]]"
@@ -383,12 +371,8 @@ cards:
                   color: "blue"
                   x_confirmation_text: "[[[ return variables.ulm_movie_scene; ]]]"
 
-
-
       - type: custom:button-card
         template: card_blank
-
-
 
   ############################################################################
   #                                                                          #
@@ -398,24 +382,21 @@ cards:
 
   - type: horizontal-stack
     cards:
-
       - type: custom:button-card
         template: card_blank
 
       - type: vertical-stack
         cards:
-
           # Lights
           - type: custom:button-card
             template: title
-            name: "[[[ return variables.ulm_lights; ]]]"           
+            name: "[[[ return variables.ulm_lights; ]]]"
 
           - type: grid
             #title: תאורה
             square: false
             columns: 4
             cards:
-
               # Living Room Light
               - type: tile
                 entity: light.living_room
@@ -444,7 +425,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                  
+                  rows: 2
 
               # TV Wall Light
               - type: tile
@@ -459,7 +440,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                  
+                  rows: 2
 
               # Entrance Light
               - type: tile
@@ -474,7 +455,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                  
+                  rows: 2
 
               # Guests Bathroom Light
               - type: tile
@@ -490,7 +471,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2  
+                  rows: 2
 
               # # Guests Bathroom Light
               # - type: 'custom:button-card'
@@ -514,7 +495,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2  
+                  rows: 2
 
               # # Kitchen Led Strip
               # - type: 'custom:button-card'
@@ -540,7 +521,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
+                  rows: 2
 
               # Back Yard Light
               - type: tile
@@ -555,7 +536,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
+                  rows: 2
 
               # Hallway Light
               - type: tile
@@ -570,7 +551,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                                                   
+                  rows: 2
 
               # Bedroom Light
               - type: tile
@@ -585,7 +566,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2    
+                  rows: 2
 
               # Bedside Dima Light
               - type: tile
@@ -600,7 +581,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                                                               
+                  rows: 2
 
               # Bedside Galit Light
               - type: tile
@@ -615,7 +596,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
+                  rows: 2
 
               # Ronen Room Light
               - type: tile
@@ -630,7 +611,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2      
+                  rows: 2
 
               # # Ronen Led Strip
               # - type: tile
@@ -645,7 +626,7 @@ cards:
               #   vertical: true
               #   grid_options:
               #     columns: 3
-              #     rows: 2                                  
+              #     rows: 2
 
               # Kfir Room Light
               - type: tile
@@ -660,7 +641,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2        
+                  rows: 2
 
               # # Kfir Led Strip
               # - type: tile
@@ -675,7 +656,7 @@ cards:
               #   vertical: true
               #   grid_options:
               #     columns: 3
-              #     rows: 2                                
+              #     rows: 2
 
               # # Stairs Light
               # - type: tile
@@ -690,7 +671,7 @@ cards:
               #   vertical: true
               #   grid_options:
               #     columns: 3
-              #     rows: 2  
+              #     rows: 2
 
               # Basement Light
               - type: tile
@@ -705,8 +686,8 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
-            
+                  rows: 2
+
               # Work Room Light
               - type: tile
                 entity: light.work_room
@@ -720,7 +701,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
+                  rows: 2
 
               # # Holidays
               # - type: tile
@@ -736,9 +717,7 @@ cards:
               #   vertical: true
               #   grid_options:
               #     columns: 3
-              #     rows: 2                   
-
-
+              #     rows: 2
 
           # Heating
           - type: custom:button-card
@@ -750,10 +729,8 @@ cards:
             square: false
             columns: 2
             cards:
-
               - type: vertical-stack
                 cards:
-
                   # Switcher
                   - type: custom:switcher-boiler-card
                     entity: switch.switcher_touch_d54f
@@ -767,14 +744,13 @@ cards:
                     temp_resolution: 0
                     grid_options:
                       columns: 6
-                      rows: 2  
+                      rows: 2
 
                   - type: horizontal-stack
                     cards:
-
                       # # Bathroom Heater
                       # - type: 'custom:button-card'
-                      #   template: 
+                      #   template:
                       #     - "card_heater_with_timer"
                       #   variables:
                       #     ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
@@ -796,11 +772,11 @@ cards:
                         color: red
                         grid_options:
                           columns: 3
-                          rows: 2 
+                          rows: 2
 
                       # # Parents Bathroom Heater
                       # - type: 'custom:button-card'
-                      #   template: 
+                      #   template:
                       #     - "card_heater_with_timer"
                       #   variables:
                       #     ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
@@ -823,8 +799,8 @@ cards:
                         color: red
                         grid_options:
                           columns: 3
-                          rows: 2        
-                              
+                          rows: 2
+
               # Boiler Temperature
               - type: gauge
                 entity: sensor.boiler_temperature
@@ -837,8 +813,7 @@ cards:
                 needle: true
                 grid_options:
                   columns: 6
-                  rows: auto   
-
+                  rows: auto
 
       - type: custom:button-card
         template: card_blank

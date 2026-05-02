@@ -1,8 +1,0 @@
-rest_command:
-  update_homeassistant_container:
-    url: !secret update_ha_watchtower_http_api
-    method: "POST"
-    headers:
-      Authorization: !secret update_ha_watchtower_token
-    verify_ssl: false
-    timeout: 300

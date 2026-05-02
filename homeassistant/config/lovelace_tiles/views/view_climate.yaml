@@ -9,20 +9,19 @@ header:
   layout: center
   badges_position: bottom
   badges_wrap: scroll
-  
-badges:
 
+badges:
   # Climate Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_climate'
-      - 'chip_navigate_only'
+      - "chip_two_rows_climate"
+      - "chip_navigate_only"
     variables:
       #ulm_chip_temperature_low: sensor.lowest_temperature_home
       #ulm_chip_temperature_high: sensor.highest_temperature_home
-      ulm_chip_temperature: sensor.highest_lowest_temperature_home_text  
+      ulm_chip_temperature: sensor.highest_lowest_temperature_home_text
       ulm_chip_icon_state_entity: sensor.number_of_climate_entities_on
-      ulm_chip_navigate_path: /lovelace/tiles_climate  
+      ulm_chip_navigate_path: /lovelace/tiles_climate
 
   # Boiler Water Temperature
   - type: entity
@@ -33,31 +32,29 @@ badges:
     icon: mdi:water-boiler
     entity: sensor.boiler_temperature
 
-  # Boiler Switcher Thermostat
-  - type: entity
-    show_name: true
-    show_state: true
-    show_icon: true
-    entity: climate.switcher_boiler
-    state_content:
-      - state
-      - temperature    
+  # # Boiler Switcher Thermostat
+  # - type: entity
+  #   show_name: true
+  #   show_state: true
+  #   show_icon: true
+  #   entity: climate.switcher_boiler
+  #   state_content:
+  #     - state
+  #     - temperature
 
   # Air Quality Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_icon_label_state'
-      - 'chip_air_polution_colors'
-      - 'chip_air_polution_icons'
-      - 'popup_chip_air_quality'
+      - "chip_icon_label_state"
+      - "chip_air_polution_colors"
+      - "chip_air_polution_icons"
+      - "popup_chip_air_quality"
     variables:
       ulm_chip_icon_state_entity: sensor.waqi_ashdod_yshrl_dod
       ulm_card_air_quality_green: 50
       ulm_card_air_quality_yellow: 100
 
-
 sections:
-
   ############################################################################
   #                                                                          #
   #   Air Conditioning                                                       #
@@ -65,11 +62,10 @@ sections:
   ############################################################################
 
   - type: grid
-    title: מיזוג אוויר  
+    title: מיזוג אוויר
     cards:
-
       # Living Room Climate
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_ac_buttons
         variables:
           ulm_card_ac_entity: climate.living_room
@@ -77,10 +73,10 @@ sections:
           #x_ulm_card_ac_name: "[[[ return variables.ulm_living_room; ]]]"
         layout_options:
           grid_columns: 2
-          grid_rows: 2                     
+          grid_rows: 2
 
       # Bedroom Climate
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_ac_buttons
         variables:
           ulm_card_ac_entity: climate.bedroom
@@ -91,7 +87,7 @@ sections:
           grid_rows: 2
 
       # Ronen Climate
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_ac_buttons
         variables:
           ulm_card_ac_entity: climate.ronen
@@ -100,9 +96,9 @@ sections:
         layout_options:
           grid_columns: 2
           grid_rows: 2
-          
+
       # Kfir Climate
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_ac_buttons
         variables:
           ulm_card_ac_entity: climate.kfir
@@ -113,7 +109,7 @@ sections:
           grid_rows: 2
 
       # Basement Climate
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_ac_buttons
         variables:
           ulm_card_ac_entity: climate.basement
@@ -122,7 +118,6 @@ sections:
         layout_options:
           grid_columns: 2
           grid_rows: 2
-
 
       # # Living Room AC
       # - type: tile
@@ -134,7 +129,7 @@ sections:
       #         - cool
       #         - heat
       #   view_layout:
-      #     grid-row-start: span 2                       
+      #     grid-row-start: span 2
 
       # # Bedroom AC
       # - type: tile
@@ -159,7 +154,7 @@ sections:
       #         - heat
       #   view_layout:
       #     grid-row-start: span 2
-                              
+
       # # Kfir AC
       # - type: tile
       #   entity: climate.kfir_template
@@ -184,8 +179,6 @@ sections:
       #   view_layout:
       #     grid-row-start: span 2
 
-
-
   ############################################################################
   #                                                                          #
   #   Heating                                                                #
@@ -193,12 +186,11 @@ sections:
   ############################################################################
 
   - type: grid
-    title: חימום  
+    title: חימום
     cards:
-
       # # Switcher
       # - type: 'custom:button-card'
-      #   template: 
+      #   template:
       #     - card_switcher
       #   variables:
       #     #x_ulm_card_switcher_name: "[[[ return variables.ulm_boiler; ]]]"
@@ -221,17 +213,17 @@ sections:
         icon_sensor: sensor.boiler_temperature
         color_thresholds: true
         cold_threshold: 35
-        hot_threshold: 55     
+        hot_threshold: 55
         time_left: sensor.switcher_kis_remaining_time_alt
         sensor_1: sensor.switcher_touch_d54f_current
         temp_resolution: 0
         grid_options:
           columns: 6
-          rows: 2  
+          rows: 2
 
       # Bathroom Heater
-      - type: 'custom:button-card'
-        template: 
+      - type: "custom:button-card"
+        template:
           - "card_heater_with_timer"
         variables:
           ulm_card_heater_consumption_sensor: sensor.bathroom_heater_power
@@ -243,8 +235,8 @@ sections:
           grid_rows: 1
 
       # Parents Bathroom Heater
-      - type: 'custom:button-card'
-        template: 
+      - type: "custom:button-card"
+        template:
           - "card_heater_with_timer"
         variables:
           ulm_card_heater_consumption_sensor: sensor.parents_bathroom_heater_power
@@ -280,9 +272,8 @@ sections:
   ############################################################################
 
   - type: grid
-    title: טמפרטורה  
+    title: טמפרטורה
     cards:
-
       # # Living Room Temperature
       # - type: tile
       #   entity: sensor.living_room_temperature_sensor_temperature
@@ -309,7 +300,7 @@ sections:
 
       # # Work Room Temperature
       # - type: tile
-      #   entity: sensor.work_room_temperature_sensor_temperature                      
+      #   entity: sensor.work_room_temperature_sensor_temperature
 
       # Living Room Temperature
       - type: sensor

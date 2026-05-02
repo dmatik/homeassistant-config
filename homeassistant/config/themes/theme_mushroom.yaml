@@ -1,5 +1,0 @@
-Mushroom:
-  modes:
-    light: {}
-    dark: {}
-  ha-card-border-width: '0px'
