@@ -21,10 +21,16 @@ trigger:
       - unknown
     not_to:
       - unavailable
-      - unknown    
+      - unknown
 action:
-  - service: "homeassistant.turn_{{ trigger.to_state.state }}"
-    target:
-      entity_id: "{{ switches | reject('is_state', trigger.to_state.state) | list }}"
+  - variables:
+      targets: "{{ switches | reject('is_state', trigger.to_state.state) | list }}"
+  - if:
+      - condition: template
+        value_template: "{{ targets | count > 0 }}"
+    then:
+      - service: "homeassistant.turn_{{ trigger.to_state.state }}"
+        target:
+          entity_id: "{{ targets }}"
 max_exceeded: silent
 mode: single
