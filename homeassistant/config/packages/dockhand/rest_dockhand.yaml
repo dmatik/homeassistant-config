@@ -1,0 +1,30 @@
+rest_command:
+  # GET Dockhand Containers per environment
+  get_dockhand_containers:
+    url: "http://10.0.0.30:3000/api/containers?env={{ env }}"
+    method: "GET"
+    headers:
+      authorization: !secret dockhand_api_token
+      content-type: "application/json"
+    timeout: 300
+
+  # POST Batch Update Dockhand Containers per environment
+  batch_update_dockhand_containers:
+    url: "http://10.0.0.30:3000/api/containers/batch-update-stream?env={{ env }}"
+    method: "POST"
+    headers:
+      authorization: !secret dockhand_api_token
+      content-type: "application/json"
+    payload: '{"containerIds": ["{{ container_id }}"], "vulnerabilityCriteria": "never"}'
+    content_type: "application/json"
+    timeout: 300
+
+  # POST Check for Updates in Dockhand Containers per environment
+  check_updates_dockhand_containers:
+    url: "http://10.0.0.30:3000/api/containers/check-updates?env={{ env }}"
+    method: "POST"
+    headers:
+      authorization: !secret dockhand_api_token
+      accept: "application/json"
+    content_type: "application/json"
+    timeout: 300

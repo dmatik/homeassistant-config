@@ -7,6 +7,8 @@ script:
 
   update_homeassistant_container:
     alias: "Update Home Assistant Container"
-    sequence:
-      - service: shell_command.update_homeassistant_container
-      #- service: rest_command.update_homeassistant_container
+    use_blueprint:
+      path: update_dockhand_container.yaml
+      input:
+        container_name: homeassistant
+        env: 1

@@ -1,0 +1,101 @@
+blueprint:
+  name: Update Dockhand Container
+  description: >
+    Fetches the list of containers from the Dockhand API and locates the target
+    container by name. Sends a Telegram notification in all cases:
+    container not found in the API response, no update available (already up to
+    date), or update successfully triggered (container will restart with the
+    latest image).
+  domain: script
+  input:
+    container_name:
+      name: Container Name
+      description: >
+        The name of the container to update (e.g. "homeassistant", "sonarr").
+        Must match the `name` field returned by the Dockhand containers API.
+      selector:
+        text:
+
+    env:
+      name: Dockhand Environment ID
+      description: >
+        The numeric environment ID passed to the Dockhand API (e.g. 1 for
+        the primary environment).
+      default: 1
+      selector:
+        number:
+          min: 1
+          max: 99
+          mode: box
+
+sequence:
+  # Step 1: Fetch all containers from the Dockhand API
+  - action: rest_command.get_dockhand_containers
+    data:
+      env: !input env
+    response_variable: containers_response
+
+  # Step 2: Extract the target container ID by matching on container name
+  - variables:
+      target_container_name: !input container_name
+      target_env: !input env
+      target_container_id: >-
+        {{ (containers_response.content
+            | selectattr('name', 'eq', target_container_name)
+            | first | default({'id': none})).id }}
+
+  # Step 3: Guard — container not found in the API response
+  - if:
+      - condition: template
+        value_template: "{{ target_container_id is none or target_container_id == 'none' }}"
+    then:
+      - action: telegram_bot.send_message
+        data:
+          title: "*Dockhand Container Update*"
+          message: >-
+            ⚠️ Container *{{ target_container_name }}* not found.
+          parse_mode: markdown
+      - stop: "Container {{ target_container_name }} not found in env {{ target_env }}"
+
+  # Step 4: Check whether the target container actually has an update available
+  - action: rest_command.check_updates_dockhand_containers
+    data:
+      env: "{{ target_env }}"
+    response_variable: check_updates_response
+
+  # Step 5: Extract the hasUpdate flag for our specific container
+  - variables:
+      container_has_update: >-
+        {{ (check_updates_response.content.results
+            | selectattr('containerId', 'eq', target_container_id | trim)
+            | first
+            | default({'hasUpdate': false})).hasUpdate }}
+
+  # Step 6: No update available — notify and stop
+  - if:
+      - condition: template
+        value_template: "{{ not container_has_update }}"
+    then:
+      - action: telegram_bot.send_message
+        data:
+          title: "*Dockhand Container Update*"
+          message: >-
+            ℹ️ No update available for *{{ target_container_name }}* container.
+          parse_mode: markdown
+      - stop: "No update available for {{ target_container_name }} container"
+
+  # Step 7: Update is available — trigger batch update
+  - action: rest_command.batch_update_dockhand_containers
+    data:
+      env: "{{ target_env }}"
+      container_id: "{{ target_container_id | trim }}"
+
+  # Step 8: Notify that the update was triggered successfully
+  - action: telegram_bot.send_message
+    data:
+      title: "*Dockhand Container Update*"
+      message: >-
+        ✅ Update triggered for *{{ target_container_name }}* container.
+      parse_mode: markdown
+
+mode: single

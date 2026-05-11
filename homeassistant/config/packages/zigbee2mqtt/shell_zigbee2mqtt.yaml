@@ -1,4 +1,0 @@
-shell_command:
-  update_z2m_basement_container: !secret update_z2m_basement_container
-  update_z2m_floor_2_container: !secret update_z2m_floor_2_container
-  update_z2m_living_room_container: !secret update_z2m_living_room_container
