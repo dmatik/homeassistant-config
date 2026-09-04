@@ -398,7 +398,7 @@ cards:
             columns: 4
             cards:
               # Living Room Light
-              - type: tile
+              - type: button #tile
                 entity: light.living_room
                 tap_action:
                   action: toggle
@@ -406,6 +406,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -413,7 +415,7 @@ cards:
                   rows: 2
 
               # Dining Light
-              - type: tile
+              - type: button #tile
                 entity: light.dining
                 tap_action:
                   action: toggle
@@ -421,6 +423,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -428,7 +432,7 @@ cards:
                   rows: 2
 
               # TV Wall Light
-              - type: tile
+              - type: button #tile
                 entity: light.living_room_tv_wall
                 tap_action:
                   action: toggle
@@ -436,6 +440,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -443,7 +449,7 @@ cards:
                   rows: 2
 
               # Entrance Light
-              - type: tile
+              - type: button #tile
                 entity: light.entrance
                 tap_action:
                   action: toggle
@@ -451,6 +457,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -458,7 +466,7 @@ cards:
                   rows: 2
 
               # Guests Bathroom Light
-              - type: tile
+              - type: button #tile
                 name: "שר' אורחים"
                 entity: light.guests_bathroom
                 tap_action:
@@ -467,6 +475,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -482,7 +492,7 @@ cards:
               #     ulm_card_light_counter_sensor: "sensor.guest_bathroom_light_time_left"
 
               # Kitchen Led Strip
-              - type: tile
+              - type: button #tile
                 name: "לד מטבח"
                 entity: light.kitchen_led_strip
                 tap_action:
@@ -491,6 +501,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -509,7 +521,7 @@ cards:
               #     ulm_card_light_counter_sensor: "sensor.kitchen_led_strip_time_left"
 
               # Kitchen Bar Light
-              - type: tile
+              - type: button #tile
                 entity: light.kitchen_bar
                 tap_action:
                   action: toggle
@@ -517,6 +529,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -524,7 +538,7 @@ cards:
                   rows: 2
 
               # Back Yard Light
-              - type: tile
+              - type: button #tile
                 entity: light.back_yard
                 tap_action:
                   action: toggle
@@ -532,6 +546,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -539,7 +555,7 @@ cards:
                   rows: 2
 
               # Hallway Light
-              - type: tile
+              - type: button #tile
                 entity: light.hallway_stairs
                 tap_action:
                   action: toggle
@@ -547,6 +563,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -554,7 +572,7 @@ cards:
                   rows: 2
 
               # Bedroom Light
-              - type: tile
+              - type: button #tile
                 entity: light.bedroom
                 tap_action:
                   action: toggle
@@ -562,6 +580,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -569,7 +589,7 @@ cards:
                   rows: 2
 
               # Bedside Dima Light
-              - type: tile
+              - type: button #tile
                 entity: light.bedside_dima_bulb
                 tap_action:
                   action: toggle
@@ -577,6 +597,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -584,7 +606,8 @@ cards:
                   rows: 2
 
               # Bedside Galit Light
-              - type: tile
+              - type: button #tile
+                color: amber
                 entity: light.bedside_galit_bulb
                 tap_action:
                   action: toggle
@@ -592,6 +615,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -599,7 +624,7 @@ cards:
                   rows: 2
 
               # Ronen Room Light
-              - type: tile
+              - type: button #tile
                 entity: light.ronen_room
                 tap_action:
                   action: toggle
@@ -607,6 +632,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -629,7 +656,7 @@ cards:
               #     rows: 2
 
               # Kfir Room Light
-              - type: tile
+              - type: button #tile
                 entity: light.kfir_room
                 tap_action:
                   action: toggle
@@ -637,6 +664,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -674,7 +703,7 @@ cards:
               #     rows: 2
 
               # Basement Light
-              - type: tile
+              - type: button #tile
                 entity: light.basement
                 tap_action:
                   action: toggle
@@ -682,6 +711,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -689,7 +720,7 @@ cards:
                   rows: 2
 
               # Work Room Light
-              - type: tile
+              - type: button #tile
                 entity: light.work_room
                 tap_action:
                   action: toggle
@@ -697,6 +728,8 @@ cards:
                   action: more-info
                 double_tap_action:
                   action: more-info
+                icon_tap_action:
+                  action: none
                 hide_state: true
                 vertical: true
                 grid_options:
@@ -759,7 +792,7 @@ cards:
                       #   name: "[[[ return variables.ulm_bathroom; ]]]"
 
                       # Bathroom Heater
-                      - type: tile
+                      - type: button #tile
                         entity: switch.bathroom_heater
                         tap_action:
                           action: toggle
@@ -767,6 +800,8 @@ cards:
                           action: more-info
                         double_tap_action:
                           action: more-info
+                        icon_tap_action:
+                          action: none
                         hide_state: true
                         vertical: true
                         color: red
@@ -785,7 +820,7 @@ cards:
                       #   name: "[[[ return variables.ulm_parents_bathroom; ]]]"
 
                       # Parents Bathroom Heater
-                      - type: tile
+                      - type: button #tile
                         entity: switch.parents_bathroom_heater
                         name: "רח' הורים"
                         tap_action:
@@ -794,6 +829,8 @@ cards:
                           action: more-info
                         double_tap_action:
                           action: more-info
+                        icon_tap_action:
+                          action: none
                         hide_state: true
                         vertical: true
                         color: red

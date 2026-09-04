@@ -6,7 +6,6 @@ subview: false
 max_columns: 3
 
 badges:
-
   # Temperature Chip
   - type: entity
     show_name: false
@@ -17,23 +16,20 @@ badges:
     entity: sensor.kfir_room_temperature_sensor_temperature
 
   # Lights Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_lights'
+      - "chip_two_rows_lights"
     variables:
       ulm_chip_icon_state_entity: sensor.lights_on_counter_kfir_room
 
   # Covers Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_covers'
+      - "chip_two_rows_covers"
     variables:
       ulm_chip_icon_state_entity: sensor.covers_open_counter_kfir_room
 
-
-
 sections:
-
   ############################################################################
   #                                                                          #
   #  Kfir                                                                    #
@@ -41,9 +37,8 @@ sections:
   ############################################################################
 
   - type: grid
-    title: כפיר  
+    title: כפיר
     cards:
-
       # Kfir Room Light
       - type: tile
         entity: light.kfir_room
@@ -65,7 +60,7 @@ sections:
           action: more-info
 
       # Kfir Climate
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_ac_buttons
         variables:
           ulm_card_ac_entity: climate.kfir
@@ -83,6 +78,18 @@ sections:
         features:
           - type: "cover-open-close"
 
+      # Kfir TV
+      - type: tile
+        entity: media_player.lg_tv_kfir
+        icon_tap_action:
+          action: more-info
+
+      # Apple TV Kfir
+      - type: tile
+        entity: media_player.apple_tv_kfir
+        icon_tap_action:
+          action: more-info
+
       # Switcher
       - type: custom:switcher-boiler-card
         entity: switch.switcher_touch_d54f
@@ -96,4 +103,4 @@ sections:
         temp_resolution: 0
         grid_options:
           columns: 6
-          rows: 2 
+          rows: 2

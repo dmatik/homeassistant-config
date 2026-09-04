@@ -1,8 +1,11 @@
 name: Tadiran air conditioner
 products:
   - id: pdwzhqdjh6ppnjpb
-    name: Tadiran Wind 40A
-    # original model: 65/3P (product id unknown)
+    manufacturer: Tadiran
+    model: Wind 40A
+  - id: hyfpizc9xabvyyl3
+    manufacturer: Tadiran
+    model: Wind 65/3P	
 entities:
     - entity: climate
       translation_key: aircon_extra

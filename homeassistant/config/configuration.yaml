@@ -26,17 +26,16 @@ homeassistant:
 
   packages: !include_dir_named packages/
 
-http:
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - !secret synology_zeg_host
+# http:
+#   use_x_forwarded_for: true
+#   trusted_proxies:
+#     - !secret synology_zeg_host
 
 # zeroconf:
 #   default_interface: true
-  
+
 frontend:
-  themes: 
-    !include_dir_merge_named themes
+  themes: !include_dir_merge_named themes
   extra_module_url:
     - /hacsfiles/lovelace-card-mod/card-mod.js
 
@@ -46,7 +45,6 @@ default_config:
 # Text to speech
 tts:
   - platform: google_translate
-
 
 automation manual: !include_dir_merge_list automation/
 automation ui: !include automations.yaml
@@ -69,7 +67,7 @@ lovelace:
       title: "הבית"
       icon: mdi:home
       show_in_sidebar: true
-      require_admin: false  
+      require_admin: false
     lovelace-wallpanel-tiles:
       mode: yaml
       filename: ui-wallpanel-tiles.yaml
@@ -90,7 +88,7 @@ lovelace:
       icon: mdi:view-dashboard
       show_in_sidebar: false
       require_admin: false
-      filename: ui-kfir.yaml        
+      filename: ui-kfir.yaml
 
 #Recorder
 recorder:
@@ -102,7 +100,7 @@ recorder:
       - sensor.redalert_history
       - sensor.redalert
       - sensor.redalert_current_json
-  
+
 #Logger
 logger:
   default: info
@@ -113,24 +111,22 @@ logger:
   #   queueman: debug
   #   AIOGitHubAPI: debug
 
-# Google    
+# Google
 # google:
 #   client_id: !secret google_calendar_client_id
 #   client_secret: !secret google_calendar_client_secret
 
-    
-#Telegram      
+#Telegram
 # telegram_bot:
 #   - platform: polling
 #     api_key: !secret telegram_bot_api_key
 #     allowed_chat_ids:
 #       - !secret telegram_bot_chat_id_1
-  
+
 # notify:
 #   - name: DimaTelegram
 #     platform: telegram
 #     chat_id: !secret telegram_bot_chat_id_1
-
 
 wake_on_lan:
 

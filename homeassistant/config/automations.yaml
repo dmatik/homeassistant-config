@@ -843,7 +843,7 @@
       quiet_mode_switch: switch.bedroom_quiet
       start_time: 00:00:00
       end_time: 05:00:00
-      target_temperature_value: 25
+      target_temperature_value: 23
       workday_sensor_entity: binary_sensor.workday_sensor
 - id: '1721724300646'
   alias: Kfir Air Conditioner - Night - Summer
@@ -854,8 +854,8 @@
       climate_entity: climate.kfir
       quiet_mode_switch: switch.kfir_quiet
       start_time: '23:00:00'
-      end_time: 03:00:00
-      target_temperature_value: 24
+      end_time: 05:00:00
+      target_temperature_value: 23
 - id: '1721724371404'
   alias: Ronen Air Conditioner - Night - Summer
   description: ''
@@ -865,8 +865,8 @@
       climate_entity: climate.ronen
       quiet_mode_switch: switch.ronen_quiet
       start_time: '23:00:00'
-      end_time: 03:00:00
-      target_temperature_value: 25
+      end_time: 05:00:00
+      target_temperature_value: 23
 - id: '1722774100998'
   alias: Home Motion Alert
   description: ''
@@ -1265,3 +1265,32 @@
       - thu
       - fri
       - sat
+- id: '1779425077948'
+  alias: Apple TV Basement Idle
+  description: ''
+  use_blueprint:
+    path: apple_tv_idle.yaml
+    input:
+      apple_tv_media_player: media_player.apple_tv_basement
+      apple_tv_remote: remote.apple_tv_basement
+      tv_media_player: media_player.samsung_8_series_65
+      idle_timer: timer.apple_tv_basement_idle_timer
+      blocking_devices:
+      - switch.ps5_990_power
+- id: '1788155991444'
+  alias: Turn On Kfir TV with WakeOnLan
+  description: ''
+  triggers:
+  - device_id: e222580e37e33f4939b645b8297f9c3c
+    domain: webostv
+    type: webostv.turn_on
+    metadata: {}
+    trigger: device
+  conditions: []
+  actions:
+  - action: wake_on_lan.send_magic_packet
+    metadata: {}
+    data:
+      broadcast_port: 9
+      mac: 60:75:6c:25:bc:61
+  mode: single

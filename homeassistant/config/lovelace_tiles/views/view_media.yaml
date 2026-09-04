@@ -9,19 +9,16 @@ header:
   layout: center
   badges_position: bottom
   badges_wrap: scroll
-  
-badges:
 
+badges:
   # Media Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_media'
+      - "chip_two_rows_media"
     variables:
       ulm_chip_icon_state_entity: sensor.media_devices_on_counter
 
-
 sections:
-
   ############################################################################
   #                                                                          #
   #   Living Room                                                            #
@@ -29,9 +26,8 @@ sections:
   ############################################################################
 
   - type: grid
-    title: סלון  
+    title: סלון
     cards:
-
       # Living Room TV
       - type: tile
         entity: media_player.lg_webos_tv_oled77cs6la
@@ -44,7 +40,26 @@ sections:
         icon_tap_action:
           action: more-info
 
+  ############################################################################
+  #                                                                          #
+  #   Kfir Room                                                              #
+  #                                                                          #
+  ############################################################################
 
+  - type: grid
+    title: כפיר
+    cards:
+      # Kfir TV
+      - type: tile
+        entity: media_player.lg_tv_kfir
+        icon_tap_action:
+          action: more-info
+
+      # Apple TV Kfir
+      - type: tile
+        entity: media_player.apple_tv_kfir
+        icon_tap_action:
+          action: more-info
 
   ############################################################################
   #                                                                          #
@@ -53,9 +68,8 @@ sections:
   ############################################################################
 
   - type: grid
-    title: מרתף  
+    title: מרתף
     cards:
-
       # Basement TV
       - type: tile
         entity: media_player.samsung_8_series_65
@@ -69,24 +83,22 @@ sections:
           action: more-info
 
       # Groot PC
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_pc
         entity: switch.groot_hass_agent
         variables:
           #x_ulm_card_pc_name: "[[[ return variables.ulm_groot_pc; ]]]"
-          ulm_card_pc_memoryusage: 'sensor.groot_memoryusage'
-          ulm_card_pc_cpuload: 'sensor.groot_cpuload'
-          ulm_card_pc_storage_1: 'sensor.groot_disk_c_used_space'
-          ulm_card_pc_storage_2: 'sensor.groot_disk_d_used_space'
-          ulm_card_pc_wake: 'script.groot_wake'
-          ulm_card_pc_sleep: 'script.groot_sleep'
-          ulm_card_pc_restart: 'script.groot_restart'
-          ulm_card_pc_shutdown: 'script.groot_shutdown'
+          ulm_card_pc_memoryusage: "sensor.groot_memoryusage"
+          ulm_card_pc_cpuload: "sensor.groot_cpuload"
+          ulm_card_pc_storage_1: "sensor.groot_disk_c_used_space"
+          ulm_card_pc_storage_2: "sensor.groot_disk_d_used_space"
+          ulm_card_pc_wake: "script.groot_wake"
+          ulm_card_pc_sleep: "script.groot_sleep"
+          ulm_card_pc_restart: "script.groot_restart"
+          ulm_card_pc_shutdown: "script.groot_shutdown"
         layout_options:
           grid_columns: 2
-          grid_rows: 1            
-
-
+          grid_rows: 1
 
   ############################################################################
   #                                                                          #
@@ -95,24 +107,22 @@ sections:
   ############################################################################
 
   - type: grid
-    title: חדר עבודה  
+    title: חדר עבודה
     cards:
-
       # Dimka PC
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_pc
         entity: switch.dimka_hass_agent
         variables:
           #x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
-          ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
-          ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
-          ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
-          ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
-          ulm_card_pc_wake: 'script.dimka_wake'
-          ulm_card_pc_sleep: 'script.dimka_sleep'
-          ulm_card_pc_restart: 'script.dimka_restart'
-          ulm_card_pc_shutdown: 'script.dimka_shutdown'
+          ulm_card_pc_memoryusage: "sensor.dimka_memoryusage"
+          ulm_card_pc_cpuload: "sensor.dimka_cpuload"
+          ulm_card_pc_storage_1: "sensor.dimka_disk_c_used_space"
+          ulm_card_pc_storage_2: "sensor.dimka_disk_d_used_space"
+          ulm_card_pc_wake: "script.dimka_wake"
+          ulm_card_pc_sleep: "script.dimka_sleep"
+          ulm_card_pc_restart: "script.dimka_restart"
+          ulm_card_pc_shutdown: "script.dimka_shutdown"
         layout_options:
           grid_columns: 2
-          grid_rows: 1    
-
+          grid_rows: 1

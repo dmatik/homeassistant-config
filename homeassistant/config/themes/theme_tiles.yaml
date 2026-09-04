@@ -47,6 +47,7 @@ Tiles:
   rgb-gold-color: "255, 215 ,0"
   goldenrod-color: "#daa520"
   rgb-goldenrod-color: "218 ,165 ,32"
+  state-icon-color: var(--grey-color)
 
   # Climate Colors
   rgb-climate-heat-color: "255,111,34"

@@ -1,0 +1,173 @@
+blueprint:
+    name: Apple TV Idle
+    description: Turn off Apple TV and TV when it is idle for selected amount of time.
+    domain: automation
+    input:
+        apple_tv_media_player:
+            name: Apple TV Media Player
+            description: "The media player entity of the Apple TV to monitor for idle state."
+            selector:
+                entity:
+                    domain: media_player
+        apple_tv_remote:
+            name: Apple TV Remote
+            description: "The remote entity of the Apple TV, used to send the sleep command."
+            selector:
+                entity:
+                    domain: remote
+        tv_media_player:
+            name: TV Media Player
+            description: "The TV's media player entity to turn off when the Apple TV goes idle."
+            selector:
+                entity:
+                    domain: media_player
+        idle_timer:
+            name: Idle Timer Helper
+            description: "A helper timer used to track the Apple TV idle duration."
+            selector:
+                entity:
+                    domain: timer
+        idle_states:
+            name: Apple TV Idle States
+            description: Select the media player states that should trigger the idle timer.
+            default:
+                - "idle"
+                - "paused"
+            selector:
+                select:
+                    multiple: true
+                    options:
+                        - "playing"
+                        - "paused"
+                        - "idle"
+                        - "off"
+                        - "on"
+                        - "standby"
+                        - "buffering"
+                        - "unknown"
+                        - "unavailable"
+        blocking_devices:
+            name: Blocking Devices
+            description: "Optional: Devices that, if ON, will prevent turning off the TV (e.g. game consoles, other players)."
+            default: []
+            selector:
+                entity:
+                    multiple: true
+                    domain: switch
+
+trigger:
+    # Monitor Apple TV state for changes to idle states
+    - trigger: state
+      entity_id: !input apple_tv_media_player
+      to: !input idle_states
+      id: apple_tv_became_idle
+
+    # Trigger when the idle timer finishes counting down
+    - trigger: event
+      event_type: timer.finished
+      event_data:
+          entity_id: !input idle_timer
+      id: idle_timer_finished
+
+    # Trigger when the Apple TV exits the idle states
+    - trigger: state
+      entity_id: !input apple_tv_media_player
+      from: !input idle_states
+      id: apple_tv_became_active
+
+    # Trigger when one of the blocking devices is turned on
+    - trigger: state
+      entity_id: !input blocking_devices
+      to: "on"
+      id: blocking_device_turned_on
+
+    # Trigger when one of the blocking devices is turned off
+    - trigger: state
+      entity_id: !input blocking_devices
+      to: "off"
+      id: blocking_device_turned_off
+
+    # Trigger when the TV is turned on
+    - trigger: state
+      entity_id: !input tv_media_player
+      to: "on"
+      id: tv_turned_on
+
+action:
+    - variables:
+          blocking_devices: !input blocking_devices
+          idle_states: !input idle_states
+    - choose:
+          # If Apple TV became idle and no blocking devices are on, start the timer
+          - conditions:
+                - condition: trigger
+                  id: apple_tv_became_idle
+                - condition: template
+                  value_template: "{{ expand(blocking_devices) | selectattr('state', 'eq', 'on') | list | count == 0 }}"
+            sequence:
+                - action: timer.start
+                  data: {}
+                  target:
+                      entity_id: !input idle_timer
+
+          # If the idle timer finished and no blocking devices are on, turn off the TV and Apple TV
+          - conditions:
+                - condition: trigger
+                  id: idle_timer_finished
+                - condition: state
+                  entity_id: !input apple_tv_media_player
+                  state: !input idle_states
+                - condition: template
+                  value_template: "{{ expand(blocking_devices) | selectattr('state', 'eq', 'on') | list | count == 0 }}"
+            sequence:
+                - action: remote.send_command
+                  target:
+                      entity_id: !input apple_tv_remote
+                  data:
+                      command:
+                          - suspend
+                - action: media_player.turn_off
+                  target:
+                      entity_id: !input apple_tv_media_player
+                - action: media_player.turn_off
+                  target:
+                      entity_id: !input tv_media_player
+
+          # If Apple TV exits idle states, cancel the timer only if the new state is not one of the idle states
+          - conditions:
+                - condition: trigger
+                  id: apple_tv_became_active
+                - condition: template
+                  value_template: "{{ trigger.to_state.state not in idle_states }}"
+            sequence:
+                - action: timer.cancel
+                  data: {}
+                  target:
+                      entity_id: !input idle_timer
+
+          # If a blocking device turned on, cancel the timer
+          - conditions:
+                - condition: trigger
+                  id: blocking_device_turned_on
+            sequence:
+                - action: timer.cancel
+                  data: {}
+                  target:
+                      entity_id: !input idle_timer
+
+          # If a blocking device was turned off or the TV was turned on, check if Apple TV is in one of the idle states and no other blocking devices are on, then start the timer
+          - conditions:
+                - condition: trigger
+                  id:
+                      - blocking_device_turned_off
+                      - tv_turned_on
+                - condition: state
+                  entity_id: !input apple_tv_media_player
+                  state: !input idle_states
+                - condition: template
+                  value_template: "{{ expand(blocking_devices) | selectattr('state', 'eq', 'on') | list | count == 0 }}"
+            sequence:
+                - action: timer.start
+                  data: {}
+                  target:
+                      entity_id: !input idle_timer

@@ -5,26 +5,22 @@ type: masonry
 subview: true
 
 badges:
-
   # Back Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_back_new'
+      - "chip_back_new"
     label: "למסך הבית"
     variables:
       ulm_chip_navigate_path: /lovelace-wallpanel-tiles/home
 
   # Media Devices Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_media'
+      - "chip_two_rows_media"
     variables:
       ulm_chip_icon_state_entity: sensor.media_devices_on_counter
 
-
 cards:
-
-
   ############################################################################
   #                                                                          #
   #   First Column                                                           #
@@ -33,13 +29,11 @@ cards:
 
   - type: horizontal-stack
     cards:
-
       - type: custom:button-card
         template: card_blank
 
       - type: vertical-stack
         cards:
-
           # Living Room
           - type: custom:button-card
             template: title
@@ -50,7 +44,6 @@ cards:
             square: false
             columns: 2
             cards:
-
               # Living Room TV
               - type: tile
                 entity: media_player.lg_webos_tv_oled77cs6la
@@ -60,7 +53,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
+                  rows: 2
 
               # Apple TV Living Room
               - type: tile
@@ -71,8 +64,39 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
+                  rows: 2
 
+          # Kfir Room
+          - type: custom:button-card
+            template: title
+            name: "[[[ return variables.ulm_kfir_room; ]]]"
+
+          - type: grid
+            #title: סלון
+            square: false
+            columns: 2
+            cards:
+              # Kfir Room TV
+              - type: tile
+                entity: media_player.lg_tv_kfir
+                icon_tap_action:
+                  action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2
+
+              # Apple TV Kfir
+              - type: tile
+                entity: media_player.apple_tv_kfir
+                icon_tap_action:
+                  action: more-info
+                hide_state: false
+                vertical: true
+                grid_options:
+                  columns: 3
+                  rows: 2
 
           # Basement
           - type: custom:button-card
@@ -84,7 +108,6 @@ cards:
             square: false
             columns: 2
             cards:
-
               # Basement TV
               - type: tile
                 entity: media_player.samsung_8_series_65
@@ -94,7 +117,7 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
+                  rows: 2
 
               # Apple TV Basement
               - type: tile
@@ -105,25 +128,25 @@ cards:
                 vertical: true
                 grid_options:
                   columns: 3
-                  rows: 2                   
+                  rows: 2
 
               # Groot PC
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_pc
                 entity: switch.groot_hass_agent
                 variables:
                   #x_ulm_card_pc_name: "[[[ return variables.ulm_groot_pc; ]]]"
-                  ulm_card_pc_memoryusage: 'sensor.groot_memoryusage'
-                  ulm_card_pc_cpuload: 'sensor.groot_cpuload'
-                  ulm_card_pc_storage_1: 'sensor.groot_disk_c_used_space'
-                  ulm_card_pc_storage_2: 'sensor.groot_disk_d_used_space'
-                  ulm_card_pc_wake: 'script.groot_wake'
-                  ulm_card_pc_sleep: 'script.groot_sleep'
-                  ulm_card_pc_restart: 'script.groot_restart'
-                  ulm_card_pc_shutdown: 'script.groot_shutdown'
+                  ulm_card_pc_memoryusage: "sensor.groot_memoryusage"
+                  ulm_card_pc_cpuload: "sensor.groot_cpuload"
+                  ulm_card_pc_storage_1: "sensor.groot_disk_c_used_space"
+                  ulm_card_pc_storage_2: "sensor.groot_disk_d_used_space"
+                  ulm_card_pc_wake: "script.groot_wake"
+                  ulm_card_pc_sleep: "script.groot_sleep"
+                  ulm_card_pc_restart: "script.groot_restart"
+                  ulm_card_pc_shutdown: "script.groot_shutdown"
                 layout_options:
                   grid_columns: 2
-                  grid_rows: 1   
+                  grid_rows: 1
 
           # Work Room
           - type: custom:button-card
@@ -135,25 +158,23 @@ cards:
             square: false
             columns: 2
             cards:
-
               # Dimka PC
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_pc
                 entity: switch.dimka_hass_agent
                 variables:
                   #x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
-                  ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
-                  ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
-                  ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
-                  ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
-                  ulm_card_pc_wake: 'script.dimka_wake'
-                  ulm_card_pc_sleep: 'script.dimka_sleep'
-                  ulm_card_pc_restart: 'script.dimka_restart'
-                  ulm_card_pc_shutdown: 'script.dimka_shutdown'
+                  ulm_card_pc_memoryusage: "sensor.dimka_memoryusage"
+                  ulm_card_pc_cpuload: "sensor.dimka_cpuload"
+                  ulm_card_pc_storage_1: "sensor.dimka_disk_c_used_space"
+                  ulm_card_pc_storage_2: "sensor.dimka_disk_d_used_space"
+                  ulm_card_pc_wake: "script.dimka_wake"
+                  ulm_card_pc_sleep: "script.dimka_sleep"
+                  ulm_card_pc_restart: "script.dimka_restart"
+                  ulm_card_pc_shutdown: "script.dimka_shutdown"
                 layout_options:
                   grid_columns: 2
-                  grid_rows: 1   
+                  grid_rows: 1
 
       - type: custom:button-card
-        template: card_blank                  
-
+        template: card_blank
