@@ -1,0 +1,36 @@
+# LocalTuya device template for Tadiran Wind Climate AC
+# To use this in LocalTuya after a HACS update, copy this file to:
+# /config/custom_components/localtuya/templates/tadiran_wind_ac.yaml
+
+- climate:
+    id: "1"
+    platform: climate
+    friendly_name: Tadiran Wind AC
+    current_temperature_dp: "3"
+    target_temperature_dp: "2"
+    temperature_step: "1"
+    min_temperature: 16.0
+    max_temperature: 32.0
+    precision: "0.1"
+    target_precision: "1"
+    temperature_unit: celsius
+    hvac_mode_dp: "4"
+    hvac_mode_set:
+      auto: auto
+      cool: cooling
+      heat: heating
+      fan_only: fan
+      dry: dehum
+    fan_speed_dp: "5"
+    fan_speed_list:
+      auto: auto
+      low: low
+      middle: medium
+      high: high
+    hvac_action_set:
+      heating: opened
+      idle: closed
+    preset_set: {}
+    swing_modes: {}
+    swing_horizontal_modes: {}
+    entity_category: None
