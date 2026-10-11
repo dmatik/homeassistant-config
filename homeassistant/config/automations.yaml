@@ -1273,7 +1273,7 @@
     input:
       apple_tv_media_player: media_player.apple_tv_basement
       apple_tv_remote: remote.apple_tv_basement
-      tv_media_player: media_player.samsung_8_series_65
+      tv_media_player: media_player.basement_tv
       idle_timer: timer.apple_tv_basement_idle_timer
       blocking_devices:
       - switch.ps5_990_power
@@ -1293,4 +1293,21 @@
     data:
       broadcast_port: 9
       mac: 60:75:6c:25:bc:61
+  mode: single
+- id: '1789311033776'
+  alias: ' Turn On Basement TV with WakeOnLan New'
+  description: ''
+  triggers:
+  - trigger: media_player.turned_on
+    target:
+      device_id: 78e4e97c0bbd46d7fb54353e85923a4c
+    options:
+      behavior: each
+      for: 00:00:00
+  conditions: []
+  actions:
+  - data:
+      broadcast_port: 9
+      mac: C0:48:E6:4D:38:15
+    action: wake_on_lan.send_magic_packet
   mode: single

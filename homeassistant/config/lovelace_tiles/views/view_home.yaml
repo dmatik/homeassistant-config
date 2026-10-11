@@ -307,6 +307,17 @@ sections:
         double_tap_action:
           action: more-info
 
+      # # Holidays
+      # - type: tile
+      #   entity: switch.holidays
+      #   #color: green
+      #   tap_action:
+      #     action: toggle
+      #   hold_action:
+      #     action: more-info
+      #   double_tap_action:
+      #     action: more-info
+
   ############################################################################
   #                                                                          #
   #   Living Room                                                            #
@@ -1153,7 +1164,7 @@ sections:
 
       # Basement TV
       - type: tile
-        entity: media_player.samsung_8_series_65
+        entity: media_player.basement_tv
         icon_tap_action:
           action: more-info
 

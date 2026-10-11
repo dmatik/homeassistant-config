@@ -8,20 +8,19 @@ header:
   layout: center
   badges_position: bottom
   badges_wrap: scroll
-  
-badges:
 
+badges:
   # Climate Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_climate'
-      - 'chip_navigate_only'
+      - "chip_two_rows_climate"
+      - "chip_navigate_only"
     variables:
       #ulm_chip_temperature_low: sensor.lowest_temperature_home
       #ulm_chip_temperature_high: sensor.highest_temperature_home
-      ulm_chip_temperature: sensor.highest_lowest_temperature_home_text  
+      ulm_chip_temperature: sensor.highest_lowest_temperature_home_text
       ulm_chip_icon_state_entity: sensor.number_of_climate_entities_on
-      ulm_chip_navigate_path: /lovelace/tiles_climate  
+      ulm_chip_navigate_path: /lovelace/tiles_climate
 
   # # Presense Chip
   # - type: 'custom:button-card'
@@ -35,10 +34,10 @@ badges:
   #     ulm_chip_navigate_path: /lovelace/tiles_presense
 
   # Presence Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_presence'
-      - 'chip_navigate_only'
+      - "chip_two_rows_presence"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.persons_home_counter
       ulm_chip_navigate_path: /lovelace/tiles_presence
@@ -55,10 +54,10 @@ badges:
   #     ulm_chip_navigate_path: /lovelace/tiles_lights
 
   # Lights Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_lights'
-      - 'chip_navigate_only'
+      - "chip_two_rows_lights"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.lights_on_counter
       ulm_chip_navigate_path: /lovelace/tiles_lights
@@ -75,10 +74,10 @@ badges:
   #     ulm_chip_navigate_path: /lovelace/tiles_covers
 
   # Covers Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_covers'
-      - 'chip_navigate_only'
+      - "chip_two_rows_covers"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.covers_open_counter
       ulm_chip_navigate_path: /lovelace/tiles_covers
@@ -95,18 +94,15 @@ badges:
   #     ulm_chip_navigate_path: /lovelace/tiles_motion
 
   # Motion Chip
-  - type: 'custom:button-card'
+  - type: "custom:button-card"
     template:
-      - 'chip_two_rows_motion'
-      - 'chip_navigate_only'
+      - "chip_two_rows_motion"
+      - "chip_navigate_only"
     variables:
       ulm_chip_icon_state_entity: sensor.motion_sensors_detected_counter
       ulm_chip_navigate_path: /lovelace/tiles_motion
 
-
 sections:
-
-
   ############################################################################
   #                                                                          #
   #   Basement                                                               #
@@ -116,9 +112,8 @@ sections:
   - type: grid
     #title: מרתף
     cards:
-
       # Title
-      - type: heading            
+      - type: heading
         heading: מרתף
         heading_style: title
         layout_options:
@@ -127,7 +122,7 @@ sections:
         #icon: mdi:home-floor-b
         tap_action:
           action: navigate
-          navigation_path: /lovelace/tiles_basement        
+          navigation_path: /lovelace/tiles_basement
         badges:
           # - type: entity
           #   show_state: true
@@ -138,7 +133,7 @@ sections:
           #   visibility:
           #     - condition: numeric_state
           #       entity: sensor.motion_sensors_detected_counter_basement
-          #       above: 0        
+          #       above: 0
           # - type: entity
           #   show_state: true
           #   show_icon: true
@@ -155,7 +150,7 @@ sections:
             entity: sensor.basement_temperature_sensor_humidity
             color: purple #'var(--paper-item-icon-color)'
             tap_action:
-              action: more-info                
+              action: more-info
           - type: entity
             show_state: true
             show_icon: true
@@ -172,38 +167,38 @@ sections:
         hold_action:
           action: more-info
         double_tap_action:
-          action: more-info  
+          action: more-info
 
       # Basement Climate
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_ac_buttons
         variables:
           ulm_card_ac_entity: climate.basement
-          ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature  
+          ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
         layout_options:
           grid_columns: 2
           grid_rows: 2
 
       # Groot PC
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_pc
         entity: switch.groot_hass_agent
         variables:
-          ulm_card_pc_memoryusage: 'sensor.groot_memoryusage'
-          ulm_card_pc_cpuload: 'sensor.groot_cpuload'
-          ulm_card_pc_storage_1: 'sensor.groot_disk_c_used_space'
-          ulm_card_pc_storage_2: 'sensor.groot_disk_d_used_space'
-          ulm_card_pc_wake: 'script.groot_wake'
-          ulm_card_pc_sleep: 'script.groot_sleep'
-          ulm_card_pc_restart: 'script.groot_restart'
-          ulm_card_pc_shutdown: 'script.groot_shutdown'   
+          ulm_card_pc_memoryusage: "sensor.groot_memoryusage"
+          ulm_card_pc_cpuload: "sensor.groot_cpuload"
+          ulm_card_pc_storage_1: "sensor.groot_disk_c_used_space"
+          ulm_card_pc_storage_2: "sensor.groot_disk_d_used_space"
+          ulm_card_pc_wake: "script.groot_wake"
+          ulm_card_pc_sleep: "script.groot_sleep"
+          ulm_card_pc_restart: "script.groot_restart"
+          ulm_card_pc_shutdown: "script.groot_shutdown"
         layout_options:
           grid_columns: 2
           grid_rows: 1
 
       # Basement TV
       - type: tile
-        entity: media_player.samsung_8_series_65
+        entity: media_player.basement_tv
         icon_tap_action:
           action: more-info
 
@@ -212,8 +207,6 @@ sections:
         entity: media_player.apple_tv_basement
         icon_tap_action:
           action: more-info
-
-
 
   ############################################################################
   #                                                                          #
@@ -224,9 +217,8 @@ sections:
   - type: grid
     #title: חדר עבודה
     cards:
-
       # Title
-      - type: heading           
+      - type: heading
         heading: חדר עבודה
         heading_style: title
         layout_options:
@@ -235,7 +227,7 @@ sections:
         #icon: mdi:laptop
         tap_action:
           action: navigate
-          navigation_path: /lovelace/tiles_work_room        
+          navigation_path: /lovelace/tiles_work_room
         badges:
           # - type: entity
           #   show_state: true
@@ -273,32 +265,31 @@ sections:
           action: more-info
 
       # Dimka PC
-      - type: 'custom:button-card'
+      - type: "custom:button-card"
         template: card_pc
         entity: switch.dimka_hass_agent
         variables:
-          ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
-          ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
-          ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
-          ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
-          ulm_card_pc_wake: 'script.dimka_wake'
-          ulm_card_pc_sleep: 'script.dimka_sleep'
-          ulm_card_pc_restart: 'script.dimka_restart'
-          ulm_card_pc_shutdown: 'script.dimka_shutdown'
-        layout_options:
-          grid_columns: 2
-          grid_rows: 1          
-          
-      # Printer
-      - type: 'custom:button-card'
-        template: card_printer
-        entity: sensor.dcp_j1200w_status
-        variables:
-          ulm_card_printer_black_ink_remaining: 'sensor.dcp_j1200w_black_ink_remaining'
-          ulm_card_printer_yellow_ink_remaining: 'sensor.dcp_j1200w_yellow_ink_remaining'
-          ulm_card_printer_magenta_ink_remaining: 'sensor.dcp_j1200w_magenta_ink_remaining'
-          ulm_card_printer_cyan_ink_remaining: 'sensor.dcp_j1200w_cyan_ink_remaining'
+          ulm_card_pc_memoryusage: "sensor.dimka_memoryusage"
+          ulm_card_pc_cpuload: "sensor.dimka_cpuload"
+          ulm_card_pc_storage_1: "sensor.dimka_disk_c_used_space"
+          ulm_card_pc_storage_2: "sensor.dimka_disk_d_used_space"
+          ulm_card_pc_wake: "script.dimka_wake"
+          ulm_card_pc_sleep: "script.dimka_sleep"
+          ulm_card_pc_restart: "script.dimka_restart"
+          ulm_card_pc_shutdown: "script.dimka_shutdown"
         layout_options:
           grid_columns: 2
           grid_rows: 1
-    
+
+      # Printer
+      - type: "custom:button-card"
+        template: card_printer
+        entity: sensor.dcp_j1200w_status
+        variables:
+          ulm_card_printer_black_ink_remaining: "sensor.dcp_j1200w_black_ink_remaining"
+          ulm_card_printer_yellow_ink_remaining: "sensor.dcp_j1200w_yellow_ink_remaining"
+          ulm_card_printer_magenta_ink_remaining: "sensor.dcp_j1200w_magenta_ink_remaining"
+          ulm_card_printer_cyan_ink_remaining: "sensor.dcp_j1200w_cyan_ink_remaining"
+        layout_options:
+          grid_columns: 2
+          grid_rows: 1

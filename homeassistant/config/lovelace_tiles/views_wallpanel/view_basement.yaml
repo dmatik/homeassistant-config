@@ -3,15 +3,12 @@ path: basement
 visible: false
 icon: mdi:home-floor-b
 type: panel
-    
-cards:
 
+cards:
   - type: horizontal-stack
     cards:
-
       - type: custom:button-card
         template: card_blank
-
 
       ############################################################################
       #                                                                          #
@@ -21,7 +18,6 @@ cards:
 
       - type: vertical-stack
         cards:
-
           # Climate
           - type: custom:button-card
             template: title
@@ -33,15 +29,13 @@ cards:
             square: false
             columns: 2
             cards:
-
               # Basement Climate
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_ac_buttons_with_temp
                 variables:
                   ulm_card_ac_entity: climate.basement
                   ulm_card_ac_curr_temp_sensor: sensor.basement_temperature_sensor_temperature
                   #x_ulm_card_ac_name: "[[[ return variables.ulm_basement; ]]]"
-
 
           # Devices
           - type: custom:button-card
@@ -52,36 +46,34 @@ cards:
             square: false
             columns: 2
             cards:
-
               # Basement TV
               - type: tile
-                entity: media_player.samsung_8_series_65
+                entity: media_player.basement_tv
 
               # Dimka PC
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_pc
                 entity: switch.dimka_hass_agent
                 variables:
                   #x_ulm_card_pc_name: "[[[ return variables.ulm_dimka_pc; ]]]"
-                  ulm_card_pc_memoryusage: 'sensor.dimka_memoryusage'
-                  ulm_card_pc_cpuload: 'sensor.dimka_cpuload'
-                  ulm_card_pc_storage_1: 'sensor.dimka_disk_c_used_space'
-                  ulm_card_pc_storage_2: 'sensor.dimka_disk_d_used_space'
-                  ulm_card_pc_wake: 'script.dimka_wake'
-                  ulm_card_pc_sleep: 'script.dimka_sleep'
-                  ulm_card_pc_restart: 'script.dimka_restart'
-                  ulm_card_pc_shutdown: 'script.dimka_shutdown'
+                  ulm_card_pc_memoryusage: "sensor.dimka_memoryusage"
+                  ulm_card_pc_cpuload: "sensor.dimka_cpuload"
+                  ulm_card_pc_storage_1: "sensor.dimka_disk_c_used_space"
+                  ulm_card_pc_storage_2: "sensor.dimka_disk_d_used_space"
+                  ulm_card_pc_wake: "script.dimka_wake"
+                  ulm_card_pc_sleep: "script.dimka_sleep"
+                  ulm_card_pc_restart: "script.dimka_restart"
+                  ulm_card_pc_shutdown: "script.dimka_shutdown"
 
               # Printer
-              - type: 'custom:button-card'
+              - type: "custom:button-card"
                 template: card_printer
                 entity: sensor.mfc_j650dw_status
                 # variables:
                 #   x_ulm_card_printer_name: "[[[ return variables.ulm_printer; ]]]"
 
-
       - type: custom:button-card
-        template: card_blank                      
+        template: card_blank
 
       ############################################################################
       #                                                                          #
@@ -91,19 +83,17 @@ cards:
 
       - type: vertical-stack
         cards:
-
           # Lights
           - type: custom:button-card
             template: title
             name: "[[[ return variables.ulm_lights; ]]]"
             variables:
-              ulm_title_margin_top: "0px"                    
+              ulm_title_margin_top: "0px"
 
           - type: grid
             square: false
             columns: 2
             cards:
-
               # Basement Light
               - type: tile
                 entity: light.basement
@@ -154,6 +144,5 @@ cards:
                 double_tap_action:
                   action: more-info
 
-
       - type: custom:button-card
-        template: card_blank                    
+        template: card_blank

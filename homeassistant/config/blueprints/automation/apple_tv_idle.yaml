@@ -93,15 +93,27 @@ trigger:
       to: "on"
       id: tv_turned_on
 
+    # Trigger when the TV changes source/input
+    - trigger: state
+      entity_id: !input tv_media_player
+      attribute: source
+      id: tv_source_changed
+
 action:
     - variables:
+          apple_tv_media_player: !input apple_tv_media_player
           blocking_devices: !input blocking_devices
           idle_states: !input idle_states
+          tv_media_player: !input tv_media_player
     - choose:
-          # If Apple TV became idle and no blocking devices are on, start the timer
+          # If Apple TV became idle and no blocking devices are on and TV is on HDMI, start the timer
           - conditions:
                 - condition: trigger
                   id: apple_tv_became_idle
+                - condition: template
+                  value_template: >-
+                    {% set src = state_attr(tv_media_player, 'source') %}
+                    {{ src is none or 'hdmi' in src | string | lower }}
                 - condition: template
                   value_template: "{{ expand(blocking_devices) | selectattr('state', 'eq', 'on') | list | count == 0 }}"
             sequence:
@@ -110,13 +122,17 @@ action:
                   target:
                       entity_id: !input idle_timer
 
-          # If the idle timer finished and no blocking devices are on, turn off the TV and Apple TV
+          # If the idle timer finished, TV is still on HDMI, and no blocking devices are on, turn off the TV and Apple TV
           - conditions:
                 - condition: trigger
                   id: idle_timer_finished
                 - condition: state
                   entity_id: !input apple_tv_media_player
                   state: !input idle_states
+                - condition: template
+                  value_template: >-
+                    {% set src = state_attr(tv_media_player, 'source') %}
+                    {{ src is none or 'hdmi' in src | string | lower }}
                 - condition: template
                   value_template: "{{ expand(blocking_devices) | selectattr('state', 'eq', 'on') | list | count == 0 }}"
             sequence:
@@ -138,7 +154,7 @@ action:
                 - condition: trigger
                   id: apple_tv_became_active
                 - condition: template
-                  value_template: "{{ trigger.to_state.state not in idle_states }}"
+                  value_template: "{{ (trigger.to_state.state if trigger is defined and trigger.to_state is defined else states(apple_tv_media_player)) not in idle_states }}"
             sequence:
                 - action: timer.cancel
                   data: {}
@@ -155,15 +171,35 @@ action:
                   target:
                       entity_id: !input idle_timer
 
-          # If a blocking device was turned off or the TV was turned on, check if Apple TV is in one of the idle states and no other blocking devices are on, then start the timer
+          # If the TV source changed to a non-HDMI source (e.g. FreeTV), cancel the timer
+          - conditions:
+                - condition: trigger
+                  id: tv_source_changed
+                - condition: template
+                  value_template: >-
+                    {% set src = state_attr(tv_media_player, 'source') %}
+                    {{ src is not none and 'hdmi' not in src | string | lower }}
+            sequence:
+                - action: timer.cancel
+                  data: {}
+                  target:
+                      entity_id: !input idle_timer
+
+          # If a blocking device was turned off, the TV was turned on, or the TV switched to HDMI:
+          # check if Apple TV is in one of the idle states, TV is on HDMI, and no other blocking devices are on, then start the timer
           - conditions:
                 - condition: trigger
                   id:
                       - blocking_device_turned_off
                       - tv_turned_on
+                      - tv_source_changed
                 - condition: state
                   entity_id: !input apple_tv_media_player
                   state: !input idle_states
+                - condition: template
+                  value_template: >-
+                    {% set src = state_attr(tv_media_player, 'source') %}
+                    {{ src is none or 'hdmi' in src | string | lower }}
                 - condition: template
                   value_template: "{{ expand(blocking_devices) | selectattr('state', 'eq', 'on') | list | count == 0 }}"
             sequence:

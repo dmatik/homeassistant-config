@@ -737,9 +737,9 @@ cards:
                   rows: 2
 
               # # Holidays
-              # - type: tile
+              # - type: button #tile
               #   entity: light.holidays
-              #   color: green
+              #   #color: green
               #   tap_action:
               #     action: toggle
               #   hold_action:

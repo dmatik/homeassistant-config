@@ -100,3 +100,5 @@
 #   type: module
 - url: /hacsfiles/lovelace-advanced-digital-clock/advanced-digital-clock.js
   type: module
+- url: /hacsfiles/ha-dockhand-cards/ha-dockhand-cards.js
+  type: module
